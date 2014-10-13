@@ -1,0 +1,33 @@
+map:{
+    ; 2014/10/13 00:00:30 = map:{
+        ; diffDate = 2014/10/13 00:00:30
+        ; tableDiff = map:{
+            ; next_schema_product = map:{
+                ; tableName = next_schema_product
+                ; diffType = CHANGE
+                ; unifiedSchemaDiff = map:{
+                    ; next = nextmaihamadb
+                    ; previous = nextexampledb
+                }
+            }
+        }
+        ; procedureDiff = map:{
+            ; nextmaihamadb.SP_NEXT_IN_OUT_PARAMETER = map:{
+                ; procedureName = nextmaihamadb.SP_NEXT_IN_OUT_PARAMETER
+                ; diffType = ADD
+            }
+            ; nextmaihamadb.SP_NEXT_NO_PARAMETER = map:{
+                ; procedureName = nextmaihamadb.SP_NEXT_NO_PARAMETER
+                ; diffType = ADD
+            }
+            ; nextexampledb.SP_NEXT_IN_OUT_PARAMETER = map:{
+                ; procedureName = nextexampledb.SP_NEXT_IN_OUT_PARAMETER
+                ; diffType = DELETE
+            }
+            ; nextexampledb.SP_NEXT_NO_PARAMETER = map:{
+                ; procedureName = nextexampledb.SP_NEXT_NO_PARAMETER
+                ; diffType = DELETE
+            }
+        }
+    }
+}
