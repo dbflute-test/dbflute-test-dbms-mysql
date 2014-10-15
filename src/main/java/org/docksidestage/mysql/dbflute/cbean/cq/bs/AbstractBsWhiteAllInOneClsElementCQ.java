@@ -116,18 +116,18 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category} <br />
-     * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setClsCategoryCode_LikeSearch(String clsCategoryCode, COptionCall<LikeSearchOption> opLambda) {
+    public void setClsCategoryCode_LikeSearch(String clsCategoryCode, ConditionOptionCall<LikeSearchOption> opLambda) {
         setClsCategoryCode_LikeSearch(clsCategoryCode, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category} <br />
-     * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -142,7 +142,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param clsCategoryCode The value of clsCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setClsCategoryCode_NotLikeSearch(String clsCategoryCode, COptionCall<LikeSearchOption> opLambda) {
+    public void setClsCategoryCode_NotLikeSearch(String clsCategoryCode, ConditionOptionCall<LikeSearchOption> opLambda) {
         setClsCategoryCode_NotLikeSearch(clsCategoryCode, xcLSOP(opLambda));
     }
 
@@ -236,18 +236,18 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)} <br />
-     * <pre>e.g. setClsElementCode_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setClsElementCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param clsElementCode The value of clsElementCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setClsElementCode_LikeSearch(String clsElementCode, COptionCall<LikeSearchOption> opLambda) {
+    public void setClsElementCode_LikeSearch(String clsElementCode, ConditionOptionCall<LikeSearchOption> opLambda) {
         setClsElementCode_LikeSearch(clsElementCode, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)} <br />
-     * <pre>e.g. setClsElementCode_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setClsElementCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param clsElementCode The value of clsElementCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param clsElementCode The value of clsElementCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setClsElementCode_NotLikeSearch(String clsElementCode, COptionCall<LikeSearchOption> opLambda) {
+    public void setClsElementCode_NotLikeSearch(String clsElementCode, ConditionOptionCall<LikeSearchOption> opLambda) {
         setClsElementCode_NotLikeSearch(clsElementCode, xcLSOP(opLambda));
     }
 
@@ -356,18 +356,18 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)} <br />
-     * <pre>e.g. setClsElementName_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setClsElementName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param clsElementName The value of clsElementName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setClsElementName_LikeSearch(String clsElementName, COptionCall<LikeSearchOption> opLambda) {
+    public void setClsElementName_LikeSearch(String clsElementName, ConditionOptionCall<LikeSearchOption> opLambda) {
         setClsElementName_LikeSearch(clsElementName, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)} <br />
-     * <pre>e.g. setClsElementName_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setClsElementName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param clsElementName The value of clsElementName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -382,7 +382,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param clsElementName The value of clsElementName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setClsElementName_NotLikeSearch(String clsElementName, COptionCall<LikeSearchOption> opLambda) {
+    public void setClsElementName_NotLikeSearch(String clsElementName, ConditionOptionCall<LikeSearchOption> opLambda) {
         setClsElementName_NotLikeSearch(clsElementName, xcLSOP(opLambda));
     }
 
@@ -464,18 +464,18 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)} <br />
-     * <pre>e.g. setAttributeExp_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setAttributeExp_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param attributeExp The value of attributeExp as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setAttributeExp_LikeSearch(String attributeExp, COptionCall<LikeSearchOption> opLambda) {
+    public void setAttributeExp_LikeSearch(String attributeExp, ConditionOptionCall<LikeSearchOption> opLambda) {
         setAttributeExp_LikeSearch(attributeExp, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)} <br />
-     * <pre>e.g. setAttributeExp_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setAttributeExp_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param attributeExp The value of attributeExp as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -490,7 +490,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param attributeExp The value of attributeExp as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setAttributeExp_NotLikeSearch(String attributeExp, COptionCall<LikeSearchOption> opLambda) {
+    public void setAttributeExp_NotLikeSearch(String attributeExp, ConditionOptionCall<LikeSearchOption> opLambda) {
         setAttributeExp_NotLikeSearch(attributeExp, xcLSOP(opLambda));
     }
 
@@ -524,7 +524,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * Prepare ScalarCondition as equal. <br />
      * {where FOO = (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *     public void query(WhiteAllInOneClsElementCB subCB) {
      *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setYyy...
@@ -541,7 +541,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * Prepare ScalarCondition as equal. <br />
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *     public void query(WhiteAllInOneClsElementCB subCB) {
      *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setYyy...
@@ -558,7 +558,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * Prepare ScalarCondition as greaterThan. <br />
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *     public void query(WhiteAllInOneClsElementCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -575,7 +575,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * Prepare ScalarCondition as lessThan. <br />
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *     public void query(WhiteAllInOneClsElementCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -592,7 +592,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * Prepare ScalarCondition as greaterEqual. <br />
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *     public void query(WhiteAllInOneClsElementCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -609,7 +609,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * Prepare ScalarCondition as lessEqual. <br />
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *     public void query(WhiteAllInOneClsElementCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -678,8 +678,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * <pre>
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
+     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
@@ -688,10 +688,10 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      *
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
+     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
@@ -704,7 +704,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * <p>The order values are bound (treated as bind parameter).</p>
      * @param opLambda The callback for option of manual-order containing order values. (NotNull)
      */
-    public void withManualOrder(MOOptionCall opLambda) { // is user public!
+    public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
     }
 
@@ -713,8 +713,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * <pre>
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
+     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
@@ -723,10 +723,10 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      *
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
+     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>

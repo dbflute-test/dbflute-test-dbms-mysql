@@ -227,7 +227,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;VendorLargeDataRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;VendorLargeDataRefCB&gt;() {
      *     public void query(VendorLargeDataRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -246,7 +246,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;VendorLargeDataRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;VendorLargeDataRefCB&gt;() {
      *     public void query(VendorLargeDataRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -268,10 +268,10 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      * vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'.
      * <pre>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_VendorLargeData()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_VendorLargeData()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * VendorLargeDataRef vendorLargeDataRef = vendorLargeDataRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = vendorLargeDataRef.<span style="color: #DD4747">getVendorLargeData()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = vendorLargeDataRef.<span style="color: #CC4747">getVendorLargeData()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_VendorLargeData() {
@@ -292,10 +292,10 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      * vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
      * <pre>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_VendorLargeDataRefSelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_VendorLargeDataRefSelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * VendorLargeDataRef vendorLargeDataRef = vendorLargeDataRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = vendorLargeDataRef.<span style="color: #DD4747">getVendorLargeDataRefSelf()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = vendorLargeDataRef.<span style="color: #CC4747">getVendorLargeDataRefSelf()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -339,7 +339,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public VendorLargeDataRefCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -356,8 +356,8 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         protected VendorLargeDataRefCB.HpSpecification _vendorLargeDataRefSelf;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<VendorLargeDataRefCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
@@ -430,7 +430,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
                 _vendorLargeData = new VendorLargeDataCB.HpSpecification(_baseCB, new HpSpQyCall<VendorLargeDataCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorLargeData(); }
                     public VendorLargeDataCQ qy() { return _qyCall.qy().queryVendorLargeData(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _vendorLargeData.xsetSyncQyCall(new HpSpQyCall<VendorLargeDataCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorLargeData(); }
@@ -451,7 +451,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
                 _vendorLargeDataRefSelf = new VendorLargeDataRefCB.HpSpecification(_baseCB, new HpSpQyCall<VendorLargeDataRefCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorLargeDataRefSelf(); }
                     public VendorLargeDataRefCQ qy() { return _qyCall.qy().queryVendorLargeDataRefSelf(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _vendorLargeDataRefSelf.xsetSyncQyCall(new HpSpQyCall<VendorLargeDataRefCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorLargeDataRefSelf(); }
@@ -466,16 +466,14 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
          * {select max(FOO) from vendor_large_data_ref where ...) as FOO_MAX} <br />
          * vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedVendorLargeDataRefSelfList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
-         *     public void query(VendorLargeDataRefCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, VendorLargeDataRef.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+         *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, VendorLargeDataRef.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<VendorLargeDataRefCB, VendorLargeDataRefCQ> derivedVendorLargeDataRefSelfList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorLargeDataRefCB, VendorLargeDataRefCQ> derivedVendorLargeDataRefSelfList() {
             assertDerived("vendorLargeDataRefSelfList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorLargeDataRefCB, VendorLargeDataRefCQ>() {
                 public void setup(String fn, SubQuery<VendorLargeDataRefCB> sq, VendorLargeDataRefCQ cq, String al, DerivedReferrerOption op) {
@@ -485,12 +483,20 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<VendorLargeDataRefCB, VendorLargeDataRefCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorLargeDataRefCB, VendorLargeDataRefCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorLargeDataRefCB, VendorLargeDataRefCQ>() {
                 public void setup(String fn, SubQuery<VendorLargeDataRefCB> sq, VendorLargeDataRefCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -501,13 +507,13 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;VendorLargeDataRefCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;VendorLargeDataRefCB&gt;() {
      *     public void query(VendorLargeDataRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;VendorLargeDataRefCB&gt;() {
      *     public void query(VendorLargeDataRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -555,7 +561,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;VendorLargeDataRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;VendorLargeDataRefCB&gt;() {
      *     public void query(VendorLargeDataRefCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -573,10 +579,10 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;VendorLargeDataRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;VendorLargeDataRefCB&gt;() {
      *     public void query(VendorLargeDataRefCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;VendorLargeDataRefCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;VendorLargeDataRefCB&gt;() {
      *             public void query(VendorLargeDataRefCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

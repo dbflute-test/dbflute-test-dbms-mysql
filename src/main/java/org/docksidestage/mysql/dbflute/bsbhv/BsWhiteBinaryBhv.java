@@ -95,13 +95,13 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * int count = whiteBinaryBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteBinaryBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteBinary. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteBinaryCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * int count = whiteBinaryBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteBinaryBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteBinary. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteBinaryCB cb = new WhiteBinaryCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteBinary&gt; entity = whiteBinaryBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteBinary -&gt; {
-     *     ...
+     * WhiteBinary whiteBinary = whiteBinaryBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteBinary -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteBinary.get...
      * });
-     * WhiteBinary whiteBinary = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteBinary -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteBinary whiteBinary = whiteBinaryBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteBinary -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteBinary.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteBinary whiteBinary = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteBinary. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteBinary> selectEntity(CBCall<WhiteBinaryCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteBinary&gt; entity = whiteBinaryBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteBinary -&gt; {
-     *     ...
+     * whiteBinaryBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteBinary -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteBinary.get...
      * });
-     * WhiteBinary whiteBinary = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteBinary -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteBinaryBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteBinary -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteBinary.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteBinary whiteBinary = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteBinary. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * WhiteBinary whiteBinary = whiteBinaryBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteBinary whiteBinary = whiteBinaryBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteBinary.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteBinary. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteBinary selectEntityWithDeletedCheck(CBCall<WhiteBinaryCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * WhiteBinary whiteBinary = whiteBinaryBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteBinary whiteBinary = whiteBinaryBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteBinary.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteBinary. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteBinaryCB cb = new WhiteBinaryCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteBinary&gt; whiteBinaryList = whiteBinaryBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteBinary whiteBinary : whiteBinaryList) {
+     * ListResultBean&lt;WhiteBinary&gt; whiteBinaryList = whiteBinaryBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteBinaryList.forEach(whiteBinary -&gt; {
      *     ... = whiteBinary.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteBinary. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteBinary> selectList(CBCall<WhiteBinaryCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteBinary&gt; whiteBinaryList = whiteBinaryBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteBinary&gt; whiteBinaryList = whiteBinaryBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteBinary whiteBinary : whiteBinaryList) {
      *     ... = whiteBinary.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteBinary&gt; page = whiteBinaryBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteBinary&gt; page = whiteBinaryBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteBinary> selectPage(CBCall<WhiteBinaryCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteBinary&gt; page = whiteBinaryBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteBinary&gt; page = whiteBinaryBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * whiteBinaryBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteBinary&gt;() {
+     * whiteBinaryBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteBinary&gt;() {
      *     public void handle(WhiteBinary entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @param entityLambda The handler of entity row of WhiteBinary. (NotNull)
      */
     public void selectCursor(CBCall<WhiteBinaryCB> cbLambda, EntityRowHandler<WhiteBinary> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * whiteBinaryBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteBinary&gt;() {
+     * whiteBinaryBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteBinary&gt;() {
      *     public void handle(WhiteBinary entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteBinaryBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteBinaryBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteBinaryCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -542,7 +537,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteBinary.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteBinary.set...;</span>
-     * whiteBinaryBhv.<span style="color: #DD4747">insert</span>(whiteBinary);
+     * whiteBinaryBhv.<span style="color: #CC4747">insert</span>(whiteBinary);
      * ... = whiteBinary.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -563,9 +558,9 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <span style="color: #3F7E5E">//whiteBinary.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteBinary.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteBinary.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteBinary.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteBinaryBhv.<span style="color: #DD4747">update</span>(whiteBinary);
+     *     whiteBinaryBhv.<span style="color: #CC4747">update</span>(whiteBinary);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -582,7 +577,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteBinary The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -598,9 +593,9 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * WhiteBinary whiteBinary = new WhiteBinary();
      * whiteBinary.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteBinary.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteBinary.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteBinaryBhv.<span style="color: #DD4747">delete</span>(whiteBinary);
+     *     whiteBinaryBhv.<span style="color: #CC4747">delete</span>(whiteBinary);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -619,7 +614,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteBinary whiteBinary = new WhiteBinary();
@@ -632,7 +627,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteBinaryList.add(whiteBinary);
      * }
-     * whiteBinaryBhv.<span style="color: #DD4747">batchInsert</span>(whiteBinaryList);
+     * whiteBinaryBhv.<span style="color: #CC4747">batchInsert</span>(whiteBinaryList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -647,7 +642,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteBinary whiteBinary = new WhiteBinary();
@@ -662,7 +657,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteBinaryList.add(whiteBinary);
      * }
-     * whiteBinaryBhv.<span style="color: #DD4747">batchUpdate</span>(whiteBinaryList);
+     * whiteBinaryBhv.<span style="color: #CC4747">batchUpdate</span>(whiteBinaryList);
      * </pre>
      * @param whiteBinaryList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -689,7 +684,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteBinaryBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteBinary, WhiteBinaryCB&gt;() {
+     * whiteBinaryBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteBinary, WhiteBinaryCB&gt;() {
      *     public ConditionBean setup(WhiteBinary entity, WhiteBinaryCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -731,7 +726,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <span style="color: #3F7E5E">//whiteBinary.setVersionNo(value);</span>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * whiteBinaryBhv.<span style="color: #DD4747">queryUpdate</span>(whiteBinary, cb);
+     * whiteBinaryBhv.<span style="color: #CC4747">queryUpdate</span>(whiteBinary, cb);
      * </pre>
      * @param whiteBinary The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteBinary. (NotNull)
@@ -739,7 +734,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteBinary whiteBinary, CBCall<WhiteBinaryCB> cbLambda) {
-        return doQueryUpdate(whiteBinary, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteBinary, createCB(cbLambda), null);
     }
 
     /**
@@ -757,7 +752,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <span style="color: #3F7E5E">//whiteBinary.setVersionNo(value);</span>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * whiteBinaryBhv.<span style="color: #DD4747">queryUpdate</span>(whiteBinary, cb);
+     * whiteBinaryBhv.<span style="color: #CC4747">queryUpdate</span>(whiteBinary, cb);
      * </pre>
      * @param whiteBinary The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteBinary. (NotNull)
@@ -773,14 +768,14 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * whiteBinaryBhv.<span style="color: #DD4747">queryDelete</span>(whiteBinary, cb);
+     * whiteBinaryBhv.<span style="color: #CC4747">queryDelete</span>(whiteBinary, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteBinary. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteBinaryCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -788,7 +783,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * <pre>
      * WhiteBinaryCB cb = new WhiteBinaryCB();
      * cb.query().setFoo...(value);
-     * whiteBinaryBhv.<span style="color: #DD4747">queryDelete</span>(whiteBinary, cb);
+     * whiteBinaryBhv.<span style="color: #CC4747">queryDelete</span>(whiteBinary, cb);
      * </pre>
      * @param cb The condition-bean of WhiteBinary. (NotNull)
      * @return The deleted count.
@@ -816,15 +811,15 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * InsertOption<WhiteBinaryCB> option = new InsertOption<WhiteBinaryCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteBinaryBhv.<span style="color: #DD4747">varyingInsert</span>(whiteBinary, option);
+     * whiteBinaryBhv.<span style="color: #CC4747">varyingInsert</span>(whiteBinary, option);
      * ... = whiteBinary.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteBinary The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteBinary whiteBinary, WOptionCall<WhiteBinaryCB, InsertOption<WhiteBinaryCB>> opLambda) {
-        doInsert(whiteBinary, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteBinary whiteBinary, WritableOptionCall<WhiteBinaryCB, InsertOption<WhiteBinaryCB>> opLambda) {
+        doInsert(whiteBinary, createInsertOption(opLambda));
     }
 
     /**
@@ -836,16 +831,16 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * whiteBinary.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteBinary.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteBinary.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteBinary.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteBinaryCB&gt; option = new UpdateOption&lt;WhiteBinaryCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteBinaryCB&gt;() {
      *         public void specify(WhiteBinaryCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteBinaryBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteBinary, option);
+     *     whiteBinaryBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteBinary, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -856,8 +851,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteBinary whiteBinary, WOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> opLambda) {
-        doUpdate(whiteBinary, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteBinary whiteBinary, WritableOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> opLambda) {
+        doUpdate(whiteBinary, createUpdateOption(opLambda));
     }
 
     /**
@@ -870,8 +865,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteBinary whiteBinary, WOptionCall<WhiteBinaryCB, InsertOption<WhiteBinaryCB>> insertOpLambda, WOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteBinary, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteBinary whiteBinary, WritableOptionCall<WhiteBinaryCB, InsertOption<WhiteBinaryCB>> insertOpLambda, WritableOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteBinary, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -883,8 +878,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteBinary whiteBinary, WOptionCall<WhiteBinaryCB, DeleteOption<WhiteBinaryCB>> opLambda) {
-        doDelete(whiteBinary, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteBinary whiteBinary, WritableOptionCall<WhiteBinaryCB, DeleteOption<WhiteBinaryCB>> opLambda) {
+        doDelete(whiteBinary, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -899,8 +894,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteBinary> whiteBinaryList, WOptionCall<WhiteBinaryCB, InsertOption<WhiteBinaryCB>> opLambda) {
-        return doBatchInsert(whiteBinaryList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteBinary> whiteBinaryList, WritableOptionCall<WhiteBinaryCB, InsertOption<WhiteBinaryCB>> opLambda) {
+        return doBatchInsert(whiteBinaryList, createInsertOption(opLambda));
     }
 
     /**
@@ -912,8 +907,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteBinary> whiteBinaryList, WOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> opLambda) {
-        return doBatchUpdate(whiteBinaryList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteBinary> whiteBinaryList, WritableOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> opLambda) {
+        return doBatchUpdate(whiteBinaryList, createUpdateOption(opLambda));
     }
 
     /**
@@ -924,8 +919,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteBinary> whiteBinaryList, WOptionCall<WhiteBinaryCB, DeleteOption<WhiteBinaryCB>> opLambda) {
-        return doBatchDelete(whiteBinaryList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteBinary> whiteBinaryList, WritableOptionCall<WhiteBinaryCB, DeleteOption<WhiteBinaryCB>> opLambda) {
+        return doBatchDelete(whiteBinaryList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -939,8 +934,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteBinary, WhiteBinaryCB> manyArgLambda, WOptionCall<WhiteBinaryCB, InsertOption<WhiteBinaryCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteBinary, WhiteBinaryCB> manyArgLambda, WritableOptionCall<WhiteBinaryCB, InsertOption<WhiteBinaryCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -962,10 +957,10 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * UpdateOption&lt;WhiteBinaryCB&gt; option = new UpdateOption&lt;WhiteBinaryCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteBinaryCB&gt;() {
      *     public void specify(WhiteBinaryCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteBinaryBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteBinary, cb, option);
+     * whiteBinaryBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteBinary, cb, option);
      * </pre>
      * @param whiteBinary The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteBinary. (NotNull)
@@ -973,8 +968,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteBinary whiteBinary, CBCall<WhiteBinaryCB> cbLambda, WOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> opLambda) {
-        return doQueryUpdate(whiteBinary, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteBinary whiteBinary, CBCall<WhiteBinaryCB> cbLambda, WritableOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> opLambda) {
+        return doQueryUpdate(whiteBinary, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -996,10 +991,10 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * UpdateOption&lt;WhiteBinaryCB&gt; option = new UpdateOption&lt;WhiteBinaryCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteBinaryCB&gt;() {
      *     public void specify(WhiteBinaryCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteBinaryBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteBinary, cb, option);
+     * whiteBinaryBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteBinary, cb, option);
      * </pre>
      * @param whiteBinary The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteBinary. (NotNull)
@@ -1007,8 +1002,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteBinary whiteBinary, WhiteBinaryCB cb, WOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> opLambda) {
-        return doQueryUpdate(whiteBinary, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteBinary whiteBinary, WhiteBinaryCB cb, WritableOptionCall<WhiteBinaryCB, UpdateOption<WhiteBinaryCB>> opLambda) {
+        return doQueryUpdate(whiteBinary, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1020,8 +1015,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteBinaryCB> cbLambda, WOptionCall<WhiteBinaryCB, DeleteOption<WhiteBinaryCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteBinaryCB> cbLambda, WritableOptionCall<WhiteBinaryCB, DeleteOption<WhiteBinaryCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1033,8 +1028,8 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteBinaryCB cb, WOptionCall<WhiteBinaryCB, DeleteOption<WhiteBinaryCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteBinaryCB cb, WritableOptionCall<WhiteBinaryCB, DeleteOption<WhiteBinaryCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1070,7 +1065,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
      */
     public OutsideSqlBasicExecutor<WhiteBinaryBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteBinaryBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

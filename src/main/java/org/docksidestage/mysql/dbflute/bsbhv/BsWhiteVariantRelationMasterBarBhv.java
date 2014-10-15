@@ -95,13 +95,13 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * int count = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteVariantRelationMasterBarCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * int count = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteVariantRelationMasterBar&gt; entity = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteVariantRelationMasterBar -&gt; {
-     *     ...
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationMasterBar -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteVariantRelationMasterBar.get...
      * });
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteVariantRelationMasterBar -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationMasterBar -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteVariantRelationMasterBar.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteVariantRelationMasterBar> selectEntity(CBCall<WhiteVariantRelationMasterBarCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteVariantRelationMasterBar&gt; entity = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteVariantRelationMasterBar -&gt; {
-     *     ...
+     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationMasterBar -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteVariantRelationMasterBar.get...
      * });
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteVariantRelationMasterBar -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationMasterBar -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteVariantRelationMasterBar.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteVariantRelationMasterBar.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteVariantRelationMasterBar selectEntityWithDeletedCheck(CBCall<WhiteVariantRelationMasterBarCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteVariantRelationMasterBar.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteVariantRelationMasterBar&gt; whiteVariantRelationMasterBarList = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : whiteVariantRelationMasterBarList) {
+     * ListResultBean&lt;WhiteVariantRelationMasterBar&gt; whiteVariantRelationMasterBarList = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteVariantRelationMasterBarList.forEach(whiteVariantRelationMasterBar -&gt; {
      *     ... = whiteVariantRelationMasterBar.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteVariantRelationMasterBar> selectList(CBCall<WhiteVariantRelationMasterBarCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteVariantRelationMasterBar&gt; whiteVariantRelationMasterBarList = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteVariantRelationMasterBar&gt; whiteVariantRelationMasterBarList = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : whiteVariantRelationMasterBarList) {
      *     ... = whiteVariantRelationMasterBar.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteVariantRelationMasterBar&gt; page = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteVariantRelationMasterBar&gt; page = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteVariantRelationMasterBar> selectPage(CBCall<WhiteVariantRelationMasterBarCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteVariantRelationMasterBar&gt; page = whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteVariantRelationMasterBar&gt; page = whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationMasterBar&gt;() {
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationMasterBar&gt;() {
      *     public void handle(WhiteVariantRelationMasterBar entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param entityLambda The handler of entity row of WhiteVariantRelationMasterBar. (NotNull)
      */
     public void selectCursor(CBCall<WhiteVariantRelationMasterBarCB> cbLambda, EntityRowHandler<WhiteVariantRelationMasterBar> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationMasterBar&gt;() {
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationMasterBar&gt;() {
      *     public void handle(WhiteVariantRelationMasterBar entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteVariantRelationMasterBarCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -519,7 +514,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Load referrer of whiteVariantRelationReferrerAsVariantList by the set-upper of referrer. <br />
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * <pre>
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">loadWhiteVariantRelationReferrerAsVariantList</span>(whiteVariantRelationMasterBarList, referrerCB -&gt; {
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariantList</span>(whiteVariantRelationMasterBarList, referrerCB -&gt; {
      *     referrerCB.setupSelect...();
      *     referrerCB.query().setFoo...(value);
      *     referrerCB.query().addOrderBy_Bar...();
@@ -528,7 +523,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : whiteVariantRelationMasterBarList) {
-     *     ... = whiteVariantRelationMasterBar.<span style="color: #DD4747">getWhiteVariantRelationReferrerAsVariantList()</span>;
+     *     ... = whiteVariantRelationMasterBar.<span style="color: #CC4747">getWhiteVariantRelationReferrerAsVariantList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -550,7 +545,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Load referrer of whiteVariantRelationReferrerAsVariantList by the set-upper of referrer. <br />
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * <pre>
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">loadWhiteVariantRelationReferrerAsVariantList</span>(whiteVariantRelationMasterBarList, referrerCB -&gt; {
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariantList</span>(whiteVariantRelationMasterBarList, referrerCB -&gt; {
      *     referrerCB.setupSelect...();
      *     referrerCB.query().setFoo...(value);
      *     referrerCB.query().addOrderBy_Bar...();
@@ -558,7 +553,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = whiteVariantRelationMasterBar.<span style="color: #DD4747">getWhiteVariantRelationReferrerAsVariantList()</span>;
+     * ... = whiteVariantRelationMasterBar.<span style="color: #CC4747">getWhiteVariantRelationReferrerAsVariantList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -630,7 +625,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.set...;</span>
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">insert</span>(whiteVariantRelationMasterBar);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">insert</span>(whiteVariantRelationMasterBar);
      * ... = whiteVariantRelationMasterBar.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -651,9 +646,9 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteVariantRelationMasterBar.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteVariantRelationMasterBar.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">update</span>(whiteVariantRelationMasterBar);
+     *     whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">update</span>(whiteVariantRelationMasterBar);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -670,7 +665,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteVariantRelationMasterBar The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -686,9 +681,9 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
      * whiteVariantRelationMasterBar.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteVariantRelationMasterBar.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteVariantRelationMasterBar.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">delete</span>(whiteVariantRelationMasterBar);
+     *     whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">delete</span>(whiteVariantRelationMasterBar);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -707,7 +702,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
@@ -720,7 +715,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteVariantRelationMasterBarList.add(whiteVariantRelationMasterBar);
      * }
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">batchInsert</span>(whiteVariantRelationMasterBarList);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">batchInsert</span>(whiteVariantRelationMasterBarList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -735,7 +730,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
@@ -750,7 +745,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteVariantRelationMasterBarList.add(whiteVariantRelationMasterBar);
      * }
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">batchUpdate</span>(whiteVariantRelationMasterBarList);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">batchUpdate</span>(whiteVariantRelationMasterBarList);
      * </pre>
      * @param whiteVariantRelationMasterBarList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -777,7 +772,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteVariantRelationMasterBar, WhiteVariantRelationMasterBarCB&gt;() {
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteVariantRelationMasterBar, WhiteVariantRelationMasterBarCB&gt;() {
      *     public ConditionBean setup(WhiteVariantRelationMasterBar entity, WhiteVariantRelationMasterBarCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -819,7 +814,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setVersionNo(value);</span>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">queryUpdate</span>(whiteVariantRelationMasterBar, cb);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationMasterBar, cb);
      * </pre>
      * @param whiteVariantRelationMasterBar The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -827,7 +822,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, CBCall<WhiteVariantRelationMasterBarCB> cbLambda) {
-        return doQueryUpdate(whiteVariantRelationMasterBar, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteVariantRelationMasterBar, createCB(cbLambda), null);
     }
 
     /**
@@ -845,7 +840,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setVersionNo(value);</span>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">queryUpdate</span>(whiteVariantRelationMasterBar, cb);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationMasterBar, cb);
      * </pre>
      * @param whiteVariantRelationMasterBar The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -861,14 +856,14 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">queryDelete</span>(whiteVariantRelationMasterBar, cb);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterBar, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteVariantRelationMasterBarCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -876,7 +871,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">queryDelete</span>(whiteVariantRelationMasterBar, cb);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterBar, cb);
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
      * @return The deleted count.
@@ -904,15 +899,15 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * InsertOption<WhiteVariantRelationMasterBarCB> option = new InsertOption<WhiteVariantRelationMasterBarCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">varyingInsert</span>(whiteVariantRelationMasterBar, option);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">varyingInsert</span>(whiteVariantRelationMasterBar, option);
      * ... = whiteVariantRelationMasterBar.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteVariantRelationMasterBar The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WOptionCall<WhiteVariantRelationMasterBarCB, InsertOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        doInsert(whiteVariantRelationMasterBar, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WritableOptionCall<WhiteVariantRelationMasterBarCB, InsertOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        doInsert(whiteVariantRelationMasterBar, createInsertOption(opLambda));
     }
 
     /**
@@ -924,16 +919,16 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * whiteVariantRelationMasterBar.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteVariantRelationMasterBar.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteVariantRelationMasterBar.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteVariantRelationMasterBar.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt; option = new UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
      *         public void specify(WhiteVariantRelationMasterBarCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteVariantRelationMasterBar, option);
+     *     whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteVariantRelationMasterBar, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -944,8 +939,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        doUpdate(whiteVariantRelationMasterBar, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WritableOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        doUpdate(whiteVariantRelationMasterBar, createUpdateOption(opLambda));
     }
 
     /**
@@ -958,8 +953,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WOptionCall<WhiteVariantRelationMasterBarCB, InsertOption<WhiteVariantRelationMasterBarCB>> insertOpLambda, WOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteVariantRelationMasterBar, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WritableOptionCall<WhiteVariantRelationMasterBarCB, InsertOption<WhiteVariantRelationMasterBarCB>> insertOpLambda, WritableOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteVariantRelationMasterBar, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -971,8 +966,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WOptionCall<WhiteVariantRelationMasterBarCB, DeleteOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        doDelete(whiteVariantRelationMasterBar, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WritableOptionCall<WhiteVariantRelationMasterBarCB, DeleteOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        doDelete(whiteVariantRelationMasterBar, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -987,8 +982,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, WOptionCall<WhiteVariantRelationMasterBarCB, InsertOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        return doBatchInsert(whiteVariantRelationMasterBarList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, WritableOptionCall<WhiteVariantRelationMasterBarCB, InsertOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        return doBatchInsert(whiteVariantRelationMasterBarList, createInsertOption(opLambda));
     }
 
     /**
@@ -1000,8 +995,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, WOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        return doBatchUpdate(whiteVariantRelationMasterBarList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, WritableOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        return doBatchUpdate(whiteVariantRelationMasterBarList, createUpdateOption(opLambda));
     }
 
     /**
@@ -1012,8 +1007,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, WOptionCall<WhiteVariantRelationMasterBarCB, DeleteOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        return doBatchDelete(whiteVariantRelationMasterBarList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, WritableOptionCall<WhiteVariantRelationMasterBarCB, DeleteOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        return doBatchDelete(whiteVariantRelationMasterBarList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1027,8 +1022,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteVariantRelationMasterBar, WhiteVariantRelationMasterBarCB> manyArgLambda, WOptionCall<WhiteVariantRelationMasterBarCB, InsertOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteVariantRelationMasterBar, WhiteVariantRelationMasterBarCB> manyArgLambda, WritableOptionCall<WhiteVariantRelationMasterBarCB, InsertOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -1050,10 +1045,10 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt; option = new UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
      *     public void specify(WhiteVariantRelationMasterBarCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteVariantRelationMasterBar, cb, option);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationMasterBar, cb, option);
      * </pre>
      * @param whiteVariantRelationMasterBar The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -1061,8 +1056,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, CBCall<WhiteVariantRelationMasterBarCB> cbLambda, WOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        return doQueryUpdate(whiteVariantRelationMasterBar, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, CBCall<WhiteVariantRelationMasterBarCB> cbLambda, WritableOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        return doQueryUpdate(whiteVariantRelationMasterBar, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1084,10 +1079,10 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt; option = new UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
      *     public void specify(WhiteVariantRelationMasterBarCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteVariantRelationMasterBarBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteVariantRelationMasterBar, cb, option);
+     * whiteVariantRelationMasterBarBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationMasterBar, cb, option);
      * </pre>
      * @param whiteVariantRelationMasterBar The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -1095,8 +1090,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WhiteVariantRelationMasterBarCB cb, WOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        return doQueryUpdate(whiteVariantRelationMasterBar, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, WhiteVariantRelationMasterBarCB cb, WritableOptionCall<WhiteVariantRelationMasterBarCB, UpdateOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        return doQueryUpdate(whiteVariantRelationMasterBar, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1108,8 +1103,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteVariantRelationMasterBarCB> cbLambda, WOptionCall<WhiteVariantRelationMasterBarCB, DeleteOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteVariantRelationMasterBarCB> cbLambda, WritableOptionCall<WhiteVariantRelationMasterBarCB, DeleteOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1121,8 +1116,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteVariantRelationMasterBarCB cb, WOptionCall<WhiteVariantRelationMasterBarCB, DeleteOption<WhiteVariantRelationMasterBarCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteVariantRelationMasterBarCB cb, WritableOptionCall<WhiteVariantRelationMasterBarCB, DeleteOption<WhiteVariantRelationMasterBarCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1158,7 +1153,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      */
     public OutsideSqlBasicExecutor<WhiteVariantRelationMasterBarBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteVariantRelationMasterBarBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

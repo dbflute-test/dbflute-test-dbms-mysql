@@ -226,7 +226,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
      *     public void query(WhiteSplitMultipleFkBaseCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -245,7 +245,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
      *     public void query(WhiteSplitMultipleFkBaseCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -267,10 +267,10 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      * white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
      * <pre>
      * WhiteSplitMultipleFkBaseCB cb = new WhiteSplitMultipleFkBaseCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteSplitMultipleFkNext()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteSplitMultipleFkNext()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteSplitMultipleFkBase whiteSplitMultipleFkBase = whiteSplitMultipleFkBaseBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteSplitMultipleFkBase.<span style="color: #DD4747">getWhiteSplitMultipleFkNext()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteSplitMultipleFkBase.<span style="color: #CC4747">getWhiteSplitMultipleFkNext()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_WhiteSplitMultipleFkNext() {
@@ -286,10 +286,10 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      * white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
      * <pre>
      * WhiteSplitMultipleFkBaseCB cb = new WhiteSplitMultipleFkBaseCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteSplitMultipleFkRefAsSplitMultipleFkTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteSplitMultipleFkRefAsSplitMultipleFkTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteSplitMultipleFkBase whiteSplitMultipleFkBase = whiteSplitMultipleFkBaseBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteSplitMultipleFkBase.<span style="color: #DD4747">getWhiteSplitMultipleFkRefAsSplitMultipleFkTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteSplitMultipleFkBase.<span style="color: #CC4747">getWhiteSplitMultipleFkRefAsSplitMultipleFkTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_WhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
@@ -329,7 +329,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhiteSplitMultipleFkBaseCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -346,8 +346,8 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
         protected WhiteSplitMultipleFkRefCB.HpSpecification _whiteSplitMultipleFkRefAsSplitMultipleFkTest;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteSplitMultipleFkBaseCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * BASE_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
@@ -395,7 +395,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
                 _whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNextCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteSplitMultipleFkNextCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteSplitMultipleFkNext(); }
                     public WhiteSplitMultipleFkNextCQ qy() { return _qyCall.qy().queryWhiteSplitMultipleFkNext(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteSplitMultipleFkNext.xsetSyncQyCall(new HpSpQyCall<WhiteSplitMultipleFkNextCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteSplitMultipleFkNext(); }
@@ -416,7 +416,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
                 _whiteSplitMultipleFkRefAsSplitMultipleFkTest = new WhiteSplitMultipleFkRefCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteSplitMultipleFkRefCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteSplitMultipleFkRefAsSplitMultipleFkTest(); }
                     public WhiteSplitMultipleFkRefCQ qy() { return _qyCall.qy().queryWhiteSplitMultipleFkRefAsSplitMultipleFkTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteSplitMultipleFkRefAsSplitMultipleFkTest.xsetSyncQyCall(new HpSpQyCall<WhiteSplitMultipleFkRefCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteSplitMultipleFkRefAsSplitMultipleFkTest(); }
@@ -431,16 +431,14 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
          * {select max(FOO) from white_split_multiple_fk_child where ...) as FOO_MAX} <br />
          * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhiteSplitMultipleFkChildList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
-         *     public void query(WhiteSplitMultipleFkChildCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhiteSplitMultipleFkChild.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(childCB -&gt; {
+         *     childCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     childCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteSplitMultipleFkChild.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteSplitMultipleFkChildCB, WhiteSplitMultipleFkBaseCQ> derivedWhiteSplitMultipleFkChildList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSplitMultipleFkChildCB, WhiteSplitMultipleFkBaseCQ> derivedWhiteSplitMultipleFkChildList() {
             assertDerived("whiteSplitMultipleFkChildList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteSplitMultipleFkChildCB, WhiteSplitMultipleFkBaseCQ>() {
                 public void setup(String fn, SubQuery<WhiteSplitMultipleFkChildCB> sq, WhiteSplitMultipleFkBaseCQ cq, String al, DerivedReferrerOption op) {
@@ -450,12 +448,20 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBaseCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBaseCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBaseCQ>() {
                 public void setup(String fn, SubQuery<WhiteSplitMultipleFkBaseCB> sq, WhiteSplitMultipleFkBaseCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -466,13 +472,13 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
      *     public void query(WhiteSplitMultipleFkBaseCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
      *     public void query(WhiteSplitMultipleFkBaseCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -520,7 +526,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
      *     public void query(WhiteSplitMultipleFkBaseCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -538,10 +544,10 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
      *     public void query(WhiteSplitMultipleFkBaseCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteSplitMultipleFkBaseCB&gt;() {
      *             public void query(WhiteSplitMultipleFkBaseCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

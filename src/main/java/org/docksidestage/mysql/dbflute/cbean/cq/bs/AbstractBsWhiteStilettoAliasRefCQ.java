@@ -119,7 +119,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param maxNumber The max number of refId. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setRefId_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setRefId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setRefId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -232,18 +232,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO0: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo0_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo0_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo0 The value of foo0 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo0_LikeSearch(String foo0, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo0_LikeSearch(String foo0, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo0_LikeSearch(foo0, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO0: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo0_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo0_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param foo0 The value of foo0 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param foo0 The value of foo0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo0_NotLikeSearch(String foo0, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo0_NotLikeSearch(String foo0, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo0_NotLikeSearch(foo0, xcLSOP(opLambda));
     }
 
@@ -358,18 +358,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO_1: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo1_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo1_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo1 The value of foo1 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo1_LikeSearch(String foo1, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo1_LikeSearch(String foo1, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo1_LikeSearch(foo1, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO_1: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo1_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo1_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param foo1 The value of foo1 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -384,7 +384,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param foo1 The value of foo1 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo1_NotLikeSearch(String foo1, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo1_NotLikeSearch(String foo1, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo1_NotLikeSearch(foo1, xcLSOP(opLambda));
     }
 
@@ -484,18 +484,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO2: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo2_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo2_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo2 The value of foo2 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo2_LikeSearch(String foo2, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo2_LikeSearch(String foo2, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo2_LikeSearch(foo2, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO2: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo2_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo2_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param foo2 The value of foo2 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -510,7 +510,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param foo2 The value of foo2 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo2_NotLikeSearch(String foo2, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo2_NotLikeSearch(String foo2, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo2_NotLikeSearch(foo2, xcLSOP(opLambda));
     }
 
@@ -610,18 +610,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO3: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo3_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo3_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo3 The value of foo3 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo3_LikeSearch(String foo3, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo3_LikeSearch(String foo3, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo3_LikeSearch(foo3, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO3: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo3_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo3_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param foo3 The value of foo3 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -636,7 +636,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param foo3 The value of foo3 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo3_NotLikeSearch(String foo3, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo3_NotLikeSearch(String foo3, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo3_NotLikeSearch(foo3, xcLSOP(opLambda));
     }
 
@@ -736,18 +736,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO_4: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo4_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo4_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo4 The value of foo4 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo4_LikeSearch(String foo4, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo4_LikeSearch(String foo4, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo4_LikeSearch(foo4, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO_4: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo4_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setFoo4_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param foo4 The value of foo4 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -762,7 +762,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param foo4 The value of foo4 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setFoo4_NotLikeSearch(String foo4, COptionCall<LikeSearchOption> opLambda) {
+    public void setFoo4_NotLikeSearch(String foo4, ConditionOptionCall<LikeSearchOption> opLambda) {
         setFoo4_NotLikeSearch(foo4, xcLSOP(opLambda));
     }
 
@@ -862,18 +862,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * BAR_0: {VARCHAR(200)} <br />
-     * <pre>e.g. setBar0_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setBar0_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param bar0 The value of bar0 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setBar0_LikeSearch(String bar0, COptionCall<LikeSearchOption> opLambda) {
+    public void setBar0_LikeSearch(String bar0, ConditionOptionCall<LikeSearchOption> opLambda) {
         setBar0_LikeSearch(bar0, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * BAR_0: {VARCHAR(200)} <br />
-     * <pre>e.g. setBar0_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setBar0_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param bar0 The value of bar0 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -888,7 +888,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param bar0 The value of bar0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setBar0_NotLikeSearch(String bar0, COptionCall<LikeSearchOption> opLambda) {
+    public void setBar0_NotLikeSearch(String bar0, ConditionOptionCall<LikeSearchOption> opLambda) {
         setBar0_NotLikeSearch(bar0, xcLSOP(opLambda));
     }
 
@@ -988,18 +988,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * QUX_0: {VARCHAR(200)} <br />
-     * <pre>e.g. setQux0_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setQux0_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param qux0 The value of qux0 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setQux0_LikeSearch(String qux0, COptionCall<LikeSearchOption> opLambda) {
+    public void setQux0_LikeSearch(String qux0, ConditionOptionCall<LikeSearchOption> opLambda) {
         setQux0_LikeSearch(qux0, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * QUX_0: {VARCHAR(200)} <br />
-     * <pre>e.g. setQux0_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setQux0_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param qux0 The value of qux0 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -1014,7 +1014,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param qux0 The value of qux0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setQux0_NotLikeSearch(String qux0, COptionCall<LikeSearchOption> opLambda) {
+    public void setQux0_NotLikeSearch(String qux0, ConditionOptionCall<LikeSearchOption> opLambda) {
         setQux0_NotLikeSearch(qux0, xcLSOP(opLambda));
     }
 
@@ -1114,18 +1114,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * c21: {VARCHAR(200)} <br />
-     * <pre>e.g. setC21_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setC21_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param c21 The value of c21 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setC21_LikeSearch(String c21, COptionCall<LikeSearchOption> opLambda) {
+    public void setC21_LikeSearch(String c21, ConditionOptionCall<LikeSearchOption> opLambda) {
         setC21_LikeSearch(c21, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * c21: {VARCHAR(200)} <br />
-     * <pre>e.g. setC21_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setC21_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param c21 The value of c21 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -1140,7 +1140,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param c21 The value of c21 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setC21_NotLikeSearch(String c21, COptionCall<LikeSearchOption> opLambda) {
+    public void setC21_NotLikeSearch(String c21, ConditionOptionCall<LikeSearchOption> opLambda) {
         setC21_NotLikeSearch(c21, xcLSOP(opLambda));
     }
 
@@ -1240,18 +1240,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * c22: {VARCHAR(200)} <br />
-     * <pre>e.g. setC22_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setC22_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param c22 The value of c22 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setC22_LikeSearch(String c22, COptionCall<LikeSearchOption> opLambda) {
+    public void setC22_LikeSearch(String c22, ConditionOptionCall<LikeSearchOption> opLambda) {
         setC22_LikeSearch(c22, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * c22: {VARCHAR(200)} <br />
-     * <pre>e.g. setC22_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setC22_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param c22 The value of c22 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -1266,7 +1266,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param c22 The value of c22 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setC22_NotLikeSearch(String c22, COptionCall<LikeSearchOption> opLambda) {
+    public void setC22_NotLikeSearch(String c22, ConditionOptionCall<LikeSearchOption> opLambda) {
         setC22_NotLikeSearch(c22, xcLSOP(opLambda));
     }
 
@@ -1366,18 +1366,18 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * c23: {VARCHAR(200)} <br />
-     * <pre>e.g. setC23_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setC23_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param c23 The value of c23 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setC23_LikeSearch(String c23, COptionCall<LikeSearchOption> opLambda) {
+    public void setC23_LikeSearch(String c23, ConditionOptionCall<LikeSearchOption> opLambda) {
         setC23_LikeSearch(c23, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * c23: {VARCHAR(200)} <br />
-     * <pre>e.g. setC23_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setC23_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param c23 The value of c23 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -1392,7 +1392,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param c23 The value of c23 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setC23_NotLikeSearch(String c23, COptionCall<LikeSearchOption> opLambda) {
+    public void setC23_NotLikeSearch(String c23, ConditionOptionCall<LikeSearchOption> opLambda) {
         setC23_NotLikeSearch(c23, xcLSOP(opLambda));
     }
 
@@ -1495,7 +1495,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * @param maxNumber The max number of stilettoAliasId. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setStilettoAliasId_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setStilettoAliasId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setStilettoAliasId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1560,7 +1560,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * Prepare ScalarCondition as equal. <br />
      * {where FOO = (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
      *     public void query(WhiteStilettoAliasRefCB subCB) {
      *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setYyy...
@@ -1577,7 +1577,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * Prepare ScalarCondition as equal. <br />
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
      *     public void query(WhiteStilettoAliasRefCB subCB) {
      *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setYyy...
@@ -1594,7 +1594,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * Prepare ScalarCondition as greaterThan. <br />
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
      *     public void query(WhiteStilettoAliasRefCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -1611,7 +1611,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * Prepare ScalarCondition as lessThan. <br />
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
      *     public void query(WhiteStilettoAliasRefCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -1628,7 +1628,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * Prepare ScalarCondition as greaterEqual. <br />
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
      *     public void query(WhiteStilettoAliasRefCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -1645,7 +1645,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * Prepare ScalarCondition as lessEqual. <br />
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
      *     public void query(WhiteStilettoAliasRefCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -1762,8 +1762,8 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * <pre>
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
+     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
@@ -1772,10 +1772,10 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      *
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
+     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
@@ -1788,7 +1788,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * <p>The order values are bound (treated as bind parameter).</p>
      * @param opLambda The callback for option of manual-order containing order values. (NotNull)
      */
-    public void withManualOrder(MOOptionCall opLambda) { // is user public!
+    public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
     }
 
@@ -1797,8 +1797,8 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * <pre>
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
+     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
@@ -1807,10 +1807,10 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      *
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
+     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>

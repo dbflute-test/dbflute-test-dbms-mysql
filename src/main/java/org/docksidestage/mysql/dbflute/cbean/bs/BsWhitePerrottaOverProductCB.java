@@ -227,7 +227,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhitePerrottaOverProductCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhitePerrottaOverProductCB&gt;() {
      *     public void query(WhitePerrottaOverProductCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -246,7 +246,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhitePerrottaOverProductCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhitePerrottaOverProductCB&gt;() {
      *     public void query(WhitePerrottaOverProductCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -268,10 +268,10 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
      * white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
      * <pre>
      * WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhitePerrottaOverProductNested()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhitePerrottaOverProductNested()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhitePerrottaOverProduct whitePerrottaOverProduct = whitePerrottaOverProductBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whitePerrottaOverProduct.<span style="color: #DD4747">getWhitePerrottaOverProductNested()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whitePerrottaOverProduct.<span style="color: #CC4747">getWhitePerrottaOverProductNested()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_WhitePerrottaOverProductNested() {
@@ -292,10 +292,10 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
      * white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
      * <pre>
      * WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhitePerrottaOverTraceAsPerrotta()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhitePerrottaOverTraceAsPerrotta()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhitePerrottaOverProduct whitePerrottaOverProduct = whitePerrottaOverProductBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whitePerrottaOverProduct.<span style="color: #DD4747">getWhitePerrottaOverTraceAsPerrotta()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whitePerrottaOverProduct.<span style="color: #CC4747">getWhitePerrottaOverTraceAsPerrotta()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -336,7 +336,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhitePerrottaOverProductCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -353,8 +353,8 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
         protected WhitePerrottaOverTraceCB.HpSpecification _whitePerrottaOverTraceAsPerrotta;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhitePerrottaOverProductCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
          * @return The information object of specified column. (NotNull)
@@ -393,7 +393,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
                 _whitePerrottaOverProductNested = new WhitePerrottaOverProductNestedCB.HpSpecification(_baseCB, new HpSpQyCall<WhitePerrottaOverProductNestedCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePerrottaOverProductNested(); }
                     public WhitePerrottaOverProductNestedCQ qy() { return _qyCall.qy().queryWhitePerrottaOverProductNested(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whitePerrottaOverProductNested.xsetSyncQyCall(new HpSpQyCall<WhitePerrottaOverProductNestedCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePerrottaOverProductNested(); }
@@ -414,7 +414,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
                 _whitePerrottaOverTraceAsPerrotta = new WhitePerrottaOverTraceCB.HpSpecification(_baseCB, new HpSpQyCall<WhitePerrottaOverTraceCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePerrottaOverTraceAsPerrotta(); }
                     public WhitePerrottaOverTraceCQ qy() { return _qyCall.qy().queryWhitePerrottaOverTraceAsPerrotta(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whitePerrottaOverTraceAsPerrotta.xsetSyncQyCall(new HpSpQyCall<WhitePerrottaOverTraceCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePerrottaOverTraceAsPerrotta(); }
@@ -429,16 +429,14 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
          * {select max(FOO) from white_perrotta_over_member where ...) as FOO_MAX} <br />
          * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
-         *     public void query(WhitePerrottaOverMemberCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhitePerrottaOverMember.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(memberCB -&gt; {
+         *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     memberCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhitePerrottaOverMember.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhitePerrottaOverMemberCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverMemberList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverMemberList() {
             assertDerived("whitePerrottaOverMemberList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverMemberCB, WhitePerrottaOverProductCQ>() {
                 public void setup(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, WhitePerrottaOverProductCQ cq, String al, DerivedReferrerOption op) {
@@ -449,16 +447,14 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
          * {select max(FOO) from white_perrotta_over_trace where ...) as FOO_MAX} <br />
          * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhitePerrottaOverTraceByNextProductIdList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
-         *     public void query(WhitePerrottaOverTraceCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhitePerrottaOverTrace.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(traceCB -&gt; {
+         *     traceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     traceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhitePerrottaOverTrace.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhitePerrottaOverTraceCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverTraceByNextProductIdList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverTraceCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverTraceByNextProductIdList() {
             assertDerived("whitePerrottaOverTraceByNextProductIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverTraceCB, WhitePerrottaOverProductCQ>() {
                 public void setup(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, WhitePerrottaOverProductCQ cq, String al, DerivedReferrerOption op) {
@@ -469,16 +465,14 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
          * {select max(FOO) from white_perrotta_over_trace where ...) as FOO_MAX} <br />
          * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhitePerrottaOverTraceByPreviousProductIdList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
-         *     public void query(WhitePerrottaOverTraceCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhitePerrottaOverTrace.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(traceCB -&gt; {
+         *     traceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     traceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhitePerrottaOverTrace.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhitePerrottaOverTraceCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverTraceByPreviousProductIdList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverTraceCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverTraceByPreviousProductIdList() {
             assertDerived("whitePerrottaOverTraceByPreviousProductIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverTraceCB, WhitePerrottaOverProductCQ>() {
                 public void setup(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, WhitePerrottaOverProductCQ cq, String al, DerivedReferrerOption op) {
@@ -488,12 +482,20 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhitePerrottaOverProductCB, WhitePerrottaOverProductCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverProductCB, WhitePerrottaOverProductCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverProductCB, WhitePerrottaOverProductCQ>() {
                 public void setup(String fn, SubQuery<WhitePerrottaOverProductCB> sq, WhitePerrottaOverProductCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -504,13 +506,13 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhitePerrottaOverProductCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhitePerrottaOverProductCB&gt;() {
      *     public void query(WhitePerrottaOverProductCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhitePerrottaOverProductCB&gt;() {
      *     public void query(WhitePerrottaOverProductCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -558,7 +560,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhitePerrottaOverProductCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhitePerrottaOverProductCB&gt;() {
      *     public void query(WhitePerrottaOverProductCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -576,10 +578,10 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhitePerrottaOverProductCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhitePerrottaOverProductCB&gt;() {
      *     public void query(WhitePerrottaOverProductCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhitePerrottaOverProductCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhitePerrottaOverProductCB&gt;() {
      *             public void query(WhitePerrottaOverProductCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

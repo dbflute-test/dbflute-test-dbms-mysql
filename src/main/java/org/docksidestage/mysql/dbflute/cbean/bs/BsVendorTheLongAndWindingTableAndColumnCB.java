@@ -238,7 +238,7 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
      *     public void query(VendorTheLongAndWindingTableAndColumnCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -257,7 +257,7 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
      *     public void query(VendorTheLongAndWindingTableAndColumnCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -303,7 +303,7 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
                 public boolean has() { return true; }
                 public VendorTheLongAndWindingTableAndColumnCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -318,8 +318,8 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
     public static class HpSpecification extends HpAbstractSpecification<VendorTheLongAndWindingTableAndColumnCQ> {
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<VendorTheLongAndWindingTableAndColumnCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
@@ -353,16 +353,14 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
          * {select max(FOO) from vendor_the_long_and_winding_table_and_column_ref where ...) as FOO_MAX} <br />
          * vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedVendorTheLongAndWindingTableAndColumnRefList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;VendorTheLongAndWindingTableAndColumnRefCB&gt;() {
-         *     public void query(VendorTheLongAndWindingTableAndColumnRefCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, VendorTheLongAndWindingTableAndColumnRef.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+         *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, VendorTheLongAndWindingTableAndColumnRef.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<VendorTheLongAndWindingTableAndColumnRefCB, VendorTheLongAndWindingTableAndColumnCQ> derivedVendorTheLongAndWindingTableAndColumnRefList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorTheLongAndWindingTableAndColumnRefCB, VendorTheLongAndWindingTableAndColumnCQ> derivedVendorTheLongAndWindingTableAndColumnRefList() {
             assertDerived("vendorTheLongAndWindingTableAndColumnRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorTheLongAndWindingTableAndColumnRefCB, VendorTheLongAndWindingTableAndColumnCQ>() {
                 public void setup(String fn, SubQuery<VendorTheLongAndWindingTableAndColumnRefCB> sq, VendorTheLongAndWindingTableAndColumnCQ cq, String al, DerivedReferrerOption op) {
@@ -372,12 +370,20 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<VendorTheLongAndWindingTableAndColumnCB, VendorTheLongAndWindingTableAndColumnCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorTheLongAndWindingTableAndColumnCB, VendorTheLongAndWindingTableAndColumnCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorTheLongAndWindingTableAndColumnCB, VendorTheLongAndWindingTableAndColumnCQ>() {
                 public void setup(String fn, SubQuery<VendorTheLongAndWindingTableAndColumnCB> sq, VendorTheLongAndWindingTableAndColumnCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -388,13 +394,13 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
      *     public void query(VendorTheLongAndWindingTableAndColumnCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
      *     public void query(VendorTheLongAndWindingTableAndColumnCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -442,7 +448,7 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
      *     public void query(VendorTheLongAndWindingTableAndColumnCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -460,10 +466,10 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
      *     public void query(VendorTheLongAndWindingTableAndColumnCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;VendorTheLongAndWindingTableAndColumnCB&gt;() {
      *             public void query(VendorTheLongAndWindingTableAndColumnCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

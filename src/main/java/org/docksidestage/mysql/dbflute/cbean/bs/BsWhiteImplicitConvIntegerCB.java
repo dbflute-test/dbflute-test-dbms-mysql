@@ -227,7 +227,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
      *     public void query(WhiteImplicitConvIntegerCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -246,7 +246,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
      *     public void query(WhiteImplicitConvIntegerCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -273,10 +273,10 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      * white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
      * <pre>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteImplicitConvNumeric()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteImplicitConvNumeric()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteImplicitConvInteger whiteImplicitConvInteger = whiteImplicitConvIntegerBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteImplicitConvInteger.<span style="color: #DD4747">getWhiteImplicitConvNumeric()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteImplicitConvInteger.<span style="color: #CC4747">getWhiteImplicitConvNumeric()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -301,10 +301,10 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      * white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
      * <pre>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteImplicitConvString()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteImplicitConvString()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteImplicitConvInteger whiteImplicitConvInteger = whiteImplicitConvIntegerBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteImplicitConvInteger.<span style="color: #DD4747">getWhiteImplicitConvString()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteImplicitConvInteger.<span style="color: #CC4747">getWhiteImplicitConvString()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -348,7 +348,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhiteImplicitConvIntegerCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -365,8 +365,8 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
         protected WhiteImplicitConvStringCB.HpSpecification _whiteImplicitConvString;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteImplicitConvIntegerCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
@@ -414,7 +414,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
                 _whiteImplicitConvNumeric = new WhiteImplicitConvNumericCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteImplicitConvNumericCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteImplicitConvNumeric(); }
                     public WhiteImplicitConvNumericCQ qy() { return _qyCall.qy().queryWhiteImplicitConvNumeric(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteImplicitConvNumeric.xsetSyncQyCall(new HpSpQyCall<WhiteImplicitConvNumericCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitConvNumeric(); }
@@ -435,7 +435,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
                 _whiteImplicitConvString = new WhiteImplicitConvStringCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteImplicitConvStringCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteImplicitConvString(); }
                     public WhiteImplicitConvStringCQ qy() { return _qyCall.qy().queryWhiteImplicitConvString(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteImplicitConvString.xsetSyncQyCall(new HpSpQyCall<WhiteImplicitConvStringCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitConvString(); }
@@ -450,16 +450,14 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
          * {select max(FOO) from white_implicit_conv_numeric where ...) as FOO_MAX} <br />
          * white_implicit_conv_numeric by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhiteImplicitConvNumericList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhiteImplicitConvNumericCB&gt;() {
-         *     public void query(WhiteImplicitConvNumericCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhiteImplicitConvNumeric.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(numericCB -&gt; {
+         *     numericCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     numericCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteImplicitConvNumeric.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteImplicitConvNumericCB, WhiteImplicitConvIntegerCQ> derivedWhiteImplicitConvNumericList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvNumericCB, WhiteImplicitConvIntegerCQ> derivedWhiteImplicitConvNumericList() {
             assertDerived("whiteImplicitConvNumericList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteImplicitConvNumericCB, WhiteImplicitConvIntegerCQ>() {
                 public void setup(String fn, SubQuery<WhiteImplicitConvNumericCB> sq, WhiteImplicitConvIntegerCQ cq, String al, DerivedReferrerOption op) {
@@ -470,16 +468,14 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
          * {select max(FOO) from white_implicit_conv_string where ...) as FOO_MAX} <br />
          * white_implicit_conv_string by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhiteImplicitConvStringList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhiteImplicitConvStringCB&gt;() {
-         *     public void query(WhiteImplicitConvStringCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhiteImplicitConvString.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(stringCB -&gt; {
+         *     stringCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     stringCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteImplicitConvString.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteImplicitConvStringCB, WhiteImplicitConvIntegerCQ> derivedWhiteImplicitConvStringList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvStringCB, WhiteImplicitConvIntegerCQ> derivedWhiteImplicitConvStringList() {
             assertDerived("whiteImplicitConvStringList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteImplicitConvStringCB, WhiteImplicitConvIntegerCQ>() {
                 public void setup(String fn, SubQuery<WhiteImplicitConvStringCB> sq, WhiteImplicitConvIntegerCQ cq, String al, DerivedReferrerOption op) {
@@ -489,12 +485,20 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhiteImplicitConvIntegerCB, WhiteImplicitConvIntegerCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvIntegerCB, WhiteImplicitConvIntegerCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteImplicitConvIntegerCB, WhiteImplicitConvIntegerCQ>() {
                 public void setup(String fn, SubQuery<WhiteImplicitConvIntegerCB> sq, WhiteImplicitConvIntegerCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -505,13 +509,13 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
      *     public void query(WhiteImplicitConvIntegerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
      *     public void query(WhiteImplicitConvIntegerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -559,7 +563,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
      *     public void query(WhiteImplicitConvIntegerCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -577,10 +581,10 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
      *     public void query(WhiteImplicitConvIntegerCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
      *             public void query(WhiteImplicitConvIntegerCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

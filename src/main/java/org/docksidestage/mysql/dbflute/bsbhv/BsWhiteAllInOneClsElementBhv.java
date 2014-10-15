@@ -95,13 +95,13 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * int count = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteAllInOneClsElementCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * int count = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteAllInOneClsElement&gt; entity = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteAllInOneClsElement -&gt; {
-     *     ...
+     * WhiteAllInOneClsElement whiteAllInOneClsElement = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteAllInOneClsElement -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteAllInOneClsElement.get...
      * });
-     * WhiteAllInOneClsElement whiteAllInOneClsElement = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteAllInOneClsElement -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteAllInOneClsElement whiteAllInOneClsElement = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteAllInOneClsElement -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteAllInOneClsElement.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteAllInOneClsElement whiteAllInOneClsElement = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteAllInOneClsElement> selectEntity(CBCall<WhiteAllInOneClsElementCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteAllInOneClsElement&gt; entity = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteAllInOneClsElement -&gt; {
-     *     ...
+     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteAllInOneClsElement -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteAllInOneClsElement.get...
      * });
-     * WhiteAllInOneClsElement whiteAllInOneClsElement = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteAllInOneClsElement -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteAllInOneClsElement -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteAllInOneClsElement.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteAllInOneClsElement whiteAllInOneClsElement = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * WhiteAllInOneClsElement whiteAllInOneClsElement = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteAllInOneClsElement whiteAllInOneClsElement = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteAllInOneClsElement.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsElement. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteAllInOneClsElement selectEntityWithDeletedCheck(CBCall<WhiteAllInOneClsElementCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * WhiteAllInOneClsElement whiteAllInOneClsElement = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteAllInOneClsElement whiteAllInOneClsElement = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteAllInOneClsElement.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsElement. (NotNull)
@@ -278,20 +273,20 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteAllInOneClsElement&gt; whiteAllInOneClsElementList = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteAllInOneClsElement whiteAllInOneClsElement : whiteAllInOneClsElementList) {
+     * ListResultBean&lt;WhiteAllInOneClsElement&gt; whiteAllInOneClsElementList = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteAllInOneClsElementList.forEach(whiteAllInOneClsElement -&gt; {
      *     ... = whiteAllInOneClsElement.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteAllInOneClsElement> selectList(CBCall<WhiteAllInOneClsElementCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -300,7 +295,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteAllInOneClsElement&gt; whiteAllInOneClsElementList = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteAllInOneClsElement&gt; whiteAllInOneClsElementList = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteAllInOneClsElement whiteAllInOneClsElement : whiteAllInOneClsElementList) {
      *     ... = whiteAllInOneClsElement.get...();
      * }
@@ -326,8 +321,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteAllInOneClsElement&gt; page = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteAllInOneClsElement&gt; page = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -342,7 +337,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteAllInOneClsElement> selectPage(CBCall<WhiteAllInOneClsElementCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -352,8 +347,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteAllInOneClsElement&gt; page = whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteAllInOneClsElement&gt; page = whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -379,7 +374,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteAllInOneClsElement&gt;() {
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteAllInOneClsElement&gt;() {
      *     public void handle(WhiteAllInOneClsElement entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -389,7 +384,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @param entityLambda The handler of entity row of WhiteAllInOneClsElement. (NotNull)
      */
     public void selectCursor(CBCall<WhiteAllInOneClsElementCB> cbLambda, EntityRowHandler<WhiteAllInOneClsElement> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -397,7 +392,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteAllInOneClsElement&gt;() {
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteAllInOneClsElement&gt;() {
      *     public void handle(WhiteAllInOneClsElement entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -417,9 +412,9 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteAllInOneClsElementCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -450,8 +445,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -464,7 +459,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -486,8 +481,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -500,7 +495,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -543,7 +538,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteAllInOneClsElement.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteAllInOneClsElement.set...;</span>
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">insert</span>(whiteAllInOneClsElement);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">insert</span>(whiteAllInOneClsElement);
      * ... = whiteAllInOneClsElement.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -564,9 +559,9 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteAllInOneClsElement.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteAllInOneClsElement.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteAllInOneClsElement.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteAllInOneClsElement.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteAllInOneClsElementBhv.<span style="color: #DD4747">update</span>(whiteAllInOneClsElement);
+     *     whiteAllInOneClsElementBhv.<span style="color: #CC4747">update</span>(whiteAllInOneClsElement);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -583,7 +578,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteAllInOneClsElement The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -599,9 +594,9 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * WhiteAllInOneClsElement whiteAllInOneClsElement = new WhiteAllInOneClsElement();
      * whiteAllInOneClsElement.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteAllInOneClsElement.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteAllInOneClsElement.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteAllInOneClsElementBhv.<span style="color: #DD4747">delete</span>(whiteAllInOneClsElement);
+     *     whiteAllInOneClsElementBhv.<span style="color: #CC4747">delete</span>(whiteAllInOneClsElement);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -620,7 +615,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteAllInOneClsElement whiteAllInOneClsElement = new WhiteAllInOneClsElement();
@@ -633,7 +628,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteAllInOneClsElementList.add(whiteAllInOneClsElement);
      * }
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">batchInsert</span>(whiteAllInOneClsElementList);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">batchInsert</span>(whiteAllInOneClsElementList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -648,7 +643,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteAllInOneClsElement whiteAllInOneClsElement = new WhiteAllInOneClsElement();
@@ -663,7 +658,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteAllInOneClsElementList.add(whiteAllInOneClsElement);
      * }
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">batchUpdate</span>(whiteAllInOneClsElementList);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">batchUpdate</span>(whiteAllInOneClsElementList);
      * </pre>
      * @param whiteAllInOneClsElementList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -690,7 +685,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteAllInOneClsElement, WhiteAllInOneClsElementCB&gt;() {
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteAllInOneClsElement, WhiteAllInOneClsElementCB&gt;() {
      *     public ConditionBean setup(WhiteAllInOneClsElement entity, WhiteAllInOneClsElementCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -732,7 +727,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteAllInOneClsElement.setVersionNo(value);</span>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">queryUpdate</span>(whiteAllInOneClsElement, cb);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">queryUpdate</span>(whiteAllInOneClsElement, cb);
      * </pre>
      * @param whiteAllInOneClsElement The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsElement. (NotNull)
@@ -740,7 +735,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, CBCall<WhiteAllInOneClsElementCB> cbLambda) {
-        return doQueryUpdate(whiteAllInOneClsElement, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteAllInOneClsElement, createCB(cbLambda), null);
     }
 
     /**
@@ -758,7 +753,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteAllInOneClsElement.setVersionNo(value);</span>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">queryUpdate</span>(whiteAllInOneClsElement, cb);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">queryUpdate</span>(whiteAllInOneClsElement, cb);
      * </pre>
      * @param whiteAllInOneClsElement The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteAllInOneClsElement. (NotNull)
@@ -774,14 +769,14 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">queryDelete</span>(whiteAllInOneClsElement, cb);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsElement, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteAllInOneClsElementCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -789,7 +784,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">queryDelete</span>(whiteAllInOneClsElement, cb);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsElement, cb);
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The deleted count.
@@ -817,15 +812,15 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * InsertOption<WhiteAllInOneClsElementCB> option = new InsertOption<WhiteAllInOneClsElementCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">varyingInsert</span>(whiteAllInOneClsElement, option);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">varyingInsert</span>(whiteAllInOneClsElement, option);
      * ... = whiteAllInOneClsElement.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteAllInOneClsElement The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteAllInOneClsElement whiteAllInOneClsElement, WOptionCall<WhiteAllInOneClsElementCB, InsertOption<WhiteAllInOneClsElementCB>> opLambda) {
-        doInsert(whiteAllInOneClsElement, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteAllInOneClsElement whiteAllInOneClsElement, WritableOptionCall<WhiteAllInOneClsElementCB, InsertOption<WhiteAllInOneClsElementCB>> opLambda) {
+        doInsert(whiteAllInOneClsElement, createInsertOption(opLambda));
     }
 
     /**
@@ -837,16 +832,16 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * whiteAllInOneClsElement.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteAllInOneClsElement.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteAllInOneClsElement.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteAllInOneClsElement.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteAllInOneClsElementCB&gt; option = new UpdateOption&lt;WhiteAllInOneClsElementCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *         public void specify(WhiteAllInOneClsElementCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteAllInOneClsElementBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteAllInOneClsElement, option);
+     *     whiteAllInOneClsElementBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteAllInOneClsElement, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -857,8 +852,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, WOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> opLambda) {
-        doUpdate(whiteAllInOneClsElement, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, WritableOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> opLambda) {
+        doUpdate(whiteAllInOneClsElement, createUpdateOption(opLambda));
     }
 
     /**
@@ -871,8 +866,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, WOptionCall<WhiteAllInOneClsElementCB, InsertOption<WhiteAllInOneClsElementCB>> insertOpLambda, WOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteAllInOneClsElement, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, WritableOptionCall<WhiteAllInOneClsElementCB, InsertOption<WhiteAllInOneClsElementCB>> insertOpLambda, WritableOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteAllInOneClsElement, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -884,8 +879,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteAllInOneClsElement whiteAllInOneClsElement, WOptionCall<WhiteAllInOneClsElementCB, DeleteOption<WhiteAllInOneClsElementCB>> opLambda) {
-        doDelete(whiteAllInOneClsElement, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteAllInOneClsElement whiteAllInOneClsElement, WritableOptionCall<WhiteAllInOneClsElementCB, DeleteOption<WhiteAllInOneClsElementCB>> opLambda) {
+        doDelete(whiteAllInOneClsElement, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -900,8 +895,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteAllInOneClsElement> whiteAllInOneClsElementList, WOptionCall<WhiteAllInOneClsElementCB, InsertOption<WhiteAllInOneClsElementCB>> opLambda) {
-        return doBatchInsert(whiteAllInOneClsElementList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteAllInOneClsElement> whiteAllInOneClsElementList, WritableOptionCall<WhiteAllInOneClsElementCB, InsertOption<WhiteAllInOneClsElementCB>> opLambda) {
+        return doBatchInsert(whiteAllInOneClsElementList, createInsertOption(opLambda));
     }
 
     /**
@@ -913,8 +908,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteAllInOneClsElement> whiteAllInOneClsElementList, WOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> opLambda) {
-        return doBatchUpdate(whiteAllInOneClsElementList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteAllInOneClsElement> whiteAllInOneClsElementList, WritableOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> opLambda) {
+        return doBatchUpdate(whiteAllInOneClsElementList, createUpdateOption(opLambda));
     }
 
     /**
@@ -925,8 +920,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteAllInOneClsElement> whiteAllInOneClsElementList, WOptionCall<WhiteAllInOneClsElementCB, DeleteOption<WhiteAllInOneClsElementCB>> opLambda) {
-        return doBatchDelete(whiteAllInOneClsElementList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteAllInOneClsElement> whiteAllInOneClsElementList, WritableOptionCall<WhiteAllInOneClsElementCB, DeleteOption<WhiteAllInOneClsElementCB>> opLambda) {
+        return doBatchDelete(whiteAllInOneClsElementList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -940,8 +935,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteAllInOneClsElement, WhiteAllInOneClsElementCB> manyArgLambda, WOptionCall<WhiteAllInOneClsElementCB, InsertOption<WhiteAllInOneClsElementCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteAllInOneClsElement, WhiteAllInOneClsElementCB> manyArgLambda, WritableOptionCall<WhiteAllInOneClsElementCB, InsertOption<WhiteAllInOneClsElementCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -963,10 +958,10 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * UpdateOption&lt;WhiteAllInOneClsElementCB&gt; option = new UpdateOption&lt;WhiteAllInOneClsElementCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *     public void specify(WhiteAllInOneClsElementCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteAllInOneClsElement, cb, option);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsElement, cb, option);
      * </pre>
      * @param whiteAllInOneClsElement The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsElement. (NotNull)
@@ -974,8 +969,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, CBCall<WhiteAllInOneClsElementCB> cbLambda, WOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> opLambda) {
-        return doQueryUpdate(whiteAllInOneClsElement, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, CBCall<WhiteAllInOneClsElementCB> cbLambda, WritableOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> opLambda) {
+        return doQueryUpdate(whiteAllInOneClsElement, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -997,10 +992,10 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * UpdateOption&lt;WhiteAllInOneClsElementCB&gt; option = new UpdateOption&lt;WhiteAllInOneClsElementCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteAllInOneClsElementCB&gt;() {
      *     public void specify(WhiteAllInOneClsElementCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteAllInOneClsElementBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteAllInOneClsElement, cb, option);
+     * whiteAllInOneClsElementBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsElement, cb, option);
      * </pre>
      * @param whiteAllInOneClsElement The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteAllInOneClsElement. (NotNull)
@@ -1008,8 +1003,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, WhiteAllInOneClsElementCB cb, WOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> opLambda) {
-        return doQueryUpdate(whiteAllInOneClsElement, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteAllInOneClsElement whiteAllInOneClsElement, WhiteAllInOneClsElementCB cb, WritableOptionCall<WhiteAllInOneClsElementCB, UpdateOption<WhiteAllInOneClsElementCB>> opLambda) {
+        return doQueryUpdate(whiteAllInOneClsElement, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1021,8 +1016,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteAllInOneClsElementCB> cbLambda, WOptionCall<WhiteAllInOneClsElementCB, DeleteOption<WhiteAllInOneClsElementCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteAllInOneClsElementCB> cbLambda, WritableOptionCall<WhiteAllInOneClsElementCB, DeleteOption<WhiteAllInOneClsElementCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1034,8 +1029,8 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteAllInOneClsElementCB cb, WOptionCall<WhiteAllInOneClsElementCB, DeleteOption<WhiteAllInOneClsElementCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteAllInOneClsElementCB cb, WritableOptionCall<WhiteAllInOneClsElementCB, DeleteOption<WhiteAllInOneClsElementCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1071,7 +1066,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      */
     public OutsideSqlBasicExecutor<WhiteAllInOneClsElementBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteAllInOneClsElementBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

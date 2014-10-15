@@ -239,7 +239,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhiteUqFkRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhiteUqFkRefCB&gt;() {
      *     public void query(WhiteUqFkRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -258,7 +258,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhiteUqFkRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhiteUqFkRefCB&gt;() {
      *     public void query(WhiteUqFkRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -280,10 +280,10 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
      * white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      * <pre>
      * WhiteUqFkRefCB cb = new WhiteUqFkRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteUqFkByFkToPkId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteUqFkByFkToPkId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteUqFkRef whiteUqFkRef = whiteUqFkRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteUqFkRef.<span style="color: #DD4747">getWhiteUqFkByFkToPkId()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteUqFkRef.<span style="color: #CC4747">getWhiteUqFkByFkToPkId()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_WhiteUqFkByFkToPkId() {
@@ -299,10 +299,10 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
      * white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      * <pre>
      * WhiteUqFkRefCB cb = new WhiteUqFkRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteUqFkByFkToUqCode()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteUqFkByFkToUqCode()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteUqFkRef whiteUqFkRef = whiteUqFkRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteUqFkRef.<span style="color: #DD4747">getWhiteUqFkByFkToUqCode()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteUqFkRef.<span style="color: #CC4747">getWhiteUqFkByFkToUqCode()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_WhiteUqFkByFkToUqCode() {
@@ -342,7 +342,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhiteUqFkRefCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -359,8 +359,8 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         protected WhiteUqFkCB.HpSpecification _whiteUqFkByFkToUqCode;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteUqFkRefCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
@@ -417,7 +417,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
                 _whiteUqFkByFkToPkId = new WhiteUqFkCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteUqFkCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkByFkToPkId(); }
                     public WhiteUqFkCQ qy() { return _qyCall.qy().queryWhiteUqFkByFkToPkId(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteUqFkByFkToPkId.xsetSyncQyCall(new HpSpQyCall<WhiteUqFkCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkByFkToPkId(); }
@@ -438,7 +438,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
                 _whiteUqFkByFkToUqCode = new WhiteUqFkCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteUqFkCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkByFkToUqCode(); }
                     public WhiteUqFkCQ qy() { return _qyCall.qy().queryWhiteUqFkByFkToUqCode(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteUqFkByFkToUqCode.xsetSyncQyCall(new HpSpQyCall<WhiteUqFkCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkByFkToUqCode(); }
@@ -453,16 +453,14 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
          * {select max(FOO) from white_uq_fk_ref_nest where ...) as FOO_MAX} <br />
          * white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhiteUqFkRefNestList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhiteUqFkRefNestCB&gt;() {
-         *     public void query(WhiteUqFkRefNestCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhiteUqFkRefNest.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(nestCB -&gt; {
+         *     nestCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     nestCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteUqFkRefNest.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteUqFkRefNestCB, WhiteUqFkRefCQ> derivedWhiteUqFkRefNestList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkRefNestCB, WhiteUqFkRefCQ> derivedWhiteUqFkRefNestList() {
             assertDerived("whiteUqFkRefNestList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteUqFkRefNestCB, WhiteUqFkRefCQ>() {
                 public void setup(String fn, SubQuery<WhiteUqFkRefNestCB> sq, WhiteUqFkRefCQ cq, String al, DerivedReferrerOption op) {
@@ -472,12 +470,20 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhiteUqFkRefCB, WhiteUqFkRefCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkRefCB, WhiteUqFkRefCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteUqFkRefCB, WhiteUqFkRefCQ>() {
                 public void setup(String fn, SubQuery<WhiteUqFkRefCB> sq, WhiteUqFkRefCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -488,13 +494,13 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhiteUqFkRefCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteUqFkRefCB&gt;() {
      *     public void query(WhiteUqFkRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhiteUqFkRefCB&gt;() {
      *     public void query(WhiteUqFkRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -542,7 +548,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteUqFkRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteUqFkRefCB&gt;() {
      *     public void query(WhiteUqFkRefCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -560,10 +566,10 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteUqFkRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteUqFkRefCB&gt;() {
      *     public void query(WhiteUqFkRefCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteUqFkRefCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteUqFkRefCB&gt;() {
      *             public void query(WhiteUqFkRefCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

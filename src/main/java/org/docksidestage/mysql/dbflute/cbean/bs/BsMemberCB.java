@@ -239,7 +239,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;MemberCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;MemberCB&gt;() {
      *     public void query(MemberCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -258,7 +258,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;MemberCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;MemberCB&gt;() {
      *     public void query(MemberCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -280,10 +280,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_MemberStatus() {
@@ -304,10 +304,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberAddressAsValid(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsValid(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberAddressAsValid()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberAddressAsValid()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -330,10 +330,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberAddressAsValidBefore(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsValidBefore(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberAddressAsValidBefore()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberAddressAsValidBefore()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -356,10 +356,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsLoginStatus(statusCode)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsLoginStatus(statusCode)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsLoginStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsLoginStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param statusCode The bind parameter of fixed condition for statusCode. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -382,10 +382,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberAddressAsIfComment(targetDate, region)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsIfComment(targetDate, region)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberAddressAsIfComment()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberAddressAsIfComment()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
      * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
@@ -409,10 +409,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberAddressAsOnlyOneDate(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsOnlyOneDate(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberAddressAsOnlyOneDate()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberAddressAsOnlyOneDate()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -435,10 +435,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsLocalBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsLocalBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsLocalBindOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsLocalBindOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -462,10 +462,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -487,10 +487,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsForeignForeignBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsForeignForeignBindOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignBindOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -513,10 +513,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -538,10 +538,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -563,10 +563,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -588,10 +588,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsForeignForeignOptimizedPartOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedPartOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @param memberName The bind parameter of fixed condition for memberName. (NotNull)
@@ -615,10 +615,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsForeignForeignOptimizedWholeOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedWholeOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -641,10 +641,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsForeignForeignParameterOverTest(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignParameterOverTest(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsForeignForeignParameterOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignParameterOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -667,10 +667,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -692,10 +692,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -717,10 +717,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -742,10 +742,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -767,10 +767,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -792,10 +792,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberAddressAsFormattedBasic(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsFormattedBasic(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberAddressAsFormattedBasic()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberAddressAsFormattedBasic()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -818,10 +818,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberAddressAsFormattedLong(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsFormattedLong(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberAddressAsFormattedLong()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberAddressAsFormattedLong()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -844,10 +844,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -869,10 +869,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -894,10 +894,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -918,10 +918,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberServiceAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberServiceAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberServiceAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberServiceAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -942,10 +942,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員退会情報)member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #DD4747">setupSelect_MemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_MemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #DD4747">getMemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = member.<span style="color: #CC4747">getMemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -985,7 +985,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public MemberCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -1027,8 +1027,8 @@ public class BsMemberCB extends AbstractConditionBean {
         protected MemberWithdrawalCB.HpSpecification _memberWithdrawalAsOne;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<MemberCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS}
          * @return The information object of specified column. (NotNull)
@@ -1107,7 +1107,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberStatus = new MemberStatusCB.HpSpecification(_baseCB, new HpSpQyCall<MemberStatusCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberStatus(); }
                     public MemberStatusCQ qy() { return _qyCall.qy().queryMemberStatus(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberStatus.xsetSyncQyCall(new HpSpQyCall<MemberStatusCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberStatus(); }
@@ -1129,7 +1129,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsValid = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValid(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsValid(targetDate); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsValid.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsValid(); }
@@ -1150,7 +1150,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsValid = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValid(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().getConditionQueryMemberAddressAsValid(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsValid.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsValid(); }
@@ -1172,7 +1172,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsValidBefore = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValidBefore(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsValidBefore(targetDate); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsValidBefore.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsValidBefore(); }
@@ -1193,7 +1193,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsValidBefore = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValidBefore(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().getConditionQueryMemberAddressAsValidBefore(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsValidBefore.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsValidBefore(); }
@@ -1215,7 +1215,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsLoginStatus = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLoginStatus(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsLoginStatus(statusCode); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsLoginStatus.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLoginStatus(); }
@@ -1236,7 +1236,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsLoginStatus = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLoginStatus(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().getConditionQueryMemberLoginAsLoginStatus(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsLoginStatus.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLoginStatus(); }
@@ -1259,7 +1259,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsIfComment = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsIfComment(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsIfComment(targetDate, region); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsIfComment.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsIfComment(); }
@@ -1280,7 +1280,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsIfComment = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsIfComment(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().getConditionQueryMemberAddressAsIfComment(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsIfComment.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsIfComment(); }
@@ -1302,7 +1302,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsOnlyOneDate = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsOnlyOneDate(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsOnlyOneDate(targetDate); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsOnlyOneDate.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsOnlyOneDate(); }
@@ -1323,7 +1323,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsOnlyOneDate = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsOnlyOneDate(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().getConditionQueryMemberAddressAsOnlyOneDate(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsOnlyOneDate.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsOnlyOneDate(); }
@@ -1346,7 +1346,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsLocalBindOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalBindOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsLocalBindOverTest(displayOrder); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsLocalBindOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLocalBindOverTest(); }
@@ -1367,7 +1367,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsLocalBindOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalBindOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().getConditionQueryMemberLoginAsLocalBindOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsLocalBindOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLocalBindOverTest(); }
@@ -1388,7 +1388,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsLocalForeignOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalForeignOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsLocalForeignOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsLocalForeignOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLocalForeignOverTest(); }
@@ -1410,7 +1410,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignBindOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignBindOverTest(displayOrder); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignBindOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest(); }
@@ -1431,7 +1431,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignBindOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().getConditionQueryMemberLoginAsForeignForeignBindOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignBindOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest(); }
@@ -1452,7 +1452,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignEachOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignEachOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignEachOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignEachOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignEachOverTest(); }
@@ -1473,7 +1473,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignOptimizedBasicOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedBasicOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignOptimizedBasicOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest(); }
@@ -1494,7 +1494,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignOptimizedMarkOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedMarkOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignOptimizedMarkOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest(); }
@@ -1517,7 +1517,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignOptimizedPartOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignOptimizedPartOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); }
@@ -1538,7 +1538,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignOptimizedPartOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().getConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignOptimizedPartOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); }
@@ -1560,7 +1560,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignOptimizedWholeOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignOptimizedWholeOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
@@ -1581,7 +1581,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignOptimizedWholeOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().getConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignOptimizedWholeOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
@@ -1603,7 +1603,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignParameterOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignParameterOverTest(targetDate); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignParameterOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest(); }
@@ -1624,7 +1624,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignParameterOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().getConditionQueryMemberLoginAsForeignForeignParameterOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignParameterOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest(); }
@@ -1645,7 +1645,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsForeignForeignVariousOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignVariousOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignVariousOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignVariousOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignVariousOverTest(); }
@@ -1666,7 +1666,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsReferrerOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsReferrerOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsReferrerOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsReferrerOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsReferrerOverTest(); }
@@ -1687,7 +1687,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsReferrerForeignOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsReferrerForeignOverTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsReferrerForeignOverTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsReferrerForeignOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsReferrerForeignOverTest(); }
@@ -1708,7 +1708,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsLatest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLatest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsLatest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsLatest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLatest(); }
@@ -1729,7 +1729,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsOldest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsOldest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsOldest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsOldest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsOldest(); }
@@ -1751,7 +1751,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsFormattedBasic = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedBasic(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsFormattedBasic(targetDate); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsFormattedBasic.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsFormattedBasic(); }
@@ -1772,7 +1772,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsFormattedBasic = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedBasic(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().getConditionQueryMemberAddressAsFormattedBasic(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsFormattedBasic.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsFormattedBasic(); }
@@ -1794,7 +1794,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsFormattedLong = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedLong(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsFormattedLong(targetDate); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsFormattedLong.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsFormattedLong(); }
@@ -1815,7 +1815,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberAddressAsFormattedLong = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedLong(); }
                     public MemberAddressCQ qy() { return _qyCall.qy().getConditionQueryMemberAddressAsFormattedLong(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsFormattedLong.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsFormattedLong(); }
@@ -1836,7 +1836,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsFormattedMany = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsFormattedMany(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsFormattedMany(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsFormattedMany.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsFormattedMany(); }
@@ -1857,7 +1857,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberLoginAsEmbeddedCommentClassificationTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsEmbeddedCommentClassificationTest(); }
                     public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsEmbeddedCommentClassificationTest(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsEmbeddedCommentClassificationTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsEmbeddedCommentClassificationTest(); }
@@ -1878,7 +1878,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberSecurityAsOne = new MemberSecurityCB.HpSpecification(_baseCB, new HpSpQyCall<MemberSecurityCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberSecurityAsOne(); }
                     public MemberSecurityCQ qy() { return _qyCall.qy().queryMemberSecurityAsOne(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberSecurityAsOne.xsetSyncQyCall(new HpSpQyCall<MemberSecurityCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberSecurityAsOne(); }
@@ -1899,7 +1899,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberServiceAsOne = new MemberServiceCB.HpSpecification(_baseCB, new HpSpQyCall<MemberServiceCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberServiceAsOne(); }
                     public MemberServiceCQ qy() { return _qyCall.qy().queryMemberServiceAsOne(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberServiceAsOne.xsetSyncQyCall(new HpSpQyCall<MemberServiceCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberServiceAsOne(); }
@@ -1920,7 +1920,7 @@ public class BsMemberCB extends AbstractConditionBean {
                 _memberWithdrawalAsOne = new MemberWithdrawalCB.HpSpecification(_baseCB, new HpSpQyCall<MemberWithdrawalCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberWithdrawalAsOne(); }
                     public MemberWithdrawalCQ qy() { return _qyCall.qy().queryMemberWithdrawalAsOne(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberWithdrawalAsOne.xsetSyncQyCall(new HpSpQyCall<MemberWithdrawalCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberWithdrawalAsOne(); }
@@ -1935,16 +1935,14 @@ public class BsMemberCB extends AbstractConditionBean {
          * {select max(FOO) from member_address where ...) as FOO_MAX} <br />
          * (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedMemberAddressList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;MemberAddressCB&gt;() {
-         *     public void query(MemberAddressCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, MemberAddress.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(addressCB -&gt; {
+         *     addressCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     addressCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, MemberAddress.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<MemberAddressCB, MemberCQ> derivedMemberAddressList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberAddressCB, MemberCQ> derivedMemberAddressList() {
             assertDerived("memberAddressList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<MemberAddressCB, MemberCQ>() {
                 public void setup(String fn, SubQuery<MemberAddressCB> sq, MemberCQ cq, String al, DerivedReferrerOption op) {
@@ -1955,16 +1953,14 @@ public class BsMemberCB extends AbstractConditionBean {
          * {select max(FOO) from member_login where ...) as FOO_MAX} <br />
          * (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedMemberLoginList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;MemberLoginCB&gt;() {
-         *     public void query(MemberLoginCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, MemberLogin.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(loginCB -&gt; {
+         *     loginCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     loginCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, MemberLogin.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<MemberLoginCB, MemberCQ> derivedMemberLoginList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberLoginCB, MemberCQ> derivedMemberLoginList() {
             assertDerived("memberLoginList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<MemberLoginCB, MemberCQ>() {
                 public void setup(String fn, SubQuery<MemberLoginCB> sq, MemberCQ cq, String al, DerivedReferrerOption op) {
@@ -1975,16 +1971,14 @@ public class BsMemberCB extends AbstractConditionBean {
          * {select max(FOO) from purchase where ...) as FOO_MAX} <br />
          * (購入)purchase by MEMBER_ID, named 'purchaseList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedPurchaseList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;PurchaseCB&gt;() {
-         *     public void query(PurchaseCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, Purchase.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(purchaseCB -&gt; {
+         *     purchaseCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     purchaseCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, Purchase.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<PurchaseCB, MemberCQ> derivedPurchaseList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchaseCB, MemberCQ> derivedPurchaseList() {
             assertDerived("purchaseList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<PurchaseCB, MemberCQ>() {
                 public void setup(String fn, SubQuery<PurchaseCB> sq, MemberCQ cq, String al, DerivedReferrerOption op) {
@@ -1994,12 +1988,20 @@ public class BsMemberCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<MemberCB, MemberCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberCB, MemberCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<MemberCB, MemberCQ>() {
                 public void setup(String fn, SubQuery<MemberCB> sq, MemberCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -2010,13 +2012,13 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;MemberCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;MemberCB&gt;() {
      *     public void query(MemberCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;MemberCB&gt;() {
      *     public void query(MemberCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -2064,7 +2066,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;MemberCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;MemberCB&gt;() {
      *     public void query(MemberCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -2082,10 +2084,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;MemberCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;MemberCB&gt;() {
      *     public void query(MemberCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;MemberCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;MemberCB&gt;() {
      *             public void query(MemberCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

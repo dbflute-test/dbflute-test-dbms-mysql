@@ -95,13 +95,13 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * int count = memberLoginBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = memberLoginBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<MemberLoginCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * int count = memberLoginBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = memberLoginBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of MemberLogin. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * MemberLoginCB cb = new MemberLoginCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;MemberLogin&gt; entity = memberLoginBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(memberLogin -&gt; {
-     *     ...
+     * MemberLogin memberLogin = memberLoginBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(memberLogin -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = memberLogin.get...
      * });
-     * MemberLogin memberLogin = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(memberLogin -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * MemberLogin memberLogin = memberLoginBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(memberLogin -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = memberLogin.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     MemberLogin memberLogin = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<MemberLogin> selectEntity(CBCall<MemberLoginCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;MemberLogin&gt; entity = memberLoginBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(memberLogin -&gt; {
-     *     ...
+     * memberLoginBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(memberLogin -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = memberLogin.get...
      * });
-     * MemberLogin memberLogin = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(memberLogin -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * memberLoginBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(memberLogin -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = memberLogin.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     MemberLogin memberLogin = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of MemberLogin. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * MemberLogin memberLogin = memberLoginBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * MemberLogin memberLogin = memberLoginBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = memberLogin.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public MemberLogin selectEntityWithDeletedCheck(CBCall<MemberLoginCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * MemberLogin memberLogin = memberLoginBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * MemberLogin memberLogin = memberLoginBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = memberLogin.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of MemberLogin. (NotNull)
@@ -303,20 +298,20 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Select the list as result bean.
      * <pre>
-     * MemberLoginCB cb = new MemberLoginCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;MemberLogin&gt; memberLoginList = memberLoginBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (MemberLogin memberLogin : memberLoginList) {
+     * ListResultBean&lt;MemberLogin&gt; memberLoginList = memberLoginBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * memberLoginList.forEach(memberLogin -&gt; {
      *     ... = memberLogin.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<MemberLogin> selectList(CBCall<MemberLoginCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -325,7 +320,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;MemberLogin&gt; memberLoginList = memberLoginBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;MemberLogin&gt; memberLoginList = memberLoginBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (MemberLogin memberLogin : memberLoginList) {
      *     ... = memberLogin.get...();
      * }
@@ -351,8 +346,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;MemberLogin&gt; page = memberLoginBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;MemberLogin&gt; page = memberLoginBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -367,7 +362,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<MemberLogin> selectPage(CBCall<MemberLoginCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -377,8 +372,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;MemberLogin&gt; page = memberLoginBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;MemberLogin&gt; page = memberLoginBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -404,7 +399,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * memberLoginBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;MemberLogin&gt;() {
+     * memberLoginBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;MemberLogin&gt;() {
      *     public void handle(MemberLogin entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -414,7 +409,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @param entityLambda The handler of entity row of MemberLogin. (NotNull)
      */
     public void selectCursor(CBCall<MemberLoginCB> cbLambda, EntityRowHandler<MemberLogin> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -422,7 +417,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * memberLoginBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;MemberLogin&gt;() {
+     * memberLoginBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;MemberLogin&gt;() {
      *     public void handle(MemberLogin entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -442,9 +437,9 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * memberLoginBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * memberLoginBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(MemberLoginCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -475,8 +470,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -489,7 +484,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -511,8 +506,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -525,7 +520,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -584,7 +579,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//memberLogin.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//memberLogin.set...;</span>
-     * memberLoginBhv.<span style="color: #DD4747">insert</span>(memberLogin);
+     * memberLoginBhv.<span style="color: #CC4747">insert</span>(memberLogin);
      * ... = memberLogin.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -605,9 +600,9 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">//memberLogin.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//memberLogin.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * memberLogin.<span style="color: #DD4747">setVersionNo</span>(value);
+     * memberLogin.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     memberLoginBhv.<span style="color: #DD4747">update</span>(memberLogin);
+     *     memberLoginBhv.<span style="color: #CC4747">update</span>(memberLogin);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -624,7 +619,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param memberLogin The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -640,9 +635,9 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * MemberLogin memberLogin = new MemberLogin();
      * memberLogin.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * memberLogin.<span style="color: #DD4747">setVersionNo</span>(value);
+     * memberLogin.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     memberLoginBhv.<span style="color: #DD4747">delete</span>(memberLogin);
+     *     memberLoginBhv.<span style="color: #CC4747">delete</span>(memberLogin);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -661,7 +656,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     MemberLogin memberLogin = new MemberLogin();
@@ -674,7 +669,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     memberLoginList.add(memberLogin);
      * }
-     * memberLoginBhv.<span style="color: #DD4747">batchInsert</span>(memberLoginList);
+     * memberLoginBhv.<span style="color: #CC4747">batchInsert</span>(memberLoginList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -689,7 +684,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     MemberLogin memberLogin = new MemberLogin();
@@ -704,7 +699,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     memberLoginList.add(memberLogin);
      * }
-     * memberLoginBhv.<span style="color: #DD4747">batchUpdate</span>(memberLoginList);
+     * memberLoginBhv.<span style="color: #CC4747">batchUpdate</span>(memberLoginList);
      * </pre>
      * @param memberLoginList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -731,7 +726,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * memberLoginBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;MemberLogin, MemberLoginCB&gt;() {
+     * memberLoginBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;MemberLogin, MemberLoginCB&gt;() {
      *     public ConditionBean setup(MemberLogin entity, MemberLoginCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -773,7 +768,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">//memberLogin.setVersionNo(value);</span>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * memberLoginBhv.<span style="color: #DD4747">queryUpdate</span>(memberLogin, cb);
+     * memberLoginBhv.<span style="color: #CC4747">queryUpdate</span>(memberLogin, cb);
      * </pre>
      * @param memberLogin The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
@@ -781,7 +776,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(MemberLogin memberLogin, CBCall<MemberLoginCB> cbLambda) {
-        return doQueryUpdate(memberLogin, handleCBCall(cbLambda), null);
+        return doQueryUpdate(memberLogin, createCB(cbLambda), null);
     }
 
     /**
@@ -799,7 +794,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">//memberLogin.setVersionNo(value);</span>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * memberLoginBhv.<span style="color: #DD4747">queryUpdate</span>(memberLogin, cb);
+     * memberLoginBhv.<span style="color: #CC4747">queryUpdate</span>(memberLogin, cb);
      * </pre>
      * @param memberLogin The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of MemberLogin. (NotNull)
@@ -815,14 +810,14 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * memberLoginBhv.<span style="color: #DD4747">queryDelete</span>(memberLogin, cb);
+     * memberLoginBhv.<span style="color: #CC4747">queryDelete</span>(memberLogin, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<MemberLoginCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -830,7 +825,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <pre>
      * MemberLoginCB cb = new MemberLoginCB();
      * cb.query().setFoo...(value);
-     * memberLoginBhv.<span style="color: #DD4747">queryDelete</span>(memberLogin, cb);
+     * memberLoginBhv.<span style="color: #CC4747">queryDelete</span>(memberLogin, cb);
      * </pre>
      * @param cb The condition-bean of MemberLogin. (NotNull)
      * @return The deleted count.
@@ -858,15 +853,15 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * InsertOption<MemberLoginCB> option = new InsertOption<MemberLoginCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * memberLoginBhv.<span style="color: #DD4747">varyingInsert</span>(memberLogin, option);
+     * memberLoginBhv.<span style="color: #CC4747">varyingInsert</span>(memberLogin, option);
      * ... = memberLogin.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param memberLogin The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(MemberLogin memberLogin, WOptionCall<MemberLoginCB, InsertOption<MemberLoginCB>> opLambda) {
-        doInsert(memberLogin, handleInsertOpCall(opLambda));
+    public void varyingInsert(MemberLogin memberLogin, WritableOptionCall<MemberLoginCB, InsertOption<MemberLoginCB>> opLambda) {
+        doInsert(memberLogin, createInsertOption(opLambda));
     }
 
     /**
@@ -878,16 +873,16 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * memberLogin.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * memberLogin.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * memberLogin.<span style="color: #DD4747">setVersionNo</span>(value);
+     * memberLogin.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;MemberLoginCB&gt; option = new UpdateOption&lt;MemberLoginCB&gt;();
      *     option.self(new SpecifyQuery&lt;MemberLoginCB&gt;() {
      *         public void specify(MemberLoginCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     memberLoginBhv.<span style="color: #DD4747">varyingUpdate</span>(memberLogin, option);
+     *     memberLoginBhv.<span style="color: #CC4747">varyingUpdate</span>(memberLogin, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -898,8 +893,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(MemberLogin memberLogin, WOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> opLambda) {
-        doUpdate(memberLogin, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(MemberLogin memberLogin, WritableOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> opLambda) {
+        doUpdate(memberLogin, createUpdateOption(opLambda));
     }
 
     /**
@@ -912,8 +907,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(MemberLogin memberLogin, WOptionCall<MemberLoginCB, InsertOption<MemberLoginCB>> insertOpLambda, WOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> updateOpLambda) {
-        doInsertOrUpdate(memberLogin, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(MemberLogin memberLogin, WritableOptionCall<MemberLoginCB, InsertOption<MemberLoginCB>> insertOpLambda, WritableOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> updateOpLambda) {
+        doInsertOrUpdate(memberLogin, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -925,8 +920,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(MemberLogin memberLogin, WOptionCall<MemberLoginCB, DeleteOption<MemberLoginCB>> opLambda) {
-        doDelete(memberLogin, handleDeleteOpCall(opLambda));
+    public void varyingDelete(MemberLogin memberLogin, WritableOptionCall<MemberLoginCB, DeleteOption<MemberLoginCB>> opLambda) {
+        doDelete(memberLogin, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -941,8 +936,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<MemberLogin> memberLoginList, WOptionCall<MemberLoginCB, InsertOption<MemberLoginCB>> opLambda) {
-        return doBatchInsert(memberLoginList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<MemberLogin> memberLoginList, WritableOptionCall<MemberLoginCB, InsertOption<MemberLoginCB>> opLambda) {
+        return doBatchInsert(memberLoginList, createInsertOption(opLambda));
     }
 
     /**
@@ -954,8 +949,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<MemberLogin> memberLoginList, WOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> opLambda) {
-        return doBatchUpdate(memberLoginList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<MemberLogin> memberLoginList, WritableOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> opLambda) {
+        return doBatchUpdate(memberLoginList, createUpdateOption(opLambda));
     }
 
     /**
@@ -966,8 +961,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<MemberLogin> memberLoginList, WOptionCall<MemberLoginCB, DeleteOption<MemberLoginCB>> opLambda) {
-        return doBatchDelete(memberLoginList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<MemberLogin> memberLoginList, WritableOptionCall<MemberLoginCB, DeleteOption<MemberLoginCB>> opLambda) {
+        return doBatchDelete(memberLoginList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -981,8 +976,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<MemberLogin, MemberLoginCB> manyArgLambda, WOptionCall<MemberLoginCB, InsertOption<MemberLoginCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<MemberLogin, MemberLoginCB> manyArgLambda, WritableOptionCall<MemberLoginCB, InsertOption<MemberLoginCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -1004,10 +999,10 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * UpdateOption&lt;MemberLoginCB&gt; option = new UpdateOption&lt;MemberLoginCB&gt;();
      * option.self(new SpecifyQuery&lt;MemberLoginCB&gt;() {
      *     public void specify(MemberLoginCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * memberLoginBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(memberLogin, cb, option);
+     * memberLoginBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(memberLogin, cb, option);
      * </pre>
      * @param memberLogin The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
@@ -1015,8 +1010,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(MemberLogin memberLogin, CBCall<MemberLoginCB> cbLambda, WOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> opLambda) {
-        return doQueryUpdate(memberLogin, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(MemberLogin memberLogin, CBCall<MemberLoginCB> cbLambda, WritableOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> opLambda) {
+        return doQueryUpdate(memberLogin, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1038,10 +1033,10 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * UpdateOption&lt;MemberLoginCB&gt; option = new UpdateOption&lt;MemberLoginCB&gt;();
      * option.self(new SpecifyQuery&lt;MemberLoginCB&gt;() {
      *     public void specify(MemberLoginCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * memberLoginBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(memberLogin, cb, option);
+     * memberLoginBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(memberLogin, cb, option);
      * </pre>
      * @param memberLogin The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of MemberLogin. (NotNull)
@@ -1049,8 +1044,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(MemberLogin memberLogin, MemberLoginCB cb, WOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> opLambda) {
-        return doQueryUpdate(memberLogin, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(MemberLogin memberLogin, MemberLoginCB cb, WritableOptionCall<MemberLoginCB, UpdateOption<MemberLoginCB>> opLambda) {
+        return doQueryUpdate(memberLogin, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1062,8 +1057,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<MemberLoginCB> cbLambda, WOptionCall<MemberLoginCB, DeleteOption<MemberLoginCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<MemberLoginCB> cbLambda, WritableOptionCall<MemberLoginCB, DeleteOption<MemberLoginCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1075,8 +1070,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(MemberLoginCB cb, WOptionCall<MemberLoginCB, DeleteOption<MemberLoginCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(MemberLoginCB cb, WritableOptionCall<MemberLoginCB, DeleteOption<MemberLoginCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1112,7 +1107,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      */
     public OutsideSqlBasicExecutor<MemberLoginBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<MemberLoginBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

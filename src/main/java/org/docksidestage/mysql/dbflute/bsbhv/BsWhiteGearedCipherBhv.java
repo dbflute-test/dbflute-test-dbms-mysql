@@ -95,13 +95,13 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * int count = whiteGearedCipherBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteGearedCipherBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGearedCipher. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteGearedCipherCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * int count = whiteGearedCipherBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteGearedCipherBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteGearedCipher. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteGearedCipher&gt; entity = whiteGearedCipherBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteGearedCipher -&gt; {
-     *     ...
+     * WhiteGearedCipher whiteGearedCipher = whiteGearedCipherBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteGearedCipher -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteGearedCipher.get...
      * });
-     * WhiteGearedCipher whiteGearedCipher = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteGearedCipher -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteGearedCipher whiteGearedCipher = whiteGearedCipherBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteGearedCipher -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteGearedCipher.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteGearedCipher whiteGearedCipher = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGearedCipher. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteGearedCipher> selectEntity(CBCall<WhiteGearedCipherCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteGearedCipher&gt; entity = whiteGearedCipherBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteGearedCipher -&gt; {
-     *     ...
+     * whiteGearedCipherBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteGearedCipher -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteGearedCipher.get...
      * });
-     * WhiteGearedCipher whiteGearedCipher = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteGearedCipher -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteGearedCipherBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteGearedCipher -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteGearedCipher.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteGearedCipher whiteGearedCipher = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteGearedCipher. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * WhiteGearedCipher whiteGearedCipher = whiteGearedCipherBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteGearedCipher whiteGearedCipher = whiteGearedCipherBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteGearedCipher.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGearedCipher. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteGearedCipher selectEntityWithDeletedCheck(CBCall<WhiteGearedCipherCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * WhiteGearedCipher whiteGearedCipher = whiteGearedCipherBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteGearedCipher whiteGearedCipher = whiteGearedCipherBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteGearedCipher.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteGearedCipher. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteGearedCipher&gt; whiteGearedCipherList = whiteGearedCipherBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteGearedCipher whiteGearedCipher : whiteGearedCipherList) {
+     * ListResultBean&lt;WhiteGearedCipher&gt; whiteGearedCipherList = whiteGearedCipherBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteGearedCipherList.forEach(whiteGearedCipher -&gt; {
      *     ... = whiteGearedCipher.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGearedCipher. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteGearedCipher> selectList(CBCall<WhiteGearedCipherCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteGearedCipher&gt; whiteGearedCipherList = whiteGearedCipherBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteGearedCipher&gt; whiteGearedCipherList = whiteGearedCipherBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteGearedCipher whiteGearedCipher : whiteGearedCipherList) {
      *     ... = whiteGearedCipher.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteGearedCipher&gt; page = whiteGearedCipherBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteGearedCipher&gt; page = whiteGearedCipherBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteGearedCipher> selectPage(CBCall<WhiteGearedCipherCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteGearedCipher&gt; page = whiteGearedCipherBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteGearedCipher&gt; page = whiteGearedCipherBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * whiteGearedCipherBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteGearedCipher&gt;() {
+     * whiteGearedCipherBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteGearedCipher&gt;() {
      *     public void handle(WhiteGearedCipher entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @param entityLambda The handler of entity row of WhiteGearedCipher. (NotNull)
      */
     public void selectCursor(CBCall<WhiteGearedCipherCB> cbLambda, EntityRowHandler<WhiteGearedCipher> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * whiteGearedCipherBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteGearedCipher&gt;() {
+     * whiteGearedCipherBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteGearedCipher&gt;() {
      *     public void handle(WhiteGearedCipher entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteGearedCipherBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteGearedCipherBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteGearedCipherCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -542,7 +537,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteGearedCipher.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteGearedCipher.set...;</span>
-     * whiteGearedCipherBhv.<span style="color: #DD4747">insert</span>(whiteGearedCipher);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">insert</span>(whiteGearedCipher);
      * ... = whiteGearedCipher.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -563,9 +558,9 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">//whiteGearedCipher.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteGearedCipher.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteGearedCipher.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteGearedCipher.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteGearedCipherBhv.<span style="color: #DD4747">update</span>(whiteGearedCipher);
+     *     whiteGearedCipherBhv.<span style="color: #CC4747">update</span>(whiteGearedCipher);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -582,7 +577,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteGearedCipher The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -598,9 +593,9 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * WhiteGearedCipher whiteGearedCipher = new WhiteGearedCipher();
      * whiteGearedCipher.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteGearedCipher.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteGearedCipher.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteGearedCipherBhv.<span style="color: #DD4747">delete</span>(whiteGearedCipher);
+     *     whiteGearedCipherBhv.<span style="color: #CC4747">delete</span>(whiteGearedCipher);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -619,7 +614,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteGearedCipher whiteGearedCipher = new WhiteGearedCipher();
@@ -632,7 +627,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteGearedCipherList.add(whiteGearedCipher);
      * }
-     * whiteGearedCipherBhv.<span style="color: #DD4747">batchInsert</span>(whiteGearedCipherList);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">batchInsert</span>(whiteGearedCipherList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -647,7 +642,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteGearedCipher whiteGearedCipher = new WhiteGearedCipher();
@@ -662,7 +657,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteGearedCipherList.add(whiteGearedCipher);
      * }
-     * whiteGearedCipherBhv.<span style="color: #DD4747">batchUpdate</span>(whiteGearedCipherList);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">batchUpdate</span>(whiteGearedCipherList);
      * </pre>
      * @param whiteGearedCipherList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -689,7 +684,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteGearedCipherBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteGearedCipher, WhiteGearedCipherCB&gt;() {
+     * whiteGearedCipherBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteGearedCipher, WhiteGearedCipherCB&gt;() {
      *     public ConditionBean setup(WhiteGearedCipher entity, WhiteGearedCipherCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -731,7 +726,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">//whiteGearedCipher.setVersionNo(value);</span>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * whiteGearedCipherBhv.<span style="color: #DD4747">queryUpdate</span>(whiteGearedCipher, cb);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">queryUpdate</span>(whiteGearedCipher, cb);
      * </pre>
      * @param whiteGearedCipher The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteGearedCipher. (NotNull)
@@ -739,7 +734,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteGearedCipher whiteGearedCipher, CBCall<WhiteGearedCipherCB> cbLambda) {
-        return doQueryUpdate(whiteGearedCipher, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteGearedCipher, createCB(cbLambda), null);
     }
 
     /**
@@ -757,7 +752,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">//whiteGearedCipher.setVersionNo(value);</span>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * whiteGearedCipherBhv.<span style="color: #DD4747">queryUpdate</span>(whiteGearedCipher, cb);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">queryUpdate</span>(whiteGearedCipher, cb);
      * </pre>
      * @param whiteGearedCipher The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteGearedCipher. (NotNull)
@@ -773,14 +768,14 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * whiteGearedCipherBhv.<span style="color: #DD4747">queryDelete</span>(whiteGearedCipher, cb);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">queryDelete</span>(whiteGearedCipher, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGearedCipher. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteGearedCipherCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -788,7 +783,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <pre>
      * WhiteGearedCipherCB cb = new WhiteGearedCipherCB();
      * cb.query().setFoo...(value);
-     * whiteGearedCipherBhv.<span style="color: #DD4747">queryDelete</span>(whiteGearedCipher, cb);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">queryDelete</span>(whiteGearedCipher, cb);
      * </pre>
      * @param cb The condition-bean of WhiteGearedCipher. (NotNull)
      * @return The deleted count.
@@ -816,15 +811,15 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * InsertOption<WhiteGearedCipherCB> option = new InsertOption<WhiteGearedCipherCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteGearedCipherBhv.<span style="color: #DD4747">varyingInsert</span>(whiteGearedCipher, option);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">varyingInsert</span>(whiteGearedCipher, option);
      * ... = whiteGearedCipher.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteGearedCipher The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteGearedCipher whiteGearedCipher, WOptionCall<WhiteGearedCipherCB, InsertOption<WhiteGearedCipherCB>> opLambda) {
-        doInsert(whiteGearedCipher, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteGearedCipher whiteGearedCipher, WritableOptionCall<WhiteGearedCipherCB, InsertOption<WhiteGearedCipherCB>> opLambda) {
+        doInsert(whiteGearedCipher, createInsertOption(opLambda));
     }
 
     /**
@@ -836,16 +831,16 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * whiteGearedCipher.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteGearedCipher.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteGearedCipher.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteGearedCipher.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteGearedCipherCB&gt; option = new UpdateOption&lt;WhiteGearedCipherCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteGearedCipherCB&gt;() {
      *         public void specify(WhiteGearedCipherCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteGearedCipherBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteGearedCipher, option);
+     *     whiteGearedCipherBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteGearedCipher, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -856,8 +851,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteGearedCipher whiteGearedCipher, WOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> opLambda) {
-        doUpdate(whiteGearedCipher, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteGearedCipher whiteGearedCipher, WritableOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> opLambda) {
+        doUpdate(whiteGearedCipher, createUpdateOption(opLambda));
     }
 
     /**
@@ -870,8 +865,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteGearedCipher whiteGearedCipher, WOptionCall<WhiteGearedCipherCB, InsertOption<WhiteGearedCipherCB>> insertOpLambda, WOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteGearedCipher, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteGearedCipher whiteGearedCipher, WritableOptionCall<WhiteGearedCipherCB, InsertOption<WhiteGearedCipherCB>> insertOpLambda, WritableOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteGearedCipher, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -883,8 +878,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteGearedCipher whiteGearedCipher, WOptionCall<WhiteGearedCipherCB, DeleteOption<WhiteGearedCipherCB>> opLambda) {
-        doDelete(whiteGearedCipher, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteGearedCipher whiteGearedCipher, WritableOptionCall<WhiteGearedCipherCB, DeleteOption<WhiteGearedCipherCB>> opLambda) {
+        doDelete(whiteGearedCipher, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -899,8 +894,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteGearedCipher> whiteGearedCipherList, WOptionCall<WhiteGearedCipherCB, InsertOption<WhiteGearedCipherCB>> opLambda) {
-        return doBatchInsert(whiteGearedCipherList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteGearedCipher> whiteGearedCipherList, WritableOptionCall<WhiteGearedCipherCB, InsertOption<WhiteGearedCipherCB>> opLambda) {
+        return doBatchInsert(whiteGearedCipherList, createInsertOption(opLambda));
     }
 
     /**
@@ -912,8 +907,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteGearedCipher> whiteGearedCipherList, WOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> opLambda) {
-        return doBatchUpdate(whiteGearedCipherList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteGearedCipher> whiteGearedCipherList, WritableOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> opLambda) {
+        return doBatchUpdate(whiteGearedCipherList, createUpdateOption(opLambda));
     }
 
     /**
@@ -924,8 +919,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteGearedCipher> whiteGearedCipherList, WOptionCall<WhiteGearedCipherCB, DeleteOption<WhiteGearedCipherCB>> opLambda) {
-        return doBatchDelete(whiteGearedCipherList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteGearedCipher> whiteGearedCipherList, WritableOptionCall<WhiteGearedCipherCB, DeleteOption<WhiteGearedCipherCB>> opLambda) {
+        return doBatchDelete(whiteGearedCipherList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -939,8 +934,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteGearedCipher, WhiteGearedCipherCB> manyArgLambda, WOptionCall<WhiteGearedCipherCB, InsertOption<WhiteGearedCipherCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteGearedCipher, WhiteGearedCipherCB> manyArgLambda, WritableOptionCall<WhiteGearedCipherCB, InsertOption<WhiteGearedCipherCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -962,10 +957,10 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * UpdateOption&lt;WhiteGearedCipherCB&gt; option = new UpdateOption&lt;WhiteGearedCipherCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteGearedCipherCB&gt;() {
      *     public void specify(WhiteGearedCipherCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteGearedCipherBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteGearedCipher, cb, option);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteGearedCipher, cb, option);
      * </pre>
      * @param whiteGearedCipher The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteGearedCipher. (NotNull)
@@ -973,8 +968,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteGearedCipher whiteGearedCipher, CBCall<WhiteGearedCipherCB> cbLambda, WOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> opLambda) {
-        return doQueryUpdate(whiteGearedCipher, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteGearedCipher whiteGearedCipher, CBCall<WhiteGearedCipherCB> cbLambda, WritableOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> opLambda) {
+        return doQueryUpdate(whiteGearedCipher, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -996,10 +991,10 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * UpdateOption&lt;WhiteGearedCipherCB&gt; option = new UpdateOption&lt;WhiteGearedCipherCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteGearedCipherCB&gt;() {
      *     public void specify(WhiteGearedCipherCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteGearedCipherBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteGearedCipher, cb, option);
+     * whiteGearedCipherBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteGearedCipher, cb, option);
      * </pre>
      * @param whiteGearedCipher The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteGearedCipher. (NotNull)
@@ -1007,8 +1002,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteGearedCipher whiteGearedCipher, WhiteGearedCipherCB cb, WOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> opLambda) {
-        return doQueryUpdate(whiteGearedCipher, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteGearedCipher whiteGearedCipher, WhiteGearedCipherCB cb, WritableOptionCall<WhiteGearedCipherCB, UpdateOption<WhiteGearedCipherCB>> opLambda) {
+        return doQueryUpdate(whiteGearedCipher, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1020,8 +1015,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteGearedCipherCB> cbLambda, WOptionCall<WhiteGearedCipherCB, DeleteOption<WhiteGearedCipherCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteGearedCipherCB> cbLambda, WritableOptionCall<WhiteGearedCipherCB, DeleteOption<WhiteGearedCipherCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1033,8 +1028,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteGearedCipherCB cb, WOptionCall<WhiteGearedCipherCB, DeleteOption<WhiteGearedCipherCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteGearedCipherCB cb, WritableOptionCall<WhiteGearedCipherCB, DeleteOption<WhiteGearedCipherCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1070,7 +1065,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      */
     public OutsideSqlBasicExecutor<WhiteGearedCipherBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteGearedCipherBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

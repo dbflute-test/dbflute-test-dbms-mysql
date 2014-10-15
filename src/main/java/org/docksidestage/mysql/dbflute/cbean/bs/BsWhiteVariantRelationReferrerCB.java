@@ -227,7 +227,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
      *     public void query(WhiteVariantRelationReferrerCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -246,7 +246,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
      *     public void query(WhiteVariantRelationReferrerCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -273,10 +273,10 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
      * <pre>
      * WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteVariantRelationMasterFooAsVariant()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterFooAsVariant()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteVariantRelationReferrer whiteVariantRelationReferrer = whiteVariantRelationReferrerBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteVariantRelationReferrer.<span style="color: #DD4747">getWhiteVariantRelationMasterFooAsVariant()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteVariantRelationReferrer.<span style="color: #CC4747">getWhiteVariantRelationMasterFooAsVariant()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -296,10 +296,10 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
      * <pre>
      * WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteVariantRelationMasterBarAsVariant()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterBarAsVariant()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteVariantRelationReferrer whiteVariantRelationReferrer = whiteVariantRelationReferrerBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteVariantRelationReferrer.<span style="color: #DD4747">getWhiteVariantRelationMasterBarAsVariant()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteVariantRelationReferrer.<span style="color: #CC4747">getWhiteVariantRelationMasterBarAsVariant()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_WhiteVariantRelationMasterBarAsVariant() {
@@ -315,10 +315,10 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
      * <pre>
      * WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteVariantRelationMasterQuxAsVariantByQue()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterQuxAsVariantByQue()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteVariantRelationReferrer whiteVariantRelationReferrer = whiteVariantRelationReferrerBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteVariantRelationReferrer.<span style="color: #DD4747">getWhiteVariantRelationMasterQuxAsVariantByQue()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteVariantRelationReferrer.<span style="color: #CC4747">getWhiteVariantRelationMasterQuxAsVariantByQue()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_WhiteVariantRelationMasterQuxAsVariantByQue() {
@@ -334,10 +334,10 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
      * <pre>
      * WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteVariantRelationReferrer whiteVariantRelationReferrer = whiteVariantRelationReferrerBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteVariantRelationReferrer.<span style="color: #DD4747">getWhiteVariantRelationMasterCorgeAsVariantByQuxType()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteVariantRelationReferrer.<span style="color: #CC4747">getWhiteVariantRelationMasterCorgeAsVariantByQuxType()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @param quxType The bind parameter of fixed condition for quxType. (NotNull)
      */
@@ -378,7 +378,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhiteVariantRelationReferrerCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -397,8 +397,8 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         protected WhiteVariantRelationMasterCorgeCB.HpSpecification _whiteVariantRelationMasterCorgeAsVariantByQuxType;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteVariantRelationReferrerCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * REFERRER_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
@@ -449,7 +449,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
                 _whiteVariantRelationMasterFooAsVariant = new WhiteVariantRelationMasterFooCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteVariantRelationMasterFooCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationMasterFooAsVariant(); }
                     public WhiteVariantRelationMasterFooCQ qy() { return _qyCall.qy().queryWhiteVariantRelationMasterFooAsVariant(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteVariantRelationMasterFooAsVariant.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterFooCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationMasterFooAsVariant(); }
@@ -470,7 +470,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
                 _whiteVariantRelationMasterBarAsVariant = new WhiteVariantRelationMasterBarCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteVariantRelationMasterBarCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationMasterBarAsVariant(); }
                     public WhiteVariantRelationMasterBarCQ qy() { return _qyCall.qy().queryWhiteVariantRelationMasterBarAsVariant(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteVariantRelationMasterBarAsVariant.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterBarCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationMasterBarAsVariant(); }
@@ -491,7 +491,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
                 _whiteVariantRelationMasterQuxAsVariantByQue = new WhiteVariantRelationMasterQuxCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteVariantRelationMasterQuxCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationMasterQuxAsVariantByQue(); }
                     public WhiteVariantRelationMasterQuxCQ qy() { return _qyCall.qy().queryWhiteVariantRelationMasterQuxAsVariantByQue(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteVariantRelationMasterQuxAsVariantByQue.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterQuxCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationMasterQuxAsVariantByQue(); }
@@ -513,7 +513,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
                 _whiteVariantRelationMasterCorgeAsVariantByQuxType = new WhiteVariantRelationMasterCorgeCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
                     public WhiteVariantRelationMasterCorgeCQ qy() { return _qyCall.qy().queryWhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteVariantRelationMasterCorgeAsVariantByQuxType.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
@@ -534,7 +534,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
                 _whiteVariantRelationMasterCorgeAsVariantByQuxType = new WhiteVariantRelationMasterCorgeCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
                     public WhiteVariantRelationMasterCorgeCQ qy() { return _qyCall.qy().getConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteVariantRelationMasterCorgeAsVariantByQuxType.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
@@ -549,16 +549,14 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
          * {select max(FOO) from white_variant_relation_referrer_ref where ...) as FOO_MAX} <br />
          * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhiteVariantRelationReferrerRefList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhiteVariantRelationReferrerRefCB&gt;() {
-         *     public void query(WhiteVariantRelationReferrerRefCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhiteVariantRelationReferrerRef.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+         *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteVariantRelationReferrerRef.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteVariantRelationReferrerRefCB, WhiteVariantRelationReferrerCQ> derivedWhiteVariantRelationReferrerRefList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationReferrerRefCB, WhiteVariantRelationReferrerCQ> derivedWhiteVariantRelationReferrerRefList() {
             assertDerived("whiteVariantRelationReferrerRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteVariantRelationReferrerRefCB, WhiteVariantRelationReferrerCQ>() {
                 public void setup(String fn, SubQuery<WhiteVariantRelationReferrerRefCB> sq, WhiteVariantRelationReferrerCQ cq, String al, DerivedReferrerOption op) {
@@ -568,12 +566,20 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrerCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrerCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrerCQ>() {
                 public void setup(String fn, SubQuery<WhiteVariantRelationReferrerCB> sq, WhiteVariantRelationReferrerCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -584,13 +590,13 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
      *     public void query(WhiteVariantRelationReferrerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
      *     public void query(WhiteVariantRelationReferrerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -638,7 +644,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
      *     public void query(WhiteVariantRelationReferrerCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -656,10 +662,10 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
      *     public void query(WhiteVariantRelationReferrerCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
      *             public void query(WhiteVariantRelationReferrerCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

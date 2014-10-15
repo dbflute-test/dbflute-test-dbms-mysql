@@ -226,7 +226,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
      *     public void query(WhiteAllInOneClsCategoryCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -245,7 +245,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
      *     public void query(WhiteAllInOneClsCategoryCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -291,7 +291,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhiteAllInOneClsCategoryCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -306,8 +306,8 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
     public static class HpSpecification extends HpAbstractSpecification<WhiteAllInOneClsCategoryCQ> {
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteAllInOneClsCategoryCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
@@ -336,16 +336,14 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
          * {select max(FOO) from white_all_in_one_cls_element where ...) as FOO_MAX} <br />
          * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhiteAllInOneClsElementList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
-         *     public void query(WhiteAllInOneClsElementCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhiteAllInOneClsElement.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(elementCB -&gt; {
+         *     elementCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     elementCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteAllInOneClsElement.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteAllInOneClsElementCB, WhiteAllInOneClsCategoryCQ> derivedWhiteAllInOneClsElementList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteAllInOneClsElementCB, WhiteAllInOneClsCategoryCQ> derivedWhiteAllInOneClsElementList() {
             assertDerived("whiteAllInOneClsElementList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteAllInOneClsElementCB, WhiteAllInOneClsCategoryCQ>() {
                 public void setup(String fn, SubQuery<WhiteAllInOneClsElementCB> sq, WhiteAllInOneClsCategoryCQ cq, String al, DerivedReferrerOption op) {
@@ -355,12 +353,20 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhiteAllInOneClsCategoryCB, WhiteAllInOneClsCategoryCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteAllInOneClsCategoryCB, WhiteAllInOneClsCategoryCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteAllInOneClsCategoryCB, WhiteAllInOneClsCategoryCQ>() {
                 public void setup(String fn, SubQuery<WhiteAllInOneClsCategoryCB> sq, WhiteAllInOneClsCategoryCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -371,13 +377,13 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
      *     public void query(WhiteAllInOneClsCategoryCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
      *     public void query(WhiteAllInOneClsCategoryCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -425,7 +431,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
      *     public void query(WhiteAllInOneClsCategoryCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -443,10 +449,10 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
      *     public void query(WhiteAllInOneClsCategoryCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
      *             public void query(WhiteAllInOneClsCategoryCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

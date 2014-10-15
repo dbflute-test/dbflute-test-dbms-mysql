@@ -95,13 +95,13 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * int count = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoBar. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<VendorConstraintNameAutoBarCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * int count = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of VendorConstraintNameAutoBar. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;VendorConstraintNameAutoBar&gt; entity = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(vendorConstraintNameAutoBar -&gt; {
-     *     ...
+     * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(vendorConstraintNameAutoBar -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = vendorConstraintNameAutoBar.get...
      * });
-     * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(vendorConstraintNameAutoBar -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(vendorConstraintNameAutoBar -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = vendorConstraintNameAutoBar.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     VendorConstraintNameAutoBar vendorConstraintNameAutoBar = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoBar. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<VendorConstraintNameAutoBar> selectEntity(CBCall<VendorConstraintNameAutoBarCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;VendorConstraintNameAutoBar&gt; entity = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(vendorConstraintNameAutoBar -&gt; {
-     *     ...
+     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(vendorConstraintNameAutoBar -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = vendorConstraintNameAutoBar.get...
      * });
-     * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(vendorConstraintNameAutoBar -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(vendorConstraintNameAutoBar -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = vendorConstraintNameAutoBar.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     VendorConstraintNameAutoBar vendorConstraintNameAutoBar = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of VendorConstraintNameAutoBar. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorConstraintNameAutoBar.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoBar. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorConstraintNameAutoBar selectEntityWithDeletedCheck(CBCall<VendorConstraintNameAutoBarCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorConstraintNameAutoBar.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of VendorConstraintNameAutoBar. (NotNull)
@@ -302,20 +297,20 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     /**
      * Select the list as result bean.
      * <pre>
-     * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;VendorConstraintNameAutoBar&gt; vendorConstraintNameAutoBarList = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (VendorConstraintNameAutoBar vendorConstraintNameAutoBar : vendorConstraintNameAutoBarList) {
+     * ListResultBean&lt;VendorConstraintNameAutoBar&gt; vendorConstraintNameAutoBarList = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * vendorConstraintNameAutoBarList.forEach(vendorConstraintNameAutoBar -&gt; {
      *     ... = vendorConstraintNameAutoBar.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoBar. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<VendorConstraintNameAutoBar> selectList(CBCall<VendorConstraintNameAutoBarCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -324,7 +319,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;VendorConstraintNameAutoBar&gt; vendorConstraintNameAutoBarList = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;VendorConstraintNameAutoBar&gt; vendorConstraintNameAutoBarList = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (VendorConstraintNameAutoBar vendorConstraintNameAutoBar : vendorConstraintNameAutoBarList) {
      *     ... = vendorConstraintNameAutoBar.get...();
      * }
@@ -350,8 +345,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorConstraintNameAutoBar&gt; page = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;VendorConstraintNameAutoBar&gt; page = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -366,7 +361,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<VendorConstraintNameAutoBar> selectPage(CBCall<VendorConstraintNameAutoBarCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -376,8 +371,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorConstraintNameAutoBar&gt; page = vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;VendorConstraintNameAutoBar&gt; page = vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -403,7 +398,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorConstraintNameAutoBar&gt;() {
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorConstraintNameAutoBar&gt;() {
      *     public void handle(VendorConstraintNameAutoBar entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -413,7 +408,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @param entityLambda The handler of entity row of VendorConstraintNameAutoBar. (NotNull)
      */
     public void selectCursor(CBCall<VendorConstraintNameAutoBarCB> cbLambda, EntityRowHandler<VendorConstraintNameAutoBar> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -421,7 +416,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorConstraintNameAutoBar&gt;() {
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorConstraintNameAutoBar&gt;() {
      *     public void handle(VendorConstraintNameAutoBar entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -441,9 +436,9 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(VendorConstraintNameAutoBarCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -474,8 +469,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -488,7 +483,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -510,8 +505,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -524,7 +519,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -544,7 +539,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * Load referrer of vendorConstraintNameAutoRefList by the set-upper of referrer. <br />
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoRefList'.
      * <pre>
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">loadVendorConstraintNameAutoRefList</span>(vendorConstraintNameAutoBarList, refCB -&gt; {
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">loadVendorConstraintNameAutoRefList</span>(vendorConstraintNameAutoBarList, refCB -&gt; {
      *     refCB.setupSelect...();
      *     refCB.query().setFoo...(value);
      *     refCB.query().addOrderBy_Bar...();
@@ -553,7 +548,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (VendorConstraintNameAutoBar vendorConstraintNameAutoBar : vendorConstraintNameAutoBarList) {
-     *     ... = vendorConstraintNameAutoBar.<span style="color: #DD4747">getVendorConstraintNameAutoRefList()</span>;
+     *     ... = vendorConstraintNameAutoBar.<span style="color: #CC4747">getVendorConstraintNameAutoRefList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -575,7 +570,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * Load referrer of vendorConstraintNameAutoRefList by the set-upper of referrer. <br />
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoRefList'.
      * <pre>
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">loadVendorConstraintNameAutoRefList</span>(vendorConstraintNameAutoBarList, refCB -&gt; {
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">loadVendorConstraintNameAutoRefList</span>(vendorConstraintNameAutoBarList, refCB -&gt; {
      *     refCB.setupSelect...();
      *     refCB.query().setFoo...(value);
      *     refCB.query().addOrderBy_Bar...();
@@ -583,7 +578,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = vendorConstraintNameAutoBar.<span style="color: #DD4747">getVendorConstraintNameAutoRefList()</span>;
+     * ... = vendorConstraintNameAutoBar.<span style="color: #CC4747">getVendorConstraintNameAutoRefList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -663,7 +658,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoBar.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoBar.set...;</span>
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">insert</span>(vendorConstraintNameAutoBar);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">insert</span>(vendorConstraintNameAutoBar);
      * ... = vendorConstraintNameAutoBar.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -684,9 +679,9 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoBar.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoBar.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorConstraintNameAutoBar.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorConstraintNameAutoBar.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">update</span>(vendorConstraintNameAutoBar);
+     *     vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">update</span>(vendorConstraintNameAutoBar);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -703,7 +698,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param vendorConstraintNameAutoBar The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -719,9 +714,9 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * VendorConstraintNameAutoBar vendorConstraintNameAutoBar = new VendorConstraintNameAutoBar();
      * vendorConstraintNameAutoBar.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorConstraintNameAutoBar.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorConstraintNameAutoBar.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">delete</span>(vendorConstraintNameAutoBar);
+     *     vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">delete</span>(vendorConstraintNameAutoBar);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -740,7 +735,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     VendorConstraintNameAutoBar vendorConstraintNameAutoBar = new VendorConstraintNameAutoBar();
@@ -753,7 +748,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     vendorConstraintNameAutoBarList.add(vendorConstraintNameAutoBar);
      * }
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">batchInsert</span>(vendorConstraintNameAutoBarList);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">batchInsert</span>(vendorConstraintNameAutoBarList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -768,7 +763,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     VendorConstraintNameAutoBar vendorConstraintNameAutoBar = new VendorConstraintNameAutoBar();
@@ -783,7 +778,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     vendorConstraintNameAutoBarList.add(vendorConstraintNameAutoBar);
      * }
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">batchUpdate</span>(vendorConstraintNameAutoBarList);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">batchUpdate</span>(vendorConstraintNameAutoBarList);
      * </pre>
      * @param vendorConstraintNameAutoBarList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -810,7 +805,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorConstraintNameAutoBar, VendorConstraintNameAutoBarCB&gt;() {
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorConstraintNameAutoBar, VendorConstraintNameAutoBarCB&gt;() {
      *     public ConditionBean setup(VendorConstraintNameAutoBar entity, VendorConstraintNameAutoBarCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -852,7 +847,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoBar.setVersionNo(value);</span>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">queryUpdate</span>(vendorConstraintNameAutoBar, cb);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">queryUpdate</span>(vendorConstraintNameAutoBar, cb);
      * </pre>
      * @param vendorConstraintNameAutoBar The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoBar. (NotNull)
@@ -860,7 +855,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, CBCall<VendorConstraintNameAutoBarCB> cbLambda) {
-        return doQueryUpdate(vendorConstraintNameAutoBar, handleCBCall(cbLambda), null);
+        return doQueryUpdate(vendorConstraintNameAutoBar, createCB(cbLambda), null);
     }
 
     /**
@@ -878,7 +873,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoBar.setVersionNo(value);</span>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">queryUpdate</span>(vendorConstraintNameAutoBar, cb);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">queryUpdate</span>(vendorConstraintNameAutoBar, cb);
      * </pre>
      * @param vendorConstraintNameAutoBar The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of VendorConstraintNameAutoBar. (NotNull)
@@ -894,14 +889,14 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">queryDelete</span>(vendorConstraintNameAutoBar, cb);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">queryDelete</span>(vendorConstraintNameAutoBar, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoBar. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<VendorConstraintNameAutoBarCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -909,7 +904,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * <pre>
      * VendorConstraintNameAutoBarCB cb = new VendorConstraintNameAutoBarCB();
      * cb.query().setFoo...(value);
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">queryDelete</span>(vendorConstraintNameAutoBar, cb);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">queryDelete</span>(vendorConstraintNameAutoBar, cb);
      * </pre>
      * @param cb The condition-bean of VendorConstraintNameAutoBar. (NotNull)
      * @return The deleted count.
@@ -937,15 +932,15 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * InsertOption<VendorConstraintNameAutoBarCB> option = new InsertOption<VendorConstraintNameAutoBarCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">varyingInsert</span>(vendorConstraintNameAutoBar, option);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">varyingInsert</span>(vendorConstraintNameAutoBar, option);
      * ... = vendorConstraintNameAutoBar.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendorConstraintNameAutoBar The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, WOptionCall<VendorConstraintNameAutoBarCB, InsertOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        doInsert(vendorConstraintNameAutoBar, handleInsertOpCall(opLambda));
+    public void varyingInsert(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, WritableOptionCall<VendorConstraintNameAutoBarCB, InsertOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        doInsert(vendorConstraintNameAutoBar, createInsertOption(opLambda));
     }
 
     /**
@@ -957,16 +952,16 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * vendorConstraintNameAutoBar.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * vendorConstraintNameAutoBar.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorConstraintNameAutoBar.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorConstraintNameAutoBar.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;VendorConstraintNameAutoBarCB&gt; option = new UpdateOption&lt;VendorConstraintNameAutoBarCB&gt;();
      *     option.self(new SpecifyQuery&lt;VendorConstraintNameAutoBarCB&gt;() {
      *         public void specify(VendorConstraintNameAutoBarCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">varyingUpdate</span>(vendorConstraintNameAutoBar, option);
+     *     vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">varyingUpdate</span>(vendorConstraintNameAutoBar, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -977,8 +972,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, WOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        doUpdate(vendorConstraintNameAutoBar, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, WritableOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        doUpdate(vendorConstraintNameAutoBar, createUpdateOption(opLambda));
     }
 
     /**
@@ -991,8 +986,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, WOptionCall<VendorConstraintNameAutoBarCB, InsertOption<VendorConstraintNameAutoBarCB>> insertOpLambda, WOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> updateOpLambda) {
-        doInsertOrUpdate(vendorConstraintNameAutoBar, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, WritableOptionCall<VendorConstraintNameAutoBarCB, InsertOption<VendorConstraintNameAutoBarCB>> insertOpLambda, WritableOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> updateOpLambda) {
+        doInsertOrUpdate(vendorConstraintNameAutoBar, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -1004,8 +999,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, WOptionCall<VendorConstraintNameAutoBarCB, DeleteOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        doDelete(vendorConstraintNameAutoBar, handleDeleteOpCall(opLambda));
+    public void varyingDelete(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, WritableOptionCall<VendorConstraintNameAutoBarCB, DeleteOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        doDelete(vendorConstraintNameAutoBar, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1020,8 +1015,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<VendorConstraintNameAutoBar> vendorConstraintNameAutoBarList, WOptionCall<VendorConstraintNameAutoBarCB, InsertOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        return doBatchInsert(vendorConstraintNameAutoBarList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<VendorConstraintNameAutoBar> vendorConstraintNameAutoBarList, WritableOptionCall<VendorConstraintNameAutoBarCB, InsertOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        return doBatchInsert(vendorConstraintNameAutoBarList, createInsertOption(opLambda));
     }
 
     /**
@@ -1033,8 +1028,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<VendorConstraintNameAutoBar> vendorConstraintNameAutoBarList, WOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        return doBatchUpdate(vendorConstraintNameAutoBarList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<VendorConstraintNameAutoBar> vendorConstraintNameAutoBarList, WritableOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        return doBatchUpdate(vendorConstraintNameAutoBarList, createUpdateOption(opLambda));
     }
 
     /**
@@ -1045,8 +1040,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<VendorConstraintNameAutoBar> vendorConstraintNameAutoBarList, WOptionCall<VendorConstraintNameAutoBarCB, DeleteOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        return doBatchDelete(vendorConstraintNameAutoBarList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<VendorConstraintNameAutoBar> vendorConstraintNameAutoBarList, WritableOptionCall<VendorConstraintNameAutoBarCB, DeleteOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        return doBatchDelete(vendorConstraintNameAutoBarList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1060,8 +1055,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<VendorConstraintNameAutoBar, VendorConstraintNameAutoBarCB> manyArgLambda, WOptionCall<VendorConstraintNameAutoBarCB, InsertOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<VendorConstraintNameAutoBar, VendorConstraintNameAutoBarCB> manyArgLambda, WritableOptionCall<VendorConstraintNameAutoBarCB, InsertOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -1083,10 +1078,10 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * UpdateOption&lt;VendorConstraintNameAutoBarCB&gt; option = new UpdateOption&lt;VendorConstraintNameAutoBarCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorConstraintNameAutoBarCB&gt;() {
      *     public void specify(VendorConstraintNameAutoBarCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(vendorConstraintNameAutoBar, cb, option);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorConstraintNameAutoBar, cb, option);
      * </pre>
      * @param vendorConstraintNameAutoBar The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoBar. (NotNull)
@@ -1094,8 +1089,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, CBCall<VendorConstraintNameAutoBarCB> cbLambda, WOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        return doQueryUpdate(vendorConstraintNameAutoBar, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, CBCall<VendorConstraintNameAutoBarCB> cbLambda, WritableOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        return doQueryUpdate(vendorConstraintNameAutoBar, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1117,10 +1112,10 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * UpdateOption&lt;VendorConstraintNameAutoBarCB&gt; option = new UpdateOption&lt;VendorConstraintNameAutoBarCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorConstraintNameAutoBarCB&gt;() {
      *     public void specify(VendorConstraintNameAutoBarCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorConstraintNameAutoBarBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(vendorConstraintNameAutoBar, cb, option);
+     * vendorConstraintNameAutoBarBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorConstraintNameAutoBar, cb, option);
      * </pre>
      * @param vendorConstraintNameAutoBar The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of VendorConstraintNameAutoBar. (NotNull)
@@ -1128,8 +1123,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, VendorConstraintNameAutoBarCB cb, WOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        return doQueryUpdate(vendorConstraintNameAutoBar, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(VendorConstraintNameAutoBar vendorConstraintNameAutoBar, VendorConstraintNameAutoBarCB cb, WritableOptionCall<VendorConstraintNameAutoBarCB, UpdateOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        return doQueryUpdate(vendorConstraintNameAutoBar, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1141,8 +1136,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<VendorConstraintNameAutoBarCB> cbLambda, WOptionCall<VendorConstraintNameAutoBarCB, DeleteOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<VendorConstraintNameAutoBarCB> cbLambda, WritableOptionCall<VendorConstraintNameAutoBarCB, DeleteOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1154,8 +1149,8 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(VendorConstraintNameAutoBarCB cb, WOptionCall<VendorConstraintNameAutoBarCB, DeleteOption<VendorConstraintNameAutoBarCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(VendorConstraintNameAutoBarCB cb, WritableOptionCall<VendorConstraintNameAutoBarCB, DeleteOption<VendorConstraintNameAutoBarCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1191,7 +1186,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
      */
     public OutsideSqlBasicExecutor<VendorConstraintNameAutoBarBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<VendorConstraintNameAutoBarBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

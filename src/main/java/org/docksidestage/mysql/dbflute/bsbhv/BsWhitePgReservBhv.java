@@ -95,13 +95,13 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * int count = whitePgReservBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whitePgReservBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhitePgReservCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * int count = whitePgReservBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whitePgReservBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhitePgReserv. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhitePgReservCB cb = new WhitePgReservCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhitePgReserv&gt; entity = whitePgReservBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whitePgReserv -&gt; {
-     *     ...
+     * WhitePgReserv whitePgReserv = whitePgReservBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whitePgReserv -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whitePgReserv.get...
      * });
-     * WhitePgReserv whitePgReserv = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whitePgReserv -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhitePgReserv whitePgReserv = whitePgReservBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whitePgReserv -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whitePgReserv.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhitePgReserv whitePgReserv = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhitePgReserv> selectEntity(CBCall<WhitePgReservCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhitePgReserv&gt; entity = whitePgReservBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whitePgReserv -&gt; {
-     *     ...
+     * whitePgReservBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whitePgReserv -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whitePgReserv.get...
      * });
-     * WhitePgReserv whitePgReserv = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whitePgReserv -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whitePgReservBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whitePgReserv -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whitePgReserv.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhitePgReserv whitePgReserv = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhitePgReserv. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * WhitePgReserv whitePgReserv = whitePgReservBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhitePgReserv whitePgReserv = whitePgReservBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whitePgReserv.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhitePgReserv selectEntityWithDeletedCheck(CBCall<WhitePgReservCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * WhitePgReserv whitePgReserv = whitePgReservBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhitePgReserv whitePgReserv = whitePgReservBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whitePgReserv.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhitePgReserv. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Select the list as result bean.
      * <pre>
-     * WhitePgReservCB cb = new WhitePgReservCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhitePgReserv&gt; whitePgReservList = whitePgReservBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhitePgReserv whitePgReserv : whitePgReservList) {
+     * ListResultBean&lt;WhitePgReserv&gt; whitePgReservList = whitePgReservBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whitePgReservList.forEach(whitePgReserv -&gt; {
      *     ... = whitePgReserv.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhitePgReserv> selectList(CBCall<WhitePgReservCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhitePgReserv&gt; whitePgReservList = whitePgReservBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhitePgReserv&gt; whitePgReservList = whitePgReservBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhitePgReserv whitePgReserv : whitePgReservList) {
      *     ... = whitePgReserv.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhitePgReserv&gt; page = whitePgReservBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhitePgReserv&gt; page = whitePgReservBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhitePgReserv> selectPage(CBCall<WhitePgReservCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhitePgReserv&gt; page = whitePgReservBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhitePgReserv&gt; page = whitePgReservBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * whitePgReservBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePgReserv&gt;() {
+     * whitePgReservBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePgReserv&gt;() {
      *     public void handle(WhitePgReserv entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param entityLambda The handler of entity row of WhitePgReserv. (NotNull)
      */
     public void selectCursor(CBCall<WhitePgReservCB> cbLambda, EntityRowHandler<WhitePgReserv> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * whitePgReservBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePgReserv&gt;() {
+     * whitePgReservBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePgReserv&gt;() {
      *     public void handle(WhitePgReserv entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whitePgReservBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whitePgReservBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhitePgReservCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -519,7 +514,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br />
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
      * <pre>
-     * whitePgReservBhv.<span style="color: #DD4747">loadWhitePgReservRefList</span>(whitePgReservList, refCB -&gt; {
+     * whitePgReservBhv.<span style="color: #CC4747">loadWhitePgReservRefList</span>(whitePgReservList, refCB -&gt; {
      *     refCB.setupSelect...();
      *     refCB.query().setFoo...(value);
      *     refCB.query().addOrderBy_Bar...();
@@ -528,7 +523,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (WhitePgReserv whitePgReserv : whitePgReservList) {
-     *     ... = whitePgReserv.<span style="color: #DD4747">getWhitePgReservRefList()</span>;
+     *     ... = whitePgReserv.<span style="color: #CC4747">getWhitePgReservRefList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -550,7 +545,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br />
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
      * <pre>
-     * whitePgReservBhv.<span style="color: #DD4747">loadWhitePgReservRefList</span>(whitePgReservList, refCB -&gt; {
+     * whitePgReservBhv.<span style="color: #CC4747">loadWhitePgReservRefList</span>(whitePgReservList, refCB -&gt; {
      *     refCB.setupSelect...();
      *     refCB.query().setFoo...(value);
      *     refCB.query().addOrderBy_Bar...();
@@ -558,7 +553,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = whitePgReserv.<span style="color: #DD4747">getWhitePgReservRefList()</span>;
+     * ... = whitePgReserv.<span style="color: #CC4747">getWhitePgReservRefList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -630,7 +625,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whitePgReserv.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whitePgReserv.set...;</span>
-     * whitePgReservBhv.<span style="color: #DD4747">insert</span>(whitePgReserv);
+     * whitePgReservBhv.<span style="color: #CC4747">insert</span>(whitePgReserv);
      * ... = whitePgReserv.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -651,9 +646,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">//whitePgReserv.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whitePgReserv.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whitePgReserv.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whitePgReserv.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whitePgReservBhv.<span style="color: #DD4747">update</span>(whitePgReserv);
+     *     whitePgReservBhv.<span style="color: #CC4747">update</span>(whitePgReserv);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -670,7 +665,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whitePgReserv The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -686,9 +681,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * WhitePgReserv whitePgReserv = new WhitePgReserv();
      * whitePgReserv.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whitePgReserv.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whitePgReserv.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whitePgReservBhv.<span style="color: #DD4747">delete</span>(whitePgReserv);
+     *     whitePgReservBhv.<span style="color: #CC4747">delete</span>(whitePgReserv);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -707,7 +702,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhitePgReserv whitePgReserv = new WhitePgReserv();
@@ -720,7 +715,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whitePgReservList.add(whitePgReserv);
      * }
-     * whitePgReservBhv.<span style="color: #DD4747">batchInsert</span>(whitePgReservList);
+     * whitePgReservBhv.<span style="color: #CC4747">batchInsert</span>(whitePgReservList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -735,7 +730,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhitePgReserv whitePgReserv = new WhitePgReserv();
@@ -750,7 +745,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whitePgReservList.add(whitePgReserv);
      * }
-     * whitePgReservBhv.<span style="color: #DD4747">batchUpdate</span>(whitePgReservList);
+     * whitePgReservBhv.<span style="color: #CC4747">batchUpdate</span>(whitePgReservList);
      * </pre>
      * @param whitePgReservList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -777,7 +772,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whitePgReservBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhitePgReserv, WhitePgReservCB&gt;() {
+     * whitePgReservBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhitePgReserv, WhitePgReservCB&gt;() {
      *     public ConditionBean setup(WhitePgReserv entity, WhitePgReservCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -819,7 +814,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">//whitePgReserv.setVersionNo(value);</span>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * whitePgReservBhv.<span style="color: #DD4747">queryUpdate</span>(whitePgReserv, cb);
+     * whitePgReservBhv.<span style="color: #CC4747">queryUpdate</span>(whitePgReserv, cb);
      * </pre>
      * @param whitePgReserv The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
@@ -827,7 +822,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhitePgReserv whitePgReserv, CBCall<WhitePgReservCB> cbLambda) {
-        return doQueryUpdate(whitePgReserv, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whitePgReserv, createCB(cbLambda), null);
     }
 
     /**
@@ -845,7 +840,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">//whitePgReserv.setVersionNo(value);</span>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * whitePgReservBhv.<span style="color: #DD4747">queryUpdate</span>(whitePgReserv, cb);
+     * whitePgReservBhv.<span style="color: #CC4747">queryUpdate</span>(whitePgReserv, cb);
      * </pre>
      * @param whitePgReserv The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhitePgReserv. (NotNull)
@@ -861,14 +856,14 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * whitePgReservBhv.<span style="color: #DD4747">queryDelete</span>(whitePgReserv, cb);
+     * whitePgReservBhv.<span style="color: #CC4747">queryDelete</span>(whitePgReserv, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhitePgReservCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -876,7 +871,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <pre>
      * WhitePgReservCB cb = new WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * whitePgReservBhv.<span style="color: #DD4747">queryDelete</span>(whitePgReserv, cb);
+     * whitePgReservBhv.<span style="color: #CC4747">queryDelete</span>(whitePgReserv, cb);
      * </pre>
      * @param cb The condition-bean of WhitePgReserv. (NotNull)
      * @return The deleted count.
@@ -904,15 +899,15 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * InsertOption<WhitePgReservCB> option = new InsertOption<WhitePgReservCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whitePgReservBhv.<span style="color: #DD4747">varyingInsert</span>(whitePgReserv, option);
+     * whitePgReservBhv.<span style="color: #CC4747">varyingInsert</span>(whitePgReserv, option);
      * ... = whitePgReserv.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whitePgReserv The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhitePgReserv whitePgReserv, WOptionCall<WhitePgReservCB, InsertOption<WhitePgReservCB>> opLambda) {
-        doInsert(whitePgReserv, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhitePgReserv whitePgReserv, WritableOptionCall<WhitePgReservCB, InsertOption<WhitePgReservCB>> opLambda) {
+        doInsert(whitePgReserv, createInsertOption(opLambda));
     }
 
     /**
@@ -924,16 +919,16 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * whitePgReserv.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whitePgReserv.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whitePgReserv.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whitePgReserv.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhitePgReservCB&gt; option = new UpdateOption&lt;WhitePgReservCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhitePgReservCB&gt;() {
      *         public void specify(WhitePgReservCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whitePgReservBhv.<span style="color: #DD4747">varyingUpdate</span>(whitePgReserv, option);
+     *     whitePgReservBhv.<span style="color: #CC4747">varyingUpdate</span>(whitePgReserv, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -944,8 +939,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhitePgReserv whitePgReserv, WOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> opLambda) {
-        doUpdate(whitePgReserv, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhitePgReserv whitePgReserv, WritableOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> opLambda) {
+        doUpdate(whitePgReserv, createUpdateOption(opLambda));
     }
 
     /**
@@ -958,8 +953,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhitePgReserv whitePgReserv, WOptionCall<WhitePgReservCB, InsertOption<WhitePgReservCB>> insertOpLambda, WOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> updateOpLambda) {
-        doInsertOrUpdate(whitePgReserv, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhitePgReserv whitePgReserv, WritableOptionCall<WhitePgReservCB, InsertOption<WhitePgReservCB>> insertOpLambda, WritableOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> updateOpLambda) {
+        doInsertOrUpdate(whitePgReserv, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -971,8 +966,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhitePgReserv whitePgReserv, WOptionCall<WhitePgReservCB, DeleteOption<WhitePgReservCB>> opLambda) {
-        doDelete(whitePgReserv, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhitePgReserv whitePgReserv, WritableOptionCall<WhitePgReservCB, DeleteOption<WhitePgReservCB>> opLambda) {
+        doDelete(whitePgReserv, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -987,8 +982,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhitePgReserv> whitePgReservList, WOptionCall<WhitePgReservCB, InsertOption<WhitePgReservCB>> opLambda) {
-        return doBatchInsert(whitePgReservList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhitePgReserv> whitePgReservList, WritableOptionCall<WhitePgReservCB, InsertOption<WhitePgReservCB>> opLambda) {
+        return doBatchInsert(whitePgReservList, createInsertOption(opLambda));
     }
 
     /**
@@ -1000,8 +995,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhitePgReserv> whitePgReservList, WOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> opLambda) {
-        return doBatchUpdate(whitePgReservList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhitePgReserv> whitePgReservList, WritableOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> opLambda) {
+        return doBatchUpdate(whitePgReservList, createUpdateOption(opLambda));
     }
 
     /**
@@ -1012,8 +1007,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhitePgReserv> whitePgReservList, WOptionCall<WhitePgReservCB, DeleteOption<WhitePgReservCB>> opLambda) {
-        return doBatchDelete(whitePgReservList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhitePgReserv> whitePgReservList, WritableOptionCall<WhitePgReservCB, DeleteOption<WhitePgReservCB>> opLambda) {
+        return doBatchDelete(whitePgReservList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1027,8 +1022,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhitePgReserv, WhitePgReservCB> manyArgLambda, WOptionCall<WhitePgReservCB, InsertOption<WhitePgReservCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhitePgReserv, WhitePgReservCB> manyArgLambda, WritableOptionCall<WhitePgReservCB, InsertOption<WhitePgReservCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -1050,10 +1045,10 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * UpdateOption&lt;WhitePgReservCB&gt; option = new UpdateOption&lt;WhitePgReservCB&gt;();
      * option.self(new SpecifyQuery&lt;WhitePgReservCB&gt;() {
      *     public void specify(WhitePgReservCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whitePgReservBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whitePgReserv, cb, option);
+     * whitePgReservBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePgReserv, cb, option);
      * </pre>
      * @param whitePgReserv The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
@@ -1061,8 +1056,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhitePgReserv whitePgReserv, CBCall<WhitePgReservCB> cbLambda, WOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> opLambda) {
-        return doQueryUpdate(whitePgReserv, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhitePgReserv whitePgReserv, CBCall<WhitePgReservCB> cbLambda, WritableOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> opLambda) {
+        return doQueryUpdate(whitePgReserv, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1084,10 +1079,10 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * UpdateOption&lt;WhitePgReservCB&gt; option = new UpdateOption&lt;WhitePgReservCB&gt;();
      * option.self(new SpecifyQuery&lt;WhitePgReservCB&gt;() {
      *     public void specify(WhitePgReservCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whitePgReservBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whitePgReserv, cb, option);
+     * whitePgReservBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePgReserv, cb, option);
      * </pre>
      * @param whitePgReserv The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhitePgReserv. (NotNull)
@@ -1095,8 +1090,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhitePgReserv whitePgReserv, WhitePgReservCB cb, WOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> opLambda) {
-        return doQueryUpdate(whitePgReserv, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhitePgReserv whitePgReserv, WhitePgReservCB cb, WritableOptionCall<WhitePgReservCB, UpdateOption<WhitePgReservCB>> opLambda) {
+        return doQueryUpdate(whitePgReserv, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1108,8 +1103,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhitePgReservCB> cbLambda, WOptionCall<WhitePgReservCB, DeleteOption<WhitePgReservCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhitePgReservCB> cbLambda, WritableOptionCall<WhitePgReservCB, DeleteOption<WhitePgReservCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1121,8 +1116,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhitePgReservCB cb, WOptionCall<WhitePgReservCB, DeleteOption<WhitePgReservCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhitePgReservCB cb, WritableOptionCall<WhitePgReservCB, DeleteOption<WhitePgReservCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1158,7 +1153,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      */
     public OutsideSqlBasicExecutor<WhitePgReservBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhitePgReservBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

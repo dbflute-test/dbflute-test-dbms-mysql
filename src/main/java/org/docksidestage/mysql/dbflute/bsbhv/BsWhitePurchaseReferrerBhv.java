@@ -95,13 +95,13 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * int count = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePurchaseReferrer. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhitePurchaseReferrerCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * int count = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhitePurchaseReferrer. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhitePurchaseReferrer&gt; entity = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whitePurchaseReferrer -&gt; {
-     *     ...
+     * WhitePurchaseReferrer whitePurchaseReferrer = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whitePurchaseReferrer -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whitePurchaseReferrer.get...
      * });
-     * WhitePurchaseReferrer whitePurchaseReferrer = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whitePurchaseReferrer -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhitePurchaseReferrer whitePurchaseReferrer = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whitePurchaseReferrer -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whitePurchaseReferrer.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhitePurchaseReferrer whitePurchaseReferrer = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePurchaseReferrer. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhitePurchaseReferrer> selectEntity(CBCall<WhitePurchaseReferrerCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhitePurchaseReferrer&gt; entity = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whitePurchaseReferrer -&gt; {
-     *     ...
+     * whitePurchaseReferrerBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whitePurchaseReferrer -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whitePurchaseReferrer.get...
      * });
-     * WhitePurchaseReferrer whitePurchaseReferrer = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whitePurchaseReferrer -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whitePurchaseReferrer -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whitePurchaseReferrer.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhitePurchaseReferrer whitePurchaseReferrer = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhitePurchaseReferrer. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * WhitePurchaseReferrer whitePurchaseReferrer = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhitePurchaseReferrer whitePurchaseReferrer = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whitePurchaseReferrer.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePurchaseReferrer. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhitePurchaseReferrer selectEntityWithDeletedCheck(CBCall<WhitePurchaseReferrerCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * WhitePurchaseReferrer whitePurchaseReferrer = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhitePurchaseReferrer whitePurchaseReferrer = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whitePurchaseReferrer.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhitePurchaseReferrer. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     /**
      * Select the list as result bean.
      * <pre>
-     * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhitePurchaseReferrer&gt; whitePurchaseReferrerList = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhitePurchaseReferrer whitePurchaseReferrer : whitePurchaseReferrerList) {
+     * ListResultBean&lt;WhitePurchaseReferrer&gt; whitePurchaseReferrerList = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whitePurchaseReferrerList.forEach(whitePurchaseReferrer -&gt; {
      *     ... = whitePurchaseReferrer.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePurchaseReferrer. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhitePurchaseReferrer> selectList(CBCall<WhitePurchaseReferrerCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhitePurchaseReferrer&gt; whitePurchaseReferrerList = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhitePurchaseReferrer&gt; whitePurchaseReferrerList = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhitePurchaseReferrer whitePurchaseReferrer : whitePurchaseReferrerList) {
      *     ... = whitePurchaseReferrer.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhitePurchaseReferrer&gt; page = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhitePurchaseReferrer&gt; page = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhitePurchaseReferrer> selectPage(CBCall<WhitePurchaseReferrerCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhitePurchaseReferrer&gt; page = whitePurchaseReferrerBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhitePurchaseReferrer&gt; page = whitePurchaseReferrerBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePurchaseReferrer&gt;() {
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePurchaseReferrer&gt;() {
      *     public void handle(WhitePurchaseReferrer entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @param entityLambda The handler of entity row of WhitePurchaseReferrer. (NotNull)
      */
     public void selectCursor(CBCall<WhitePurchaseReferrerCB> cbLambda, EntityRowHandler<WhitePurchaseReferrer> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePurchaseReferrer&gt;() {
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePurchaseReferrer&gt;() {
      *     public void handle(WhitePurchaseReferrer entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhitePurchaseReferrerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -550,7 +545,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whitePurchaseReferrer.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whitePurchaseReferrer.set...;</span>
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">insert</span>(whitePurchaseReferrer);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">insert</span>(whitePurchaseReferrer);
      * ... = whitePurchaseReferrer.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -571,9 +566,9 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whitePurchaseReferrer.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whitePurchaseReferrer.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whitePurchaseReferrer.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whitePurchaseReferrer.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whitePurchaseReferrerBhv.<span style="color: #DD4747">update</span>(whitePurchaseReferrer);
+     *     whitePurchaseReferrerBhv.<span style="color: #CC4747">update</span>(whitePurchaseReferrer);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -590,7 +585,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whitePurchaseReferrer The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -606,9 +601,9 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * WhitePurchaseReferrer whitePurchaseReferrer = new WhitePurchaseReferrer();
      * whitePurchaseReferrer.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whitePurchaseReferrer.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whitePurchaseReferrer.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whitePurchaseReferrerBhv.<span style="color: #DD4747">delete</span>(whitePurchaseReferrer);
+     *     whitePurchaseReferrerBhv.<span style="color: #CC4747">delete</span>(whitePurchaseReferrer);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -627,7 +622,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhitePurchaseReferrer whitePurchaseReferrer = new WhitePurchaseReferrer();
@@ -640,7 +635,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whitePurchaseReferrerList.add(whitePurchaseReferrer);
      * }
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">batchInsert</span>(whitePurchaseReferrerList);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">batchInsert</span>(whitePurchaseReferrerList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -655,7 +650,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhitePurchaseReferrer whitePurchaseReferrer = new WhitePurchaseReferrer();
@@ -670,7 +665,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whitePurchaseReferrerList.add(whitePurchaseReferrer);
      * }
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">batchUpdate</span>(whitePurchaseReferrerList);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">batchUpdate</span>(whitePurchaseReferrerList);
      * </pre>
      * @param whitePurchaseReferrerList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -697,7 +692,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhitePurchaseReferrer, WhitePurchaseReferrerCB&gt;() {
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhitePurchaseReferrer, WhitePurchaseReferrerCB&gt;() {
      *     public ConditionBean setup(WhitePurchaseReferrer entity, WhitePurchaseReferrerCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -739,7 +734,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whitePurchaseReferrer.setVersionNo(value);</span>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">queryUpdate</span>(whitePurchaseReferrer, cb);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">queryUpdate</span>(whitePurchaseReferrer, cb);
      * </pre>
      * @param whitePurchaseReferrer The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhitePurchaseReferrer. (NotNull)
@@ -747,7 +742,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhitePurchaseReferrer whitePurchaseReferrer, CBCall<WhitePurchaseReferrerCB> cbLambda) {
-        return doQueryUpdate(whitePurchaseReferrer, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whitePurchaseReferrer, createCB(cbLambda), null);
     }
 
     /**
@@ -765,7 +760,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whitePurchaseReferrer.setVersionNo(value);</span>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">queryUpdate</span>(whitePurchaseReferrer, cb);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">queryUpdate</span>(whitePurchaseReferrer, cb);
      * </pre>
      * @param whitePurchaseReferrer The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhitePurchaseReferrer. (NotNull)
@@ -781,14 +776,14 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">queryDelete</span>(whitePurchaseReferrer, cb);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">queryDelete</span>(whitePurchaseReferrer, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePurchaseReferrer. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhitePurchaseReferrerCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -796,7 +791,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
      * cb.query().setFoo...(value);
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">queryDelete</span>(whitePurchaseReferrer, cb);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">queryDelete</span>(whitePurchaseReferrer, cb);
      * </pre>
      * @param cb The condition-bean of WhitePurchaseReferrer. (NotNull)
      * @return The deleted count.
@@ -824,15 +819,15 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * InsertOption<WhitePurchaseReferrerCB> option = new InsertOption<WhitePurchaseReferrerCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">varyingInsert</span>(whitePurchaseReferrer, option);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">varyingInsert</span>(whitePurchaseReferrer, option);
      * ... = whitePurchaseReferrer.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whitePurchaseReferrer The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhitePurchaseReferrer whitePurchaseReferrer, WOptionCall<WhitePurchaseReferrerCB, InsertOption<WhitePurchaseReferrerCB>> opLambda) {
-        doInsert(whitePurchaseReferrer, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhitePurchaseReferrer whitePurchaseReferrer, WritableOptionCall<WhitePurchaseReferrerCB, InsertOption<WhitePurchaseReferrerCB>> opLambda) {
+        doInsert(whitePurchaseReferrer, createInsertOption(opLambda));
     }
 
     /**
@@ -844,16 +839,16 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * whitePurchaseReferrer.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whitePurchaseReferrer.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whitePurchaseReferrer.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whitePurchaseReferrer.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhitePurchaseReferrerCB&gt; option = new UpdateOption&lt;WhitePurchaseReferrerCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *         public void specify(WhitePurchaseReferrerCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whitePurchaseReferrerBhv.<span style="color: #DD4747">varyingUpdate</span>(whitePurchaseReferrer, option);
+     *     whitePurchaseReferrerBhv.<span style="color: #CC4747">varyingUpdate</span>(whitePurchaseReferrer, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -864,8 +859,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhitePurchaseReferrer whitePurchaseReferrer, WOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> opLambda) {
-        doUpdate(whitePurchaseReferrer, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhitePurchaseReferrer whitePurchaseReferrer, WritableOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> opLambda) {
+        doUpdate(whitePurchaseReferrer, createUpdateOption(opLambda));
     }
 
     /**
@@ -878,8 +873,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhitePurchaseReferrer whitePurchaseReferrer, WOptionCall<WhitePurchaseReferrerCB, InsertOption<WhitePurchaseReferrerCB>> insertOpLambda, WOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> updateOpLambda) {
-        doInsertOrUpdate(whitePurchaseReferrer, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhitePurchaseReferrer whitePurchaseReferrer, WritableOptionCall<WhitePurchaseReferrerCB, InsertOption<WhitePurchaseReferrerCB>> insertOpLambda, WritableOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> updateOpLambda) {
+        doInsertOrUpdate(whitePurchaseReferrer, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -891,8 +886,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhitePurchaseReferrer whitePurchaseReferrer, WOptionCall<WhitePurchaseReferrerCB, DeleteOption<WhitePurchaseReferrerCB>> opLambda) {
-        doDelete(whitePurchaseReferrer, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhitePurchaseReferrer whitePurchaseReferrer, WritableOptionCall<WhitePurchaseReferrerCB, DeleteOption<WhitePurchaseReferrerCB>> opLambda) {
+        doDelete(whitePurchaseReferrer, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -907,8 +902,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhitePurchaseReferrer> whitePurchaseReferrerList, WOptionCall<WhitePurchaseReferrerCB, InsertOption<WhitePurchaseReferrerCB>> opLambda) {
-        return doBatchInsert(whitePurchaseReferrerList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhitePurchaseReferrer> whitePurchaseReferrerList, WritableOptionCall<WhitePurchaseReferrerCB, InsertOption<WhitePurchaseReferrerCB>> opLambda) {
+        return doBatchInsert(whitePurchaseReferrerList, createInsertOption(opLambda));
     }
 
     /**
@@ -920,8 +915,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhitePurchaseReferrer> whitePurchaseReferrerList, WOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> opLambda) {
-        return doBatchUpdate(whitePurchaseReferrerList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhitePurchaseReferrer> whitePurchaseReferrerList, WritableOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> opLambda) {
+        return doBatchUpdate(whitePurchaseReferrerList, createUpdateOption(opLambda));
     }
 
     /**
@@ -932,8 +927,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhitePurchaseReferrer> whitePurchaseReferrerList, WOptionCall<WhitePurchaseReferrerCB, DeleteOption<WhitePurchaseReferrerCB>> opLambda) {
-        return doBatchDelete(whitePurchaseReferrerList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhitePurchaseReferrer> whitePurchaseReferrerList, WritableOptionCall<WhitePurchaseReferrerCB, DeleteOption<WhitePurchaseReferrerCB>> opLambda) {
+        return doBatchDelete(whitePurchaseReferrerList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -947,8 +942,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhitePurchaseReferrer, WhitePurchaseReferrerCB> manyArgLambda, WOptionCall<WhitePurchaseReferrerCB, InsertOption<WhitePurchaseReferrerCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhitePurchaseReferrer, WhitePurchaseReferrerCB> manyArgLambda, WritableOptionCall<WhitePurchaseReferrerCB, InsertOption<WhitePurchaseReferrerCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -970,10 +965,10 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * UpdateOption&lt;WhitePurchaseReferrerCB&gt; option = new UpdateOption&lt;WhitePurchaseReferrerCB&gt;();
      * option.self(new SpecifyQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *     public void specify(WhitePurchaseReferrerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whitePurchaseReferrer, cb, option);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePurchaseReferrer, cb, option);
      * </pre>
      * @param whitePurchaseReferrer The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhitePurchaseReferrer. (NotNull)
@@ -981,8 +976,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhitePurchaseReferrer whitePurchaseReferrer, CBCall<WhitePurchaseReferrerCB> cbLambda, WOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> opLambda) {
-        return doQueryUpdate(whitePurchaseReferrer, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhitePurchaseReferrer whitePurchaseReferrer, CBCall<WhitePurchaseReferrerCB> cbLambda, WritableOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> opLambda) {
+        return doQueryUpdate(whitePurchaseReferrer, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1004,10 +999,10 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * UpdateOption&lt;WhitePurchaseReferrerCB&gt; option = new UpdateOption&lt;WhitePurchaseReferrerCB&gt;();
      * option.self(new SpecifyQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *     public void specify(WhitePurchaseReferrerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whitePurchaseReferrerBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whitePurchaseReferrer, cb, option);
+     * whitePurchaseReferrerBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePurchaseReferrer, cb, option);
      * </pre>
      * @param whitePurchaseReferrer The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhitePurchaseReferrer. (NotNull)
@@ -1015,8 +1010,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhitePurchaseReferrer whitePurchaseReferrer, WhitePurchaseReferrerCB cb, WOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> opLambda) {
-        return doQueryUpdate(whitePurchaseReferrer, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhitePurchaseReferrer whitePurchaseReferrer, WhitePurchaseReferrerCB cb, WritableOptionCall<WhitePurchaseReferrerCB, UpdateOption<WhitePurchaseReferrerCB>> opLambda) {
+        return doQueryUpdate(whitePurchaseReferrer, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1028,8 +1023,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhitePurchaseReferrerCB> cbLambda, WOptionCall<WhitePurchaseReferrerCB, DeleteOption<WhitePurchaseReferrerCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhitePurchaseReferrerCB> cbLambda, WritableOptionCall<WhitePurchaseReferrerCB, DeleteOption<WhitePurchaseReferrerCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1041,8 +1036,8 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhitePurchaseReferrerCB cb, WOptionCall<WhitePurchaseReferrerCB, DeleteOption<WhitePurchaseReferrerCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhitePurchaseReferrerCB cb, WritableOptionCall<WhitePurchaseReferrerCB, DeleteOption<WhitePurchaseReferrerCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1078,7 +1073,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
      */
     public OutsideSqlBasicExecutor<WhitePurchaseReferrerBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhitePurchaseReferrerBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

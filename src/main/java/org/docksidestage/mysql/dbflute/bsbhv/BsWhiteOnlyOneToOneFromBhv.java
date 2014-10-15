@@ -95,13 +95,13 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * int count = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteOnlyOneToOneFromCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * int count = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteOnlyOneToOneFrom&gt; entity = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteOnlyOneToOneFrom -&gt; {
-     *     ...
+     * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteOnlyOneToOneFrom -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteOnlyOneToOneFrom.get...
      * });
-     * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteOnlyOneToOneFrom -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteOnlyOneToOneFrom -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteOnlyOneToOneFrom.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteOnlyOneToOneFrom> selectEntity(CBCall<WhiteOnlyOneToOneFromCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteOnlyOneToOneFrom&gt; entity = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteOnlyOneToOneFrom -&gt; {
-     *     ...
+     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteOnlyOneToOneFrom -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteOnlyOneToOneFrom.get...
      * });
-     * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteOnlyOneToOneFrom -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteOnlyOneToOneFrom -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteOnlyOneToOneFrom.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteOnlyOneToOneFrom.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteOnlyOneToOneFrom selectEntityWithDeletedCheck(CBCall<WhiteOnlyOneToOneFromCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteOnlyOneToOneFrom.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteOnlyOneToOneFrom&gt; whiteOnlyOneToOneFromList = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom : whiteOnlyOneToOneFromList) {
+     * ListResultBean&lt;WhiteOnlyOneToOneFrom&gt; whiteOnlyOneToOneFromList = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteOnlyOneToOneFromList.forEach(whiteOnlyOneToOneFrom -&gt; {
      *     ... = whiteOnlyOneToOneFrom.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteOnlyOneToOneFrom> selectList(CBCall<WhiteOnlyOneToOneFromCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteOnlyOneToOneFrom&gt; whiteOnlyOneToOneFromList = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteOnlyOneToOneFrom&gt; whiteOnlyOneToOneFromList = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom : whiteOnlyOneToOneFromList) {
      *     ... = whiteOnlyOneToOneFrom.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteOnlyOneToOneFrom&gt; page = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteOnlyOneToOneFrom&gt; page = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteOnlyOneToOneFrom> selectPage(CBCall<WhiteOnlyOneToOneFromCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteOnlyOneToOneFrom&gt; page = whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteOnlyOneToOneFrom&gt; page = whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteOnlyOneToOneFrom&gt;() {
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteOnlyOneToOneFrom&gt;() {
      *     public void handle(WhiteOnlyOneToOneFrom entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @param entityLambda The handler of entity row of WhiteOnlyOneToOneFrom. (NotNull)
      */
     public void selectCursor(CBCall<WhiteOnlyOneToOneFromCB> cbLambda, EntityRowHandler<WhiteOnlyOneToOneFrom> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteOnlyOneToOneFrom&gt;() {
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteOnlyOneToOneFrom&gt;() {
      *     public void handle(WhiteOnlyOneToOneFrom entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteOnlyOneToOneFromCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -550,7 +545,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteOnlyOneToOneFrom.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteOnlyOneToOneFrom.set...;</span>
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">insert</span>(whiteOnlyOneToOneFrom);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">insert</span>(whiteOnlyOneToOneFrom);
      * ... = whiteOnlyOneToOneFrom.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -571,9 +566,9 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whiteOnlyOneToOneFrom.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteOnlyOneToOneFrom.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteOnlyOneToOneFrom.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteOnlyOneToOneFrom.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">update</span>(whiteOnlyOneToOneFrom);
+     *     whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">update</span>(whiteOnlyOneToOneFrom);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -590,7 +585,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteOnlyOneToOneFrom The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -606,9 +601,9 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = new WhiteOnlyOneToOneFrom();
      * whiteOnlyOneToOneFrom.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteOnlyOneToOneFrom.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteOnlyOneToOneFrom.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">delete</span>(whiteOnlyOneToOneFrom);
+     *     whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">delete</span>(whiteOnlyOneToOneFrom);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -627,7 +622,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = new WhiteOnlyOneToOneFrom();
@@ -640,7 +635,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteOnlyOneToOneFromList.add(whiteOnlyOneToOneFrom);
      * }
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">batchInsert</span>(whiteOnlyOneToOneFromList);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">batchInsert</span>(whiteOnlyOneToOneFromList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -655,7 +650,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom = new WhiteOnlyOneToOneFrom();
@@ -670,7 +665,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteOnlyOneToOneFromList.add(whiteOnlyOneToOneFrom);
      * }
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">batchUpdate</span>(whiteOnlyOneToOneFromList);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">batchUpdate</span>(whiteOnlyOneToOneFromList);
      * </pre>
      * @param whiteOnlyOneToOneFromList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -697,7 +692,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteOnlyOneToOneFrom, WhiteOnlyOneToOneFromCB&gt;() {
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteOnlyOneToOneFrom, WhiteOnlyOneToOneFromCB&gt;() {
      *     public ConditionBean setup(WhiteOnlyOneToOneFrom entity, WhiteOnlyOneToOneFromCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -739,7 +734,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whiteOnlyOneToOneFrom.setVersionNo(value);</span>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">queryUpdate</span>(whiteOnlyOneToOneFrom, cb);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">queryUpdate</span>(whiteOnlyOneToOneFrom, cb);
      * </pre>
      * @param whiteOnlyOneToOneFrom The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
@@ -747,7 +742,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, CBCall<WhiteOnlyOneToOneFromCB> cbLambda) {
-        return doQueryUpdate(whiteOnlyOneToOneFrom, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteOnlyOneToOneFrom, createCB(cbLambda), null);
     }
 
     /**
@@ -765,7 +760,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whiteOnlyOneToOneFrom.setVersionNo(value);</span>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">queryUpdate</span>(whiteOnlyOneToOneFrom, cb);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">queryUpdate</span>(whiteOnlyOneToOneFrom, cb);
      * </pre>
      * @param whiteOnlyOneToOneFrom The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
@@ -781,14 +776,14 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">queryDelete</span>(whiteOnlyOneToOneFrom, cb);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">queryDelete</span>(whiteOnlyOneToOneFrom, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteOnlyOneToOneFromCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -796,7 +791,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB();
      * cb.query().setFoo...(value);
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">queryDelete</span>(whiteOnlyOneToOneFrom, cb);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">queryDelete</span>(whiteOnlyOneToOneFrom, cb);
      * </pre>
      * @param cb The condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
      * @return The deleted count.
@@ -824,15 +819,15 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * InsertOption<WhiteOnlyOneToOneFromCB> option = new InsertOption<WhiteOnlyOneToOneFromCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">varyingInsert</span>(whiteOnlyOneToOneFrom, option);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">varyingInsert</span>(whiteOnlyOneToOneFrom, option);
      * ... = whiteOnlyOneToOneFrom.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteOnlyOneToOneFrom The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WOptionCall<WhiteOnlyOneToOneFromCB, InsertOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        doInsert(whiteOnlyOneToOneFrom, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WritableOptionCall<WhiteOnlyOneToOneFromCB, InsertOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        doInsert(whiteOnlyOneToOneFrom, createInsertOption(opLambda));
     }
 
     /**
@@ -844,16 +839,16 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * whiteOnlyOneToOneFrom.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteOnlyOneToOneFrom.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteOnlyOneToOneFrom.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteOnlyOneToOneFrom.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteOnlyOneToOneFromCB&gt; option = new UpdateOption&lt;WhiteOnlyOneToOneFromCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteOnlyOneToOneFromCB&gt;() {
      *         public void specify(WhiteOnlyOneToOneFromCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteOnlyOneToOneFrom, option);
+     *     whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteOnlyOneToOneFrom, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -864,8 +859,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        doUpdate(whiteOnlyOneToOneFrom, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WritableOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        doUpdate(whiteOnlyOneToOneFrom, createUpdateOption(opLambda));
     }
 
     /**
@@ -878,8 +873,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WOptionCall<WhiteOnlyOneToOneFromCB, InsertOption<WhiteOnlyOneToOneFromCB>> insertOpLambda, WOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteOnlyOneToOneFrom, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WritableOptionCall<WhiteOnlyOneToOneFromCB, InsertOption<WhiteOnlyOneToOneFromCB>> insertOpLambda, WritableOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteOnlyOneToOneFrom, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -891,8 +886,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WOptionCall<WhiteOnlyOneToOneFromCB, DeleteOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        doDelete(whiteOnlyOneToOneFrom, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WritableOptionCall<WhiteOnlyOneToOneFromCB, DeleteOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        doDelete(whiteOnlyOneToOneFrom, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -907,8 +902,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteOnlyOneToOneFrom> whiteOnlyOneToOneFromList, WOptionCall<WhiteOnlyOneToOneFromCB, InsertOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        return doBatchInsert(whiteOnlyOneToOneFromList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteOnlyOneToOneFrom> whiteOnlyOneToOneFromList, WritableOptionCall<WhiteOnlyOneToOneFromCB, InsertOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        return doBatchInsert(whiteOnlyOneToOneFromList, createInsertOption(opLambda));
     }
 
     /**
@@ -920,8 +915,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteOnlyOneToOneFrom> whiteOnlyOneToOneFromList, WOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        return doBatchUpdate(whiteOnlyOneToOneFromList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteOnlyOneToOneFrom> whiteOnlyOneToOneFromList, WritableOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        return doBatchUpdate(whiteOnlyOneToOneFromList, createUpdateOption(opLambda));
     }
 
     /**
@@ -932,8 +927,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteOnlyOneToOneFrom> whiteOnlyOneToOneFromList, WOptionCall<WhiteOnlyOneToOneFromCB, DeleteOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        return doBatchDelete(whiteOnlyOneToOneFromList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteOnlyOneToOneFrom> whiteOnlyOneToOneFromList, WritableOptionCall<WhiteOnlyOneToOneFromCB, DeleteOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        return doBatchDelete(whiteOnlyOneToOneFromList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -947,8 +942,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteOnlyOneToOneFrom, WhiteOnlyOneToOneFromCB> manyArgLambda, WOptionCall<WhiteOnlyOneToOneFromCB, InsertOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteOnlyOneToOneFrom, WhiteOnlyOneToOneFromCB> manyArgLambda, WritableOptionCall<WhiteOnlyOneToOneFromCB, InsertOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -970,10 +965,10 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * UpdateOption&lt;WhiteOnlyOneToOneFromCB&gt; option = new UpdateOption&lt;WhiteOnlyOneToOneFromCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteOnlyOneToOneFromCB&gt;() {
      *     public void specify(WhiteOnlyOneToOneFromCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteOnlyOneToOneFrom, cb, option);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteOnlyOneToOneFrom, cb, option);
      * </pre>
      * @param whiteOnlyOneToOneFrom The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
@@ -981,8 +976,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, CBCall<WhiteOnlyOneToOneFromCB> cbLambda, WOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        return doQueryUpdate(whiteOnlyOneToOneFrom, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, CBCall<WhiteOnlyOneToOneFromCB> cbLambda, WritableOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        return doQueryUpdate(whiteOnlyOneToOneFrom, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1004,10 +999,10 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * UpdateOption&lt;WhiteOnlyOneToOneFromCB&gt; option = new UpdateOption&lt;WhiteOnlyOneToOneFromCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteOnlyOneToOneFromCB&gt;() {
      *     public void specify(WhiteOnlyOneToOneFromCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteOnlyOneToOneFromBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteOnlyOneToOneFrom, cb, option);
+     * whiteOnlyOneToOneFromBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteOnlyOneToOneFrom, cb, option);
      * </pre>
      * @param whiteOnlyOneToOneFrom The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteOnlyOneToOneFrom. (NotNull)
@@ -1015,8 +1010,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WhiteOnlyOneToOneFromCB cb, WOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        return doQueryUpdate(whiteOnlyOneToOneFrom, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom, WhiteOnlyOneToOneFromCB cb, WritableOptionCall<WhiteOnlyOneToOneFromCB, UpdateOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        return doQueryUpdate(whiteOnlyOneToOneFrom, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1028,8 +1023,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteOnlyOneToOneFromCB> cbLambda, WOptionCall<WhiteOnlyOneToOneFromCB, DeleteOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteOnlyOneToOneFromCB> cbLambda, WritableOptionCall<WhiteOnlyOneToOneFromCB, DeleteOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1041,8 +1036,8 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteOnlyOneToOneFromCB cb, WOptionCall<WhiteOnlyOneToOneFromCB, DeleteOption<WhiteOnlyOneToOneFromCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteOnlyOneToOneFromCB cb, WritableOptionCall<WhiteOnlyOneToOneFromCB, DeleteOption<WhiteOnlyOneToOneFromCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1078,7 +1073,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
      */
     public OutsideSqlBasicExecutor<WhiteOnlyOneToOneFromBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteOnlyOneToOneFromBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

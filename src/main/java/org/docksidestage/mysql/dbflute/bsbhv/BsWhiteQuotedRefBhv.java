@@ -95,13 +95,13 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * int count = whiteQuotedRefBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteQuotedRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteQuotedRef. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteQuotedRefCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * int count = whiteQuotedRefBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteQuotedRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteQuotedRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteQuotedRef&gt; entity = whiteQuotedRefBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteQuotedRef -&gt; {
-     *     ...
+     * WhiteQuotedRef whiteQuotedRef = whiteQuotedRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteQuotedRef -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteQuotedRef.get...
      * });
-     * WhiteQuotedRef whiteQuotedRef = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteQuotedRef -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteQuotedRef whiteQuotedRef = whiteQuotedRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteQuotedRef -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteQuotedRef.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteQuotedRef whiteQuotedRef = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteQuotedRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteQuotedRef> selectEntity(CBCall<WhiteQuotedRefCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteQuotedRef&gt; entity = whiteQuotedRefBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteQuotedRef -&gt; {
-     *     ...
+     * whiteQuotedRefBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteQuotedRef -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteQuotedRef.get...
      * });
-     * WhiteQuotedRef whiteQuotedRef = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteQuotedRef -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteQuotedRefBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteQuotedRef -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteQuotedRef.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteQuotedRef whiteQuotedRef = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteQuotedRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * WhiteQuotedRef whiteQuotedRef = whiteQuotedRefBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteQuotedRef whiteQuotedRef = whiteQuotedRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteQuotedRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteQuotedRef. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteQuotedRef selectEntityWithDeletedCheck(CBCall<WhiteQuotedRefCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * WhiteQuotedRef whiteQuotedRef = whiteQuotedRefBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteQuotedRef whiteQuotedRef = whiteQuotedRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteQuotedRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteQuotedRef. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteQuotedRef&gt; whiteQuotedRefList = whiteQuotedRefBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteQuotedRef whiteQuotedRef : whiteQuotedRefList) {
+     * ListResultBean&lt;WhiteQuotedRef&gt; whiteQuotedRefList = whiteQuotedRefBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteQuotedRefList.forEach(whiteQuotedRef -&gt; {
      *     ... = whiteQuotedRef.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteQuotedRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteQuotedRef> selectList(CBCall<WhiteQuotedRefCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteQuotedRef&gt; whiteQuotedRefList = whiteQuotedRefBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteQuotedRef&gt; whiteQuotedRefList = whiteQuotedRefBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteQuotedRef whiteQuotedRef : whiteQuotedRefList) {
      *     ... = whiteQuotedRef.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteQuotedRef&gt; page = whiteQuotedRefBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteQuotedRef&gt; page = whiteQuotedRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteQuotedRef> selectPage(CBCall<WhiteQuotedRefCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteQuotedRef&gt; page = whiteQuotedRefBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteQuotedRef&gt; page = whiteQuotedRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * whiteQuotedRefBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteQuotedRef&gt;() {
+     * whiteQuotedRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteQuotedRef&gt;() {
      *     public void handle(WhiteQuotedRef entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @param entityLambda The handler of entity row of WhiteQuotedRef. (NotNull)
      */
     public void selectCursor(CBCall<WhiteQuotedRefCB> cbLambda, EntityRowHandler<WhiteQuotedRef> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * whiteQuotedRefBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteQuotedRef&gt;() {
+     * whiteQuotedRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteQuotedRef&gt;() {
      *     public void handle(WhiteQuotedRef entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteQuotedRefBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteQuotedRefBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteQuotedRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -550,7 +545,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteQuotedRef.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteQuotedRef.set...;</span>
-     * whiteQuotedRefBhv.<span style="color: #DD4747">insert</span>(whiteQuotedRef);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">insert</span>(whiteQuotedRef);
      * ... = whiteQuotedRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -571,9 +566,9 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">//whiteQuotedRef.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteQuotedRef.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteQuotedRef.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteQuotedRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteQuotedRefBhv.<span style="color: #DD4747">update</span>(whiteQuotedRef);
+     *     whiteQuotedRefBhv.<span style="color: #CC4747">update</span>(whiteQuotedRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -590,7 +585,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteQuotedRef The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -606,9 +601,9 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * WhiteQuotedRef whiteQuotedRef = new WhiteQuotedRef();
      * whiteQuotedRef.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteQuotedRef.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteQuotedRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteQuotedRefBhv.<span style="color: #DD4747">delete</span>(whiteQuotedRef);
+     *     whiteQuotedRefBhv.<span style="color: #CC4747">delete</span>(whiteQuotedRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -627,7 +622,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteQuotedRef whiteQuotedRef = new WhiteQuotedRef();
@@ -640,7 +635,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteQuotedRefList.add(whiteQuotedRef);
      * }
-     * whiteQuotedRefBhv.<span style="color: #DD4747">batchInsert</span>(whiteQuotedRefList);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">batchInsert</span>(whiteQuotedRefList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -655,7 +650,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteQuotedRef whiteQuotedRef = new WhiteQuotedRef();
@@ -670,7 +665,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteQuotedRefList.add(whiteQuotedRef);
      * }
-     * whiteQuotedRefBhv.<span style="color: #DD4747">batchUpdate</span>(whiteQuotedRefList);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">batchUpdate</span>(whiteQuotedRefList);
      * </pre>
      * @param whiteQuotedRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -697,7 +692,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteQuotedRefBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteQuotedRef, WhiteQuotedRefCB&gt;() {
+     * whiteQuotedRefBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteQuotedRef, WhiteQuotedRefCB&gt;() {
      *     public ConditionBean setup(WhiteQuotedRef entity, WhiteQuotedRefCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -739,7 +734,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">//whiteQuotedRef.setVersionNo(value);</span>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * whiteQuotedRefBhv.<span style="color: #DD4747">queryUpdate</span>(whiteQuotedRef, cb);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">queryUpdate</span>(whiteQuotedRef, cb);
      * </pre>
      * @param whiteQuotedRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteQuotedRef. (NotNull)
@@ -747,7 +742,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteQuotedRef whiteQuotedRef, CBCall<WhiteQuotedRefCB> cbLambda) {
-        return doQueryUpdate(whiteQuotedRef, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteQuotedRef, createCB(cbLambda), null);
     }
 
     /**
@@ -765,7 +760,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">//whiteQuotedRef.setVersionNo(value);</span>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * whiteQuotedRefBhv.<span style="color: #DD4747">queryUpdate</span>(whiteQuotedRef, cb);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">queryUpdate</span>(whiteQuotedRef, cb);
      * </pre>
      * @param whiteQuotedRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteQuotedRef. (NotNull)
@@ -781,14 +776,14 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * whiteQuotedRefBhv.<span style="color: #DD4747">queryDelete</span>(whiteQuotedRef, cb);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">queryDelete</span>(whiteQuotedRef, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteQuotedRef. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteQuotedRefCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -796,7 +791,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
      * cb.query().setFoo...(value);
-     * whiteQuotedRefBhv.<span style="color: #DD4747">queryDelete</span>(whiteQuotedRef, cb);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">queryDelete</span>(whiteQuotedRef, cb);
      * </pre>
      * @param cb The condition-bean of WhiteQuotedRef. (NotNull)
      * @return The deleted count.
@@ -824,15 +819,15 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * InsertOption<WhiteQuotedRefCB> option = new InsertOption<WhiteQuotedRefCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteQuotedRefBhv.<span style="color: #DD4747">varyingInsert</span>(whiteQuotedRef, option);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">varyingInsert</span>(whiteQuotedRef, option);
      * ... = whiteQuotedRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteQuotedRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteQuotedRef whiteQuotedRef, WOptionCall<WhiteQuotedRefCB, InsertOption<WhiteQuotedRefCB>> opLambda) {
-        doInsert(whiteQuotedRef, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteQuotedRef whiteQuotedRef, WritableOptionCall<WhiteQuotedRefCB, InsertOption<WhiteQuotedRefCB>> opLambda) {
+        doInsert(whiteQuotedRef, createInsertOption(opLambda));
     }
 
     /**
@@ -844,16 +839,16 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * whiteQuotedRef.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteQuotedRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteQuotedRef.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteQuotedRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteQuotedRefCB&gt; option = new UpdateOption&lt;WhiteQuotedRefCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteQuotedRefCB&gt;() {
      *         public void specify(WhiteQuotedRefCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteQuotedRefBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteQuotedRef, option);
+     *     whiteQuotedRefBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteQuotedRef, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -864,8 +859,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteQuotedRef whiteQuotedRef, WOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> opLambda) {
-        doUpdate(whiteQuotedRef, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteQuotedRef whiteQuotedRef, WritableOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> opLambda) {
+        doUpdate(whiteQuotedRef, createUpdateOption(opLambda));
     }
 
     /**
@@ -878,8 +873,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteQuotedRef whiteQuotedRef, WOptionCall<WhiteQuotedRefCB, InsertOption<WhiteQuotedRefCB>> insertOpLambda, WOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteQuotedRef, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteQuotedRef whiteQuotedRef, WritableOptionCall<WhiteQuotedRefCB, InsertOption<WhiteQuotedRefCB>> insertOpLambda, WritableOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteQuotedRef, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -891,8 +886,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteQuotedRef whiteQuotedRef, WOptionCall<WhiteQuotedRefCB, DeleteOption<WhiteQuotedRefCB>> opLambda) {
-        doDelete(whiteQuotedRef, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteQuotedRef whiteQuotedRef, WritableOptionCall<WhiteQuotedRefCB, DeleteOption<WhiteQuotedRefCB>> opLambda) {
+        doDelete(whiteQuotedRef, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -907,8 +902,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteQuotedRef> whiteQuotedRefList, WOptionCall<WhiteQuotedRefCB, InsertOption<WhiteQuotedRefCB>> opLambda) {
-        return doBatchInsert(whiteQuotedRefList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteQuotedRef> whiteQuotedRefList, WritableOptionCall<WhiteQuotedRefCB, InsertOption<WhiteQuotedRefCB>> opLambda) {
+        return doBatchInsert(whiteQuotedRefList, createInsertOption(opLambda));
     }
 
     /**
@@ -920,8 +915,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteQuotedRef> whiteQuotedRefList, WOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> opLambda) {
-        return doBatchUpdate(whiteQuotedRefList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteQuotedRef> whiteQuotedRefList, WritableOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> opLambda) {
+        return doBatchUpdate(whiteQuotedRefList, createUpdateOption(opLambda));
     }
 
     /**
@@ -932,8 +927,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteQuotedRef> whiteQuotedRefList, WOptionCall<WhiteQuotedRefCB, DeleteOption<WhiteQuotedRefCB>> opLambda) {
-        return doBatchDelete(whiteQuotedRefList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteQuotedRef> whiteQuotedRefList, WritableOptionCall<WhiteQuotedRefCB, DeleteOption<WhiteQuotedRefCB>> opLambda) {
+        return doBatchDelete(whiteQuotedRefList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -947,8 +942,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteQuotedRef, WhiteQuotedRefCB> manyArgLambda, WOptionCall<WhiteQuotedRefCB, InsertOption<WhiteQuotedRefCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteQuotedRef, WhiteQuotedRefCB> manyArgLambda, WritableOptionCall<WhiteQuotedRefCB, InsertOption<WhiteQuotedRefCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -970,10 +965,10 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * UpdateOption&lt;WhiteQuotedRefCB&gt; option = new UpdateOption&lt;WhiteQuotedRefCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteQuotedRefCB&gt;() {
      *     public void specify(WhiteQuotedRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteQuotedRefBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteQuotedRef, cb, option);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteQuotedRef, cb, option);
      * </pre>
      * @param whiteQuotedRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteQuotedRef. (NotNull)
@@ -981,8 +976,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteQuotedRef whiteQuotedRef, CBCall<WhiteQuotedRefCB> cbLambda, WOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> opLambda) {
-        return doQueryUpdate(whiteQuotedRef, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteQuotedRef whiteQuotedRef, CBCall<WhiteQuotedRefCB> cbLambda, WritableOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> opLambda) {
+        return doQueryUpdate(whiteQuotedRef, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1004,10 +999,10 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * UpdateOption&lt;WhiteQuotedRefCB&gt; option = new UpdateOption&lt;WhiteQuotedRefCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteQuotedRefCB&gt;() {
      *     public void specify(WhiteQuotedRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteQuotedRefBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteQuotedRef, cb, option);
+     * whiteQuotedRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteQuotedRef, cb, option);
      * </pre>
      * @param whiteQuotedRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteQuotedRef. (NotNull)
@@ -1015,8 +1010,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteQuotedRef whiteQuotedRef, WhiteQuotedRefCB cb, WOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> opLambda) {
-        return doQueryUpdate(whiteQuotedRef, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteQuotedRef whiteQuotedRef, WhiteQuotedRefCB cb, WritableOptionCall<WhiteQuotedRefCB, UpdateOption<WhiteQuotedRefCB>> opLambda) {
+        return doQueryUpdate(whiteQuotedRef, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1028,8 +1023,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteQuotedRefCB> cbLambda, WOptionCall<WhiteQuotedRefCB, DeleteOption<WhiteQuotedRefCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteQuotedRefCB> cbLambda, WritableOptionCall<WhiteQuotedRefCB, DeleteOption<WhiteQuotedRefCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1041,8 +1036,8 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteQuotedRefCB cb, WOptionCall<WhiteQuotedRefCB, DeleteOption<WhiteQuotedRefCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteQuotedRefCB cb, WritableOptionCall<WhiteQuotedRefCB, DeleteOption<WhiteQuotedRefCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1078,7 +1073,7 @@ public abstract class BsWhiteQuotedRefBhv extends AbstractBehaviorWritable<White
      */
     public OutsideSqlBasicExecutor<WhiteQuotedRefBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteQuotedRefBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

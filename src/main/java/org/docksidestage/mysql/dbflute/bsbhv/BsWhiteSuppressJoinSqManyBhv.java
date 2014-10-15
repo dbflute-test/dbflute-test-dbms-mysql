@@ -95,13 +95,13 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * int count = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqMany. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteSuppressJoinSqManyCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * int count = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteSuppressJoinSqMany. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteSuppressJoinSqMany&gt; entity = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteSuppressJoinSqMany -&gt; {
-     *     ...
+     * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteSuppressJoinSqMany -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteSuppressJoinSqMany.get...
      * });
-     * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteSuppressJoinSqMany -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteSuppressJoinSqMany -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteSuppressJoinSqMany.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqMany. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteSuppressJoinSqMany> selectEntity(CBCall<WhiteSuppressJoinSqManyCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteSuppressJoinSqMany&gt; entity = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteSuppressJoinSqMany -&gt; {
-     *     ...
+     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteSuppressJoinSqMany -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteSuppressJoinSqMany.get...
      * });
-     * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteSuppressJoinSqMany -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteSuppressJoinSqMany -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteSuppressJoinSqMany.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteSuppressJoinSqMany. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteSuppressJoinSqMany.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqMany. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteSuppressJoinSqMany selectEntityWithDeletedCheck(CBCall<WhiteSuppressJoinSqManyCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteSuppressJoinSqMany.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteSuppressJoinSqMany. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteSuppressJoinSqMany&gt; whiteSuppressJoinSqManyList = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteSuppressJoinSqMany whiteSuppressJoinSqMany : whiteSuppressJoinSqManyList) {
+     * ListResultBean&lt;WhiteSuppressJoinSqMany&gt; whiteSuppressJoinSqManyList = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteSuppressJoinSqManyList.forEach(whiteSuppressJoinSqMany -&gt; {
      *     ... = whiteSuppressJoinSqMany.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqMany. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteSuppressJoinSqMany> selectList(CBCall<WhiteSuppressJoinSqManyCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteSuppressJoinSqMany&gt; whiteSuppressJoinSqManyList = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteSuppressJoinSqMany&gt; whiteSuppressJoinSqManyList = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteSuppressJoinSqMany whiteSuppressJoinSqMany : whiteSuppressJoinSqManyList) {
      *     ... = whiteSuppressJoinSqMany.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteSuppressJoinSqMany&gt; page = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteSuppressJoinSqMany&gt; page = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteSuppressJoinSqMany> selectPage(CBCall<WhiteSuppressJoinSqManyCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteSuppressJoinSqMany&gt; page = whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteSuppressJoinSqMany&gt; page = whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSuppressJoinSqMany&gt;() {
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSuppressJoinSqMany&gt;() {
      *     public void handle(WhiteSuppressJoinSqMany entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @param entityLambda The handler of entity row of WhiteSuppressJoinSqMany. (NotNull)
      */
     public void selectCursor(CBCall<WhiteSuppressJoinSqManyCB> cbLambda, EntityRowHandler<WhiteSuppressJoinSqMany> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSuppressJoinSqMany&gt;() {
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSuppressJoinSqMany&gt;() {
      *     public void handle(WhiteSuppressJoinSqMany entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteSuppressJoinSqManyCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -558,7 +553,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqMany.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqMany.set...;</span>
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">insert</span>(whiteSuppressJoinSqMany);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">insert</span>(whiteSuppressJoinSqMany);
      * ... = whiteSuppressJoinSqMany.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -579,9 +574,9 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqMany.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqMany.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteSuppressJoinSqMany.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteSuppressJoinSqMany.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">update</span>(whiteSuppressJoinSqMany);
+     *     whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">update</span>(whiteSuppressJoinSqMany);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -598,7 +593,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteSuppressJoinSqMany The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -614,9 +609,9 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = new WhiteSuppressJoinSqMany();
      * whiteSuppressJoinSqMany.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteSuppressJoinSqMany.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteSuppressJoinSqMany.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">delete</span>(whiteSuppressJoinSqMany);
+     *     whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">delete</span>(whiteSuppressJoinSqMany);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -635,7 +630,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = new WhiteSuppressJoinSqMany();
@@ -648,7 +643,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteSuppressJoinSqManyList.add(whiteSuppressJoinSqMany);
      * }
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">batchInsert</span>(whiteSuppressJoinSqManyList);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">batchInsert</span>(whiteSuppressJoinSqManyList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -663,7 +658,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteSuppressJoinSqMany whiteSuppressJoinSqMany = new WhiteSuppressJoinSqMany();
@@ -678,7 +673,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteSuppressJoinSqManyList.add(whiteSuppressJoinSqMany);
      * }
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">batchUpdate</span>(whiteSuppressJoinSqManyList);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">batchUpdate</span>(whiteSuppressJoinSqManyList);
      * </pre>
      * @param whiteSuppressJoinSqManyList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -705,7 +700,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteSuppressJoinSqMany, WhiteSuppressJoinSqManyCB&gt;() {
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteSuppressJoinSqMany, WhiteSuppressJoinSqManyCB&gt;() {
      *     public ConditionBean setup(WhiteSuppressJoinSqMany entity, WhiteSuppressJoinSqManyCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -747,7 +742,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqMany.setVersionNo(value);</span>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">queryUpdate</span>(whiteSuppressJoinSqMany, cb);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">queryUpdate</span>(whiteSuppressJoinSqMany, cb);
      * </pre>
      * @param whiteSuppressJoinSqMany The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqMany. (NotNull)
@@ -755,7 +750,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, CBCall<WhiteSuppressJoinSqManyCB> cbLambda) {
-        return doQueryUpdate(whiteSuppressJoinSqMany, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteSuppressJoinSqMany, createCB(cbLambda), null);
     }
 
     /**
@@ -773,7 +768,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqMany.setVersionNo(value);</span>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">queryUpdate</span>(whiteSuppressJoinSqMany, cb);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">queryUpdate</span>(whiteSuppressJoinSqMany, cb);
      * </pre>
      * @param whiteSuppressJoinSqMany The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteSuppressJoinSqMany. (NotNull)
@@ -789,14 +784,14 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">queryDelete</span>(whiteSuppressJoinSqMany, cb);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">queryDelete</span>(whiteSuppressJoinSqMany, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqMany. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteSuppressJoinSqManyCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -804,7 +799,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB();
      * cb.query().setFoo...(value);
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">queryDelete</span>(whiteSuppressJoinSqMany, cb);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">queryDelete</span>(whiteSuppressJoinSqMany, cb);
      * </pre>
      * @param cb The condition-bean of WhiteSuppressJoinSqMany. (NotNull)
      * @return The deleted count.
@@ -832,15 +827,15 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * InsertOption<WhiteSuppressJoinSqManyCB> option = new InsertOption<WhiteSuppressJoinSqManyCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">varyingInsert</span>(whiteSuppressJoinSqMany, option);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">varyingInsert</span>(whiteSuppressJoinSqMany, option);
      * ... = whiteSuppressJoinSqMany.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteSuppressJoinSqMany The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WOptionCall<WhiteSuppressJoinSqManyCB, InsertOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        doInsert(whiteSuppressJoinSqMany, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WritableOptionCall<WhiteSuppressJoinSqManyCB, InsertOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        doInsert(whiteSuppressJoinSqMany, createInsertOption(opLambda));
     }
 
     /**
@@ -852,16 +847,16 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * whiteSuppressJoinSqMany.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteSuppressJoinSqMany.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteSuppressJoinSqMany.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteSuppressJoinSqMany.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteSuppressJoinSqManyCB&gt; option = new UpdateOption&lt;WhiteSuppressJoinSqManyCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteSuppressJoinSqManyCB&gt;() {
      *         public void specify(WhiteSuppressJoinSqManyCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteSuppressJoinSqMany, option);
+     *     whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteSuppressJoinSqMany, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -872,8 +867,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        doUpdate(whiteSuppressJoinSqMany, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WritableOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        doUpdate(whiteSuppressJoinSqMany, createUpdateOption(opLambda));
     }
 
     /**
@@ -886,8 +881,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WOptionCall<WhiteSuppressJoinSqManyCB, InsertOption<WhiteSuppressJoinSqManyCB>> insertOpLambda, WOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteSuppressJoinSqMany, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WritableOptionCall<WhiteSuppressJoinSqManyCB, InsertOption<WhiteSuppressJoinSqManyCB>> insertOpLambda, WritableOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteSuppressJoinSqMany, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -899,8 +894,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WOptionCall<WhiteSuppressJoinSqManyCB, DeleteOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        doDelete(whiteSuppressJoinSqMany, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WritableOptionCall<WhiteSuppressJoinSqManyCB, DeleteOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        doDelete(whiteSuppressJoinSqMany, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -915,8 +910,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteSuppressJoinSqMany> whiteSuppressJoinSqManyList, WOptionCall<WhiteSuppressJoinSqManyCB, InsertOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        return doBatchInsert(whiteSuppressJoinSqManyList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteSuppressJoinSqMany> whiteSuppressJoinSqManyList, WritableOptionCall<WhiteSuppressJoinSqManyCB, InsertOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        return doBatchInsert(whiteSuppressJoinSqManyList, createInsertOption(opLambda));
     }
 
     /**
@@ -928,8 +923,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteSuppressJoinSqMany> whiteSuppressJoinSqManyList, WOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        return doBatchUpdate(whiteSuppressJoinSqManyList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteSuppressJoinSqMany> whiteSuppressJoinSqManyList, WritableOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        return doBatchUpdate(whiteSuppressJoinSqManyList, createUpdateOption(opLambda));
     }
 
     /**
@@ -940,8 +935,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteSuppressJoinSqMany> whiteSuppressJoinSqManyList, WOptionCall<WhiteSuppressJoinSqManyCB, DeleteOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        return doBatchDelete(whiteSuppressJoinSqManyList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteSuppressJoinSqMany> whiteSuppressJoinSqManyList, WritableOptionCall<WhiteSuppressJoinSqManyCB, DeleteOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        return doBatchDelete(whiteSuppressJoinSqManyList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -955,8 +950,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteSuppressJoinSqMany, WhiteSuppressJoinSqManyCB> manyArgLambda, WOptionCall<WhiteSuppressJoinSqManyCB, InsertOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteSuppressJoinSqMany, WhiteSuppressJoinSqManyCB> manyArgLambda, WritableOptionCall<WhiteSuppressJoinSqManyCB, InsertOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -978,10 +973,10 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * UpdateOption&lt;WhiteSuppressJoinSqManyCB&gt; option = new UpdateOption&lt;WhiteSuppressJoinSqManyCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteSuppressJoinSqManyCB&gt;() {
      *     public void specify(WhiteSuppressJoinSqManyCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteSuppressJoinSqMany, cb, option);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSuppressJoinSqMany, cb, option);
      * </pre>
      * @param whiteSuppressJoinSqMany The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqMany. (NotNull)
@@ -989,8 +984,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, CBCall<WhiteSuppressJoinSqManyCB> cbLambda, WOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        return doQueryUpdate(whiteSuppressJoinSqMany, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, CBCall<WhiteSuppressJoinSqManyCB> cbLambda, WritableOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        return doQueryUpdate(whiteSuppressJoinSqMany, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1012,10 +1007,10 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * UpdateOption&lt;WhiteSuppressJoinSqManyCB&gt; option = new UpdateOption&lt;WhiteSuppressJoinSqManyCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteSuppressJoinSqManyCB&gt;() {
      *     public void specify(WhiteSuppressJoinSqManyCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteSuppressJoinSqManyBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteSuppressJoinSqMany, cb, option);
+     * whiteSuppressJoinSqManyBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSuppressJoinSqMany, cb, option);
      * </pre>
      * @param whiteSuppressJoinSqMany The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteSuppressJoinSqMany. (NotNull)
@@ -1023,8 +1018,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WhiteSuppressJoinSqManyCB cb, WOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        return doQueryUpdate(whiteSuppressJoinSqMany, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteSuppressJoinSqMany whiteSuppressJoinSqMany, WhiteSuppressJoinSqManyCB cb, WritableOptionCall<WhiteSuppressJoinSqManyCB, UpdateOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        return doQueryUpdate(whiteSuppressJoinSqMany, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1036,8 +1031,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteSuppressJoinSqManyCB> cbLambda, WOptionCall<WhiteSuppressJoinSqManyCB, DeleteOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteSuppressJoinSqManyCB> cbLambda, WritableOptionCall<WhiteSuppressJoinSqManyCB, DeleteOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1049,8 +1044,8 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteSuppressJoinSqManyCB cb, WOptionCall<WhiteSuppressJoinSqManyCB, DeleteOption<WhiteSuppressJoinSqManyCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteSuppressJoinSqManyCB cb, WritableOptionCall<WhiteSuppressJoinSqManyCB, DeleteOption<WhiteSuppressJoinSqManyCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1086,7 +1081,7 @@ public abstract class BsWhiteSuppressJoinSqManyBhv extends AbstractBehaviorWrita
      */
     public OutsideSqlBasicExecutor<WhiteSuppressJoinSqManyBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteSuppressJoinSqManyBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

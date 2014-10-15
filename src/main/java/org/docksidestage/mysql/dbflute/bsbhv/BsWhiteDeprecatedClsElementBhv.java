@@ -96,13 +96,13 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * int count = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDeprecatedClsElement. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteDeprecatedClsElementCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -111,7 +111,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * int count = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteDeprecatedClsElement. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -126,28 +126,26 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteDeprecatedClsElement&gt; entity = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteDeprecatedClsElement -&gt; {
-     *     ...
+     * WhiteDeprecatedClsElement whiteDeprecatedClsElement = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteDeprecatedClsElement -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteDeprecatedClsElement.get...
      * });
-     * WhiteDeprecatedClsElement whiteDeprecatedClsElement = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteDeprecatedClsElement -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteDeprecatedClsElement whiteDeprecatedClsElement = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteDeprecatedClsElement -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteDeprecatedClsElement.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteDeprecatedClsElement whiteDeprecatedClsElement = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDeprecatedClsElement. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -156,34 +154,31 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteDeprecatedClsElement> selectEntity(CBCall<WhiteDeprecatedClsElementCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteDeprecatedClsElement&gt; entity = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteDeprecatedClsElement -&gt; {
-     *     ...
+     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteDeprecatedClsElement -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteDeprecatedClsElement.get...
      * });
-     * WhiteDeprecatedClsElement whiteDeprecatedClsElement = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteDeprecatedClsElement -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteDeprecatedClsElement -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteDeprecatedClsElement.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteDeprecatedClsElement whiteDeprecatedClsElement = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteDeprecatedClsElement. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -207,11 +202,11 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * WhiteDeprecatedClsElement whiteDeprecatedClsElement = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteDeprecatedClsElement whiteDeprecatedClsElement = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteDeprecatedClsElement.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDeprecatedClsElement. (NotNull)
@@ -221,16 +216,16 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteDeprecatedClsElement selectEntityWithDeletedCheck(CBCall<WhiteDeprecatedClsElementCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * WhiteDeprecatedClsElement whiteDeprecatedClsElement = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteDeprecatedClsElement whiteDeprecatedClsElement = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteDeprecatedClsElement.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteDeprecatedClsElement. (NotNull)
@@ -278,20 +273,20 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteDeprecatedClsElement&gt; whiteDeprecatedClsElementList = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteDeprecatedClsElement whiteDeprecatedClsElement : whiteDeprecatedClsElementList) {
+     * ListResultBean&lt;WhiteDeprecatedClsElement&gt; whiteDeprecatedClsElementList = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteDeprecatedClsElementList.forEach(whiteDeprecatedClsElement -&gt; {
      *     ... = whiteDeprecatedClsElement.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDeprecatedClsElement. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteDeprecatedClsElement> selectList(CBCall<WhiteDeprecatedClsElementCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -300,7 +295,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteDeprecatedClsElement&gt; whiteDeprecatedClsElementList = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteDeprecatedClsElement&gt; whiteDeprecatedClsElementList = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteDeprecatedClsElement whiteDeprecatedClsElement : whiteDeprecatedClsElementList) {
      *     ... = whiteDeprecatedClsElement.get...();
      * }
@@ -326,8 +321,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteDeprecatedClsElement&gt; page = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteDeprecatedClsElement&gt; page = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -342,7 +337,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteDeprecatedClsElement> selectPage(CBCall<WhiteDeprecatedClsElementCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -352,8 +347,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteDeprecatedClsElement&gt; page = whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteDeprecatedClsElement&gt; page = whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -379,7 +374,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDeprecatedClsElement&gt;() {
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDeprecatedClsElement&gt;() {
      *     public void handle(WhiteDeprecatedClsElement entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -389,7 +384,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @param entityLambda The handler of entity row of WhiteDeprecatedClsElement. (NotNull)
      */
     public void selectCursor(CBCall<WhiteDeprecatedClsElementCB> cbLambda, EntityRowHandler<WhiteDeprecatedClsElement> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -397,7 +392,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDeprecatedClsElement&gt;() {
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDeprecatedClsElement&gt;() {
      *     public void handle(WhiteDeprecatedClsElement entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -417,9 +412,9 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteDeprecatedClsElementCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -450,8 +445,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -464,7 +459,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -486,8 +481,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -500,7 +495,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -543,7 +538,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteDeprecatedClsElement.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteDeprecatedClsElement.set...;</span>
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">insert</span>(whiteDeprecatedClsElement);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">insert</span>(whiteDeprecatedClsElement);
      * ... = whiteDeprecatedClsElement.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -564,9 +559,9 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">//whiteDeprecatedClsElement.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteDeprecatedClsElement.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteDeprecatedClsElement.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteDeprecatedClsElement.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteDeprecatedClsElementBhv.<span style="color: #DD4747">update</span>(whiteDeprecatedClsElement);
+     *     whiteDeprecatedClsElementBhv.<span style="color: #CC4747">update</span>(whiteDeprecatedClsElement);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -583,7 +578,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteDeprecatedClsElement The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -599,9 +594,9 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * WhiteDeprecatedClsElement whiteDeprecatedClsElement = new WhiteDeprecatedClsElement();
      * whiteDeprecatedClsElement.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteDeprecatedClsElement.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteDeprecatedClsElement.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteDeprecatedClsElementBhv.<span style="color: #DD4747">delete</span>(whiteDeprecatedClsElement);
+     *     whiteDeprecatedClsElementBhv.<span style="color: #CC4747">delete</span>(whiteDeprecatedClsElement);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -620,7 +615,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteDeprecatedClsElement whiteDeprecatedClsElement = new WhiteDeprecatedClsElement();
@@ -633,7 +628,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteDeprecatedClsElementList.add(whiteDeprecatedClsElement);
      * }
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">batchInsert</span>(whiteDeprecatedClsElementList);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">batchInsert</span>(whiteDeprecatedClsElementList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -648,7 +643,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteDeprecatedClsElement whiteDeprecatedClsElement = new WhiteDeprecatedClsElement();
@@ -663,7 +658,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteDeprecatedClsElementList.add(whiteDeprecatedClsElement);
      * }
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">batchUpdate</span>(whiteDeprecatedClsElementList);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">batchUpdate</span>(whiteDeprecatedClsElementList);
      * </pre>
      * @param whiteDeprecatedClsElementList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -690,7 +685,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteDeprecatedClsElement, WhiteDeprecatedClsElementCB&gt;() {
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteDeprecatedClsElement, WhiteDeprecatedClsElementCB&gt;() {
      *     public ConditionBean setup(WhiteDeprecatedClsElement entity, WhiteDeprecatedClsElementCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -732,7 +727,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">//whiteDeprecatedClsElement.setVersionNo(value);</span>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">queryUpdate</span>(whiteDeprecatedClsElement, cb);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">queryUpdate</span>(whiteDeprecatedClsElement, cb);
      * </pre>
      * @param whiteDeprecatedClsElement The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteDeprecatedClsElement. (NotNull)
@@ -740,7 +735,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, CBCall<WhiteDeprecatedClsElementCB> cbLambda) {
-        return doQueryUpdate(whiteDeprecatedClsElement, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteDeprecatedClsElement, createCB(cbLambda), null);
     }
 
     /**
@@ -758,7 +753,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">//whiteDeprecatedClsElement.setVersionNo(value);</span>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">queryUpdate</span>(whiteDeprecatedClsElement, cb);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">queryUpdate</span>(whiteDeprecatedClsElement, cb);
      * </pre>
      * @param whiteDeprecatedClsElement The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteDeprecatedClsElement. (NotNull)
@@ -774,14 +769,14 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">queryDelete</span>(whiteDeprecatedClsElement, cb);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">queryDelete</span>(whiteDeprecatedClsElement, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDeprecatedClsElement. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteDeprecatedClsElementCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -789,7 +784,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * <pre>
      * WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB();
      * cb.query().setFoo...(value);
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">queryDelete</span>(whiteDeprecatedClsElement, cb);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">queryDelete</span>(whiteDeprecatedClsElement, cb);
      * </pre>
      * @param cb The condition-bean of WhiteDeprecatedClsElement. (NotNull)
      * @return The deleted count.
@@ -817,15 +812,15 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * InsertOption<WhiteDeprecatedClsElementCB> option = new InsertOption<WhiteDeprecatedClsElementCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">varyingInsert</span>(whiteDeprecatedClsElement, option);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">varyingInsert</span>(whiteDeprecatedClsElement, option);
      * ... = whiteDeprecatedClsElement.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteDeprecatedClsElement The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WOptionCall<WhiteDeprecatedClsElementCB, InsertOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        doInsert(whiteDeprecatedClsElement, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WritableOptionCall<WhiteDeprecatedClsElementCB, InsertOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        doInsert(whiteDeprecatedClsElement, createInsertOption(opLambda));
     }
 
     /**
@@ -837,16 +832,16 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * whiteDeprecatedClsElement.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteDeprecatedClsElement.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteDeprecatedClsElement.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteDeprecatedClsElement.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteDeprecatedClsElementCB&gt; option = new UpdateOption&lt;WhiteDeprecatedClsElementCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
      *         public void specify(WhiteDeprecatedClsElementCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteDeprecatedClsElementBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteDeprecatedClsElement, option);
+     *     whiteDeprecatedClsElementBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteDeprecatedClsElement, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -857,8 +852,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        doUpdate(whiteDeprecatedClsElement, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WritableOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        doUpdate(whiteDeprecatedClsElement, createUpdateOption(opLambda));
     }
 
     /**
@@ -871,8 +866,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WOptionCall<WhiteDeprecatedClsElementCB, InsertOption<WhiteDeprecatedClsElementCB>> insertOpLambda, WOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteDeprecatedClsElement, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WritableOptionCall<WhiteDeprecatedClsElementCB, InsertOption<WhiteDeprecatedClsElementCB>> insertOpLambda, WritableOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteDeprecatedClsElement, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -884,8 +879,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WOptionCall<WhiteDeprecatedClsElementCB, DeleteOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        doDelete(whiteDeprecatedClsElement, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WritableOptionCall<WhiteDeprecatedClsElementCB, DeleteOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        doDelete(whiteDeprecatedClsElement, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -900,8 +895,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteDeprecatedClsElement> whiteDeprecatedClsElementList, WOptionCall<WhiteDeprecatedClsElementCB, InsertOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        return doBatchInsert(whiteDeprecatedClsElementList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteDeprecatedClsElement> whiteDeprecatedClsElementList, WritableOptionCall<WhiteDeprecatedClsElementCB, InsertOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        return doBatchInsert(whiteDeprecatedClsElementList, createInsertOption(opLambda));
     }
 
     /**
@@ -913,8 +908,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteDeprecatedClsElement> whiteDeprecatedClsElementList, WOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        return doBatchUpdate(whiteDeprecatedClsElementList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteDeprecatedClsElement> whiteDeprecatedClsElementList, WritableOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        return doBatchUpdate(whiteDeprecatedClsElementList, createUpdateOption(opLambda));
     }
 
     /**
@@ -925,8 +920,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteDeprecatedClsElement> whiteDeprecatedClsElementList, WOptionCall<WhiteDeprecatedClsElementCB, DeleteOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        return doBatchDelete(whiteDeprecatedClsElementList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteDeprecatedClsElement> whiteDeprecatedClsElementList, WritableOptionCall<WhiteDeprecatedClsElementCB, DeleteOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        return doBatchDelete(whiteDeprecatedClsElementList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -940,8 +935,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteDeprecatedClsElement, WhiteDeprecatedClsElementCB> manyArgLambda, WOptionCall<WhiteDeprecatedClsElementCB, InsertOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteDeprecatedClsElement, WhiteDeprecatedClsElementCB> manyArgLambda, WritableOptionCall<WhiteDeprecatedClsElementCB, InsertOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -963,10 +958,10 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * UpdateOption&lt;WhiteDeprecatedClsElementCB&gt; option = new UpdateOption&lt;WhiteDeprecatedClsElementCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
      *     public void specify(WhiteDeprecatedClsElementCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteDeprecatedClsElement, cb, option);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDeprecatedClsElement, cb, option);
      * </pre>
      * @param whiteDeprecatedClsElement The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteDeprecatedClsElement. (NotNull)
@@ -974,8 +969,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, CBCall<WhiteDeprecatedClsElementCB> cbLambda, WOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        return doQueryUpdate(whiteDeprecatedClsElement, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, CBCall<WhiteDeprecatedClsElementCB> cbLambda, WritableOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        return doQueryUpdate(whiteDeprecatedClsElement, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -997,10 +992,10 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * UpdateOption&lt;WhiteDeprecatedClsElementCB&gt; option = new UpdateOption&lt;WhiteDeprecatedClsElementCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
      *     public void specify(WhiteDeprecatedClsElementCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteDeprecatedClsElementBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteDeprecatedClsElement, cb, option);
+     * whiteDeprecatedClsElementBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDeprecatedClsElement, cb, option);
      * </pre>
      * @param whiteDeprecatedClsElement The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteDeprecatedClsElement. (NotNull)
@@ -1008,8 +1003,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WhiteDeprecatedClsElementCB cb, WOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        return doQueryUpdate(whiteDeprecatedClsElement, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteDeprecatedClsElement whiteDeprecatedClsElement, WhiteDeprecatedClsElementCB cb, WritableOptionCall<WhiteDeprecatedClsElementCB, UpdateOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        return doQueryUpdate(whiteDeprecatedClsElement, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1021,8 +1016,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteDeprecatedClsElementCB> cbLambda, WOptionCall<WhiteDeprecatedClsElementCB, DeleteOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteDeprecatedClsElementCB> cbLambda, WritableOptionCall<WhiteDeprecatedClsElementCB, DeleteOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1034,8 +1029,8 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteDeprecatedClsElementCB cb, WOptionCall<WhiteDeprecatedClsElementCB, DeleteOption<WhiteDeprecatedClsElementCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteDeprecatedClsElementCB cb, WritableOptionCall<WhiteDeprecatedClsElementCB, DeleteOption<WhiteDeprecatedClsElementCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1071,7 +1066,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
      */
     public OutsideSqlBasicExecutor<WhiteDeprecatedClsElementBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteDeprecatedClsElementBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

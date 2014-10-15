@@ -95,13 +95,13 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * int count = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFk. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteImplicitReverseFkCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * int count = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteImplicitReverseFk. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteImplicitReverseFk&gt; entity = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteImplicitReverseFk -&gt; {
-     *     ...
+     * WhiteImplicitReverseFk whiteImplicitReverseFk = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteImplicitReverseFk -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteImplicitReverseFk.get...
      * });
-     * WhiteImplicitReverseFk whiteImplicitReverseFk = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteImplicitReverseFk -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteImplicitReverseFk whiteImplicitReverseFk = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteImplicitReverseFk -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteImplicitReverseFk.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteImplicitReverseFk whiteImplicitReverseFk = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFk. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteImplicitReverseFk> selectEntity(CBCall<WhiteImplicitReverseFkCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteImplicitReverseFk&gt; entity = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteImplicitReverseFk -&gt; {
-     *     ...
+     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteImplicitReverseFk -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteImplicitReverseFk.get...
      * });
-     * WhiteImplicitReverseFk whiteImplicitReverseFk = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteImplicitReverseFk -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteImplicitReverseFk -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteImplicitReverseFk.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteImplicitReverseFk whiteImplicitReverseFk = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteImplicitReverseFk. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * WhiteImplicitReverseFk whiteImplicitReverseFk = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteImplicitReverseFk whiteImplicitReverseFk = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteImplicitReverseFk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFk. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteImplicitReverseFk selectEntityWithDeletedCheck(CBCall<WhiteImplicitReverseFkCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * WhiteImplicitReverseFk whiteImplicitReverseFk = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteImplicitReverseFk whiteImplicitReverseFk = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteImplicitReverseFk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteImplicitReverseFk. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteImplicitReverseFk&gt; whiteImplicitReverseFkList = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteImplicitReverseFk whiteImplicitReverseFk : whiteImplicitReverseFkList) {
+     * ListResultBean&lt;WhiteImplicitReverseFk&gt; whiteImplicitReverseFkList = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteImplicitReverseFkList.forEach(whiteImplicitReverseFk -&gt; {
      *     ... = whiteImplicitReverseFk.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFk. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteImplicitReverseFk> selectList(CBCall<WhiteImplicitReverseFkCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteImplicitReverseFk&gt; whiteImplicitReverseFkList = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteImplicitReverseFk&gt; whiteImplicitReverseFkList = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteImplicitReverseFk whiteImplicitReverseFk : whiteImplicitReverseFkList) {
      *     ... = whiteImplicitReverseFk.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteImplicitReverseFk&gt; page = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteImplicitReverseFk&gt; page = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteImplicitReverseFk> selectPage(CBCall<WhiteImplicitReverseFkCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteImplicitReverseFk&gt; page = whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteImplicitReverseFk&gt; page = whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteImplicitReverseFk&gt;() {
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteImplicitReverseFk&gt;() {
      *     public void handle(WhiteImplicitReverseFk entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @param entityLambda The handler of entity row of WhiteImplicitReverseFk. (NotNull)
      */
     public void selectCursor(CBCall<WhiteImplicitReverseFkCB> cbLambda, EntityRowHandler<WhiteImplicitReverseFk> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteImplicitReverseFk&gt;() {
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteImplicitReverseFk&gt;() {
      *     public void handle(WhiteImplicitReverseFk entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteImplicitReverseFkCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -558,7 +553,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteImplicitReverseFk.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteImplicitReverseFk.set...;</span>
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">insert</span>(whiteImplicitReverseFk);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">insert</span>(whiteImplicitReverseFk);
      * ... = whiteImplicitReverseFk.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -579,9 +574,9 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteImplicitReverseFk.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteImplicitReverseFk.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteImplicitReverseFk.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteImplicitReverseFk.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteImplicitReverseFkBhv.<span style="color: #DD4747">update</span>(whiteImplicitReverseFk);
+     *     whiteImplicitReverseFkBhv.<span style="color: #CC4747">update</span>(whiteImplicitReverseFk);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -598,7 +593,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteImplicitReverseFk The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -614,9 +609,9 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * WhiteImplicitReverseFk whiteImplicitReverseFk = new WhiteImplicitReverseFk();
      * whiteImplicitReverseFk.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteImplicitReverseFk.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteImplicitReverseFk.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteImplicitReverseFkBhv.<span style="color: #DD4747">delete</span>(whiteImplicitReverseFk);
+     *     whiteImplicitReverseFkBhv.<span style="color: #CC4747">delete</span>(whiteImplicitReverseFk);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -635,7 +630,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteImplicitReverseFk whiteImplicitReverseFk = new WhiteImplicitReverseFk();
@@ -648,7 +643,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteImplicitReverseFkList.add(whiteImplicitReverseFk);
      * }
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">batchInsert</span>(whiteImplicitReverseFkList);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">batchInsert</span>(whiteImplicitReverseFkList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -663,7 +658,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteImplicitReverseFk whiteImplicitReverseFk = new WhiteImplicitReverseFk();
@@ -678,7 +673,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteImplicitReverseFkList.add(whiteImplicitReverseFk);
      * }
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">batchUpdate</span>(whiteImplicitReverseFkList);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">batchUpdate</span>(whiteImplicitReverseFkList);
      * </pre>
      * @param whiteImplicitReverseFkList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -705,7 +700,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteImplicitReverseFk, WhiteImplicitReverseFkCB&gt;() {
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteImplicitReverseFk, WhiteImplicitReverseFkCB&gt;() {
      *     public ConditionBean setup(WhiteImplicitReverseFk entity, WhiteImplicitReverseFkCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -747,7 +742,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteImplicitReverseFk.setVersionNo(value);</span>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">queryUpdate</span>(whiteImplicitReverseFk, cb);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitReverseFk, cb);
      * </pre>
      * @param whiteImplicitReverseFk The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFk. (NotNull)
@@ -755,7 +750,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, CBCall<WhiteImplicitReverseFkCB> cbLambda) {
-        return doQueryUpdate(whiteImplicitReverseFk, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteImplicitReverseFk, createCB(cbLambda), null);
     }
 
     /**
@@ -773,7 +768,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteImplicitReverseFk.setVersionNo(value);</span>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">queryUpdate</span>(whiteImplicitReverseFk, cb);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitReverseFk, cb);
      * </pre>
      * @param whiteImplicitReverseFk The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteImplicitReverseFk. (NotNull)
@@ -789,14 +784,14 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">queryDelete</span>(whiteImplicitReverseFk, cb);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">queryDelete</span>(whiteImplicitReverseFk, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFk. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteImplicitReverseFkCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -804,7 +799,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">queryDelete</span>(whiteImplicitReverseFk, cb);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">queryDelete</span>(whiteImplicitReverseFk, cb);
      * </pre>
      * @param cb The condition-bean of WhiteImplicitReverseFk. (NotNull)
      * @return The deleted count.
@@ -832,15 +827,15 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * InsertOption<WhiteImplicitReverseFkCB> option = new InsertOption<WhiteImplicitReverseFkCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">varyingInsert</span>(whiteImplicitReverseFk, option);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">varyingInsert</span>(whiteImplicitReverseFk, option);
      * ... = whiteImplicitReverseFk.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteImplicitReverseFk The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteImplicitReverseFk whiteImplicitReverseFk, WOptionCall<WhiteImplicitReverseFkCB, InsertOption<WhiteImplicitReverseFkCB>> opLambda) {
-        doInsert(whiteImplicitReverseFk, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteImplicitReverseFk whiteImplicitReverseFk, WritableOptionCall<WhiteImplicitReverseFkCB, InsertOption<WhiteImplicitReverseFkCB>> opLambda) {
+        doInsert(whiteImplicitReverseFk, createInsertOption(opLambda));
     }
 
     /**
@@ -852,16 +847,16 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * whiteImplicitReverseFk.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteImplicitReverseFk.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteImplicitReverseFk.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteImplicitReverseFk.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteImplicitReverseFkCB&gt; option = new UpdateOption&lt;WhiteImplicitReverseFkCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteImplicitReverseFkCB&gt;() {
      *         public void specify(WhiteImplicitReverseFkCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteImplicitReverseFkBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteImplicitReverseFk, option);
+     *     whiteImplicitReverseFkBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteImplicitReverseFk, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -872,8 +867,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, WOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> opLambda) {
-        doUpdate(whiteImplicitReverseFk, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, WritableOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> opLambda) {
+        doUpdate(whiteImplicitReverseFk, createUpdateOption(opLambda));
     }
 
     /**
@@ -886,8 +881,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, WOptionCall<WhiteImplicitReverseFkCB, InsertOption<WhiteImplicitReverseFkCB>> insertOpLambda, WOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteImplicitReverseFk, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, WritableOptionCall<WhiteImplicitReverseFkCB, InsertOption<WhiteImplicitReverseFkCB>> insertOpLambda, WritableOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteImplicitReverseFk, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -899,8 +894,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteImplicitReverseFk whiteImplicitReverseFk, WOptionCall<WhiteImplicitReverseFkCB, DeleteOption<WhiteImplicitReverseFkCB>> opLambda) {
-        doDelete(whiteImplicitReverseFk, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteImplicitReverseFk whiteImplicitReverseFk, WritableOptionCall<WhiteImplicitReverseFkCB, DeleteOption<WhiteImplicitReverseFkCB>> opLambda) {
+        doDelete(whiteImplicitReverseFk, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -915,8 +910,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteImplicitReverseFk> whiteImplicitReverseFkList, WOptionCall<WhiteImplicitReverseFkCB, InsertOption<WhiteImplicitReverseFkCB>> opLambda) {
-        return doBatchInsert(whiteImplicitReverseFkList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteImplicitReverseFk> whiteImplicitReverseFkList, WritableOptionCall<WhiteImplicitReverseFkCB, InsertOption<WhiteImplicitReverseFkCB>> opLambda) {
+        return doBatchInsert(whiteImplicitReverseFkList, createInsertOption(opLambda));
     }
 
     /**
@@ -928,8 +923,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteImplicitReverseFk> whiteImplicitReverseFkList, WOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> opLambda) {
-        return doBatchUpdate(whiteImplicitReverseFkList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteImplicitReverseFk> whiteImplicitReverseFkList, WritableOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> opLambda) {
+        return doBatchUpdate(whiteImplicitReverseFkList, createUpdateOption(opLambda));
     }
 
     /**
@@ -940,8 +935,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteImplicitReverseFk> whiteImplicitReverseFkList, WOptionCall<WhiteImplicitReverseFkCB, DeleteOption<WhiteImplicitReverseFkCB>> opLambda) {
-        return doBatchDelete(whiteImplicitReverseFkList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteImplicitReverseFk> whiteImplicitReverseFkList, WritableOptionCall<WhiteImplicitReverseFkCB, DeleteOption<WhiteImplicitReverseFkCB>> opLambda) {
+        return doBatchDelete(whiteImplicitReverseFkList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -955,8 +950,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteImplicitReverseFk, WhiteImplicitReverseFkCB> manyArgLambda, WOptionCall<WhiteImplicitReverseFkCB, InsertOption<WhiteImplicitReverseFkCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteImplicitReverseFk, WhiteImplicitReverseFkCB> manyArgLambda, WritableOptionCall<WhiteImplicitReverseFkCB, InsertOption<WhiteImplicitReverseFkCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -978,10 +973,10 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * UpdateOption&lt;WhiteImplicitReverseFkCB&gt; option = new UpdateOption&lt;WhiteImplicitReverseFkCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteImplicitReverseFkCB&gt;() {
      *     public void specify(WhiteImplicitReverseFkCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteImplicitReverseFk, cb, option);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitReverseFk, cb, option);
      * </pre>
      * @param whiteImplicitReverseFk The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFk. (NotNull)
@@ -989,8 +984,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, CBCall<WhiteImplicitReverseFkCB> cbLambda, WOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> opLambda) {
-        return doQueryUpdate(whiteImplicitReverseFk, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, CBCall<WhiteImplicitReverseFkCB> cbLambda, WritableOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> opLambda) {
+        return doQueryUpdate(whiteImplicitReverseFk, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1012,10 +1007,10 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * UpdateOption&lt;WhiteImplicitReverseFkCB&gt; option = new UpdateOption&lt;WhiteImplicitReverseFkCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteImplicitReverseFkCB&gt;() {
      *     public void specify(WhiteImplicitReverseFkCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteImplicitReverseFkBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteImplicitReverseFk, cb, option);
+     * whiteImplicitReverseFkBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitReverseFk, cb, option);
      * </pre>
      * @param whiteImplicitReverseFk The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteImplicitReverseFk. (NotNull)
@@ -1023,8 +1018,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, WhiteImplicitReverseFkCB cb, WOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> opLambda) {
-        return doQueryUpdate(whiteImplicitReverseFk, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteImplicitReverseFk whiteImplicitReverseFk, WhiteImplicitReverseFkCB cb, WritableOptionCall<WhiteImplicitReverseFkCB, UpdateOption<WhiteImplicitReverseFkCB>> opLambda) {
+        return doQueryUpdate(whiteImplicitReverseFk, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1036,8 +1031,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteImplicitReverseFkCB> cbLambda, WOptionCall<WhiteImplicitReverseFkCB, DeleteOption<WhiteImplicitReverseFkCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteImplicitReverseFkCB> cbLambda, WritableOptionCall<WhiteImplicitReverseFkCB, DeleteOption<WhiteImplicitReverseFkCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1049,8 +1044,8 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteImplicitReverseFkCB cb, WOptionCall<WhiteImplicitReverseFkCB, DeleteOption<WhiteImplicitReverseFkCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteImplicitReverseFkCB cb, WritableOptionCall<WhiteImplicitReverseFkCB, DeleteOption<WhiteImplicitReverseFkCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1086,7 +1081,7 @@ public abstract class BsWhiteImplicitReverseFkBhv extends AbstractBehaviorWritab
      */
     public OutsideSqlBasicExecutor<WhiteImplicitReverseFkBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteImplicitReverseFkBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

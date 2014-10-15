@@ -95,13 +95,13 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * int count = whiteLoadDataBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteLoadDataBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteLoadData. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteLoadDataCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * int count = whiteLoadDataBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteLoadDataBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteLoadData. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -125,28 +125,26 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteLoadDataCB cb = new WhiteLoadDataCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteLoadData&gt; entity = whiteLoadDataBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteLoadData -&gt; {
-     *     ...
+     * WhiteLoadData whiteLoadData = whiteLoadDataBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteLoadData -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteLoadData.get...
      * });
-     * WhiteLoadData whiteLoadData = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteLoadData -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteLoadData whiteLoadData = whiteLoadDataBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteLoadData -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteLoadData.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteLoadData whiteLoadData = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteLoadData. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -155,34 +153,31 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteLoadData> selectEntity(CBCall<WhiteLoadDataCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteLoadData&gt; entity = whiteLoadDataBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteLoadData -&gt; {
-     *     ...
+     * whiteLoadDataBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteLoadData -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteLoadData.get...
      * });
-     * WhiteLoadData whiteLoadData = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteLoadData -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteLoadDataBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteLoadData -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteLoadData.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteLoadData whiteLoadData = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteLoadData. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -206,11 +201,11 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * WhiteLoadData whiteLoadData = whiteLoadDataBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteLoadData whiteLoadData = whiteLoadDataBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteLoadData.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteLoadData. (NotNull)
@@ -220,16 +215,16 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteLoadData selectEntityWithDeletedCheck(CBCall<WhiteLoadDataCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * WhiteLoadData whiteLoadData = whiteLoadDataBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteLoadData whiteLoadData = whiteLoadDataBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteLoadData.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteLoadData. (NotNull)
@@ -277,20 +272,20 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteLoadDataCB cb = new WhiteLoadDataCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteLoadData&gt; whiteLoadDataList = whiteLoadDataBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteLoadData whiteLoadData : whiteLoadDataList) {
+     * ListResultBean&lt;WhiteLoadData&gt; whiteLoadDataList = whiteLoadDataBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteLoadDataList.forEach(whiteLoadData -&gt; {
      *     ... = whiteLoadData.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteLoadData. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteLoadData> selectList(CBCall<WhiteLoadDataCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -299,7 +294,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteLoadData&gt; whiteLoadDataList = whiteLoadDataBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteLoadData&gt; whiteLoadDataList = whiteLoadDataBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteLoadData whiteLoadData : whiteLoadDataList) {
      *     ... = whiteLoadData.get...();
      * }
@@ -325,8 +320,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteLoadData&gt; page = whiteLoadDataBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteLoadData&gt; page = whiteLoadDataBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -341,7 +336,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteLoadData> selectPage(CBCall<WhiteLoadDataCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -351,8 +346,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteLoadData&gt; page = whiteLoadDataBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteLoadData&gt; page = whiteLoadDataBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -378,7 +373,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * whiteLoadDataBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteLoadData&gt;() {
+     * whiteLoadDataBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteLoadData&gt;() {
      *     public void handle(WhiteLoadData entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -388,7 +383,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @param entityLambda The handler of entity row of WhiteLoadData. (NotNull)
      */
     public void selectCursor(CBCall<WhiteLoadDataCB> cbLambda, EntityRowHandler<WhiteLoadData> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -396,7 +391,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * whiteLoadDataBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteLoadData&gt;() {
+     * whiteLoadDataBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteLoadData&gt;() {
      *     public void handle(WhiteLoadData entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -416,9 +411,9 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteLoadDataBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteLoadDataBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteLoadDataCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -449,8 +444,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -463,7 +458,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -485,8 +480,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -499,7 +494,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -542,7 +537,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteLoadData.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteLoadData.set...;</span>
-     * whiteLoadDataBhv.<span style="color: #DD4747">insert</span>(whiteLoadData);
+     * whiteLoadDataBhv.<span style="color: #CC4747">insert</span>(whiteLoadData);
      * ... = whiteLoadData.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -563,9 +558,9 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <span style="color: #3F7E5E">//whiteLoadData.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteLoadData.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteLoadData.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteLoadData.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteLoadDataBhv.<span style="color: #DD4747">update</span>(whiteLoadData);
+     *     whiteLoadDataBhv.<span style="color: #CC4747">update</span>(whiteLoadData);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -582,7 +577,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteLoadData The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -598,9 +593,9 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * WhiteLoadData whiteLoadData = new WhiteLoadData();
      * whiteLoadData.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteLoadData.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteLoadData.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteLoadDataBhv.<span style="color: #DD4747">delete</span>(whiteLoadData);
+     *     whiteLoadDataBhv.<span style="color: #CC4747">delete</span>(whiteLoadData);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -619,7 +614,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteLoadData whiteLoadData = new WhiteLoadData();
@@ -632,7 +627,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteLoadDataList.add(whiteLoadData);
      * }
-     * whiteLoadDataBhv.<span style="color: #DD4747">batchInsert</span>(whiteLoadDataList);
+     * whiteLoadDataBhv.<span style="color: #CC4747">batchInsert</span>(whiteLoadDataList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -647,7 +642,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteLoadData whiteLoadData = new WhiteLoadData();
@@ -662,7 +657,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteLoadDataList.add(whiteLoadData);
      * }
-     * whiteLoadDataBhv.<span style="color: #DD4747">batchUpdate</span>(whiteLoadDataList);
+     * whiteLoadDataBhv.<span style="color: #CC4747">batchUpdate</span>(whiteLoadDataList);
      * </pre>
      * @param whiteLoadDataList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -689,7 +684,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteLoadDataBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteLoadData, WhiteLoadDataCB&gt;() {
+     * whiteLoadDataBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteLoadData, WhiteLoadDataCB&gt;() {
      *     public ConditionBean setup(WhiteLoadData entity, WhiteLoadDataCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -731,7 +726,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <span style="color: #3F7E5E">//whiteLoadData.setVersionNo(value);</span>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * whiteLoadDataBhv.<span style="color: #DD4747">queryUpdate</span>(whiteLoadData, cb);
+     * whiteLoadDataBhv.<span style="color: #CC4747">queryUpdate</span>(whiteLoadData, cb);
      * </pre>
      * @param whiteLoadData The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteLoadData. (NotNull)
@@ -739,7 +734,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteLoadData whiteLoadData, CBCall<WhiteLoadDataCB> cbLambda) {
-        return doQueryUpdate(whiteLoadData, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteLoadData, createCB(cbLambda), null);
     }
 
     /**
@@ -757,7 +752,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <span style="color: #3F7E5E">//whiteLoadData.setVersionNo(value);</span>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * whiteLoadDataBhv.<span style="color: #DD4747">queryUpdate</span>(whiteLoadData, cb);
+     * whiteLoadDataBhv.<span style="color: #CC4747">queryUpdate</span>(whiteLoadData, cb);
      * </pre>
      * @param whiteLoadData The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteLoadData. (NotNull)
@@ -773,14 +768,14 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * whiteLoadDataBhv.<span style="color: #DD4747">queryDelete</span>(whiteLoadData, cb);
+     * whiteLoadDataBhv.<span style="color: #CC4747">queryDelete</span>(whiteLoadData, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteLoadData. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteLoadDataCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -788,7 +783,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * <pre>
      * WhiteLoadDataCB cb = new WhiteLoadDataCB();
      * cb.query().setFoo...(value);
-     * whiteLoadDataBhv.<span style="color: #DD4747">queryDelete</span>(whiteLoadData, cb);
+     * whiteLoadDataBhv.<span style="color: #CC4747">queryDelete</span>(whiteLoadData, cb);
      * </pre>
      * @param cb The condition-bean of WhiteLoadData. (NotNull)
      * @return The deleted count.
@@ -816,15 +811,15 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * InsertOption<WhiteLoadDataCB> option = new InsertOption<WhiteLoadDataCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteLoadDataBhv.<span style="color: #DD4747">varyingInsert</span>(whiteLoadData, option);
+     * whiteLoadDataBhv.<span style="color: #CC4747">varyingInsert</span>(whiteLoadData, option);
      * ... = whiteLoadData.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteLoadData The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteLoadData whiteLoadData, WOptionCall<WhiteLoadDataCB, InsertOption<WhiteLoadDataCB>> opLambda) {
-        doInsert(whiteLoadData, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteLoadData whiteLoadData, WritableOptionCall<WhiteLoadDataCB, InsertOption<WhiteLoadDataCB>> opLambda) {
+        doInsert(whiteLoadData, createInsertOption(opLambda));
     }
 
     /**
@@ -836,16 +831,16 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * whiteLoadData.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteLoadData.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteLoadData.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteLoadData.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteLoadDataCB&gt; option = new UpdateOption&lt;WhiteLoadDataCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteLoadDataCB&gt;() {
      *         public void specify(WhiteLoadDataCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteLoadDataBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteLoadData, option);
+     *     whiteLoadDataBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteLoadData, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -856,8 +851,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteLoadData whiteLoadData, WOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> opLambda) {
-        doUpdate(whiteLoadData, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteLoadData whiteLoadData, WritableOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> opLambda) {
+        doUpdate(whiteLoadData, createUpdateOption(opLambda));
     }
 
     /**
@@ -870,8 +865,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteLoadData whiteLoadData, WOptionCall<WhiteLoadDataCB, InsertOption<WhiteLoadDataCB>> insertOpLambda, WOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteLoadData, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteLoadData whiteLoadData, WritableOptionCall<WhiteLoadDataCB, InsertOption<WhiteLoadDataCB>> insertOpLambda, WritableOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteLoadData, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -883,8 +878,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteLoadData whiteLoadData, WOptionCall<WhiteLoadDataCB, DeleteOption<WhiteLoadDataCB>> opLambda) {
-        doDelete(whiteLoadData, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteLoadData whiteLoadData, WritableOptionCall<WhiteLoadDataCB, DeleteOption<WhiteLoadDataCB>> opLambda) {
+        doDelete(whiteLoadData, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -899,8 +894,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteLoadData> whiteLoadDataList, WOptionCall<WhiteLoadDataCB, InsertOption<WhiteLoadDataCB>> opLambda) {
-        return doBatchInsert(whiteLoadDataList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteLoadData> whiteLoadDataList, WritableOptionCall<WhiteLoadDataCB, InsertOption<WhiteLoadDataCB>> opLambda) {
+        return doBatchInsert(whiteLoadDataList, createInsertOption(opLambda));
     }
 
     /**
@@ -912,8 +907,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteLoadData> whiteLoadDataList, WOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> opLambda) {
-        return doBatchUpdate(whiteLoadDataList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteLoadData> whiteLoadDataList, WritableOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> opLambda) {
+        return doBatchUpdate(whiteLoadDataList, createUpdateOption(opLambda));
     }
 
     /**
@@ -924,8 +919,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteLoadData> whiteLoadDataList, WOptionCall<WhiteLoadDataCB, DeleteOption<WhiteLoadDataCB>> opLambda) {
-        return doBatchDelete(whiteLoadDataList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteLoadData> whiteLoadDataList, WritableOptionCall<WhiteLoadDataCB, DeleteOption<WhiteLoadDataCB>> opLambda) {
+        return doBatchDelete(whiteLoadDataList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -939,8 +934,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteLoadData, WhiteLoadDataCB> manyArgLambda, WOptionCall<WhiteLoadDataCB, InsertOption<WhiteLoadDataCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteLoadData, WhiteLoadDataCB> manyArgLambda, WritableOptionCall<WhiteLoadDataCB, InsertOption<WhiteLoadDataCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -962,10 +957,10 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * UpdateOption&lt;WhiteLoadDataCB&gt; option = new UpdateOption&lt;WhiteLoadDataCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteLoadDataCB&gt;() {
      *     public void specify(WhiteLoadDataCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteLoadDataBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteLoadData, cb, option);
+     * whiteLoadDataBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteLoadData, cb, option);
      * </pre>
      * @param whiteLoadData The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteLoadData. (NotNull)
@@ -973,8 +968,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteLoadData whiteLoadData, CBCall<WhiteLoadDataCB> cbLambda, WOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> opLambda) {
-        return doQueryUpdate(whiteLoadData, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteLoadData whiteLoadData, CBCall<WhiteLoadDataCB> cbLambda, WritableOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> opLambda) {
+        return doQueryUpdate(whiteLoadData, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -996,10 +991,10 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * UpdateOption&lt;WhiteLoadDataCB&gt; option = new UpdateOption&lt;WhiteLoadDataCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteLoadDataCB&gt;() {
      *     public void specify(WhiteLoadDataCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteLoadDataBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteLoadData, cb, option);
+     * whiteLoadDataBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteLoadData, cb, option);
      * </pre>
      * @param whiteLoadData The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteLoadData. (NotNull)
@@ -1007,8 +1002,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteLoadData whiteLoadData, WhiteLoadDataCB cb, WOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> opLambda) {
-        return doQueryUpdate(whiteLoadData, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteLoadData whiteLoadData, WhiteLoadDataCB cb, WritableOptionCall<WhiteLoadDataCB, UpdateOption<WhiteLoadDataCB>> opLambda) {
+        return doQueryUpdate(whiteLoadData, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1020,8 +1015,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteLoadDataCB> cbLambda, WOptionCall<WhiteLoadDataCB, DeleteOption<WhiteLoadDataCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteLoadDataCB> cbLambda, WritableOptionCall<WhiteLoadDataCB, DeleteOption<WhiteLoadDataCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1033,8 +1028,8 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteLoadDataCB cb, WOptionCall<WhiteLoadDataCB, DeleteOption<WhiteLoadDataCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteLoadDataCB cb, WritableOptionCall<WhiteLoadDataCB, DeleteOption<WhiteLoadDataCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1070,7 +1065,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
      */
     public OutsideSqlBasicExecutor<WhiteLoadDataBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteLoadDataBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

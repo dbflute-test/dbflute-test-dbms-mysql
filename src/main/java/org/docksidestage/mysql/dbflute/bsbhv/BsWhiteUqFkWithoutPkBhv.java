@@ -94,13 +94,13 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * <pre>
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
-     * int count = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqFkWithoutPk. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteUqFkWithoutPkCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -109,7 +109,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * <pre>
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
-     * int count = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteUqFkWithoutPk. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -124,28 +124,26 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteUqFkWithoutPk&gt; entity = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteUqFkWithoutPk -&gt; {
-     *     ...
+     * WhiteUqFkWithoutPk whiteUqFkWithoutPk = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteUqFkWithoutPk -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteUqFkWithoutPk.get...
      * });
-     * WhiteUqFkWithoutPk whiteUqFkWithoutPk = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteUqFkWithoutPk -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * WhiteUqFkWithoutPk whiteUqFkWithoutPk = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(whiteUqFkWithoutPk -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteUqFkWithoutPk.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteUqFkWithoutPk whiteUqFkWithoutPk = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqFkWithoutPk. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -154,34 +152,31 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteUqFkWithoutPk> selectEntity(CBCall<WhiteUqFkWithoutPkCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean. <br />
      * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, get() without check.</span> <br />
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
-     * cb.query().setFoo...(value);
-     * OptionalEntity&lt;WhiteUqFkWithoutPk&gt; entity = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectEntity</span>(cb);
-     *
+     * cb.query().set...
+     * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * entity.<span style="color: #DD4747">required</span>(whiteUqFkWithoutPk -&gt; {
-     *     ...
+     * whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteUqFkWithoutPk -&gt; {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteUqFkWithoutPk.get...
      * });
-     * WhiteUqFkWithoutPk whiteUqFkWithoutPk = entity.entity.<span style="color: #DD4747">get()</span>;
-     *
-     * <span style="color: #3F7E5E">// if it might be no data, ifPresent(), isPresent(), ...</span>
-     * entity.<span style="color: #DD4747">ifPresent</span>(whiteUqFkWithoutPk -&gt; {
-     *     ...
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteUqFkWithoutPk -&gt; {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteUqFkWithoutPk.get...
+     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     <span style="color: #3F7E5E">// called if not present</span>
      * });
-     * if (entity.entity.<span style="color: #DD4747">isPresent()</span>) {
-     *     WhiteUqFkWithoutPk whiteUqFkWithoutPk = entity.entity.<span style="color: #DD4747">get()</span>;
-     * } else {
-     *     ...
-     * }
      * </pre>
      * @param cb The condition-bean of WhiteUqFkWithoutPk. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
@@ -205,11 +200,11 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
-     * WhiteUqFkWithoutPk whiteUqFkWithoutPk = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteUqFkWithoutPk whiteUqFkWithoutPk = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteUqFkWithoutPk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqFkWithoutPk. (NotNull)
@@ -219,16 +214,16 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteUqFkWithoutPk selectEntityWithDeletedCheck(CBCall<WhiteUqFkWithoutPkCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
-     * WhiteUqFkWithoutPk whiteUqFkWithoutPk = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteUqFkWithoutPk whiteUqFkWithoutPk = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteUqFkWithoutPk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteUqFkWithoutPk. (NotNull)
@@ -272,20 +267,20 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteUqFkWithoutPk&gt; whiteUqFkWithoutPkList = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteUqFkWithoutPk whiteUqFkWithoutPk : whiteUqFkWithoutPkList) {
+     * ListResultBean&lt;WhiteUqFkWithoutPk&gt; whiteUqFkWithoutPkList = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteUqFkWithoutPkList.forEach(whiteUqFkWithoutPk -&gt; {
      *     ... = whiteUqFkWithoutPk.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqFkWithoutPk. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteUqFkWithoutPk> selectList(CBCall<WhiteUqFkWithoutPkCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -294,7 +289,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteUqFkWithoutPk&gt; whiteUqFkWithoutPkList = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteUqFkWithoutPk&gt; whiteUqFkWithoutPkList = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteUqFkWithoutPk whiteUqFkWithoutPk : whiteUqFkWithoutPkList) {
      *     ... = whiteUqFkWithoutPk.get...();
      * }
@@ -320,8 +315,8 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteUqFkWithoutPk&gt; page = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteUqFkWithoutPk&gt; page = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -336,7 +331,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteUqFkWithoutPk> selectPage(CBCall<WhiteUqFkWithoutPkCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -346,8 +341,8 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteUqFkWithoutPk&gt; page = whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteUqFkWithoutPk&gt; page = whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -373,7 +368,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * <pre>
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
-     * whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteUqFkWithoutPk&gt;() {
+     * whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteUqFkWithoutPk&gt;() {
      *     public void handle(WhiteUqFkWithoutPk entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -383,7 +378,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * @param entityLambda The handler of entity row of WhiteUqFkWithoutPk. (NotNull)
      */
     public void selectCursor(CBCall<WhiteUqFkWithoutPkCB> cbLambda, EntityRowHandler<WhiteUqFkWithoutPk> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -391,7 +386,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * <pre>
      * WhiteUqFkWithoutPkCB cb = new WhiteUqFkWithoutPkCB();
      * cb.query().setFoo...(value);
-     * whiteUqFkWithoutPkBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteUqFkWithoutPk&gt;() {
+     * whiteUqFkWithoutPkBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteUqFkWithoutPk&gt;() {
      *     public void handle(WhiteUqFkWithoutPk entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,9 +406,9 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteUqFkWithoutPkBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteUqFkWithoutPkBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteUqFkWithoutPkCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -444,8 +439,8 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -458,7 +453,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -480,8 +475,8 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -494,7 +489,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -558,7 +553,7 @@ public abstract class BsWhiteUqFkWithoutPkBhv extends AbstractBehaviorReadable<W
      */
     public OutsideSqlBasicExecutor<WhiteUqFkWithoutPkBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteUqFkWithoutPkBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

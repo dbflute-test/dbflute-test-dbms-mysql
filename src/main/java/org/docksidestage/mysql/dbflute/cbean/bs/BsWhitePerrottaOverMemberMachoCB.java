@@ -226,7 +226,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
      *     public void query(WhitePerrottaOverMemberMachoCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -245,7 +245,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
      *     public void query(WhitePerrottaOverMemberMachoCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -291,7 +291,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhitePerrottaOverMemberMachoCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -306,8 +306,8 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
     public static class HpSpecification extends HpAbstractSpecification<WhitePerrottaOverMemberMachoCQ> {
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhitePerrottaOverMemberMachoCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * MACHO_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
@@ -331,16 +331,14 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
          * {select max(FOO) from white_perrotta_over_member where ...) as FOO_MAX} <br />
          * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
-         *     public void query(WhitePerrottaOverMemberCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, WhitePerrottaOverMember.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(memberCB -&gt; {
+         *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     memberCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhitePerrottaOverMember.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhitePerrottaOverMemberCB, WhitePerrottaOverMemberMachoCQ> derivedWhitePerrottaOverMemberList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberCB, WhitePerrottaOverMemberMachoCQ> derivedWhitePerrottaOverMemberList() {
             assertDerived("whitePerrottaOverMemberList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverMemberCB, WhitePerrottaOverMemberMachoCQ>() {
                 public void setup(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, WhitePerrottaOverMemberMachoCQ cq, String al, DerivedReferrerOption op) {
@@ -350,12 +348,20 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhitePerrottaOverMemberMachoCB, WhitePerrottaOverMemberMachoCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberMachoCB, WhitePerrottaOverMemberMachoCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverMemberMachoCB, WhitePerrottaOverMemberMachoCQ>() {
                 public void setup(String fn, SubQuery<WhitePerrottaOverMemberMachoCB> sq, WhitePerrottaOverMemberMachoCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -366,13 +372,13 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
      *     public void query(WhitePerrottaOverMemberMachoCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
      *     public void query(WhitePerrottaOverMemberMachoCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -420,7 +426,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
      *     public void query(WhitePerrottaOverMemberMachoCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -438,10 +444,10 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
      *     public void query(WhitePerrottaOverMemberMachoCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
      *             public void query(WhitePerrottaOverMemberMachoCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

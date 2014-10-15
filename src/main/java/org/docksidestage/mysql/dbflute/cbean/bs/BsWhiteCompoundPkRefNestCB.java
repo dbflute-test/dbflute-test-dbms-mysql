@@ -227,7 +227,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *     public void query(WhiteCompoundPkRefNestCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -246,7 +246,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *     public void query(WhiteCompoundPkRefNestCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -273,10 +273,10 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      * white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
      * <pre>
      * WhiteCompoundPkRefNestCB cb = new WhiteCompoundPkRefNestCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteCompoundPkRefByQuxMultipleId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteCompoundPkRefByQuxMultipleId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteCompoundPkRefNest whiteCompoundPkRefNest = whiteCompoundPkRefNestBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteCompoundPkRefNest.<span style="color: #DD4747">getWhiteCompoundPkRefByQuxMultipleId()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteCompoundPkRefNest.<span style="color: #CC4747">getWhiteCompoundPkRefByQuxMultipleId()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -302,10 +302,10 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      * white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
      * <pre>
      * WhiteCompoundPkRefNestCB cb = new WhiteCompoundPkRefNestCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteCompoundPkRefByFooMultipleId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteCompoundPkRefByFooMultipleId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteCompoundPkRefNest whiteCompoundPkRefNest = whiteCompoundPkRefNestBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteCompoundPkRefNest.<span style="color: #DD4747">getWhiteCompoundPkRefByFooMultipleId()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteCompoundPkRefNest.<span style="color: #CC4747">getWhiteCompoundPkRefByFooMultipleId()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -350,7 +350,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhiteCompoundPkRefNestCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -367,8 +367,8 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
         protected WhiteCompoundPkRefCB.HpSpecification _whiteCompoundPkRefByFooMultipleId;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteCompoundPkRefNestCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
@@ -423,7 +423,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
                 _whiteCompoundPkRefByQuxMultipleId = new WhiteCompoundPkRefCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteCompoundPkRefCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundPkRefByQuxMultipleId(); }
                     public WhiteCompoundPkRefCQ qy() { return _qyCall.qy().queryWhiteCompoundPkRefByQuxMultipleId(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteCompoundPkRefByQuxMultipleId.xsetSyncQyCall(new HpSpQyCall<WhiteCompoundPkRefCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundPkRefByQuxMultipleId(); }
@@ -444,7 +444,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
                 _whiteCompoundPkRefByFooMultipleId = new WhiteCompoundPkRefCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteCompoundPkRefCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundPkRefByFooMultipleId(); }
                     public WhiteCompoundPkRefCQ qy() { return _qyCall.qy().queryWhiteCompoundPkRefByFooMultipleId(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteCompoundPkRefByFooMultipleId.xsetSyncQyCall(new HpSpQyCall<WhiteCompoundPkRefCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundPkRefByFooMultipleId(); }
@@ -458,12 +458,20 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefNestCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefNestCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefNestCQ>() {
                 public void setup(String fn, SubQuery<WhiteCompoundPkRefNestCB> sq, WhiteCompoundPkRefNestCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -474,13 +482,13 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *     public void query(WhiteCompoundPkRefNestCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *     public void query(WhiteCompoundPkRefNestCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -528,7 +536,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *     public void query(WhiteCompoundPkRefNestCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -546,10 +554,10 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *     public void query(WhiteCompoundPkRefNestCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *             public void query(WhiteCompoundPkRefNestCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

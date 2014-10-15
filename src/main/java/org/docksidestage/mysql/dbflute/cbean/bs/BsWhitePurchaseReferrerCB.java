@@ -227,7 +227,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhitePurchaseReferrerCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *     public void query(WhitePurchaseReferrerCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -246,7 +246,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhitePurchaseReferrerCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *     public void query(WhitePurchaseReferrerCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -273,10 +273,10 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      * (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'.
      * <pre>
      * WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB();
-     * cb.<span style="color: #DD4747">setupSelect_Purchase()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_Purchase()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhitePurchaseReferrer whitePurchaseReferrer = whitePurchaseReferrerBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whitePurchaseReferrer.<span style="color: #DD4747">getPurchase()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whitePurchaseReferrer.<span style="color: #CC4747">getPurchase()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -317,7 +317,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhitePurchaseReferrerCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -333,8 +333,8 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
         protected PurchaseCB.HpSpecification _purchase;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhitePurchaseReferrerCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
          * @return The information object of specified column. (NotNull)
@@ -364,7 +364,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
                 _purchase = new PurchaseCB.HpSpecification(_baseCB, new HpSpQyCall<PurchaseCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryPurchase(); }
                     public PurchaseCQ qy() { return _qyCall.qy().queryPurchase(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _purchase.xsetSyncQyCall(new HpSpQyCall<PurchaseCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryPurchase(); }
@@ -378,12 +378,20 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhitePurchaseReferrerCB, WhitePurchaseReferrerCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePurchaseReferrerCB, WhitePurchaseReferrerCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePurchaseReferrerCB, WhitePurchaseReferrerCQ>() {
                 public void setup(String fn, SubQuery<WhitePurchaseReferrerCB> sq, WhitePurchaseReferrerCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -394,13 +402,13 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhitePurchaseReferrerCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *     public void query(WhitePurchaseReferrerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *     public void query(WhitePurchaseReferrerCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -448,7 +456,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhitePurchaseReferrerCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *     public void query(WhitePurchaseReferrerCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -466,10 +474,10 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhitePurchaseReferrerCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *     public void query(WhitePurchaseReferrerCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhitePurchaseReferrerCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhitePurchaseReferrerCB&gt;() {
      *             public void query(WhitePurchaseReferrerCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

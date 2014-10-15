@@ -7,13 +7,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.dbflute.QLog;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.hook.CallbackContext;
 import org.dbflute.hook.SqlLogHandler;
 import org.dbflute.hook.SqlLogInfo;
 import org.dbflute.hook.SqlResultHandler;
 import org.dbflute.hook.SqlResultInfo;
+import org.dbflute.system.QLog;
 import org.dbflute.util.DfReflectionUtil;
 import org.dbflute.util.Srl;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberStatusDbm;

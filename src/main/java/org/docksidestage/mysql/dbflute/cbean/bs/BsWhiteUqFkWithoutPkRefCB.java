@@ -214,7 +214,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
      *     public void query(WhiteUqFkWithoutPkRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -233,7 +233,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
      *     public void query(WhiteUqFkWithoutPkRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -255,10 +255,10 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
      * white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
      * <pre>
      * WhiteUqFkWithoutPkRefCB cb = new WhiteUqFkWithoutPkRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteUqFkWithoutPk()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteUqFkWithoutPk()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteUqFkWithoutPkRef whiteUqFkWithoutPkRef = whiteUqFkWithoutPkRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteUqFkWithoutPkRef.<span style="color: #DD4747">getWhiteUqFkWithoutPk()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteUqFkWithoutPkRef.<span style="color: #CC4747">getWhiteUqFkWithoutPk()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_WhiteUqFkWithoutPk() {
@@ -298,7 +298,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhiteUqFkWithoutPkRefCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -314,8 +314,8 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
         protected WhiteUqFkWithoutPkCB.HpSpecification _whiteUqFkWithoutPk;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteUqFkWithoutPkRefCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * UQ_FK_REF_ID: {NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
@@ -348,7 +348,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
                 _whiteUqFkWithoutPk = new WhiteUqFkWithoutPkCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteUqFkWithoutPkCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkWithoutPk(); }
                     public WhiteUqFkWithoutPkCQ qy() { return _qyCall.qy().queryWhiteUqFkWithoutPk(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteUqFkWithoutPk.xsetSyncQyCall(new HpSpQyCall<WhiteUqFkWithoutPkCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkWithoutPk(); }
@@ -360,6 +360,14 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
         }
     }
 
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -368,13 +376,13 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
      *     public void query(WhiteUqFkWithoutPkRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
      *     public void query(WhiteUqFkWithoutPkRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -422,7 +430,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
      *     public void query(WhiteUqFkWithoutPkRefCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -440,10 +448,10 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
      *     public void query(WhiteUqFkWithoutPkRefCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteUqFkWithoutPkRefCB&gt;() {
      *             public void query(WhiteUqFkWithoutPkRefCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

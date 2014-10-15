@@ -238,7 +238,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *     public void query(VendorConstraintNameAutoRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -257,7 +257,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *     public void query(VendorConstraintNameAutoRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -279,10 +279,10 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      * <pre>
      * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_VendorConstraintNameAutoBar()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_VendorConstraintNameAutoBar()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = vendorConstraintNameAutoRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = vendorConstraintNameAutoRef.<span style="color: #DD4747">getVendorConstraintNameAutoBar()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = vendorConstraintNameAutoRef.<span style="color: #CC4747">getVendorConstraintNameAutoBar()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_VendorConstraintNameAutoBar() {
@@ -298,10 +298,10 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      * <pre>
      * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_VendorConstraintNameAutoFoo()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_VendorConstraintNameAutoFoo()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = vendorConstraintNameAutoRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = vendorConstraintNameAutoRef.<span style="color: #DD4747">getVendorConstraintNameAutoFoo()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = vendorConstraintNameAutoRef.<span style="color: #CC4747">getVendorConstraintNameAutoFoo()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_VendorConstraintNameAutoFoo() {
@@ -317,10 +317,10 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      * <pre>
      * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_VendorConstraintNameAutoQux()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_VendorConstraintNameAutoQux()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = vendorConstraintNameAutoRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = vendorConstraintNameAutoRef.<span style="color: #DD4747">getVendorConstraintNameAutoQux()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = vendorConstraintNameAutoRef.<span style="color: #CC4747">getVendorConstraintNameAutoQux()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      */
     public void setupSelect_VendorConstraintNameAutoQux() {
@@ -360,7 +360,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public VendorConstraintNameAutoRefCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -378,8 +378,8 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         protected VendorConstraintNameAutoQuxCB.HpSpecification _vendorConstraintNameAutoQux;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<VendorConstraintNameAutoRefCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
@@ -441,7 +441,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
                 _vendorConstraintNameAutoBar = new VendorConstraintNameAutoBarCB.HpSpecification(_baseCB, new HpSpQyCall<VendorConstraintNameAutoBarCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoBar(); }
                     public VendorConstraintNameAutoBarCQ qy() { return _qyCall.qy().queryVendorConstraintNameAutoBar(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _vendorConstraintNameAutoBar.xsetSyncQyCall(new HpSpQyCall<VendorConstraintNameAutoBarCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoBar(); }
@@ -462,7 +462,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
                 _vendorConstraintNameAutoFoo = new VendorConstraintNameAutoFooCB.HpSpecification(_baseCB, new HpSpQyCall<VendorConstraintNameAutoFooCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoFoo(); }
                     public VendorConstraintNameAutoFooCQ qy() { return _qyCall.qy().queryVendorConstraintNameAutoFoo(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _vendorConstraintNameAutoFoo.xsetSyncQyCall(new HpSpQyCall<VendorConstraintNameAutoFooCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoFoo(); }
@@ -483,7 +483,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
                 _vendorConstraintNameAutoQux = new VendorConstraintNameAutoQuxCB.HpSpecification(_baseCB, new HpSpQyCall<VendorConstraintNameAutoQuxCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoQux(); }
                     public VendorConstraintNameAutoQuxCQ qy() { return _qyCall.qy().queryVendorConstraintNameAutoQux(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _vendorConstraintNameAutoQux.xsetSyncQyCall(new HpSpQyCall<VendorConstraintNameAutoQuxCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoQux(); }
@@ -497,12 +497,20 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRefCQ> myselfDerived() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRefCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRefCQ>() {
                 public void setup(String fn, SubQuery<VendorConstraintNameAutoRefCB> sq, VendorConstraintNameAutoRefCQ cq, String al, DerivedReferrerOption op) {
                     cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
         }
+    }
+
+    @Override
+    protected <LOCAL_CQ extends ConditionQuery, REFERRER_CB extends ConditionBean> HpSDRFunction<REFERRER_CB, LOCAL_CQ> newSDFFunction(
+            ConditionBean baseCB, LOCAL_CQ localCQ
+            , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
+            , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
+        return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
     // [DBFlute-0.9.5.3]
@@ -513,13 +521,13 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *     public void query(VendorConstraintNameAutoRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *     public void query(VendorConstraintNameAutoRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -567,7 +575,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *     public void query(VendorConstraintNameAutoRefCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -585,10 +593,10 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *     public void query(VendorConstraintNameAutoRefCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *             public void query(VendorConstraintNameAutoRefCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

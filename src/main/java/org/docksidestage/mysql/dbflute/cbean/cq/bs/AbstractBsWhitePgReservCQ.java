@@ -119,7 +119,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of classSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setClassSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setClassSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setClassSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -167,10 +167,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {exists (select CLASS from white_pg_reserv_ref where ...)} <br />
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">existsWhitePgReservRefList</span>(new SubQuery&lt;WhitePgReservRefCB&gt;() {
-     *     public void query(WhitePgReservRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">existsWhitePgReservRefList</span>(refCB -&gt; {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhitePgReservRefList for 'exists'. (NotNull)
@@ -189,7 +187,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {not exists (select CLASS from white_pg_reserv_ref where ...)} <br />
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">notExistsWhitePgReservRefList</span>(new SubQuery&lt;WhitePgReservRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">notExistsWhitePgReservRefList</span>(new SubQuery&lt;WhitePgReservRefCB&gt;() {
      *     public void query(WhitePgReservRefCB subCB) {
      *         subCB.query().setXxx...
      *     }
@@ -220,10 +218,10 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from white_pg_reserv_ref where ...)} <br />
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">derivedWhitePgReservRefList()</span>.<span style="color: #DD4747">max</span>(refCB -&gt; {
-     *     refCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     * cb.query().<span style="color: #CC4747">derivedWhitePgReservRefList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     * }).<span style="color: #DD4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
+     * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
@@ -320,7 +318,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of caseSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setCaseSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setCaseSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setCaseSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -436,7 +434,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of packageSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setPackageSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setPackageSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setPackageSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -552,7 +550,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of defaultSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setDefaultSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setDefaultSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setDefaultSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -668,7 +666,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of newSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setNewSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setNewSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setNewSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -784,7 +782,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of nativeSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setNativeSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setNativeSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setNativeSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -900,7 +898,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of voidSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setVoidSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setVoidSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setVoidSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1016,7 +1014,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of publicSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setPublicSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setPublicSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setPublicSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1132,7 +1130,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of protectedSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setProtectedSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setProtectedSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setProtectedSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1248,7 +1246,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of privateSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setPrivateSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setPrivateSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setPrivateSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1364,7 +1362,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of interfaceSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setInterfaceSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setInterfaceSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setInterfaceSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1480,7 +1478,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of abstractSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setAbstractSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setAbstractSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setAbstractSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1596,7 +1594,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of finalSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setFinalSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setFinalSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setFinalSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1712,7 +1710,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of finallySynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setFinallySynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setFinallySynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setFinallySynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1828,7 +1826,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of returnSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setReturnSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setReturnSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setReturnSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -1944,7 +1942,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of doubleSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setDoubleSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setDoubleSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setDoubleSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -2060,7 +2058,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of floatSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setFloatSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setFloatSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setFloatSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -2176,7 +2174,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of shortSynonym. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setShortSynonym_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setShortSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setShortSynonym_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -2289,18 +2287,18 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * TYPE: {CHAR(3)} <br />
-     * <pre>e.g. setType_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setType_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param type The value of type as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setType_LikeSearch(String type, COptionCall<LikeSearchOption> opLambda) {
+    public void setType_LikeSearch(String type, ConditionOptionCall<LikeSearchOption> opLambda) {
         setType_LikeSearch(type, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * TYPE: {CHAR(3)} <br />
-     * <pre>e.g. setType_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setType_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param type The value of type as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -2315,7 +2313,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param type The value of type as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setType_NotLikeSearch(String type, COptionCall<LikeSearchOption> opLambda) {
+    public void setType_NotLikeSearch(String type, ConditionOptionCall<LikeSearchOption> opLambda) {
         setType_NotLikeSearch(type, xcLSOP(opLambda));
     }
 
@@ -2415,18 +2413,18 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * RESERV_NAME: {NotNull, VARCHAR(32)} <br />
-     * <pre>e.g. setReservName_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setReservName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param reservName The value of reservName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setReservName_LikeSearch(String reservName, COptionCall<LikeSearchOption> opLambda) {
+    public void setReservName_LikeSearch(String reservName, ConditionOptionCall<LikeSearchOption> opLambda) {
         setReservName_LikeSearch(reservName, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * RESERV_NAME: {NotNull, VARCHAR(32)} <br />
-     * <pre>e.g. setReservName_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setReservName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param reservName The value of reservName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -2441,7 +2439,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param reservName The value of reservName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setReservName_NotLikeSearch(String reservName, COptionCall<LikeSearchOption> opLambda) {
+    public void setReservName_NotLikeSearch(String reservName, ConditionOptionCall<LikeSearchOption> opLambda) {
         setReservName_NotLikeSearch(reservName, xcLSOP(opLambda));
     }
 
@@ -2475,7 +2473,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * Prepare ScalarCondition as equal. <br />
      * {where FOO = (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
      *     public void query(WhitePgReservCB subCB) {
      *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setYyy...
@@ -2492,7 +2490,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * Prepare ScalarCondition as equal. <br />
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
      *     public void query(WhitePgReservCB subCB) {
      *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setYyy...
@@ -2509,7 +2507,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * Prepare ScalarCondition as greaterThan. <br />
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
      *     public void query(WhitePgReservCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -2526,7 +2524,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * Prepare ScalarCondition as lessThan. <br />
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
      *     public void query(WhitePgReservCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -2543,7 +2541,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * Prepare ScalarCondition as greaterEqual. <br />
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
      *     public void query(WhitePgReservCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -2560,7 +2558,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * Prepare ScalarCondition as lessEqual. <br />
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
      *     public void query(WhitePgReservCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -2677,8 +2675,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * <pre>
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
+     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
@@ -2687,10 +2685,10 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      *
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
+     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
@@ -2703,7 +2701,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * <p>The order values are bound (treated as bind parameter).</p>
      * @param opLambda The callback for option of manual-order containing order values. (NotNull)
      */
-    public void withManualOrder(MOOptionCall opLambda) { // is user public!
+    public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
     }
 
@@ -2712,8 +2710,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * <pre>
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
+     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
@@ -2722,10 +2720,10 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      *
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
+     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
