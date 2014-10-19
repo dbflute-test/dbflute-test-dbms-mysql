@@ -76,17 +76,15 @@ public class LoaderOfWhitePerrottaOverTrace {
     //                                                                    ================
     protected LoaderOfWhitePerrottaOverProduct _foreignWhitePerrottaOverProductByNextProductIdLoader;
     public LoaderOfWhitePerrottaOverProduct pulloutWhitePerrottaOverProductByNextProductId() {
-        if (_foreignWhitePerrottaOverProductByNextProductIdLoader != null) { return _foreignWhitePerrottaOverProductByNextProductIdLoader; }
-        List<WhitePerrottaOverProduct> pulledList = myBhv().pulloutWhitePerrottaOverProductByNextProductId(_selectedList);
-        _foreignWhitePerrottaOverProductByNextProductIdLoader = new LoaderOfWhitePerrottaOverProduct().ready(pulledList, _selector);
+        if (_foreignWhitePerrottaOverProductByNextProductIdLoader == null)
+        { _foreignWhitePerrottaOverProductByNextProductIdLoader = new LoaderOfWhitePerrottaOverProduct().ready(myBhv().pulloutWhitePerrottaOverProductByNextProductId(_selectedList), _selector); }
         return _foreignWhitePerrottaOverProductByNextProductIdLoader;
     }
 
     protected LoaderOfWhitePerrottaOverProduct _foreignWhitePerrottaOverProductByPreviousProductIdLoader;
     public LoaderOfWhitePerrottaOverProduct pulloutWhitePerrottaOverProductByPreviousProductId() {
-        if (_foreignWhitePerrottaOverProductByPreviousProductIdLoader != null) { return _foreignWhitePerrottaOverProductByPreviousProductIdLoader; }
-        List<WhitePerrottaOverProduct> pulledList = myBhv().pulloutWhitePerrottaOverProductByPreviousProductId(_selectedList);
-        _foreignWhitePerrottaOverProductByPreviousProductIdLoader = new LoaderOfWhitePerrottaOverProduct().ready(pulledList, _selector);
+        if (_foreignWhitePerrottaOverProductByPreviousProductIdLoader == null)
+        { _foreignWhitePerrottaOverProductByPreviousProductIdLoader = new LoaderOfWhitePerrottaOverProduct().ready(myBhv().pulloutWhitePerrottaOverProductByPreviousProductId(_selectedList), _selector); }
         return _foreignWhitePerrottaOverProductByPreviousProductIdLoader;
     }
 

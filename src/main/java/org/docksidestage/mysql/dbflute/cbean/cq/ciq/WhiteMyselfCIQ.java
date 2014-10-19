@@ -76,7 +76,7 @@ public class WhiteMyselfCIQ extends AbstractBsWhiteMyselfCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueMyselfId() { return _myCQ.getMyselfId(); }
+    protected ConditionValue xgetCValueMyselfId() { return _myCQ.xdfgetMyselfId(); }
     public String keepMyselfId_ExistsReferrer_WhiteMyselfCheckList(WhiteMyselfCheckCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepMyselfId_NotExistsReferrer_WhiteMyselfCheckList(WhiteMyselfCheckCQ sq)
@@ -87,7 +87,7 @@ public class WhiteMyselfCIQ extends AbstractBsWhiteMyselfCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepMyselfId_QueryDerivedReferrer_WhiteMyselfCheckListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueMyselfName() { return _myCQ.getMyselfName(); }
+    protected ConditionValue xgetCValueMyselfName() { return _myCQ.xdfgetMyselfName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteMyselfCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

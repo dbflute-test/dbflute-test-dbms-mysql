@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      */
     public WhiteVariantRelationReferrerCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteVariantRelationReferrerCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteVariantRelationReferrerCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteVariantRelationReferrerCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         return new WhiteVariantRelationReferrerCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -264,7 +272,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhiteVariantRelationMasterFooNss _nssWhiteVariantRelationMasterFooAsVariant;
-    public WhiteVariantRelationMasterFooNss getNssWhiteVariantRelationMasterFooAsVariant() {
+    public WhiteVariantRelationMasterFooNss xdfgetNssWhiteVariantRelationMasterFooAsVariant() {
         if (_nssWhiteVariantRelationMasterFooAsVariant == null) { _nssWhiteVariantRelationMasterFooAsVariant = new WhiteVariantRelationMasterFooNss(null); }
         return _nssWhiteVariantRelationMasterFooAsVariant;
     }
@@ -376,7 +384,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteVariantRelationReferrerCQ>() {
                 public boolean has() { return true; }
-                public WhiteVariantRelationReferrerCQ qy() { return getConditionQuery(); }
+                public WhiteVariantRelationReferrerCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -403,17 +411,17 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
          * REFERRER_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnReferrerId() { return doColumn("REFERRER_ID"); }
+        public SpecifiedColumn columnReferrerId() { return doColumn("REFERRER_ID"); }
         /**
          * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVariantMasterId() { return doColumn("VARIANT_MASTER_ID"); }
+        public SpecifiedColumn columnVariantMasterId() { return doColumn("VARIANT_MASTER_ID"); }
         /**
          * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMasterTypeCode() { return doColumn("MASTER_TYPE_CODE"); }
+        public SpecifiedColumn columnMasterTypeCode() { return doColumn("MASTER_TYPE_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -533,12 +541,12 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
             if (_whiteVariantRelationMasterCorgeAsVariantByQuxType == null) {
                 _whiteVariantRelationMasterCorgeAsVariantByQuxType = new WhiteVariantRelationMasterCorgeCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
-                    public WhiteVariantRelationMasterCorgeCQ qy() { return _qyCall.qy().getConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); } }
+                    public WhiteVariantRelationMasterCorgeCQ qy() { return _qyCall.qy().xdfgetConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); } }
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteVariantRelationMasterCorgeAsVariantByQuxType.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
-                        public WhiteVariantRelationMasterCorgeCQ qy() { return xsyncQyCall().qy().getConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
+                        public WhiteVariantRelationMasterCorgeCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
                     });
                 }
             }
@@ -605,7 +613,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteVariantRelationReferrerCB> columnQuery(final SpecifyQuery<WhiteVariantRelationReferrerCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteVariantRelationReferrerCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteVariantRelationReferrerCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteVariantRelationReferrerCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -723,8 +731,8 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteVariantRelationReferrerCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteVariantRelationReferrerCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteVariantRelationReferrerCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteVariantRelationReferrerCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

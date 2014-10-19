@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLoadDataId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueLoadDataId(), "LOAD_DATA_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueLoadDataId(), "LOAD_DATA_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     }
 
     protected void doSetLoadDataId_InScope(Collection<Long> loadDataIdList) {
-        regINS(CK_INS, cTL(loadDataIdList), getCValueLoadDataId(), "LOAD_DATA_ID");
+        regINS(CK_INS, cTL(loadDataIdList), xgetCValueLoadDataId(), "LOAD_DATA_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     }
 
     protected void doSetLoadDataId_NotInScope(Collection<Long> loadDataIdList) {
-        regINS(CK_NINS, cTL(loadDataIdList), getCValueLoadDataId(), "LOAD_DATA_ID");
+        regINS(CK_NINS, cTL(loadDataIdList), xgetCValueLoadDataId(), "LOAD_DATA_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      */
     public void setLoadDataId_IsNotNull() { regLoadDataId(CK_ISNN, DOBJ); }
 
-    protected void regLoadDataId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLoadDataId(), "LOAD_DATA_ID"); }
-    protected abstract ConditionValue getCValueLoadDataId();
+    protected void regLoadDataId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoadDataId(), "LOAD_DATA_ID"); }
+    protected abstract ConditionValue xgetCValueLoadDataId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     }
 
     protected void doSetLoadDataName_InScope(Collection<String> loadDataNameList) {
-        regINS(CK_INS, cTL(loadDataNameList), getCValueLoadDataName(), "LOAD_DATA_NAME");
+        regINS(CK_INS, cTL(loadDataNameList), xgetCValueLoadDataName(), "LOAD_DATA_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     }
 
     protected void doSetLoadDataName_NotInScope(Collection<String> loadDataNameList) {
-        regINS(CK_NINS, cTL(loadDataNameList), getCValueLoadDataName(), "LOAD_DATA_NAME");
+        regINS(CK_NINS, cTL(loadDataNameList), xgetCValueLoadDataName(), "LOAD_DATA_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setLoadDataName_LikeSearch(String loadDataName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(loadDataName), getCValueLoadDataName(), "LOAD_DATA_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(loadDataName), xgetCValueLoadDataName(), "LOAD_DATA_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setLoadDataName_NotLikeSearch(String loadDataName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(loadDataName), getCValueLoadDataName(), "LOAD_DATA_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(loadDataName), xgetCValueLoadDataName(), "LOAD_DATA_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
         setLoadDataName_LikeSearch(loadDataName, xcLSOPPre());
     }
 
-    protected void regLoadDataName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLoadDataName(), "LOAD_DATA_NAME"); }
-    protected abstract ConditionValue getCValueLoadDataName();
+    protected void regLoadDataName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoadDataName(), "LOAD_DATA_NAME"); }
+    protected abstract ConditionValue xgetCValueLoadDataName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

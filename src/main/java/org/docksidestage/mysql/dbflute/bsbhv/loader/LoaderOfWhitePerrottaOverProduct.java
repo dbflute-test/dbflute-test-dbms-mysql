@@ -78,38 +78,20 @@ public class LoaderOfWhitePerrottaOverProduct {
     //                                                                       =============
     protected List<WhitePerrottaOverMember> _referrerWhitePerrottaOverMemberList;
     public NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverMember> loadWhitePerrottaOverMemberList(ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
-        myBhv().loadWhitePerrottaOverMemberList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhitePerrottaOverMember>() {
-            public void handle(List<WhitePerrottaOverMember> referrerList) { _referrerWhitePerrottaOverMemberList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverMember>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhitePerrottaOverMember> handler) {
-                handler.handle(new LoaderOfWhitePerrottaOverMember().ready(_referrerWhitePerrottaOverMemberList, _selector));
-            }
-        };
+        myBhv().loadWhitePerrottaOverMemberList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePerrottaOverMemberList = refLs);
+        return hd -> hd.handle(new LoaderOfWhitePerrottaOverMember().ready(_referrerWhitePerrottaOverMemberList, _selector));
     }
 
     protected List<WhitePerrottaOverTrace> _referrerWhitePerrottaOverTraceByNextProductIdList;
     public NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverTrace> loadWhitePerrottaOverTraceByNextProductIdList(ConditionBeanSetupper<WhitePerrottaOverTraceCB> refCBLambda) {
-        myBhv().loadWhitePerrottaOverTraceByNextProductIdList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhitePerrottaOverTrace>() {
-            public void handle(List<WhitePerrottaOverTrace> referrerList) { _referrerWhitePerrottaOverTraceByNextProductIdList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverTrace>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhitePerrottaOverTrace> handler) {
-                handler.handle(new LoaderOfWhitePerrottaOverTrace().ready(_referrerWhitePerrottaOverTraceByNextProductIdList, _selector));
-            }
-        };
+        myBhv().loadWhitePerrottaOverTraceByNextProductIdList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePerrottaOverTraceByNextProductIdList = refLs);
+        return hd -> hd.handle(new LoaderOfWhitePerrottaOverTrace().ready(_referrerWhitePerrottaOverTraceByNextProductIdList, _selector));
     }
 
     protected List<WhitePerrottaOverTrace> _referrerWhitePerrottaOverTraceByPreviousProductIdList;
     public NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverTrace> loadWhitePerrottaOverTraceByPreviousProductIdList(ConditionBeanSetupper<WhitePerrottaOverTraceCB> refCBLambda) {
-        myBhv().loadWhitePerrottaOverTraceByPreviousProductIdList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhitePerrottaOverTrace>() {
-            public void handle(List<WhitePerrottaOverTrace> referrerList) { _referrerWhitePerrottaOverTraceByPreviousProductIdList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverTrace>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhitePerrottaOverTrace> handler) {
-                handler.handle(new LoaderOfWhitePerrottaOverTrace().ready(_referrerWhitePerrottaOverTraceByPreviousProductIdList, _selector));
-            }
-        };
+        myBhv().loadWhitePerrottaOverTraceByPreviousProductIdList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePerrottaOverTraceByPreviousProductIdList = refLs);
+        return hd -> hd.handle(new LoaderOfWhitePerrottaOverTrace().ready(_referrerWhitePerrottaOverTraceByPreviousProductIdList, _selector));
     }
 
     // ===================================================================================
@@ -117,17 +99,15 @@ public class LoaderOfWhitePerrottaOverProduct {
     //                                                                    ================
     protected LoaderOfWhitePerrottaOverProductNested _foreignWhitePerrottaOverProductNestedLoader;
     public LoaderOfWhitePerrottaOverProductNested pulloutWhitePerrottaOverProductNested() {
-        if (_foreignWhitePerrottaOverProductNestedLoader != null) { return _foreignWhitePerrottaOverProductNestedLoader; }
-        List<WhitePerrottaOverProductNested> pulledList = myBhv().pulloutWhitePerrottaOverProductNested(_selectedList);
-        _foreignWhitePerrottaOverProductNestedLoader = new LoaderOfWhitePerrottaOverProductNested().ready(pulledList, _selector);
+        if (_foreignWhitePerrottaOverProductNestedLoader == null)
+        { _foreignWhitePerrottaOverProductNestedLoader = new LoaderOfWhitePerrottaOverProductNested().ready(myBhv().pulloutWhitePerrottaOverProductNested(_selectedList), _selector); }
         return _foreignWhitePerrottaOverProductNestedLoader;
     }
 
     protected LoaderOfWhitePerrottaOverTrace _foreignWhitePerrottaOverTraceAsPerrottaLoader;
     public LoaderOfWhitePerrottaOverTrace pulloutWhitePerrottaOverTraceAsPerrotta() {
-        if (_foreignWhitePerrottaOverTraceAsPerrottaLoader != null) { return _foreignWhitePerrottaOverTraceAsPerrottaLoader; }
-        List<WhitePerrottaOverTrace> pulledList = myBhv().pulloutWhitePerrottaOverTraceAsPerrotta(_selectedList);
-        _foreignWhitePerrottaOverTraceAsPerrottaLoader = new LoaderOfWhitePerrottaOverTrace().ready(pulledList, _selector);
+        if (_foreignWhitePerrottaOverTraceAsPerrottaLoader == null)
+        { _foreignWhitePerrottaOverTraceAsPerrottaLoader = new LoaderOfWhitePerrottaOverTrace().ready(myBhv().pulloutWhitePerrottaOverTraceAsPerrotta(_selectedList), _selector); }
         return _foreignWhitePerrottaOverTraceAsPerrottaLoader;
     }
 

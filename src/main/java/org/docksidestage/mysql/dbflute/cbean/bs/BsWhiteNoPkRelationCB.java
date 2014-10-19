@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -178,10 +179,14 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
      */
     public WhiteNoPkRelationCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteNoPkRelationCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteNoPkRelationCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteNoPkRelationCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -202,8 +207,11 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
         return new WhiteNoPkRelationCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -277,7 +285,7 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteNoPkRelationCQ>() {
                 public boolean has() { return true; }
-                public WhiteNoPkRelationCQ qy() { return getConditionQuery(); }
+                public WhiteNoPkRelationCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -300,27 +308,27 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
          * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
+        public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
          * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }
+        public SpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }
         /**
          * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductHandleCode() { return doColumn("PRODUCT_HANDLE_CODE"); }
+        public SpecifiedColumn columnProductHandleCode() { return doColumn("PRODUCT_HANDLE_CODE"); }
         /**
          * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }
+        public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }
         /**
          * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnLatestPurchaseDatetime() { return doColumn("LATEST_PURCHASE_DATETIME"); }
+        public SpecifiedColumn columnLatestPurchaseDatetime() { return doColumn("LATEST_PURCHASE_DATETIME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -364,7 +372,7 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteNoPkRelationCB> columnQuery(final SpecifyQuery<WhiteNoPkRelationCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteNoPkRelationCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteNoPkRelationCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteNoPkRelationCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -482,8 +490,8 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteNoPkRelationCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteNoPkRelationCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteNoPkRelationCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteNoPkRelationCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

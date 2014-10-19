@@ -89,10 +89,10 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _clsCategoryCode;
-    public ConditionValue getClsCategoryCode()
+    public ConditionValue xdfgetClsCategoryCode()
     { if (_clsCategoryCode == null) { _clsCategoryCode = nCV(); }
       return _clsCategoryCode; }
-    protected ConditionValue getCValueClsCategoryCode() { return getClsCategoryCode(); }
+    protected ConditionValue xgetCValueClsCategoryCode() { return xdfgetClsCategoryCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     public BsWhiteAllInOneClsElementCQ addOrderBy_ClsCategoryCode_Desc() { regOBD("CLS_CATEGORY_CODE"); return this; }
 
     protected ConditionValue _clsElementCode;
-    public ConditionValue getClsElementCode()
+    public ConditionValue xdfgetClsElementCode()
     { if (_clsElementCode == null) { _clsElementCode = nCV(); }
       return _clsElementCode; }
-    protected ConditionValue getCValueClsElementCode() { return getClsElementCode(); }
+    protected ConditionValue xgetCValueClsElementCode() { return xdfgetClsElementCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     public BsWhiteAllInOneClsElementCQ addOrderBy_ClsElementCode_Desc() { regOBD("CLS_ELEMENT_CODE"); return this; }
 
     protected ConditionValue _clsElementName;
-    public ConditionValue getClsElementName()
+    public ConditionValue xdfgetClsElementName()
     { if (_clsElementName == null) { _clsElementName = nCV(); }
       return _clsElementName; }
-    protected ConditionValue getCValueClsElementName() { return getClsElementName(); }
+    protected ConditionValue xgetCValueClsElementName() { return xdfgetClsElementName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     public BsWhiteAllInOneClsElementCQ addOrderBy_ClsElementName_Desc() { regOBD("CLS_ELEMENT_NAME"); return this; }
 
     protected ConditionValue _attributeExp;
-    public ConditionValue getAttributeExp()
+    public ConditionValue xdfgetAttributeExp()
     { if (_attributeExp == null) { _attributeExp = nCV(); }
       return _attributeExp; }
-    protected ConditionValue getCValueAttributeExp() { return getAttributeExp(); }
+    protected ConditionValue xgetCValueAttributeExp() { return xdfgetAttributeExp(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -223,9 +223,9 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteAllInOneClsCategoryCQ queryWhiteAllInOneClsCategory() {
-        return getConditionQueryWhiteAllInOneClsCategory();
+        return xdfgetConditionQueryWhiteAllInOneClsCategory();
     }
-    public WhiteAllInOneClsCategoryCQ getConditionQueryWhiteAllInOneClsCategory() {
+    public WhiteAllInOneClsCategoryCQ xdfgetConditionQueryWhiteAllInOneClsCategory() {
         String prop = "whiteAllInOneClsCategory";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteAllInOneClsCategory()); xsetupOuterJoinWhiteAllInOneClsCategory(); }
         return xgetQueRlMap(prop);
@@ -244,7 +244,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteAllInOneClsElementCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteAllInOneClsElementCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteAllInOneClsElementCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -253,7 +253,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteAllInOneClsElementCB.class.getName(); }
     protected String xCQ() { return WhiteAllInOneClsElementCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

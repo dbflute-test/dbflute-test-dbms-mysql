@@ -76,11 +76,11 @@ public class WhiteDelimiterCIQ extends AbstractBsWhiteDelimiterCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueDelimiterId() { return _myCQ.getDelimiterId(); }
-    protected ConditionValue getCValueNumberNullable() { return _myCQ.getNumberNullable(); }
-    protected ConditionValue getCValueStringConverted() { return _myCQ.getStringConverted(); }
-    protected ConditionValue getCValueStringNonConverted() { return _myCQ.getStringNonConverted(); }
-    protected ConditionValue getCValueDateDefault() { return _myCQ.getDateDefault(); }
+    protected ConditionValue xgetCValueDelimiterId() { return _myCQ.xdfgetDelimiterId(); }
+    protected ConditionValue xgetCValueNumberNullable() { return _myCQ.xdfgetNumberNullable(); }
+    protected ConditionValue xgetCValueStringConverted() { return _myCQ.xdfgetStringConverted(); }
+    protected ConditionValue xgetCValueStringNonConverted() { return _myCQ.xdfgetStringNonConverted(); }
+    protected ConditionValue xgetCValueDateDefault() { return _myCQ.xdfgetDateDefault(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteDelimiterCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -76,11 +76,11 @@ public class WhiteUqFkRefCIQ extends AbstractBsWhiteUqFkRefCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueUqFkRefId() { return _myCQ.getUqFkRefId(); }
-    protected ConditionValue getCValueFkToPkId() { return _myCQ.getFkToPkId(); }
-    protected ConditionValue getCValueFkToUqCode() { return _myCQ.getFkToUqCode(); }
-    protected ConditionValue getCValueCompoundUqFirstCode() { return _myCQ.getCompoundUqFirstCode(); }
-    protected ConditionValue getCValueCompoundUqSecondCode() { return _myCQ.getCompoundUqSecondCode(); }
+    protected ConditionValue xgetCValueUqFkRefId() { return _myCQ.xdfgetUqFkRefId(); }
+    protected ConditionValue xgetCValueFkToPkId() { return _myCQ.xdfgetFkToPkId(); }
+    protected ConditionValue xgetCValueFkToUqCode() { return _myCQ.xdfgetFkToUqCode(); }
+    protected ConditionValue xgetCValueCompoundUqFirstCode() { return _myCQ.xdfgetCompoundUqFirstCode(); }
+    protected ConditionValue xgetCValueCompoundUqSecondCode() { return _myCQ.xdfgetCompoundUqSecondCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteUqFkRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

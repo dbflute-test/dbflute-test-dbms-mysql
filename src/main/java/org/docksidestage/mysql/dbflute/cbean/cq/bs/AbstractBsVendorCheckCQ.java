@@ -133,7 +133,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVendorCheckId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueVendorCheckId(), "VENDOR_CHECK_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueVendorCheckId(), "VENDOR_CHECK_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetVendorCheckId_InScope(Collection<Long> vendorCheckIdList) {
-        regINS(CK_INS, cTL(vendorCheckIdList), getCValueVendorCheckId(), "VENDOR_CHECK_ID");
+        regINS(CK_INS, cTL(vendorCheckIdList), xgetCValueVendorCheckId(), "VENDOR_CHECK_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetVendorCheckId_NotInScope(Collection<Long> vendorCheckIdList) {
-        regINS(CK_NINS, cTL(vendorCheckIdList), getCValueVendorCheckId(), "VENDOR_CHECK_ID");
+        regINS(CK_NINS, cTL(vendorCheckIdList), xgetCValueVendorCheckId(), "VENDOR_CHECK_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setVendorCheckId_IsNotNull() { regVendorCheckId(CK_ISNN, DOBJ); }
 
-    protected void regVendorCheckId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueVendorCheckId(), "VENDOR_CHECK_ID"); }
-    protected abstract ConditionValue getCValueVendorCheckId();
+    protected void regVendorCheckId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueVendorCheckId(), "VENDOR_CHECK_ID"); }
+    protected abstract ConditionValue xgetCValueVendorCheckId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfChar_InScope(Collection<String> typeOfCharList) {
-        regINS(CK_INS, cTL(typeOfCharList), getCValueTypeOfChar(), "TYPE_OF_CHAR");
+        regINS(CK_INS, cTL(typeOfCharList), xgetCValueTypeOfChar(), "TYPE_OF_CHAR");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfChar_NotInScope(Collection<String> typeOfCharList) {
-        regINS(CK_NINS, cTL(typeOfCharList), getCValueTypeOfChar(), "TYPE_OF_CHAR");
+        regINS(CK_NINS, cTL(typeOfCharList), xgetCValueTypeOfChar(), "TYPE_OF_CHAR");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfChar_LikeSearch(String typeOfChar, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(typeOfChar), getCValueTypeOfChar(), "TYPE_OF_CHAR", likeSearchOption);
+        regLSQ(CK_LS, fRES(typeOfChar), xgetCValueTypeOfChar(), "TYPE_OF_CHAR", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfChar_NotLikeSearch(String typeOfChar, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(typeOfChar), getCValueTypeOfChar(), "TYPE_OF_CHAR", likeSearchOption);
+        regLSQ(CK_NLS, fRES(typeOfChar), xgetCValueTypeOfChar(), "TYPE_OF_CHAR", likeSearchOption);
     }
 
     /**
@@ -300,8 +300,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfChar_IsNotNull() { regTypeOfChar(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfChar(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfChar(), "TYPE_OF_CHAR"); }
-    protected abstract ConditionValue getCValueTypeOfChar();
+    protected void regTypeOfChar(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfChar(), "TYPE_OF_CHAR"); }
+    protected abstract ConditionValue xgetCValueTypeOfChar();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -339,7 +339,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfVarchar_InScope(Collection<String> typeOfVarcharList) {
-        regINS(CK_INS, cTL(typeOfVarcharList), getCValueTypeOfVarchar(), "TYPE_OF_VARCHAR");
+        regINS(CK_INS, cTL(typeOfVarcharList), xgetCValueTypeOfVarchar(), "TYPE_OF_VARCHAR");
     }
 
     /**
@@ -352,7 +352,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfVarchar_NotInScope(Collection<String> typeOfVarcharList) {
-        regINS(CK_NINS, cTL(typeOfVarcharList), getCValueTypeOfVarchar(), "TYPE_OF_VARCHAR");
+        regINS(CK_NINS, cTL(typeOfVarcharList), xgetCValueTypeOfVarchar(), "TYPE_OF_VARCHAR");
     }
 
     /**
@@ -374,7 +374,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfVarchar_LikeSearch(String typeOfVarchar, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(typeOfVarchar), getCValueTypeOfVarchar(), "TYPE_OF_VARCHAR", likeSearchOption);
+        regLSQ(CK_LS, fRES(typeOfVarchar), xgetCValueTypeOfVarchar(), "TYPE_OF_VARCHAR", likeSearchOption);
     }
 
     /**
@@ -396,7 +396,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfVarchar_NotLikeSearch(String typeOfVarchar, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(typeOfVarchar), getCValueTypeOfVarchar(), "TYPE_OF_VARCHAR", likeSearchOption);
+        regLSQ(CK_NLS, fRES(typeOfVarchar), xgetCValueTypeOfVarchar(), "TYPE_OF_VARCHAR", likeSearchOption);
     }
 
     /**
@@ -426,8 +426,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfVarchar_IsNotNull() { regTypeOfVarchar(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfVarchar(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfVarchar(), "TYPE_OF_VARCHAR"); }
-    protected abstract ConditionValue getCValueTypeOfVarchar();
+    protected void regTypeOfVarchar(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfVarchar(), "TYPE_OF_VARCHAR"); }
+    protected abstract ConditionValue xgetCValueTypeOfVarchar();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -465,7 +465,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfText_InScope(Collection<String> typeOfTextList) {
-        regINS(CK_INS, cTL(typeOfTextList), getCValueTypeOfText(), "TYPE_OF_TEXT");
+        regINS(CK_INS, cTL(typeOfTextList), xgetCValueTypeOfText(), "TYPE_OF_TEXT");
     }
 
     /**
@@ -478,7 +478,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfText_NotInScope(Collection<String> typeOfTextList) {
-        regINS(CK_NINS, cTL(typeOfTextList), getCValueTypeOfText(), "TYPE_OF_TEXT");
+        regINS(CK_NINS, cTL(typeOfTextList), xgetCValueTypeOfText(), "TYPE_OF_TEXT");
     }
 
     /**
@@ -500,7 +500,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfText_LikeSearch(String typeOfText, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(typeOfText), getCValueTypeOfText(), "TYPE_OF_TEXT", likeSearchOption);
+        regLSQ(CK_LS, fRES(typeOfText), xgetCValueTypeOfText(), "TYPE_OF_TEXT", likeSearchOption);
     }
 
     /**
@@ -522,7 +522,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfText_NotLikeSearch(String typeOfText, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(typeOfText), getCValueTypeOfText(), "TYPE_OF_TEXT", likeSearchOption);
+        regLSQ(CK_NLS, fRES(typeOfText), xgetCValueTypeOfText(), "TYPE_OF_TEXT", likeSearchOption);
     }
 
     /**
@@ -552,8 +552,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfText_IsNotNull() { regTypeOfText(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfText(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfText(), "TYPE_OF_TEXT"); }
-    protected abstract ConditionValue getCValueTypeOfText();
+    protected void regTypeOfText(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfText(), "TYPE_OF_TEXT"); }
+    protected abstract ConditionValue xgetCValueTypeOfText();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -591,7 +591,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfTinytext_InScope(Collection<String> typeOfTinytextList) {
-        regINS(CK_INS, cTL(typeOfTinytextList), getCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT");
+        regINS(CK_INS, cTL(typeOfTinytextList), xgetCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT");
     }
 
     /**
@@ -604,7 +604,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfTinytext_NotInScope(Collection<String> typeOfTinytextList) {
-        regINS(CK_NINS, cTL(typeOfTinytextList), getCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT");
+        regINS(CK_NINS, cTL(typeOfTinytextList), xgetCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT");
     }
 
     /**
@@ -626,7 +626,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfTinytext_LikeSearch(String typeOfTinytext, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(typeOfTinytext), getCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT", likeSearchOption);
+        regLSQ(CK_LS, fRES(typeOfTinytext), xgetCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT", likeSearchOption);
     }
 
     /**
@@ -648,7 +648,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfTinytext_NotLikeSearch(String typeOfTinytext, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(typeOfTinytext), getCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT", likeSearchOption);
+        regLSQ(CK_NLS, fRES(typeOfTinytext), xgetCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT", likeSearchOption);
     }
 
     /**
@@ -678,8 +678,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfTinytext_IsNotNull() { regTypeOfTinytext(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfTinytext(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT"); }
-    protected abstract ConditionValue getCValueTypeOfTinytext();
+    protected void regTypeOfTinytext(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT"); }
+    protected abstract ConditionValue xgetCValueTypeOfTinytext();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -717,7 +717,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfMediumtext_InScope(Collection<String> typeOfMediumtextList) {
-        regINS(CK_INS, cTL(typeOfMediumtextList), getCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT");
+        regINS(CK_INS, cTL(typeOfMediumtextList), xgetCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT");
     }
 
     /**
@@ -730,7 +730,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfMediumtext_NotInScope(Collection<String> typeOfMediumtextList) {
-        regINS(CK_NINS, cTL(typeOfMediumtextList), getCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT");
+        regINS(CK_NINS, cTL(typeOfMediumtextList), xgetCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT");
     }
 
     /**
@@ -752,7 +752,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfMediumtext_LikeSearch(String typeOfMediumtext, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(typeOfMediumtext), getCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT", likeSearchOption);
+        regLSQ(CK_LS, fRES(typeOfMediumtext), xgetCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT", likeSearchOption);
     }
 
     /**
@@ -774,7 +774,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfMediumtext_NotLikeSearch(String typeOfMediumtext, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(typeOfMediumtext), getCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT", likeSearchOption);
+        regLSQ(CK_NLS, fRES(typeOfMediumtext), xgetCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT", likeSearchOption);
     }
 
     /**
@@ -804,8 +804,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfMediumtext_IsNotNull() { regTypeOfMediumtext(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfMediumtext(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT"); }
-    protected abstract ConditionValue getCValueTypeOfMediumtext();
+    protected void regTypeOfMediumtext(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfMediumtext(), "TYPE_OF_MEDIUMTEXT"); }
+    protected abstract ConditionValue xgetCValueTypeOfMediumtext();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -843,7 +843,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfLongtext_InScope(Collection<String> typeOfLongtextList) {
-        regINS(CK_INS, cTL(typeOfLongtextList), getCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT");
+        regINS(CK_INS, cTL(typeOfLongtextList), xgetCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT");
     }
 
     /**
@@ -856,7 +856,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfLongtext_NotInScope(Collection<String> typeOfLongtextList) {
-        regINS(CK_NINS, cTL(typeOfLongtextList), getCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT");
+        regINS(CK_NINS, cTL(typeOfLongtextList), xgetCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT");
     }
 
     /**
@@ -878,7 +878,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfLongtext_LikeSearch(String typeOfLongtext, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(typeOfLongtext), getCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT", likeSearchOption);
+        regLSQ(CK_LS, fRES(typeOfLongtext), xgetCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT", likeSearchOption);
     }
 
     /**
@@ -900,7 +900,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfLongtext_NotLikeSearch(String typeOfLongtext, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(typeOfLongtext), getCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT", likeSearchOption);
+        regLSQ(CK_NLS, fRES(typeOfLongtext), xgetCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT", likeSearchOption);
     }
 
     /**
@@ -930,8 +930,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfLongtext_IsNotNull() { regTypeOfLongtext(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfLongtext(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT"); }
-    protected abstract ConditionValue getCValueTypeOfLongtext();
+    protected void regTypeOfLongtext(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT"); }
+    protected abstract ConditionValue xgetCValueTypeOfLongtext();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1005,7 +1005,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfNumericDecimal_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfNumericDecimal(), "TYPE_OF_NUMERIC_DECIMAL", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfNumericDecimal(), "TYPE_OF_NUMERIC_DECIMAL", rangeOfOption);
     }
 
     /**
@@ -1018,7 +1018,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfNumericDecimal_InScope(Collection<java.math.BigDecimal> typeOfNumericDecimalList) {
-        regINS(CK_INS, cTL(typeOfNumericDecimalList), getCValueTypeOfNumericDecimal(), "TYPE_OF_NUMERIC_DECIMAL");
+        regINS(CK_INS, cTL(typeOfNumericDecimalList), xgetCValueTypeOfNumericDecimal(), "TYPE_OF_NUMERIC_DECIMAL");
     }
 
     /**
@@ -1031,7 +1031,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfNumericDecimal_NotInScope(Collection<java.math.BigDecimal> typeOfNumericDecimalList) {
-        regINS(CK_NINS, cTL(typeOfNumericDecimalList), getCValueTypeOfNumericDecimal(), "TYPE_OF_NUMERIC_DECIMAL");
+        regINS(CK_NINS, cTL(typeOfNumericDecimalList), xgetCValueTypeOfNumericDecimal(), "TYPE_OF_NUMERIC_DECIMAL");
     }
 
     /**
@@ -1046,8 +1046,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfNumericDecimal_IsNotNull() { regTypeOfNumericDecimal(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfNumericDecimal(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfNumericDecimal(), "TYPE_OF_NUMERIC_DECIMAL"); }
-    protected abstract ConditionValue getCValueTypeOfNumericDecimal();
+    protected void regTypeOfNumericDecimal(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfNumericDecimal(), "TYPE_OF_NUMERIC_DECIMAL"); }
+    protected abstract ConditionValue xgetCValueTypeOfNumericDecimal();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1121,7 +1121,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfNumericInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfNumericInteger(), "TYPE_OF_NUMERIC_INTEGER", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfNumericInteger(), "TYPE_OF_NUMERIC_INTEGER", rangeOfOption);
     }
 
     /**
@@ -1134,7 +1134,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfNumericInteger_InScope(Collection<Integer> typeOfNumericIntegerList) {
-        regINS(CK_INS, cTL(typeOfNumericIntegerList), getCValueTypeOfNumericInteger(), "TYPE_OF_NUMERIC_INTEGER");
+        regINS(CK_INS, cTL(typeOfNumericIntegerList), xgetCValueTypeOfNumericInteger(), "TYPE_OF_NUMERIC_INTEGER");
     }
 
     /**
@@ -1147,7 +1147,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfNumericInteger_NotInScope(Collection<Integer> typeOfNumericIntegerList) {
-        regINS(CK_NINS, cTL(typeOfNumericIntegerList), getCValueTypeOfNumericInteger(), "TYPE_OF_NUMERIC_INTEGER");
+        regINS(CK_NINS, cTL(typeOfNumericIntegerList), xgetCValueTypeOfNumericInteger(), "TYPE_OF_NUMERIC_INTEGER");
     }
 
     /**
@@ -1162,8 +1162,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfNumericInteger_IsNotNull() { regTypeOfNumericInteger(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfNumericInteger(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfNumericInteger(), "TYPE_OF_NUMERIC_INTEGER"); }
-    protected abstract ConditionValue getCValueTypeOfNumericInteger();
+    protected void regTypeOfNumericInteger(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfNumericInteger(), "TYPE_OF_NUMERIC_INTEGER"); }
+    protected abstract ConditionValue xgetCValueTypeOfNumericInteger();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1237,7 +1237,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfNumericBigint_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfNumericBigint(), "TYPE_OF_NUMERIC_BIGINT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfNumericBigint(), "TYPE_OF_NUMERIC_BIGINT", rangeOfOption);
     }
 
     /**
@@ -1250,7 +1250,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfNumericBigint_InScope(Collection<Long> typeOfNumericBigintList) {
-        regINS(CK_INS, cTL(typeOfNumericBigintList), getCValueTypeOfNumericBigint(), "TYPE_OF_NUMERIC_BIGINT");
+        regINS(CK_INS, cTL(typeOfNumericBigintList), xgetCValueTypeOfNumericBigint(), "TYPE_OF_NUMERIC_BIGINT");
     }
 
     /**
@@ -1263,7 +1263,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfNumericBigint_NotInScope(Collection<Long> typeOfNumericBigintList) {
-        regINS(CK_NINS, cTL(typeOfNumericBigintList), getCValueTypeOfNumericBigint(), "TYPE_OF_NUMERIC_BIGINT");
+        regINS(CK_NINS, cTL(typeOfNumericBigintList), xgetCValueTypeOfNumericBigint(), "TYPE_OF_NUMERIC_BIGINT");
     }
 
     /**
@@ -1278,8 +1278,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfNumericBigint_IsNotNull() { regTypeOfNumericBigint(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfNumericBigint(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfNumericBigint(), "TYPE_OF_NUMERIC_BIGINT"); }
-    protected abstract ConditionValue getCValueTypeOfNumericBigint();
+    protected void regTypeOfNumericBigint(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfNumericBigint(), "TYPE_OF_NUMERIC_BIGINT"); }
+    protected abstract ConditionValue xgetCValueTypeOfNumericBigint();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1353,7 +1353,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfDecimalDecimal_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfDecimalDecimal(), "TYPE_OF_DECIMAL_DECIMAL", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfDecimalDecimal(), "TYPE_OF_DECIMAL_DECIMAL", rangeOfOption);
     }
 
     /**
@@ -1366,7 +1366,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfDecimalDecimal_InScope(Collection<java.math.BigDecimal> typeOfDecimalDecimalList) {
-        regINS(CK_INS, cTL(typeOfDecimalDecimalList), getCValueTypeOfDecimalDecimal(), "TYPE_OF_DECIMAL_DECIMAL");
+        regINS(CK_INS, cTL(typeOfDecimalDecimalList), xgetCValueTypeOfDecimalDecimal(), "TYPE_OF_DECIMAL_DECIMAL");
     }
 
     /**
@@ -1379,7 +1379,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfDecimalDecimal_NotInScope(Collection<java.math.BigDecimal> typeOfDecimalDecimalList) {
-        regINS(CK_NINS, cTL(typeOfDecimalDecimalList), getCValueTypeOfDecimalDecimal(), "TYPE_OF_DECIMAL_DECIMAL");
+        regINS(CK_NINS, cTL(typeOfDecimalDecimalList), xgetCValueTypeOfDecimalDecimal(), "TYPE_OF_DECIMAL_DECIMAL");
     }
 
     /**
@@ -1394,8 +1394,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfDecimalDecimal_IsNotNull() { regTypeOfDecimalDecimal(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfDecimalDecimal(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfDecimalDecimal(), "TYPE_OF_DECIMAL_DECIMAL"); }
-    protected abstract ConditionValue getCValueTypeOfDecimalDecimal();
+    protected void regTypeOfDecimalDecimal(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDecimalDecimal(), "TYPE_OF_DECIMAL_DECIMAL"); }
+    protected abstract ConditionValue xgetCValueTypeOfDecimalDecimal();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1469,7 +1469,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfDecimalInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfDecimalInteger(), "TYPE_OF_DECIMAL_INTEGER", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfDecimalInteger(), "TYPE_OF_DECIMAL_INTEGER", rangeOfOption);
     }
 
     /**
@@ -1482,7 +1482,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfDecimalInteger_InScope(Collection<Integer> typeOfDecimalIntegerList) {
-        regINS(CK_INS, cTL(typeOfDecimalIntegerList), getCValueTypeOfDecimalInteger(), "TYPE_OF_DECIMAL_INTEGER");
+        regINS(CK_INS, cTL(typeOfDecimalIntegerList), xgetCValueTypeOfDecimalInteger(), "TYPE_OF_DECIMAL_INTEGER");
     }
 
     /**
@@ -1495,7 +1495,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfDecimalInteger_NotInScope(Collection<Integer> typeOfDecimalIntegerList) {
-        regINS(CK_NINS, cTL(typeOfDecimalIntegerList), getCValueTypeOfDecimalInteger(), "TYPE_OF_DECIMAL_INTEGER");
+        regINS(CK_NINS, cTL(typeOfDecimalIntegerList), xgetCValueTypeOfDecimalInteger(), "TYPE_OF_DECIMAL_INTEGER");
     }
 
     /**
@@ -1510,8 +1510,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfDecimalInteger_IsNotNull() { regTypeOfDecimalInteger(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfDecimalInteger(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfDecimalInteger(), "TYPE_OF_DECIMAL_INTEGER"); }
-    protected abstract ConditionValue getCValueTypeOfDecimalInteger();
+    protected void regTypeOfDecimalInteger(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDecimalInteger(), "TYPE_OF_DECIMAL_INTEGER"); }
+    protected abstract ConditionValue xgetCValueTypeOfDecimalInteger();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1585,7 +1585,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfDecimalBigint_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfDecimalBigint(), "TYPE_OF_DECIMAL_BIGINT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfDecimalBigint(), "TYPE_OF_DECIMAL_BIGINT", rangeOfOption);
     }
 
     /**
@@ -1598,7 +1598,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfDecimalBigint_InScope(Collection<Long> typeOfDecimalBigintList) {
-        regINS(CK_INS, cTL(typeOfDecimalBigintList), getCValueTypeOfDecimalBigint(), "TYPE_OF_DECIMAL_BIGINT");
+        regINS(CK_INS, cTL(typeOfDecimalBigintList), xgetCValueTypeOfDecimalBigint(), "TYPE_OF_DECIMAL_BIGINT");
     }
 
     /**
@@ -1611,7 +1611,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfDecimalBigint_NotInScope(Collection<Long> typeOfDecimalBigintList) {
-        regINS(CK_NINS, cTL(typeOfDecimalBigintList), getCValueTypeOfDecimalBigint(), "TYPE_OF_DECIMAL_BIGINT");
+        regINS(CK_NINS, cTL(typeOfDecimalBigintList), xgetCValueTypeOfDecimalBigint(), "TYPE_OF_DECIMAL_BIGINT");
     }
 
     /**
@@ -1626,8 +1626,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfDecimalBigint_IsNotNull() { regTypeOfDecimalBigint(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfDecimalBigint(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfDecimalBigint(), "TYPE_OF_DECIMAL_BIGINT"); }
-    protected abstract ConditionValue getCValueTypeOfDecimalBigint();
+    protected void regTypeOfDecimalBigint(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDecimalBigint(), "TYPE_OF_DECIMAL_BIGINT"); }
+    protected abstract ConditionValue xgetCValueTypeOfDecimalBigint();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1701,7 +1701,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfInteger(), "TYPE_OF_INTEGER", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfInteger(), "TYPE_OF_INTEGER", rangeOfOption);
     }
 
     /**
@@ -1714,7 +1714,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfInteger_InScope(Collection<Integer> typeOfIntegerList) {
-        regINS(CK_INS, cTL(typeOfIntegerList), getCValueTypeOfInteger(), "TYPE_OF_INTEGER");
+        regINS(CK_INS, cTL(typeOfIntegerList), xgetCValueTypeOfInteger(), "TYPE_OF_INTEGER");
     }
 
     /**
@@ -1727,7 +1727,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfInteger_NotInScope(Collection<Integer> typeOfIntegerList) {
-        regINS(CK_NINS, cTL(typeOfIntegerList), getCValueTypeOfInteger(), "TYPE_OF_INTEGER");
+        regINS(CK_NINS, cTL(typeOfIntegerList), xgetCValueTypeOfInteger(), "TYPE_OF_INTEGER");
     }
 
     /**
@@ -1742,8 +1742,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfInteger_IsNotNull() { regTypeOfInteger(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfInteger(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfInteger(), "TYPE_OF_INTEGER"); }
-    protected abstract ConditionValue getCValueTypeOfInteger();
+    protected void regTypeOfInteger(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfInteger(), "TYPE_OF_INTEGER"); }
+    protected abstract ConditionValue xgetCValueTypeOfInteger();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1817,7 +1817,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfBigint_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfBigint(), "TYPE_OF_BIGINT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfBigint(), "TYPE_OF_BIGINT", rangeOfOption);
     }
 
     /**
@@ -1830,7 +1830,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfBigint_InScope(Collection<Long> typeOfBigintList) {
-        regINS(CK_INS, cTL(typeOfBigintList), getCValueTypeOfBigint(), "TYPE_OF_BIGINT");
+        regINS(CK_INS, cTL(typeOfBigintList), xgetCValueTypeOfBigint(), "TYPE_OF_BIGINT");
     }
 
     /**
@@ -1843,7 +1843,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfBigint_NotInScope(Collection<Long> typeOfBigintList) {
-        regINS(CK_NINS, cTL(typeOfBigintList), getCValueTypeOfBigint(), "TYPE_OF_BIGINT");
+        regINS(CK_NINS, cTL(typeOfBigintList), xgetCValueTypeOfBigint(), "TYPE_OF_BIGINT");
     }
 
     /**
@@ -1858,8 +1858,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfBigint_IsNotNull() { regTypeOfBigint(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfBigint(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfBigint(), "TYPE_OF_BIGINT"); }
-    protected abstract ConditionValue getCValueTypeOfBigint();
+    protected void regTypeOfBigint(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfBigint(), "TYPE_OF_BIGINT"); }
+    protected abstract ConditionValue xgetCValueTypeOfBigint();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1933,7 +1933,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfFloat_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfFloat(), "TYPE_OF_FLOAT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfFloat(), "TYPE_OF_FLOAT", rangeOfOption);
     }
 
     /**
@@ -1946,7 +1946,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfFloat_InScope(Collection<java.math.BigDecimal> typeOfFloatList) {
-        regINS(CK_INS, cTL(typeOfFloatList), getCValueTypeOfFloat(), "TYPE_OF_FLOAT");
+        regINS(CK_INS, cTL(typeOfFloatList), xgetCValueTypeOfFloat(), "TYPE_OF_FLOAT");
     }
 
     /**
@@ -1959,7 +1959,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfFloat_NotInScope(Collection<java.math.BigDecimal> typeOfFloatList) {
-        regINS(CK_NINS, cTL(typeOfFloatList), getCValueTypeOfFloat(), "TYPE_OF_FLOAT");
+        regINS(CK_NINS, cTL(typeOfFloatList), xgetCValueTypeOfFloat(), "TYPE_OF_FLOAT");
     }
 
     /**
@@ -1974,8 +1974,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfFloat_IsNotNull() { regTypeOfFloat(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfFloat(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfFloat(), "TYPE_OF_FLOAT"); }
-    protected abstract ConditionValue getCValueTypeOfFloat();
+    protected void regTypeOfFloat(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfFloat(), "TYPE_OF_FLOAT"); }
+    protected abstract ConditionValue xgetCValueTypeOfFloat();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2049,7 +2049,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfDouble_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTypeOfDouble(), "TYPE_OF_DOUBLE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTypeOfDouble(), "TYPE_OF_DOUBLE", rangeOfOption);
     }
 
     /**
@@ -2062,7 +2062,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfDouble_InScope(Collection<java.math.BigDecimal> typeOfDoubleList) {
-        regINS(CK_INS, cTL(typeOfDoubleList), getCValueTypeOfDouble(), "TYPE_OF_DOUBLE");
+        regINS(CK_INS, cTL(typeOfDoubleList), xgetCValueTypeOfDouble(), "TYPE_OF_DOUBLE");
     }
 
     /**
@@ -2075,7 +2075,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfDouble_NotInScope(Collection<java.math.BigDecimal> typeOfDoubleList) {
-        regINS(CK_NINS, cTL(typeOfDoubleList), getCValueTypeOfDouble(), "TYPE_OF_DOUBLE");
+        regINS(CK_NINS, cTL(typeOfDoubleList), xgetCValueTypeOfDouble(), "TYPE_OF_DOUBLE");
     }
 
     /**
@@ -2090,8 +2090,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfDouble_IsNotNull() { regTypeOfDouble(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfDouble(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfDouble(), "TYPE_OF_DOUBLE"); }
-    protected abstract ConditionValue getCValueTypeOfDouble();
+    protected void regTypeOfDouble(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDouble(), "TYPE_OF_DOUBLE"); }
+    protected abstract ConditionValue xgetCValueTypeOfDouble();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2161,7 +2161,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTypeOfDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueTypeOfDate(), "TYPE_OF_DATE", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueTypeOfDate(), "TYPE_OF_DATE", fromToOption);
     }
 
     /**
@@ -2191,8 +2191,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfDate_IsNotNull() { regTypeOfDate(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfDate(), "TYPE_OF_DATE"); }
-    protected abstract ConditionValue getCValueTypeOfDate();
+    protected void regTypeOfDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDate(), "TYPE_OF_DATE"); }
+    protected abstract ConditionValue xgetCValueTypeOfDate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2262,7 +2262,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTypeOfDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueTypeOfDatetime(), "TYPE_OF_DATETIME", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTypeOfDatetime(), "TYPE_OF_DATETIME", fromToOption);
     }
 
     /**
@@ -2292,8 +2292,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfDatetime_IsNotNull() { regTypeOfDatetime(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfDatetime(), "TYPE_OF_DATETIME"); }
-    protected abstract ConditionValue getCValueTypeOfDatetime();
+    protected void regTypeOfDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDatetime(), "TYPE_OF_DATETIME"); }
+    protected abstract ConditionValue xgetCValueTypeOfDatetime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2363,7 +2363,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTypeOfTimestamp_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueTypeOfTimestamp(), "TYPE_OF_TIMESTAMP", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTypeOfTimestamp(), "TYPE_OF_TIMESTAMP", fromToOption);
     }
 
     /**
@@ -2381,8 +2381,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
         setTypeOfTimestamp_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regTypeOfTimestamp(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfTimestamp(), "TYPE_OF_TIMESTAMP"); }
-    protected abstract ConditionValue getCValueTypeOfTimestamp();
+    protected void regTypeOfTimestamp(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfTimestamp(), "TYPE_OF_TIMESTAMP"); }
+    protected abstract ConditionValue xgetCValueTypeOfTimestamp();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2441,8 +2441,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfTime_IsNotNull() { regTypeOfTime(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfTime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfTime(), "TYPE_OF_TIME"); }
-    protected abstract ConditionValue getCValueTypeOfTime();
+    protected void regTypeOfTime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfTime(), "TYPE_OF_TIME"); }
+    protected abstract ConditionValue xgetCValueTypeOfTime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2512,7 +2512,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTypeOfYear_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueTypeOfYear(), "TYPE_OF_YEAR", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueTypeOfYear(), "TYPE_OF_YEAR", fromToOption);
     }
 
     /**
@@ -2542,8 +2542,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfYear_IsNotNull() { regTypeOfYear(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfYear(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfYear(), "TYPE_OF_YEAR"); }
-    protected abstract ConditionValue getCValueTypeOfYear();
+    protected void regTypeOfYear(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfYear(), "TYPE_OF_YEAR"); }
+    protected abstract ConditionValue xgetCValueTypeOfYear();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2582,8 +2582,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfBoolean_IsNotNull() { regTypeOfBoolean(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfBoolean(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfBoolean(), "TYPE_OF_BOOLEAN"); }
-    protected abstract ConditionValue getCValueTypeOfBoolean();
+    protected void regTypeOfBoolean(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfBoolean(), "TYPE_OF_BOOLEAN"); }
+    protected abstract ConditionValue xgetCValueTypeOfBoolean();
 
 
     /**
@@ -2598,8 +2598,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfBlob_IsNotNull() { regTypeOfBlob(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfBlob(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfBlob(), "TYPE_OF_BLOB"); }
-    protected abstract ConditionValue getCValueTypeOfBlob();
+    protected void regTypeOfBlob(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfBlob(), "TYPE_OF_BLOB"); }
+    protected abstract ConditionValue xgetCValueTypeOfBlob();
 
 
     /**
@@ -2614,8 +2614,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfTinyblob_IsNotNull() { regTypeOfTinyblob(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfTinyblob(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfTinyblob(), "TYPE_OF_TINYBLOB"); }
-    protected abstract ConditionValue getCValueTypeOfTinyblob();
+    protected void regTypeOfTinyblob(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfTinyblob(), "TYPE_OF_TINYBLOB"); }
+    protected abstract ConditionValue xgetCValueTypeOfTinyblob();
 
 
     /**
@@ -2630,8 +2630,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfMediumblob_IsNotNull() { regTypeOfMediumblob(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfMediumblob(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfMediumblob(), "TYPE_OF_MEDIUMBLOB"); }
-    protected abstract ConditionValue getCValueTypeOfMediumblob();
+    protected void regTypeOfMediumblob(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfMediumblob(), "TYPE_OF_MEDIUMBLOB"); }
+    protected abstract ConditionValue xgetCValueTypeOfMediumblob();
 
 
     /**
@@ -2646,8 +2646,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfLongblob_IsNotNull() { regTypeOfLongblob(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfLongblob(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfLongblob(), "TYPE_OF_LONGBLOB"); }
-    protected abstract ConditionValue getCValueTypeOfLongblob();
+    protected void regTypeOfLongblob(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfLongblob(), "TYPE_OF_LONGBLOB"); }
+    protected abstract ConditionValue xgetCValueTypeOfLongblob();
 
 
     /**
@@ -2662,8 +2662,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfBinary_IsNotNull() { regTypeOfBinary(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfBinary(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfBinary(), "TYPE_OF_BINARY"); }
-    protected abstract ConditionValue getCValueTypeOfBinary();
+    protected void regTypeOfBinary(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfBinary(), "TYPE_OF_BINARY"); }
+    protected abstract ConditionValue xgetCValueTypeOfBinary();
 
 
     /**
@@ -2678,8 +2678,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfVarbinary_IsNotNull() { regTypeOfVarbinary(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfVarbinary(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfVarbinary(), "TYPE_OF_VARBINARY"); }
-    protected abstract ConditionValue getCValueTypeOfVarbinary();
+    protected void regTypeOfVarbinary(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfVarbinary(), "TYPE_OF_VARBINARY"); }
+    protected abstract ConditionValue xgetCValueTypeOfVarbinary();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -2717,7 +2717,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfEnum_InScope(Collection<String> typeOfEnumList) {
-        regINS(CK_INS, cTL(typeOfEnumList), getCValueTypeOfEnum(), "TYPE_OF_ENUM");
+        regINS(CK_INS, cTL(typeOfEnumList), xgetCValueTypeOfEnum(), "TYPE_OF_ENUM");
     }
 
     /**
@@ -2730,7 +2730,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfEnum_NotInScope(Collection<String> typeOfEnumList) {
-        regINS(CK_NINS, cTL(typeOfEnumList), getCValueTypeOfEnum(), "TYPE_OF_ENUM");
+        regINS(CK_NINS, cTL(typeOfEnumList), xgetCValueTypeOfEnum(), "TYPE_OF_ENUM");
     }
 
     /**
@@ -2752,7 +2752,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfEnum_LikeSearch(String typeOfEnum, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(typeOfEnum), getCValueTypeOfEnum(), "TYPE_OF_ENUM", likeSearchOption);
+        regLSQ(CK_LS, fRES(typeOfEnum), xgetCValueTypeOfEnum(), "TYPE_OF_ENUM", likeSearchOption);
     }
 
     /**
@@ -2774,7 +2774,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfEnum_NotLikeSearch(String typeOfEnum, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(typeOfEnum), getCValueTypeOfEnum(), "TYPE_OF_ENUM", likeSearchOption);
+        regLSQ(CK_NLS, fRES(typeOfEnum), xgetCValueTypeOfEnum(), "TYPE_OF_ENUM", likeSearchOption);
     }
 
     /**
@@ -2804,8 +2804,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfEnum_IsNotNull() { regTypeOfEnum(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfEnum(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfEnum(), "TYPE_OF_ENUM"); }
-    protected abstract ConditionValue getCValueTypeOfEnum();
+    protected void regTypeOfEnum(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfEnum(), "TYPE_OF_ENUM"); }
+    protected abstract ConditionValue xgetCValueTypeOfEnum();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -2843,7 +2843,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfSet_InScope(Collection<String> typeOfSetList) {
-        regINS(CK_INS, cTL(typeOfSetList), getCValueTypeOfSet(), "TYPE_OF_SET");
+        regINS(CK_INS, cTL(typeOfSetList), xgetCValueTypeOfSet(), "TYPE_OF_SET");
     }
 
     /**
@@ -2856,7 +2856,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     protected void doSetTypeOfSet_NotInScope(Collection<String> typeOfSetList) {
-        regINS(CK_NINS, cTL(typeOfSetList), getCValueTypeOfSet(), "TYPE_OF_SET");
+        regINS(CK_NINS, cTL(typeOfSetList), xgetCValueTypeOfSet(), "TYPE_OF_SET");
     }
 
     /**
@@ -2878,7 +2878,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfSet_LikeSearch(String typeOfSet, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(typeOfSet), getCValueTypeOfSet(), "TYPE_OF_SET", likeSearchOption);
+        regLSQ(CK_LS, fRES(typeOfSet), xgetCValueTypeOfSet(), "TYPE_OF_SET", likeSearchOption);
     }
 
     /**
@@ -2900,7 +2900,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfSet_NotLikeSearch(String typeOfSet, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(typeOfSet), getCValueTypeOfSet(), "TYPE_OF_SET", likeSearchOption);
+        regLSQ(CK_NLS, fRES(typeOfSet), xgetCValueTypeOfSet(), "TYPE_OF_SET", likeSearchOption);
     }
 
     /**
@@ -2930,8 +2930,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfSet_IsNotNull() { regTypeOfSet(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfSet(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTypeOfSet(), "TYPE_OF_SET"); }
-    protected abstract ConditionValue getCValueTypeOfSet();
+    protected void regTypeOfSet(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfSet(), "TYPE_OF_SET"); }
+    protected abstract ConditionValue xgetCValueTypeOfSet();
 
     // ===================================================================================
     //                                                                     ScalarCondition

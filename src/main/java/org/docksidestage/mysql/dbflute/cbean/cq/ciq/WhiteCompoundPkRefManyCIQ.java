@@ -76,13 +76,13 @@ public class WhiteCompoundPkRefManyCIQ extends AbstractBsWhiteCompoundPkRefManyC
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueMultipleFirstId() { return _myCQ.getMultipleFirstId(); }
-    protected ConditionValue getCValueMultipleSecondId() { return _myCQ.getMultipleSecondId(); }
-    protected ConditionValue getCValueRefManyFirstId() { return _myCQ.getRefManyFirstId(); }
-    protected ConditionValue getCValueRefManySecondId() { return _myCQ.getRefManySecondId(); }
-    protected ConditionValue getCValueRefManyCode() { return _myCQ.getRefManyCode(); }
-    protected ConditionValue getCValueRefManyName() { return _myCQ.getRefManyName(); }
-    protected ConditionValue getCValueRefManyDatetime() { return _myCQ.getRefManyDatetime(); }
+    protected ConditionValue xgetCValueMultipleFirstId() { return _myCQ.xdfgetMultipleFirstId(); }
+    protected ConditionValue xgetCValueMultipleSecondId() { return _myCQ.xdfgetMultipleSecondId(); }
+    protected ConditionValue xgetCValueRefManyFirstId() { return _myCQ.xdfgetRefManyFirstId(); }
+    protected ConditionValue xgetCValueRefManySecondId() { return _myCQ.xdfgetRefManySecondId(); }
+    protected ConditionValue xgetCValueRefManyCode() { return _myCQ.xdfgetRefManyCode(); }
+    protected ConditionValue xgetCValueRefManyName() { return _myCQ.xdfgetRefManyName(); }
+    protected ConditionValue xgetCValueRefManyDatetime() { return _myCQ.xdfgetRefManyDatetime(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteCompoundPkRefManyCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

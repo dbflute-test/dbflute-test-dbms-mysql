@@ -89,10 +89,10 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _productId;
-    public ConditionValue getProductId()
+    public ConditionValue xdfgetProductId()
     { if (_productId == null) { _productId = nCV(); }
       return _productId; }
-    protected ConditionValue getCValueProductId() { return getProductId(); }
+    protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     public BsWhiteNoPkRelationCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
 
     protected ConditionValue _productName;
-    public ConditionValue getProductName()
+    public ConditionValue xdfgetProductName()
     { if (_productName == null) { _productName = nCV(); }
       return _productName; }
-    protected ConditionValue getCValueProductName() { return getProductName(); }
+    protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     public BsWhiteNoPkRelationCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
 
     protected ConditionValue _productHandleCode;
-    public ConditionValue getProductHandleCode()
+    public ConditionValue xdfgetProductHandleCode()
     { if (_productHandleCode == null) { _productHandleCode = nCV(); }
       return _productHandleCode; }
-    protected ConditionValue getCValueProductHandleCode() { return getProductHandleCode(); }
+    protected ConditionValue xgetCValueProductHandleCode() { return xdfgetProductHandleCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     public BsWhiteNoPkRelationCQ addOrderBy_ProductHandleCode_Desc() { regOBD("PRODUCT_HANDLE_CODE"); return this; }
 
     protected ConditionValue _productStatusCode;
-    public ConditionValue getProductStatusCode()
+    public ConditionValue xdfgetProductStatusCode()
     { if (_productStatusCode == null) { _productStatusCode = nCV(); }
       return _productStatusCode; }
-    protected ConditionValue getCValueProductStatusCode() { return getProductStatusCode(); }
+    protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     public BsWhiteNoPkRelationCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }
 
     protected ConditionValue _latestPurchaseDatetime;
-    public ConditionValue getLatestPurchaseDatetime()
+    public ConditionValue xdfgetLatestPurchaseDatetime()
     { if (_latestPurchaseDatetime == null) { _latestPurchaseDatetime = nCV(); }
       return _latestPurchaseDatetime; }
-    protected ConditionValue getCValueLatestPurchaseDatetime() { return getLatestPurchaseDatetime(); }
+    protected ConditionValue xgetCValueLatestPurchaseDatetime() { return xdfgetLatestPurchaseDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -239,7 +239,7 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteNoPkRelationCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteNoPkRelationCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteNoPkRelationCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -248,7 +248,7 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteNoPkRelationCB.class.getName(); }
     protected String xCQ() { return WhiteNoPkRelationCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

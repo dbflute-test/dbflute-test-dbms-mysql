@@ -76,11 +76,11 @@ public class WhiteCompoundPkRefCIQ extends AbstractBsWhiteCompoundPkRefCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueMultipleFirstId() { return _myCQ.getMultipleFirstId(); }
-    protected ConditionValue getCValueMultipleSecondId() { return _myCQ.getMultipleSecondId(); }
-    protected ConditionValue getCValueRefFirstId() { return _myCQ.getRefFirstId(); }
-    protected ConditionValue getCValueRefSecondId() { return _myCQ.getRefSecondId(); }
-    protected ConditionValue getCValueRefName() { return _myCQ.getRefName(); }
+    protected ConditionValue xgetCValueMultipleFirstId() { return _myCQ.xdfgetMultipleFirstId(); }
+    protected ConditionValue xgetCValueMultipleSecondId() { return _myCQ.xdfgetMultipleSecondId(); }
+    protected ConditionValue xgetCValueRefFirstId() { return _myCQ.xdfgetRefFirstId(); }
+    protected ConditionValue xgetCValueRefSecondId() { return _myCQ.xdfgetRefSecondId(); }
+    protected ConditionValue xgetCValueRefName() { return _myCQ.xdfgetRefName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteCompoundPkRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSelect_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSelect(), "SELECT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSelect(), "SELECT", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     }
 
     protected void doSetSelect_InScope(Collection<Integer> selectList) {
-        regINS(CK_INS, cTL(selectList), getCValueSelect(), "SELECT");
+        regINS(CK_INS, cTL(selectList), xgetCValueSelect(), "SELECT");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     }
 
     protected void doSetSelect_NotInScope(Collection<Integer> selectList) {
-        regINS(CK_NINS, cTL(selectList), getCValueSelect(), "SELECT");
+        regINS(CK_NINS, cTL(selectList), xgetCValueSelect(), "SELECT");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      */
     public void setSelect_IsNotNull() { regSelect(CK_ISNN, DOBJ); }
 
-    protected void regSelect(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSelect(), "SELECT"); }
-    protected abstract ConditionValue getCValueSelect();
+    protected void regSelect(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSelect(), "SELECT"); }
+    protected abstract ConditionValue xgetCValueSelect();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFrom_InScope(Collection<String> fromList) {
-        regINS(CK_INS, cTL(fromList), getCValueFrom(), "FROM");
+        regINS(CK_INS, cTL(fromList), xgetCValueFrom(), "FROM");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFrom_NotInScope(Collection<String> fromList) {
-        regINS(CK_NINS, cTL(fromList), getCValueFrom(), "FROM");
+        regINS(CK_NINS, cTL(fromList), xgetCValueFrom(), "FROM");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFrom_LikeSearch(String from, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(from), getCValueFrom(), "FROM", likeSearchOption);
+        regLSQ(CK_LS, fRES(from), xgetCValueFrom(), "FROM", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFrom_NotLikeSearch(String from, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(from), getCValueFrom(), "FROM", likeSearchOption);
+        regLSQ(CK_NLS, fRES(from), xgetCValueFrom(), "FROM", likeSearchOption);
     }
 
     /**
@@ -383,8 +383,8 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      */
     public void setFrom_IsNotNull() { regFrom(CK_ISNN, DOBJ); }
 
-    protected void regFrom(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFrom(), "FROM"); }
-    protected abstract ConditionValue getCValueFrom();
+    protected void regFrom(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFrom(), "FROM"); }
+    protected abstract ConditionValue xgetCValueFrom();
 
     // ===================================================================================
     //                                                                     ScalarCondition

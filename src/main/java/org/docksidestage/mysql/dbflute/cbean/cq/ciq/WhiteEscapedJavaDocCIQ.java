@@ -76,8 +76,8 @@ public class WhiteEscapedJavaDocCIQ extends AbstractBsWhiteEscapedJavaDocCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueEscapedJavaDocCode() { return _myCQ.getEscapedJavaDocCode(); }
-    protected ConditionValue getCValueEscapedJavaDocName() { return _myCQ.getEscapedJavaDocName(); }
+    protected ConditionValue xgetCValueEscapedJavaDocCode() { return _myCQ.xdfgetEscapedJavaDocCode(); }
+    protected ConditionValue xgetCValueEscapedJavaDocName() { return _myCQ.xdfgetEscapedJavaDocName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteEscapedJavaDocCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

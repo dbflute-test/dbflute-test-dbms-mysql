@@ -76,7 +76,7 @@ public class WhiteVariantRelationReferrerCIQ extends AbstractBsWhiteVariantRelat
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueReferrerId() { return _myCQ.getReferrerId(); }
+    protected ConditionValue xgetCValueReferrerId() { return _myCQ.xdfgetReferrerId(); }
     public String keepReferrerId_ExistsReferrer_WhiteVariantRelationReferrerRefList(WhiteVariantRelationReferrerRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepReferrerId_NotExistsReferrer_WhiteVariantRelationReferrerRefList(WhiteVariantRelationReferrerRefCQ sq)
@@ -87,8 +87,8 @@ public class WhiteVariantRelationReferrerCIQ extends AbstractBsWhiteVariantRelat
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueVariantMasterId() { return _myCQ.getVariantMasterId(); }
-    protected ConditionValue getCValueMasterTypeCode() { return _myCQ.getMasterTypeCode(); }
+    protected ConditionValue xgetCValueVariantMasterId() { return _myCQ.xdfgetVariantMasterId(); }
+    protected ConditionValue xgetCValueMasterTypeCode() { return _myCQ.xdfgetMasterTypeCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteVariantRelationReferrerCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteDateAdjustmentCB extends AbstractConditionBean {
      */
     public WhiteDateAdjustmentCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteDateAdjustmentCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteDateAdjustmentCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteDateAdjustmentCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteDateAdjustmentCB extends AbstractConditionBean {
         return new WhiteDateAdjustmentCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteDateAdjustmentCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteDateAdjustmentCQ>() {
                 public boolean has() { return true; }
-                public WhiteDateAdjustmentCQ qy() { return getConditionQuery(); }
+                public WhiteDateAdjustmentCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,57 +320,57 @@ public class BsWhiteDateAdjustmentCB extends AbstractConditionBean {
          * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDateAdjustmentId() { return doColumn("DATE_ADJUSTMENT_ID"); }
+        public SpecifiedColumn columnDateAdjustmentId() { return doColumn("DATE_ADJUSTMENT_ID"); }
         /**
          * (adjusted)ADJUSTED_DATE: {DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedDate() { return doColumn("ADJUSTED_DATE"); }
+        public SpecifiedColumn columnAdjustedDate() { return doColumn("ADJUSTED_DATE"); }
         /**
          * ADJUSTED_DATETIME: {DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedDatetime() { return doColumn("ADJUSTED_DATETIME"); }
+        public SpecifiedColumn columnAdjustedDatetime() { return doColumn("ADJUSTED_DATETIME"); }
         /**
          * ADJUSTED_TIME: {TIME(8)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedTime() { return doColumn("ADJUSTED_TIME"); }
+        public SpecifiedColumn columnAdjustedTime() { return doColumn("ADJUSTED_TIME"); }
         /**
          * ADJUSTED_INTEGER: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedInteger() { return doColumn("ADJUSTED_INTEGER"); }
+        public SpecifiedColumn columnAdjustedInteger() { return doColumn("ADJUSTED_INTEGER"); }
         /**
          * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedNamedStringLong() { return doColumn("ADJUSTED_NAMED_STRING_LONG"); }
+        public SpecifiedColumn columnAdjustedNamedStringLong() { return doColumn("ADJUSTED_NAMED_STRING_LONG"); }
         /**
          * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedNamedTypedLong() { return doColumn("ADJUSTED_NAMED_TYPED_LONG"); }
+        public SpecifiedColumn columnAdjustedNamedTypedLong() { return doColumn("ADJUSTED_NAMED_TYPED_LONG"); }
         /**
          * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedPinpointStringLong() { return doColumn("ADJUSTED_PINPOINT_STRING_LONG"); }
+        public SpecifiedColumn columnAdjustedPinpointStringLong() { return doColumn("ADJUSTED_PINPOINT_STRING_LONG"); }
         /**
          * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedPinpointTypedLong() { return doColumn("ADJUSTED_PINPOINT_TYPED_LONG"); }
+        public SpecifiedColumn columnAdjustedPinpointTypedLong() { return doColumn("ADJUSTED_PINPOINT_TYPED_LONG"); }
         /**
          * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedPlainLong() { return doColumn("ADJUSTED_PLAIN_LONG"); }
+        public SpecifiedColumn columnAdjustedPlainLong() { return doColumn("ADJUSTED_PLAIN_LONG"); }
         /**
          * ADJUSTED_STRING: {VARCHAR(32)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAdjustedString() { return doColumn("ADJUSTED_STRING"); }
+        public SpecifiedColumn columnAdjustedString() { return doColumn("ADJUSTED_STRING"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -414,7 +422,7 @@ public class BsWhiteDateAdjustmentCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteDateAdjustmentCB> columnQuery(final SpecifyQuery<WhiteDateAdjustmentCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteDateAdjustmentCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteDateAdjustmentCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteDateAdjustmentCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -532,8 +540,8 @@ public class BsWhiteDateAdjustmentCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteDateAdjustmentCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteDateAdjustmentCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteDateAdjustmentCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteDateAdjustmentCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

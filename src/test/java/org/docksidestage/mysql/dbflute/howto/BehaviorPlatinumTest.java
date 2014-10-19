@@ -831,9 +831,6 @@ public class BehaviorPlatinumTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                       Common Column
     //                                                                       =============
-    /**
-     * 共通カラムの自動設定を無視して明示的に登録(or 更新): disableCommonColumnAutoSetup().
-     */
     public void test_insert_disableCommonColumnAutoSetup() {
         // ## Arrange ##
         Timestamp expectedTimestamp = new Timestamp(currentTimestamp().getTime() - 10000000000l);
@@ -848,10 +845,9 @@ public class BehaviorPlatinumTest extends UnitContainerTestCase {
         member.setRegisterUser("suppressRegisterUser");
         member.setUpdateDatetime(expectedTimestamp);
         member.setUpdateUser("suppressUpdateUser");
-        member.disableCommonColumnAutoSetup();// *Point!
 
         // ## Act ##
-        memberBhv.insert(member);
+        memberBhv.varyingInsert(member, op -> op.disableCommonColumnAutoSetup());
 
         // ## Assert ##
         final MemberCB cb = new MemberCB();

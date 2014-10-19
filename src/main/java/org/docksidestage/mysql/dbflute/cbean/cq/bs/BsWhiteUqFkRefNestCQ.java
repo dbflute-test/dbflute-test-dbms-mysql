@@ -89,10 +89,10 @@ public class BsWhiteUqFkRefNestCQ extends AbstractBsWhiteUqFkRefNestCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _uqFkRefNestId;
-    public ConditionValue getUqFkRefNestId()
+    public ConditionValue xdfgetUqFkRefNestId()
     { if (_uqFkRefNestId == null) { _uqFkRefNestId = nCV(); }
       return _uqFkRefNestId; }
-    protected ConditionValue getCValueUqFkRefNestId() { return getUqFkRefNestId(); }
+    protected ConditionValue xgetCValueUqFkRefNestId() { return xdfgetUqFkRefNestId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteUqFkRefNestCQ extends AbstractBsWhiteUqFkRefNestCQ {
     public BsWhiteUqFkRefNestCQ addOrderBy_UqFkRefNestId_Desc() { regOBD("UQ_FK_REF_NEST_ID"); return this; }
 
     protected ConditionValue _compoundUqFirstCode;
-    public ConditionValue getCompoundUqFirstCode()
+    public ConditionValue xdfgetCompoundUqFirstCode()
     { if (_compoundUqFirstCode == null) { _compoundUqFirstCode = nCV(); }
       return _compoundUqFirstCode; }
-    protected ConditionValue getCValueCompoundUqFirstCode() { return getCompoundUqFirstCode(); }
+    protected ConditionValue xgetCValueCompoundUqFirstCode() { return xdfgetCompoundUqFirstCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteUqFkRefNestCQ extends AbstractBsWhiteUqFkRefNestCQ {
     public BsWhiteUqFkRefNestCQ addOrderBy_CompoundUqFirstCode_Desc() { regOBD("COMPOUND_UQ_FIRST_CODE"); return this; }
 
     protected ConditionValue _compoundUqSecondCode;
-    public ConditionValue getCompoundUqSecondCode()
+    public ConditionValue xdfgetCompoundUqSecondCode()
     { if (_compoundUqSecondCode == null) { _compoundUqSecondCode = nCV(); }
       return _compoundUqSecondCode; }
-    protected ConditionValue getCValueCompoundUqSecondCode() { return getCompoundUqSecondCode(); }
+    protected ConditionValue xgetCValueCompoundUqSecondCode() { return xdfgetCompoundUqSecondCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -203,9 +203,9 @@ public class BsWhiteUqFkRefNestCQ extends AbstractBsWhiteUqFkRefNestCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteUqFkRefCQ queryWhiteUqFkRef() {
-        return getConditionQueryWhiteUqFkRef();
+        return xdfgetConditionQueryWhiteUqFkRef();
     }
-    public WhiteUqFkRefCQ getConditionQueryWhiteUqFkRef() {
+    public WhiteUqFkRefCQ xdfgetConditionQueryWhiteUqFkRef() {
         String prop = "whiteUqFkRef";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteUqFkRef()); xsetupOuterJoinWhiteUqFkRef(); }
         return xgetQueRlMap(prop);
@@ -224,31 +224,31 @@ public class BsWhiteUqFkRefNestCQ extends AbstractBsWhiteUqFkRefNestCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteUqFkRefNestCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteUqFkRefNestCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteUqFkRefNestCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteUqFkRefNestCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteUqFkRefNestCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteUqFkRefNestCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteUqFkRefNestCQ> _myselfExistsMap;
-    public Map<String, WhiteUqFkRefNestCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteUqFkRefNestCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteUqFkRefNestCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteUqFkRefNestCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -257,7 +257,7 @@ public class BsWhiteUqFkRefNestCQ extends AbstractBsWhiteUqFkRefNestCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteUqFkRefNestCB.class.getName(); }
     protected String xCQ() { return WhiteUqFkRefNestCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

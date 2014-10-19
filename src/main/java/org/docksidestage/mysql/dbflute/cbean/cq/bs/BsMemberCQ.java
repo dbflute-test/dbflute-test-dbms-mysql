@@ -89,51 +89,51 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _memberId;
-    public ConditionValue getMemberId()
+    public ConditionValue xdfgetMemberId()
     { if (_memberId == null) { _memberId = nCV(); }
       return _memberId; }
-    protected ConditionValue getCValueMemberId() { return getMemberId(); }
+    protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    public Map<String, MemberAddressCQ> getMemberId_ExistsReferrer_MemberAddressList() { return xgetSQueMap("memberId_ExistsReferrer_MemberAddressList"); }
+    public Map<String, MemberAddressCQ> xdfgetMemberId_ExistsReferrer_MemberAddressList() { return xgetSQueMap("memberId_ExistsReferrer_MemberAddressList"); }
     public String keepMemberId_ExistsReferrer_MemberAddressList(MemberAddressCQ sq) { return xkeepSQue("memberId_ExistsReferrer_MemberAddressList", sq); }
 
-    public Map<String, MemberLoginCQ> getMemberId_ExistsReferrer_MemberLoginList() { return xgetSQueMap("memberId_ExistsReferrer_MemberLoginList"); }
+    public Map<String, MemberLoginCQ> xdfgetMemberId_ExistsReferrer_MemberLoginList() { return xgetSQueMap("memberId_ExistsReferrer_MemberLoginList"); }
     public String keepMemberId_ExistsReferrer_MemberLoginList(MemberLoginCQ sq) { return xkeepSQue("memberId_ExistsReferrer_MemberLoginList", sq); }
 
-    public Map<String, PurchaseCQ> getMemberId_ExistsReferrer_PurchaseList() { return xgetSQueMap("memberId_ExistsReferrer_PurchaseList"); }
+    public Map<String, PurchaseCQ> xdfgetMemberId_ExistsReferrer_PurchaseList() { return xgetSQueMap("memberId_ExistsReferrer_PurchaseList"); }
     public String keepMemberId_ExistsReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("memberId_ExistsReferrer_PurchaseList", sq); }
 
-    public Map<String, MemberAddressCQ> getMemberId_NotExistsReferrer_MemberAddressList() { return xgetSQueMap("memberId_NotExistsReferrer_MemberAddressList"); }
+    public Map<String, MemberAddressCQ> xdfgetMemberId_NotExistsReferrer_MemberAddressList() { return xgetSQueMap("memberId_NotExistsReferrer_MemberAddressList"); }
     public String keepMemberId_NotExistsReferrer_MemberAddressList(MemberAddressCQ sq) { return xkeepSQue("memberId_NotExistsReferrer_MemberAddressList", sq); }
 
-    public Map<String, MemberLoginCQ> getMemberId_NotExistsReferrer_MemberLoginList() { return xgetSQueMap("memberId_NotExistsReferrer_MemberLoginList"); }
+    public Map<String, MemberLoginCQ> xdfgetMemberId_NotExistsReferrer_MemberLoginList() { return xgetSQueMap("memberId_NotExistsReferrer_MemberLoginList"); }
     public String keepMemberId_NotExistsReferrer_MemberLoginList(MemberLoginCQ sq) { return xkeepSQue("memberId_NotExistsReferrer_MemberLoginList", sq); }
 
-    public Map<String, PurchaseCQ> getMemberId_NotExistsReferrer_PurchaseList() { return xgetSQueMap("memberId_NotExistsReferrer_PurchaseList"); }
+    public Map<String, PurchaseCQ> xdfgetMemberId_NotExistsReferrer_PurchaseList() { return xgetSQueMap("memberId_NotExistsReferrer_PurchaseList"); }
     public String keepMemberId_NotExistsReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("memberId_NotExistsReferrer_PurchaseList", sq); }
 
-    public Map<String, MemberAddressCQ> getMemberId_SpecifyDerivedReferrer_MemberAddressList() { return xgetSQueMap("memberId_SpecifyDerivedReferrer_MemberAddressList"); }
+    public Map<String, MemberAddressCQ> xdfgetMemberId_SpecifyDerivedReferrer_MemberAddressList() { return xgetSQueMap("memberId_SpecifyDerivedReferrer_MemberAddressList"); }
     public String keepMemberId_SpecifyDerivedReferrer_MemberAddressList(MemberAddressCQ sq) { return xkeepSQue("memberId_SpecifyDerivedReferrer_MemberAddressList", sq); }
 
-    public Map<String, MemberLoginCQ> getMemberId_SpecifyDerivedReferrer_MemberLoginList() { return xgetSQueMap("memberId_SpecifyDerivedReferrer_MemberLoginList"); }
+    public Map<String, MemberLoginCQ> xdfgetMemberId_SpecifyDerivedReferrer_MemberLoginList() { return xgetSQueMap("memberId_SpecifyDerivedReferrer_MemberLoginList"); }
     public String keepMemberId_SpecifyDerivedReferrer_MemberLoginList(MemberLoginCQ sq) { return xkeepSQue("memberId_SpecifyDerivedReferrer_MemberLoginList", sq); }
 
-    public Map<String, PurchaseCQ> getMemberId_SpecifyDerivedReferrer_PurchaseList() { return xgetSQueMap("memberId_SpecifyDerivedReferrer_PurchaseList"); }
+    public Map<String, PurchaseCQ> xdfgetMemberId_SpecifyDerivedReferrer_PurchaseList() { return xgetSQueMap("memberId_SpecifyDerivedReferrer_PurchaseList"); }
     public String keepMemberId_SpecifyDerivedReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("memberId_SpecifyDerivedReferrer_PurchaseList", sq); }
 
-    public Map<String, MemberAddressCQ> getMemberId_QueryDerivedReferrer_MemberAddressList() { return xgetSQueMap("memberId_QueryDerivedReferrer_MemberAddressList"); }
+    public Map<String, MemberAddressCQ> xdfgetMemberId_QueryDerivedReferrer_MemberAddressList() { return xgetSQueMap("memberId_QueryDerivedReferrer_MemberAddressList"); }
     public String keepMemberId_QueryDerivedReferrer_MemberAddressList(MemberAddressCQ sq) { return xkeepSQue("memberId_QueryDerivedReferrer_MemberAddressList", sq); }
-    public Map<String, Object> getMemberId_QueryDerivedReferrer_MemberAddressListParameter() { return xgetSQuePmMap("memberId_QueryDerivedReferrer_MemberAddressList"); }
+    public Map<String, Object> xdfgetMemberId_QueryDerivedReferrer_MemberAddressListParameter() { return xgetSQuePmMap("memberId_QueryDerivedReferrer_MemberAddressList"); }
     public String keepMemberId_QueryDerivedReferrer_MemberAddressListParameter(Object pm) { return xkeepSQuePm("memberId_QueryDerivedReferrer_MemberAddressList", pm); }
 
-    public Map<String, MemberLoginCQ> getMemberId_QueryDerivedReferrer_MemberLoginList() { return xgetSQueMap("memberId_QueryDerivedReferrer_MemberLoginList"); }
+    public Map<String, MemberLoginCQ> xdfgetMemberId_QueryDerivedReferrer_MemberLoginList() { return xgetSQueMap("memberId_QueryDerivedReferrer_MemberLoginList"); }
     public String keepMemberId_QueryDerivedReferrer_MemberLoginList(MemberLoginCQ sq) { return xkeepSQue("memberId_QueryDerivedReferrer_MemberLoginList", sq); }
-    public Map<String, Object> getMemberId_QueryDerivedReferrer_MemberLoginListParameter() { return xgetSQuePmMap("memberId_QueryDerivedReferrer_MemberLoginList"); }
+    public Map<String, Object> xdfgetMemberId_QueryDerivedReferrer_MemberLoginListParameter() { return xgetSQuePmMap("memberId_QueryDerivedReferrer_MemberLoginList"); }
     public String keepMemberId_QueryDerivedReferrer_MemberLoginListParameter(Object pm) { return xkeepSQuePm("memberId_QueryDerivedReferrer_MemberLoginList", pm); }
 
-    public Map<String, PurchaseCQ> getMemberId_QueryDerivedReferrer_PurchaseList() { return xgetSQueMap("memberId_QueryDerivedReferrer_PurchaseList"); }
+    public Map<String, PurchaseCQ> xdfgetMemberId_QueryDerivedReferrer_PurchaseList() { return xgetSQueMap("memberId_QueryDerivedReferrer_PurchaseList"); }
     public String keepMemberId_QueryDerivedReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("memberId_QueryDerivedReferrer_PurchaseList", sq); }
-    public Map<String, Object> getMemberId_QueryDerivedReferrer_PurchaseListParameter() { return xgetSQuePmMap("memberId_QueryDerivedReferrer_PurchaseList"); }
+    public Map<String, Object> xdfgetMemberId_QueryDerivedReferrer_PurchaseListParameter() { return xgetSQuePmMap("memberId_QueryDerivedReferrer_PurchaseList"); }
     public String keepMemberId_QueryDerivedReferrer_PurchaseListParameter(Object pm) { return xkeepSQuePm("memberId_QueryDerivedReferrer_PurchaseList", pm); }
 
     /** 
@@ -151,10 +151,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
 
     protected ConditionValue _memberName;
-    public ConditionValue getMemberName()
+    public ConditionValue xdfgetMemberName()
     { if (_memberName == null) { _memberName = nCV(); }
       return _memberName; }
-    protected ConditionValue getCValueMemberName() { return getMemberName(); }
+    protected ConditionValue xgetCValueMemberName() { return xdfgetMemberName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -171,10 +171,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_MemberName_Desc() { regOBD("MEMBER_NAME"); return this; }
 
     protected ConditionValue _memberAccount;
-    public ConditionValue getMemberAccount()
+    public ConditionValue xdfgetMemberAccount()
     { if (_memberAccount == null) { _memberAccount = nCV(); }
       return _memberAccount; }
-    protected ConditionValue getCValueMemberAccount() { return getMemberAccount(); }
+    protected ConditionValue xgetCValueMemberAccount() { return xdfgetMemberAccount(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -191,10 +191,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_MemberAccount_Desc() { regOBD("MEMBER_ACCOUNT"); return this; }
 
     protected ConditionValue _memberStatusCode;
-    public ConditionValue getMemberStatusCode()
+    public ConditionValue xdfgetMemberStatusCode()
     { if (_memberStatusCode == null) { _memberStatusCode = nCV(); }
       return _memberStatusCode; }
-    protected ConditionValue getCValueMemberStatusCode() { return getMemberStatusCode(); }
+    protected ConditionValue xgetCValueMemberStatusCode() { return xdfgetMemberStatusCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -211,10 +211,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_MemberStatusCode_Desc() { regOBD("MEMBER_STATUS_CODE"); return this; }
 
     protected ConditionValue _formalizedDatetime;
-    public ConditionValue getFormalizedDatetime()
+    public ConditionValue xdfgetFormalizedDatetime()
     { if (_formalizedDatetime == null) { _formalizedDatetime = nCV(); }
       return _formalizedDatetime; }
-    protected ConditionValue getCValueFormalizedDatetime() { return getFormalizedDatetime(); }
+    protected ConditionValue xgetCValueFormalizedDatetime() { return xdfgetFormalizedDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -231,10 +231,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_FormalizedDatetime_Desc() { regOBD("FORMALIZED_DATETIME"); return this; }
 
     protected ConditionValue _birthdate;
-    public ConditionValue getBirthdate()
+    public ConditionValue xdfgetBirthdate()
     { if (_birthdate == null) { _birthdate = nCV(); }
       return _birthdate; }
-    protected ConditionValue getCValueBirthdate() { return getBirthdate(); }
+    protected ConditionValue xgetCValueBirthdate() { return xdfgetBirthdate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -251,10 +251,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_Birthdate_Desc() { regOBD("BIRTHDATE"); return this; }
 
     protected ConditionValue _registerDatetime;
-    public ConditionValue getRegisterDatetime()
+    public ConditionValue xdfgetRegisterDatetime()
     { if (_registerDatetime == null) { _registerDatetime = nCV(); }
       return _registerDatetime; }
-    protected ConditionValue getCValueRegisterDatetime() { return getRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -271,10 +271,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
 
     protected ConditionValue _registerUser;
-    public ConditionValue getRegisterUser()
+    public ConditionValue xdfgetRegisterUser()
     { if (_registerUser == null) { _registerUser = nCV(); }
       return _registerUser; }
-    protected ConditionValue getCValueRegisterUser() { return getRegisterUser(); }
+    protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -291,10 +291,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
 
     protected ConditionValue _updateDatetime;
-    public ConditionValue getUpdateDatetime()
+    public ConditionValue xdfgetUpdateDatetime()
     { if (_updateDatetime == null) { _updateDatetime = nCV(); }
       return _updateDatetime; }
-    protected ConditionValue getCValueUpdateDatetime() { return getUpdateDatetime(); }
+    protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -311,10 +311,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
 
     protected ConditionValue _updateUser;
-    public ConditionValue getUpdateUser()
+    public ConditionValue xdfgetUpdateUser()
     { if (_updateUser == null) { _updateUser = nCV(); }
       return _updateUser; }
-    protected ConditionValue getCValueUpdateUser() { return getUpdateUser(); }
+    protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -331,10 +331,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public BsMemberCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
 
     protected ConditionValue _versionNo;
-    public ConditionValue getVersionNo()
+    public ConditionValue xdfgetVersionNo()
     { if (_versionNo == null) { _versionNo = nCV(); }
       return _versionNo; }
-    protected ConditionValue getCValueVersionNo() { return getVersionNo(); }
+    protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -395,35 +395,35 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
             uq.queryMemberStatus().reflectRelationOnUnionQuery(bq.queryMemberStatus(), uq.queryMemberStatus());
         }
         if (bq.hasConditionQueryMemberAddressAsValid()) {
-            uq.xsetParameterMapMemberAddressAsValid(bq.getParameterMapMemberAddressAsValid());
-            uq.getConditionQueryMemberAddressAsValid().reflectRelationOnUnionQuery(bq.getConditionQueryMemberAddressAsValid(), uq.getConditionQueryMemberAddressAsValid());
+            uq.xsetParameterMapMemberAddressAsValid(bq.xdfgetParameterMapMemberAddressAsValid());
+            uq.xdfgetConditionQueryMemberAddressAsValid().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsValid(), uq.xdfgetConditionQueryMemberAddressAsValid());
         }
         if (bq.hasConditionQueryMemberAddressAsValidBefore()) {
-            uq.xsetParameterMapMemberAddressAsValidBefore(bq.getParameterMapMemberAddressAsValidBefore());
-            uq.getConditionQueryMemberAddressAsValidBefore().reflectRelationOnUnionQuery(bq.getConditionQueryMemberAddressAsValidBefore(), uq.getConditionQueryMemberAddressAsValidBefore());
+            uq.xsetParameterMapMemberAddressAsValidBefore(bq.xdfgetParameterMapMemberAddressAsValidBefore());
+            uq.xdfgetConditionQueryMemberAddressAsValidBefore().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsValidBefore(), uq.xdfgetConditionQueryMemberAddressAsValidBefore());
         }
         if (bq.hasConditionQueryMemberLoginAsLoginStatus()) {
-            uq.xsetParameterMapMemberLoginAsLoginStatus(bq.getParameterMapMemberLoginAsLoginStatus());
-            uq.getConditionQueryMemberLoginAsLoginStatus().reflectRelationOnUnionQuery(bq.getConditionQueryMemberLoginAsLoginStatus(), uq.getConditionQueryMemberLoginAsLoginStatus());
+            uq.xsetParameterMapMemberLoginAsLoginStatus(bq.xdfgetParameterMapMemberLoginAsLoginStatus());
+            uq.xdfgetConditionQueryMemberLoginAsLoginStatus().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberLoginAsLoginStatus(), uq.xdfgetConditionQueryMemberLoginAsLoginStatus());
         }
         if (bq.hasConditionQueryMemberAddressAsIfComment()) {
-            uq.xsetParameterMapMemberAddressAsIfComment(bq.getParameterMapMemberAddressAsIfComment());
-            uq.getConditionQueryMemberAddressAsIfComment().reflectRelationOnUnionQuery(bq.getConditionQueryMemberAddressAsIfComment(), uq.getConditionQueryMemberAddressAsIfComment());
+            uq.xsetParameterMapMemberAddressAsIfComment(bq.xdfgetParameterMapMemberAddressAsIfComment());
+            uq.xdfgetConditionQueryMemberAddressAsIfComment().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsIfComment(), uq.xdfgetConditionQueryMemberAddressAsIfComment());
         }
         if (bq.hasConditionQueryMemberAddressAsOnlyOneDate()) {
-            uq.xsetParameterMapMemberAddressAsOnlyOneDate(bq.getParameterMapMemberAddressAsOnlyOneDate());
-            uq.getConditionQueryMemberAddressAsOnlyOneDate().reflectRelationOnUnionQuery(bq.getConditionQueryMemberAddressAsOnlyOneDate(), uq.getConditionQueryMemberAddressAsOnlyOneDate());
+            uq.xsetParameterMapMemberAddressAsOnlyOneDate(bq.xdfgetParameterMapMemberAddressAsOnlyOneDate());
+            uq.xdfgetConditionQueryMemberAddressAsOnlyOneDate().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsOnlyOneDate(), uq.xdfgetConditionQueryMemberAddressAsOnlyOneDate());
         }
         if (bq.hasConditionQueryMemberLoginAsLocalBindOverTest()) {
-            uq.xsetParameterMapMemberLoginAsLocalBindOverTest(bq.getParameterMapMemberLoginAsLocalBindOverTest());
-            uq.getConditionQueryMemberLoginAsLocalBindOverTest().reflectRelationOnUnionQuery(bq.getConditionQueryMemberLoginAsLocalBindOverTest(), uq.getConditionQueryMemberLoginAsLocalBindOverTest());
+            uq.xsetParameterMapMemberLoginAsLocalBindOverTest(bq.xdfgetParameterMapMemberLoginAsLocalBindOverTest());
+            uq.xdfgetConditionQueryMemberLoginAsLocalBindOverTest().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberLoginAsLocalBindOverTest(), uq.xdfgetConditionQueryMemberLoginAsLocalBindOverTest());
         }
         if (bq.hasConditionQueryMemberLoginAsLocalForeignOverTest()) {
             uq.queryMemberLoginAsLocalForeignOverTest().reflectRelationOnUnionQuery(bq.queryMemberLoginAsLocalForeignOverTest(), uq.queryMemberLoginAsLocalForeignOverTest());
         }
         if (bq.hasConditionQueryMemberLoginAsForeignForeignBindOverTest()) {
-            uq.xsetParameterMapMemberLoginAsForeignForeignBindOverTest(bq.getParameterMapMemberLoginAsForeignForeignBindOverTest());
-            uq.getConditionQueryMemberLoginAsForeignForeignBindOverTest().reflectRelationOnUnionQuery(bq.getConditionQueryMemberLoginAsForeignForeignBindOverTest(), uq.getConditionQueryMemberLoginAsForeignForeignBindOverTest());
+            uq.xsetParameterMapMemberLoginAsForeignForeignBindOverTest(bq.xdfgetParameterMapMemberLoginAsForeignForeignBindOverTest());
+            uq.xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest(), uq.xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest());
         }
         if (bq.hasConditionQueryMemberLoginAsForeignForeignEachOverTest()) {
             uq.queryMemberLoginAsForeignForeignEachOverTest().reflectRelationOnUnionQuery(bq.queryMemberLoginAsForeignForeignEachOverTest(), uq.queryMemberLoginAsForeignForeignEachOverTest());
@@ -435,16 +435,16 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
             uq.queryMemberLoginAsForeignForeignOptimizedMarkOverTest().reflectRelationOnUnionQuery(bq.queryMemberLoginAsForeignForeignOptimizedMarkOverTest(), uq.queryMemberLoginAsForeignForeignOptimizedMarkOverTest());
         }
         if (bq.hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest()) {
-            uq.xsetParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest(bq.getParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest());
-            uq.getConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest().reflectRelationOnUnionQuery(bq.getConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(), uq.getConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest());
+            uq.xsetParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest(bq.xdfgetParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest());
+            uq.xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(), uq.xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest());
         }
         if (bq.hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest()) {
-            uq.xsetParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest(bq.getParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest());
-            uq.getConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest().reflectRelationOnUnionQuery(bq.getConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(), uq.getConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest());
+            uq.xsetParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest(bq.xdfgetParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest());
+            uq.xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(), uq.xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest());
         }
         if (bq.hasConditionQueryMemberLoginAsForeignForeignParameterOverTest()) {
-            uq.xsetParameterMapMemberLoginAsForeignForeignParameterOverTest(bq.getParameterMapMemberLoginAsForeignForeignParameterOverTest());
-            uq.getConditionQueryMemberLoginAsForeignForeignParameterOverTest().reflectRelationOnUnionQuery(bq.getConditionQueryMemberLoginAsForeignForeignParameterOverTest(), uq.getConditionQueryMemberLoginAsForeignForeignParameterOverTest());
+            uq.xsetParameterMapMemberLoginAsForeignForeignParameterOverTest(bq.xdfgetParameterMapMemberLoginAsForeignForeignParameterOverTest());
+            uq.xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest(), uq.xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest());
         }
         if (bq.hasConditionQueryMemberLoginAsForeignForeignVariousOverTest()) {
             uq.queryMemberLoginAsForeignForeignVariousOverTest().reflectRelationOnUnionQuery(bq.queryMemberLoginAsForeignForeignVariousOverTest(), uq.queryMemberLoginAsForeignForeignVariousOverTest());
@@ -462,12 +462,12 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
             uq.queryMemberLoginAsOldest().reflectRelationOnUnionQuery(bq.queryMemberLoginAsOldest(), uq.queryMemberLoginAsOldest());
         }
         if (bq.hasConditionQueryMemberAddressAsFormattedBasic()) {
-            uq.xsetParameterMapMemberAddressAsFormattedBasic(bq.getParameterMapMemberAddressAsFormattedBasic());
-            uq.getConditionQueryMemberAddressAsFormattedBasic().reflectRelationOnUnionQuery(bq.getConditionQueryMemberAddressAsFormattedBasic(), uq.getConditionQueryMemberAddressAsFormattedBasic());
+            uq.xsetParameterMapMemberAddressAsFormattedBasic(bq.xdfgetParameterMapMemberAddressAsFormattedBasic());
+            uq.xdfgetConditionQueryMemberAddressAsFormattedBasic().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsFormattedBasic(), uq.xdfgetConditionQueryMemberAddressAsFormattedBasic());
         }
         if (bq.hasConditionQueryMemberAddressAsFormattedLong()) {
-            uq.xsetParameterMapMemberAddressAsFormattedLong(bq.getParameterMapMemberAddressAsFormattedLong());
-            uq.getConditionQueryMemberAddressAsFormattedLong().reflectRelationOnUnionQuery(bq.getConditionQueryMemberAddressAsFormattedLong(), uq.getConditionQueryMemberAddressAsFormattedLong());
+            uq.xsetParameterMapMemberAddressAsFormattedLong(bq.xdfgetParameterMapMemberAddressAsFormattedLong());
+            uq.xdfgetConditionQueryMemberAddressAsFormattedLong().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsFormattedLong(), uq.xdfgetConditionQueryMemberAddressAsFormattedLong());
         }
         if (bq.hasConditionQueryMemberLoginAsFormattedMany()) {
             uq.queryMemberLoginAsFormattedMany().reflectRelationOnUnionQuery(bq.queryMemberLoginAsFormattedMany(), uq.queryMemberLoginAsFormattedMany());
@@ -495,9 +495,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberStatusCQ queryMemberStatus() {
-        return getConditionQueryMemberStatus();
+        return xdfgetConditionQueryMemberStatus();
     }
-    public MemberStatusCQ getConditionQueryMemberStatus() {
+    public MemberStatusCQ xdfgetConditionQueryMemberStatus() {
         String prop = "memberStatus";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberStatus()); xsetupOuterJoinMemberStatus(); }
         return xgetQueRlMap(prop);
@@ -516,18 +516,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberAddressCQ queryMemberAddressAsValid(java.util.Date targetDate) {
-        Map<String, Object> parameterMap = getParameterMapMemberAddressAsValid();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsValid();
         parameterMap.put("targetDate", fCTPD(targetDate));
         xassertFCDP("memberAddressAsValid", parameterMap);
-        return getConditionQueryMemberAddressAsValid();
+        return xdfgetConditionQueryMemberAddressAsValid();
     }
-    public MemberAddressCQ getConditionQueryMemberAddressAsValid() {
+    public MemberAddressCQ xdfgetConditionQueryMemberAddressAsValid() {
         String prop = "memberAddressAsValid";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberAddressAsValid()); xsetupOuterJoinMemberAddressAsValid(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberAddressAsValid;
-    public Map<String, Object> getParameterMapMemberAddressAsValid()
+    public Map<String, Object> xdfgetParameterMapMemberAddressAsValid()
     { if (_parameterMapMemberAddressAsValid == null) { _parameterMapMemberAddressAsValid = newLinkedHashMapSized(4); }
       return _parameterMapMemberAddressAsValid; }
     public void xsetParameterMapMemberAddressAsValid(Map<String, Object> parameterMap)
@@ -546,18 +546,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberAddressCQ queryMemberAddressAsValidBefore(java.util.Date targetDate) {
-        Map<String, Object> parameterMap = getParameterMapMemberAddressAsValidBefore();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsValidBefore();
         parameterMap.put("targetDate", fCTPD(targetDate));
         xassertFCDP("memberAddressAsValidBefore", parameterMap);
-        return getConditionQueryMemberAddressAsValidBefore();
+        return xdfgetConditionQueryMemberAddressAsValidBefore();
     }
-    public MemberAddressCQ getConditionQueryMemberAddressAsValidBefore() {
+    public MemberAddressCQ xdfgetConditionQueryMemberAddressAsValidBefore() {
         String prop = "memberAddressAsValidBefore";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberAddressAsValidBefore()); xsetupOuterJoinMemberAddressAsValidBefore(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberAddressAsValidBefore;
-    public Map<String, Object> getParameterMapMemberAddressAsValidBefore()
+    public Map<String, Object> xdfgetParameterMapMemberAddressAsValidBefore()
     { if (_parameterMapMemberAddressAsValidBefore == null) { _parameterMapMemberAddressAsValidBefore = newLinkedHashMapSized(4); }
       return _parameterMapMemberAddressAsValidBefore; }
     public void xsetParameterMapMemberAddressAsValidBefore(Map<String, Object> parameterMap)
@@ -576,18 +576,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsLoginStatus(org.docksidestage.mysql.dbflute.allcommon.CDef.MemberStatus statusCode) {
-        Map<String, Object> parameterMap = getParameterMapMemberLoginAsLoginStatus();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberLoginAsLoginStatus();
         parameterMap.put("statusCode", statusCode);
         xassertFCDP("memberLoginAsLoginStatus", parameterMap);
-        return getConditionQueryMemberLoginAsLoginStatus();
+        return xdfgetConditionQueryMemberLoginAsLoginStatus();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsLoginStatus() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsLoginStatus() {
         String prop = "memberLoginAsLoginStatus";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsLoginStatus()); xsetupOuterJoinMemberLoginAsLoginStatus(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberLoginAsLoginStatus;
-    public Map<String, Object> getParameterMapMemberLoginAsLoginStatus()
+    public Map<String, Object> xdfgetParameterMapMemberLoginAsLoginStatus()
     { if (_parameterMapMemberLoginAsLoginStatus == null) { _parameterMapMemberLoginAsLoginStatus = newLinkedHashMapSized(4); }
       return _parameterMapMemberLoginAsLoginStatus; }
     public void xsetParameterMapMemberLoginAsLoginStatus(Map<String, Object> parameterMap)
@@ -607,18 +607,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberAddressCQ queryMemberAddressAsIfComment(java.util.Date targetDate, org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
-        Map<String, Object> parameterMap = getParameterMapMemberAddressAsIfComment();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsIfComment();
         parameterMap.put("targetDate", fCTPD(targetDate));parameterMap.put("region", region);
         xassertFCDP("memberAddressAsIfComment", parameterMap);
-        return getConditionQueryMemberAddressAsIfComment();
+        return xdfgetConditionQueryMemberAddressAsIfComment();
     }
-    public MemberAddressCQ getConditionQueryMemberAddressAsIfComment() {
+    public MemberAddressCQ xdfgetConditionQueryMemberAddressAsIfComment() {
         String prop = "memberAddressAsIfComment";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberAddressAsIfComment()); xsetupOuterJoinMemberAddressAsIfComment(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberAddressAsIfComment;
-    public Map<String, Object> getParameterMapMemberAddressAsIfComment()
+    public Map<String, Object> xdfgetParameterMapMemberAddressAsIfComment()
     { if (_parameterMapMemberAddressAsIfComment == null) { _parameterMapMemberAddressAsIfComment = newLinkedHashMapSized(4); }
       return _parameterMapMemberAddressAsIfComment; }
     public void xsetParameterMapMemberAddressAsIfComment(Map<String, Object> parameterMap)
@@ -637,18 +637,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberAddressCQ queryMemberAddressAsOnlyOneDate(java.util.Date targetDate) {
-        Map<String, Object> parameterMap = getParameterMapMemberAddressAsOnlyOneDate();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsOnlyOneDate();
         parameterMap.put("targetDate", fCTPD(targetDate));
         xassertFCDP("memberAddressAsOnlyOneDate", parameterMap);
-        return getConditionQueryMemberAddressAsOnlyOneDate();
+        return xdfgetConditionQueryMemberAddressAsOnlyOneDate();
     }
-    public MemberAddressCQ getConditionQueryMemberAddressAsOnlyOneDate() {
+    public MemberAddressCQ xdfgetConditionQueryMemberAddressAsOnlyOneDate() {
         String prop = "memberAddressAsOnlyOneDate";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberAddressAsOnlyOneDate()); xsetupOuterJoinMemberAddressAsOnlyOneDate(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberAddressAsOnlyOneDate;
-    public Map<String, Object> getParameterMapMemberAddressAsOnlyOneDate()
+    public Map<String, Object> xdfgetParameterMapMemberAddressAsOnlyOneDate()
     { if (_parameterMapMemberAddressAsOnlyOneDate == null) { _parameterMapMemberAddressAsOnlyOneDate = newLinkedHashMapSized(4); }
       return _parameterMapMemberAddressAsOnlyOneDate; }
     public void xsetParameterMapMemberAddressAsOnlyOneDate(Map<String, Object> parameterMap)
@@ -668,18 +668,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @deprecated the test of dep
      */
     public MemberLoginCQ queryMemberLoginAsLocalBindOverTest(Integer displayOrder) {
-        Map<String, Object> parameterMap = getParameterMapMemberLoginAsLocalBindOverTest();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberLoginAsLocalBindOverTest();
         parameterMap.put("displayOrder", displayOrder);
         xassertFCDP("memberLoginAsLocalBindOverTest", parameterMap);
-        return getConditionQueryMemberLoginAsLocalBindOverTest();
+        return xdfgetConditionQueryMemberLoginAsLocalBindOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsLocalBindOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsLocalBindOverTest() {
         String prop = "memberLoginAsLocalBindOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsLocalBindOverTest()); xsetupOuterJoinMemberLoginAsLocalBindOverTest(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberLoginAsLocalBindOverTest;
-    public Map<String, Object> getParameterMapMemberLoginAsLocalBindOverTest()
+    public Map<String, Object> xdfgetParameterMapMemberLoginAsLocalBindOverTest()
     { if (_parameterMapMemberLoginAsLocalBindOverTest == null) { _parameterMapMemberLoginAsLocalBindOverTest = newLinkedHashMapSized(4); }
       return _parameterMapMemberLoginAsLocalBindOverTest; }
     public void xsetParameterMapMemberLoginAsLocalBindOverTest(Map<String, Object> parameterMap)
@@ -697,9 +697,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsLocalForeignOverTest() {
-        return getConditionQueryMemberLoginAsLocalForeignOverTest();
+        return xdfgetConditionQueryMemberLoginAsLocalForeignOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsLocalForeignOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsLocalForeignOverTest() {
         String prop = "memberLoginAsLocalForeignOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsLocalForeignOverTest()); xsetupOuterJoinMemberLoginAsLocalForeignOverTest(); }
         return xgetQueRlMap(prop);
@@ -718,18 +718,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignBindOverTest(Integer displayOrder) {
-        Map<String, Object> parameterMap = getParameterMapMemberLoginAsForeignForeignBindOverTest();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberLoginAsForeignForeignBindOverTest();
         parameterMap.put("displayOrder", displayOrder);
         xassertFCDP("memberLoginAsForeignForeignBindOverTest", parameterMap);
-        return getConditionQueryMemberLoginAsForeignForeignBindOverTest();
+        return xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsForeignForeignBindOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest() {
         String prop = "memberLoginAsForeignForeignBindOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsForeignForeignBindOverTest()); xsetupOuterJoinMemberLoginAsForeignForeignBindOverTest(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberLoginAsForeignForeignBindOverTest;
-    public Map<String, Object> getParameterMapMemberLoginAsForeignForeignBindOverTest()
+    public Map<String, Object> xdfgetParameterMapMemberLoginAsForeignForeignBindOverTest()
     { if (_parameterMapMemberLoginAsForeignForeignBindOverTest == null) { _parameterMapMemberLoginAsForeignForeignBindOverTest = newLinkedHashMapSized(4); }
       return _parameterMapMemberLoginAsForeignForeignBindOverTest; }
     public void xsetParameterMapMemberLoginAsForeignForeignBindOverTest(Map<String, Object> parameterMap)
@@ -747,9 +747,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignEachOverTest() {
-        return getConditionQueryMemberLoginAsForeignForeignEachOverTest();
+        return xdfgetConditionQueryMemberLoginAsForeignForeignEachOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsForeignForeignEachOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsForeignForeignEachOverTest() {
         String prop = "memberLoginAsForeignForeignEachOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsForeignForeignEachOverTest()); xsetupOuterJoinMemberLoginAsForeignForeignEachOverTest(); }
         return xgetQueRlMap(prop);
@@ -767,9 +767,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignOptimizedBasicOverTest() {
-        return getConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest();
+        return xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest() {
         String prop = "memberLoginAsForeignForeignOptimizedBasicOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsForeignForeignOptimizedBasicOverTest()); xsetupOuterJoinMemberLoginAsForeignForeignOptimizedBasicOverTest(); }
         return xgetQueRlMap(prop);
@@ -787,9 +787,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignOptimizedMarkOverTest() {
-        return getConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest();
+        return xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest() {
         String prop = "memberLoginAsForeignForeignOptimizedMarkOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsForeignForeignOptimizedMarkOverTest()); xsetupOuterJoinMemberLoginAsForeignForeignOptimizedMarkOverTest(); }
         return xgetQueRlMap(prop);
@@ -809,18 +809,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignOptimizedPartOverTest(Integer displayOrder, String memberName) {
-        Map<String, Object> parameterMap = getParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest();
         parameterMap.put("displayOrder", displayOrder);parameterMap.put("memberName", memberName);
         xassertFCDP("memberLoginAsForeignForeignOptimizedPartOverTest", parameterMap);
-        return getConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest();
+        return xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest() {
         String prop = "memberLoginAsForeignForeignOptimizedPartOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsForeignForeignOptimizedPartOverTest()); xsetupOuterJoinMemberLoginAsForeignForeignOptimizedPartOverTest(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest;
-    public Map<String, Object> getParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest()
+    public Map<String, Object> xdfgetParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest()
     { if (_parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest == null) { _parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest = newLinkedHashMapSized(4); }
       return _parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest; }
     public void xsetParameterMapMemberLoginAsForeignForeignOptimizedPartOverTest(Map<String, Object> parameterMap)
@@ -839,18 +839,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignOptimizedWholeOverTest(Integer displayOrder) {
-        Map<String, Object> parameterMap = getParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest();
         parameterMap.put("displayOrder", displayOrder);
         xassertFCDP("memberLoginAsForeignForeignOptimizedWholeOverTest", parameterMap);
-        return getConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest();
+        return xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest() {
         String prop = "memberLoginAsForeignForeignOptimizedWholeOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsForeignForeignOptimizedWholeOverTest()); xsetupOuterJoinMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest;
-    public Map<String, Object> getParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest()
+    public Map<String, Object> xdfgetParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest()
     { if (_parameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest == null) { _parameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest = newLinkedHashMapSized(4); }
       return _parameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest; }
     public void xsetParameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest(Map<String, Object> parameterMap)
@@ -869,18 +869,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignParameterOverTest(java.util.Date targetDate) {
-        Map<String, Object> parameterMap = getParameterMapMemberLoginAsForeignForeignParameterOverTest();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberLoginAsForeignForeignParameterOverTest();
         parameterMap.put("targetDate", fCTPD(targetDate));
         xassertFCDP("memberLoginAsForeignForeignParameterOverTest", parameterMap);
-        return getConditionQueryMemberLoginAsForeignForeignParameterOverTest();
+        return xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsForeignForeignParameterOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest() {
         String prop = "memberLoginAsForeignForeignParameterOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsForeignForeignParameterOverTest()); xsetupOuterJoinMemberLoginAsForeignForeignParameterOverTest(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberLoginAsForeignForeignParameterOverTest;
-    public Map<String, Object> getParameterMapMemberLoginAsForeignForeignParameterOverTest()
+    public Map<String, Object> xdfgetParameterMapMemberLoginAsForeignForeignParameterOverTest()
     { if (_parameterMapMemberLoginAsForeignForeignParameterOverTest == null) { _parameterMapMemberLoginAsForeignForeignParameterOverTest = newLinkedHashMapSized(4); }
       return _parameterMapMemberLoginAsForeignForeignParameterOverTest; }
     public void xsetParameterMapMemberLoginAsForeignForeignParameterOverTest(Map<String, Object> parameterMap)
@@ -898,9 +898,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignVariousOverTest() {
-        return getConditionQueryMemberLoginAsForeignForeignVariousOverTest();
+        return xdfgetConditionQueryMemberLoginAsForeignForeignVariousOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsForeignForeignVariousOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsForeignForeignVariousOverTest() {
         String prop = "memberLoginAsForeignForeignVariousOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsForeignForeignVariousOverTest()); xsetupOuterJoinMemberLoginAsForeignForeignVariousOverTest(); }
         return xgetQueRlMap(prop);
@@ -918,9 +918,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsReferrerOverTest() {
-        return getConditionQueryMemberLoginAsReferrerOverTest();
+        return xdfgetConditionQueryMemberLoginAsReferrerOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsReferrerOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsReferrerOverTest() {
         String prop = "memberLoginAsReferrerOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsReferrerOverTest()); xsetupOuterJoinMemberLoginAsReferrerOverTest(); }
         return xgetQueRlMap(prop);
@@ -938,9 +938,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsReferrerForeignOverTest() {
-        return getConditionQueryMemberLoginAsReferrerForeignOverTest();
+        return xdfgetConditionQueryMemberLoginAsReferrerForeignOverTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsReferrerForeignOverTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsReferrerForeignOverTest() {
         String prop = "memberLoginAsReferrerForeignOverTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsReferrerForeignOverTest()); xsetupOuterJoinMemberLoginAsReferrerForeignOverTest(); }
         return xgetQueRlMap(prop);
@@ -958,9 +958,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsLatest() {
-        return getConditionQueryMemberLoginAsLatest();
+        return xdfgetConditionQueryMemberLoginAsLatest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsLatest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsLatest() {
         String prop = "memberLoginAsLatest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsLatest()); xsetupOuterJoinMemberLoginAsLatest(); }
         return xgetQueRlMap(prop);
@@ -978,9 +978,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsOldest() {
-        return getConditionQueryMemberLoginAsOldest();
+        return xdfgetConditionQueryMemberLoginAsOldest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsOldest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsOldest() {
         String prop = "memberLoginAsOldest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsOldest()); xsetupOuterJoinMemberLoginAsOldest(); }
         return xgetQueRlMap(prop);
@@ -999,18 +999,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberAddressCQ queryMemberAddressAsFormattedBasic(java.util.Date targetDate) {
-        Map<String, Object> parameterMap = getParameterMapMemberAddressAsFormattedBasic();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsFormattedBasic();
         parameterMap.put("targetDate", fCTPD(targetDate));
         xassertFCDP("memberAddressAsFormattedBasic", parameterMap);
-        return getConditionQueryMemberAddressAsFormattedBasic();
+        return xdfgetConditionQueryMemberAddressAsFormattedBasic();
     }
-    public MemberAddressCQ getConditionQueryMemberAddressAsFormattedBasic() {
+    public MemberAddressCQ xdfgetConditionQueryMemberAddressAsFormattedBasic() {
         String prop = "memberAddressAsFormattedBasic";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberAddressAsFormattedBasic()); xsetupOuterJoinMemberAddressAsFormattedBasic(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberAddressAsFormattedBasic;
-    public Map<String, Object> getParameterMapMemberAddressAsFormattedBasic()
+    public Map<String, Object> xdfgetParameterMapMemberAddressAsFormattedBasic()
     { if (_parameterMapMemberAddressAsFormattedBasic == null) { _parameterMapMemberAddressAsFormattedBasic = newLinkedHashMapSized(4); }
       return _parameterMapMemberAddressAsFormattedBasic; }
     public void xsetParameterMapMemberAddressAsFormattedBasic(Map<String, Object> parameterMap)
@@ -1029,18 +1029,18 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberAddressCQ queryMemberAddressAsFormattedLong(java.util.Date targetDate) {
-        Map<String, Object> parameterMap = getParameterMapMemberAddressAsFormattedLong();
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsFormattedLong();
         parameterMap.put("targetDate", fCTPD(targetDate));
         xassertFCDP("memberAddressAsFormattedLong", parameterMap);
-        return getConditionQueryMemberAddressAsFormattedLong();
+        return xdfgetConditionQueryMemberAddressAsFormattedLong();
     }
-    public MemberAddressCQ getConditionQueryMemberAddressAsFormattedLong() {
+    public MemberAddressCQ xdfgetConditionQueryMemberAddressAsFormattedLong() {
         String prop = "memberAddressAsFormattedLong";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberAddressAsFormattedLong()); xsetupOuterJoinMemberAddressAsFormattedLong(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapMemberAddressAsFormattedLong;
-    public Map<String, Object> getParameterMapMemberAddressAsFormattedLong()
+    public Map<String, Object> xdfgetParameterMapMemberAddressAsFormattedLong()
     { if (_parameterMapMemberAddressAsFormattedLong == null) { _parameterMapMemberAddressAsFormattedLong = newLinkedHashMapSized(4); }
       return _parameterMapMemberAddressAsFormattedLong; }
     public void xsetParameterMapMemberAddressAsFormattedLong(Map<String, Object> parameterMap)
@@ -1058,9 +1058,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsFormattedMany() {
-        return getConditionQueryMemberLoginAsFormattedMany();
+        return xdfgetConditionQueryMemberLoginAsFormattedMany();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsFormattedMany() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsFormattedMany() {
         String prop = "memberLoginAsFormattedMany";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsFormattedMany()); xsetupOuterJoinMemberLoginAsFormattedMany(); }
         return xgetQueRlMap(prop);
@@ -1078,9 +1078,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsEmbeddedCommentClassificationTest() {
-        return getConditionQueryMemberLoginAsEmbeddedCommentClassificationTest();
+        return xdfgetConditionQueryMemberLoginAsEmbeddedCommentClassificationTest();
     }
-    public MemberLoginCQ getConditionQueryMemberLoginAsEmbeddedCommentClassificationTest() {
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsEmbeddedCommentClassificationTest() {
         String prop = "memberLoginAsEmbeddedCommentClassificationTest";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsEmbeddedCommentClassificationTest()); xsetupOuterJoinMemberLoginAsEmbeddedCommentClassificationTest(); }
         return xgetQueRlMap(prop);
@@ -1097,8 +1097,8 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberSecurityCQ queryMemberSecurityAsOne() { return getConditionQueryMemberSecurityAsOne(); }
-    public MemberSecurityCQ getConditionQueryMemberSecurityAsOne() {
+    public MemberSecurityCQ queryMemberSecurityAsOne() { return xdfgetConditionQueryMemberSecurityAsOne(); }
+    public MemberSecurityCQ xdfgetConditionQueryMemberSecurityAsOne() {
         String prop = "memberSecurityAsOne";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberSecurityAsOne()); xsetupOuterJoinMemberSecurityAsOne(); }
         return xgetQueRlMap(prop);
@@ -1115,8 +1115,8 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberServiceCQ queryMemberServiceAsOne() { return getConditionQueryMemberServiceAsOne(); }
-    public MemberServiceCQ getConditionQueryMemberServiceAsOne() {
+    public MemberServiceCQ queryMemberServiceAsOne() { return xdfgetConditionQueryMemberServiceAsOne(); }
+    public MemberServiceCQ xdfgetConditionQueryMemberServiceAsOne() {
         String prop = "memberServiceAsOne";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberServiceAsOne()); xsetupOuterJoinMemberServiceAsOne(); }
         return xgetQueRlMap(prop);
@@ -1133,8 +1133,8 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * (会員退会情報)member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberWithdrawalCQ queryMemberWithdrawalAsOne() { return getConditionQueryMemberWithdrawalAsOne(); }
-    public MemberWithdrawalCQ getConditionQueryMemberWithdrawalAsOne() {
+    public MemberWithdrawalCQ queryMemberWithdrawalAsOne() { return xdfgetConditionQueryMemberWithdrawalAsOne(); }
+    public MemberWithdrawalCQ xdfgetConditionQueryMemberWithdrawalAsOne() {
         String prop = "memberWithdrawalAsOne";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberWithdrawalAsOne()); xsetupOuterJoinMemberWithdrawalAsOne(); }
         return xgetQueRlMap(prop);
@@ -1165,31 +1165,31 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, MemberCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, MemberCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(MemberCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, MemberCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, MemberCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(MemberCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, MemberCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, MemberCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(MemberCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, MemberCQ> _myselfExistsMap;
-    public Map<String, MemberCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, MemberCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(MemberCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, MemberCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, MemberCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(MemberCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -1198,7 +1198,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return MemberCB.class.getName(); }
     protected String xCQ() { return MemberCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

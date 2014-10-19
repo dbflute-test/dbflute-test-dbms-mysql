@@ -76,9 +76,9 @@ public class WhiteOnlyOneToOneToCIQ extends AbstractBsWhiteOnlyOneToOneToCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueToId() { return _myCQ.getToId(); }
-    protected ConditionValue getCValueToName() { return _myCQ.getToName(); }
-    protected ConditionValue getCValueFromId() { return _myCQ.getFromId(); }
+    protected ConditionValue xgetCValueToId() { return _myCQ.xdfgetToId(); }
+    protected ConditionValue xgetCValueToName() { return _myCQ.xdfgetToName(); }
+    protected ConditionValue xgetCValueFromId() { return _myCQ.xdfgetFromId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteOnlyOneToOneToCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

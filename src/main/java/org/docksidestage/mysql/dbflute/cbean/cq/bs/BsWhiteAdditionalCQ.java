@@ -89,10 +89,10 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _fooId;
-    public ConditionValue getFooId()
+    public ConditionValue xdfgetFooId()
     { if (_fooId == null) { _fooId = nCV(); }
       return _fooId; }
-    protected ConditionValue getCValueFooId() { return getFooId(); }
+    protected ConditionValue xgetCValueFooId() { return xdfgetFooId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     public BsWhiteAdditionalCQ addOrderBy_FooId_Desc() { regOBD("foo_id"); return this; }
 
     protected ConditionValue _fooName;
-    public ConditionValue getFooName()
+    public ConditionValue xdfgetFooName()
     { if (_fooName == null) { _fooName = nCV(); }
       return _fooName; }
-    protected ConditionValue getCValueFooName() { return getFooName(); }
+    protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     public BsWhiteAdditionalCQ addOrderBy_FooName_Desc() { regOBD("foo_name"); return this; }
 
     protected ConditionValue _fooDate;
-    public ConditionValue getFooDate()
+    public ConditionValue xdfgetFooDate()
     { if (_fooDate == null) { _fooDate = nCV(); }
       return _fooDate; }
-    protected ConditionValue getCValueFooDate() { return getFooDate(); }
+    protected ConditionValue xgetCValueFooDate() { return xdfgetFooDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     public BsWhiteAdditionalCQ addOrderBy_FooDate_Desc() { regOBD("foo_date"); return this; }
 
     protected ConditionValue _registerDatetime;
-    public ConditionValue getRegisterDatetime()
+    public ConditionValue xdfgetRegisterDatetime()
     { if (_registerDatetime == null) { _registerDatetime = nCV(); }
       return _registerDatetime; }
-    protected ConditionValue getCValueRegisterDatetime() { return getRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -219,31 +219,31 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteAdditionalCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteAdditionalCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteAdditionalCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteAdditionalCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteAdditionalCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteAdditionalCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteAdditionalCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteAdditionalCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteAdditionalCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteAdditionalCQ> _myselfExistsMap;
-    public Map<String, WhiteAdditionalCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteAdditionalCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteAdditionalCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteAdditionalCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteAdditionalCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteAdditionalCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -252,7 +252,7 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteAdditionalCB.class.getName(); }
     protected String xCQ() { return WhiteAdditionalCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

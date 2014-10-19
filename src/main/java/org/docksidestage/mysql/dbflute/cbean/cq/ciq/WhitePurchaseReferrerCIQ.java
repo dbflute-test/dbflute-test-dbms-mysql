@@ -76,8 +76,8 @@ public class WhitePurchaseReferrerCIQ extends AbstractBsWhitePurchaseReferrerCQ 
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValuePurchaseReferrerId() { return _myCQ.getPurchaseReferrerId(); }
-    protected ConditionValue getCValuePurchaseReferrerName() { return _myCQ.getPurchaseReferrerName(); }
+    protected ConditionValue xgetCValuePurchaseReferrerId() { return _myCQ.xdfgetPurchaseReferrerId(); }
+    protected ConditionValue xgetCValuePurchaseReferrerName() { return _myCQ.xdfgetPurchaseReferrerName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhitePurchaseReferrerCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

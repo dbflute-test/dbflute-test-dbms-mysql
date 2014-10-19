@@ -76,10 +76,10 @@ public class WhiteImplicitReverseFkSuppressCIQ extends AbstractBsWhiteImplicitRe
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueWhiteImplicitReverseFkSuppressId() { return _myCQ.getWhiteImplicitReverseFkSuppressId(); }
-    protected ConditionValue getCValueWhiteImplicitReverseFkId() { return _myCQ.getWhiteImplicitReverseFkId(); }
-    protected ConditionValue getCValueValidBeginDate() { return _myCQ.getValidBeginDate(); }
-    protected ConditionValue getCValueValidEndDate() { return _myCQ.getValidEndDate(); }
+    protected ConditionValue xgetCValueWhiteImplicitReverseFkSuppressId() { return _myCQ.xdfgetWhiteImplicitReverseFkSuppressId(); }
+    protected ConditionValue xgetCValueWhiteImplicitReverseFkId() { return _myCQ.xdfgetWhiteImplicitReverseFkId(); }
+    protected ConditionValue xgetCValueValidBeginDate() { return _myCQ.xdfgetValidBeginDate(); }
+    protected ConditionValue xgetCValueValidEndDate() { return _myCQ.xdfgetValidEndDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteImplicitReverseFkSuppressCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

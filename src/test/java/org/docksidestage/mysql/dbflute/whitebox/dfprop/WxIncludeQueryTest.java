@@ -42,8 +42,6 @@ public class WxIncludeQueryTest extends UnitContainerTestCase {
     public void test_NormalColumn_Date_included() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.enableOverridingQuery();
-
         // ## Act & Assert ##
         // [included]
         // expect no exception
@@ -52,9 +50,11 @@ public class WxIncludeQueryTest extends UnitContainerTestCase {
         cb.localCQ().invokeQuery("BIRTHDATE", "LessThan", currentDate());
         cb.localCQ().invokeQuery("BIRTHDATE", "GreaterEqual", currentDate());
         cb.localCQ().invokeQuery("BIRTHDATE", "LessEqual", currentDate());
-        List<Date> fromToList = DfCollectionUtil.newArrayList(currentDate(), currentDate());
-        cb.localCQ().invokeQuery("BIRTHDATE", "FromTo", fromToList, new FromToOption().compareAsDate());
-        cb.localCQ().invokeQuery("BIRTHDATE", "DateFromTo", fromToList);
+        cb.enableOverridingQuery(() -> {
+            List<Date> fromToList = DfCollectionUtil.newArrayList(currentDate(), currentDate());
+            cb.localCQ().invokeQuery("BIRTHDATE", "FromTo", fromToList, new FromToOption().compareAsDate());
+            cb.localCQ().invokeQuery("BIRTHDATE", "DateFromTo", fromToList);
+        });
         cb.localCQ().invokeQuery("BIRTHDATE", "IsNull", new Object());
         cb.localCQ().invokeQuery("BIRTHDATE", "IsNotNull", new Object());
 

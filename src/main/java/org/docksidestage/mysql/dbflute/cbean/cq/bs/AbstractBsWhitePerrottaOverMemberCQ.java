@@ -133,7 +133,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMemberId(), "MEMBER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMemberId(), "MEMBER_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetMemberId_InScope(Collection<Long> memberIdList) {
-        regINS(CK_INS, cTL(memberIdList), getCValueMemberId(), "MEMBER_ID");
+        regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetMemberId_NotInScope(Collection<Long> memberIdList) {
-        regINS(CK_NINS, cTL(memberIdList), getCValueMemberId(), "MEMBER_ID");
+        regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      */
     public void setMemberId_IsNotNull() { regMemberId(CK_ISNN, DOBJ); }
 
-    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberId(), "MEMBER_ID"); }
-    protected abstract ConditionValue getCValueMemberId();
+    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberId(), "MEMBER_ID"); }
+    protected abstract ConditionValue xgetCValueMemberId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetMemberName_InScope(Collection<String> memberNameList) {
-        regINS(CK_INS, cTL(memberNameList), getCValueMemberName(), "MEMBER_NAME");
+        regINS(CK_INS, cTL(memberNameList), xgetCValueMemberName(), "MEMBER_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetMemberName_NotInScope(Collection<String> memberNameList) {
-        regINS(CK_NINS, cTL(memberNameList), getCValueMemberName(), "MEMBER_NAME");
+        regINS(CK_NINS, cTL(memberNameList), xgetCValueMemberName(), "MEMBER_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberName_LikeSearch(String memberName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(memberName), getCValueMemberName(), "MEMBER_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(memberName), xgetCValueMemberName(), "MEMBER_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberName_NotLikeSearch(String memberName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(memberName), getCValueMemberName(), "MEMBER_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(memberName), xgetCValueMemberName(), "MEMBER_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
         setMemberName_LikeSearch(memberName, xcLSOPPre());
     }
 
-    protected void regMemberName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberName(), "MEMBER_NAME"); }
-    protected abstract ConditionValue getCValueMemberName();
+    protected void regMemberName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberName(), "MEMBER_NAME"); }
+    protected abstract ConditionValue xgetCValueMemberName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueProductId(), "PRODUCT_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueProductId(), "PRODUCT_ID", rangeOfOption);
     }
 
     /**
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetProductId_InScope(Collection<Long> productIdList) {
-        regINS(CK_INS, cTL(productIdList), getCValueProductId(), "PRODUCT_ID");
+        regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
     /**
@@ -383,11 +383,11 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetProductId_NotInScope(Collection<Long> productIdList) {
-        regINS(CK_NINS, cTL(productIdList), getCValueProductId(), "PRODUCT_ID");
+        regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
-    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductId(), "PRODUCT_ID"); }
-    protected abstract ConditionValue getCValueProductId();
+    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "PRODUCT_ID"); }
+    protected abstract ConditionValue xgetCValueProductId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -425,7 +425,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetTraceTypeCode_InScope(Collection<String> traceTypeCodeList) {
-        regINS(CK_INS, cTL(traceTypeCodeList), getCValueTraceTypeCode(), "TRACE_TYPE_CODE");
+        regINS(CK_INS, cTL(traceTypeCodeList), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE");
     }
 
     /**
@@ -438,7 +438,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetTraceTypeCode_NotInScope(Collection<String> traceTypeCodeList) {
-        regINS(CK_NINS, cTL(traceTypeCodeList), getCValueTraceTypeCode(), "TRACE_TYPE_CODE");
+        regINS(CK_NINS, cTL(traceTypeCodeList), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE");
     }
 
     /**
@@ -460,7 +460,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTraceTypeCode_LikeSearch(String traceTypeCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(traceTypeCode), getCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(traceTypeCode), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
     }
 
     /**
@@ -482,7 +482,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTraceTypeCode_NotLikeSearch(String traceTypeCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(traceTypeCode), getCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(traceTypeCode), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
     }
 
     /**
@@ -494,8 +494,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
         setTraceTypeCode_LikeSearch(traceTypeCode, xcLSOPPre());
     }
 
-    protected void regTraceTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTraceTypeCode(), "TRACE_TYPE_CODE"); }
-    protected abstract ConditionValue getCValueTraceTypeCode();
+    protected void regTraceTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE"); }
+    protected abstract ConditionValue xgetCValueTraceTypeCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -533,7 +533,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetMachoCode_InScope(Collection<String> machoCodeList) {
-        regINS(CK_INS, cTL(machoCodeList), getCValueMachoCode(), "MACHO_CODE");
+        regINS(CK_INS, cTL(machoCodeList), xgetCValueMachoCode(), "MACHO_CODE");
     }
 
     /**
@@ -546,7 +546,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     protected void doSetMachoCode_NotInScope(Collection<String> machoCodeList) {
-        regINS(CK_NINS, cTL(machoCodeList), getCValueMachoCode(), "MACHO_CODE");
+        regINS(CK_NINS, cTL(machoCodeList), xgetCValueMachoCode(), "MACHO_CODE");
     }
 
     /**
@@ -568,7 +568,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMachoCode_LikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(machoCode), getCValueMachoCode(), "MACHO_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(machoCode), xgetCValueMachoCode(), "MACHO_CODE", likeSearchOption);
     }
 
     /**
@@ -590,7 +590,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMachoCode_NotLikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(machoCode), getCValueMachoCode(), "MACHO_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(machoCode), xgetCValueMachoCode(), "MACHO_CODE", likeSearchOption);
     }
 
     /**
@@ -602,8 +602,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
         setMachoCode_LikeSearch(machoCode, xcLSOPPre());
     }
 
-    protected void regMachoCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMachoCode(), "MACHO_CODE"); }
-    protected abstract ConditionValue getCValueMachoCode();
+    protected void regMachoCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMachoCode(), "MACHO_CODE"); }
+    protected abstract ConditionValue xgetCValueMachoCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

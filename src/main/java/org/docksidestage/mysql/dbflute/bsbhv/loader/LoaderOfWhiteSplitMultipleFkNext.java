@@ -78,14 +78,8 @@ public class LoaderOfWhiteSplitMultipleFkNext {
     //                                                                       =============
     protected List<WhiteSplitMultipleFkBase> _referrerWhiteSplitMultipleFkBaseList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBaseList(ConditionBeanSetupper<WhiteSplitMultipleFkBaseCB> refCBLambda) {
-        myBhv().loadWhiteSplitMultipleFkBaseList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteSplitMultipleFkBase>() {
-            public void handle(List<WhiteSplitMultipleFkBase> referrerList) { _referrerWhiteSplitMultipleFkBaseList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteSplitMultipleFkBase>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteSplitMultipleFkBase> handler) {
-                handler.handle(new LoaderOfWhiteSplitMultipleFkBase().ready(_referrerWhiteSplitMultipleFkBaseList, _selector));
-            }
-        };
+        myBhv().loadWhiteSplitMultipleFkBaseList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSplitMultipleFkBaseList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSplitMultipleFkBase().ready(_referrerWhiteSplitMultipleFkBaseList, _selector));
     }
 
     // ===================================================================================

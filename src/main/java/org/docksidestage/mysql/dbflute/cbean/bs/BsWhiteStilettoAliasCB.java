@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
      */
     public WhiteStilettoAliasCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteStilettoAliasCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteStilettoAliasCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteStilettoAliasCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
         return new WhiteStilettoAliasCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteStilettoAliasCQ>() {
                 public boolean has() { return true; }
-                public WhiteStilettoAliasCQ qy() { return getConditionQuery(); }
+                public WhiteStilettoAliasCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,47 +320,47 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
          * STILETTO_ALIAS_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnStilettoAliasId() { return doColumn("STILETTO_ALIAS_ID"); }
+        public SpecifiedColumn columnStilettoAliasId() { return doColumn("STILETTO_ALIAS_ID"); }
         /**
          * FOO: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo() { return doColumn("FOO"); }
+        public SpecifiedColumn columnFoo() { return doColumn("FOO"); }
         /**
          * FOO_0: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo0() { return doColumn("FOO_0"); }
+        public SpecifiedColumn columnFoo0() { return doColumn("FOO_0"); }
         /**
          * FOO_1: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo1() { return doColumn("FOO_1"); }
+        public SpecifiedColumn columnFoo1() { return doColumn("FOO_1"); }
         /**
          * FOO2: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo2() { return doColumn("FOO2"); }
+        public SpecifiedColumn columnFoo2() { return doColumn("FOO2"); }
         /**
          * FOO_3: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo3() { return doColumn("FOO_3"); }
+        public SpecifiedColumn columnFoo3() { return doColumn("FOO_3"); }
         /**
          * FOO4: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo4() { return doColumn("FOO4"); }
+        public SpecifiedColumn columnFoo4() { return doColumn("FOO4"); }
         /**
          * BAR: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnBar() { return doColumn("BAR"); }
+        public SpecifiedColumn columnBar() { return doColumn("BAR"); }
         /**
          * QUX: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnQux() { return doColumn("QUX"); }
+        public SpecifiedColumn columnQux() { return doColumn("QUX"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -422,7 +430,7 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteStilettoAliasCB> columnQuery(final SpecifyQuery<WhiteStilettoAliasCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteStilettoAliasCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteStilettoAliasCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteStilettoAliasCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -540,8 +548,8 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteStilettoAliasCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteStilettoAliasCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteStilettoAliasCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteStilettoAliasCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

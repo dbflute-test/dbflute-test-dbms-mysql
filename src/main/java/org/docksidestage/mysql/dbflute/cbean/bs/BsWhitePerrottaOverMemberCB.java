@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
      */
     public WhitePerrottaOverMemberCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhitePerrottaOverMemberCQ getConditionQuery() { // public for parameter comment and internal
+    public WhitePerrottaOverMemberCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhitePerrottaOverMemberCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         return new WhitePerrottaOverMemberCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -283,7 +291,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
     }
 
     protected WhitePerrottaOverProductNss _nssWhitePerrottaOverProduct;
-    public WhitePerrottaOverProductNss getNssWhitePerrottaOverProduct() {
+    public WhitePerrottaOverProductNss xdfgetNssWhitePerrottaOverProduct() {
         if (_nssWhitePerrottaOverProduct == null) { _nssWhitePerrottaOverProduct = new WhitePerrottaOverProductNss(null); }
         return _nssWhitePerrottaOverProduct;
     }
@@ -337,7 +345,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhitePerrottaOverMemberCQ>() {
                 public boolean has() { return true; }
-                public WhitePerrottaOverMemberCQ qy() { return getConditionQuery(); }
+                public WhitePerrottaOverMemberCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -362,27 +370,27 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
          * MEMBER_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
          * MEMBER_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
+        public SpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
         /**
          * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
+        public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
          * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTraceTypeCode() { return doColumn("TRACE_TYPE_CODE"); }
+        public SpecifiedColumn columnTraceTypeCode() { return doColumn("TRACE_TYPE_CODE"); }
         /**
          * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMachoCode() { return doColumn("MACHO_CODE"); }
+        public SpecifiedColumn columnMachoCode() { return doColumn("MACHO_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -484,7 +492,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePerrottaOverMemberCB> columnQuery(final SpecifyQuery<WhitePerrottaOverMemberCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhitePerrottaOverMemberCB>() {
-            public HpCalculator handle(SpecifyQuery<WhitePerrottaOverMemberCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhitePerrottaOverMemberCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -602,8 +610,8 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhitePerrottaOverMemberCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhitePerrottaOverMemberCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhitePerrottaOverMemberCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhitePerrottaOverMemberCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

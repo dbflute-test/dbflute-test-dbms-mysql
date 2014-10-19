@@ -89,10 +89,10 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _pointTypeMappingId;
-    public ConditionValue getPointTypeMappingId()
+    public ConditionValue xdfgetPointTypeMappingId()
     { if (_pointTypeMappingId == null) { _pointTypeMappingId = nCV(); }
       return _pointTypeMappingId; }
-    protected ConditionValue getCValuePointTypeMappingId() { return getPointTypeMappingId(); }
+    protected ConditionValue xgetCValuePointTypeMappingId() { return xdfgetPointTypeMappingId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingId_Desc() { regOBD("POINT_TYPE_MAPPING_ID"); return this; }
 
     protected ConditionValue _pointTypeMappingMemberName;
-    public ConditionValue getPointTypeMappingMemberName()
+    public ConditionValue xdfgetPointTypeMappingMemberName()
     { if (_pointTypeMappingMemberName == null) { _pointTypeMappingMemberName = nCV(); }
       return _pointTypeMappingMemberName; }
-    protected ConditionValue getCValuePointTypeMappingMemberName() { return getPointTypeMappingMemberName(); }
+    protected ConditionValue xgetCValuePointTypeMappingMemberName() { return xdfgetPointTypeMappingMemberName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingMemberName_Desc() { regOBD("POINT_TYPE_MAPPING_MEMBER_NAME"); return this; }
 
     protected ConditionValue _pointTypeMappingPriceCount;
-    public ConditionValue getPointTypeMappingPriceCount()
+    public ConditionValue xdfgetPointTypeMappingPriceCount()
     { if (_pointTypeMappingPriceCount == null) { _pointTypeMappingPriceCount = nCV(); }
       return _pointTypeMappingPriceCount; }
-    protected ConditionValue getCValuePointTypeMappingPriceCount() { return getPointTypeMappingPriceCount(); }
+    protected ConditionValue xgetCValuePointTypeMappingPriceCount() { return xdfgetPointTypeMappingPriceCount(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingPriceCount_Desc() { regOBD("POINT_TYPE_MAPPING_PRICE_COUNT"); return this; }
 
     protected ConditionValue _pointTypeMappingSaleDate;
-    public ConditionValue getPointTypeMappingSaleDate()
+    public ConditionValue xdfgetPointTypeMappingSaleDate()
     { if (_pointTypeMappingSaleDate == null) { _pointTypeMappingSaleDate = nCV(); }
       return _pointTypeMappingSaleDate; }
-    protected ConditionValue getCValuePointTypeMappingSaleDate() { return getPointTypeMappingSaleDate(); }
+    protected ConditionValue xgetCValuePointTypeMappingSaleDate() { return xdfgetPointTypeMappingSaleDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingSaleDate_Desc() { regOBD("POINT_TYPE_MAPPING_SALE_DATE"); return this; }
 
     protected ConditionValue _pointTypeMappingWantedDatetime;
-    public ConditionValue getPointTypeMappingWantedDatetime()
+    public ConditionValue xdfgetPointTypeMappingWantedDatetime()
     { if (_pointTypeMappingWantedDatetime == null) { _pointTypeMappingWantedDatetime = nCV(); }
       return _pointTypeMappingWantedDatetime; }
-    protected ConditionValue getCValuePointTypeMappingWantedDatetime() { return getPointTypeMappingWantedDatetime(); }
+    protected ConditionValue xgetCValuePointTypeMappingWantedDatetime() { return xdfgetPointTypeMappingWantedDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -239,31 +239,31 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhitePointTypeMappingCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhitePointTypeMappingCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhitePointTypeMappingCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhitePointTypeMappingCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhitePointTypeMappingCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhitePointTypeMappingCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhitePointTypeMappingCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhitePointTypeMappingCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhitePointTypeMappingCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhitePointTypeMappingCQ> _myselfExistsMap;
-    public Map<String, WhitePointTypeMappingCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhitePointTypeMappingCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhitePointTypeMappingCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhitePointTypeMappingCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhitePointTypeMappingCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhitePointTypeMappingCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -272,7 +272,7 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhitePointTypeMappingCB.class.getName(); }
     protected String xCQ() { return WhitePointTypeMappingCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

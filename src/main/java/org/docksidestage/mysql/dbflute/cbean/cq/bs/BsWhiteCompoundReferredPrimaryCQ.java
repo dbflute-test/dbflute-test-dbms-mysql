@@ -89,23 +89,23 @@ public class BsWhiteCompoundReferredPrimaryCQ extends AbstractBsWhiteCompoundRef
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _referredId;
-    public ConditionValue getReferredId()
+    public ConditionValue xdfgetReferredId()
     { if (_referredId == null) { _referredId = nCV(); }
       return _referredId; }
-    protected ConditionValue getCValueReferredId() { return getReferredId(); }
+    protected ConditionValue xgetCValueReferredId() { return xdfgetReferredId(); }
 
-    public Map<String, WhiteCompoundPkCQ> getReferredId_ExistsReferrer_WhiteCompoundPkList() { return xgetSQueMap("referredId_ExistsReferrer_WhiteCompoundPkList"); }
+    public Map<String, WhiteCompoundPkCQ> xdfgetReferredId_ExistsReferrer_WhiteCompoundPkList() { return xgetSQueMap("referredId_ExistsReferrer_WhiteCompoundPkList"); }
     public String keepReferredId_ExistsReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq) { return xkeepSQue("referredId_ExistsReferrer_WhiteCompoundPkList", sq); }
 
-    public Map<String, WhiteCompoundPkCQ> getReferredId_NotExistsReferrer_WhiteCompoundPkList() { return xgetSQueMap("referredId_NotExistsReferrer_WhiteCompoundPkList"); }
+    public Map<String, WhiteCompoundPkCQ> xdfgetReferredId_NotExistsReferrer_WhiteCompoundPkList() { return xgetSQueMap("referredId_NotExistsReferrer_WhiteCompoundPkList"); }
     public String keepReferredId_NotExistsReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq) { return xkeepSQue("referredId_NotExistsReferrer_WhiteCompoundPkList", sq); }
 
-    public Map<String, WhiteCompoundPkCQ> getReferredId_SpecifyDerivedReferrer_WhiteCompoundPkList() { return xgetSQueMap("referredId_SpecifyDerivedReferrer_WhiteCompoundPkList"); }
+    public Map<String, WhiteCompoundPkCQ> xdfgetReferredId_SpecifyDerivedReferrer_WhiteCompoundPkList() { return xgetSQueMap("referredId_SpecifyDerivedReferrer_WhiteCompoundPkList"); }
     public String keepReferredId_SpecifyDerivedReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq) { return xkeepSQue("referredId_SpecifyDerivedReferrer_WhiteCompoundPkList", sq); }
 
-    public Map<String, WhiteCompoundPkCQ> getReferredId_QueryDerivedReferrer_WhiteCompoundPkList() { return xgetSQueMap("referredId_QueryDerivedReferrer_WhiteCompoundPkList"); }
+    public Map<String, WhiteCompoundPkCQ> xdfgetReferredId_QueryDerivedReferrer_WhiteCompoundPkList() { return xgetSQueMap("referredId_QueryDerivedReferrer_WhiteCompoundPkList"); }
     public String keepReferredId_QueryDerivedReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq) { return xkeepSQue("referredId_QueryDerivedReferrer_WhiteCompoundPkList", sq); }
-    public Map<String, Object> getReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter() { return xgetSQuePmMap("referredId_QueryDerivedReferrer_WhiteCompoundPkList"); }
+    public Map<String, Object> xdfgetReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter() { return xgetSQuePmMap("referredId_QueryDerivedReferrer_WhiteCompoundPkList"); }
     public String keepReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter(Object pm) { return xkeepSQuePm("referredId_QueryDerivedReferrer_WhiteCompoundPkList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhiteCompoundReferredPrimaryCQ extends AbstractBsWhiteCompoundRef
     public BsWhiteCompoundReferredPrimaryCQ addOrderBy_ReferredId_Desc() { regOBD("REFERRED_ID"); return this; }
 
     protected ConditionValue _referredName;
-    public ConditionValue getReferredName()
+    public ConditionValue xdfgetReferredName()
     { if (_referredName == null) { _referredName = nCV(); }
       return _referredName; }
-    protected ConditionValue getCValueReferredName() { return getReferredName(); }
+    protected ConditionValue xgetCValueReferredName() { return xdfgetReferredName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -193,31 +193,31 @@ public class BsWhiteCompoundReferredPrimaryCQ extends AbstractBsWhiteCompoundRef
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteCompoundReferredPrimaryCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteCompoundReferredPrimaryCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteCompoundReferredPrimaryCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteCompoundReferredPrimaryCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteCompoundReferredPrimaryCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteCompoundReferredPrimaryCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteCompoundReferredPrimaryCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteCompoundReferredPrimaryCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteCompoundReferredPrimaryCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteCompoundReferredPrimaryCQ> _myselfExistsMap;
-    public Map<String, WhiteCompoundReferredPrimaryCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteCompoundReferredPrimaryCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteCompoundReferredPrimaryCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteCompoundReferredPrimaryCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteCompoundReferredPrimaryCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteCompoundReferredPrimaryCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -226,7 +226,7 @@ public class BsWhiteCompoundReferredPrimaryCQ extends AbstractBsWhiteCompoundRef
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteCompoundReferredPrimaryCB.class.getName(); }
     protected String xCQ() { return WhiteCompoundReferredPrimaryCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

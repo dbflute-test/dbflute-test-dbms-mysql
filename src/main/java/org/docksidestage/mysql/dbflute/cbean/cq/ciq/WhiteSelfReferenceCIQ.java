@@ -76,7 +76,7 @@ public class WhiteSelfReferenceCIQ extends AbstractBsWhiteSelfReferenceCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueSelfReferenceId() { return _myCQ.getSelfReferenceId(); }
+    protected ConditionValue xgetCValueSelfReferenceId() { return _myCQ.xdfgetSelfReferenceId(); }
     public String keepSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepSelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq)
@@ -87,8 +87,8 @@ public class WhiteSelfReferenceCIQ extends AbstractBsWhiteSelfReferenceCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueSelfReferenceName() { return _myCQ.getSelfReferenceName(); }
-    protected ConditionValue getCValueParentId() { return _myCQ.getParentId(); }
+    protected ConditionValue xgetCValueSelfReferenceName() { return _myCQ.xdfgetSelfReferenceName(); }
+    protected ConditionValue xgetCValueParentId() { return _myCQ.xdfgetParentId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSelfReferenceCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

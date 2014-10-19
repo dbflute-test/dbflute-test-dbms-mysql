@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
      */
     public WhiteEscapedNumberInitialCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteEscapedNumberInitialCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteEscapedNumberInitialCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteEscapedNumberInitialCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
         return new WhiteEscapedNumberInitialCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -290,7 +298,7 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteEscapedNumberInitialCQ>() {
                 public boolean has() { return true; }
-                public WhiteEscapedNumberInitialCQ qy() { return getConditionQuery(); }
+                public WhiteEscapedNumberInitialCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -313,12 +321,12 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
          * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNumberInitialCode() { return doColumn("NUMBER_INITIAL_CODE"); }
+        public SpecifiedColumn columnNumberInitialCode() { return doColumn("NUMBER_INITIAL_CODE"); }
         /**
          * NUMBER_INITIAL_NAME: {VARCHAR(20)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNumberInitialName() { return doColumn("NUMBER_INITIAL_NAME"); }
+        public SpecifiedColumn columnNumberInitialName() { return doColumn("NUMBER_INITIAL_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -370,7 +378,7 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteEscapedNumberInitialCB> columnQuery(final SpecifyQuery<WhiteEscapedNumberInitialCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteEscapedNumberInitialCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteEscapedNumberInitialCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteEscapedNumberInitialCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -488,8 +496,8 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteEscapedNumberInitialCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteEscapedNumberInitialCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteEscapedNumberInitialCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteEscapedNumberInitialCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

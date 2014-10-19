@@ -76,9 +76,8 @@ public class LoaderOfWhiteSplitMultipleFkChild {
     //                                                                    ================
     protected LoaderOfWhiteSplitMultipleFkBase _foreignWhiteSplitMultipleFkBaseLoader;
     public LoaderOfWhiteSplitMultipleFkBase pulloutWhiteSplitMultipleFkBase() {
-        if (_foreignWhiteSplitMultipleFkBaseLoader != null) { return _foreignWhiteSplitMultipleFkBaseLoader; }
-        List<WhiteSplitMultipleFkBase> pulledList = myBhv().pulloutWhiteSplitMultipleFkBase(_selectedList);
-        _foreignWhiteSplitMultipleFkBaseLoader = new LoaderOfWhiteSplitMultipleFkBase().ready(pulledList, _selector);
+        if (_foreignWhiteSplitMultipleFkBaseLoader == null)
+        { _foreignWhiteSplitMultipleFkBaseLoader = new LoaderOfWhiteSplitMultipleFkBase().ready(myBhv().pulloutWhiteSplitMultipleFkBase(_selectedList), _selector); }
         return _foreignWhiteSplitMultipleFkBaseLoader;
     }
 

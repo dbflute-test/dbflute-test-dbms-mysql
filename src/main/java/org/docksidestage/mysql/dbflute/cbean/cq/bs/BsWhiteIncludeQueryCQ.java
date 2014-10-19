@@ -89,10 +89,10 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _includeQueryId;
-    public ConditionValue getIncludeQueryId()
+    public ConditionValue xdfgetIncludeQueryId()
     { if (_includeQueryId == null) { _includeQueryId = nCV(); }
       return _includeQueryId; }
-    protected ConditionValue getCValueIncludeQueryId() { return getIncludeQueryId(); }
+    protected ConditionValue xgetCValueIncludeQueryId() { return xdfgetIncludeQueryId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     public BsWhiteIncludeQueryCQ addOrderBy_IncludeQueryId_Desc() { regOBD("INCLUDE_QUERY_ID"); return this; }
 
     protected ConditionValue _includeQueryVarchar;
-    public ConditionValue getIncludeQueryVarchar()
+    public ConditionValue xdfgetIncludeQueryVarchar()
     { if (_includeQueryVarchar == null) { _includeQueryVarchar = nCV(); }
       return _includeQueryVarchar; }
-    protected ConditionValue getCValueIncludeQueryVarchar() { return getIncludeQueryVarchar(); }
+    protected ConditionValue xgetCValueIncludeQueryVarchar() { return xdfgetIncludeQueryVarchar(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,16 +129,16 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     public BsWhiteIncludeQueryCQ addOrderBy_IncludeQueryVarchar_Desc() { regOBD("INCLUDE_QUERY_VARCHAR"); return this; }
 
     protected ConditionValue _includeQueryInteger;
-    public ConditionValue getIncludeQueryInteger()
+    public ConditionValue xdfgetIncludeQueryInteger()
     { if (_includeQueryInteger == null) { _includeQueryInteger = nCV(); }
       return _includeQueryInteger; }
-    protected ConditionValue getCValueIncludeQueryInteger() { return getIncludeQueryInteger(); }
+    protected ConditionValue xgetCValueIncludeQueryInteger() { return xdfgetIncludeQueryInteger(); }
 
     protected ConditionValue _includeQueryDate;
-    public ConditionValue getIncludeQueryDate()
+    public ConditionValue xdfgetIncludeQueryDate()
     { if (_includeQueryDate == null) { _includeQueryDate = nCV(); }
       return _includeQueryDate; }
-    protected ConditionValue getCValueIncludeQueryDate() { return getIncludeQueryDate(); }
+    protected ConditionValue xgetCValueIncludeQueryDate() { return xdfgetIncludeQueryDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -155,10 +155,10 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     public BsWhiteIncludeQueryCQ addOrderBy_IncludeQueryDate_Desc() { regOBD("INCLUDE_QUERY_DATE"); return this; }
 
     protected ConditionValue _includeQueryDatetime;
-    public ConditionValue getIncludeQueryDatetime()
+    public ConditionValue xdfgetIncludeQueryDatetime()
     { if (_includeQueryDatetime == null) { _includeQueryDatetime = nCV(); }
       return _includeQueryDatetime; }
-    protected ConditionValue getCValueIncludeQueryDatetime() { return getIncludeQueryDatetime(); }
+    protected ConditionValue xgetCValueIncludeQueryDatetime() { return xdfgetIncludeQueryDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -225,31 +225,31 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteIncludeQueryCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteIncludeQueryCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteIncludeQueryCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteIncludeQueryCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteIncludeQueryCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteIncludeQueryCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteIncludeQueryCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteIncludeQueryCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteIncludeQueryCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteIncludeQueryCQ> _myselfExistsMap;
-    public Map<String, WhiteIncludeQueryCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteIncludeQueryCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteIncludeQueryCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteIncludeQueryCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteIncludeQueryCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteIncludeQueryCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -258,7 +258,7 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteIncludeQueryCB.class.getName(); }
     protected String xCQ() { return WhiteIncludeQueryCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

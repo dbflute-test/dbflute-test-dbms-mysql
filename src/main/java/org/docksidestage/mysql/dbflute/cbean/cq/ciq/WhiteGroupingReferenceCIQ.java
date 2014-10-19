@@ -76,8 +76,8 @@ public class WhiteGroupingReferenceCIQ extends AbstractBsWhiteGroupingReferenceC
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueGroupingReferenceId() { return _myCQ.getGroupingReferenceId(); }
-    protected ConditionValue getCValueGroupingReferenceCode() { return _myCQ.getGroupingReferenceCode(); }
+    protected ConditionValue xgetCValueGroupingReferenceId() { return _myCQ.xdfgetGroupingReferenceId(); }
+    protected ConditionValue xgetCValueGroupingReferenceCode() { return _myCQ.xdfgetGroupingReferenceCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteGroupingReferenceCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

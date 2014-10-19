@@ -76,8 +76,8 @@ public class WhiteColumnExceptCIQ extends AbstractBsWhiteColumnExceptCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueExceptColumnId() { return _myCQ.getExceptColumnId(); }
-    protected ConditionValue getCValueColumnExceptTest() { return _myCQ.getColumnExceptTest(); }
+    protected ConditionValue xgetCValueExceptColumnId() { return _myCQ.xdfgetExceptColumnId(); }
+    protected ConditionValue xgetCValueColumnExceptTest() { return _myCQ.xdfgetColumnExceptTest(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteColumnExceptCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

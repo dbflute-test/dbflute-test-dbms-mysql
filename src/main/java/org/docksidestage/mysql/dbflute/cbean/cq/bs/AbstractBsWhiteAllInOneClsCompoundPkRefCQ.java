@@ -97,7 +97,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
     }
 
     protected void doSetFooCode_InScope(Collection<String> fooCodeList) {
-        regINS(CK_INS, cTL(fooCodeList), getCValueFooCode(), "FOO_CODE");
+        regINS(CK_INS, cTL(fooCodeList), xgetCValueFooCode(), "FOO_CODE");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
     }
 
     protected void doSetFooCode_NotInScope(Collection<String> fooCodeList) {
-        regINS(CK_NINS, cTL(fooCodeList), getCValueFooCode(), "FOO_CODE");
+        regINS(CK_NINS, cTL(fooCodeList), xgetCValueFooCode(), "FOO_CODE");
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFooCode_LikeSearch(String fooCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(fooCode), getCValueFooCode(), "FOO_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(fooCode), xgetCValueFooCode(), "FOO_CODE", likeSearchOption);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFooCode_NotLikeSearch(String fooCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(fooCode), getCValueFooCode(), "FOO_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(fooCode), xgetCValueFooCode(), "FOO_CODE", likeSearchOption);
     }
 
     /**
@@ -178,8 +178,8 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      */
     public void setFooCode_IsNotNull() { regFooCode(CK_ISNN, DOBJ); }
 
-    protected void regFooCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooCode(), "FOO_CODE"); }
-    protected abstract ConditionValue getCValueFooCode();
+    protected void regFooCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooCode(), "FOO_CODE"); }
+    protected abstract ConditionValue xgetCValueFooCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
     }
 
     protected void doSetBarCode_InScope(Collection<String> barCodeList) {
-        regINS(CK_INS, cTL(barCodeList), getCValueBarCode(), "BAR_CODE");
+        regINS(CK_INS, cTL(barCodeList), xgetCValueBarCode(), "BAR_CODE");
     }
 
     /**
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
     }
 
     protected void doSetBarCode_NotInScope(Collection<String> barCodeList) {
-        regINS(CK_NINS, cTL(barCodeList), getCValueBarCode(), "BAR_CODE");
+        regINS(CK_NINS, cTL(barCodeList), xgetCValueBarCode(), "BAR_CODE");
     }
 
     /**
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setBarCode_LikeSearch(String barCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(barCode), getCValueBarCode(), "BAR_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(barCode), xgetCValueBarCode(), "BAR_CODE", likeSearchOption);
     }
 
     /**
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setBarCode_NotLikeSearch(String barCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(barCode), getCValueBarCode(), "BAR_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(barCode), xgetCValueBarCode(), "BAR_CODE", likeSearchOption);
     }
 
     /**
@@ -298,8 +298,8 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      */
     public void setBarCode_IsNotNull() { regBarCode(CK_ISNN, DOBJ); }
 
-    protected void regBarCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBarCode(), "BAR_CODE"); }
-    protected abstract ConditionValue getCValueBarCode();
+    protected void regBarCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBarCode(), "BAR_CODE"); }
+    protected abstract ConditionValue xgetCValueBarCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -337,7 +337,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
     }
 
     protected void doSetQuxCode_InScope(Collection<String> quxCodeList) {
-        regINS(CK_INS, cTL(quxCodeList), getCValueQuxCode(), "QUX_CODE");
+        regINS(CK_INS, cTL(quxCodeList), xgetCValueQuxCode(), "QUX_CODE");
     }
 
     /**
@@ -350,7 +350,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
     }
 
     protected void doSetQuxCode_NotInScope(Collection<String> quxCodeList) {
-        regINS(CK_NINS, cTL(quxCodeList), getCValueQuxCode(), "QUX_CODE");
+        regINS(CK_NINS, cTL(quxCodeList), xgetCValueQuxCode(), "QUX_CODE");
     }
 
     /**
@@ -372,7 +372,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setQuxCode_LikeSearch(String quxCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(quxCode), getCValueQuxCode(), "QUX_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(quxCode), xgetCValueQuxCode(), "QUX_CODE", likeSearchOption);
     }
 
     /**
@@ -394,7 +394,7 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setQuxCode_NotLikeSearch(String quxCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(quxCode), getCValueQuxCode(), "QUX_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(quxCode), xgetCValueQuxCode(), "QUX_CODE", likeSearchOption);
     }
 
     /**
@@ -418,8 +418,8 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      */
     public void setQuxCode_IsNotNull() { regQuxCode(CK_ISNN, DOBJ); }
 
-    protected void regQuxCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueQuxCode(), "QUX_CODE"); }
-    protected abstract ConditionValue getCValueQuxCode();
+    protected void regQuxCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueQuxCode(), "QUX_CODE"); }
+    protected abstract ConditionValue xgetCValueQuxCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

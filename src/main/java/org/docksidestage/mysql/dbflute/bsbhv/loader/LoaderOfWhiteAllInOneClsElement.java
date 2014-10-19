@@ -76,9 +76,8 @@ public class LoaderOfWhiteAllInOneClsElement {
     //                                                                    ================
     protected LoaderOfWhiteAllInOneClsCategory _foreignWhiteAllInOneClsCategoryLoader;
     public LoaderOfWhiteAllInOneClsCategory pulloutWhiteAllInOneClsCategory() {
-        if (_foreignWhiteAllInOneClsCategoryLoader != null) { return _foreignWhiteAllInOneClsCategoryLoader; }
-        List<WhiteAllInOneClsCategory> pulledList = myBhv().pulloutWhiteAllInOneClsCategory(_selectedList);
-        _foreignWhiteAllInOneClsCategoryLoader = new LoaderOfWhiteAllInOneClsCategory().ready(pulledList, _selector);
+        if (_foreignWhiteAllInOneClsCategoryLoader == null)
+        { _foreignWhiteAllInOneClsCategoryLoader = new LoaderOfWhiteAllInOneClsCategory().ready(myBhv().pulloutWhiteAllInOneClsCategory(_selectedList), _selector); }
         return _foreignWhiteAllInOneClsCategoryLoader;
     }
 

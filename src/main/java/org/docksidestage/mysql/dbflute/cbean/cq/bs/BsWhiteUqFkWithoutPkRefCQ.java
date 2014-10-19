@@ -89,10 +89,10 @@ public class BsWhiteUqFkWithoutPkRefCQ extends AbstractBsWhiteUqFkWithoutPkRefCQ
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _uqFkRefId;
-    public ConditionValue getUqFkRefId()
+    public ConditionValue xdfgetUqFkRefId()
     { if (_uqFkRefId == null) { _uqFkRefId = nCV(); }
       return _uqFkRefId; }
-    protected ConditionValue getCValueUqFkRefId() { return getUqFkRefId(); }
+    protected ConditionValue xgetCValueUqFkRefId() { return xdfgetUqFkRefId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteUqFkWithoutPkRefCQ extends AbstractBsWhiteUqFkWithoutPkRefCQ
     public BsWhiteUqFkWithoutPkRefCQ addOrderBy_UqFkRefId_Desc() { regOBD("UQ_FK_REF_ID"); return this; }
 
     protected ConditionValue _fkToUqCode;
-    public ConditionValue getFkToUqCode()
+    public ConditionValue xdfgetFkToUqCode()
     { if (_fkToUqCode == null) { _fkToUqCode = nCV(); }
       return _fkToUqCode; }
-    protected ConditionValue getCValueFkToUqCode() { return getFkToUqCode(); }
+    protected ConditionValue xgetCValueFkToUqCode() { return xdfgetFkToUqCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -183,9 +183,9 @@ public class BsWhiteUqFkWithoutPkRefCQ extends AbstractBsWhiteUqFkWithoutPkRefCQ
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteUqFkWithoutPkCQ queryWhiteUqFkWithoutPk() {
-        return getConditionQueryWhiteUqFkWithoutPk();
+        return xdfgetConditionQueryWhiteUqFkWithoutPk();
     }
-    public WhiteUqFkWithoutPkCQ getConditionQueryWhiteUqFkWithoutPk() {
+    public WhiteUqFkWithoutPkCQ xdfgetConditionQueryWhiteUqFkWithoutPk() {
         String prop = "whiteUqFkWithoutPk";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteUqFkWithoutPk()); xsetupOuterJoinWhiteUqFkWithoutPk(); }
         return xgetQueRlMap(prop);
@@ -204,7 +204,7 @@ public class BsWhiteUqFkWithoutPkRefCQ extends AbstractBsWhiteUqFkWithoutPkRefCQ
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteUqFkWithoutPkRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteUqFkWithoutPkRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteUqFkWithoutPkRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -213,7 +213,7 @@ public class BsWhiteUqFkWithoutPkRefCQ extends AbstractBsWhiteUqFkWithoutPkRefCQ
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteUqFkWithoutPkRefCB.class.getName(); }
     protected String xCQ() { return WhiteUqFkWithoutPkRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

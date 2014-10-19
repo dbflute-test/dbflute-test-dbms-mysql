@@ -89,10 +89,10 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _constraintNameAutoRefId;
-    public ConditionValue getConstraintNameAutoRefId()
+    public ConditionValue xdfgetConstraintNameAutoRefId()
     { if (_constraintNameAutoRefId == null) { _constraintNameAutoRefId = nCV(); }
       return _constraintNameAutoRefId; }
-    protected ConditionValue getCValueConstraintNameAutoRefId() { return getConstraintNameAutoRefId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoRefId() { return xdfgetConstraintNameAutoRefId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoRefId_Desc() { regOBD("CONSTRAINT_NAME_AUTO_REF_ID"); return this; }
 
     protected ConditionValue _constraintNameAutoFooId;
-    public ConditionValue getConstraintNameAutoFooId()
+    public ConditionValue xdfgetConstraintNameAutoFooId()
     { if (_constraintNameAutoFooId == null) { _constraintNameAutoFooId = nCV(); }
       return _constraintNameAutoFooId; }
-    protected ConditionValue getCValueConstraintNameAutoFooId() { return getConstraintNameAutoFooId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoFooId() { return xdfgetConstraintNameAutoFooId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoFooId_Desc() { regOBD("CONSTRAINT_NAME_AUTO_FOO_ID"); return this; }
 
     protected ConditionValue _constraintNameAutoBarId;
-    public ConditionValue getConstraintNameAutoBarId()
+    public ConditionValue xdfgetConstraintNameAutoBarId()
     { if (_constraintNameAutoBarId == null) { _constraintNameAutoBarId = nCV(); }
       return _constraintNameAutoBarId; }
-    protected ConditionValue getCValueConstraintNameAutoBarId() { return getConstraintNameAutoBarId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoBarId() { return xdfgetConstraintNameAutoBarId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoBarId_Desc() { regOBD("CONSTRAINT_NAME_AUTO_BAR_ID"); return this; }
 
     protected ConditionValue _constraintNameAutoQuxId;
-    public ConditionValue getConstraintNameAutoQuxId()
+    public ConditionValue xdfgetConstraintNameAutoQuxId()
     { if (_constraintNameAutoQuxId == null) { _constraintNameAutoQuxId = nCV(); }
       return _constraintNameAutoQuxId; }
-    protected ConditionValue getCValueConstraintNameAutoQuxId() { return getConstraintNameAutoQuxId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoQuxId() { return xdfgetConstraintNameAutoQuxId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoQuxId_Desc() { regOBD("CONSTRAINT_NAME_AUTO_QUX_ID"); return this; }
 
     protected ConditionValue _constraintNameAutoCorgeId;
-    public ConditionValue getConstraintNameAutoCorgeId()
+    public ConditionValue xdfgetConstraintNameAutoCorgeId()
     { if (_constraintNameAutoCorgeId == null) { _constraintNameAutoCorgeId = nCV(); }
       return _constraintNameAutoCorgeId; }
-    protected ConditionValue getCValueConstraintNameAutoCorgeId() { return getConstraintNameAutoCorgeId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoCorgeId() { return xdfgetConstraintNameAutoCorgeId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -189,10 +189,10 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoCorgeId_Desc() { regOBD("CONSTRAINT_NAME_AUTO_CORGE_ID"); return this; }
 
     protected ConditionValue _constraintNameAutoUnique;
-    public ConditionValue getConstraintNameAutoUnique()
+    public ConditionValue xdfgetConstraintNameAutoUnique()
     { if (_constraintNameAutoUnique == null) { _constraintNameAutoUnique = nCV(); }
       return _constraintNameAutoUnique; }
-    protected ConditionValue getCValueConstraintNameAutoUnique() { return getConstraintNameAutoUnique(); }
+    protected ConditionValue xgetCValueConstraintNameAutoUnique() { return xdfgetConstraintNameAutoUnique(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -269,9 +269,9 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
      * @return The instance of condition-query. (NotNull)
      */
     public VendorConstraintNameAutoBarCQ queryVendorConstraintNameAutoBar() {
-        return getConditionQueryVendorConstraintNameAutoBar();
+        return xdfgetConditionQueryVendorConstraintNameAutoBar();
     }
-    public VendorConstraintNameAutoBarCQ getConditionQueryVendorConstraintNameAutoBar() {
+    public VendorConstraintNameAutoBarCQ xdfgetConditionQueryVendorConstraintNameAutoBar() {
         String prop = "vendorConstraintNameAutoBar";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryVendorConstraintNameAutoBar()); xsetupOuterJoinVendorConstraintNameAutoBar(); }
         return xgetQueRlMap(prop);
@@ -289,9 +289,9 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
      * @return The instance of condition-query. (NotNull)
      */
     public VendorConstraintNameAutoFooCQ queryVendorConstraintNameAutoFoo() {
-        return getConditionQueryVendorConstraintNameAutoFoo();
+        return xdfgetConditionQueryVendorConstraintNameAutoFoo();
     }
-    public VendorConstraintNameAutoFooCQ getConditionQueryVendorConstraintNameAutoFoo() {
+    public VendorConstraintNameAutoFooCQ xdfgetConditionQueryVendorConstraintNameAutoFoo() {
         String prop = "vendorConstraintNameAutoFoo";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryVendorConstraintNameAutoFoo()); xsetupOuterJoinVendorConstraintNameAutoFoo(); }
         return xgetQueRlMap(prop);
@@ -309,9 +309,9 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
      * @return The instance of condition-query. (NotNull)
      */
     public VendorConstraintNameAutoQuxCQ queryVendorConstraintNameAutoQux() {
-        return getConditionQueryVendorConstraintNameAutoQux();
+        return xdfgetConditionQueryVendorConstraintNameAutoQux();
     }
-    public VendorConstraintNameAutoQuxCQ getConditionQueryVendorConstraintNameAutoQux() {
+    public VendorConstraintNameAutoQuxCQ xdfgetConditionQueryVendorConstraintNameAutoQux() {
         String prop = "vendorConstraintNameAutoQux";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryVendorConstraintNameAutoQux()); xsetupOuterJoinVendorConstraintNameAutoQux(); }
         return xgetQueRlMap(prop);
@@ -330,31 +330,31 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, VendorConstraintNameAutoRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, VendorConstraintNameAutoRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(VendorConstraintNameAutoRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, VendorConstraintNameAutoRefCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, VendorConstraintNameAutoRefCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(VendorConstraintNameAutoRefCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, VendorConstraintNameAutoRefCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, VendorConstraintNameAutoRefCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(VendorConstraintNameAutoRefCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, VendorConstraintNameAutoRefCQ> _myselfExistsMap;
-    public Map<String, VendorConstraintNameAutoRefCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, VendorConstraintNameAutoRefCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(VendorConstraintNameAutoRefCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, VendorConstraintNameAutoRefCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, VendorConstraintNameAutoRefCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(VendorConstraintNameAutoRefCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -363,7 +363,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return VendorConstraintNameAutoRefCB.class.getName(); }
     protected String xCQ() { return VendorConstraintNameAutoRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

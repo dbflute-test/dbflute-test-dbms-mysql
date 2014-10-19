@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteAdditionalCB extends AbstractConditionBean {
      */
     public WhiteAdditionalCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteAdditionalCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteAdditionalCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteAdditionalCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteAdditionalCB extends AbstractConditionBean {
         return new WhiteAdditionalCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteAdditionalCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteAdditionalCQ>() {
                 public boolean has() { return true; }
-                public WhiteAdditionalCQ qy() { return getConditionQuery(); }
+                public WhiteAdditionalCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,22 +320,22 @@ public class BsWhiteAdditionalCB extends AbstractConditionBean {
          * foo_id: {PK, ID, NotNull, INTEGER}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFooId() { return doColumn("foo_id"); }
+        public SpecifiedColumn columnFooId() { return doColumn("foo_id"); }
         /**
          * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFooName() { return doColumn("foo_name"); }
+        public SpecifiedColumn columnFooName() { return doColumn("foo_name"); }
         /**
          * foo_date: {UnknownType}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFooDate() { return doColumn("foo_date"); }
+        public SpecifiedColumn columnFooDate() { return doColumn("foo_date"); }
         /**
          * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -379,7 +387,7 @@ public class BsWhiteAdditionalCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteAdditionalCB> columnQuery(final SpecifyQuery<WhiteAdditionalCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteAdditionalCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteAdditionalCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteAdditionalCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -497,8 +505,8 @@ public class BsWhiteAdditionalCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteAdditionalCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteAdditionalCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteAdditionalCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteAdditionalCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
      */
     public WhiteEscapedDfpropCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteEscapedDfpropCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteEscapedDfpropCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteEscapedDfpropCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
         return new WhiteEscapedDfpropCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -290,7 +298,7 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteEscapedDfpropCQ>() {
                 public boolean has() { return true; }
-                public WhiteEscapedDfpropCQ qy() { return getConditionQuery(); }
+                public WhiteEscapedDfpropCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -313,12 +321,12 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
          * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnEscapedDfpropCode() { return doColumn("ESCAPED_DFPROP_CODE"); }
+        public SpecifiedColumn columnEscapedDfpropCode() { return doColumn("ESCAPED_DFPROP_CODE"); }
         /**
          * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnEscapedDfpropName() { return doColumn("ESCAPED_DFPROP_NAME"); }
+        public SpecifiedColumn columnEscapedDfpropName() { return doColumn("ESCAPED_DFPROP_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -370,7 +378,7 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteEscapedDfpropCB> columnQuery(final SpecifyQuery<WhiteEscapedDfpropCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteEscapedDfpropCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteEscapedDfpropCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteEscapedDfpropCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -488,8 +496,8 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteEscapedDfpropCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteEscapedDfpropCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteEscapedDfpropCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteEscapedDfpropCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

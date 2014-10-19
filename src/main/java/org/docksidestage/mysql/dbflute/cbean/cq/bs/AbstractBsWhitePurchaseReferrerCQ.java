@@ -133,7 +133,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPurchaseReferrerId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePurchaseReferrerId(), "PURCHASE_REFERRER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePurchaseReferrerId(), "PURCHASE_REFERRER_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     protected void doSetPurchaseReferrerId_InScope(Collection<Long> purchaseReferrerIdList) {
-        regINS(CK_INS, cTL(purchaseReferrerIdList), getCValuePurchaseReferrerId(), "PURCHASE_REFERRER_ID");
+        regINS(CK_INS, cTL(purchaseReferrerIdList), xgetCValuePurchaseReferrerId(), "PURCHASE_REFERRER_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     protected void doSetPurchaseReferrerId_NotInScope(Collection<Long> purchaseReferrerIdList) {
-        regINS(CK_NINS, cTL(purchaseReferrerIdList), getCValuePurchaseReferrerId(), "PURCHASE_REFERRER_ID");
+        regINS(CK_NINS, cTL(purchaseReferrerIdList), xgetCValuePurchaseReferrerId(), "PURCHASE_REFERRER_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      */
     public void setPurchaseReferrerId_IsNotNull() { regPurchaseReferrerId(CK_ISNN, DOBJ); }
 
-    protected void regPurchaseReferrerId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePurchaseReferrerId(), "PURCHASE_REFERRER_ID"); }
-    protected abstract ConditionValue getCValuePurchaseReferrerId();
+    protected void regPurchaseReferrerId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePurchaseReferrerId(), "PURCHASE_REFERRER_ID"); }
+    protected abstract ConditionValue xgetCValuePurchaseReferrerId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     protected void doSetPurchaseReferrerName_InScope(Collection<String> purchaseReferrerNameList) {
-        regINS(CK_INS, cTL(purchaseReferrerNameList), getCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME");
+        regINS(CK_INS, cTL(purchaseReferrerNameList), xgetCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     protected void doSetPurchaseReferrerName_NotInScope(Collection<String> purchaseReferrerNameList) {
-        regINS(CK_NINS, cTL(purchaseReferrerNameList), getCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME");
+        regINS(CK_NINS, cTL(purchaseReferrerNameList), xgetCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPurchaseReferrerName_LikeSearch(String purchaseReferrerName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(purchaseReferrerName), getCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(purchaseReferrerName), xgetCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPurchaseReferrerName_NotLikeSearch(String purchaseReferrerName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(purchaseReferrerName), getCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(purchaseReferrerName), xgetCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
         setPurchaseReferrerName_LikeSearch(purchaseReferrerName, xcLSOPPre());
     }
 
-    protected void regPurchaseReferrerName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME"); }
-    protected abstract ConditionValue getCValuePurchaseReferrerName();
+    protected void regPurchaseReferrerName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME"); }
+    protected abstract ConditionValue xgetCValuePurchaseReferrerName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

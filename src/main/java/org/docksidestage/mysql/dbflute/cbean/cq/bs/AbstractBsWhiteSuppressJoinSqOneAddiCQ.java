@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setOneAddiId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueOneAddiId(), "ONE_ADDI_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueOneAddiId(), "ONE_ADDI_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     }
 
     protected void doSetOneAddiId_InScope(Collection<Integer> oneAddiIdList) {
-        regINS(CK_INS, cTL(oneAddiIdList), getCValueOneAddiId(), "ONE_ADDI_ID");
+        regINS(CK_INS, cTL(oneAddiIdList), xgetCValueOneAddiId(), "ONE_ADDI_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     }
 
     protected void doSetOneAddiId_NotInScope(Collection<Integer> oneAddiIdList) {
-        regINS(CK_NINS, cTL(oneAddiIdList), getCValueOneAddiId(), "ONE_ADDI_ID");
+        regINS(CK_NINS, cTL(oneAddiIdList), xgetCValueOneAddiId(), "ONE_ADDI_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      */
     public void setOneAddiId_IsNotNull() { regOneAddiId(CK_ISNN, DOBJ); }
 
-    protected void regOneAddiId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueOneAddiId(), "ONE_ADDI_ID"); }
-    protected abstract ConditionValue getCValueOneAddiId();
+    protected void regOneAddiId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueOneAddiId(), "ONE_ADDI_ID"); }
+    protected abstract ConditionValue xgetCValueOneAddiId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     }
 
     protected void doSetOneAddiName_InScope(Collection<String> oneAddiNameList) {
-        regINS(CK_INS, cTL(oneAddiNameList), getCValueOneAddiName(), "ONE_ADDI_NAME");
+        regINS(CK_INS, cTL(oneAddiNameList), xgetCValueOneAddiName(), "ONE_ADDI_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     }
 
     protected void doSetOneAddiName_NotInScope(Collection<String> oneAddiNameList) {
-        regINS(CK_NINS, cTL(oneAddiNameList), getCValueOneAddiName(), "ONE_ADDI_NAME");
+        regINS(CK_NINS, cTL(oneAddiNameList), xgetCValueOneAddiName(), "ONE_ADDI_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setOneAddiName_LikeSearch(String oneAddiName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(oneAddiName), getCValueOneAddiName(), "ONE_ADDI_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(oneAddiName), xgetCValueOneAddiName(), "ONE_ADDI_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setOneAddiName_NotLikeSearch(String oneAddiName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(oneAddiName), getCValueOneAddiName(), "ONE_ADDI_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(oneAddiName), xgetCValueOneAddiName(), "ONE_ADDI_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
         setOneAddiName_LikeSearch(oneAddiName, xcLSOPPre());
     }
 
-    protected void regOneAddiName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueOneAddiName(), "ONE_ADDI_NAME"); }
-    protected abstract ConditionValue getCValueOneAddiName();
+    protected void regOneAddiName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueOneAddiName(), "ONE_ADDI_NAME"); }
+    protected abstract ConditionValue xgetCValueOneAddiName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

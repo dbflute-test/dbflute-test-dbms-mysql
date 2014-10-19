@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFromId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFromId(), "FROM_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFromId(), "FROM_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     }
 
     protected void doSetFromId_InScope(Collection<Long> fromIdList) {
-        regINS(CK_INS, cTL(fromIdList), getCValueFromId(), "FROM_ID");
+        regINS(CK_INS, cTL(fromIdList), xgetCValueFromId(), "FROM_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     }
 
     protected void doSetFromId_NotInScope(Collection<Long> fromIdList) {
-        regINS(CK_NINS, cTL(fromIdList), getCValueFromId(), "FROM_ID");
+        regINS(CK_NINS, cTL(fromIdList), xgetCValueFromId(), "FROM_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      */
     public void setFromId_IsNotNull() { regFromId(CK_ISNN, DOBJ); }
 
-    protected void regFromId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFromId(), "FROM_ID"); }
-    protected abstract ConditionValue getCValueFromId();
+    protected void regFromId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFromId(), "FROM_ID"); }
+    protected abstract ConditionValue xgetCValueFromId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     }
 
     protected void doSetFromName_InScope(Collection<String> fromNameList) {
-        regINS(CK_INS, cTL(fromNameList), getCValueFromName(), "FROM_NAME");
+        regINS(CK_INS, cTL(fromNameList), xgetCValueFromName(), "FROM_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     }
 
     protected void doSetFromName_NotInScope(Collection<String> fromNameList) {
-        regINS(CK_NINS, cTL(fromNameList), getCValueFromName(), "FROM_NAME");
+        regINS(CK_NINS, cTL(fromNameList), xgetCValueFromName(), "FROM_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFromName_LikeSearch(String fromName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(fromName), getCValueFromName(), "FROM_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(fromName), xgetCValueFromName(), "FROM_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFromName_NotLikeSearch(String fromName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(fromName), getCValueFromName(), "FROM_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(fromName), xgetCValueFromName(), "FROM_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
         setFromName_LikeSearch(fromName, xcLSOPPre());
     }
 
-    protected void regFromName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFromName(), "FROM_NAME"); }
-    protected abstract ConditionValue getCValueFromName();
+    protected void regFromName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFromName(), "FROM_NAME"); }
+    protected abstract ConditionValue xgetCValueFromName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

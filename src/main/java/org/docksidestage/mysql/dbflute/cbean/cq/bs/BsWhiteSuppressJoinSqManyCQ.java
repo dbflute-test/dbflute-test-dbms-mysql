@@ -89,10 +89,10 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _manyId;
-    public ConditionValue getManyId()
+    public ConditionValue xdfgetManyId()
     { if (_manyId == null) { _manyId = nCV(); }
       return _manyId; }
-    protected ConditionValue getCValueManyId() { return getManyId(); }
+    protected ConditionValue xgetCValueManyId() { return xdfgetManyId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
     public BsWhiteSuppressJoinSqManyCQ addOrderBy_ManyId_Desc() { regOBD("MANY_ID"); return this; }
 
     protected ConditionValue _manyName;
-    public ConditionValue getManyName()
+    public ConditionValue xdfgetManyName()
     { if (_manyName == null) { _manyName = nCV(); }
       return _manyName; }
-    protected ConditionValue getCValueManyName() { return getManyName(); }
+    protected ConditionValue xgetCValueManyName() { return xdfgetManyName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
     public BsWhiteSuppressJoinSqManyCQ addOrderBy_ManyName_Desc() { regOBD("MANY_NAME"); return this; }
 
     protected ConditionValue _suppressJoinSqId;
-    public ConditionValue getSuppressJoinSqId()
+    public ConditionValue xdfgetSuppressJoinSqId()
     { if (_suppressJoinSqId == null) { _suppressJoinSqId = nCV(); }
       return _suppressJoinSqId; }
-    protected ConditionValue getCValueSuppressJoinSqId() { return getSuppressJoinSqId(); }
+    protected ConditionValue xgetCValueSuppressJoinSqId() { return xdfgetSuppressJoinSqId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
     public BsWhiteSuppressJoinSqManyCQ addOrderBy_SuppressJoinSqId_Desc() { regOBD("SUPPRESS_JOIN_SQ_ID"); return this; }
 
     protected ConditionValue _manyOneId;
-    public ConditionValue getManyOneId()
+    public ConditionValue xdfgetManyOneId()
     { if (_manyOneId == null) { _manyOneId = nCV(); }
       return _manyOneId; }
-    protected ConditionValue getCValueManyOneId() { return getManyOneId(); }
+    protected ConditionValue xgetCValueManyOneId() { return xdfgetManyOneId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -219,31 +219,31 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteSuppressJoinSqManyCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteSuppressJoinSqManyCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteSuppressJoinSqManyCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteSuppressJoinSqManyCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteSuppressJoinSqManyCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteSuppressJoinSqManyCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteSuppressJoinSqManyCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteSuppressJoinSqManyCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteSuppressJoinSqManyCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteSuppressJoinSqManyCQ> _myselfExistsMap;
-    public Map<String, WhiteSuppressJoinSqManyCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteSuppressJoinSqManyCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteSuppressJoinSqManyCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteSuppressJoinSqManyCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteSuppressJoinSqManyCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteSuppressJoinSqManyCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -252,7 +252,7 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteSuppressJoinSqManyCB.class.getName(); }
     protected String xCQ() { return WhiteSuppressJoinSqManyCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

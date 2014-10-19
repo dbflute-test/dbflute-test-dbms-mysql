@@ -76,9 +76,8 @@ public class LoaderOfWhitePgReservRef {
     //                                                                    ================
     protected LoaderOfWhitePgReserv _foreignWhitePgReservLoader;
     public LoaderOfWhitePgReserv pulloutWhitePgReserv() {
-        if (_foreignWhitePgReservLoader != null) { return _foreignWhitePgReservLoader; }
-        List<WhitePgReserv> pulledList = myBhv().pulloutWhitePgReserv(_selectedList);
-        _foreignWhitePgReservLoader = new LoaderOfWhitePgReserv().ready(pulledList, _selector);
+        if (_foreignWhitePgReservLoader == null)
+        { _foreignWhitePgReservLoader = new LoaderOfWhitePgReserv().ready(myBhv().pulloutWhitePgReserv(_selectedList), _selector); }
         return _foreignWhitePgReservLoader;
     }
 

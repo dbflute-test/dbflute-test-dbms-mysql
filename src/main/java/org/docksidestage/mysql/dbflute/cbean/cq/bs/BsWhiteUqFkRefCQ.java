@@ -90,10 +90,10 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _uqFkRefId;
-    public ConditionValue getUqFkRefId()
+    public ConditionValue xdfgetUqFkRefId()
     { if (_uqFkRefId == null) { _uqFkRefId = nCV(); }
       return _uqFkRefId; }
-    protected ConditionValue getCValueUqFkRefId() { return getUqFkRefId(); }
+    protected ConditionValue xgetCValueUqFkRefId() { return xdfgetUqFkRefId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -110,10 +110,10 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     public BsWhiteUqFkRefCQ addOrderBy_UqFkRefId_Desc() { regOBD("UQ_FK_REF_ID"); return this; }
 
     protected ConditionValue _fkToPkId;
-    public ConditionValue getFkToPkId()
+    public ConditionValue xdfgetFkToPkId()
     { if (_fkToPkId == null) { _fkToPkId = nCV(); }
       return _fkToPkId; }
-    protected ConditionValue getCValueFkToPkId() { return getFkToPkId(); }
+    protected ConditionValue xgetCValueFkToPkId() { return xdfgetFkToPkId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -130,10 +130,10 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     public BsWhiteUqFkRefCQ addOrderBy_FkToPkId_Desc() { regOBD("FK_TO_PK_ID"); return this; }
 
     protected ConditionValue _fkToUqCode;
-    public ConditionValue getFkToUqCode()
+    public ConditionValue xdfgetFkToUqCode()
     { if (_fkToUqCode == null) { _fkToUqCode = nCV(); }
       return _fkToUqCode; }
-    protected ConditionValue getCValueFkToUqCode() { return getFkToUqCode(); }
+    protected ConditionValue xgetCValueFkToUqCode() { return xdfgetFkToUqCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -150,10 +150,10 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     public BsWhiteUqFkRefCQ addOrderBy_FkToUqCode_Desc() { regOBD("FK_TO_UQ_CODE"); return this; }
 
     protected ConditionValue _compoundUqFirstCode;
-    public ConditionValue getCompoundUqFirstCode()
+    public ConditionValue xdfgetCompoundUqFirstCode()
     { if (_compoundUqFirstCode == null) { _compoundUqFirstCode = nCV(); }
       return _compoundUqFirstCode; }
-    protected ConditionValue getCValueCompoundUqFirstCode() { return getCompoundUqFirstCode(); }
+    protected ConditionValue xgetCValueCompoundUqFirstCode() { return xdfgetCompoundUqFirstCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -170,10 +170,10 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     public BsWhiteUqFkRefCQ addOrderBy_CompoundUqFirstCode_Desc() { regOBD("COMPOUND_UQ_FIRST_CODE"); return this; }
 
     protected ConditionValue _compoundUqSecondCode;
-    public ConditionValue getCompoundUqSecondCode()
+    public ConditionValue xdfgetCompoundUqSecondCode()
     { if (_compoundUqSecondCode == null) { _compoundUqSecondCode = nCV(); }
       return _compoundUqSecondCode; }
-    protected ConditionValue getCValueCompoundUqSecondCode() { return getCompoundUqSecondCode(); }
+    protected ConditionValue xgetCValueCompoundUqSecondCode() { return xdfgetCompoundUqSecondCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -247,9 +247,9 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteUqFkCQ queryWhiteUqFkByFkToPkId() {
-        return getConditionQueryWhiteUqFkByFkToPkId();
+        return xdfgetConditionQueryWhiteUqFkByFkToPkId();
     }
-    public WhiteUqFkCQ getConditionQueryWhiteUqFkByFkToPkId() {
+    public WhiteUqFkCQ xdfgetConditionQueryWhiteUqFkByFkToPkId() {
         String prop = "whiteUqFkByFkToPkId";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteUqFkByFkToPkId()); xsetupOuterJoinWhiteUqFkByFkToPkId(); }
         return xgetQueRlMap(prop);
@@ -267,9 +267,9 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteUqFkCQ queryWhiteUqFkByFkToUqCode() {
-        return getConditionQueryWhiteUqFkByFkToUqCode();
+        return xdfgetConditionQueryWhiteUqFkByFkToUqCode();
     }
-    public WhiteUqFkCQ getConditionQueryWhiteUqFkByFkToUqCode() {
+    public WhiteUqFkCQ xdfgetConditionQueryWhiteUqFkByFkToUqCode() {
         String prop = "whiteUqFkByFkToUqCode";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteUqFkByFkToUqCode()); xsetupOuterJoinWhiteUqFkByFkToUqCode(); }
         return xgetQueRlMap(prop);
@@ -288,31 +288,31 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteUqFkRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteUqFkRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteUqFkRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteUqFkRefCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteUqFkRefCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteUqFkRefCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteUqFkRefCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteUqFkRefCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteUqFkRefCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteUqFkRefCQ> _myselfExistsMap;
-    public Map<String, WhiteUqFkRefCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteUqFkRefCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteUqFkRefCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteUqFkRefCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteUqFkRefCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteUqFkRefCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -330,7 +330,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
         String pp = keepTwoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList(cb.query());
         registerExistsReferrer(cb.query(), "COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE", "COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE", pp, "whiteUqFkRefNestList");
     }
-    public Map<String, WhiteUqFkRefNestCQ> getTwoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList() { return xgetSQueMap("twoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetTwoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList() { return xgetSQueMap("twoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList"); }
     public String keepTwoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList(WhiteUqFkRefNestCQ sq) { return xkeepSQue("twoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList", sq); }
 
     /**
@@ -345,7 +345,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
         String pp = keepTwoOrMorePk_NotExistsReferrer_WhiteUqFkRefNestList(cb.query());
         registerNotExistsReferrer(cb.query(), "COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE", "COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE", pp, "whiteUqFkRefNestList");
     }
-    public Map<String, WhiteUqFkRefNestCQ> getTwoOrMorePk_NotExistsReferrer_WhiteUqFkRefNestList() { return xgetSQueMap("twoOrMorePk_NotExistsReferrer_WhiteUqFkRefNestList"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetTwoOrMorePk_NotExistsReferrer_WhiteUqFkRefNestList() { return xgetSQueMap("twoOrMorePk_NotExistsReferrer_WhiteUqFkRefNestList"); }
     public String keepTwoOrMorePk_NotExistsReferrer_WhiteUqFkRefNestList(WhiteUqFkRefNestCQ sq) { return xkeepSQue("twoOrMorePk_NotExistsReferrer_WhiteUqFkRefNestList", sq); }
 
     // ===================================================================================
@@ -358,7 +358,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
         String pp = keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteUqFkRefNestList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE", "COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE", pp, "whiteUqFkRefNestList", al, op);
     }
-    public Map<String, WhiteUqFkRefNestCQ> getTwoOrMorePk_SpecifyDerivedReferrer_WhiteUqFkRefNestList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteUqFkRefNestList"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetTwoOrMorePk_SpecifyDerivedReferrer_WhiteUqFkRefNestList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteUqFkRefNestList"); }
     public String keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteUqFkRefNestList(WhiteUqFkRefNestCQ sq) { return xkeepSQue("twoOrMorePk_SpecifyDerivedReferrer_WhiteUqFkRefNestList", sq); }
 
     // ===================================================================================
@@ -395,9 +395,9 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
         String sqpp = keepTwoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList(cb.query()); String prpp = keepTwoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE", "COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE", sqpp, "whiteUqFkRefNestList", rd, vl, prpp, op);
     }
-    public Map<String, WhiteUqFkRefNestCQ> getTwoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList() { return xgetSQueMap("twoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList"); }
+    public Map<String, WhiteUqFkRefNestCQ> xdfgetTwoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList() { return xgetSQueMap("twoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList"); }
     public String keepTwoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList(WhiteUqFkRefNestCQ sq) { return xkeepSQue("twoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList", sq); }
-    public Map<String, Object> getTwoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestListParameter() { return xgetSQuePmMap("twoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList"); }
+    public Map<String, Object> xdfgetTwoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestListParameter() { return xgetSQuePmMap("twoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList"); }
     public String keepTwoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestListParameter(Object pm) { return xkeepSQuePm("twoOrMorePk_QueryDerivedReferrer_WhiteUqFkRefNestList", pm); }
 
     // ===================================================================================
@@ -406,7 +406,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteUqFkRefCB.class.getName(); }
     protected String xCQ() { return WhiteUqFkRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

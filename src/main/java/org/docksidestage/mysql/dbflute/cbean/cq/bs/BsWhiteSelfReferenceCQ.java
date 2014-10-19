@@ -89,23 +89,23 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _selfReferenceId;
-    public ConditionValue getSelfReferenceId()
+    public ConditionValue xdfgetSelfReferenceId()
     { if (_selfReferenceId == null) { _selfReferenceId = nCV(); }
       return _selfReferenceId; }
-    protected ConditionValue getCValueSelfReferenceId() { return getSelfReferenceId(); }
+    protected ConditionValue xgetCValueSelfReferenceId() { return xdfgetSelfReferenceId(); }
 
-    public Map<String, WhiteSelfReferenceCQ> getSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList() { return xgetSQueMap("selfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList() { return xgetSQueMap("selfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList"); }
     public String keepSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq) { return xkeepSQue("selfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList", sq); }
 
-    public Map<String, WhiteSelfReferenceCQ> getSelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList() { return xgetSQueMap("selfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetSelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList() { return xgetSQueMap("selfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList"); }
     public String keepSelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq) { return xkeepSQue("selfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList", sq); }
 
-    public Map<String, WhiteSelfReferenceCQ> getSelfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList() { return xgetSQueMap("selfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetSelfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList() { return xgetSQueMap("selfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList"); }
     public String keepSelfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq) { return xkeepSQue("selfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList", sq); }
 
-    public Map<String, WhiteSelfReferenceCQ> getSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList() { return xgetSQueMap("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList() { return xgetSQueMap("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList"); }
     public String keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq) { return xkeepSQue("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList", sq); }
-    public Map<String, Object> getSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter() { return xgetSQuePmMap("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList"); }
+    public Map<String, Object> xdfgetSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter() { return xgetSQuePmMap("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList"); }
     public String keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter(Object pm) { return xkeepSQuePm("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     public BsWhiteSelfReferenceCQ addOrderBy_SelfReferenceId_Desc() { regOBD("SELF_REFERENCE_ID"); return this; }
 
     protected ConditionValue _selfReferenceName;
-    public ConditionValue getSelfReferenceName()
+    public ConditionValue xdfgetSelfReferenceName()
     { if (_selfReferenceName == null) { _selfReferenceName = nCV(); }
       return _selfReferenceName; }
-    protected ConditionValue getCValueSelfReferenceName() { return getSelfReferenceName(); }
+    protected ConditionValue xgetCValueSelfReferenceName() { return xdfgetSelfReferenceName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -143,10 +143,10 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     public BsWhiteSelfReferenceCQ addOrderBy_SelfReferenceName_Desc() { regOBD("SELF_REFERENCE_NAME"); return this; }
 
     protected ConditionValue _parentId;
-    public ConditionValue getParentId()
+    public ConditionValue xdfgetParentId()
     { if (_parentId == null) { _parentId = nCV(); }
       return _parentId; }
-    protected ConditionValue getCValueParentId() { return getParentId(); }
+    protected ConditionValue xgetCValueParentId() { return xdfgetParentId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -220,9 +220,9 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSelfReferenceCQ queryWhiteSelfReferenceSelf() {
-        return getConditionQueryWhiteSelfReferenceSelf();
+        return xdfgetConditionQueryWhiteSelfReferenceSelf();
     }
-    public WhiteSelfReferenceCQ getConditionQueryWhiteSelfReferenceSelf() {
+    public WhiteSelfReferenceCQ xdfgetConditionQueryWhiteSelfReferenceSelf() {
         String prop = "whiteSelfReferenceSelf";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteSelfReferenceSelf()); xsetupOuterJoinWhiteSelfReferenceSelf(); }
         return xgetQueRlMap(prop);
@@ -239,8 +239,8 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
      * white_self_reference_ref_one by SELF_REFERENCE_ID, named 'whiteSelfReferenceRefOneAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
-    public WhiteSelfReferenceRefOneCQ queryWhiteSelfReferenceRefOneAsOne() { return getConditionQueryWhiteSelfReferenceRefOneAsOne(); }
-    public WhiteSelfReferenceRefOneCQ getConditionQueryWhiteSelfReferenceRefOneAsOne() {
+    public WhiteSelfReferenceRefOneCQ queryWhiteSelfReferenceRefOneAsOne() { return xdfgetConditionQueryWhiteSelfReferenceRefOneAsOne(); }
+    public WhiteSelfReferenceRefOneCQ xdfgetConditionQueryWhiteSelfReferenceRefOneAsOne() {
         String prop = "whiteSelfReferenceRefOneAsOne";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteSelfReferenceRefOneAsOne()); xsetupOuterJoinWhiteSelfReferenceRefOneAsOne(); }
         return xgetQueRlMap(prop);
@@ -259,31 +259,31 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteSelfReferenceCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteSelfReferenceCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteSelfReferenceCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteSelfReferenceCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteSelfReferenceCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteSelfReferenceCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteSelfReferenceCQ> _myselfExistsMap;
-    public Map<String, WhiteSelfReferenceCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteSelfReferenceCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteSelfReferenceCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteSelfReferenceCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteSelfReferenceCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -292,7 +292,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteSelfReferenceCB.class.getName(); }
     protected String xCQ() { return WhiteSelfReferenceCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

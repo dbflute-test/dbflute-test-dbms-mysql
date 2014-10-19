@@ -78,26 +78,14 @@ public class LoaderOfWhiteCompoundPkRef {
     //                                                                       =============
     protected List<WhiteCompoundPkRefNest> _referrerWhiteCompoundPkRefNestByQuxMultipleIdList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefNest> loadWhiteCompoundPkRefNestByQuxMultipleIdList(ConditionBeanSetupper<WhiteCompoundPkRefNestCB> refCBLambda) {
-        myBhv().loadWhiteCompoundPkRefNestByQuxMultipleIdList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteCompoundPkRefNest>() {
-            public void handle(List<WhiteCompoundPkRefNest> referrerList) { _referrerWhiteCompoundPkRefNestByQuxMultipleIdList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefNest>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRefNest> handler) {
-                handler.handle(new LoaderOfWhiteCompoundPkRefNest().ready(_referrerWhiteCompoundPkRefNestByQuxMultipleIdList, _selector));
-            }
-        };
+        myBhv().loadWhiteCompoundPkRefNestByQuxMultipleIdList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefNestByQuxMultipleIdList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRefNest().ready(_referrerWhiteCompoundPkRefNestByQuxMultipleIdList, _selector));
     }
 
     protected List<WhiteCompoundPkRefNest> _referrerWhiteCompoundPkRefNestByFooMultipleIdList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefNest> loadWhiteCompoundPkRefNestByFooMultipleIdList(ConditionBeanSetupper<WhiteCompoundPkRefNestCB> refCBLambda) {
-        myBhv().loadWhiteCompoundPkRefNestByFooMultipleIdList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteCompoundPkRefNest>() {
-            public void handle(List<WhiteCompoundPkRefNest> referrerList) { _referrerWhiteCompoundPkRefNestByFooMultipleIdList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefNest>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRefNest> handler) {
-                handler.handle(new LoaderOfWhiteCompoundPkRefNest().ready(_referrerWhiteCompoundPkRefNestByFooMultipleIdList, _selector));
-            }
-        };
+        myBhv().loadWhiteCompoundPkRefNestByFooMultipleIdList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefNestByFooMultipleIdList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRefNest().ready(_referrerWhiteCompoundPkRefNestByFooMultipleIdList, _selector));
     }
 
     // ===================================================================================
@@ -105,9 +93,8 @@ public class LoaderOfWhiteCompoundPkRef {
     //                                                                    ================
     protected LoaderOfWhiteCompoundPk _foreignWhiteCompoundPkLoader;
     public LoaderOfWhiteCompoundPk pulloutWhiteCompoundPk() {
-        if (_foreignWhiteCompoundPkLoader != null) { return _foreignWhiteCompoundPkLoader; }
-        List<WhiteCompoundPk> pulledList = myBhv().pulloutWhiteCompoundPk(_selectedList);
-        _foreignWhiteCompoundPkLoader = new LoaderOfWhiteCompoundPk().ready(pulledList, _selector);
+        if (_foreignWhiteCompoundPkLoader == null)
+        { _foreignWhiteCompoundPkLoader = new LoaderOfWhiteCompoundPk().ready(myBhv().pulloutWhiteCompoundPk(_selectedList), _selector); }
         return _foreignWhiteCompoundPkLoader;
     }
 

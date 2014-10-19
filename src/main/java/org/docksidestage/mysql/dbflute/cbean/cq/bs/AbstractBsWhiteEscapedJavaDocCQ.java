@@ -169,7 +169,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     protected void doSetEscapedJavaDocCode_InScope(Collection<String> escapedJavaDocCodeList) {
-        regINS(CK_INS, cTL(escapedJavaDocCodeList), getCValueEscapedJavaDocCode(), "ESCAPED_JAVA_DOC_CODE");
+        regINS(CK_INS, cTL(escapedJavaDocCodeList), xgetCValueEscapedJavaDocCode(), "ESCAPED_JAVA_DOC_CODE");
     }
 
     /**
@@ -192,7 +192,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     protected void doSetEscapedJavaDocCode_NotInScope(Collection<String> escapedJavaDocCodeList) {
-        regINS(CK_NINS, cTL(escapedJavaDocCodeList), getCValueEscapedJavaDocCode(), "ESCAPED_JAVA_DOC_CODE");
+        regINS(CK_NINS, cTL(escapedJavaDocCodeList), xgetCValueEscapedJavaDocCode(), "ESCAPED_JAVA_DOC_CODE");
     }
 
     /**
@@ -207,8 +207,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      */
     public void setEscapedJavaDocCode_IsNotNull() { regEscapedJavaDocCode(CK_ISNN, DOBJ); }
 
-    protected void regEscapedJavaDocCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueEscapedJavaDocCode(), "ESCAPED_JAVA_DOC_CODE"); }
-    protected abstract ConditionValue getCValueEscapedJavaDocCode();
+    protected void regEscapedJavaDocCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueEscapedJavaDocCode(), "ESCAPED_JAVA_DOC_CODE"); }
+    protected abstract ConditionValue xgetCValueEscapedJavaDocCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -246,7 +246,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     protected void doSetEscapedJavaDocName_InScope(Collection<String> escapedJavaDocNameList) {
-        regINS(CK_INS, cTL(escapedJavaDocNameList), getCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME");
+        regINS(CK_INS, cTL(escapedJavaDocNameList), xgetCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME");
     }
 
     /**
@@ -259,7 +259,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     protected void doSetEscapedJavaDocName_NotInScope(Collection<String> escapedJavaDocNameList) {
-        regINS(CK_NINS, cTL(escapedJavaDocNameList), getCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME");
+        regINS(CK_NINS, cTL(escapedJavaDocNameList), xgetCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME");
     }
 
     /**
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setEscapedJavaDocName_LikeSearch(String escapedJavaDocName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(escapedJavaDocName), getCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(escapedJavaDocName), xgetCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME", likeSearchOption);
     }
 
     /**
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setEscapedJavaDocName_NotLikeSearch(String escapedJavaDocName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(escapedJavaDocName), getCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(escapedJavaDocName), xgetCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME", likeSearchOption);
     }
 
     /**
@@ -333,8 +333,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      */
     public void setEscapedJavaDocName_IsNotNull() { regEscapedJavaDocName(CK_ISNN, DOBJ); }
 
-    protected void regEscapedJavaDocName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME"); }
-    protected abstract ConditionValue getCValueEscapedJavaDocName();
+    protected void regEscapedJavaDocName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueEscapedJavaDocName(), "ESCAPED_JAVA_DOC_NAME"); }
+    protected abstract ConditionValue xgetCValueEscapedJavaDocName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

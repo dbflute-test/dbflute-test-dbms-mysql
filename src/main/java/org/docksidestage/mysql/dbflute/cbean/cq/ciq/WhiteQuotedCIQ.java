@@ -76,7 +76,7 @@ public class WhiteQuotedCIQ extends AbstractBsWhiteQuotedCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueSelect() { return _myCQ.getSelect(); }
+    protected ConditionValue xgetCValueSelect() { return _myCQ.xdfgetSelect(); }
     public String keepSelect_ExistsReferrer_WhiteQuotedRefList(WhiteQuotedRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepSelect_NotExistsReferrer_WhiteQuotedRefList(WhiteQuotedRefCQ sq)
@@ -87,7 +87,7 @@ public class WhiteQuotedCIQ extends AbstractBsWhiteQuotedCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepSelect_QueryDerivedReferrer_WhiteQuotedRefListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueFrom() { return _myCQ.getFrom(); }
+    protected ConditionValue xgetCValueFrom() { return _myCQ.xdfgetFrom(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteQuotedCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

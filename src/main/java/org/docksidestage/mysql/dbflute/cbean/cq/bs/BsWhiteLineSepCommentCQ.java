@@ -89,10 +89,10 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _lineSepCommentCode;
-    public ConditionValue getLineSepCommentCode()
+    public ConditionValue xdfgetLineSepCommentCode()
     { if (_lineSepCommentCode == null) { _lineSepCommentCode = nCV(); }
       return _lineSepCommentCode; }
-    protected ConditionValue getCValueLineSepCommentCode() { return getLineSepCommentCode(); }
+    protected ConditionValue xgetCValueLineSepCommentCode() { return xdfgetLineSepCommentCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
     public BsWhiteLineSepCommentCQ addOrderBy_LineSepCommentCode_Desc() { regOBD("LINE_SEP_COMMENT_CODE"); return this; }
 
     protected ConditionValue _lineSepCommentName;
-    public ConditionValue getLineSepCommentName()
+    public ConditionValue xdfgetLineSepCommentName()
     { if (_lineSepCommentName == null) { _lineSepCommentName = nCV(); }
       return _lineSepCommentName; }
-    protected ConditionValue getCValueLineSepCommentName() { return getLineSepCommentName(); }
+    protected ConditionValue xgetCValueLineSepCommentName() { return xdfgetLineSepCommentName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteLineSepCommentCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteLineSepCommentCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteLineSepCommentCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteLineSepCommentCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteLineSepCommentCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteLineSepCommentCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteLineSepCommentCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteLineSepCommentCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteLineSepCommentCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteLineSepCommentCQ> _myselfExistsMap;
-    public Map<String, WhiteLineSepCommentCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteLineSepCommentCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteLineSepCommentCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteLineSepCommentCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteLineSepCommentCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteLineSepCommentCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteLineSepCommentCB.class.getName(); }
     protected String xCQ() { return WhiteLineSepCommentCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

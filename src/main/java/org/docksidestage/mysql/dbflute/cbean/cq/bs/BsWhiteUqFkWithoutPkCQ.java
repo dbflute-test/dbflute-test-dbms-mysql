@@ -89,23 +89,23 @@ public class BsWhiteUqFkWithoutPkCQ extends AbstractBsWhiteUqFkWithoutPkCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _uqFkCode;
-    public ConditionValue getUqFkCode()
+    public ConditionValue xdfgetUqFkCode()
     { if (_uqFkCode == null) { _uqFkCode = nCV(); }
       return _uqFkCode; }
-    protected ConditionValue getCValueUqFkCode() { return getUqFkCode(); }
+    protected ConditionValue xgetCValueUqFkCode() { return xdfgetUqFkCode(); }
 
-    public Map<String, WhiteUqFkWithoutPkRefCQ> getUqFkCode_ExistsReferrer_WhiteUqFkWithoutPkRefList() { return xgetSQueMap("uqFkCode_ExistsReferrer_WhiteUqFkWithoutPkRefList"); }
+    public Map<String, WhiteUqFkWithoutPkRefCQ> xdfgetUqFkCode_ExistsReferrer_WhiteUqFkWithoutPkRefList() { return xgetSQueMap("uqFkCode_ExistsReferrer_WhiteUqFkWithoutPkRefList"); }
     public String keepUqFkCode_ExistsReferrer_WhiteUqFkWithoutPkRefList(WhiteUqFkWithoutPkRefCQ sq) { return xkeepSQue("uqFkCode_ExistsReferrer_WhiteUqFkWithoutPkRefList", sq); }
 
-    public Map<String, WhiteUqFkWithoutPkRefCQ> getUqFkCode_NotExistsReferrer_WhiteUqFkWithoutPkRefList() { return xgetSQueMap("uqFkCode_NotExistsReferrer_WhiteUqFkWithoutPkRefList"); }
+    public Map<String, WhiteUqFkWithoutPkRefCQ> xdfgetUqFkCode_NotExistsReferrer_WhiteUqFkWithoutPkRefList() { return xgetSQueMap("uqFkCode_NotExistsReferrer_WhiteUqFkWithoutPkRefList"); }
     public String keepUqFkCode_NotExistsReferrer_WhiteUqFkWithoutPkRefList(WhiteUqFkWithoutPkRefCQ sq) { return xkeepSQue("uqFkCode_NotExistsReferrer_WhiteUqFkWithoutPkRefList", sq); }
 
-    public Map<String, WhiteUqFkWithoutPkRefCQ> getUqFkCode_SpecifyDerivedReferrer_WhiteUqFkWithoutPkRefList() { return xgetSQueMap("uqFkCode_SpecifyDerivedReferrer_WhiteUqFkWithoutPkRefList"); }
+    public Map<String, WhiteUqFkWithoutPkRefCQ> xdfgetUqFkCode_SpecifyDerivedReferrer_WhiteUqFkWithoutPkRefList() { return xgetSQueMap("uqFkCode_SpecifyDerivedReferrer_WhiteUqFkWithoutPkRefList"); }
     public String keepUqFkCode_SpecifyDerivedReferrer_WhiteUqFkWithoutPkRefList(WhiteUqFkWithoutPkRefCQ sq) { return xkeepSQue("uqFkCode_SpecifyDerivedReferrer_WhiteUqFkWithoutPkRefList", sq); }
 
-    public Map<String, WhiteUqFkWithoutPkRefCQ> getUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList() { return xgetSQueMap("uqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList"); }
+    public Map<String, WhiteUqFkWithoutPkRefCQ> xdfgetUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList() { return xgetSQueMap("uqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList"); }
     public String keepUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList(WhiteUqFkWithoutPkRefCQ sq) { return xkeepSQue("uqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList", sq); }
-    public Map<String, Object> getUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefListParameter() { return xgetSQuePmMap("uqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList"); }
+    public Map<String, Object> xdfgetUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefListParameter() { return xgetSQuePmMap("uqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList"); }
     public String keepUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefListParameter(Object pm) { return xkeepSQuePm("uqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhiteUqFkWithoutPkCQ extends AbstractBsWhiteUqFkWithoutPkCQ {
     public BsWhiteUqFkWithoutPkCQ addOrderBy_UqFkCode_Desc() { regOBD("UQ_FK_CODE"); return this; }
 
     protected ConditionValue _uqFkName;
-    public ConditionValue getUqFkName()
+    public ConditionValue xdfgetUqFkName()
     { if (_uqFkName == null) { _uqFkName = nCV(); }
       return _uqFkName; }
-    protected ConditionValue getCValueUqFkName() { return getUqFkName(); }
+    protected ConditionValue xgetCValueUqFkName() { return xdfgetUqFkName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -193,7 +193,7 @@ public class BsWhiteUqFkWithoutPkCQ extends AbstractBsWhiteUqFkWithoutPkCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteUqFkWithoutPkCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteUqFkWithoutPkCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteUqFkWithoutPkCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -202,7 +202,7 @@ public class BsWhiteUqFkWithoutPkCQ extends AbstractBsWhiteUqFkWithoutPkCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteUqFkWithoutPkCB.class.getName(); }
     protected String xCQ() { return WhiteUqFkWithoutPkCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

@@ -78,14 +78,8 @@ public class LoaderOfVendorConstraintNameAutoQux {
     //                                                                       =============
     protected List<VendorConstraintNameAutoRef> _referrerVendorConstraintNameAutoRefList;
     public NestedReferrerLoaderGateway<LoaderOfVendorConstraintNameAutoRef> loadVendorConstraintNameAutoRefList(ConditionBeanSetupper<VendorConstraintNameAutoRefCB> refCBLambda) {
-        myBhv().loadVendorConstraintNameAutoRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<VendorConstraintNameAutoRef>() {
-            public void handle(List<VendorConstraintNameAutoRef> referrerList) { _referrerVendorConstraintNameAutoRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfVendorConstraintNameAutoRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfVendorConstraintNameAutoRef> handler) {
-                handler.handle(new LoaderOfVendorConstraintNameAutoRef().ready(_referrerVendorConstraintNameAutoRefList, _selector));
-            }
-        };
+        myBhv().loadVendorConstraintNameAutoRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorConstraintNameAutoRefList = refLs);
+        return hd -> hd.handle(new LoaderOfVendorConstraintNameAutoRef().ready(_referrerVendorConstraintNameAutoRefList, _selector));
     }
 
     // ===================================================================================

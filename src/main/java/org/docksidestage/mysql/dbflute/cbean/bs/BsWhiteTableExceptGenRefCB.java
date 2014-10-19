@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteTableExceptGenRefCB extends AbstractConditionBean {
      */
     public WhiteTableExceptGenRefCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteTableExceptGenRefCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteTableExceptGenRefCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteTableExceptGenRefCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteTableExceptGenRefCB extends AbstractConditionBean {
         return new WhiteTableExceptGenRefCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteTableExceptGenRefCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteTableExceptGenRefCQ>() {
                 public boolean has() { return true; }
-                public WhiteTableExceptGenRefCQ qy() { return getConditionQuery(); }
+                public WhiteTableExceptGenRefCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,17 +320,17 @@ public class BsWhiteTableExceptGenRefCB extends AbstractConditionBean {
          * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnGenRefId() { return doColumn("GEN_REF_ID"); }
+        public SpecifiedColumn columnGenRefId() { return doColumn("GEN_REF_ID"); }
         /**
          * GEN_REF_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnGenRefName() { return doColumn("GEN_REF_NAME"); }
+        public SpecifiedColumn columnGenRefName() { return doColumn("GEN_REF_NAME"); }
         /**
          * GEN_ONLY_ID: {IX, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnGenOnlyId() { return doColumn("GEN_ONLY_ID"); }
+        public SpecifiedColumn columnGenOnlyId() { return doColumn("GEN_ONLY_ID"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -374,7 +382,7 @@ public class BsWhiteTableExceptGenRefCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteTableExceptGenRefCB> columnQuery(final SpecifyQuery<WhiteTableExceptGenRefCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteTableExceptGenRefCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteTableExceptGenRefCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteTableExceptGenRefCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -492,8 +500,8 @@ public class BsWhiteTableExceptGenRefCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteTableExceptGenRefCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteTableExceptGenRefCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteTableExceptGenRefCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteTableExceptGenRefCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

@@ -19,6 +19,7 @@ import org.dbflute.cbean.scoping.OrQuery;
 import org.dbflute.cbean.scoping.SubQuery;
 import org.dbflute.cbean.scoping.UnionQuery;
 import org.dbflute.dbmeta.info.ColumnInfo;
+import org.dbflute.helper.HandyDate;
 import org.dbflute.util.DfCollectionUtil;
 import org.dbflute.util.DfResourceUtil;
 import org.dbflute.util.DfTraceViewUtil;
@@ -56,8 +57,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
     public void test_OrScopeQuery_or_UnionQuery_basic() throws Exception {
         // ## Arrange ##
         final Date fromDate = currentDate();
-        final Date toDate = currentDate();
-        DfTypeUtil.addDateDay(toDate, 3);
+        final Date toDate = new HandyDate(currentDate()).addDay(3).getDate();
 
         // ## Act ##
         compareByRef(new Callback<VendorLargeDataRefCB>() {

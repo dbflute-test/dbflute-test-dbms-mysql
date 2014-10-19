@@ -76,7 +76,7 @@ public class WhiteImplicitConvNumericCIQ extends AbstractBsWhiteImplicitConvNume
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueImplicitConvNumericId() { return _myCQ.getImplicitConvNumericId(); }
+    protected ConditionValue xgetCValueImplicitConvNumericId() { return _myCQ.xdfgetImplicitConvNumericId(); }
     public String keepImplicitConvNumericId_ExistsReferrer_WhiteImplicitConvIntegerList(WhiteImplicitConvIntegerCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepImplicitConvNumericId_ExistsReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq)
@@ -97,9 +97,9 @@ public class WhiteImplicitConvNumericCIQ extends AbstractBsWhiteImplicitConvNume
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvStringListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueImplicitConvIntegerId() { return _myCQ.getImplicitConvIntegerId(); }
-    protected ConditionValue getCValueImplicitConvStringId() { return _myCQ.getImplicitConvStringId(); }
-    protected ConditionValue getCValueImplicitConvName() { return _myCQ.getImplicitConvName(); }
+    protected ConditionValue xgetCValueImplicitConvIntegerId() { return _myCQ.xdfgetImplicitConvIntegerId(); }
+    protected ConditionValue xgetCValueImplicitConvStringId() { return _myCQ.xdfgetImplicitConvStringId(); }
+    protected ConditionValue xgetCValueImplicitConvName() { return _myCQ.xdfgetImplicitConvName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteImplicitConvNumericCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

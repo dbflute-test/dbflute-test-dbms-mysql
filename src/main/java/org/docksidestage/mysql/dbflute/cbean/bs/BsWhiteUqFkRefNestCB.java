@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
      */
     public WhiteUqFkRefNestCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteUqFkRefNestCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteUqFkRefNestCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteUqFkRefNestCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
         return new WhiteUqFkRefNestCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -264,7 +272,7 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhiteUqFkRefNss _nssWhiteUqFkRef;
-    public WhiteUqFkRefNss getNssWhiteUqFkRef() {
+    public WhiteUqFkRefNss xdfgetNssWhiteUqFkRef() {
         if (_nssWhiteUqFkRef == null) { _nssWhiteUqFkRef = new WhiteUqFkRefNss(null); }
         return _nssWhiteUqFkRef;
     }
@@ -319,7 +327,7 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteUqFkRefNestCQ>() {
                 public boolean has() { return true; }
-                public WhiteUqFkRefNestCQ qy() { return getConditionQuery(); }
+                public WhiteUqFkRefNestCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -343,17 +351,17 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
          * UQ_FK_REF_NEST_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUqFkRefNestId() { return doColumn("UQ_FK_REF_NEST_ID"); }
+        public SpecifiedColumn columnUqFkRefNestId() { return doColumn("UQ_FK_REF_NEST_ID"); }
         /**
          * COMPOUND_UQ_FIRST_CODE: {IX+, NotNull, CHAR(3), FK to white_uq_fk_ref}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnCompoundUqFirstCode() { return doColumn("COMPOUND_UQ_FIRST_CODE"); }
+        public SpecifiedColumn columnCompoundUqFirstCode() { return doColumn("COMPOUND_UQ_FIRST_CODE"); }
         /**
          * COMPOUND_UQ_SECOND_CODE: {NotNull, CHAR(3), FK to white_uq_fk_ref}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnCompoundUqSecondCode() { return doColumn("COMPOUND_UQ_SECOND_CODE"); }
+        public SpecifiedColumn columnCompoundUqSecondCode() { return doColumn("COMPOUND_UQ_SECOND_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -431,7 +439,7 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteUqFkRefNestCB> columnQuery(final SpecifyQuery<WhiteUqFkRefNestCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteUqFkRefNestCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteUqFkRefNestCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteUqFkRefNestCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -549,8 +557,8 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteUqFkRefNestCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteUqFkRefNestCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteUqFkRefNestCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteUqFkRefNestCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

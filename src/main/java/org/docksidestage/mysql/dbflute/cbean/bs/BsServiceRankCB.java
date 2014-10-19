@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -203,10 +204,14 @@ public class BsServiceRankCB extends AbstractConditionBean {
      */
     public ServiceRankCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public ServiceRankCQ getConditionQuery() { // public for parameter comment and internal
+    public ServiceRankCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected ServiceRankCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -227,8 +232,11 @@ public class BsServiceRankCB extends AbstractConditionBean {
         return new ServiceRankCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -302,7 +310,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<ServiceRankCQ>() {
                 public boolean has() { return true; }
-                public ServiceRankCQ qy() { return getConditionQuery(); }
+                public ServiceRankCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -325,32 +333,32 @@ public class BsServiceRankCB extends AbstractConditionBean {
          * (サービスランクコード)SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnServiceRankCode() { return doColumn("SERVICE_RANK_CODE"); }
+        public SpecifiedColumn columnServiceRankCode() { return doColumn("SERVICE_RANK_CODE"); }
         /**
          * (サービスランク名称)SERVICE_RANK_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnServiceRankName() { return doColumn("SERVICE_RANK_NAME"); }
+        public SpecifiedColumn columnServiceRankName() { return doColumn("SERVICE_RANK_NAME"); }
         /**
          * (サービスポイント発生率)SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnServicePointIncidence() { return doColumn("SERVICE_POINT_INCIDENCE"); }
+        public SpecifiedColumn columnServicePointIncidence() { return doColumn("SERVICE_POINT_INCIDENCE"); }
         /**
          * (新規受け入れ可能フラグ)NEW_ACCEPTABLE_FLG: {NotNull, INT(10), classification=Flg}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNewAcceptableFlg() { return doColumn("NEW_ACCEPTABLE_FLG"); }
+        public SpecifiedColumn columnNewAcceptableFlg() { return doColumn("NEW_ACCEPTABLE_FLG"); }
         /**
          * DESCRIPTION: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDescription() { return doColumn("DESCRIPTION"); }
+        public SpecifiedColumn columnDescription() { return doColumn("DESCRIPTION"); }
         /**
          * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDisplayOrder() { return doColumn("DISPLAY_ORDER"); }
+        public SpecifiedColumn columnDisplayOrder() { return doColumn("DISPLAY_ORDER"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -420,7 +428,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<ServiceRankCB> columnQuery(final SpecifyQuery<ServiceRankCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<ServiceRankCB>() {
-            public HpCalculator handle(SpecifyQuery<ServiceRankCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<ServiceRankCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -538,8 +546,8 @@ public class BsServiceRankCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return ServiceRankCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return ServiceRankCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return ServiceRankCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return ServiceRankCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

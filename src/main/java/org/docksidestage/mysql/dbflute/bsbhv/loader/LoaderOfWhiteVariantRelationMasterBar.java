@@ -78,14 +78,8 @@ public class LoaderOfWhiteVariantRelationMasterBar {
     //                                                                       =============
     protected List<WhiteVariantRelationReferrer> _referrerWhiteVariantRelationReferrerAsVariantList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariantList(ConditionBeanSetupper<WhiteVariantRelationReferrerCB> refCBLambda) {
-        myBhv().loadWhiteVariantRelationReferrerAsVariantList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteVariantRelationReferrer>() {
-            public void handle(List<WhiteVariantRelationReferrer> referrerList) { _referrerWhiteVariantRelationReferrerAsVariantList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteVariantRelationReferrer>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteVariantRelationReferrer> handler) {
-                handler.handle(new LoaderOfWhiteVariantRelationReferrer().ready(_referrerWhiteVariantRelationReferrerAsVariantList, _selector));
-            }
-        };
+        myBhv().loadWhiteVariantRelationReferrerAsVariantList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteVariantRelationReferrerAsVariantList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteVariantRelationReferrer().ready(_referrerWhiteVariantRelationReferrerAsVariantList, _selector));
     }
 
     // ===================================================================================

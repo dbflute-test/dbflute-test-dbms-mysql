@@ -89,23 +89,23 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _largeDataId;
-    public ConditionValue getLargeDataId()
+    public ConditionValue xdfgetLargeDataId()
     { if (_largeDataId == null) { _largeDataId = nCV(); }
       return _largeDataId; }
-    protected ConditionValue getCValueLargeDataId() { return getLargeDataId(); }
+    protected ConditionValue xgetCValueLargeDataId() { return xdfgetLargeDataId(); }
 
-    public Map<String, VendorLargeDataRefCQ> getLargeDataId_ExistsReferrer_VendorLargeDataRefList() { return xgetSQueMap("largeDataId_ExistsReferrer_VendorLargeDataRefList"); }
+    public Map<String, VendorLargeDataRefCQ> xdfgetLargeDataId_ExistsReferrer_VendorLargeDataRefList() { return xgetSQueMap("largeDataId_ExistsReferrer_VendorLargeDataRefList"); }
     public String keepLargeDataId_ExistsReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq) { return xkeepSQue("largeDataId_ExistsReferrer_VendorLargeDataRefList", sq); }
 
-    public Map<String, VendorLargeDataRefCQ> getLargeDataId_NotExistsReferrer_VendorLargeDataRefList() { return xgetSQueMap("largeDataId_NotExistsReferrer_VendorLargeDataRefList"); }
+    public Map<String, VendorLargeDataRefCQ> xdfgetLargeDataId_NotExistsReferrer_VendorLargeDataRefList() { return xgetSQueMap("largeDataId_NotExistsReferrer_VendorLargeDataRefList"); }
     public String keepLargeDataId_NotExistsReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq) { return xkeepSQue("largeDataId_NotExistsReferrer_VendorLargeDataRefList", sq); }
 
-    public Map<String, VendorLargeDataRefCQ> getLargeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList() { return xgetSQueMap("largeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList"); }
+    public Map<String, VendorLargeDataRefCQ> xdfgetLargeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList() { return xgetSQueMap("largeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList"); }
     public String keepLargeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq) { return xkeepSQue("largeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList", sq); }
 
-    public Map<String, VendorLargeDataRefCQ> getLargeDataId_QueryDerivedReferrer_VendorLargeDataRefList() { return xgetSQueMap("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList"); }
+    public Map<String, VendorLargeDataRefCQ> xdfgetLargeDataId_QueryDerivedReferrer_VendorLargeDataRefList() { return xgetSQueMap("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList"); }
     public String keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq) { return xkeepSQue("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList", sq); }
-    public Map<String, Object> getLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter() { return xgetSQuePmMap("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList"); }
+    public Map<String, Object> xdfgetLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter() { return xgetSQuePmMap("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList"); }
     public String keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter(Object pm) { return xkeepSQuePm("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     public BsVendorLargeDataCQ addOrderBy_LargeDataId_Desc() { regOBD("LARGE_DATA_ID"); return this; }
 
     protected ConditionValue _stringIndex;
-    public ConditionValue getStringIndex()
+    public ConditionValue xdfgetStringIndex()
     { if (_stringIndex == null) { _stringIndex = nCV(); }
       return _stringIndex; }
-    protected ConditionValue getCValueStringIndex() { return getStringIndex(); }
+    protected ConditionValue xgetCValueStringIndex() { return xdfgetStringIndex(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -143,10 +143,10 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     public BsVendorLargeDataCQ addOrderBy_StringIndex_Desc() { regOBD("STRING_INDEX"); return this; }
 
     protected ConditionValue _stringNoIndex;
-    public ConditionValue getStringNoIndex()
+    public ConditionValue xdfgetStringNoIndex()
     { if (_stringNoIndex == null) { _stringNoIndex = nCV(); }
       return _stringNoIndex; }
-    protected ConditionValue getCValueStringNoIndex() { return getStringNoIndex(); }
+    protected ConditionValue xgetCValueStringNoIndex() { return xdfgetStringNoIndex(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -163,10 +163,10 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     public BsVendorLargeDataCQ addOrderBy_StringNoIndex_Desc() { regOBD("STRING_NO_INDEX"); return this; }
 
     protected ConditionValue _stringUniqueIndex;
-    public ConditionValue getStringUniqueIndex()
+    public ConditionValue xdfgetStringUniqueIndex()
     { if (_stringUniqueIndex == null) { _stringUniqueIndex = nCV(); }
       return _stringUniqueIndex; }
-    protected ConditionValue getCValueStringUniqueIndex() { return getStringUniqueIndex(); }
+    protected ConditionValue xgetCValueStringUniqueIndex() { return xdfgetStringUniqueIndex(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -183,10 +183,10 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     public BsVendorLargeDataCQ addOrderBy_StringUniqueIndex_Desc() { regOBD("STRING_UNIQUE_INDEX"); return this; }
 
     protected ConditionValue _intflgIndex;
-    public ConditionValue getIntflgIndex()
+    public ConditionValue xdfgetIntflgIndex()
     { if (_intflgIndex == null) { _intflgIndex = nCV(); }
       return _intflgIndex; }
-    protected ConditionValue getCValueIntflgIndex() { return getIntflgIndex(); }
+    protected ConditionValue xgetCValueIntflgIndex() { return xdfgetIntflgIndex(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -203,10 +203,10 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     public BsVendorLargeDataCQ addOrderBy_IntflgIndex_Desc() { regOBD("INTFLG_INDEX"); return this; }
 
     protected ConditionValue _numericIntegerIndex;
-    public ConditionValue getNumericIntegerIndex()
+    public ConditionValue xdfgetNumericIntegerIndex()
     { if (_numericIntegerIndex == null) { _numericIntegerIndex = nCV(); }
       return _numericIntegerIndex; }
-    protected ConditionValue getCValueNumericIntegerIndex() { return getNumericIntegerIndex(); }
+    protected ConditionValue xgetCValueNumericIntegerIndex() { return xdfgetNumericIntegerIndex(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -223,10 +223,10 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     public BsVendorLargeDataCQ addOrderBy_NumericIntegerIndex_Desc() { regOBD("NUMERIC_INTEGER_INDEX"); return this; }
 
     protected ConditionValue _numericIntegerNoIndex;
-    public ConditionValue getNumericIntegerNoIndex()
+    public ConditionValue xdfgetNumericIntegerNoIndex()
     { if (_numericIntegerNoIndex == null) { _numericIntegerNoIndex = nCV(); }
       return _numericIntegerNoIndex; }
-    protected ConditionValue getCValueNumericIntegerNoIndex() { return getNumericIntegerNoIndex(); }
+    protected ConditionValue xgetCValueNumericIntegerNoIndex() { return xdfgetNumericIntegerNoIndex(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -293,31 +293,31 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, VendorLargeDataCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, VendorLargeDataCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(VendorLargeDataCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, VendorLargeDataCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, VendorLargeDataCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(VendorLargeDataCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, VendorLargeDataCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, VendorLargeDataCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(VendorLargeDataCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, VendorLargeDataCQ> _myselfExistsMap;
-    public Map<String, VendorLargeDataCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, VendorLargeDataCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(VendorLargeDataCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, VendorLargeDataCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, VendorLargeDataCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(VendorLargeDataCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -326,7 +326,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return VendorLargeDataCB.class.getName(); }
     protected String xCQ() { return VendorLargeDataCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

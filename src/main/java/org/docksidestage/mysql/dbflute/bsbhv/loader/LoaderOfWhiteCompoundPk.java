@@ -78,26 +78,14 @@ public class LoaderOfWhiteCompoundPk {
     //                                                                       =============
     protected List<WhiteCompoundPkRef> _referrerWhiteCompoundPkRefList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRef> loadWhiteCompoundPkRefList(ConditionBeanSetupper<WhiteCompoundPkRefCB> refCBLambda) {
-        myBhv().loadWhiteCompoundPkRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteCompoundPkRef>() {
-            public void handle(List<WhiteCompoundPkRef> referrerList) { _referrerWhiteCompoundPkRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRef> handler) {
-                handler.handle(new LoaderOfWhiteCompoundPkRef().ready(_referrerWhiteCompoundPkRefList, _selector));
-            }
-        };
+        myBhv().loadWhiteCompoundPkRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRef().ready(_referrerWhiteCompoundPkRefList, _selector));
     }
 
     protected List<WhiteCompoundPkRefMany> _referrerWhiteCompoundPkRefManyToPKList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPKList(ConditionBeanSetupper<WhiteCompoundPkRefManyCB> refCBLambda) {
-        myBhv().loadWhiteCompoundPkRefManyToPKList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteCompoundPkRefMany>() {
-            public void handle(List<WhiteCompoundPkRefMany> referrerList) { _referrerWhiteCompoundPkRefManyToPKList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefMany>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRefMany> handler) {
-                handler.handle(new LoaderOfWhiteCompoundPkRefMany().ready(_referrerWhiteCompoundPkRefManyToPKList, _selector));
-            }
-        };
+        myBhv().loadWhiteCompoundPkRefManyToPKList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefManyToPKList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRefMany().ready(_referrerWhiteCompoundPkRefManyToPKList, _selector));
     }
 
     // ===================================================================================
@@ -105,33 +93,29 @@ public class LoaderOfWhiteCompoundPk {
     //                                                                    ================
     protected LoaderOfWhiteCompoundReferredNormally _foreignWhiteCompoundReferredNormallyLoader;
     public LoaderOfWhiteCompoundReferredNormally pulloutWhiteCompoundReferredNormally() {
-        if (_foreignWhiteCompoundReferredNormallyLoader != null) { return _foreignWhiteCompoundReferredNormallyLoader; }
-        List<WhiteCompoundReferredNormally> pulledList = myBhv().pulloutWhiteCompoundReferredNormally(_selectedList);
-        _foreignWhiteCompoundReferredNormallyLoader = new LoaderOfWhiteCompoundReferredNormally().ready(pulledList, _selector);
+        if (_foreignWhiteCompoundReferredNormallyLoader == null)
+        { _foreignWhiteCompoundReferredNormallyLoader = new LoaderOfWhiteCompoundReferredNormally().ready(myBhv().pulloutWhiteCompoundReferredNormally(_selectedList), _selector); }
         return _foreignWhiteCompoundReferredNormallyLoader;
     }
 
     protected LoaderOfWhiteCompoundReferredPrimary _foreignWhiteCompoundReferredPrimaryLoader;
     public LoaderOfWhiteCompoundReferredPrimary pulloutWhiteCompoundReferredPrimary() {
-        if (_foreignWhiteCompoundReferredPrimaryLoader != null) { return _foreignWhiteCompoundReferredPrimaryLoader; }
-        List<WhiteCompoundReferredPrimary> pulledList = myBhv().pulloutWhiteCompoundReferredPrimary(_selectedList);
-        _foreignWhiteCompoundReferredPrimaryLoader = new LoaderOfWhiteCompoundReferredPrimary().ready(pulledList, _selector);
+        if (_foreignWhiteCompoundReferredPrimaryLoader == null)
+        { _foreignWhiteCompoundReferredPrimaryLoader = new LoaderOfWhiteCompoundReferredPrimary().ready(myBhv().pulloutWhiteCompoundReferredPrimary(_selectedList), _selector); }
         return _foreignWhiteCompoundReferredPrimaryLoader;
     }
 
     protected LoaderOfWhiteCompoundPkRefMany _foreignWhiteCompoundPkRefManyAsMaxLoader;
     public LoaderOfWhiteCompoundPkRefMany pulloutWhiteCompoundPkRefManyAsMax() {
-        if (_foreignWhiteCompoundPkRefManyAsMaxLoader != null) { return _foreignWhiteCompoundPkRefManyAsMaxLoader; }
-        List<WhiteCompoundPkRefMany> pulledList = myBhv().pulloutWhiteCompoundPkRefManyAsMax(_selectedList);
-        _foreignWhiteCompoundPkRefManyAsMaxLoader = new LoaderOfWhiteCompoundPkRefMany().ready(pulledList, _selector);
+        if (_foreignWhiteCompoundPkRefManyAsMaxLoader == null)
+        { _foreignWhiteCompoundPkRefManyAsMaxLoader = new LoaderOfWhiteCompoundPkRefMany().ready(myBhv().pulloutWhiteCompoundPkRefManyAsMax(_selectedList), _selector); }
         return _foreignWhiteCompoundPkRefManyAsMaxLoader;
     }
 
     protected LoaderOfWhiteCompoundPkRefMany _foreignWhiteCompoundPkRefManyAsMinLoader;
     public LoaderOfWhiteCompoundPkRefMany pulloutWhiteCompoundPkRefManyAsMin() {
-        if (_foreignWhiteCompoundPkRefManyAsMinLoader != null) { return _foreignWhiteCompoundPkRefManyAsMinLoader; }
-        List<WhiteCompoundPkRefMany> pulledList = myBhv().pulloutWhiteCompoundPkRefManyAsMin(_selectedList);
-        _foreignWhiteCompoundPkRefManyAsMinLoader = new LoaderOfWhiteCompoundPkRefMany().ready(pulledList, _selector);
+        if (_foreignWhiteCompoundPkRefManyAsMinLoader == null)
+        { _foreignWhiteCompoundPkRefManyAsMinLoader = new LoaderOfWhiteCompoundPkRefMany().ready(myBhv().pulloutWhiteCompoundPkRefManyAsMin(_selectedList), _selector); }
         return _foreignWhiteCompoundPkRefManyAsMinLoader;
     }
 

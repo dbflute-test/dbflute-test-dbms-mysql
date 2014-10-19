@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteDbCommentCB extends AbstractConditionBean {
      */
     public WhiteDbCommentCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteDbCommentCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteDbCommentCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteDbCommentCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteDbCommentCB extends AbstractConditionBean {
         return new WhiteDbCommentCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteDbCommentCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteDbCommentCQ>() {
                 public boolean has() { return true; }
-                public WhiteDbCommentCQ qy() { return getConditionQuery(); }
+                public WhiteDbCommentCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,12 +320,12 @@ public class BsWhiteDbCommentCB extends AbstractConditionBean {
          * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDbCommentCode() { return doColumn("DB_COMMENT_CODE"); }
+        public SpecifiedColumn columnDbCommentCode() { return doColumn("DB_COMMENT_CODE"); }
         /**
          * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDbCommentName() { return doColumn("DB_COMMENT_NAME"); }
+        public SpecifiedColumn columnDbCommentName() { return doColumn("DB_COMMENT_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -369,7 +377,7 @@ public class BsWhiteDbCommentCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteDbCommentCB> columnQuery(final SpecifyQuery<WhiteDbCommentCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteDbCommentCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteDbCommentCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteDbCommentCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -487,8 +495,8 @@ public class BsWhiteDbCommentCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteDbCommentCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteDbCommentCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteDbCommentCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteDbCommentCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

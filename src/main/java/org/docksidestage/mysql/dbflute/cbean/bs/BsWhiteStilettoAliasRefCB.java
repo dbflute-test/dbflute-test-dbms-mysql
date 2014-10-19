@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
      */
     public WhiteStilettoAliasRefCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteStilettoAliasRefCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteStilettoAliasRefCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteStilettoAliasRefCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
         return new WhiteStilettoAliasRefCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -308,7 +316,7 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteStilettoAliasRefCQ>() {
                 public boolean has() { return true; }
-                public WhiteStilettoAliasRefCQ qy() { return getConditionQuery(); }
+                public WhiteStilettoAliasRefCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -332,62 +340,62 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
          * REF_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRefId() { return doColumn("REF_ID"); }
+        public SpecifiedColumn columnRefId() { return doColumn("REF_ID"); }
         /**
          * FOO0: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo0() { return doColumn("FOO0"); }
+        public SpecifiedColumn columnFoo0() { return doColumn("FOO0"); }
         /**
          * FOO_1: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo1() { return doColumn("FOO_1"); }
+        public SpecifiedColumn columnFoo1() { return doColumn("FOO_1"); }
         /**
          * FOO2: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo2() { return doColumn("FOO2"); }
+        public SpecifiedColumn columnFoo2() { return doColumn("FOO2"); }
         /**
          * FOO3: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo3() { return doColumn("FOO3"); }
+        public SpecifiedColumn columnFoo3() { return doColumn("FOO3"); }
         /**
          * FOO_4: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFoo4() { return doColumn("FOO_4"); }
+        public SpecifiedColumn columnFoo4() { return doColumn("FOO_4"); }
         /**
          * BAR_0: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnBar0() { return doColumn("BAR_0"); }
+        public SpecifiedColumn columnBar0() { return doColumn("BAR_0"); }
         /**
          * QUX_0: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnQux0() { return doColumn("QUX_0"); }
+        public SpecifiedColumn columnQux0() { return doColumn("QUX_0"); }
         /**
          * c21: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnC21() { return doColumn("c21"); }
+        public SpecifiedColumn columnC21() { return doColumn("c21"); }
         /**
          * c22: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnC22() { return doColumn("c22"); }
+        public SpecifiedColumn columnC22() { return doColumn("c22"); }
         /**
          * c23: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnC23() { return doColumn("c23"); }
+        public SpecifiedColumn columnC23() { return doColumn("c23"); }
         /**
          * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnStilettoAliasId() { return doColumn("STILETTO_ALIAS_ID"); }
+        public SpecifiedColumn columnStilettoAliasId() { return doColumn("STILETTO_ALIAS_ID"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -464,7 +472,7 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteStilettoAliasRefCB> columnQuery(final SpecifyQuery<WhiteStilettoAliasRefCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteStilettoAliasRefCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteStilettoAliasRefCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteStilettoAliasRefCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -582,8 +590,8 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteStilettoAliasRefCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteStilettoAliasRefCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteStilettoAliasRefCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteStilettoAliasRefCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

@@ -76,8 +76,8 @@ public class WhiteQuotedRefCIQ extends AbstractBsWhiteQuotedRefCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueWhere() { return _myCQ.getWhere(); }
-    protected ConditionValue getCValueOrder() { return _myCQ.getOrder(); }
+    protected ConditionValue xgetCValueWhere() { return _myCQ.xdfgetWhere(); }
+    protected ConditionValue xgetCValueOrder() { return _myCQ.xdfgetOrder(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteQuotedRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

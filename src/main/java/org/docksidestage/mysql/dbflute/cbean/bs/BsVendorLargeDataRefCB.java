@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      */
     public VendorLargeDataRefCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorLargeDataRefCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorLargeDataRefCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorLargeDataRefCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         return new VendorLargeDataRefCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -283,7 +291,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
     }
 
     protected VendorLargeDataRefNss _nssVendorLargeDataRefSelf;
-    public VendorLargeDataRefNss getNssVendorLargeDataRefSelf() {
+    public VendorLargeDataRefNss xdfgetNssVendorLargeDataRefSelf() {
         if (_nssVendorLargeDataRefSelf == null) { _nssVendorLargeDataRefSelf = new VendorLargeDataRefNss(null); }
         return _nssVendorLargeDataRefSelf;
     }
@@ -337,7 +345,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorLargeDataRefCQ>() {
                 public boolean has() { return true; }
-                public VendorLargeDataRefCQ qy() { return getConditionQuery(); }
+                public VendorLargeDataRefCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -362,47 +370,47 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
          * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnLargeDataRefId() { return doColumn("LARGE_DATA_REF_ID"); }
+        public SpecifiedColumn columnLargeDataRefId() { return doColumn("LARGE_DATA_REF_ID"); }
         /**
          * LARGE_DATA_ID: {IX, NotNull, BIGINT(19), FK to vendor_large_data}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnLargeDataId() { return doColumn("LARGE_DATA_ID"); }
+        public SpecifiedColumn columnLargeDataId() { return doColumn("LARGE_DATA_ID"); }
         /**
          * DATE_INDEX: {IX, NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDateIndex() { return doColumn("DATE_INDEX"); }
+        public SpecifiedColumn columnDateIndex() { return doColumn("DATE_INDEX"); }
         /**
          * DATE_NO_INDEX: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDateNoIndex() { return doColumn("DATE_NO_INDEX"); }
+        public SpecifiedColumn columnDateNoIndex() { return doColumn("DATE_NO_INDEX"); }
         /**
          * TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTimestampIndex() { return doColumn("TIMESTAMP_INDEX"); }
+        public SpecifiedColumn columnTimestampIndex() { return doColumn("TIMESTAMP_INDEX"); }
         /**
          * TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTimestampNoIndex() { return doColumn("TIMESTAMP_NO_INDEX"); }
+        public SpecifiedColumn columnTimestampNoIndex() { return doColumn("TIMESTAMP_NO_INDEX"); }
         /**
          * NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNullableDecimalIndex() { return doColumn("NULLABLE_DECIMAL_INDEX"); }
+        public SpecifiedColumn columnNullableDecimalIndex() { return doColumn("NULLABLE_DECIMAL_INDEX"); }
         /**
          * NULLABLE_DECIMAL_NO_INDEX: {DECIMAL(12, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNullableDecimalNoIndex() { return doColumn("NULLABLE_DECIMAL_NO_INDEX"); }
+        public SpecifiedColumn columnNullableDecimalNoIndex() { return doColumn("NULLABLE_DECIMAL_NO_INDEX"); }
         /**
          * SELF_PARENT_ID: {IX, BIGINT(19), FK to vendor_large_data_ref}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnSelfParentId() { return doColumn("SELF_PARENT_ID"); }
+        public SpecifiedColumn columnSelfParentId() { return doColumn("SELF_PARENT_ID"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -522,7 +530,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<VendorLargeDataRefCB> columnQuery(final SpecifyQuery<VendorLargeDataRefCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<VendorLargeDataRefCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorLargeDataRefCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorLargeDataRefCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -640,8 +648,8 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorLargeDataRefCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorLargeDataRefCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorLargeDataRefCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorLargeDataRefCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

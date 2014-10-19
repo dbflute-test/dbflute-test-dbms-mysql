@@ -89,10 +89,10 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _productId;
-    public ConditionValue getProductId()
+    public ConditionValue xdfgetProductId()
     { if (_productId == null) { _productId = nCV(); }
       return _productId; }
-    protected ConditionValue getCValueProductId() { return getProductId(); }
+    protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public BsNextSchemaProductCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
 
     protected ConditionValue _productName;
-    public ConditionValue getProductName()
+    public ConditionValue xdfgetProductName()
     { if (_productName == null) { _productName = nCV(); }
       return _productName; }
-    protected ConditionValue getCValueProductName() { return getProductName(); }
+    protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public BsNextSchemaProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
 
     protected ConditionValue _registerDatetime;
-    public ConditionValue getRegisterDatetime()
+    public ConditionValue xdfgetRegisterDatetime()
     { if (_registerDatetime == null) { _registerDatetime = nCV(); }
       return _registerDatetime; }
-    protected ConditionValue getCValueRegisterDatetime() { return getRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public BsNextSchemaProductCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
 
     protected ConditionValue _registerUser;
-    public ConditionValue getRegisterUser()
+    public ConditionValue xdfgetRegisterUser()
     { if (_registerUser == null) { _registerUser = nCV(); }
       return _registerUser; }
-    protected ConditionValue getCValueRegisterUser() { return getRegisterUser(); }
+    protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public BsNextSchemaProductCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
 
     protected ConditionValue _registerProcess;
-    public ConditionValue getRegisterProcess()
+    public ConditionValue xdfgetRegisterProcess()
     { if (_registerProcess == null) { _registerProcess = nCV(); }
       return _registerProcess; }
-    protected ConditionValue getCValueRegisterProcess() { return getRegisterProcess(); }
+    protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -189,10 +189,10 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public BsNextSchemaProductCQ addOrderBy_RegisterProcess_Desc() { regOBD("REGISTER_PROCESS"); return this; }
 
     protected ConditionValue _updateDatetime;
-    public ConditionValue getUpdateDatetime()
+    public ConditionValue xdfgetUpdateDatetime()
     { if (_updateDatetime == null) { _updateDatetime = nCV(); }
       return _updateDatetime; }
-    protected ConditionValue getCValueUpdateDatetime() { return getUpdateDatetime(); }
+    protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -209,10 +209,10 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public BsNextSchemaProductCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
 
     protected ConditionValue _updateUser;
-    public ConditionValue getUpdateUser()
+    public ConditionValue xdfgetUpdateUser()
     { if (_updateUser == null) { _updateUser = nCV(); }
       return _updateUser; }
-    protected ConditionValue getCValueUpdateUser() { return getUpdateUser(); }
+    protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -229,10 +229,10 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public BsNextSchemaProductCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
 
     protected ConditionValue _updateProcess;
-    public ConditionValue getUpdateProcess()
+    public ConditionValue xdfgetUpdateProcess()
     { if (_updateProcess == null) { _updateProcess = nCV(); }
       return _updateProcess; }
-    protected ConditionValue getCValueUpdateProcess() { return getUpdateProcess(); }
+    protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -299,31 +299,31 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, NextSchemaProductCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, NextSchemaProductCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(NextSchemaProductCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, NextSchemaProductCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, NextSchemaProductCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(NextSchemaProductCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, NextSchemaProductCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, NextSchemaProductCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(NextSchemaProductCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, NextSchemaProductCQ> _myselfExistsMap;
-    public Map<String, NextSchemaProductCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, NextSchemaProductCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(NextSchemaProductCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, NextSchemaProductCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, NextSchemaProductCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(NextSchemaProductCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -332,7 +332,7 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return NextSchemaProductCB.class.getName(); }
     protected String xCQ() { return NextSchemaProductCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

@@ -76,9 +76,8 @@ public class LoaderOfWhiteStilettoAliasRef {
     //                                                                    ================
     protected LoaderOfWhiteStilettoAlias _foreignWhiteStilettoAliasLoader;
     public LoaderOfWhiteStilettoAlias pulloutWhiteStilettoAlias() {
-        if (_foreignWhiteStilettoAliasLoader != null) { return _foreignWhiteStilettoAliasLoader; }
-        List<WhiteStilettoAlias> pulledList = myBhv().pulloutWhiteStilettoAlias(_selectedList);
-        _foreignWhiteStilettoAliasLoader = new LoaderOfWhiteStilettoAlias().ready(pulledList, _selector);
+        if (_foreignWhiteStilettoAliasLoader == null)
+        { _foreignWhiteStilettoAliasLoader = new LoaderOfWhiteStilettoAlias().ready(myBhv().pulloutWhiteStilettoAlias(_selectedList), _selector); }
         return _foreignWhiteStilettoAliasLoader;
     }
 

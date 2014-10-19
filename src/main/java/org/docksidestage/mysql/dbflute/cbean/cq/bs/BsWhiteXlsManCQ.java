@@ -89,10 +89,10 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _xlsManId;
-    public ConditionValue getXlsManId()
+    public ConditionValue xdfgetXlsManId()
     { if (_xlsManId == null) { _xlsManId = nCV(); }
       return _xlsManId; }
-    protected ConditionValue getCValueXlsManId() { return getXlsManId(); }
+    protected ConditionValue xgetCValueXlsManId() { return xdfgetXlsManId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     public BsWhiteXlsManCQ addOrderBy_XlsManId_Desc() { regOBD("XLS_MAN_ID"); return this; }
 
     protected ConditionValue _stringConverted;
-    public ConditionValue getStringConverted()
+    public ConditionValue xdfgetStringConverted()
     { if (_stringConverted == null) { _stringConverted = nCV(); }
       return _stringConverted; }
-    protected ConditionValue getCValueStringConverted() { return getStringConverted(); }
+    protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     public BsWhiteXlsManCQ addOrderBy_StringConverted_Desc() { regOBD("STRING_CONVERTED"); return this; }
 
     protected ConditionValue _timestampConverted;
-    public ConditionValue getTimestampConverted()
+    public ConditionValue xdfgetTimestampConverted()
     { if (_timestampConverted == null) { _timestampConverted = nCV(); }
       return _timestampConverted; }
-    protected ConditionValue getCValueTimestampConverted() { return getTimestampConverted(); }
+    protected ConditionValue xgetCValueTimestampConverted() { return xdfgetTimestampConverted(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -199,31 +199,31 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteXlsManCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteXlsManCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteXlsManCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteXlsManCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteXlsManCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteXlsManCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteXlsManCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteXlsManCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteXlsManCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteXlsManCQ> _myselfExistsMap;
-    public Map<String, WhiteXlsManCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteXlsManCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteXlsManCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteXlsManCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteXlsManCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteXlsManCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -232,7 +232,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteXlsManCB.class.getName(); }
     protected String xCQ() { return WhiteXlsManCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

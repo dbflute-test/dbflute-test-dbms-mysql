@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setCipherId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueCipherId(), "CIPHER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueCipherId(), "CIPHER_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     }
 
     protected void doSetCipherId_InScope(Collection<Long> cipherIdList) {
-        regINS(CK_INS, cTL(cipherIdList), getCValueCipherId(), "CIPHER_ID");
+        regINS(CK_INS, cTL(cipherIdList), xgetCValueCipherId(), "CIPHER_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     }
 
     protected void doSetCipherId_NotInScope(Collection<Long> cipherIdList) {
-        regINS(CK_NINS, cTL(cipherIdList), getCValueCipherId(), "CIPHER_ID");
+        regINS(CK_NINS, cTL(cipherIdList), xgetCValueCipherId(), "CIPHER_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      */
     public void setCipherId_IsNotNull() { regCipherId(CK_ISNN, DOBJ); }
 
-    protected void regCipherId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCipherId(), "CIPHER_ID"); }
-    protected abstract ConditionValue getCValueCipherId();
+    protected void regCipherId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCipherId(), "CIPHER_ID"); }
+    protected abstract ConditionValue xgetCValueCipherId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setCipherInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueCipherInteger(), "CIPHER_INTEGER", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueCipherInteger(), "CIPHER_INTEGER", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     }
 
     protected void doSetCipherInteger_InScope(Collection<Integer> cipherIntegerList) {
-        regINS(CK_INS, cTL(cipherIntegerList), getCValueCipherInteger(), "CIPHER_INTEGER");
+        regINS(CK_INS, cTL(cipherIntegerList), xgetCValueCipherInteger(), "CIPHER_INTEGER");
     }
 
     /**
@@ -275,7 +275,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     }
 
     protected void doSetCipherInteger_NotInScope(Collection<Integer> cipherIntegerList) {
-        regINS(CK_NINS, cTL(cipherIntegerList), getCValueCipherInteger(), "CIPHER_INTEGER");
+        regINS(CK_NINS, cTL(cipherIntegerList), xgetCValueCipherInteger(), "CIPHER_INTEGER");
     }
 
     /**
@@ -290,8 +290,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      */
     public void setCipherInteger_IsNotNull() { regCipherInteger(CK_ISNN, DOBJ); }
 
-    protected void regCipherInteger(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCipherInteger(), "CIPHER_INTEGER"); }
-    protected abstract ConditionValue getCValueCipherInteger();
+    protected void regCipherInteger(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCipherInteger(), "CIPHER_INTEGER"); }
+    protected abstract ConditionValue xgetCValueCipherInteger();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -329,7 +329,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     }
 
     protected void doSetCipherVarchar_InScope(Collection<String> cipherVarcharList) {
-        regINS(CK_INS, cTL(cipherVarcharList), getCValueCipherVarchar(), "CIPHER_VARCHAR");
+        regINS(CK_INS, cTL(cipherVarcharList), xgetCValueCipherVarchar(), "CIPHER_VARCHAR");
     }
 
     /**
@@ -342,7 +342,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     }
 
     protected void doSetCipherVarchar_NotInScope(Collection<String> cipherVarcharList) {
-        regINS(CK_NINS, cTL(cipherVarcharList), getCValueCipherVarchar(), "CIPHER_VARCHAR");
+        regINS(CK_NINS, cTL(cipherVarcharList), xgetCValueCipherVarchar(), "CIPHER_VARCHAR");
     }
 
     /**
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setCipherVarchar_LikeSearch(String cipherVarchar, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(cipherVarchar), getCValueCipherVarchar(), "CIPHER_VARCHAR", likeSearchOption);
+        regLSQ(CK_LS, fRES(cipherVarchar), xgetCValueCipherVarchar(), "CIPHER_VARCHAR", likeSearchOption);
     }
 
     /**
@@ -386,7 +386,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setCipherVarchar_NotLikeSearch(String cipherVarchar, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(cipherVarchar), getCValueCipherVarchar(), "CIPHER_VARCHAR", likeSearchOption);
+        regLSQ(CK_NLS, fRES(cipherVarchar), xgetCValueCipherVarchar(), "CIPHER_VARCHAR", likeSearchOption);
     }
 
     /**
@@ -416,8 +416,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      */
     public void setCipherVarchar_IsNotNull() { regCipherVarchar(CK_ISNN, DOBJ); }
 
-    protected void regCipherVarchar(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCipherVarchar(), "CIPHER_VARCHAR"); }
-    protected abstract ConditionValue getCValueCipherVarchar();
+    protected void regCipherVarchar(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCipherVarchar(), "CIPHER_VARCHAR"); }
+    protected abstract ConditionValue xgetCValueCipherVarchar();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -487,7 +487,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setCipherDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueCipherDate(), "CIPHER_DATE", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueCipherDate(), "CIPHER_DATE", fromToOption);
     }
 
     /**
@@ -517,8 +517,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      */
     public void setCipherDate_IsNotNull() { regCipherDate(CK_ISNN, DOBJ); }
 
-    protected void regCipherDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCipherDate(), "CIPHER_DATE"); }
-    protected abstract ConditionValue getCValueCipherDate();
+    protected void regCipherDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCipherDate(), "CIPHER_DATE"); }
+    protected abstract ConditionValue xgetCValueCipherDate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -588,7 +588,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setCipherDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueCipherDatetime(), "CIPHER_DATETIME", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueCipherDatetime(), "CIPHER_DATETIME", fromToOption);
     }
 
     /**
@@ -618,8 +618,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      */
     public void setCipherDatetime_IsNotNull() { regCipherDatetime(CK_ISNN, DOBJ); }
 
-    protected void regCipherDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCipherDatetime(), "CIPHER_DATETIME"); }
-    protected abstract ConditionValue getCValueCipherDatetime();
+    protected void regCipherDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCipherDatetime(), "CIPHER_DATETIME"); }
+    protected abstract ConditionValue xgetCValueCipherDatetime();
 
     // ===================================================================================
     //                                                                     ScalarCondition

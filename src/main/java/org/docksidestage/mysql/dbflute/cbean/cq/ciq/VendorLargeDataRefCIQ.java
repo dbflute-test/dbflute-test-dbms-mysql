@@ -76,7 +76,7 @@ public class VendorLargeDataRefCIQ extends AbstractBsVendorLargeDataRefCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueLargeDataRefId() { return _myCQ.getLargeDataRefId(); }
+    protected ConditionValue xgetCValueLargeDataRefId() { return _myCQ.xdfgetLargeDataRefId(); }
     public String keepLargeDataRefId_ExistsReferrer_VendorLargeDataRefSelfList(VendorLargeDataRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepLargeDataRefId_NotExistsReferrer_VendorLargeDataRefSelfList(VendorLargeDataRefCQ sq)
@@ -87,14 +87,14 @@ public class VendorLargeDataRefCIQ extends AbstractBsVendorLargeDataRefCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueLargeDataId() { return _myCQ.getLargeDataId(); }
-    protected ConditionValue getCValueDateIndex() { return _myCQ.getDateIndex(); }
-    protected ConditionValue getCValueDateNoIndex() { return _myCQ.getDateNoIndex(); }
-    protected ConditionValue getCValueTimestampIndex() { return _myCQ.getTimestampIndex(); }
-    protected ConditionValue getCValueTimestampNoIndex() { return _myCQ.getTimestampNoIndex(); }
-    protected ConditionValue getCValueNullableDecimalIndex() { return _myCQ.getNullableDecimalIndex(); }
-    protected ConditionValue getCValueNullableDecimalNoIndex() { return _myCQ.getNullableDecimalNoIndex(); }
-    protected ConditionValue getCValueSelfParentId() { return _myCQ.getSelfParentId(); }
+    protected ConditionValue xgetCValueLargeDataId() { return _myCQ.xdfgetLargeDataId(); }
+    protected ConditionValue xgetCValueDateIndex() { return _myCQ.xdfgetDateIndex(); }
+    protected ConditionValue xgetCValueDateNoIndex() { return _myCQ.xdfgetDateNoIndex(); }
+    protected ConditionValue xgetCValueTimestampIndex() { return _myCQ.xdfgetTimestampIndex(); }
+    protected ConditionValue xgetCValueTimestampNoIndex() { return _myCQ.xdfgetTimestampNoIndex(); }
+    protected ConditionValue xgetCValueNullableDecimalIndex() { return _myCQ.xdfgetNullableDecimalIndex(); }
+    protected ConditionValue xgetCValueNullableDecimalNoIndex() { return _myCQ.xdfgetNullableDecimalNoIndex(); }
+    protected ConditionValue xgetCValueSelfParentId() { return _myCQ.xdfgetSelfParentId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorLargeDataRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

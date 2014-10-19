@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteLineSepCommentCB extends AbstractConditionBean {
      */
     public WhiteLineSepCommentCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteLineSepCommentCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteLineSepCommentCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteLineSepCommentCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteLineSepCommentCB extends AbstractConditionBean {
         return new WhiteLineSepCommentCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -290,7 +298,7 @@ public class BsWhiteLineSepCommentCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteLineSepCommentCQ>() {
                 public boolean has() { return true; }
-                public WhiteLineSepCommentCQ qy() { return getConditionQuery(); }
+                public WhiteLineSepCommentCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -313,12 +321,12 @@ public class BsWhiteLineSepCommentCB extends AbstractConditionBean {
          * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnLineSepCommentCode() { return doColumn("LINE_SEP_COMMENT_CODE"); }
+        public SpecifiedColumn columnLineSepCommentCode() { return doColumn("LINE_SEP_COMMENT_CODE"); }
         /**
          * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnLineSepCommentName() { return doColumn("LINE_SEP_COMMENT_NAME"); }
+        public SpecifiedColumn columnLineSepCommentName() { return doColumn("LINE_SEP_COMMENT_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -370,7 +378,7 @@ public class BsWhiteLineSepCommentCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteLineSepCommentCB> columnQuery(final SpecifyQuery<WhiteLineSepCommentCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteLineSepCommentCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteLineSepCommentCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteLineSepCommentCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -488,8 +496,8 @@ public class BsWhiteLineSepCommentCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteLineSepCommentCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteLineSepCommentCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteLineSepCommentCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteLineSepCommentCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

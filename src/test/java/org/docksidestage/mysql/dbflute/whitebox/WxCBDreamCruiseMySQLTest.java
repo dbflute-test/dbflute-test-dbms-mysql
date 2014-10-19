@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.dbflute.cbean.chelper.HpSpecifiedColumn;
 import org.dbflute.cbean.coption.LikeSearchOption;
+import org.dbflute.cbean.dream.SpecifiedColumn;
 import org.dbflute.cbean.ordering.ManualOrderBean;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
@@ -86,12 +86,10 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             public void query(PurchaseCB subCB) {
                 subCB.query().queryProduct().notExistsPurchaseList(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
-                        HpSpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne()
+                        SpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne()
                                 .columnServicePointCount();
-                        subCB.columnQuery(new SpecifyQuery<PurchaseCB>() {
-                            public void specify(PurchaseCB cb) {
-                                cb.specify().columnMemberId();
-                            }
+                        subCB.columnQuery(colCB -> {
+                            colCB.specify().columnMemberId();
                         }).notEqual(new SpecifyQuery<PurchaseCB>() {
                             public void specify(PurchaseCB cb) {
                                 cb.overTheWaves(dreamCruiseCB.specify().columnMemberId());

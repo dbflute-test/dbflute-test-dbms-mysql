@@ -89,10 +89,10 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _uqClsId;
-    public ConditionValue getUqClsId()
+    public ConditionValue xdfgetUqClsId()
     { if (_uqClsId == null) { _uqClsId = nCV(); }
       return _uqClsId; }
-    protected ConditionValue getCValueUqClsId() { return getUqClsId(); }
+    protected ConditionValue xgetCValueUqClsId() { return xdfgetUqClsId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
     public BsWhiteUqClassificationCQ addOrderBy_UqClsId_Desc() { regOBD("UQ_CLS_ID"); return this; }
 
     protected ConditionValue _uqClsCode;
-    public ConditionValue getUqClsCode()
+    public ConditionValue xdfgetUqClsCode()
     { if (_uqClsCode == null) { _uqClsCode = nCV(); }
       return _uqClsCode; }
-    protected ConditionValue getCValueUqClsCode() { return getUqClsCode(); }
+    protected ConditionValue xgetCValueUqClsCode() { return xdfgetUqClsCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteUqClassificationCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteUqClassificationCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteUqClassificationCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteUqClassificationCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteUqClassificationCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteUqClassificationCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteUqClassificationCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteUqClassificationCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteUqClassificationCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteUqClassificationCQ> _myselfExistsMap;
-    public Map<String, WhiteUqClassificationCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteUqClassificationCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteUqClassificationCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteUqClassificationCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteUqClassificationCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteUqClassificationCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteUqClassificationCB.class.getName(); }
     protected String xCQ() { return WhiteUqClassificationCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

@@ -76,9 +76,9 @@ public class WhiteSplitMultipleFkRefCIQ extends AbstractBsWhiteSplitMultipleFkRe
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueFirstId() { return _myCQ.getFirstId(); }
-    protected ConditionValue getCValueSecondCode() { return _myCQ.getSecondCode(); }
-    protected ConditionValue getCValueRefName() { return _myCQ.getRefName(); }
+    protected ConditionValue xgetCValueFirstId() { return _myCQ.xdfgetFirstId(); }
+    protected ConditionValue xgetCValueSecondCode() { return _myCQ.xdfgetSecondCode(); }
+    protected ConditionValue xgetCValueRefName() { return _myCQ.xdfgetRefName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSplitMultipleFkRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

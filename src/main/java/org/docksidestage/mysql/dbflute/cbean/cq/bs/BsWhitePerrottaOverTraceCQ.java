@@ -89,10 +89,10 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _traceId;
-    public ConditionValue getTraceId()
+    public ConditionValue xdfgetTraceId()
     { if (_traceId == null) { _traceId = nCV(); }
       return _traceId; }
-    protected ConditionValue getCValueTraceId() { return getTraceId(); }
+    protected ConditionValue xgetCValueTraceId() { return xdfgetTraceId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     public BsWhitePerrottaOverTraceCQ addOrderBy_TraceId_Desc() { regOBD("TRACE_ID"); return this; }
 
     protected ConditionValue _previousProductId;
-    public ConditionValue getPreviousProductId()
+    public ConditionValue xdfgetPreviousProductId()
     { if (_previousProductId == null) { _previousProductId = nCV(); }
       return _previousProductId; }
-    protected ConditionValue getCValuePreviousProductId() { return getPreviousProductId(); }
+    protected ConditionValue xgetCValuePreviousProductId() { return xdfgetPreviousProductId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     public BsWhitePerrottaOverTraceCQ addOrderBy_PreviousProductId_Desc() { regOBD("PREVIOUS_PRODUCT_ID"); return this; }
 
     protected ConditionValue _nextProductId;
-    public ConditionValue getNextProductId()
+    public ConditionValue xdfgetNextProductId()
     { if (_nextProductId == null) { _nextProductId = nCV(); }
       return _nextProductId; }
-    protected ConditionValue getCValueNextProductId() { return getNextProductId(); }
+    protected ConditionValue xgetCValueNextProductId() { return xdfgetNextProductId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     public BsWhitePerrottaOverTraceCQ addOrderBy_NextProductId_Desc() { regOBD("NEXT_PRODUCT_ID"); return this; }
 
     protected ConditionValue _traceTypeCode;
-    public ConditionValue getTraceTypeCode()
+    public ConditionValue xdfgetTraceTypeCode()
     { if (_traceTypeCode == null) { _traceTypeCode = nCV(); }
       return _traceTypeCode; }
-    protected ConditionValue getCValueTraceTypeCode() { return getTraceTypeCode(); }
+    protected ConditionValue xgetCValueTraceTypeCode() { return xdfgetTraceTypeCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -226,9 +226,9 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverProductCQ queryWhitePerrottaOverProductByNextProductId() {
-        return getConditionQueryWhitePerrottaOverProductByNextProductId();
+        return xdfgetConditionQueryWhitePerrottaOverProductByNextProductId();
     }
-    public WhitePerrottaOverProductCQ getConditionQueryWhitePerrottaOverProductByNextProductId() {
+    public WhitePerrottaOverProductCQ xdfgetConditionQueryWhitePerrottaOverProductByNextProductId() {
         String prop = "whitePerrottaOverProductByNextProductId";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhitePerrottaOverProductByNextProductId()); xsetupOuterJoinWhitePerrottaOverProductByNextProductId(); }
         return xgetQueRlMap(prop);
@@ -246,9 +246,9 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverProductCQ queryWhitePerrottaOverProductByPreviousProductId() {
-        return getConditionQueryWhitePerrottaOverProductByPreviousProductId();
+        return xdfgetConditionQueryWhitePerrottaOverProductByPreviousProductId();
     }
-    public WhitePerrottaOverProductCQ getConditionQueryWhitePerrottaOverProductByPreviousProductId() {
+    public WhitePerrottaOverProductCQ xdfgetConditionQueryWhitePerrottaOverProductByPreviousProductId() {
         String prop = "whitePerrottaOverProductByPreviousProductId";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhitePerrottaOverProductByPreviousProductId()); xsetupOuterJoinWhitePerrottaOverProductByPreviousProductId(); }
         return xgetQueRlMap(prop);
@@ -267,31 +267,31 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhitePerrottaOverTraceCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhitePerrottaOverTraceCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhitePerrottaOverTraceCQ> _myselfExistsMap;
-    public Map<String, WhitePerrottaOverTraceCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhitePerrottaOverTraceCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -300,7 +300,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhitePerrottaOverTraceCB.class.getName(); }
     protected String xCQ() { return WhitePerrottaOverTraceCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

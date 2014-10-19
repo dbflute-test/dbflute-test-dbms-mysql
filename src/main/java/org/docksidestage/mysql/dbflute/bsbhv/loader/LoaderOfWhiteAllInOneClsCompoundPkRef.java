@@ -76,17 +76,15 @@ public class LoaderOfWhiteAllInOneClsCompoundPkRef {
     //                                                                    ================
     protected LoaderOfWhiteAllInOneClsElement _foreignWhiteAllInOneClsElementAsFooLoader;
     public LoaderOfWhiteAllInOneClsElement pulloutWhiteAllInOneClsElementAsFoo() {
-        if (_foreignWhiteAllInOneClsElementAsFooLoader != null) { return _foreignWhiteAllInOneClsElementAsFooLoader; }
-        List<WhiteAllInOneClsElement> pulledList = myBhv().pulloutWhiteAllInOneClsElementAsFoo(_selectedList);
-        _foreignWhiteAllInOneClsElementAsFooLoader = new LoaderOfWhiteAllInOneClsElement().ready(pulledList, _selector);
+        if (_foreignWhiteAllInOneClsElementAsFooLoader == null)
+        { _foreignWhiteAllInOneClsElementAsFooLoader = new LoaderOfWhiteAllInOneClsElement().ready(myBhv().pulloutWhiteAllInOneClsElementAsFoo(_selectedList), _selector); }
         return _foreignWhiteAllInOneClsElementAsFooLoader;
     }
 
     protected LoaderOfWhiteAllInOneClsElement _foreignWhiteAllInOneClsElementAsBarLoader;
     public LoaderOfWhiteAllInOneClsElement pulloutWhiteAllInOneClsElementAsBar() {
-        if (_foreignWhiteAllInOneClsElementAsBarLoader != null) { return _foreignWhiteAllInOneClsElementAsBarLoader; }
-        List<WhiteAllInOneClsElement> pulledList = myBhv().pulloutWhiteAllInOneClsElementAsBar(_selectedList);
-        _foreignWhiteAllInOneClsElementAsBarLoader = new LoaderOfWhiteAllInOneClsElement().ready(pulledList, _selector);
+        if (_foreignWhiteAllInOneClsElementAsBarLoader == null)
+        { _foreignWhiteAllInOneClsElementAsBarLoader = new LoaderOfWhiteAllInOneClsElement().ready(myBhv().pulloutWhiteAllInOneClsElementAsBar(_selectedList), _selector); }
         return _foreignWhiteAllInOneClsElementAsBarLoader;
     }
 

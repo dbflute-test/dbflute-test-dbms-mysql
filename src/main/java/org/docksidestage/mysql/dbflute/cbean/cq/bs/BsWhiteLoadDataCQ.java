@@ -89,10 +89,10 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _loadDataId;
-    public ConditionValue getLoadDataId()
+    public ConditionValue xdfgetLoadDataId()
     { if (_loadDataId == null) { _loadDataId = nCV(); }
       return _loadDataId; }
-    protected ConditionValue getCValueLoadDataId() { return getLoadDataId(); }
+    protected ConditionValue xgetCValueLoadDataId() { return xdfgetLoadDataId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
     public BsWhiteLoadDataCQ addOrderBy_LoadDataId_Desc() { regOBD("LOAD_DATA_ID"); return this; }
 
     protected ConditionValue _loadDataName;
-    public ConditionValue getLoadDataName()
+    public ConditionValue xdfgetLoadDataName()
     { if (_loadDataName == null) { _loadDataName = nCV(); }
       return _loadDataName; }
-    protected ConditionValue getCValueLoadDataName() { return getLoadDataName(); }
+    protected ConditionValue xgetCValueLoadDataName() { return xdfgetLoadDataName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteLoadDataCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteLoadDataCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteLoadDataCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteLoadDataCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteLoadDataCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteLoadDataCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteLoadDataCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteLoadDataCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteLoadDataCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteLoadDataCQ> _myselfExistsMap;
-    public Map<String, WhiteLoadDataCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteLoadDataCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteLoadDataCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteLoadDataCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteLoadDataCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteLoadDataCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteLoadDataCB.class.getName(); }
     protected String xCQ() { return WhiteLoadDataCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

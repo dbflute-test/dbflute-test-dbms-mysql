@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -203,10 +204,14 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
      */
     public WhiteOnlyOneToOneToCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteOnlyOneToOneToCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteOnlyOneToOneToCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteOnlyOneToOneToCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -227,8 +232,11 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
         return new WhiteOnlyOneToOneToCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -276,7 +284,7 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhiteOnlyOneToOneFromNss _nssWhiteOnlyOneToOneFrom;
-    public WhiteOnlyOneToOneFromNss getNssWhiteOnlyOneToOneFrom() {
+    public WhiteOnlyOneToOneFromNss xdfgetNssWhiteOnlyOneToOneFrom() {
         if (_nssWhiteOnlyOneToOneFrom == null) { _nssWhiteOnlyOneToOneFrom = new WhiteOnlyOneToOneFromNss(null); }
         return _nssWhiteOnlyOneToOneFrom;
     }
@@ -330,7 +338,7 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteOnlyOneToOneToCQ>() {
                 public boolean has() { return true; }
-                public WhiteOnlyOneToOneToCQ qy() { return getConditionQuery(); }
+                public WhiteOnlyOneToOneToCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -354,17 +362,17 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
          * TO_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnToId() { return doColumn("TO_ID"); }
+        public SpecifiedColumn columnToId() { return doColumn("TO_ID"); }
         /**
          * TO_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnToName() { return doColumn("TO_NAME"); }
+        public SpecifiedColumn columnToName() { return doColumn("TO_NAME"); }
         /**
          * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFromId() { return doColumn("FROM_ID"); }
+        public SpecifiedColumn columnFromId() { return doColumn("FROM_ID"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -441,7 +449,7 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteOnlyOneToOneToCB> columnQuery(final SpecifyQuery<WhiteOnlyOneToOneToCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteOnlyOneToOneToCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteOnlyOneToOneToCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteOnlyOneToOneToCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -559,8 +567,8 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteOnlyOneToOneToCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteOnlyOneToOneToCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteOnlyOneToOneToCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteOnlyOneToOneToCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

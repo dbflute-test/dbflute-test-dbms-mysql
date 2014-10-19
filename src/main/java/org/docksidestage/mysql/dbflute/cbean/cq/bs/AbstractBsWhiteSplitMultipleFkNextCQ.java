@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNextId(), "NEXT_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNextId(), "NEXT_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     }
 
     protected void doSetNextId_InScope(Collection<Long> nextIdList) {
-        regINS(CK_INS, cTL(nextIdList), getCValueNextId(), "NEXT_ID");
+        regINS(CK_INS, cTL(nextIdList), xgetCValueNextId(), "NEXT_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     }
 
     protected void doSetNextId_NotInScope(Collection<Long> nextIdList) {
-        regINS(CK_NINS, cTL(nextIdList), getCValueNextId(), "NEXT_ID");
+        regINS(CK_NINS, cTL(nextIdList), xgetCValueNextId(), "NEXT_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      */
     public void setNextId_IsNotNull() { regNextId(CK_ISNN, DOBJ); }
 
-    protected void regNextId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNextId(), "NEXT_ID"); }
-    protected abstract ConditionValue getCValueNextId();
+    protected void regNextId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNextId(), "NEXT_ID"); }
+    protected abstract ConditionValue xgetCValueNextId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     }
 
     protected void doSetSecondCode_InScope(Collection<String> secondCodeList) {
-        regINS(CK_INS, cTL(secondCodeList), getCValueSecondCode(), "SECOND_CODE");
+        regINS(CK_INS, cTL(secondCodeList), xgetCValueSecondCode(), "SECOND_CODE");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     }
 
     protected void doSetSecondCode_NotInScope(Collection<String> secondCodeList) {
-        regINS(CK_NINS, cTL(secondCodeList), getCValueSecondCode(), "SECOND_CODE");
+        regINS(CK_NINS, cTL(secondCodeList), xgetCValueSecondCode(), "SECOND_CODE");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSecondCode_LikeSearch(String secondCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(secondCode), getCValueSecondCode(), "SECOND_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(secondCode), xgetCValueSecondCode(), "SECOND_CODE", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSecondCode_NotLikeSearch(String secondCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(secondCode), getCValueSecondCode(), "SECOND_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(secondCode), xgetCValueSecondCode(), "SECOND_CODE", likeSearchOption);
     }
 
     /**
@@ -365,8 +365,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
         setSecondCode_LikeSearch(secondCode, xcLSOPPre());
     }
 
-    protected void regSecondCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSecondCode(), "SECOND_CODE"); }
-    protected abstract ConditionValue getCValueSecondCode();
+    protected void regSecondCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSecondCode(), "SECOND_CODE"); }
+    protected abstract ConditionValue xgetCValueSecondCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

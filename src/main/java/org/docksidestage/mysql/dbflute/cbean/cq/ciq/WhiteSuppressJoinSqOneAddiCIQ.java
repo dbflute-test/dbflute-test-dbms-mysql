@@ -76,8 +76,8 @@ public class WhiteSuppressJoinSqOneAddiCIQ extends AbstractBsWhiteSuppressJoinSq
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueOneAddiId() { return _myCQ.getOneAddiId(); }
-    protected ConditionValue getCValueOneAddiName() { return _myCQ.getOneAddiName(); }
+    protected ConditionValue xgetCValueOneAddiId() { return _myCQ.xdfgetOneAddiId(); }
+    protected ConditionValue xgetCValueOneAddiName() { return _myCQ.xdfgetOneAddiName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSuppressJoinSqOneAddiCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

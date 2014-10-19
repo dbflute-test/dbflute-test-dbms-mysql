@@ -97,7 +97,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     protected void doSetDbCommentCode_InScope(Collection<String> dbCommentCodeList) {
-        regINS(CK_INS, cTL(dbCommentCodeList), getCValueDbCommentCode(), "DB_COMMENT_CODE");
+        regINS(CK_INS, cTL(dbCommentCodeList), xgetCValueDbCommentCode(), "DB_COMMENT_CODE");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     protected void doSetDbCommentCode_NotInScope(Collection<String> dbCommentCodeList) {
-        regINS(CK_NINS, cTL(dbCommentCodeList), getCValueDbCommentCode(), "DB_COMMENT_CODE");
+        regINS(CK_NINS, cTL(dbCommentCodeList), xgetCValueDbCommentCode(), "DB_COMMENT_CODE");
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDbCommentCode_LikeSearch(String dbCommentCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(dbCommentCode), getCValueDbCommentCode(), "DB_COMMENT_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(dbCommentCode), xgetCValueDbCommentCode(), "DB_COMMENT_CODE", likeSearchOption);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDbCommentCode_NotLikeSearch(String dbCommentCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(dbCommentCode), getCValueDbCommentCode(), "DB_COMMENT_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(dbCommentCode), xgetCValueDbCommentCode(), "DB_COMMENT_CODE", likeSearchOption);
     }
 
     /**
@@ -178,8 +178,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      */
     public void setDbCommentCode_IsNotNull() { regDbCommentCode(CK_ISNN, DOBJ); }
 
-    protected void regDbCommentCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDbCommentCode(), "DB_COMMENT_CODE"); }
-    protected abstract ConditionValue getCValueDbCommentCode();
+    protected void regDbCommentCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDbCommentCode(), "DB_COMMENT_CODE"); }
+    protected abstract ConditionValue xgetCValueDbCommentCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     protected void doSetDbCommentName_InScope(Collection<String> dbCommentNameList) {
-        regINS(CK_INS, cTL(dbCommentNameList), getCValueDbCommentName(), "DB_COMMENT_NAME");
+        regINS(CK_INS, cTL(dbCommentNameList), xgetCValueDbCommentName(), "DB_COMMENT_NAME");
     }
 
     /**
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     protected void doSetDbCommentName_NotInScope(Collection<String> dbCommentNameList) {
-        regINS(CK_NINS, cTL(dbCommentNameList), getCValueDbCommentName(), "DB_COMMENT_NAME");
+        regINS(CK_NINS, cTL(dbCommentNameList), xgetCValueDbCommentName(), "DB_COMMENT_NAME");
     }
 
     /**
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDbCommentName_LikeSearch(String dbCommentName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(dbCommentName), getCValueDbCommentName(), "DB_COMMENT_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(dbCommentName), xgetCValueDbCommentName(), "DB_COMMENT_NAME", likeSearchOption);
     }
 
     /**
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDbCommentName_NotLikeSearch(String dbCommentName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(dbCommentName), getCValueDbCommentName(), "DB_COMMENT_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(dbCommentName), xgetCValueDbCommentName(), "DB_COMMENT_NAME", likeSearchOption);
     }
 
     /**
@@ -304,8 +304,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      */
     public void setDbCommentName_IsNotNull() { regDbCommentName(CK_ISNN, DOBJ); }
 
-    protected void regDbCommentName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDbCommentName(), "DB_COMMENT_NAME"); }
-    protected abstract ConditionValue getCValueDbCommentName();
+    protected void regDbCommentName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDbCommentName(), "DB_COMMENT_NAME"); }
+    protected abstract ConditionValue xgetCValueDbCommentName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

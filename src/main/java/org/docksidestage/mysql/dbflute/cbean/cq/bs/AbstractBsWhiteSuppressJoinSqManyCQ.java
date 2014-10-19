@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setManyId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueManyId(), "MANY_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueManyId(), "MANY_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     protected void doSetManyId_InScope(Collection<Integer> manyIdList) {
-        regINS(CK_INS, cTL(manyIdList), getCValueManyId(), "MANY_ID");
+        regINS(CK_INS, cTL(manyIdList), xgetCValueManyId(), "MANY_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     protected void doSetManyId_NotInScope(Collection<Integer> manyIdList) {
-        regINS(CK_NINS, cTL(manyIdList), getCValueManyId(), "MANY_ID");
+        regINS(CK_NINS, cTL(manyIdList), xgetCValueManyId(), "MANY_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
      */
     public void setManyId_IsNotNull() { regManyId(CK_ISNN, DOBJ); }
 
-    protected void regManyId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueManyId(), "MANY_ID"); }
-    protected abstract ConditionValue getCValueManyId();
+    protected void regManyId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyId(), "MANY_ID"); }
+    protected abstract ConditionValue xgetCValueManyId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     protected void doSetManyName_InScope(Collection<String> manyNameList) {
-        regINS(CK_INS, cTL(manyNameList), getCValueManyName(), "MANY_NAME");
+        regINS(CK_INS, cTL(manyNameList), xgetCValueManyName(), "MANY_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     protected void doSetManyName_NotInScope(Collection<String> manyNameList) {
-        regINS(CK_NINS, cTL(manyNameList), getCValueManyName(), "MANY_NAME");
+        regINS(CK_NINS, cTL(manyNameList), xgetCValueManyName(), "MANY_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setManyName_LikeSearch(String manyName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(manyName), getCValueManyName(), "MANY_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(manyName), xgetCValueManyName(), "MANY_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setManyName_NotLikeSearch(String manyName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(manyName), getCValueManyName(), "MANY_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(manyName), xgetCValueManyName(), "MANY_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
         setManyName_LikeSearch(manyName, xcLSOPPre());
     }
 
-    protected void regManyName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueManyName(), "MANY_NAME"); }
-    protected abstract ConditionValue getCValueManyName();
+    protected void regManyName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyName(), "MANY_NAME"); }
+    protected abstract ConditionValue xgetCValueManyName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSuppressJoinSqId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID", rangeOfOption);
     }
 
     /**
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     protected void doSetSuppressJoinSqId_InScope(Collection<Integer> suppressJoinSqIdList) {
-        regINS(CK_INS, cTL(suppressJoinSqIdList), getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
+        regINS(CK_INS, cTL(suppressJoinSqIdList), xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
     }
 
     /**
@@ -383,11 +383,11 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     protected void doSetSuppressJoinSqId_NotInScope(Collection<Integer> suppressJoinSqIdList) {
-        regINS(CK_NINS, cTL(suppressJoinSqIdList), getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
+        regINS(CK_NINS, cTL(suppressJoinSqIdList), xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
     }
 
-    protected void regSuppressJoinSqId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID"); }
-    protected abstract ConditionValue getCValueSuppressJoinSqId();
+    protected void regSuppressJoinSqId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID"); }
+    protected abstract ConditionValue xgetCValueSuppressJoinSqId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -461,7 +461,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setManyOneId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueManyOneId(), "MANY_ONE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueManyOneId(), "MANY_ONE_ID", rangeOfOption);
     }
 
     /**
@@ -474,7 +474,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     protected void doSetManyOneId_InScope(Collection<Integer> manyOneIdList) {
-        regINS(CK_INS, cTL(manyOneIdList), getCValueManyOneId(), "MANY_ONE_ID");
+        regINS(CK_INS, cTL(manyOneIdList), xgetCValueManyOneId(), "MANY_ONE_ID");
     }
 
     /**
@@ -487,11 +487,11 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     protected void doSetManyOneId_NotInScope(Collection<Integer> manyOneIdList) {
-        regINS(CK_NINS, cTL(manyOneIdList), getCValueManyOneId(), "MANY_ONE_ID");
+        regINS(CK_NINS, cTL(manyOneIdList), xgetCValueManyOneId(), "MANY_ONE_ID");
     }
 
-    protected void regManyOneId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueManyOneId(), "MANY_ONE_ID"); }
-    protected abstract ConditionValue getCValueManyOneId();
+    protected void regManyOneId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyOneId(), "MANY_ONE_ID"); }
+    protected abstract ConditionValue xgetCValueManyOneId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setUqFkRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueUqFkRefId(), "UQ_FK_REF_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueUqFkRefId(), "UQ_FK_REF_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
     }
 
     protected void doSetUqFkRefId_InScope(Collection<Long> uqFkRefIdList) {
-        regINS(CK_INS, cTL(uqFkRefIdList), getCValueUqFkRefId(), "UQ_FK_REF_ID");
+        regINS(CK_INS, cTL(uqFkRefIdList), xgetCValueUqFkRefId(), "UQ_FK_REF_ID");
     }
 
     /**
@@ -159,11 +159,11 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
     }
 
     protected void doSetUqFkRefId_NotInScope(Collection<Long> uqFkRefIdList) {
-        regINS(CK_NINS, cTL(uqFkRefIdList), getCValueUqFkRefId(), "UQ_FK_REF_ID");
+        regINS(CK_NINS, cTL(uqFkRefIdList), xgetCValueUqFkRefId(), "UQ_FK_REF_ID");
     }
 
-    protected void regUqFkRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUqFkRefId(), "UQ_FK_REF_ID"); }
-    protected abstract ConditionValue getCValueUqFkRefId();
+    protected void regUqFkRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUqFkRefId(), "UQ_FK_REF_ID"); }
+    protected abstract ConditionValue xgetCValueUqFkRefId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -201,7 +201,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
     }
 
     protected void doSetFkToUqCode_InScope(Collection<String> fkToUqCodeList) {
-        regINS(CK_INS, cTL(fkToUqCodeList), getCValueFkToUqCode(), "FK_TO_UQ_CODE");
+        regINS(CK_INS, cTL(fkToUqCodeList), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE");
     }
 
     /**
@@ -214,7 +214,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
     }
 
     protected void doSetFkToUqCode_NotInScope(Collection<String> fkToUqCodeList) {
-        regINS(CK_NINS, cTL(fkToUqCodeList), getCValueFkToUqCode(), "FK_TO_UQ_CODE");
+        regINS(CK_NINS, cTL(fkToUqCodeList), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE");
     }
 
     /**
@@ -236,7 +236,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFkToUqCode_LikeSearch(String fkToUqCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(fkToUqCode), getCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(fkToUqCode), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
     }
 
     /**
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFkToUqCode_NotLikeSearch(String fkToUqCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(fkToUqCode), getCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(fkToUqCode), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
     }
 
     /**
@@ -270,8 +270,8 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
         setFkToUqCode_LikeSearch(fkToUqCode, xcLSOPPre());
     }
 
-    protected void regFkToUqCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFkToUqCode(), "FK_TO_UQ_CODE"); }
-    protected abstract ConditionValue getCValueFkToUqCode();
+    protected void regFkToUqCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFkToUqCode(), "FK_TO_UQ_CODE"); }
+    protected abstract ConditionValue xgetCValueFkToUqCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

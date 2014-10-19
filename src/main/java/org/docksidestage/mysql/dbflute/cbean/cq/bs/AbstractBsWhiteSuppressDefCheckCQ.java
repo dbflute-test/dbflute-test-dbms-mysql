@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDefCheckId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueDefCheckId(), "DEF_CHECK_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueDefCheckId(), "DEF_CHECK_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     }
 
     protected void doSetDefCheckId_InScope(Collection<Long> defCheckIdList) {
-        regINS(CK_INS, cTL(defCheckIdList), getCValueDefCheckId(), "DEF_CHECK_ID");
+        regINS(CK_INS, cTL(defCheckIdList), xgetCValueDefCheckId(), "DEF_CHECK_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     }
 
     protected void doSetDefCheckId_NotInScope(Collection<Long> defCheckIdList) {
-        regINS(CK_NINS, cTL(defCheckIdList), getCValueDefCheckId(), "DEF_CHECK_ID");
+        regINS(CK_NINS, cTL(defCheckIdList), xgetCValueDefCheckId(), "DEF_CHECK_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      */
     public void setDefCheckId_IsNotNull() { regDefCheckId(CK_ISNN, DOBJ); }
 
-    protected void regDefCheckId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDefCheckId(), "DEF_CHECK_ID"); }
-    protected abstract ConditionValue getCValueDefCheckId();
+    protected void regDefCheckId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDefCheckId(), "DEF_CHECK_ID"); }
+    protected abstract ConditionValue xgetCValueDefCheckId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     }
 
     protected void doSetDefCheckName_InScope(Collection<String> defCheckNameList) {
-        regINS(CK_INS, cTL(defCheckNameList), getCValueDefCheckName(), "DEF_CHECK_NAME");
+        regINS(CK_INS, cTL(defCheckNameList), xgetCValueDefCheckName(), "DEF_CHECK_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     }
 
     protected void doSetDefCheckName_NotInScope(Collection<String> defCheckNameList) {
-        regINS(CK_NINS, cTL(defCheckNameList), getCValueDefCheckName(), "DEF_CHECK_NAME");
+        regINS(CK_NINS, cTL(defCheckNameList), xgetCValueDefCheckName(), "DEF_CHECK_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDefCheckName_LikeSearch(String defCheckName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(defCheckName), getCValueDefCheckName(), "DEF_CHECK_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(defCheckName), xgetCValueDefCheckName(), "DEF_CHECK_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDefCheckName_NotLikeSearch(String defCheckName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(defCheckName), getCValueDefCheckName(), "DEF_CHECK_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(defCheckName), xgetCValueDefCheckName(), "DEF_CHECK_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
         setDefCheckName_LikeSearch(defCheckName, xcLSOPPre());
     }
 
-    protected void regDefCheckName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDefCheckName(), "DEF_CHECK_NAME"); }
-    protected abstract ConditionValue getCValueDefCheckName();
+    protected void regDefCheckName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDefCheckName(), "DEF_CHECK_NAME"); }
+    protected abstract ConditionValue xgetCValueDefCheckName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

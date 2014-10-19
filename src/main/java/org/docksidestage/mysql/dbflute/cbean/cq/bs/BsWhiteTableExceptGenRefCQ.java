@@ -89,10 +89,10 @@ public class BsWhiteTableExceptGenRefCQ extends AbstractBsWhiteTableExceptGenRef
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _genRefId;
-    public ConditionValue getGenRefId()
+    public ConditionValue xdfgetGenRefId()
     { if (_genRefId == null) { _genRefId = nCV(); }
       return _genRefId; }
-    protected ConditionValue getCValueGenRefId() { return getGenRefId(); }
+    protected ConditionValue xgetCValueGenRefId() { return xdfgetGenRefId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteTableExceptGenRefCQ extends AbstractBsWhiteTableExceptGenRef
     public BsWhiteTableExceptGenRefCQ addOrderBy_GenRefId_Desc() { regOBD("GEN_REF_ID"); return this; }
 
     protected ConditionValue _genRefName;
-    public ConditionValue getGenRefName()
+    public ConditionValue xdfgetGenRefName()
     { if (_genRefName == null) { _genRefName = nCV(); }
       return _genRefName; }
-    protected ConditionValue getCValueGenRefName() { return getGenRefName(); }
+    protected ConditionValue xgetCValueGenRefName() { return xdfgetGenRefName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteTableExceptGenRefCQ extends AbstractBsWhiteTableExceptGenRef
     public BsWhiteTableExceptGenRefCQ addOrderBy_GenRefName_Desc() { regOBD("GEN_REF_NAME"); return this; }
 
     protected ConditionValue _genOnlyId;
-    public ConditionValue getGenOnlyId()
+    public ConditionValue xdfgetGenOnlyId()
     { if (_genOnlyId == null) { _genOnlyId = nCV(); }
       return _genOnlyId; }
-    protected ConditionValue getCValueGenOnlyId() { return getGenOnlyId(); }
+    protected ConditionValue xgetCValueGenOnlyId() { return xdfgetGenOnlyId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -199,31 +199,31 @@ public class BsWhiteTableExceptGenRefCQ extends AbstractBsWhiteTableExceptGenRef
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteTableExceptGenRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteTableExceptGenRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteTableExceptGenRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteTableExceptGenRefCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteTableExceptGenRefCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteTableExceptGenRefCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteTableExceptGenRefCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteTableExceptGenRefCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteTableExceptGenRefCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteTableExceptGenRefCQ> _myselfExistsMap;
-    public Map<String, WhiteTableExceptGenRefCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteTableExceptGenRefCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteTableExceptGenRefCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteTableExceptGenRefCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteTableExceptGenRefCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteTableExceptGenRefCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -232,7 +232,7 @@ public class BsWhiteTableExceptGenRefCQ extends AbstractBsWhiteTableExceptGenRef
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteTableExceptGenRefCB.class.getName(); }
     protected String xCQ() { return WhiteTableExceptGenRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

@@ -78,14 +78,8 @@ public class LoaderOfWhiteSuppressJoinSqManyOneOne {
     //                                                                       =============
     protected List<WhiteSuppressJoinSqManyOne> _referrerWhiteSuppressJoinSqManyOneList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqManyOne> loadWhiteSuppressJoinSqManyOneList(ConditionBeanSetupper<WhiteSuppressJoinSqManyOneCB> refCBLambda) {
-        myBhv().loadWhiteSuppressJoinSqManyOneList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteSuppressJoinSqManyOne>() {
-            public void handle(List<WhiteSuppressJoinSqManyOne> referrerList) { _referrerWhiteSuppressJoinSqManyOneList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqManyOne>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteSuppressJoinSqManyOne> handler) {
-                handler.handle(new LoaderOfWhiteSuppressJoinSqManyOne().ready(_referrerWhiteSuppressJoinSqManyOneList, _selector));
-            }
-        };
+        myBhv().loadWhiteSuppressJoinSqManyOneList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqManyOneList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqManyOne().ready(_referrerWhiteSuppressJoinSqManyOneList, _selector));
     }
 
     // ===================================================================================

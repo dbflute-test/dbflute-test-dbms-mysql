@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteColumnExceptCB extends AbstractConditionBean {
      */
     public WhiteColumnExceptCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteColumnExceptCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteColumnExceptCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteColumnExceptCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteColumnExceptCB extends AbstractConditionBean {
         return new WhiteColumnExceptCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteColumnExceptCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteColumnExceptCQ>() {
                 public boolean has() { return true; }
-                public WhiteColumnExceptCQ qy() { return getConditionQuery(); }
+                public WhiteColumnExceptCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,12 +320,12 @@ public class BsWhiteColumnExceptCB extends AbstractConditionBean {
          * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnExceptColumnId() { return doColumn("EXCEPT_COLUMN_ID"); }
+        public SpecifiedColumn columnExceptColumnId() { return doColumn("EXCEPT_COLUMN_ID"); }
         /**
          * COLUMN_EXCEPT_TEST: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnColumnExceptTest() { return doColumn("COLUMN_EXCEPT_TEST"); }
+        public SpecifiedColumn columnColumnExceptTest() { return doColumn("COLUMN_EXCEPT_TEST"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -369,7 +377,7 @@ public class BsWhiteColumnExceptCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteColumnExceptCB> columnQuery(final SpecifyQuery<WhiteColumnExceptCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteColumnExceptCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteColumnExceptCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteColumnExceptCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -487,8 +495,8 @@ public class BsWhiteColumnExceptCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteColumnExceptCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteColumnExceptCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteColumnExceptCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteColumnExceptCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

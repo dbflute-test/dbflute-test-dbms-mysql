@@ -89,10 +89,10 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _defCheckId;
-    public ConditionValue getDefCheckId()
+    public ConditionValue xdfgetDefCheckId()
     { if (_defCheckId == null) { _defCheckId = nCV(); }
       return _defCheckId; }
-    protected ConditionValue getCValueDefCheckId() { return getDefCheckId(); }
+    protected ConditionValue xgetCValueDefCheckId() { return xdfgetDefCheckId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
     public BsWhiteSuppressDefCheckCQ addOrderBy_DefCheckId_Desc() { regOBD("DEF_CHECK_ID"); return this; }
 
     protected ConditionValue _defCheckName;
-    public ConditionValue getDefCheckName()
+    public ConditionValue xdfgetDefCheckName()
     { if (_defCheckName == null) { _defCheckName = nCV(); }
       return _defCheckName; }
-    protected ConditionValue getCValueDefCheckName() { return getDefCheckName(); }
+    protected ConditionValue xgetCValueDefCheckName() { return xdfgetDefCheckName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteSuppressDefCheckCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteSuppressDefCheckCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteSuppressDefCheckCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteSuppressDefCheckCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteSuppressDefCheckCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteSuppressDefCheckCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteSuppressDefCheckCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteSuppressDefCheckCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteSuppressDefCheckCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteSuppressDefCheckCQ> _myselfExistsMap;
-    public Map<String, WhiteSuppressDefCheckCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteSuppressDefCheckCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteSuppressDefCheckCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteSuppressDefCheckCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteSuppressDefCheckCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteSuppressDefCheckCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteSuppressDefCheckCB.class.getName(); }
     protected String xCQ() { return WhiteSuppressDefCheckCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

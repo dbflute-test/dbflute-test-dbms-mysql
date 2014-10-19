@@ -78,14 +78,8 @@ public class LoaderOfWhitePerrottaOverProductNested {
     //                                                                       =============
     protected List<WhitePerrottaOverProduct> _referrerWhitePerrottaOverProductList;
     public NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverProduct> loadWhitePerrottaOverProductList(ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
-        myBhv().loadWhitePerrottaOverProductList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhitePerrottaOverProduct>() {
-            public void handle(List<WhitePerrottaOverProduct> referrerList) { _referrerWhitePerrottaOverProductList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverProduct>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhitePerrottaOverProduct> handler) {
-                handler.handle(new LoaderOfWhitePerrottaOverProduct().ready(_referrerWhitePerrottaOverProductList, _selector));
-            }
-        };
+        myBhv().loadWhitePerrottaOverProductList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePerrottaOverProductList = refLs);
+        return hd -> hd.handle(new LoaderOfWhitePerrottaOverProduct().ready(_referrerWhitePerrottaOverProductList, _selector));
     }
 
     // ===================================================================================

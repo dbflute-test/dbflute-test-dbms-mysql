@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteIncludeQueryCB extends AbstractConditionBean {
      */
     public WhiteIncludeQueryCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteIncludeQueryCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteIncludeQueryCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteIncludeQueryCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteIncludeQueryCB extends AbstractConditionBean {
         return new WhiteIncludeQueryCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteIncludeQueryCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteIncludeQueryCQ>() {
                 public boolean has() { return true; }
-                public WhiteIncludeQueryCQ qy() { return getConditionQuery(); }
+                public WhiteIncludeQueryCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,27 +320,27 @@ public class BsWhiteIncludeQueryCB extends AbstractConditionBean {
          * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnIncludeQueryId() { return doColumn("INCLUDE_QUERY_ID"); }
+        public SpecifiedColumn columnIncludeQueryId() { return doColumn("INCLUDE_QUERY_ID"); }
         /**
          * INCLUDE_QUERY_VARCHAR: {VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnIncludeQueryVarchar() { return doColumn("INCLUDE_QUERY_VARCHAR"); }
+        public SpecifiedColumn columnIncludeQueryVarchar() { return doColumn("INCLUDE_QUERY_VARCHAR"); }
         /**
          * INCLUDE_QUERY_INTEGER: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnIncludeQueryInteger() { return doColumn("INCLUDE_QUERY_INTEGER"); }
+        public SpecifiedColumn columnIncludeQueryInteger() { return doColumn("INCLUDE_QUERY_INTEGER"); }
         /**
          * INCLUDE_QUERY_DATE: {DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnIncludeQueryDate() { return doColumn("INCLUDE_QUERY_DATE"); }
+        public SpecifiedColumn columnIncludeQueryDate() { return doColumn("INCLUDE_QUERY_DATE"); }
         /**
          * INCLUDE_QUERY_DATETIME: {DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnIncludeQueryDatetime() { return doColumn("INCLUDE_QUERY_DATETIME"); }
+        public SpecifiedColumn columnIncludeQueryDatetime() { return doColumn("INCLUDE_QUERY_DATETIME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -384,7 +392,7 @@ public class BsWhiteIncludeQueryCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteIncludeQueryCB> columnQuery(final SpecifyQuery<WhiteIncludeQueryCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteIncludeQueryCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteIncludeQueryCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteIncludeQueryCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -502,8 +510,8 @@ public class BsWhiteIncludeQueryCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteIncludeQueryCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteIncludeQueryCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteIncludeQueryCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteIncludeQueryCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

@@ -76,10 +76,10 @@ public class WhiteCompoundPkCIQ extends AbstractBsWhiteCompoundPkCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValuePkFirstId() { return _myCQ.getPkFirstId(); }
-    protected ConditionValue getCValuePkSecondId() { return _myCQ.getPkSecondId(); }
-    protected ConditionValue getCValuePkName() { return _myCQ.getPkName(); }
-    protected ConditionValue getCValueReferredId() { return _myCQ.getReferredId(); }
+    protected ConditionValue xgetCValuePkFirstId() { return _myCQ.xdfgetPkFirstId(); }
+    protected ConditionValue xgetCValuePkSecondId() { return _myCQ.xdfgetPkSecondId(); }
+    protected ConditionValue xgetCValuePkName() { return _myCQ.xdfgetPkName(); }
+    protected ConditionValue xgetCValueReferredId() { return _myCQ.xdfgetReferredId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteCompoundPkCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReversefkSuppressedId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueReversefkSuppressedId(), "REVERSEFK_SUPPRESSED_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueReversefkSuppressedId(), "REVERSEFK_SUPPRESSED_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     }
 
     protected void doSetReversefkSuppressedId_InScope(Collection<Long> reversefkSuppressedIdList) {
-        regINS(CK_INS, cTL(reversefkSuppressedIdList), getCValueReversefkSuppressedId(), "REVERSEFK_SUPPRESSED_ID");
+        regINS(CK_INS, cTL(reversefkSuppressedIdList), xgetCValueReversefkSuppressedId(), "REVERSEFK_SUPPRESSED_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     }
 
     protected void doSetReversefkSuppressedId_NotInScope(Collection<Long> reversefkSuppressedIdList) {
-        regINS(CK_NINS, cTL(reversefkSuppressedIdList), getCValueReversefkSuppressedId(), "REVERSEFK_SUPPRESSED_ID");
+        regINS(CK_NINS, cTL(reversefkSuppressedIdList), xgetCValueReversefkSuppressedId(), "REVERSEFK_SUPPRESSED_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      */
     public void setReversefkSuppressedId_IsNotNull() { regReversefkSuppressedId(CK_ISNN, DOBJ); }
 
-    protected void regReversefkSuppressedId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueReversefkSuppressedId(), "REVERSEFK_SUPPRESSED_ID"); }
-    protected abstract ConditionValue getCValueReversefkSuppressedId();
+    protected void regReversefkSuppressedId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReversefkSuppressedId(), "REVERSEFK_SUPPRESSED_ID"); }
+    protected abstract ConditionValue xgetCValueReversefkSuppressedId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     }
 
     protected void doSetMasterTypeCode_InScope(Collection<String> masterTypeCodeList) {
-        regINS(CK_INS, cTL(masterTypeCodeList), getCValueMasterTypeCode(), "MASTER_TYPE_CODE");
+        regINS(CK_INS, cTL(masterTypeCodeList), xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     }
 
     protected void doSetMasterTypeCode_NotInScope(Collection<String> masterTypeCodeList) {
-        regINS(CK_NINS, cTL(masterTypeCodeList), getCValueMasterTypeCode(), "MASTER_TYPE_CODE");
+        regINS(CK_NINS, cTL(masterTypeCodeList), xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterTypeCode_LikeSearch(String masterTypeCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(masterTypeCode), getCValueMasterTypeCode(), "MASTER_TYPE_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(masterTypeCode), xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterTypeCode_NotLikeSearch(String masterTypeCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(masterTypeCode), getCValueMasterTypeCode(), "MASTER_TYPE_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(masterTypeCode), xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
         setMasterTypeCode_LikeSearch(masterTypeCode, xcLSOPPre());
     }
 
-    protected void regMasterTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMasterTypeCode(), "MASTER_TYPE_CODE"); }
-    protected abstract ConditionValue getCValueMasterTypeCode();
+    protected void regMasterTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE"); }
+    protected abstract ConditionValue xgetCValueMasterTypeCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

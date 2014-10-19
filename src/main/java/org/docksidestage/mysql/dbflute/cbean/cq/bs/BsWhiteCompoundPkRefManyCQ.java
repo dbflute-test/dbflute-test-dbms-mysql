@@ -89,10 +89,10 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _multipleFirstId;
-    public ConditionValue getMultipleFirstId()
+    public ConditionValue xdfgetMultipleFirstId()
     { if (_multipleFirstId == null) { _multipleFirstId = nCV(); }
       return _multipleFirstId; }
-    protected ConditionValue getCValueMultipleFirstId() { return getMultipleFirstId(); }
+    protected ConditionValue xgetCValueMultipleFirstId() { return xdfgetMultipleFirstId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     public BsWhiteCompoundPkRefManyCQ addOrderBy_MultipleFirstId_Desc() { regOBD("MULTIPLE_FIRST_ID"); return this; }
 
     protected ConditionValue _multipleSecondId;
-    public ConditionValue getMultipleSecondId()
+    public ConditionValue xdfgetMultipleSecondId()
     { if (_multipleSecondId == null) { _multipleSecondId = nCV(); }
       return _multipleSecondId; }
-    protected ConditionValue getCValueMultipleSecondId() { return getMultipleSecondId(); }
+    protected ConditionValue xgetCValueMultipleSecondId() { return xdfgetMultipleSecondId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     public BsWhiteCompoundPkRefManyCQ addOrderBy_MultipleSecondId_Desc() { regOBD("MULTIPLE_SECOND_ID"); return this; }
 
     protected ConditionValue _refManyFirstId;
-    public ConditionValue getRefManyFirstId()
+    public ConditionValue xdfgetRefManyFirstId()
     { if (_refManyFirstId == null) { _refManyFirstId = nCV(); }
       return _refManyFirstId; }
-    protected ConditionValue getCValueRefManyFirstId() { return getRefManyFirstId(); }
+    protected ConditionValue xgetCValueRefManyFirstId() { return xdfgetRefManyFirstId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManyFirstId_Desc() { regOBD("REF_MANY_FIRST_ID"); return this; }
 
     protected ConditionValue _refManySecondId;
-    public ConditionValue getRefManySecondId()
+    public ConditionValue xdfgetRefManySecondId()
     { if (_refManySecondId == null) { _refManySecondId = nCV(); }
       return _refManySecondId; }
-    protected ConditionValue getCValueRefManySecondId() { return getRefManySecondId(); }
+    protected ConditionValue xgetCValueRefManySecondId() { return xdfgetRefManySecondId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManySecondId_Desc() { regOBD("REF_MANY_SECOND_ID"); return this; }
 
     protected ConditionValue _refManyCode;
-    public ConditionValue getRefManyCode()
+    public ConditionValue xdfgetRefManyCode()
     { if (_refManyCode == null) { _refManyCode = nCV(); }
       return _refManyCode; }
-    protected ConditionValue getCValueRefManyCode() { return getRefManyCode(); }
+    protected ConditionValue xgetCValueRefManyCode() { return xdfgetRefManyCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -189,10 +189,10 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManyCode_Desc() { regOBD("REF_MANY_CODE"); return this; }
 
     protected ConditionValue _refManyName;
-    public ConditionValue getRefManyName()
+    public ConditionValue xdfgetRefManyName()
     { if (_refManyName == null) { _refManyName = nCV(); }
       return _refManyName; }
-    protected ConditionValue getCValueRefManyName() { return getRefManyName(); }
+    protected ConditionValue xgetCValueRefManyName() { return xdfgetRefManyName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -209,10 +209,10 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManyName_Desc() { regOBD("REF_MANY_NAME"); return this; }
 
     protected ConditionValue _refManyDatetime;
-    public ConditionValue getRefManyDatetime()
+    public ConditionValue xdfgetRefManyDatetime()
     { if (_refManyDatetime == null) { _refManyDatetime = nCV(); }
       return _refManyDatetime; }
-    protected ConditionValue getCValueRefManyDatetime() { return getRefManyDatetime(); }
+    protected ConditionValue xgetCValueRefManyDatetime() { return xdfgetRefManyDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -283,9 +283,9 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundPkCQ queryWhiteCompoundPkToPK() {
-        return getConditionQueryWhiteCompoundPkToPK();
+        return xdfgetConditionQueryWhiteCompoundPkToPK();
     }
-    public WhiteCompoundPkCQ getConditionQueryWhiteCompoundPkToPK() {
+    public WhiteCompoundPkCQ xdfgetConditionQueryWhiteCompoundPkToPK() {
         String prop = "whiteCompoundPkToPK";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteCompoundPkToPK()); xsetupOuterJoinWhiteCompoundPkToPK(); }
         return xgetQueRlMap(prop);
@@ -304,7 +304,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteCompoundPkRefManyCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteCompoundPkRefManyCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteCompoundPkRefManyCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -313,7 +313,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteCompoundPkRefManyCB.class.getName(); }
     protected String xCQ() { return WhiteCompoundPkRefManyCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

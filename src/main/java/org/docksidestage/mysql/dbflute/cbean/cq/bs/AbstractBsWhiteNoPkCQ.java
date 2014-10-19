@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNoPkId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNoPkId(), "NO_PK_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNoPkId(), "NO_PK_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNoPkId_InScope(Collection<Long> noPkIdList) {
-        regINS(CK_INS, cTL(noPkIdList), getCValueNoPkId(), "NO_PK_ID");
+        regINS(CK_INS, cTL(noPkIdList), xgetCValueNoPkId(), "NO_PK_ID");
     }
 
     /**
@@ -159,11 +159,11 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNoPkId_NotInScope(Collection<Long> noPkIdList) {
-        regINS(CK_NINS, cTL(noPkIdList), getCValueNoPkId(), "NO_PK_ID");
+        regINS(CK_NINS, cTL(noPkIdList), xgetCValueNoPkId(), "NO_PK_ID");
     }
 
-    protected void regNoPkId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNoPkId(), "NO_PK_ID"); }
-    protected abstract ConditionValue getCValueNoPkId();
+    protected void regNoPkId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNoPkId(), "NO_PK_ID"); }
+    protected abstract ConditionValue xgetCValueNoPkId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -201,7 +201,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNoPkName_InScope(Collection<String> noPkNameList) {
-        regINS(CK_INS, cTL(noPkNameList), getCValueNoPkName(), "NO_PK_NAME");
+        regINS(CK_INS, cTL(noPkNameList), xgetCValueNoPkName(), "NO_PK_NAME");
     }
 
     /**
@@ -214,7 +214,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNoPkName_NotInScope(Collection<String> noPkNameList) {
-        regINS(CK_NINS, cTL(noPkNameList), getCValueNoPkName(), "NO_PK_NAME");
+        regINS(CK_NINS, cTL(noPkNameList), xgetCValueNoPkName(), "NO_PK_NAME");
     }
 
     /**
@@ -236,7 +236,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNoPkName_LikeSearch(String noPkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(noPkName), getCValueNoPkName(), "NO_PK_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(noPkName), xgetCValueNoPkName(), "NO_PK_NAME", likeSearchOption);
     }
 
     /**
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNoPkName_NotLikeSearch(String noPkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(noPkName), getCValueNoPkName(), "NO_PK_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(noPkName), xgetCValueNoPkName(), "NO_PK_NAME", likeSearchOption);
     }
 
     /**
@@ -288,8 +288,8 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
      */
     public void setNoPkName_IsNotNull() { regNoPkName(CK_ISNN, DOBJ); }
 
-    protected void regNoPkName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNoPkName(), "NO_PK_NAME"); }
-    protected abstract ConditionValue getCValueNoPkName();
+    protected void regNoPkName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNoPkName(), "NO_PK_NAME"); }
+    protected abstract ConditionValue xgetCValueNoPkName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -363,7 +363,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNoPkInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNoPkInteger(), "NO_PK_INTEGER", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNoPkInteger(), "NO_PK_INTEGER", rangeOfOption);
     }
 
     /**
@@ -376,7 +376,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNoPkInteger_InScope(Collection<Integer> noPkIntegerList) {
-        regINS(CK_INS, cTL(noPkIntegerList), getCValueNoPkInteger(), "NO_PK_INTEGER");
+        regINS(CK_INS, cTL(noPkIntegerList), xgetCValueNoPkInteger(), "NO_PK_INTEGER");
     }
 
     /**
@@ -389,7 +389,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNoPkInteger_NotInScope(Collection<Integer> noPkIntegerList) {
-        regINS(CK_NINS, cTL(noPkIntegerList), getCValueNoPkInteger(), "NO_PK_INTEGER");
+        regINS(CK_NINS, cTL(noPkIntegerList), xgetCValueNoPkInteger(), "NO_PK_INTEGER");
     }
 
     /**
@@ -404,8 +404,8 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
      */
     public void setNoPkInteger_IsNotNull() { regNoPkInteger(CK_ISNN, DOBJ); }
 
-    protected void regNoPkInteger(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNoPkInteger(), "NO_PK_INTEGER"); }
-    protected abstract ConditionValue getCValueNoPkInteger();
+    protected void regNoPkInteger(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNoPkInteger(), "NO_PK_INTEGER"); }
+    protected abstract ConditionValue xgetCValueNoPkInteger();
 
     // ===================================================================================
     //                                                                     ScalarCondition

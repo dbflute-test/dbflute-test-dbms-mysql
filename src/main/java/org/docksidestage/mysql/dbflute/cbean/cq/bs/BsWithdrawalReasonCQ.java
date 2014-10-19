@@ -42,10 +42,10 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _withdrawalReasonCode;
-    public ConditionValue getWithdrawalReasonCode()
+    public ConditionValue xdfgetWithdrawalReasonCode()
     { if (_withdrawalReasonCode == null) { _withdrawalReasonCode = nCV(); }
       return _withdrawalReasonCode; }
-    protected ConditionValue getCValueWithdrawalReasonCode() { return getWithdrawalReasonCode(); }
+    protected ConditionValue xgetCValueWithdrawalReasonCode() { return xdfgetWithdrawalReasonCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -62,16 +62,16 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
     public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonCode_Desc() { regOBD("WITHDRAWAL_REASON_CODE"); return this; }
 
     protected ConditionValue _withdrawalReasonText;
-    public ConditionValue getWithdrawalReasonText()
+    public ConditionValue xdfgetWithdrawalReasonText()
     { if (_withdrawalReasonText == null) { _withdrawalReasonText = nCV(); }
       return _withdrawalReasonText; }
-    protected ConditionValue getCValueWithdrawalReasonText() { return getWithdrawalReasonText(); }
+    protected ConditionValue xgetCValueWithdrawalReasonText() { return xdfgetWithdrawalReasonText(); }
 
     protected ConditionValue _displayOrder;
-    public ConditionValue getDisplayOrder()
+    public ConditionValue xdfgetDisplayOrder()
     { if (_displayOrder == null) { _displayOrder = nCV(); }
       return _displayOrder; }
-    protected ConditionValue getCValueDisplayOrder() { return getDisplayOrder(); }
+    protected ConditionValue xgetCValueDisplayOrder() { return xdfgetDisplayOrder(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -99,7 +99,7 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WithdrawalReasonCB.class.getName(); }
     protected String xCQ() { return WithdrawalReasonCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

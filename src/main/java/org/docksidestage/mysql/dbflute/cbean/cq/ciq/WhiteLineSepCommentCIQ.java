@@ -76,8 +76,8 @@ public class WhiteLineSepCommentCIQ extends AbstractBsWhiteLineSepCommentCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueLineSepCommentCode() { return _myCQ.getLineSepCommentCode(); }
-    protected ConditionValue getCValueLineSepCommentName() { return _myCQ.getLineSepCommentName(); }
+    protected ConditionValue xgetCValueLineSepCommentCode() { return _myCQ.xdfgetLineSepCommentCode(); }
+    protected ConditionValue xgetCValueLineSepCommentName() { return _myCQ.xdfgetLineSepCommentName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteLineSepCommentCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

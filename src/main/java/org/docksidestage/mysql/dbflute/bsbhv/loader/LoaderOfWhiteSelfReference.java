@@ -78,14 +78,8 @@ public class LoaderOfWhiteSelfReference {
     //                                                                       =============
     protected List<WhiteSelfReference> _referrerWhiteSelfReferenceSelfList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteSelfReference> loadWhiteSelfReferenceSelfList(ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
-        myBhv().loadWhiteSelfReferenceSelfList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteSelfReference>() {
-            public void handle(List<WhiteSelfReference> referrerList) { _referrerWhiteSelfReferenceSelfList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteSelfReference>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteSelfReference> handler) {
-                handler.handle(new LoaderOfWhiteSelfReference().ready(_referrerWhiteSelfReferenceSelfList, _selector));
-            }
-        };
+        myBhv().loadWhiteSelfReferenceSelfList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSelfReferenceSelfList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSelfReference().ready(_referrerWhiteSelfReferenceSelfList, _selector));
     }
 
     // ===================================================================================
@@ -93,17 +87,15 @@ public class LoaderOfWhiteSelfReference {
     //                                                                    ================
     protected LoaderOfWhiteSelfReference _foreignWhiteSelfReferenceSelfLoader;
     public LoaderOfWhiteSelfReference pulloutWhiteSelfReferenceSelf() {
-        if (_foreignWhiteSelfReferenceSelfLoader != null) { return _foreignWhiteSelfReferenceSelfLoader; }
-        List<WhiteSelfReference> pulledList = myBhv().pulloutWhiteSelfReferenceSelf(_selectedList);
-        _foreignWhiteSelfReferenceSelfLoader = new LoaderOfWhiteSelfReference().ready(pulledList, _selector);
+        if (_foreignWhiteSelfReferenceSelfLoader == null)
+        { _foreignWhiteSelfReferenceSelfLoader = new LoaderOfWhiteSelfReference().ready(myBhv().pulloutWhiteSelfReferenceSelf(_selectedList), _selector); }
         return _foreignWhiteSelfReferenceSelfLoader;
     }
 
     protected LoaderOfWhiteSelfReferenceRefOne _foreignWhiteSelfReferenceRefOneAsOneLoader;
     public LoaderOfWhiteSelfReferenceRefOne pulloutWhiteSelfReferenceRefOneAsOne() {
-        if (_foreignWhiteSelfReferenceRefOneAsOneLoader != null) { return _foreignWhiteSelfReferenceRefOneAsOneLoader; }
-        List<WhiteSelfReferenceRefOne> pulledList = myBhv().pulloutWhiteSelfReferenceRefOneAsOne(_selectedList);
-        _foreignWhiteSelfReferenceRefOneAsOneLoader = new LoaderOfWhiteSelfReferenceRefOne().ready(pulledList, _selector);
+        if (_foreignWhiteSelfReferenceRefOneAsOneLoader == null)
+        { _foreignWhiteSelfReferenceRefOneAsOneLoader = new LoaderOfWhiteSelfReferenceRefOne().ready(myBhv().pulloutWhiteSelfReferenceRefOneAsOne(_selectedList), _selector); }
         return _foreignWhiteSelfReferenceRefOneAsOneLoader;
     }
 

@@ -89,23 +89,23 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _clsCategoryCode;
-    public ConditionValue getClsCategoryCode()
+    public ConditionValue xdfgetClsCategoryCode()
     { if (_clsCategoryCode == null) { _clsCategoryCode = nCV(); }
       return _clsCategoryCode; }
-    protected ConditionValue getCValueClsCategoryCode() { return getClsCategoryCode(); }
+    protected ConditionValue xgetCValueClsCategoryCode() { return xdfgetClsCategoryCode(); }
 
-    public Map<String, WhiteAllInOneClsElementCQ> getClsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList() { return xgetSQueMap("clsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList"); }
+    public Map<String, WhiteAllInOneClsElementCQ> xdfgetClsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList() { return xgetSQueMap("clsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList"); }
     public String keepClsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq) { return xkeepSQue("clsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList", sq); }
 
-    public Map<String, WhiteAllInOneClsElementCQ> getClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList() { return xgetSQueMap("clsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList"); }
+    public Map<String, WhiteAllInOneClsElementCQ> xdfgetClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList() { return xgetSQueMap("clsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList"); }
     public String keepClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq) { return xkeepSQue("clsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList", sq); }
 
-    public Map<String, WhiteAllInOneClsElementCQ> getClsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList() { return xgetSQueMap("clsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList"); }
+    public Map<String, WhiteAllInOneClsElementCQ> xdfgetClsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList() { return xgetSQueMap("clsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList"); }
     public String keepClsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq) { return xkeepSQue("clsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList", sq); }
 
-    public Map<String, WhiteAllInOneClsElementCQ> getClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList() { return xgetSQueMap("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList"); }
+    public Map<String, WhiteAllInOneClsElementCQ> xdfgetClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList() { return xgetSQueMap("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList"); }
     public String keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq) { return xkeepSQue("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList", sq); }
-    public Map<String, Object> getClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter() { return xgetSQuePmMap("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList"); }
+    public Map<String, Object> xdfgetClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter() { return xgetSQuePmMap("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList"); }
     public String keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter(Object pm) { return xkeepSQuePm("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     public BsWhiteAllInOneClsCategoryCQ addOrderBy_ClsCategoryCode_Desc() { regOBD("CLS_CATEGORY_CODE"); return this; }
 
     protected ConditionValue _clsCategoryName;
-    public ConditionValue getClsCategoryName()
+    public ConditionValue xdfgetClsCategoryName()
     { if (_clsCategoryName == null) { _clsCategoryName = nCV(); }
       return _clsCategoryName; }
-    protected ConditionValue getCValueClsCategoryName() { return getClsCategoryName(); }
+    protected ConditionValue xgetCValueClsCategoryName() { return xdfgetClsCategoryName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -143,10 +143,10 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     public BsWhiteAllInOneClsCategoryCQ addOrderBy_ClsCategoryName_Desc() { regOBD("CLS_CATEGORY_NAME"); return this; }
 
     protected ConditionValue _description;
-    public ConditionValue getDescription()
+    public ConditionValue xdfgetDescription()
     { if (_description == null) { _description = nCV(); }
       return _description; }
-    protected ConditionValue getCValueDescription() { return getDescription(); }
+    protected ConditionValue xgetCValueDescription() { return xdfgetDescription(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -213,31 +213,31 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteAllInOneClsCategoryCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteAllInOneClsCategoryCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteAllInOneClsCategoryCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteAllInOneClsCategoryCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteAllInOneClsCategoryCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteAllInOneClsCategoryCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteAllInOneClsCategoryCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteAllInOneClsCategoryCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteAllInOneClsCategoryCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteAllInOneClsCategoryCQ> _myselfExistsMap;
-    public Map<String, WhiteAllInOneClsCategoryCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteAllInOneClsCategoryCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteAllInOneClsCategoryCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteAllInOneClsCategoryCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteAllInOneClsCategoryCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteAllInOneClsCategoryCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -246,7 +246,7 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteAllInOneClsCategoryCB.class.getName(); }
     protected String xCQ() { return WhiteAllInOneClsCategoryCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

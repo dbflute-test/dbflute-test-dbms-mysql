@@ -76,9 +76,9 @@ public class WhiteTableExceptGenHeadCIQ extends AbstractBsWhiteTableExceptGenHea
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueGenHeadId() { return _myCQ.getGenHeadId(); }
-    protected ConditionValue getCValueGenHeadName() { return _myCQ.getGenHeadName(); }
-    protected ConditionValue getCValueNometaId() { return _myCQ.getNometaId(); }
+    protected ConditionValue xgetCValueGenHeadId() { return _myCQ.xdfgetGenHeadId(); }
+    protected ConditionValue xgetCValueGenHeadName() { return _myCQ.xdfgetGenHeadName(); }
+    protected ConditionValue xgetCValueNometaId() { return _myCQ.xdfgetNometaId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteTableExceptGenHeadCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

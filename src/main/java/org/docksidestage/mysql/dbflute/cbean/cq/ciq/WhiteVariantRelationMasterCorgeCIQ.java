@@ -76,9 +76,9 @@ public class WhiteVariantRelationMasterCorgeCIQ extends AbstractBsWhiteVariantRe
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueMasterCorgeId() { return _myCQ.getMasterCorgeId(); }
-    protected ConditionValue getCValueMasterCorgeName() { return _myCQ.getMasterCorgeName(); }
-    protected ConditionValue getCValueCorgeTypeCode() { return _myCQ.getCorgeTypeCode(); }
+    protected ConditionValue xgetCValueMasterCorgeId() { return _myCQ.xdfgetMasterCorgeId(); }
+    protected ConditionValue xgetCValueMasterCorgeName() { return _myCQ.xdfgetMasterCorgeName(); }
+    protected ConditionValue xgetCValueCorgeTypeCode() { return _myCQ.xdfgetCorgeTypeCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteVariantRelationMasterCorgeCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

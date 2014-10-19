@@ -76,9 +76,9 @@ public class WhiteUqFkRefNestCIQ extends AbstractBsWhiteUqFkRefNestCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueUqFkRefNestId() { return _myCQ.getUqFkRefNestId(); }
-    protected ConditionValue getCValueCompoundUqFirstCode() { return _myCQ.getCompoundUqFirstCode(); }
-    protected ConditionValue getCValueCompoundUqSecondCode() { return _myCQ.getCompoundUqSecondCode(); }
+    protected ConditionValue xgetCValueUqFkRefNestId() { return _myCQ.xdfgetUqFkRefNestId(); }
+    protected ConditionValue xgetCValueCompoundUqFirstCode() { return _myCQ.xdfgetCompoundUqFirstCode(); }
+    protected ConditionValue xgetCValueCompoundUqSecondCode() { return _myCQ.xdfgetCompoundUqSecondCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteUqFkRefNestCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

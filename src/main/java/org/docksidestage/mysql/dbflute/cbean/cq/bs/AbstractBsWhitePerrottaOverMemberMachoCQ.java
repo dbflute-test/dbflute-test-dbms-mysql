@@ -97,7 +97,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     protected void doSetMachoCode_InScope(Collection<String> machoCodeList) {
-        regINS(CK_INS, cTL(machoCodeList), getCValueMachoCode(), "MACHO_CODE");
+        regINS(CK_INS, cTL(machoCodeList), xgetCValueMachoCode(), "MACHO_CODE");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     protected void doSetMachoCode_NotInScope(Collection<String> machoCodeList) {
-        regINS(CK_NINS, cTL(machoCodeList), getCValueMachoCode(), "MACHO_CODE");
+        regINS(CK_NINS, cTL(machoCodeList), xgetCValueMachoCode(), "MACHO_CODE");
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMachoCode_LikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(machoCode), getCValueMachoCode(), "MACHO_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(machoCode), xgetCValueMachoCode(), "MACHO_CODE", likeSearchOption);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMachoCode_NotLikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(machoCode), getCValueMachoCode(), "MACHO_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(machoCode), xgetCValueMachoCode(), "MACHO_CODE", likeSearchOption);
     }
 
     /**
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      */
     public void setMachoCode_IsNotNull() { regMachoCode(CK_ISNN, DOBJ); }
 
-    protected void regMachoCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMachoCode(), "MACHO_CODE"); }
-    protected abstract ConditionValue getCValueMachoCode();
+    protected void regMachoCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMachoCode(), "MACHO_CODE"); }
+    protected abstract ConditionValue xgetCValueMachoCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -302,7 +302,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     protected void doSetMachoName_InScope(Collection<String> machoNameList) {
-        regINS(CK_INS, cTL(machoNameList), getCValueMachoName(), "MACHO_NAME");
+        regINS(CK_INS, cTL(machoNameList), xgetCValueMachoName(), "MACHO_NAME");
     }
 
     /**
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     protected void doSetMachoName_NotInScope(Collection<String> machoNameList) {
-        regINS(CK_NINS, cTL(machoNameList), getCValueMachoName(), "MACHO_NAME");
+        regINS(CK_NINS, cTL(machoNameList), xgetCValueMachoName(), "MACHO_NAME");
     }
 
     /**
@@ -337,7 +337,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMachoName_LikeSearch(String machoName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(machoName), getCValueMachoName(), "MACHO_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(machoName), xgetCValueMachoName(), "MACHO_NAME", likeSearchOption);
     }
 
     /**
@@ -359,7 +359,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMachoName_NotLikeSearch(String machoName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(machoName), getCValueMachoName(), "MACHO_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(machoName), xgetCValueMachoName(), "MACHO_NAME", likeSearchOption);
     }
 
     /**
@@ -371,8 +371,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
         setMachoName_LikeSearch(machoName, xcLSOPPre());
     }
 
-    protected void regMachoName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMachoName(), "MACHO_NAME"); }
-    protected abstract ConditionValue getCValueMachoName();
+    protected void regMachoName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMachoName(), "MACHO_NAME"); }
+    protected abstract ConditionValue xgetCValueMachoName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

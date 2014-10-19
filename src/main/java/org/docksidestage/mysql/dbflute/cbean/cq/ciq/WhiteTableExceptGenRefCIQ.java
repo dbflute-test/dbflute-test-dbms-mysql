@@ -76,9 +76,9 @@ public class WhiteTableExceptGenRefCIQ extends AbstractBsWhiteTableExceptGenRefC
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueGenRefId() { return _myCQ.getGenRefId(); }
-    protected ConditionValue getCValueGenRefName() { return _myCQ.getGenRefName(); }
-    protected ConditionValue getCValueGenOnlyId() { return _myCQ.getGenOnlyId(); }
+    protected ConditionValue xgetCValueGenRefId() { return _myCQ.xdfgetGenRefId(); }
+    protected ConditionValue xgetCValueGenRefName() { return _myCQ.xdfgetGenRefName(); }
+    protected ConditionValue xgetCValueGenOnlyId() { return _myCQ.xdfgetGenOnlyId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteTableExceptGenRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

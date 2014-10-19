@@ -76,7 +76,7 @@ public class WhitePerrottaOverMemberMachoCIQ extends AbstractBsWhitePerrottaOver
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueMachoCode() { return _myCQ.getMachoCode(); }
+    protected ConditionValue xgetCValueMachoCode() { return _myCQ.xdfgetMachoCode(); }
     public String keepMachoCode_ExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepMachoCode_NotExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq)
@@ -87,7 +87,7 @@ public class WhitePerrottaOverMemberMachoCIQ extends AbstractBsWhitePerrottaOver
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueMachoName() { return _myCQ.getMachoName(); }
+    protected ConditionValue xgetCValueMachoName() { return _myCQ.xdfgetMachoName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhitePerrottaOverMemberMachoCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -76,8 +76,8 @@ public class WhiteUqClassificationCIQ extends AbstractBsWhiteUqClassificationCQ 
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueUqClsId() { return _myCQ.getUqClsId(); }
-    protected ConditionValue getCValueUqClsCode() { return _myCQ.getUqClsCode(); }
+    protected ConditionValue xgetCValueUqClsId() { return _myCQ.xdfgetUqClsId(); }
+    protected ConditionValue xgetCValueUqClsCode() { return _myCQ.xdfgetUqClsCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteUqClassificationCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

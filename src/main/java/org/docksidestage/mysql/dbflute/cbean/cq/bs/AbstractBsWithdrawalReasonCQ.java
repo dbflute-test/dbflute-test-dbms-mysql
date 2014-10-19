@@ -136,11 +136,11 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonCode_InScope(Collection<String> withdrawalReasonCodeList) {
-        regINS(CK_INS, cTL(withdrawalReasonCodeList), getCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE");
+        regINS(CK_INS, cTL(withdrawalReasonCodeList), xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE");
     }
 
-    protected void regWithdrawalReasonCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE"); }
-    protected abstract ConditionValue getCValueWithdrawalReasonCode();
+    protected void regWithdrawalReasonCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE"); }
+    protected abstract ConditionValue xgetCValueWithdrawalReasonCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -155,8 +155,8 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
         regWithdrawalReasonText(CK_EQ, withdrawalReasonText);
     }
 
-    protected void regWithdrawalReasonText(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWithdrawalReasonText(), "WITHDRAWAL_REASON_TEXT"); }
-    protected abstract ConditionValue getCValueWithdrawalReasonText();
+    protected void regWithdrawalReasonText(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalReasonText(), "WITHDRAWAL_REASON_TEXT"); }
+    protected abstract ConditionValue xgetCValueWithdrawalReasonText();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -171,8 +171,8 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
         regDisplayOrder(CK_EQ, displayOrder);
     }
 
-    protected void regDisplayOrder(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDisplayOrder(), "DISPLAY_ORDER"); }
-    protected abstract ConditionValue getCValueDisplayOrder();
+    protected void regDisplayOrder(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDisplayOrder(), "DISPLAY_ORDER"); }
+    protected abstract ConditionValue xgetCValueDisplayOrder();
 
     // ===================================================================================
     //                                                                    Full Text Search

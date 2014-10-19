@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -193,10 +194,14 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
      */
     public WhiteSplitMultipleFkRefCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteSplitMultipleFkRefCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteSplitMultipleFkRefCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteSplitMultipleFkRefCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -217,8 +222,11 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
         return new WhiteSplitMultipleFkRefCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -292,7 +300,7 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteSplitMultipleFkRefCQ>() {
                 public boolean has() { return true; }
-                public WhiteSplitMultipleFkRefCQ qy() { return getConditionQuery(); }
+                public WhiteSplitMultipleFkRefCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -315,17 +323,17 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
          * FIRST_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFirstId() { return doColumn("FIRST_ID"); }
+        public SpecifiedColumn columnFirstId() { return doColumn("FIRST_ID"); }
         /**
          * SECOND_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnSecondCode() { return doColumn("SECOND_CODE"); }
+        public SpecifiedColumn columnSecondCode() { return doColumn("SECOND_CODE"); }
         /**
          * REF_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRefName() { return doColumn("REF_NAME"); }
+        public SpecifiedColumn columnRefName() { return doColumn("REF_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -368,7 +376,7 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteSplitMultipleFkRefCB> columnQuery(final SpecifyQuery<WhiteSplitMultipleFkRefCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteSplitMultipleFkRefCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteSplitMultipleFkRefCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteSplitMultipleFkRefCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -486,8 +494,8 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteSplitMultipleFkRefCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteSplitMultipleFkRefCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteSplitMultipleFkRefCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteSplitMultipleFkRefCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

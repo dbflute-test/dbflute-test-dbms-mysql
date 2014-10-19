@@ -76,9 +76,9 @@ public class WhiteMyselfCheckCIQ extends AbstractBsWhiteMyselfCheckCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueMyselfCheckId() { return _myCQ.getMyselfCheckId(); }
-    protected ConditionValue getCValueMyselfCheckName() { return _myCQ.getMyselfCheckName(); }
-    protected ConditionValue getCValueMyselfId() { return _myCQ.getMyselfId(); }
+    protected ConditionValue xgetCValueMyselfCheckId() { return _myCQ.xdfgetMyselfCheckId(); }
+    protected ConditionValue xgetCValueMyselfCheckName() { return _myCQ.xdfgetMyselfCheckName(); }
+    protected ConditionValue xgetCValueMyselfId() { return _myCQ.xdfgetMyselfId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteMyselfCheckCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

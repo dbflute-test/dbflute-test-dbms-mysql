@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -205,10 +206,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public PurchaseCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public PurchaseCQ getConditionQuery() { // public for parameter comment and internal
+    public PurchaseCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected PurchaseCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -229,8 +234,11 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return new PurchaseCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -278,7 +286,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected MemberNss _nssMember;
-    public MemberNss getNssMember() {
+    public MemberNss xdfgetNssMember() {
         if (_nssMember == null) { _nssMember = new MemberNss(null); }
         return _nssMember;
     }
@@ -306,7 +314,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     protected ProductNss _nssProduct;
-    public ProductNss getNssProduct() {
+    public ProductNss xdfgetNssProduct() {
         if (_nssProduct == null) { _nssProduct = new ProductNss(null); }
         return _nssProduct;
     }
@@ -334,7 +342,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     protected SummaryProductNss _nssSummaryProduct;
-    public SummaryProductNss getNssSummaryProduct() {
+    public SummaryProductNss xdfgetNssSummaryProduct() {
         if (_nssSummaryProduct == null) { _nssSummaryProduct = new SummaryProductNss(null); }
         return _nssSummaryProduct;
     }
@@ -400,7 +408,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     protected PurchaseNss _nssPurchaseSelf;
-    public PurchaseNss getNssPurchaseSelf() {
+    public PurchaseNss xdfgetNssPurchaseSelf() {
         if (_nssPurchaseSelf == null) { _nssPurchaseSelf = new PurchaseNss(null); }
         return _nssPurchaseSelf;
     }
@@ -425,7 +433,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     protected MemberAddressNss _nssMemberAddressAsSkipRelation;
-    public MemberAddressNss getNssMemberAddressAsSkipRelation() {
+    public MemberAddressNss xdfgetNssMemberAddressAsSkipRelation() {
         if (_nssMemberAddressAsSkipRelation == null) { _nssMemberAddressAsSkipRelation = new MemberAddressNss(null); }
         return _nssMemberAddressAsSkipRelation;
     }
@@ -454,7 +462,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     protected WhitePurchaseReferrerNss _nssWhitePurchaseReferrerAsOne;
-    public WhitePurchaseReferrerNss getNssWhitePurchaseReferrerAsOne() {
+    public WhitePurchaseReferrerNss xdfgetNssWhitePurchaseReferrerAsOne() {
         if (_nssWhitePurchaseReferrerAsOne == null) { _nssWhitePurchaseReferrerAsOne = new WhitePurchaseReferrerNss(null); }
         return _nssWhitePurchaseReferrerAsOne;
     }
@@ -478,7 +486,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     protected PurchaseNss _nssPurchaseSelfAsOne;
-    public PurchaseNss getNssPurchaseSelfAsOne() {
+    public PurchaseNss xdfgetNssPurchaseSelfAsOne() {
         if (_nssPurchaseSelfAsOne == null) { _nssPurchaseSelfAsOne = new PurchaseNss(null); }
         return _nssPurchaseSelfAsOne;
     }
@@ -528,7 +536,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<PurchaseCQ>() {
                 public boolean has() { return true; }
-                public PurchaseCQ qy() { return getConditionQuery(); }
+                public PurchaseCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -560,62 +568,62 @@ public class BsPurchaseCB extends AbstractConditionBean {
          * (購入ID)PURCHASE_ID: {PK, ID, NotNull, BIGINT(19), FK to PURCHASE}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPurchaseId() { return doColumn("PURCHASE_ID"); }
+        public SpecifiedColumn columnPurchaseId() { return doColumn("PURCHASE_ID"); }
         /**
          * (会員ID)MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
          * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
+        public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
          * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPurchaseDatetime() { return doColumn("PURCHASE_DATETIME"); }
+        public SpecifiedColumn columnPurchaseDatetime() { return doColumn("PURCHASE_DATETIME"); }
         /**
          * (購入数量)PURCHASE_COUNT: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPurchaseCount() { return doColumn("PURCHASE_COUNT"); }
+        public SpecifiedColumn columnPurchaseCount() { return doColumn("PURCHASE_COUNT"); }
         /**
          * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPurchasePrice() { return doColumn("PURCHASE_PRICE"); }
+        public SpecifiedColumn columnPurchasePrice() { return doColumn("PURCHASE_PRICE"); }
         /**
          * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPaymentCompleteFlg() { return doColumn("PAYMENT_COMPLETE_FLG"); }
+        public SpecifiedColumn columnPaymentCompleteFlg() { return doColumn("PAYMENT_COMPLETE_FLG"); }
         /**
          * REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
          * REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
          * UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
          * UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
         /**
          * VERSION_NO: {NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
+        public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -806,12 +814,12 @@ public class BsPurchaseCB extends AbstractConditionBean {
             if (_memberAddressAsSkipRelation == null) {
                 _memberAddressAsSkipRelation = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsSkipRelation(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().getConditionQueryMemberAddressAsSkipRelation(); } }
+                    public MemberAddressCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberAddressAsSkipRelation(); } }
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsSkipRelation.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsSkipRelation(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().getConditionQueryMemberAddressAsSkipRelation(); }
+                        public MemberAddressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsSkipRelation(); }
                     });
                 }
             }
@@ -920,7 +928,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<PurchaseCB> columnQuery(final SpecifyQuery<PurchaseCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<PurchaseCB>() {
-            public HpCalculator handle(SpecifyQuery<PurchaseCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<PurchaseCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -1038,8 +1046,8 @@ public class BsPurchaseCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return PurchaseCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return PurchaseCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return PurchaseCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return PurchaseCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

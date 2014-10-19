@@ -133,7 +133,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setClassSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueClassSynonym(), "CLASS", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueClassSynonym(), "CLASS", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetClassSynonym_InScope(Collection<Integer> classSynonymList) {
-        regINS(CK_INS, cTL(classSynonymList), getCValueClassSynonym(), "CLASS");
+        regINS(CK_INS, cTL(classSynonymList), xgetCValueClassSynonym(), "CLASS");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetClassSynonym_NotInScope(Collection<Integer> classSynonymList) {
-        regINS(CK_NINS, cTL(classSynonymList), getCValueClassSynonym(), "CLASS");
+        regINS(CK_NINS, cTL(classSynonymList), xgetCValueClassSynonym(), "CLASS");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setClassSynonym_IsNotNull() { regClassSynonym(CK_ISNN, DOBJ); }
 
-    protected void regClassSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueClassSynonym(), "CLASS"); }
-    protected abstract ConditionValue getCValueClassSynonym();
+    protected void regClassSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClassSynonym(), "CLASS"); }
+    protected abstract ConditionValue xgetCValueClassSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -332,7 +332,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setCaseSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueCaseSynonym(), "CASE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueCaseSynonym(), "CASE", rangeOfOption);
     }
 
     /**
@@ -345,7 +345,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetCaseSynonym_InScope(Collection<Integer> caseSynonymList) {
-        regINS(CK_INS, cTL(caseSynonymList), getCValueCaseSynonym(), "CASE");
+        regINS(CK_INS, cTL(caseSynonymList), xgetCValueCaseSynonym(), "CASE");
     }
 
     /**
@@ -358,7 +358,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetCaseSynonym_NotInScope(Collection<Integer> caseSynonymList) {
-        regINS(CK_NINS, cTL(caseSynonymList), getCValueCaseSynonym(), "CASE");
+        regINS(CK_NINS, cTL(caseSynonymList), xgetCValueCaseSynonym(), "CASE");
     }
 
     /**
@@ -373,8 +373,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setCaseSynonym_IsNotNull() { regCaseSynonym(CK_ISNN, DOBJ); }
 
-    protected void regCaseSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCaseSynonym(), "CASE"); }
-    protected abstract ConditionValue getCValueCaseSynonym();
+    protected void regCaseSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCaseSynonym(), "CASE"); }
+    protected abstract ConditionValue xgetCValueCaseSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -448,7 +448,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPackageSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePackageSynonym(), "PACKAGE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePackageSynonym(), "PACKAGE", rangeOfOption);
     }
 
     /**
@@ -461,7 +461,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPackageSynonym_InScope(Collection<Integer> packageSynonymList) {
-        regINS(CK_INS, cTL(packageSynonymList), getCValuePackageSynonym(), "PACKAGE");
+        regINS(CK_INS, cTL(packageSynonymList), xgetCValuePackageSynonym(), "PACKAGE");
     }
 
     /**
@@ -474,7 +474,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPackageSynonym_NotInScope(Collection<Integer> packageSynonymList) {
-        regINS(CK_NINS, cTL(packageSynonymList), getCValuePackageSynonym(), "PACKAGE");
+        regINS(CK_NINS, cTL(packageSynonymList), xgetCValuePackageSynonym(), "PACKAGE");
     }
 
     /**
@@ -489,8 +489,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setPackageSynonym_IsNotNull() { regPackageSynonym(CK_ISNN, DOBJ); }
 
-    protected void regPackageSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePackageSynonym(), "PACKAGE"); }
-    protected abstract ConditionValue getCValuePackageSynonym();
+    protected void regPackageSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePackageSynonym(), "PACKAGE"); }
+    protected abstract ConditionValue xgetCValuePackageSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -564,7 +564,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDefaultSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueDefaultSynonym(), "DEFAULT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueDefaultSynonym(), "DEFAULT", rangeOfOption);
     }
 
     /**
@@ -577,7 +577,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetDefaultSynonym_InScope(Collection<Integer> defaultSynonymList) {
-        regINS(CK_INS, cTL(defaultSynonymList), getCValueDefaultSynonym(), "DEFAULT");
+        regINS(CK_INS, cTL(defaultSynonymList), xgetCValueDefaultSynonym(), "DEFAULT");
     }
 
     /**
@@ -590,7 +590,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetDefaultSynonym_NotInScope(Collection<Integer> defaultSynonymList) {
-        regINS(CK_NINS, cTL(defaultSynonymList), getCValueDefaultSynonym(), "DEFAULT");
+        regINS(CK_NINS, cTL(defaultSynonymList), xgetCValueDefaultSynonym(), "DEFAULT");
     }
 
     /**
@@ -605,8 +605,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setDefaultSynonym_IsNotNull() { regDefaultSynonym(CK_ISNN, DOBJ); }
 
-    protected void regDefaultSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDefaultSynonym(), "DEFAULT"); }
-    protected abstract ConditionValue getCValueDefaultSynonym();
+    protected void regDefaultSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDefaultSynonym(), "DEFAULT"); }
+    protected abstract ConditionValue xgetCValueDefaultSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -680,7 +680,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNewSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNewSynonym(), "NEW", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNewSynonym(), "NEW", rangeOfOption);
     }
 
     /**
@@ -693,7 +693,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNewSynonym_InScope(Collection<Integer> newSynonymList) {
-        regINS(CK_INS, cTL(newSynonymList), getCValueNewSynonym(), "NEW");
+        regINS(CK_INS, cTL(newSynonymList), xgetCValueNewSynonym(), "NEW");
     }
 
     /**
@@ -706,7 +706,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNewSynonym_NotInScope(Collection<Integer> newSynonymList) {
-        regINS(CK_NINS, cTL(newSynonymList), getCValueNewSynonym(), "NEW");
+        regINS(CK_NINS, cTL(newSynonymList), xgetCValueNewSynonym(), "NEW");
     }
 
     /**
@@ -721,8 +721,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setNewSynonym_IsNotNull() { regNewSynonym(CK_ISNN, DOBJ); }
 
-    protected void regNewSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNewSynonym(), "NEW"); }
-    protected abstract ConditionValue getCValueNewSynonym();
+    protected void regNewSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNewSynonym(), "NEW"); }
+    protected abstract ConditionValue xgetCValueNewSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -796,7 +796,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNativeSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNativeSynonym(), "NATIVE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNativeSynonym(), "NATIVE", rangeOfOption);
     }
 
     /**
@@ -809,7 +809,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNativeSynonym_InScope(Collection<Integer> nativeSynonymList) {
-        regINS(CK_INS, cTL(nativeSynonymList), getCValueNativeSynonym(), "NATIVE");
+        regINS(CK_INS, cTL(nativeSynonymList), xgetCValueNativeSynonym(), "NATIVE");
     }
 
     /**
@@ -822,7 +822,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetNativeSynonym_NotInScope(Collection<Integer> nativeSynonymList) {
-        regINS(CK_NINS, cTL(nativeSynonymList), getCValueNativeSynonym(), "NATIVE");
+        regINS(CK_NINS, cTL(nativeSynonymList), xgetCValueNativeSynonym(), "NATIVE");
     }
 
     /**
@@ -837,8 +837,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setNativeSynonym_IsNotNull() { regNativeSynonym(CK_ISNN, DOBJ); }
 
-    protected void regNativeSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNativeSynonym(), "NATIVE"); }
-    protected abstract ConditionValue getCValueNativeSynonym();
+    protected void regNativeSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNativeSynonym(), "NATIVE"); }
+    protected abstract ConditionValue xgetCValueNativeSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -912,7 +912,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVoidSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueVoidSynonym(), "VOID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueVoidSynonym(), "VOID", rangeOfOption);
     }
 
     /**
@@ -925,7 +925,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetVoidSynonym_InScope(Collection<Integer> voidSynonymList) {
-        regINS(CK_INS, cTL(voidSynonymList), getCValueVoidSynonym(), "VOID");
+        regINS(CK_INS, cTL(voidSynonymList), xgetCValueVoidSynonym(), "VOID");
     }
 
     /**
@@ -938,7 +938,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetVoidSynonym_NotInScope(Collection<Integer> voidSynonymList) {
-        regINS(CK_NINS, cTL(voidSynonymList), getCValueVoidSynonym(), "VOID");
+        regINS(CK_NINS, cTL(voidSynonymList), xgetCValueVoidSynonym(), "VOID");
     }
 
     /**
@@ -953,8 +953,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setVoidSynonym_IsNotNull() { regVoidSynonym(CK_ISNN, DOBJ); }
 
-    protected void regVoidSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueVoidSynonym(), "VOID"); }
-    protected abstract ConditionValue getCValueVoidSynonym();
+    protected void regVoidSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueVoidSynonym(), "VOID"); }
+    protected abstract ConditionValue xgetCValueVoidSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1028,7 +1028,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPublicSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePublicSynonym(), "PUBLIC", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePublicSynonym(), "PUBLIC", rangeOfOption);
     }
 
     /**
@@ -1041,7 +1041,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPublicSynonym_InScope(Collection<Integer> publicSynonymList) {
-        regINS(CK_INS, cTL(publicSynonymList), getCValuePublicSynonym(), "PUBLIC");
+        regINS(CK_INS, cTL(publicSynonymList), xgetCValuePublicSynonym(), "PUBLIC");
     }
 
     /**
@@ -1054,7 +1054,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPublicSynonym_NotInScope(Collection<Integer> publicSynonymList) {
-        regINS(CK_NINS, cTL(publicSynonymList), getCValuePublicSynonym(), "PUBLIC");
+        regINS(CK_NINS, cTL(publicSynonymList), xgetCValuePublicSynonym(), "PUBLIC");
     }
 
     /**
@@ -1069,8 +1069,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setPublicSynonym_IsNotNull() { regPublicSynonym(CK_ISNN, DOBJ); }
 
-    protected void regPublicSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePublicSynonym(), "PUBLIC"); }
-    protected abstract ConditionValue getCValuePublicSynonym();
+    protected void regPublicSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePublicSynonym(), "PUBLIC"); }
+    protected abstract ConditionValue xgetCValuePublicSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1144,7 +1144,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProtectedSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueProtectedSynonym(), "PROTECTED", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueProtectedSynonym(), "PROTECTED", rangeOfOption);
     }
 
     /**
@@ -1157,7 +1157,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProtectedSynonym_InScope(Collection<Integer> protectedSynonymList) {
-        regINS(CK_INS, cTL(protectedSynonymList), getCValueProtectedSynonym(), "PROTECTED");
+        regINS(CK_INS, cTL(protectedSynonymList), xgetCValueProtectedSynonym(), "PROTECTED");
     }
 
     /**
@@ -1170,7 +1170,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProtectedSynonym_NotInScope(Collection<Integer> protectedSynonymList) {
-        regINS(CK_NINS, cTL(protectedSynonymList), getCValueProtectedSynonym(), "PROTECTED");
+        regINS(CK_NINS, cTL(protectedSynonymList), xgetCValueProtectedSynonym(), "PROTECTED");
     }
 
     /**
@@ -1185,8 +1185,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setProtectedSynonym_IsNotNull() { regProtectedSynonym(CK_ISNN, DOBJ); }
 
-    protected void regProtectedSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProtectedSynonym(), "PROTECTED"); }
-    protected abstract ConditionValue getCValueProtectedSynonym();
+    protected void regProtectedSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProtectedSynonym(), "PROTECTED"); }
+    protected abstract ConditionValue xgetCValueProtectedSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1260,7 +1260,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPrivateSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePrivateSynonym(), "PRIVATE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePrivateSynonym(), "PRIVATE", rangeOfOption);
     }
 
     /**
@@ -1273,7 +1273,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPrivateSynonym_InScope(Collection<Integer> privateSynonymList) {
-        regINS(CK_INS, cTL(privateSynonymList), getCValuePrivateSynonym(), "PRIVATE");
+        regINS(CK_INS, cTL(privateSynonymList), xgetCValuePrivateSynonym(), "PRIVATE");
     }
 
     /**
@@ -1286,7 +1286,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPrivateSynonym_NotInScope(Collection<Integer> privateSynonymList) {
-        regINS(CK_NINS, cTL(privateSynonymList), getCValuePrivateSynonym(), "PRIVATE");
+        regINS(CK_NINS, cTL(privateSynonymList), xgetCValuePrivateSynonym(), "PRIVATE");
     }
 
     /**
@@ -1301,8 +1301,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setPrivateSynonym_IsNotNull() { regPrivateSynonym(CK_ISNN, DOBJ); }
 
-    protected void regPrivateSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePrivateSynonym(), "PRIVATE"); }
-    protected abstract ConditionValue getCValuePrivateSynonym();
+    protected void regPrivateSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePrivateSynonym(), "PRIVATE"); }
+    protected abstract ConditionValue xgetCValuePrivateSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1376,7 +1376,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setInterfaceSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueInterfaceSynonym(), "INTERFACE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueInterfaceSynonym(), "INTERFACE", rangeOfOption);
     }
 
     /**
@@ -1389,7 +1389,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetInterfaceSynonym_InScope(Collection<Integer> interfaceSynonymList) {
-        regINS(CK_INS, cTL(interfaceSynonymList), getCValueInterfaceSynonym(), "INTERFACE");
+        regINS(CK_INS, cTL(interfaceSynonymList), xgetCValueInterfaceSynonym(), "INTERFACE");
     }
 
     /**
@@ -1402,7 +1402,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetInterfaceSynonym_NotInScope(Collection<Integer> interfaceSynonymList) {
-        regINS(CK_NINS, cTL(interfaceSynonymList), getCValueInterfaceSynonym(), "INTERFACE");
+        regINS(CK_NINS, cTL(interfaceSynonymList), xgetCValueInterfaceSynonym(), "INTERFACE");
     }
 
     /**
@@ -1417,8 +1417,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setInterfaceSynonym_IsNotNull() { regInterfaceSynonym(CK_ISNN, DOBJ); }
 
-    protected void regInterfaceSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueInterfaceSynonym(), "INTERFACE"); }
-    protected abstract ConditionValue getCValueInterfaceSynonym();
+    protected void regInterfaceSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueInterfaceSynonym(), "INTERFACE"); }
+    protected abstract ConditionValue xgetCValueInterfaceSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1492,7 +1492,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAbstractSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueAbstractSynonym(), "ABSTRACT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueAbstractSynonym(), "ABSTRACT", rangeOfOption);
     }
 
     /**
@@ -1505,7 +1505,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetAbstractSynonym_InScope(Collection<Integer> abstractSynonymList) {
-        regINS(CK_INS, cTL(abstractSynonymList), getCValueAbstractSynonym(), "ABSTRACT");
+        regINS(CK_INS, cTL(abstractSynonymList), xgetCValueAbstractSynonym(), "ABSTRACT");
     }
 
     /**
@@ -1518,7 +1518,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetAbstractSynonym_NotInScope(Collection<Integer> abstractSynonymList) {
-        regINS(CK_NINS, cTL(abstractSynonymList), getCValueAbstractSynonym(), "ABSTRACT");
+        regINS(CK_NINS, cTL(abstractSynonymList), xgetCValueAbstractSynonym(), "ABSTRACT");
     }
 
     /**
@@ -1533,8 +1533,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setAbstractSynonym_IsNotNull() { regAbstractSynonym(CK_ISNN, DOBJ); }
 
-    protected void regAbstractSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAbstractSynonym(), "ABSTRACT"); }
-    protected abstract ConditionValue getCValueAbstractSynonym();
+    protected void regAbstractSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAbstractSynonym(), "ABSTRACT"); }
+    protected abstract ConditionValue xgetCValueAbstractSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1608,7 +1608,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFinalSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFinalSynonym(), "FINAL", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFinalSynonym(), "FINAL", rangeOfOption);
     }
 
     /**
@@ -1621,7 +1621,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFinalSynonym_InScope(Collection<Integer> finalSynonymList) {
-        regINS(CK_INS, cTL(finalSynonymList), getCValueFinalSynonym(), "FINAL");
+        regINS(CK_INS, cTL(finalSynonymList), xgetCValueFinalSynonym(), "FINAL");
     }
 
     /**
@@ -1634,7 +1634,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFinalSynonym_NotInScope(Collection<Integer> finalSynonymList) {
-        regINS(CK_NINS, cTL(finalSynonymList), getCValueFinalSynonym(), "FINAL");
+        regINS(CK_NINS, cTL(finalSynonymList), xgetCValueFinalSynonym(), "FINAL");
     }
 
     /**
@@ -1649,8 +1649,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setFinalSynonym_IsNotNull() { regFinalSynonym(CK_ISNN, DOBJ); }
 
-    protected void regFinalSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFinalSynonym(), "FINAL"); }
-    protected abstract ConditionValue getCValueFinalSynonym();
+    protected void regFinalSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFinalSynonym(), "FINAL"); }
+    protected abstract ConditionValue xgetCValueFinalSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1724,7 +1724,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFinallySynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFinallySynonym(), "FINALLY", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFinallySynonym(), "FINALLY", rangeOfOption);
     }
 
     /**
@@ -1737,7 +1737,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFinallySynonym_InScope(Collection<Integer> finallySynonymList) {
-        regINS(CK_INS, cTL(finallySynonymList), getCValueFinallySynonym(), "FINALLY");
+        regINS(CK_INS, cTL(finallySynonymList), xgetCValueFinallySynonym(), "FINALLY");
     }
 
     /**
@@ -1750,7 +1750,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFinallySynonym_NotInScope(Collection<Integer> finallySynonymList) {
-        regINS(CK_NINS, cTL(finallySynonymList), getCValueFinallySynonym(), "FINALLY");
+        regINS(CK_NINS, cTL(finallySynonymList), xgetCValueFinallySynonym(), "FINALLY");
     }
 
     /**
@@ -1765,8 +1765,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setFinallySynonym_IsNotNull() { regFinallySynonym(CK_ISNN, DOBJ); }
 
-    protected void regFinallySynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFinallySynonym(), "FINALLY"); }
-    protected abstract ConditionValue getCValueFinallySynonym();
+    protected void regFinallySynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFinallySynonym(), "FINALLY"); }
+    protected abstract ConditionValue xgetCValueFinallySynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1840,7 +1840,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReturnSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueReturnSynonym(), "RETURN", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueReturnSynonym(), "RETURN", rangeOfOption);
     }
 
     /**
@@ -1853,7 +1853,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetReturnSynonym_InScope(Collection<Integer> returnSynonymList) {
-        regINS(CK_INS, cTL(returnSynonymList), getCValueReturnSynonym(), "RETURN");
+        regINS(CK_INS, cTL(returnSynonymList), xgetCValueReturnSynonym(), "RETURN");
     }
 
     /**
@@ -1866,7 +1866,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetReturnSynonym_NotInScope(Collection<Integer> returnSynonymList) {
-        regINS(CK_NINS, cTL(returnSynonymList), getCValueReturnSynonym(), "RETURN");
+        regINS(CK_NINS, cTL(returnSynonymList), xgetCValueReturnSynonym(), "RETURN");
     }
 
     /**
@@ -1881,8 +1881,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setReturnSynonym_IsNotNull() { regReturnSynonym(CK_ISNN, DOBJ); }
 
-    protected void regReturnSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueReturnSynonym(), "RETURN"); }
-    protected abstract ConditionValue getCValueReturnSynonym();
+    protected void regReturnSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReturnSynonym(), "RETURN"); }
+    protected abstract ConditionValue xgetCValueReturnSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1956,7 +1956,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDoubleSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueDoubleSynonym(), "DOUBLE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueDoubleSynonym(), "DOUBLE", rangeOfOption);
     }
 
     /**
@@ -1969,7 +1969,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetDoubleSynonym_InScope(Collection<Integer> doubleSynonymList) {
-        regINS(CK_INS, cTL(doubleSynonymList), getCValueDoubleSynonym(), "DOUBLE");
+        regINS(CK_INS, cTL(doubleSynonymList), xgetCValueDoubleSynonym(), "DOUBLE");
     }
 
     /**
@@ -1982,7 +1982,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetDoubleSynonym_NotInScope(Collection<Integer> doubleSynonymList) {
-        regINS(CK_NINS, cTL(doubleSynonymList), getCValueDoubleSynonym(), "DOUBLE");
+        regINS(CK_NINS, cTL(doubleSynonymList), xgetCValueDoubleSynonym(), "DOUBLE");
     }
 
     /**
@@ -1997,8 +1997,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setDoubleSynonym_IsNotNull() { regDoubleSynonym(CK_ISNN, DOBJ); }
 
-    protected void regDoubleSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDoubleSynonym(), "DOUBLE"); }
-    protected abstract ConditionValue getCValueDoubleSynonym();
+    protected void regDoubleSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDoubleSynonym(), "DOUBLE"); }
+    protected abstract ConditionValue xgetCValueDoubleSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2072,7 +2072,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFloatSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFloatSynonym(), "FLOAT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFloatSynonym(), "FLOAT", rangeOfOption);
     }
 
     /**
@@ -2085,7 +2085,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFloatSynonym_InScope(Collection<Integer> floatSynonymList) {
-        regINS(CK_INS, cTL(floatSynonymList), getCValueFloatSynonym(), "FLOAT");
+        regINS(CK_INS, cTL(floatSynonymList), xgetCValueFloatSynonym(), "FLOAT");
     }
 
     /**
@@ -2098,7 +2098,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFloatSynonym_NotInScope(Collection<Integer> floatSynonymList) {
-        regINS(CK_NINS, cTL(floatSynonymList), getCValueFloatSynonym(), "FLOAT");
+        regINS(CK_NINS, cTL(floatSynonymList), xgetCValueFloatSynonym(), "FLOAT");
     }
 
     /**
@@ -2113,8 +2113,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setFloatSynonym_IsNotNull() { regFloatSynonym(CK_ISNN, DOBJ); }
 
-    protected void regFloatSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFloatSynonym(), "FLOAT"); }
-    protected abstract ConditionValue getCValueFloatSynonym();
+    protected void regFloatSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFloatSynonym(), "FLOAT"); }
+    protected abstract ConditionValue xgetCValueFloatSynonym();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -2188,7 +2188,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setShortSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueShortSynonym(), "SHORT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueShortSynonym(), "SHORT", rangeOfOption);
     }
 
     /**
@@ -2201,7 +2201,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetShortSynonym_InScope(Collection<Integer> shortSynonymList) {
-        regINS(CK_INS, cTL(shortSynonymList), getCValueShortSynonym(), "SHORT");
+        regINS(CK_INS, cTL(shortSynonymList), xgetCValueShortSynonym(), "SHORT");
     }
 
     /**
@@ -2214,7 +2214,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetShortSynonym_NotInScope(Collection<Integer> shortSynonymList) {
-        regINS(CK_NINS, cTL(shortSynonymList), getCValueShortSynonym(), "SHORT");
+        regINS(CK_NINS, cTL(shortSynonymList), xgetCValueShortSynonym(), "SHORT");
     }
 
     /**
@@ -2229,8 +2229,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setShortSynonym_IsNotNull() { regShortSynonym(CK_ISNN, DOBJ); }
 
-    protected void regShortSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueShortSynonym(), "SHORT"); }
-    protected abstract ConditionValue getCValueShortSynonym();
+    protected void regShortSynonym(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueShortSynonym(), "SHORT"); }
+    protected abstract ConditionValue xgetCValueShortSynonym();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -2268,7 +2268,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetType_InScope(Collection<String> typeList) {
-        regINS(CK_INS, cTL(typeList), getCValueType(), "TYPE");
+        regINS(CK_INS, cTL(typeList), xgetCValueType(), "TYPE");
     }
 
     /**
@@ -2281,7 +2281,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetType_NotInScope(Collection<String> typeList) {
-        regINS(CK_NINS, cTL(typeList), getCValueType(), "TYPE");
+        regINS(CK_NINS, cTL(typeList), xgetCValueType(), "TYPE");
     }
 
     /**
@@ -2303,7 +2303,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setType_LikeSearch(String type, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(type), getCValueType(), "TYPE", likeSearchOption);
+        regLSQ(CK_LS, fRES(type), xgetCValueType(), "TYPE", likeSearchOption);
     }
 
     /**
@@ -2325,7 +2325,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setType_NotLikeSearch(String type, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(type), getCValueType(), "TYPE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(type), xgetCValueType(), "TYPE", likeSearchOption);
     }
 
     /**
@@ -2355,8 +2355,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      */
     public void setType_IsNotNull() { regType(CK_ISNN, DOBJ); }
 
-    protected void regType(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueType(), "TYPE"); }
-    protected abstract ConditionValue getCValueType();
+    protected void regType(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueType(), "TYPE"); }
+    protected abstract ConditionValue xgetCValueType();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -2394,7 +2394,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetReservName_InScope(Collection<String> reservNameList) {
-        regINS(CK_INS, cTL(reservNameList), getCValueReservName(), "RESERV_NAME");
+        regINS(CK_INS, cTL(reservNameList), xgetCValueReservName(), "RESERV_NAME");
     }
 
     /**
@@ -2407,7 +2407,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     protected void doSetReservName_NotInScope(Collection<String> reservNameList) {
-        regINS(CK_NINS, cTL(reservNameList), getCValueReservName(), "RESERV_NAME");
+        regINS(CK_NINS, cTL(reservNameList), xgetCValueReservName(), "RESERV_NAME");
     }
 
     /**
@@ -2429,7 +2429,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setReservName_LikeSearch(String reservName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(reservName), getCValueReservName(), "RESERV_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(reservName), xgetCValueReservName(), "RESERV_NAME", likeSearchOption);
     }
 
     /**
@@ -2451,7 +2451,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setReservName_NotLikeSearch(String reservName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(reservName), getCValueReservName(), "RESERV_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(reservName), xgetCValueReservName(), "RESERV_NAME", likeSearchOption);
     }
 
     /**
@@ -2463,8 +2463,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
         setReservName_LikeSearch(reservName, xcLSOPPre());
     }
 
-    protected void regReservName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueReservName(), "RESERV_NAME"); }
-    protected abstract ConditionValue getCValueReservName();
+    protected void regReservName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReservName(), "RESERV_NAME"); }
+    protected abstract ConditionValue xgetCValueReservName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

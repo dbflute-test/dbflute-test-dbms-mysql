@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setWhere_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueWhere(), "WHERE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueWhere(), "WHERE", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     }
 
     protected void doSetWhere_InScope(Collection<Integer> whereList) {
-        regINS(CK_INS, cTL(whereList), getCValueWhere(), "WHERE");
+        regINS(CK_INS, cTL(whereList), xgetCValueWhere(), "WHERE");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     }
 
     protected void doSetWhere_NotInScope(Collection<Integer> whereList) {
-        regINS(CK_NINS, cTL(whereList), getCValueWhere(), "WHERE");
+        regINS(CK_NINS, cTL(whereList), xgetCValueWhere(), "WHERE");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
      */
     public void setWhere_IsNotNull() { regWhere(CK_ISNN, DOBJ); }
 
-    protected void regWhere(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWhere(), "WHERE"); }
-    protected abstract ConditionValue getCValueWhere();
+    protected void regWhere(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWhere(), "WHERE"); }
+    protected abstract ConditionValue xgetCValueWhere();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueOrder(), "ORDER", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueOrder(), "ORDER", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     }
 
     protected void doSetOrder_InScope(Collection<Integer> orderList) {
-        regINS(CK_INS, cTL(orderList), getCValueOrder(), "ORDER");
+        regINS(CK_INS, cTL(orderList), xgetCValueOrder(), "ORDER");
     }
 
     /**
@@ -275,7 +275,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     }
 
     protected void doSetOrder_NotInScope(Collection<Integer> orderList) {
-        regINS(CK_NINS, cTL(orderList), getCValueOrder(), "ORDER");
+        regINS(CK_NINS, cTL(orderList), xgetCValueOrder(), "ORDER");
     }
 
     /**
@@ -290,8 +290,8 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
      */
     public void setOrder_IsNotNull() { regOrder(CK_ISNN, DOBJ); }
 
-    protected void regOrder(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueOrder(), "ORDER"); }
-    protected abstract ConditionValue getCValueOrder();
+    protected void regOrder(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueOrder(), "ORDER"); }
+    protected abstract ConditionValue xgetCValueOrder();
 
     // ===================================================================================
     //                                                                     ScalarCondition

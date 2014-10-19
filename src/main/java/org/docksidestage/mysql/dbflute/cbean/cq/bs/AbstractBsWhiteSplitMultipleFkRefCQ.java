@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFirstId(), "FIRST_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFirstId(), "FIRST_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     }
 
     protected void doSetFirstId_InScope(Collection<Integer> firstIdList) {
-        regINS(CK_INS, cTL(firstIdList), getCValueFirstId(), "FIRST_ID");
+        regINS(CK_INS, cTL(firstIdList), xgetCValueFirstId(), "FIRST_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     }
 
     protected void doSetFirstId_NotInScope(Collection<Integer> firstIdList) {
-        regINS(CK_NINS, cTL(firstIdList), getCValueFirstId(), "FIRST_ID");
+        regINS(CK_NINS, cTL(firstIdList), xgetCValueFirstId(), "FIRST_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      */
     public void setFirstId_IsNotNull() { regFirstId(CK_ISNN, DOBJ); }
 
-    protected void regFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFirstId(), "FIRST_ID"); }
-    protected abstract ConditionValue getCValueFirstId();
+    protected void regFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFirstId(), "FIRST_ID"); }
+    protected abstract ConditionValue xgetCValueFirstId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     }
 
     protected void doSetSecondCode_InScope(Collection<String> secondCodeList) {
-        regINS(CK_INS, cTL(secondCodeList), getCValueSecondCode(), "SECOND_CODE");
+        regINS(CK_INS, cTL(secondCodeList), xgetCValueSecondCode(), "SECOND_CODE");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     }
 
     protected void doSetSecondCode_NotInScope(Collection<String> secondCodeList) {
-        regINS(CK_NINS, cTL(secondCodeList), getCValueSecondCode(), "SECOND_CODE");
+        regINS(CK_NINS, cTL(secondCodeList), xgetCValueSecondCode(), "SECOND_CODE");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSecondCode_LikeSearch(String secondCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(secondCode), getCValueSecondCode(), "SECOND_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(secondCode), xgetCValueSecondCode(), "SECOND_CODE", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSecondCode_NotLikeSearch(String secondCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(secondCode), getCValueSecondCode(), "SECOND_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(secondCode), xgetCValueSecondCode(), "SECOND_CODE", likeSearchOption);
     }
 
     /**
@@ -294,8 +294,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      */
     public void setSecondCode_IsNotNull() { regSecondCode(CK_ISNN, DOBJ); }
 
-    protected void regSecondCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSecondCode(), "SECOND_CODE"); }
-    protected abstract ConditionValue getCValueSecondCode();
+    protected void regSecondCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSecondCode(), "SECOND_CODE"); }
+    protected abstract ConditionValue xgetCValueSecondCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -333,7 +333,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     }
 
     protected void doSetRefName_InScope(Collection<String> refNameList) {
-        regINS(CK_INS, cTL(refNameList), getCValueRefName(), "REF_NAME");
+        regINS(CK_INS, cTL(refNameList), xgetCValueRefName(), "REF_NAME");
     }
 
     /**
@@ -346,7 +346,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     }
 
     protected void doSetRefName_NotInScope(Collection<String> refNameList) {
-        regINS(CK_NINS, cTL(refNameList), getCValueRefName(), "REF_NAME");
+        regINS(CK_NINS, cTL(refNameList), xgetCValueRefName(), "REF_NAME");
     }
 
     /**
@@ -368,7 +368,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRefName_LikeSearch(String refName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(refName), getCValueRefName(), "REF_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(refName), xgetCValueRefName(), "REF_NAME", likeSearchOption);
     }
 
     /**
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRefName_NotLikeSearch(String refName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(refName), getCValueRefName(), "REF_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(refName), xgetCValueRefName(), "REF_NAME", likeSearchOption);
     }
 
     /**
@@ -402,8 +402,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
         setRefName_LikeSearch(refName, xcLSOPPre());
     }
 
-    protected void regRefName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefName(), "REF_NAME"); }
-    protected abstract ConditionValue getCValueRefName();
+    protected void regRefName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefName(), "REF_NAME"); }
+    protected abstract ConditionValue xgetCValueRefName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

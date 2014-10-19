@@ -133,7 +133,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPurchaseId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePurchaseId(), "PURCHASE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePurchaseId(), "PURCHASE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPurchaseId_InScope(Collection<Long> purchaseIdList) {
-        regINS(CK_INS, cTL(purchaseIdList), getCValuePurchaseId(), "PURCHASE_ID");
+        regINS(CK_INS, cTL(purchaseIdList), xgetCValuePurchaseId(), "PURCHASE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPurchaseId_NotInScope(Collection<Long> purchaseIdList) {
-        regINS(CK_NINS, cTL(purchaseIdList), getCValuePurchaseId(), "PURCHASE_ID");
+        regINS(CK_NINS, cTL(purchaseIdList), xgetCValuePurchaseId(), "PURCHASE_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      */
     public void setPurchaseId_IsNotNull() { regPurchaseId(CK_ISNN, DOBJ); }
 
-    protected void regPurchaseId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePurchaseId(), "PURCHASE_ID"); }
-    protected abstract ConditionValue getCValuePurchaseId();
+    protected void regPurchaseId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePurchaseId(), "PURCHASE_ID"); }
+    protected abstract ConditionValue xgetCValuePurchaseId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -332,7 +332,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMemberId(), "MEMBER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMemberId(), "MEMBER_ID", rangeOfOption);
     }
 
     /**
@@ -345,7 +345,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberId_InScope(Collection<Integer> memberIdList) {
-        regINS(CK_INS, cTL(memberIdList), getCValueMemberId(), "MEMBER_ID");
+        regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
@@ -358,11 +358,11 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberId_NotInScope(Collection<Integer> memberIdList) {
-        regINS(CK_NINS, cTL(memberIdList), getCValueMemberId(), "MEMBER_ID");
+        regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
-    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberId(), "MEMBER_ID"); }
-    protected abstract ConditionValue getCValueMemberId();
+    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberId(), "MEMBER_ID"); }
+    protected abstract ConditionValue xgetCValueMemberId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -436,7 +436,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueProductId(), "PRODUCT_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueProductId(), "PRODUCT_ID", rangeOfOption);
     }
 
     /**
@@ -449,7 +449,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductId_InScope(Collection<Integer> productIdList) {
-        regINS(CK_INS, cTL(productIdList), getCValueProductId(), "PRODUCT_ID");
+        regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
     /**
@@ -462,11 +462,11 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductId_NotInScope(Collection<Integer> productIdList) {
-        regINS(CK_NINS, cTL(productIdList), getCValueProductId(), "PRODUCT_ID");
+        regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
-    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductId(), "PRODUCT_ID"); }
-    protected abstract ConditionValue getCValueProductId();
+    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "PRODUCT_ID"); }
+    protected abstract ConditionValue xgetCValueProductId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -536,7 +536,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setPurchaseDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValuePurchaseDatetime(), "PURCHASE_DATETIME", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValuePurchaseDatetime(), "PURCHASE_DATETIME", fromToOption);
     }
 
     /**
@@ -554,8 +554,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
         setPurchaseDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regPurchaseDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePurchaseDatetime(), "PURCHASE_DATETIME"); }
-    protected abstract ConditionValue getCValuePurchaseDatetime();
+    protected void regPurchaseDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePurchaseDatetime(), "PURCHASE_DATETIME"); }
+    protected abstract ConditionValue xgetCValuePurchaseDatetime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -629,7 +629,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPurchaseCount_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePurchaseCount(), "PURCHASE_COUNT", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePurchaseCount(), "PURCHASE_COUNT", rangeOfOption);
     }
 
     /**
@@ -642,7 +642,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPurchaseCount_InScope(Collection<Integer> purchaseCountList) {
-        regINS(CK_INS, cTL(purchaseCountList), getCValuePurchaseCount(), "PURCHASE_COUNT");
+        regINS(CK_INS, cTL(purchaseCountList), xgetCValuePurchaseCount(), "PURCHASE_COUNT");
     }
 
     /**
@@ -655,11 +655,11 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPurchaseCount_NotInScope(Collection<Integer> purchaseCountList) {
-        regINS(CK_NINS, cTL(purchaseCountList), getCValuePurchaseCount(), "PURCHASE_COUNT");
+        regINS(CK_NINS, cTL(purchaseCountList), xgetCValuePurchaseCount(), "PURCHASE_COUNT");
     }
 
-    protected void regPurchaseCount(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePurchaseCount(), "PURCHASE_COUNT"); }
-    protected abstract ConditionValue getCValuePurchaseCount();
+    protected void regPurchaseCount(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePurchaseCount(), "PURCHASE_COUNT"); }
+    protected abstract ConditionValue xgetCValuePurchaseCount();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -733,7 +733,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPurchasePrice_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePurchasePrice(), "PURCHASE_PRICE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePurchasePrice(), "PURCHASE_PRICE", rangeOfOption);
     }
 
     /**
@@ -746,7 +746,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPurchasePrice_InScope(Collection<Integer> purchasePriceList) {
-        regINS(CK_INS, cTL(purchasePriceList), getCValuePurchasePrice(), "PURCHASE_PRICE");
+        regINS(CK_INS, cTL(purchasePriceList), xgetCValuePurchasePrice(), "PURCHASE_PRICE");
     }
 
     /**
@@ -759,11 +759,11 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPurchasePrice_NotInScope(Collection<Integer> purchasePriceList) {
-        regINS(CK_NINS, cTL(purchasePriceList), getCValuePurchasePrice(), "PURCHASE_PRICE");
+        regINS(CK_NINS, cTL(purchasePriceList), xgetCValuePurchasePrice(), "PURCHASE_PRICE");
     }
 
-    protected void regPurchasePrice(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePurchasePrice(), "PURCHASE_PRICE"); }
-    protected abstract ConditionValue getCValuePurchasePrice();
+    protected void regPurchasePrice(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePurchasePrice(), "PURCHASE_PRICE"); }
+    protected abstract ConditionValue xgetCValuePurchasePrice();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -824,7 +824,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPaymentCompleteFlg_InScope(Collection<Integer> paymentCompleteFlgList) {
-        regINS(CK_INS, cTL(paymentCompleteFlgList), getCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG");
+        regINS(CK_INS, cTL(paymentCompleteFlgList), xgetCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG");
     }
 
     /**
@@ -847,11 +847,11 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     protected void doSetPaymentCompleteFlg_NotInScope(Collection<Integer> paymentCompleteFlgList) {
-        regINS(CK_NINS, cTL(paymentCompleteFlgList), getCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG");
+        regINS(CK_NINS, cTL(paymentCompleteFlgList), xgetCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG");
     }
 
-    protected void regPaymentCompleteFlg(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG"); }
-    protected abstract ConditionValue getCValuePaymentCompleteFlg();
+    protected void regPaymentCompleteFlg(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG"); }
+    protected abstract ConditionValue xgetCValuePaymentCompleteFlg();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -862,8 +862,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
-    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterDatetime(), "REGISTER_DATETIME"); }
-    protected abstract ConditionValue getCValueRegisterDatetime();
+    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterDatetime(), "REGISTER_DATETIME"); }
+    protected abstract ConditionValue xgetCValueRegisterDatetime();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -897,11 +897,11 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRegisterUser_LikeSearch(String registerUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(registerUser), getCValueRegisterUser(), "REGISTER_USER", likeSearchOption);
+        regLSQ(CK_LS, fRES(registerUser), xgetCValueRegisterUser(), "REGISTER_USER", likeSearchOption);
     }
 
-    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterUser(), "REGISTER_USER"); }
-    protected abstract ConditionValue getCValueRegisterUser();
+    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterUser(), "REGISTER_USER"); }
+    protected abstract ConditionValue xgetCValueRegisterUser();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -912,8 +912,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 
-    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateDatetime(), "UPDATE_DATETIME"); }
-    protected abstract ConditionValue getCValueUpdateDatetime();
+    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateDatetime(), "UPDATE_DATETIME"); }
+    protected abstract ConditionValue xgetCValueUpdateDatetime();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -947,11 +947,11 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUpdateUser_LikeSearch(String updateUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(updateUser), getCValueUpdateUser(), "UPDATE_USER", likeSearchOption);
+        regLSQ(CK_LS, fRES(updateUser), xgetCValueUpdateUser(), "UPDATE_USER", likeSearchOption);
     }
 
-    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateUser(), "UPDATE_USER"); }
-    protected abstract ConditionValue getCValueUpdateUser();
+    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateUser(), "UPDATE_USER"); }
+    protected abstract ConditionValue xgetCValueUpdateUser();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -989,11 +989,11 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVersionNo_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueVersionNo(), "VERSION_NO", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueVersionNo(), "VERSION_NO", rangeOfOption);
     }
 
-    protected void regVersionNo(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueVersionNo(), "VERSION_NO"); }
-    protected abstract ConditionValue getCValueVersionNo();
+    protected void regVersionNo(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueVersionNo(), "VERSION_NO"); }
+    protected abstract ConditionValue xgetCValueVersionNo();
 
     // ===================================================================================
     //                                                                     ScalarCondition

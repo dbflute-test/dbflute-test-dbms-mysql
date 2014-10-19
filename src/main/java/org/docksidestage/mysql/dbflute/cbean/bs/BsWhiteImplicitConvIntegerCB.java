@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      */
     public WhiteImplicitConvIntegerCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteImplicitConvIntegerCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteImplicitConvIntegerCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteImplicitConvIntegerCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
         return new WhiteImplicitConvIntegerCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -264,7 +272,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhiteImplicitConvNumericNss _nssWhiteImplicitConvNumeric;
-    public WhiteImplicitConvNumericNss getNssWhiteImplicitConvNumeric() {
+    public WhiteImplicitConvNumericNss xdfgetNssWhiteImplicitConvNumeric() {
         if (_nssWhiteImplicitConvNumeric == null) { _nssWhiteImplicitConvNumeric = new WhiteImplicitConvNumericNss(null); }
         return _nssWhiteImplicitConvNumeric;
     }
@@ -292,7 +300,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
     }
 
     protected WhiteImplicitConvStringNss _nssWhiteImplicitConvString;
-    public WhiteImplicitConvStringNss getNssWhiteImplicitConvString() {
+    public WhiteImplicitConvStringNss xdfgetNssWhiteImplicitConvString() {
         if (_nssWhiteImplicitConvString == null) { _nssWhiteImplicitConvString = new WhiteImplicitConvStringNss(null); }
         return _nssWhiteImplicitConvString;
     }
@@ -346,7 +354,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteImplicitConvIntegerCQ>() {
                 public boolean has() { return true; }
-                public WhiteImplicitConvIntegerCQ qy() { return getConditionQuery(); }
+                public WhiteImplicitConvIntegerCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -371,22 +379,22 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
          * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnImplicitConvIntegerId() { return doColumn("IMPLICIT_CONV_INTEGER_ID"); }
+        public SpecifiedColumn columnImplicitConvIntegerId() { return doColumn("IMPLICIT_CONV_INTEGER_ID"); }
         /**
          * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnImplicitConvNumericId() { return doColumn("IMPLICIT_CONV_NUMERIC_ID"); }
+        public SpecifiedColumn columnImplicitConvNumericId() { return doColumn("IMPLICIT_CONV_NUMERIC_ID"); }
         /**
          * IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnImplicitConvStringId() { return doColumn("IMPLICIT_CONV_STRING_ID"); }
+        public SpecifiedColumn columnImplicitConvStringId() { return doColumn("IMPLICIT_CONV_STRING_ID"); }
         /**
          * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnImplicitConvName() { return doColumn("IMPLICIT_CONV_NAME"); }
+        public SpecifiedColumn columnImplicitConvName() { return doColumn("IMPLICIT_CONV_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -524,7 +532,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteImplicitConvIntegerCB> columnQuery(final SpecifyQuery<WhiteImplicitConvIntegerCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteImplicitConvIntegerCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteImplicitConvIntegerCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteImplicitConvIntegerCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -642,8 +650,8 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteImplicitConvIntegerCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteImplicitConvIntegerCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteImplicitConvIntegerCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteImplicitConvIntegerCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

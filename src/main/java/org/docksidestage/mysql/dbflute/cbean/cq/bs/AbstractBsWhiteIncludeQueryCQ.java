@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setIncludeQueryId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueIncludeQueryId(), "INCLUDE_QUERY_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueIncludeQueryId(), "INCLUDE_QUERY_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     }
 
     protected void doSetIncludeQueryId_InScope(Collection<Long> includeQueryIdList) {
-        regINS(CK_INS, cTL(includeQueryIdList), getCValueIncludeQueryId(), "INCLUDE_QUERY_ID");
+        regINS(CK_INS, cTL(includeQueryIdList), xgetCValueIncludeQueryId(), "INCLUDE_QUERY_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     }
 
     protected void doSetIncludeQueryId_NotInScope(Collection<Long> includeQueryIdList) {
-        regINS(CK_NINS, cTL(includeQueryIdList), getCValueIncludeQueryId(), "INCLUDE_QUERY_ID");
+        regINS(CK_NINS, cTL(includeQueryIdList), xgetCValueIncludeQueryId(), "INCLUDE_QUERY_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      */
     public void setIncludeQueryId_IsNotNull() { regIncludeQueryId(CK_ISNN, DOBJ); }
 
-    protected void regIncludeQueryId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueIncludeQueryId(), "INCLUDE_QUERY_ID"); }
-    protected abstract ConditionValue getCValueIncludeQueryId();
+    protected void regIncludeQueryId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueIncludeQueryId(), "INCLUDE_QUERY_ID"); }
+    protected abstract ConditionValue xgetCValueIncludeQueryId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     }
 
     protected void doSetIncludeQueryVarchar_InScope(Collection<String> includeQueryVarcharList) {
-        regINS(CK_INS, cTL(includeQueryVarcharList), getCValueIncludeQueryVarchar(), "INCLUDE_QUERY_VARCHAR");
+        regINS(CK_INS, cTL(includeQueryVarcharList), xgetCValueIncludeQueryVarchar(), "INCLUDE_QUERY_VARCHAR");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     }
 
     protected void doSetIncludeQueryVarchar_NotInScope(Collection<String> includeQueryVarcharList) {
-        regINS(CK_NINS, cTL(includeQueryVarcharList), getCValueIncludeQueryVarchar(), "INCLUDE_QUERY_VARCHAR");
+        regINS(CK_NINS, cTL(includeQueryVarcharList), xgetCValueIncludeQueryVarchar(), "INCLUDE_QUERY_VARCHAR");
     }
 
     /**
@@ -247,8 +247,8 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      */
     public void setIncludeQueryVarchar_IsNotNull() { regIncludeQueryVarchar(CK_ISNN, DOBJ); }
 
-    protected void regIncludeQueryVarchar(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueIncludeQueryVarchar(), "INCLUDE_QUERY_VARCHAR"); }
-    protected abstract ConditionValue getCValueIncludeQueryVarchar();
+    protected void regIncludeQueryVarchar(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueIncludeQueryVarchar(), "INCLUDE_QUERY_VARCHAR"); }
+    protected abstract ConditionValue xgetCValueIncludeQueryVarchar();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
         regIncludeQueryInteger(CK_EQ, includeQueryInteger);
     }
 
-    protected void regIncludeQueryInteger(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueIncludeQueryInteger(), "INCLUDE_QUERY_INTEGER"); }
-    protected abstract ConditionValue getCValueIncludeQueryInteger();
+    protected void regIncludeQueryInteger(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueIncludeQueryInteger(), "INCLUDE_QUERY_INTEGER"); }
+    protected abstract ConditionValue xgetCValueIncludeQueryInteger();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -275,8 +275,8 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
         regIncludeQueryDate(CK_EQ,  fCTPD(includeQueryDate));
     }
 
-    protected void regIncludeQueryDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueIncludeQueryDate(), "INCLUDE_QUERY_DATE"); }
-    protected abstract ConditionValue getCValueIncludeQueryDate();
+    protected void regIncludeQueryDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueIncludeQueryDate(), "INCLUDE_QUERY_DATE"); }
+    protected abstract ConditionValue xgetCValueIncludeQueryDate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -310,7 +310,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setIncludeQueryDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueIncludeQueryDatetime(), "INCLUDE_QUERY_DATETIME", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueIncludeQueryDatetime(), "INCLUDE_QUERY_DATETIME", fromToOption);
     }
 
     /**
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      */
     public void setIncludeQueryDatetime_IsNotNull() { regIncludeQueryDatetime(CK_ISNN, DOBJ); }
 
-    protected void regIncludeQueryDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueIncludeQueryDatetime(), "INCLUDE_QUERY_DATETIME"); }
-    protected abstract ConditionValue getCValueIncludeQueryDatetime();
+    protected void regIncludeQueryDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueIncludeQueryDatetime(), "INCLUDE_QUERY_DATETIME"); }
+    protected abstract ConditionValue xgetCValueIncludeQueryDatetime();
 
     // ===================================================================================
     //                                                                     ScalarCondition

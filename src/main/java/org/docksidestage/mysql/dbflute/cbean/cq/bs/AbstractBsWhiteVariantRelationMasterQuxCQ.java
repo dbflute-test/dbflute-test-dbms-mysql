@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMasterQuxId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMasterQuxId(), "MASTER_QUX_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMasterQuxId(), "MASTER_QUX_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     protected void doSetMasterQuxId_InScope(Collection<Long> masterQuxIdList) {
-        regINS(CK_INS, cTL(masterQuxIdList), getCValueMasterQuxId(), "MASTER_QUX_ID");
+        regINS(CK_INS, cTL(masterQuxIdList), xgetCValueMasterQuxId(), "MASTER_QUX_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     protected void doSetMasterQuxId_NotInScope(Collection<Long> masterQuxIdList) {
-        regINS(CK_NINS, cTL(masterQuxIdList), getCValueMasterQuxId(), "MASTER_QUX_ID");
+        regINS(CK_NINS, cTL(masterQuxIdList), xgetCValueMasterQuxId(), "MASTER_QUX_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      */
     public void setMasterQuxId_IsNotNull() { regMasterQuxId(CK_ISNN, DOBJ); }
 
-    protected void regMasterQuxId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMasterQuxId(), "MASTER_QUX_ID"); }
-    protected abstract ConditionValue getCValueMasterQuxId();
+    protected void regMasterQuxId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterQuxId(), "MASTER_QUX_ID"); }
+    protected abstract ConditionValue xgetCValueMasterQuxId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     protected void doSetMasterQuxName_InScope(Collection<String> masterQuxNameList) {
-        regINS(CK_INS, cTL(masterQuxNameList), getCValueMasterQuxName(), "MASTER_QUX_NAME");
+        regINS(CK_INS, cTL(masterQuxNameList), xgetCValueMasterQuxName(), "MASTER_QUX_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     protected void doSetMasterQuxName_NotInScope(Collection<String> masterQuxNameList) {
-        regINS(CK_NINS, cTL(masterQuxNameList), getCValueMasterQuxName(), "MASTER_QUX_NAME");
+        regINS(CK_NINS, cTL(masterQuxNameList), xgetCValueMasterQuxName(), "MASTER_QUX_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterQuxName_LikeSearch(String masterQuxName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(masterQuxName), getCValueMasterQuxName(), "MASTER_QUX_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(masterQuxName), xgetCValueMasterQuxName(), "MASTER_QUX_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterQuxName_NotLikeSearch(String masterQuxName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(masterQuxName), getCValueMasterQuxName(), "MASTER_QUX_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(masterQuxName), xgetCValueMasterQuxName(), "MASTER_QUX_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
         setMasterQuxName_LikeSearch(masterQuxName, xcLSOPPre());
     }
 
-    protected void regMasterQuxName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMasterQuxName(), "MASTER_QUX_NAME"); }
-    protected abstract ConditionValue getCValueMasterQuxName();
+    protected void regMasterQuxName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterQuxName(), "MASTER_QUX_NAME"); }
+    protected abstract ConditionValue xgetCValueMasterQuxName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -399,7 +399,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     protected void doSetQuxTypeCode_InScope(Collection<String> quxTypeCodeList) {
-        regINS(CK_INS, cTL(quxTypeCodeList), getCValueQuxTypeCode(), "QUX_TYPE_CODE");
+        regINS(CK_INS, cTL(quxTypeCodeList), xgetCValueQuxTypeCode(), "QUX_TYPE_CODE");
     }
 
     /**
@@ -422,11 +422,11 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     protected void doSetQuxTypeCode_NotInScope(Collection<String> quxTypeCodeList) {
-        regINS(CK_NINS, cTL(quxTypeCodeList), getCValueQuxTypeCode(), "QUX_TYPE_CODE");
+        regINS(CK_NINS, cTL(quxTypeCodeList), xgetCValueQuxTypeCode(), "QUX_TYPE_CODE");
     }
 
-    protected void regQuxTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueQuxTypeCode(), "QUX_TYPE_CODE"); }
-    protected abstract ConditionValue getCValueQuxTypeCode();
+    protected void regQuxTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueQuxTypeCode(), "QUX_TYPE_CODE"); }
+    protected abstract ConditionValue xgetCValueQuxTypeCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

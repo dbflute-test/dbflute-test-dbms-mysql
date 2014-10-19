@@ -89,23 +89,23 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _stilettoAliasId;
-    public ConditionValue getStilettoAliasId()
+    public ConditionValue xdfgetStilettoAliasId()
     { if (_stilettoAliasId == null) { _stilettoAliasId = nCV(); }
       return _stilettoAliasId; }
-    protected ConditionValue getCValueStilettoAliasId() { return getStilettoAliasId(); }
+    protected ConditionValue xgetCValueStilettoAliasId() { return xdfgetStilettoAliasId(); }
 
-    public Map<String, WhiteStilettoAliasRefCQ> getStilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList() { return xgetSQueMap("stilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList"); }
+    public Map<String, WhiteStilettoAliasRefCQ> xdfgetStilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList() { return xgetSQueMap("stilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList"); }
     public String keepStilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList(WhiteStilettoAliasRefCQ sq) { return xkeepSQue("stilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList", sq); }
 
-    public Map<String, WhiteStilettoAliasRefCQ> getStilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList() { return xgetSQueMap("stilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList"); }
+    public Map<String, WhiteStilettoAliasRefCQ> xdfgetStilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList() { return xgetSQueMap("stilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList"); }
     public String keepStilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList(WhiteStilettoAliasRefCQ sq) { return xkeepSQue("stilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList", sq); }
 
-    public Map<String, WhiteStilettoAliasRefCQ> getStilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList() { return xgetSQueMap("stilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList"); }
+    public Map<String, WhiteStilettoAliasRefCQ> xdfgetStilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList() { return xgetSQueMap("stilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList"); }
     public String keepStilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList(WhiteStilettoAliasRefCQ sq) { return xkeepSQue("stilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList", sq); }
 
-    public Map<String, WhiteStilettoAliasRefCQ> getStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList() { return xgetSQueMap("stilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList"); }
+    public Map<String, WhiteStilettoAliasRefCQ> xdfgetStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList() { return xgetSQueMap("stilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList"); }
     public String keepStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList(WhiteStilettoAliasRefCQ sq) { return xkeepSQue("stilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList", sq); }
-    public Map<String, Object> getStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefListParameter() { return xgetSQuePmMap("stilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList"); }
+    public Map<String, Object> xdfgetStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefListParameter() { return xgetSQuePmMap("stilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList"); }
     public String keepStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefListParameter(Object pm) { return xkeepSQuePm("stilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public BsWhiteStilettoAliasCQ addOrderBy_StilettoAliasId_Desc() { regOBD("STILETTO_ALIAS_ID"); return this; }
 
     protected ConditionValue _foo;
-    public ConditionValue getFoo()
+    public ConditionValue xdfgetFoo()
     { if (_foo == null) { _foo = nCV(); }
       return _foo; }
-    protected ConditionValue getCValueFoo() { return getFoo(); }
+    protected ConditionValue xgetCValueFoo() { return xdfgetFoo(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -143,10 +143,10 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public BsWhiteStilettoAliasCQ addOrderBy_Foo_Desc() { regOBD("FOO"); return this; }
 
     protected ConditionValue _foo0;
-    public ConditionValue getFoo0()
+    public ConditionValue xdfgetFoo0()
     { if (_foo0 == null) { _foo0 = nCV(); }
       return _foo0; }
-    protected ConditionValue getCValueFoo0() { return getFoo0(); }
+    protected ConditionValue xgetCValueFoo0() { return xdfgetFoo0(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -163,10 +163,10 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public BsWhiteStilettoAliasCQ addOrderBy_Foo0_Desc() { regOBD("FOO_0"); return this; }
 
     protected ConditionValue _foo1;
-    public ConditionValue getFoo1()
+    public ConditionValue xdfgetFoo1()
     { if (_foo1 == null) { _foo1 = nCV(); }
       return _foo1; }
-    protected ConditionValue getCValueFoo1() { return getFoo1(); }
+    protected ConditionValue xgetCValueFoo1() { return xdfgetFoo1(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -183,10 +183,10 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public BsWhiteStilettoAliasCQ addOrderBy_Foo1_Desc() { regOBD("FOO_1"); return this; }
 
     protected ConditionValue _foo2;
-    public ConditionValue getFoo2()
+    public ConditionValue xdfgetFoo2()
     { if (_foo2 == null) { _foo2 = nCV(); }
       return _foo2; }
-    protected ConditionValue getCValueFoo2() { return getFoo2(); }
+    protected ConditionValue xgetCValueFoo2() { return xdfgetFoo2(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -203,10 +203,10 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public BsWhiteStilettoAliasCQ addOrderBy_Foo2_Desc() { regOBD("FOO2"); return this; }
 
     protected ConditionValue _foo3;
-    public ConditionValue getFoo3()
+    public ConditionValue xdfgetFoo3()
     { if (_foo3 == null) { _foo3 = nCV(); }
       return _foo3; }
-    protected ConditionValue getCValueFoo3() { return getFoo3(); }
+    protected ConditionValue xgetCValueFoo3() { return xdfgetFoo3(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -223,10 +223,10 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public BsWhiteStilettoAliasCQ addOrderBy_Foo3_Desc() { regOBD("FOO_3"); return this; }
 
     protected ConditionValue _foo4;
-    public ConditionValue getFoo4()
+    public ConditionValue xdfgetFoo4()
     { if (_foo4 == null) { _foo4 = nCV(); }
       return _foo4; }
-    protected ConditionValue getCValueFoo4() { return getFoo4(); }
+    protected ConditionValue xgetCValueFoo4() { return xdfgetFoo4(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -243,10 +243,10 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public BsWhiteStilettoAliasCQ addOrderBy_Foo4_Desc() { regOBD("FOO4"); return this; }
 
     protected ConditionValue _bar;
-    public ConditionValue getBar()
+    public ConditionValue xdfgetBar()
     { if (_bar == null) { _bar = nCV(); }
       return _bar; }
-    protected ConditionValue getCValueBar() { return getBar(); }
+    protected ConditionValue xgetCValueBar() { return xdfgetBar(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -263,10 +263,10 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public BsWhiteStilettoAliasCQ addOrderBy_Bar_Desc() { regOBD("BAR"); return this; }
 
     protected ConditionValue _qux;
-    public ConditionValue getQux()
+    public ConditionValue xdfgetQux()
     { if (_qux == null) { _qux = nCV(); }
       return _qux; }
-    protected ConditionValue getCValueQux() { return getQux(); }
+    protected ConditionValue xgetCValueQux() { return xdfgetQux(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -333,31 +333,31 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteStilettoAliasCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteStilettoAliasCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteStilettoAliasCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteStilettoAliasCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteStilettoAliasCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteStilettoAliasCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteStilettoAliasCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteStilettoAliasCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteStilettoAliasCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteStilettoAliasCQ> _myselfExistsMap;
-    public Map<String, WhiteStilettoAliasCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteStilettoAliasCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteStilettoAliasCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteStilettoAliasCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteStilettoAliasCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteStilettoAliasCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -366,7 +366,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteStilettoAliasCB.class.getName(); }
     protected String xCQ() { return WhiteStilettoAliasCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

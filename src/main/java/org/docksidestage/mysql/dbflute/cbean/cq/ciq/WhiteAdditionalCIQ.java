@@ -76,10 +76,10 @@ public class WhiteAdditionalCIQ extends AbstractBsWhiteAdditionalCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueFooId() { return _myCQ.getFooId(); }
-    protected ConditionValue getCValueFooName() { return _myCQ.getFooName(); }
-    protected ConditionValue getCValueFooDate() { return _myCQ.getFooDate(); }
-    protected ConditionValue getCValueRegisterDatetime() { return _myCQ.getRegisterDatetime(); }
+    protected ConditionValue xgetCValueFooId() { return _myCQ.xdfgetFooId(); }
+    protected ConditionValue xgetCValueFooName() { return _myCQ.xdfgetFooName(); }
+    protected ConditionValue xgetCValueFooDate() { return _myCQ.xdfgetFooDate(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteAdditionalCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

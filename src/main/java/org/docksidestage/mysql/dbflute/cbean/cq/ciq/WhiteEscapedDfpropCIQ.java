@@ -76,8 +76,8 @@ public class WhiteEscapedDfpropCIQ extends AbstractBsWhiteEscapedDfpropCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueEscapedDfpropCode() { return _myCQ.getEscapedDfpropCode(); }
-    protected ConditionValue getCValueEscapedDfpropName() { return _myCQ.getEscapedDfpropName(); }
+    protected ConditionValue xgetCValueEscapedDfpropCode() { return _myCQ.xdfgetEscapedDfpropCode(); }
+    protected ConditionValue xgetCValueEscapedDfpropName() { return _myCQ.xdfgetEscapedDfpropName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteEscapedDfpropCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

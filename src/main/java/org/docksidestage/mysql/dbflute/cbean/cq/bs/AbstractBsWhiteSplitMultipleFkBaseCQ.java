@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setBaseId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueBaseId(), "BASE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueBaseId(), "BASE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     protected void doSetBaseId_InScope(Collection<Long> baseIdList) {
-        regINS(CK_INS, cTL(baseIdList), getCValueBaseId(), "BASE_ID");
+        regINS(CK_INS, cTL(baseIdList), xgetCValueBaseId(), "BASE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     protected void doSetBaseId_NotInScope(Collection<Long> baseIdList) {
-        regINS(CK_NINS, cTL(baseIdList), getCValueBaseId(), "BASE_ID");
+        regINS(CK_NINS, cTL(baseIdList), xgetCValueBaseId(), "BASE_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      */
     public void setBaseId_IsNotNull() { regBaseId(CK_ISNN, DOBJ); }
 
-    protected void regBaseId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBaseId(), "BASE_ID"); }
-    protected abstract ConditionValue getCValueBaseId();
+    protected void regBaseId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBaseId(), "BASE_ID"); }
+    protected abstract ConditionValue xgetCValueBaseId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -332,7 +332,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFirstId(), "FIRST_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFirstId(), "FIRST_ID", rangeOfOption);
     }
 
     /**
@@ -345,7 +345,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     protected void doSetFirstId_InScope(Collection<Integer> firstIdList) {
-        regINS(CK_INS, cTL(firstIdList), getCValueFirstId(), "FIRST_ID");
+        regINS(CK_INS, cTL(firstIdList), xgetCValueFirstId(), "FIRST_ID");
     }
 
     /**
@@ -358,11 +358,11 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     protected void doSetFirstId_NotInScope(Collection<Integer> firstIdList) {
-        regINS(CK_NINS, cTL(firstIdList), getCValueFirstId(), "FIRST_ID");
+        regINS(CK_NINS, cTL(firstIdList), xgetCValueFirstId(), "FIRST_ID");
     }
 
-    protected void regFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFirstId(), "FIRST_ID"); }
-    protected abstract ConditionValue getCValueFirstId();
+    protected void regFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFirstId(), "FIRST_ID"); }
+    protected abstract ConditionValue xgetCValueFirstId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -436,7 +436,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNextId(), "NEXT_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNextId(), "NEXT_ID", rangeOfOption);
     }
 
     /**
@@ -449,7 +449,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     protected void doSetNextId_InScope(Collection<Long> nextIdList) {
-        regINS(CK_INS, cTL(nextIdList), getCValueNextId(), "NEXT_ID");
+        regINS(CK_INS, cTL(nextIdList), xgetCValueNextId(), "NEXT_ID");
     }
 
     /**
@@ -462,11 +462,11 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     protected void doSetNextId_NotInScope(Collection<Long> nextIdList) {
-        regINS(CK_NINS, cTL(nextIdList), getCValueNextId(), "NEXT_ID");
+        regINS(CK_NINS, cTL(nextIdList), xgetCValueNextId(), "NEXT_ID");
     }
 
-    protected void regNextId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNextId(), "NEXT_ID"); }
-    protected abstract ConditionValue getCValueNextId();
+    protected void regNextId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNextId(), "NEXT_ID"); }
+    protected abstract ConditionValue xgetCValueNextId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -504,7 +504,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     protected void doSetSplitName_InScope(Collection<String> splitNameList) {
-        regINS(CK_INS, cTL(splitNameList), getCValueSplitName(), "SPLIT_NAME");
+        regINS(CK_INS, cTL(splitNameList), xgetCValueSplitName(), "SPLIT_NAME");
     }
 
     /**
@@ -517,7 +517,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     protected void doSetSplitName_NotInScope(Collection<String> splitNameList) {
-        regINS(CK_NINS, cTL(splitNameList), getCValueSplitName(), "SPLIT_NAME");
+        regINS(CK_NINS, cTL(splitNameList), xgetCValueSplitName(), "SPLIT_NAME");
     }
 
     /**
@@ -539,7 +539,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSplitName_LikeSearch(String splitName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(splitName), getCValueSplitName(), "SPLIT_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(splitName), xgetCValueSplitName(), "SPLIT_NAME", likeSearchOption);
     }
 
     /**
@@ -561,7 +561,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSplitName_NotLikeSearch(String splitName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(splitName), getCValueSplitName(), "SPLIT_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(splitName), xgetCValueSplitName(), "SPLIT_NAME", likeSearchOption);
     }
 
     /**
@@ -573,8 +573,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
         setSplitName_LikeSearch(splitName, xcLSOPPre());
     }
 
-    protected void regSplitName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSplitName(), "SPLIT_NAME"); }
-    protected abstract ConditionValue getCValueSplitName();
+    protected void regSplitName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSplitName(), "SPLIT_NAME"); }
+    protected abstract ConditionValue xgetCValueSplitName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

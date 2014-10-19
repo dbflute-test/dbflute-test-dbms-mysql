@@ -89,10 +89,10 @@ public class BsWhiteOnlyOneToOneFromCQ extends AbstractBsWhiteOnlyOneToOneFromCQ
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _fromId;
-    public ConditionValue getFromId()
+    public ConditionValue xdfgetFromId()
     { if (_fromId == null) { _fromId = nCV(); }
       return _fromId; }
-    protected ConditionValue getCValueFromId() { return getFromId(); }
+    protected ConditionValue xgetCValueFromId() { return xdfgetFromId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteOnlyOneToOneFromCQ extends AbstractBsWhiteOnlyOneToOneFromCQ
     public BsWhiteOnlyOneToOneFromCQ addOrderBy_FromId_Desc() { regOBD("FROM_ID"); return this; }
 
     protected ConditionValue _fromName;
-    public ConditionValue getFromName()
+    public ConditionValue xdfgetFromName()
     { if (_fromName == null) { _fromName = nCV(); }
       return _fromName; }
-    protected ConditionValue getCValueFromName() { return getFromName(); }
+    protected ConditionValue xgetCValueFromName() { return xdfgetFromName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -182,8 +182,8 @@ public class BsWhiteOnlyOneToOneFromCQ extends AbstractBsWhiteOnlyOneToOneFromCQ
      * white_only_one_to_one_to by FROM_ID, named 'whiteOnlyOneToOneToAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
-    public WhiteOnlyOneToOneToCQ queryWhiteOnlyOneToOneToAsOne() { return getConditionQueryWhiteOnlyOneToOneToAsOne(); }
-    public WhiteOnlyOneToOneToCQ getConditionQueryWhiteOnlyOneToOneToAsOne() {
+    public WhiteOnlyOneToOneToCQ queryWhiteOnlyOneToOneToAsOne() { return xdfgetConditionQueryWhiteOnlyOneToOneToAsOne(); }
+    public WhiteOnlyOneToOneToCQ xdfgetConditionQueryWhiteOnlyOneToOneToAsOne() {
         String prop = "whiteOnlyOneToOneToAsOne";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteOnlyOneToOneToAsOne()); xsetupOuterJoinWhiteOnlyOneToOneToAsOne(); }
         return xgetQueRlMap(prop);
@@ -202,31 +202,31 @@ public class BsWhiteOnlyOneToOneFromCQ extends AbstractBsWhiteOnlyOneToOneFromCQ
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteOnlyOneToOneFromCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteOnlyOneToOneFromCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteOnlyOneToOneFromCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteOnlyOneToOneFromCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteOnlyOneToOneFromCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteOnlyOneToOneFromCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteOnlyOneToOneFromCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteOnlyOneToOneFromCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteOnlyOneToOneFromCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteOnlyOneToOneFromCQ> _myselfExistsMap;
-    public Map<String, WhiteOnlyOneToOneFromCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteOnlyOneToOneFromCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteOnlyOneToOneFromCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteOnlyOneToOneFromCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteOnlyOneToOneFromCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteOnlyOneToOneFromCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -235,7 +235,7 @@ public class BsWhiteOnlyOneToOneFromCQ extends AbstractBsWhiteOnlyOneToOneFromCQ
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteOnlyOneToOneFromCB.class.getName(); }
     protected String xCQ() { return WhiteOnlyOneToOneFromCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

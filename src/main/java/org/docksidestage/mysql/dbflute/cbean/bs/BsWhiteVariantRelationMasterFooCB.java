@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
      */
     public WhiteVariantRelationMasterFooCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteVariantRelationMasterFooCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteVariantRelationMasterFooCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteVariantRelationMasterFooCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         return new WhiteVariantRelationMasterFooCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -264,7 +272,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhiteVariantRelationReferrerNss _nssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne;
-    public WhiteVariantRelationReferrerNss getNssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
+    public WhiteVariantRelationReferrerNss xdfgetNssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
         if (_nssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne == null) { _nssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne = new WhiteVariantRelationReferrerNss(null); }
         return _nssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne;
     }
@@ -289,7 +297,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
     }
 
     protected WhiteVariantRelationLocalPkReferrerNss _nssWhiteVariantRelationLocalPkReferrerAsOne;
-    public WhiteVariantRelationLocalPkReferrerNss getNssWhiteVariantRelationLocalPkReferrerAsOne() {
+    public WhiteVariantRelationLocalPkReferrerNss xdfgetNssWhiteVariantRelationLocalPkReferrerAsOne() {
         if (_nssWhiteVariantRelationLocalPkReferrerAsOne == null) { _nssWhiteVariantRelationLocalPkReferrerAsOne = new WhiteVariantRelationLocalPkReferrerNss(null); }
         return _nssWhiteVariantRelationLocalPkReferrerAsOne;
     }
@@ -339,7 +347,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteVariantRelationMasterFooCQ>() {
                 public boolean has() { return true; }
-                public WhiteVariantRelationMasterFooCQ qy() { return getConditionQuery(); }
+                public WhiteVariantRelationMasterFooCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -364,12 +372,12 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
          * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMasterFooId() { return doColumn("MASTER_FOO_ID"); }
+        public SpecifiedColumn columnMasterFooId() { return doColumn("MASTER_FOO_ID"); }
         /**
          * MASTER_FOO_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMasterFooName() { return doColumn("MASTER_FOO_NAME"); }
+        public SpecifiedColumn columnMasterFooName() { return doColumn("MASTER_FOO_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -481,7 +489,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteVariantRelationMasterFooCB> columnQuery(final SpecifyQuery<WhiteVariantRelationMasterFooCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteVariantRelationMasterFooCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteVariantRelationMasterFooCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteVariantRelationMasterFooCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -599,8 +607,8 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteVariantRelationMasterFooCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteVariantRelationMasterFooCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteVariantRelationMasterFooCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteVariantRelationMasterFooCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

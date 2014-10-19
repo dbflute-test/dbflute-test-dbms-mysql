@@ -89,10 +89,10 @@ public class BsWhiteSuppressJoinSqOneAddiCQ extends AbstractBsWhiteSuppressJoinS
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _oneAddiId;
-    public ConditionValue getOneAddiId()
+    public ConditionValue xdfgetOneAddiId()
     { if (_oneAddiId == null) { _oneAddiId = nCV(); }
       return _oneAddiId; }
-    protected ConditionValue getCValueOneAddiId() { return getOneAddiId(); }
+    protected ConditionValue xgetCValueOneAddiId() { return xdfgetOneAddiId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteSuppressJoinSqOneAddiCQ extends AbstractBsWhiteSuppressJoinS
     public BsWhiteSuppressJoinSqOneAddiCQ addOrderBy_OneAddiId_Desc() { regOBD("ONE_ADDI_ID"); return this; }
 
     protected ConditionValue _oneAddiName;
-    public ConditionValue getOneAddiName()
+    public ConditionValue xdfgetOneAddiName()
     { if (_oneAddiName == null) { _oneAddiName = nCV(); }
       return _oneAddiName; }
-    protected ConditionValue getCValueOneAddiName() { return getOneAddiName(); }
+    protected ConditionValue xgetCValueOneAddiName() { return xdfgetOneAddiName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteSuppressJoinSqOneAddiCQ extends AbstractBsWhiteSuppressJoinS
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteSuppressJoinSqOneAddiCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteSuppressJoinSqOneAddiCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteSuppressJoinSqOneAddiCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteSuppressJoinSqOneAddiCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteSuppressJoinSqOneAddiCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteSuppressJoinSqOneAddiCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteSuppressJoinSqOneAddiCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteSuppressJoinSqOneAddiCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteSuppressJoinSqOneAddiCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteSuppressJoinSqOneAddiCQ> _myselfExistsMap;
-    public Map<String, WhiteSuppressJoinSqOneAddiCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteSuppressJoinSqOneAddiCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteSuppressJoinSqOneAddiCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteSuppressJoinSqOneAddiCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteSuppressJoinSqOneAddiCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteSuppressJoinSqOneAddiCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteSuppressJoinSqOneAddiCQ extends AbstractBsWhiteSuppressJoinS
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteSuppressJoinSqOneAddiCB.class.getName(); }
     protected String xCQ() { return WhiteSuppressJoinSqOneAddiCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

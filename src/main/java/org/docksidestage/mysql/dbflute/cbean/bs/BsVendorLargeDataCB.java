@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -202,10 +203,14 @@ public class BsVendorLargeDataCB extends AbstractConditionBean {
      */
     public VendorLargeDataCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorLargeDataCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorLargeDataCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorLargeDataCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -226,8 +231,11 @@ public class BsVendorLargeDataCB extends AbstractConditionBean {
         return new VendorLargeDataCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -301,7 +309,7 @@ public class BsVendorLargeDataCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorLargeDataCQ>() {
                 public boolean has() { return true; }
-                public VendorLargeDataCQ qy() { return getConditionQuery(); }
+                public VendorLargeDataCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -324,37 +332,37 @@ public class BsVendorLargeDataCB extends AbstractConditionBean {
          * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnLargeDataId() { return doColumn("LARGE_DATA_ID"); }
+        public SpecifiedColumn columnLargeDataId() { return doColumn("LARGE_DATA_ID"); }
         /**
          * STRING_INDEX: {IX, NotNull, VARCHAR(180)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnStringIndex() { return doColumn("STRING_INDEX"); }
+        public SpecifiedColumn columnStringIndex() { return doColumn("STRING_INDEX"); }
         /**
          * STRING_NO_INDEX: {NotNull, VARCHAR(180)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnStringNoIndex() { return doColumn("STRING_NO_INDEX"); }
+        public SpecifiedColumn columnStringNoIndex() { return doColumn("STRING_NO_INDEX"); }
         /**
          * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnStringUniqueIndex() { return doColumn("STRING_UNIQUE_INDEX"); }
+        public SpecifiedColumn columnStringUniqueIndex() { return doColumn("STRING_UNIQUE_INDEX"); }
         /**
          * INTFLG_INDEX: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnIntflgIndex() { return doColumn("INTFLG_INDEX"); }
+        public SpecifiedColumn columnIntflgIndex() { return doColumn("INTFLG_INDEX"); }
         /**
          * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNumericIntegerIndex() { return doColumn("NUMERIC_INTEGER_INDEX"); }
+        public SpecifiedColumn columnNumericIntegerIndex() { return doColumn("NUMERIC_INTEGER_INDEX"); }
         /**
          * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNumericIntegerNoIndex() { return doColumn("NUMERIC_INTEGER_NO_INDEX"); }
+        public SpecifiedColumn columnNumericIntegerNoIndex() { return doColumn("NUMERIC_INTEGER_NO_INDEX"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -424,7 +432,7 @@ public class BsVendorLargeDataCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<VendorLargeDataCB> columnQuery(final SpecifyQuery<VendorLargeDataCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<VendorLargeDataCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorLargeDataCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorLargeDataCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -542,8 +550,8 @@ public class BsVendorLargeDataCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorLargeDataCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorLargeDataCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorLargeDataCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorLargeDataCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

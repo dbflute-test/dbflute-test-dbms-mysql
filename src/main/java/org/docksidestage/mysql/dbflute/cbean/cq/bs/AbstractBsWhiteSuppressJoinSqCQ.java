@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSuppressJoinSqId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     }
 
     protected void doSetSuppressJoinSqId_InScope(Collection<Integer> suppressJoinSqIdList) {
-        regINS(CK_INS, cTL(suppressJoinSqIdList), getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
+        regINS(CK_INS, cTL(suppressJoinSqIdList), xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     }
 
     protected void doSetSuppressJoinSqId_NotInScope(Collection<Integer> suppressJoinSqIdList) {
-        regINS(CK_NINS, cTL(suppressJoinSqIdList), getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
+        regINS(CK_NINS, cTL(suppressJoinSqIdList), xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      */
     public void setSuppressJoinSqId_IsNotNull() { regSuppressJoinSqId(CK_ISNN, DOBJ); }
 
-    protected void regSuppressJoinSqId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID"); }
-    protected abstract ConditionValue getCValueSuppressJoinSqId();
+    protected void regSuppressJoinSqId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID"); }
+    protected abstract ConditionValue xgetCValueSuppressJoinSqId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     }
 
     protected void doSetSuppressJoinSqName_InScope(Collection<String> suppressJoinSqNameList) {
-        regINS(CK_INS, cTL(suppressJoinSqNameList), getCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME");
+        regINS(CK_INS, cTL(suppressJoinSqNameList), xgetCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     }
 
     protected void doSetSuppressJoinSqName_NotInScope(Collection<String> suppressJoinSqNameList) {
-        regINS(CK_NINS, cTL(suppressJoinSqNameList), getCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME");
+        regINS(CK_NINS, cTL(suppressJoinSqNameList), xgetCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSuppressJoinSqName_LikeSearch(String suppressJoinSqName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(suppressJoinSqName), getCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(suppressJoinSqName), xgetCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSuppressJoinSqName_NotLikeSearch(String suppressJoinSqName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(suppressJoinSqName), getCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(suppressJoinSqName), xgetCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
         setSuppressJoinSqName_LikeSearch(suppressJoinSqName, xcLSOPPre());
     }
 
-    protected void regSuppressJoinSqName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME"); }
-    protected abstract ConditionValue getCValueSuppressJoinSqName();
+    protected void regSuppressJoinSqName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME"); }
+    protected abstract ConditionValue xgetCValueSuppressJoinSqName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

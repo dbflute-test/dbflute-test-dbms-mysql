@@ -89,10 +89,10 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _escapedJavaDocCode;
-    public ConditionValue getEscapedJavaDocCode()
+    public ConditionValue xdfgetEscapedJavaDocCode()
     { if (_escapedJavaDocCode == null) { _escapedJavaDocCode = nCV(); }
       return _escapedJavaDocCode; }
-    protected ConditionValue getCValueEscapedJavaDocCode() { return getEscapedJavaDocCode(); }
+    protected ConditionValue xgetCValueEscapedJavaDocCode() { return xdfgetEscapedJavaDocCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
     public BsWhiteEscapedJavaDocCQ addOrderBy_EscapedJavaDocCode_Desc() { regOBD("ESCAPED_JAVA_DOC_CODE"); return this; }
 
     protected ConditionValue _escapedJavaDocName;
-    public ConditionValue getEscapedJavaDocName()
+    public ConditionValue xdfgetEscapedJavaDocName()
     { if (_escapedJavaDocName == null) { _escapedJavaDocName = nCV(); }
       return _escapedJavaDocName; }
-    protected ConditionValue getCValueEscapedJavaDocName() { return getEscapedJavaDocName(); }
+    protected ConditionValue xgetCValueEscapedJavaDocName() { return xdfgetEscapedJavaDocName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteEscapedJavaDocCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteEscapedJavaDocCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteEscapedJavaDocCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteEscapedJavaDocCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteEscapedJavaDocCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteEscapedJavaDocCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteEscapedJavaDocCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteEscapedJavaDocCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteEscapedJavaDocCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteEscapedJavaDocCQ> _myselfExistsMap;
-    public Map<String, WhiteEscapedJavaDocCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteEscapedJavaDocCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteEscapedJavaDocCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteEscapedJavaDocCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteEscapedJavaDocCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteEscapedJavaDocCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteEscapedJavaDocCB.class.getName(); }
     protected String xCQ() { return WhiteEscapedJavaDocCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

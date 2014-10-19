@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      */
     public WhitePurchaseReferrerCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhitePurchaseReferrerCQ getConditionQuery() { // public for parameter comment and internal
+    public WhitePurchaseReferrerCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhitePurchaseReferrerCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
         return new WhitePurchaseReferrerCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -264,7 +272,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected PurchaseNss _nssPurchase;
-    public PurchaseNss getNssPurchase() {
+    public PurchaseNss xdfgetNssPurchase() {
         if (_nssPurchase == null) { _nssPurchase = new PurchaseNss(null); }
         return _nssPurchase;
     }
@@ -315,7 +323,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhitePurchaseReferrerCQ>() {
                 public boolean has() { return true; }
-                public WhitePurchaseReferrerCQ qy() { return getConditionQuery(); }
+                public WhitePurchaseReferrerCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -339,12 +347,12 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
          * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPurchaseReferrerId() { return doColumn("PURCHASE_REFERRER_ID"); }
+        public SpecifiedColumn columnPurchaseReferrerId() { return doColumn("PURCHASE_REFERRER_ID"); }
         /**
          * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPurchaseReferrerName() { return doColumn("PURCHASE_REFERRER_NAME"); }
+        public SpecifiedColumn columnPurchaseReferrerName() { return doColumn("PURCHASE_REFERRER_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -417,7 +425,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePurchaseReferrerCB> columnQuery(final SpecifyQuery<WhitePurchaseReferrerCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhitePurchaseReferrerCB>() {
-            public HpCalculator handle(SpecifyQuery<WhitePurchaseReferrerCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhitePurchaseReferrerCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -535,8 +543,8 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhitePurchaseReferrerCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhitePurchaseReferrerCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhitePurchaseReferrerCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhitePurchaseReferrerCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

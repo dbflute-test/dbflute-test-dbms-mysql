@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSelfReferenceId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSelfReferenceId(), "SELF_REFERENCE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSelfReferenceId(), "SELF_REFERENCE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     }
 
     protected void doSetSelfReferenceId_InScope(Collection<Long> selfReferenceIdList) {
-        regINS(CK_INS, cTL(selfReferenceIdList), getCValueSelfReferenceId(), "SELF_REFERENCE_ID");
+        regINS(CK_INS, cTL(selfReferenceIdList), xgetCValueSelfReferenceId(), "SELF_REFERENCE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     }
 
     protected void doSetSelfReferenceId_NotInScope(Collection<Long> selfReferenceIdList) {
-        regINS(CK_NINS, cTL(selfReferenceIdList), getCValueSelfReferenceId(), "SELF_REFERENCE_ID");
+        regINS(CK_NINS, cTL(selfReferenceIdList), xgetCValueSelfReferenceId(), "SELF_REFERENCE_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      */
     public void setSelfReferenceId_IsNotNull() { regSelfReferenceId(CK_ISNN, DOBJ); }
 
-    protected void regSelfReferenceId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSelfReferenceId(), "SELF_REFERENCE_ID"); }
-    protected abstract ConditionValue getCValueSelfReferenceId();
+    protected void regSelfReferenceId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSelfReferenceId(), "SELF_REFERENCE_ID"); }
+    protected abstract ConditionValue xgetCValueSelfReferenceId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     }
 
     protected void doSetSelfReferenceRefOneName_InScope(Collection<String> selfReferenceRefOneNameList) {
-        regINS(CK_INS, cTL(selfReferenceRefOneNameList), getCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME");
+        regINS(CK_INS, cTL(selfReferenceRefOneNameList), xgetCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     }
 
     protected void doSetSelfReferenceRefOneName_NotInScope(Collection<String> selfReferenceRefOneNameList) {
-        regINS(CK_NINS, cTL(selfReferenceRefOneNameList), getCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME");
+        regINS(CK_NINS, cTL(selfReferenceRefOneNameList), xgetCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSelfReferenceRefOneName_LikeSearch(String selfReferenceRefOneName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(selfReferenceRefOneName), getCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(selfReferenceRefOneName), xgetCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSelfReferenceRefOneName_NotLikeSearch(String selfReferenceRefOneName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(selfReferenceRefOneName), getCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(selfReferenceRefOneName), xgetCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
         setSelfReferenceRefOneName_LikeSearch(selfReferenceRefOneName, xcLSOPPre());
     }
 
-    protected void regSelfReferenceRefOneName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME"); }
-    protected abstract ConditionValue getCValueSelfReferenceRefOneName();
+    protected void regSelfReferenceRefOneName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME"); }
+    protected abstract ConditionValue xgetCValueSelfReferenceRefOneName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

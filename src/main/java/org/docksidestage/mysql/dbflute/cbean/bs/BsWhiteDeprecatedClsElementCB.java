@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteDeprecatedClsElementCB extends AbstractConditionBean {
      */
     public WhiteDeprecatedClsElementCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteDeprecatedClsElementCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteDeprecatedClsElementCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteDeprecatedClsElementCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteDeprecatedClsElementCB extends AbstractConditionBean {
         return new WhiteDeprecatedClsElementCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -290,7 +298,7 @@ public class BsWhiteDeprecatedClsElementCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteDeprecatedClsElementCQ>() {
                 public boolean has() { return true; }
-                public WhiteDeprecatedClsElementCQ qy() { return getConditionQuery(); }
+                public WhiteDeprecatedClsElementCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -313,12 +321,12 @@ public class BsWhiteDeprecatedClsElementCB extends AbstractConditionBean {
          * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDeprecatedClsElementCode() { return doColumn("DEPRECATED_CLS_ELEMENT_CODE"); }
+        public SpecifiedColumn columnDeprecatedClsElementCode() { return doColumn("DEPRECATED_CLS_ELEMENT_CODE"); }
         /**
          * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDeprecatedClsElementName() { return doColumn("DEPRECATED_CLS_ELEMENT_NAME"); }
+        public SpecifiedColumn columnDeprecatedClsElementName() { return doColumn("DEPRECATED_CLS_ELEMENT_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -370,7 +378,7 @@ public class BsWhiteDeprecatedClsElementCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteDeprecatedClsElementCB> columnQuery(final SpecifyQuery<WhiteDeprecatedClsElementCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteDeprecatedClsElementCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteDeprecatedClsElementCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteDeprecatedClsElementCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -488,8 +496,8 @@ public class BsWhiteDeprecatedClsElementCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteDeprecatedClsElementCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteDeprecatedClsElementCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteDeprecatedClsElementCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteDeprecatedClsElementCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

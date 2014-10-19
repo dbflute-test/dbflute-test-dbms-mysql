@@ -89,10 +89,10 @@ public class BsWhiteQuotedRefCQ extends AbstractBsWhiteQuotedRefCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _where;
-    public ConditionValue getWhere()
+    public ConditionValue xdfgetWhere()
     { if (_where == null) { _where = nCV(); }
       return _where; }
-    protected ConditionValue getCValueWhere() { return getWhere(); }
+    protected ConditionValue xgetCValueWhere() { return xdfgetWhere(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteQuotedRefCQ extends AbstractBsWhiteQuotedRefCQ {
     public BsWhiteQuotedRefCQ addOrderBy_Where_Desc() { regOBD("WHERE"); return this; }
 
     protected ConditionValue _order;
-    public ConditionValue getOrder()
+    public ConditionValue xdfgetOrder()
     { if (_order == null) { _order = nCV(); }
       return _order; }
-    protected ConditionValue getCValueOrder() { return getOrder(); }
+    protected ConditionValue xgetCValueOrder() { return xdfgetOrder(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -183,9 +183,9 @@ public class BsWhiteQuotedRefCQ extends AbstractBsWhiteQuotedRefCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteQuotedCQ queryWhiteQuoted() {
-        return getConditionQueryWhiteQuoted();
+        return xdfgetConditionQueryWhiteQuoted();
     }
-    public WhiteQuotedCQ getConditionQueryWhiteQuoted() {
+    public WhiteQuotedCQ xdfgetConditionQueryWhiteQuoted() {
         String prop = "whiteQuoted";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteQuoted()); xsetupOuterJoinWhiteQuoted(); }
         return xgetQueRlMap(prop);
@@ -204,31 +204,31 @@ public class BsWhiteQuotedRefCQ extends AbstractBsWhiteQuotedRefCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteQuotedRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteQuotedRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteQuotedRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteQuotedRefCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteQuotedRefCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteQuotedRefCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteQuotedRefCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteQuotedRefCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteQuotedRefCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteQuotedRefCQ> _myselfExistsMap;
-    public Map<String, WhiteQuotedRefCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteQuotedRefCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteQuotedRefCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteQuotedRefCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteQuotedRefCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteQuotedRefCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -237,7 +237,7 @@ public class BsWhiteQuotedRefCQ extends AbstractBsWhiteQuotedRefCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteQuotedRefCB.class.getName(); }
     protected String xCQ() { return WhiteQuotedRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

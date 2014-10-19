@@ -76,8 +76,8 @@ public class WhiteVariantRelationReferrerRefCIQ extends AbstractBsWhiteVariantRe
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueRefId() { return _myCQ.getRefId(); }
-    protected ConditionValue getCValueReferrerId() { return _myCQ.getReferrerId(); }
+    protected ConditionValue xgetCValueRefId() { return _myCQ.xdfgetRefId(); }
+    protected ConditionValue xgetCValueReferrerId() { return _myCQ.xdfgetReferrerId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteVariantRelationReferrerRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

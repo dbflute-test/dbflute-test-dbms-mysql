@@ -189,7 +189,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     protected void doSetDeprecatedClsElementCode_InScope(Collection<String> deprecatedClsElementCodeList) {
-        regINS(CK_INS, cTL(deprecatedClsElementCodeList), getCValueDeprecatedClsElementCode(), "DEPRECATED_CLS_ELEMENT_CODE");
+        regINS(CK_INS, cTL(deprecatedClsElementCodeList), xgetCValueDeprecatedClsElementCode(), "DEPRECATED_CLS_ELEMENT_CODE");
     }
 
     /**
@@ -212,7 +212,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     protected void doSetDeprecatedClsElementCode_NotInScope(Collection<String> deprecatedClsElementCodeList) {
-        regINS(CK_NINS, cTL(deprecatedClsElementCodeList), getCValueDeprecatedClsElementCode(), "DEPRECATED_CLS_ELEMENT_CODE");
+        regINS(CK_NINS, cTL(deprecatedClsElementCodeList), xgetCValueDeprecatedClsElementCode(), "DEPRECATED_CLS_ELEMENT_CODE");
     }
 
     /**
@@ -227,8 +227,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      */
     public void setDeprecatedClsElementCode_IsNotNull() { regDeprecatedClsElementCode(CK_ISNN, DOBJ); }
 
-    protected void regDeprecatedClsElementCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDeprecatedClsElementCode(), "DEPRECATED_CLS_ELEMENT_CODE"); }
-    protected abstract ConditionValue getCValueDeprecatedClsElementCode();
+    protected void regDeprecatedClsElementCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDeprecatedClsElementCode(), "DEPRECATED_CLS_ELEMENT_CODE"); }
+    protected abstract ConditionValue xgetCValueDeprecatedClsElementCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -266,7 +266,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     protected void doSetDeprecatedClsElementName_InScope(Collection<String> deprecatedClsElementNameList) {
-        regINS(CK_INS, cTL(deprecatedClsElementNameList), getCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME");
+        regINS(CK_INS, cTL(deprecatedClsElementNameList), xgetCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME");
     }
 
     /**
@@ -279,7 +279,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     protected void doSetDeprecatedClsElementName_NotInScope(Collection<String> deprecatedClsElementNameList) {
-        regINS(CK_NINS, cTL(deprecatedClsElementNameList), getCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME");
+        regINS(CK_NINS, cTL(deprecatedClsElementNameList), xgetCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME");
     }
 
     /**
@@ -301,7 +301,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDeprecatedClsElementName_LikeSearch(String deprecatedClsElementName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(deprecatedClsElementName), getCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(deprecatedClsElementName), xgetCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME", likeSearchOption);
     }
 
     /**
@@ -323,7 +323,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDeprecatedClsElementName_NotLikeSearch(String deprecatedClsElementName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(deprecatedClsElementName), getCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(deprecatedClsElementName), xgetCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME", likeSearchOption);
     }
 
     /**
@@ -353,8 +353,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      */
     public void setDeprecatedClsElementName_IsNotNull() { regDeprecatedClsElementName(CK_ISNN, DOBJ); }
 
-    protected void regDeprecatedClsElementName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME"); }
-    protected abstract ConditionValue getCValueDeprecatedClsElementName();
+    protected void regDeprecatedClsElementName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDeprecatedClsElementName(), "DEPRECATED_CLS_ELEMENT_NAME"); }
+    protected abstract ConditionValue xgetCValueDeprecatedClsElementName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

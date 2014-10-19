@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteSuppressDefCheckCB extends AbstractConditionBean {
      */
     public WhiteSuppressDefCheckCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteSuppressDefCheckCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteSuppressDefCheckCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteSuppressDefCheckCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteSuppressDefCheckCB extends AbstractConditionBean {
         return new WhiteSuppressDefCheckCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteSuppressDefCheckCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteSuppressDefCheckCQ>() {
                 public boolean has() { return true; }
-                public WhiteSuppressDefCheckCQ qy() { return getConditionQuery(); }
+                public WhiteSuppressDefCheckCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,12 +320,12 @@ public class BsWhiteSuppressDefCheckCB extends AbstractConditionBean {
          * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDefCheckId() { return doColumn("DEF_CHECK_ID"); }
+        public SpecifiedColumn columnDefCheckId() { return doColumn("DEF_CHECK_ID"); }
         /**
          * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDefCheckName() { return doColumn("DEF_CHECK_NAME"); }
+        public SpecifiedColumn columnDefCheckName() { return doColumn("DEF_CHECK_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -369,7 +377,7 @@ public class BsWhiteSuppressDefCheckCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteSuppressDefCheckCB> columnQuery(final SpecifyQuery<WhiteSuppressDefCheckCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteSuppressDefCheckCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteSuppressDefCheckCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteSuppressDefCheckCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -487,8 +495,8 @@ public class BsWhiteSuppressDefCheckCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteSuppressDefCheckCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteSuppressDefCheckCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteSuppressDefCheckCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteSuppressDefCheckCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

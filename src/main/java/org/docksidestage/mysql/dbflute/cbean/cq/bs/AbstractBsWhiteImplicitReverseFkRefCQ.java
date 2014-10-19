@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkRefId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueWhiteImplicitReverseFkRefId(), "WHITE_IMPLICIT_REVERSE_FK_REF_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueWhiteImplicitReverseFkRefId(), "WHITE_IMPLICIT_REVERSE_FK_REF_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
     }
 
     protected void doSetWhiteImplicitReverseFkRefId_InScope(Collection<Integer> whiteImplicitReverseFkRefIdList) {
-        regINS(CK_INS, cTL(whiteImplicitReverseFkRefIdList), getCValueWhiteImplicitReverseFkRefId(), "WHITE_IMPLICIT_REVERSE_FK_REF_ID");
+        regINS(CK_INS, cTL(whiteImplicitReverseFkRefIdList), xgetCValueWhiteImplicitReverseFkRefId(), "WHITE_IMPLICIT_REVERSE_FK_REF_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
     }
 
     protected void doSetWhiteImplicitReverseFkRefId_NotInScope(Collection<Integer> whiteImplicitReverseFkRefIdList) {
-        regINS(CK_NINS, cTL(whiteImplicitReverseFkRefIdList), getCValueWhiteImplicitReverseFkRefId(), "WHITE_IMPLICIT_REVERSE_FK_REF_ID");
+        regINS(CK_NINS, cTL(whiteImplicitReverseFkRefIdList), xgetCValueWhiteImplicitReverseFkRefId(), "WHITE_IMPLICIT_REVERSE_FK_REF_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
      */
     public void setWhiteImplicitReverseFkRefId_IsNotNull() { regWhiteImplicitReverseFkRefId(CK_ISNN, DOBJ); }
 
-    protected void regWhiteImplicitReverseFkRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWhiteImplicitReverseFkRefId(), "WHITE_IMPLICIT_REVERSE_FK_REF_ID"); }
-    protected abstract ConditionValue getCValueWhiteImplicitReverseFkRefId();
+    protected void regWhiteImplicitReverseFkRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWhiteImplicitReverseFkRefId(), "WHITE_IMPLICIT_REVERSE_FK_REF_ID"); }
+    protected abstract ConditionValue xgetCValueWhiteImplicitReverseFkRefId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
     }
 
     protected void doSetWhiteImplicitReverseFkId_InScope(Collection<Integer> whiteImplicitReverseFkIdList) {
-        regINS(CK_INS, cTL(whiteImplicitReverseFkIdList), getCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID");
+        regINS(CK_INS, cTL(whiteImplicitReverseFkIdList), xgetCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID");
     }
 
     /**
@@ -275,11 +275,11 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
     }
 
     protected void doSetWhiteImplicitReverseFkId_NotInScope(Collection<Integer> whiteImplicitReverseFkIdList) {
-        regINS(CK_NINS, cTL(whiteImplicitReverseFkIdList), getCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID");
+        regINS(CK_NINS, cTL(whiteImplicitReverseFkIdList), xgetCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID");
     }
 
-    protected void regWhiteImplicitReverseFkId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID"); }
-    protected abstract ConditionValue getCValueWhiteImplicitReverseFkId();
+    protected void regWhiteImplicitReverseFkId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID"); }
+    protected abstract ConditionValue xgetCValueWhiteImplicitReverseFkId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -349,7 +349,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setValidBeginDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueValidBeginDate(), "VALID_BEGIN_DATE", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueValidBeginDate(), "VALID_BEGIN_DATE", fromToOption);
     }
 
     /**
@@ -367,8 +367,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
         setValidBeginDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regValidBeginDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueValidBeginDate(), "VALID_BEGIN_DATE"); }
-    protected abstract ConditionValue getCValueValidBeginDate();
+    protected void regValidBeginDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueValidBeginDate(), "VALID_BEGIN_DATE"); }
+    protected abstract ConditionValue xgetCValueValidBeginDate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -438,7 +438,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setValidEndDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueValidEndDate(), "VALID_END_DATE", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueValidEndDate(), "VALID_END_DATE", fromToOption);
     }
 
     /**
@@ -456,8 +456,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
         setValidEndDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regValidEndDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueValidEndDate(), "VALID_END_DATE"); }
-    protected abstract ConditionValue getCValueValidEndDate();
+    protected void regValidEndDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueValidEndDate(), "VALID_END_DATE"); }
+    protected abstract ConditionValue xgetCValueValidEndDate();
 
     // ===================================================================================
     //                                                                     ScalarCondition

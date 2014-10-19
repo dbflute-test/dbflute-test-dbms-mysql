@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -202,10 +203,14 @@ public class BsVendorConstraintNameAutoQuxCB extends AbstractConditionBean {
      */
     public VendorConstraintNameAutoQuxCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorConstraintNameAutoQuxCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorConstraintNameAutoQuxCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorConstraintNameAutoQuxCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -226,8 +231,11 @@ public class BsVendorConstraintNameAutoQuxCB extends AbstractConditionBean {
         return new VendorConstraintNameAutoQuxCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -301,7 +309,7 @@ public class BsVendorConstraintNameAutoQuxCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorConstraintNameAutoQuxCQ>() {
                 public boolean has() { return true; }
-                public VendorConstraintNameAutoQuxCQ qy() { return getConditionQuery(); }
+                public VendorConstraintNameAutoQuxCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -324,12 +332,12 @@ public class BsVendorConstraintNameAutoQuxCB extends AbstractConditionBean {
          * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnConstraintNameAutoQuxId() { return doColumn("CONSTRAINT_NAME_AUTO_QUX_ID"); }
+        public SpecifiedColumn columnConstraintNameAutoQuxId() { return doColumn("CONSTRAINT_NAME_AUTO_QUX_ID"); }
         /**
          * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnConstraintNameAutoQuxName() { return doColumn("CONSTRAINT_NAME_AUTO_QUX_NAME"); }
+        public SpecifiedColumn columnConstraintNameAutoQuxName() { return doColumn("CONSTRAINT_NAME_AUTO_QUX_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -399,7 +407,7 @@ public class BsVendorConstraintNameAutoQuxCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<VendorConstraintNameAutoQuxCB> columnQuery(final SpecifyQuery<VendorConstraintNameAutoQuxCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<VendorConstraintNameAutoQuxCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorConstraintNameAutoQuxCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorConstraintNameAutoQuxCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -517,8 +525,8 @@ public class BsVendorConstraintNameAutoQuxCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorConstraintNameAutoQuxCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorConstraintNameAutoQuxCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorConstraintNameAutoQuxCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorConstraintNameAutoQuxCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

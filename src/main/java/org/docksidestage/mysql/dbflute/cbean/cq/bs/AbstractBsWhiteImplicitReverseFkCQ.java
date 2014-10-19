@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     }
 
     protected void doSetWhiteImplicitReverseFkId_InScope(Collection<Integer> whiteImplicitReverseFkIdList) {
-        regINS(CK_INS, cTL(whiteImplicitReverseFkIdList), getCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID");
+        regINS(CK_INS, cTL(whiteImplicitReverseFkIdList), xgetCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     }
 
     protected void doSetWhiteImplicitReverseFkId_NotInScope(Collection<Integer> whiteImplicitReverseFkIdList) {
-        regINS(CK_NINS, cTL(whiteImplicitReverseFkIdList), getCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID");
+        regINS(CK_NINS, cTL(whiteImplicitReverseFkIdList), xgetCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      */
     public void setWhiteImplicitReverseFkId_IsNotNull() { regWhiteImplicitReverseFkId(CK_ISNN, DOBJ); }
 
-    protected void regWhiteImplicitReverseFkId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID"); }
-    protected abstract ConditionValue getCValueWhiteImplicitReverseFkId();
+    protected void regWhiteImplicitReverseFkId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWhiteImplicitReverseFkId(), "WHITE_IMPLICIT_REVERSE_FK_ID"); }
+    protected abstract ConditionValue xgetCValueWhiteImplicitReverseFkId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     }
 
     protected void doSetWhiteImplicitReverseFkName_InScope(Collection<String> whiteImplicitReverseFkNameList) {
-        regINS(CK_INS, cTL(whiteImplicitReverseFkNameList), getCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME");
+        regINS(CK_INS, cTL(whiteImplicitReverseFkNameList), xgetCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     }
 
     protected void doSetWhiteImplicitReverseFkName_NotInScope(Collection<String> whiteImplicitReverseFkNameList) {
-        regINS(CK_NINS, cTL(whiteImplicitReverseFkNameList), getCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME");
+        regINS(CK_NINS, cTL(whiteImplicitReverseFkNameList), xgetCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setWhiteImplicitReverseFkName_LikeSearch(String whiteImplicitReverseFkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(whiteImplicitReverseFkName), getCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(whiteImplicitReverseFkName), xgetCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setWhiteImplicitReverseFkName_NotLikeSearch(String whiteImplicitReverseFkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(whiteImplicitReverseFkName), getCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(whiteImplicitReverseFkName), xgetCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
         setWhiteImplicitReverseFkName_LikeSearch(whiteImplicitReverseFkName, xcLSOPPre());
     }
 
-    protected void regWhiteImplicitReverseFkName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME"); }
-    protected abstract ConditionValue getCValueWhiteImplicitReverseFkName();
+    protected void regWhiteImplicitReverseFkName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME"); }
+    protected abstract ConditionValue xgetCValueWhiteImplicitReverseFkName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

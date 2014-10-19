@@ -89,10 +89,10 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _masterCorgeId;
-    public ConditionValue getMasterCorgeId()
+    public ConditionValue xdfgetMasterCorgeId()
     { if (_masterCorgeId == null) { _masterCorgeId = nCV(); }
       return _masterCorgeId; }
-    protected ConditionValue getCValueMasterCorgeId() { return getMasterCorgeId(); }
+    protected ConditionValue xgetCValueMasterCorgeId() { return xdfgetMasterCorgeId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     public BsWhiteVariantRelationMasterCorgeCQ addOrderBy_MasterCorgeId_Desc() { regOBD("MASTER_CORGE_ID"); return this; }
 
     protected ConditionValue _masterCorgeName;
-    public ConditionValue getMasterCorgeName()
+    public ConditionValue xdfgetMasterCorgeName()
     { if (_masterCorgeName == null) { _masterCorgeName = nCV(); }
       return _masterCorgeName; }
-    protected ConditionValue getCValueMasterCorgeName() { return getMasterCorgeName(); }
+    protected ConditionValue xgetCValueMasterCorgeName() { return xdfgetMasterCorgeName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     public BsWhiteVariantRelationMasterCorgeCQ addOrderBy_MasterCorgeName_Desc() { regOBD("MASTER_CORGE_NAME"); return this; }
 
     protected ConditionValue _corgeTypeCode;
-    public ConditionValue getCorgeTypeCode()
+    public ConditionValue xdfgetCorgeTypeCode()
     { if (_corgeTypeCode == null) { _corgeTypeCode = nCV(); }
       return _corgeTypeCode; }
-    protected ConditionValue getCValueCorgeTypeCode() { return getCorgeTypeCode(); }
+    protected ConditionValue xgetCValueCorgeTypeCode() { return xdfgetCorgeTypeCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -199,31 +199,31 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteVariantRelationMasterCorgeCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteVariantRelationMasterCorgeCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteVariantRelationMasterCorgeCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteVariantRelationMasterCorgeCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteVariantRelationMasterCorgeCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteVariantRelationMasterCorgeCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteVariantRelationMasterCorgeCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteVariantRelationMasterCorgeCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteVariantRelationMasterCorgeCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteVariantRelationMasterCorgeCQ> _myselfExistsMap;
-    public Map<String, WhiteVariantRelationMasterCorgeCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteVariantRelationMasterCorgeCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteVariantRelationMasterCorgeCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteVariantRelationMasterCorgeCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteVariantRelationMasterCorgeCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteVariantRelationMasterCorgeCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -232,7 +232,7 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteVariantRelationMasterCorgeCB.class.getName(); }
     protected String xCQ() { return WhiteVariantRelationMasterCorgeCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

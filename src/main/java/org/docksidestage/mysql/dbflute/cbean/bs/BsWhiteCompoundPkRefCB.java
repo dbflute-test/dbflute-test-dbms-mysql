@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -194,10 +195,14 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
      */
     public WhiteCompoundPkRefCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteCompoundPkRefCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteCompoundPkRefCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteCompoundPkRefCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -218,8 +223,11 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         return new WhiteCompoundPkRefCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -267,7 +275,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhiteCompoundPkNss _nssWhiteCompoundPk;
-    public WhiteCompoundPkNss getNssWhiteCompoundPk() {
+    public WhiteCompoundPkNss xdfgetNssWhiteCompoundPk() {
         if (_nssWhiteCompoundPk == null) { _nssWhiteCompoundPk = new WhiteCompoundPkNss(null); }
         return _nssWhiteCompoundPk;
     }
@@ -322,7 +330,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteCompoundPkRefCQ>() {
                 public boolean has() { return true; }
-                public WhiteCompoundPkRefCQ qy() { return getConditionQuery(); }
+                public WhiteCompoundPkRefCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -346,27 +354,27 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
          * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMultipleFirstId() { return doColumn("MULTIPLE_FIRST_ID"); }
+        public SpecifiedColumn columnMultipleFirstId() { return doColumn("MULTIPLE_FIRST_ID"); }
         /**
          * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMultipleSecondId() { return doColumn("MULTIPLE_SECOND_ID"); }
+        public SpecifiedColumn columnMultipleSecondId() { return doColumn("MULTIPLE_SECOND_ID"); }
         /**
          * REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRefFirstId() { return doColumn("REF_FIRST_ID"); }
+        public SpecifiedColumn columnRefFirstId() { return doColumn("REF_FIRST_ID"); }
         /**
          * REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRefSecondId() { return doColumn("REF_SECOND_ID"); }
+        public SpecifiedColumn columnRefSecondId() { return doColumn("REF_SECOND_ID"); }
         /**
          * REF_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRefName() { return doColumn("REF_NAME"); }
+        public SpecifiedColumn columnRefName() { return doColumn("REF_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -471,7 +479,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteCompoundPkRefCB> columnQuery(final SpecifyQuery<WhiteCompoundPkRefCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteCompoundPkRefCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteCompoundPkRefCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteCompoundPkRefCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -589,8 +597,8 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteCompoundPkRefCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteCompoundPkRefCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteCompoundPkRefCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteCompoundPkRefCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

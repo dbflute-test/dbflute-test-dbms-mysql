@@ -97,7 +97,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     protected void doSetProductNestedCode_InScope(Collection<String> productNestedCodeList) {
-        regINS(CK_INS, cTL(productNestedCodeList), getCValueProductNestedCode(), "PRODUCT_NESTED_CODE");
+        regINS(CK_INS, cTL(productNestedCodeList), xgetCValueProductNestedCode(), "PRODUCT_NESTED_CODE");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     protected void doSetProductNestedCode_NotInScope(Collection<String> productNestedCodeList) {
-        regINS(CK_NINS, cTL(productNestedCodeList), getCValueProductNestedCode(), "PRODUCT_NESTED_CODE");
+        regINS(CK_NINS, cTL(productNestedCodeList), xgetCValueProductNestedCode(), "PRODUCT_NESTED_CODE");
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductNestedCode_LikeSearch(String productNestedCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productNestedCode), getCValueProductNestedCode(), "PRODUCT_NESTED_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(productNestedCode), xgetCValueProductNestedCode(), "PRODUCT_NESTED_CODE", likeSearchOption);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductNestedCode_NotLikeSearch(String productNestedCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productNestedCode), getCValueProductNestedCode(), "PRODUCT_NESTED_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productNestedCode), xgetCValueProductNestedCode(), "PRODUCT_NESTED_CODE", likeSearchOption);
     }
 
     /**
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      */
     public void setProductNestedCode_IsNotNull() { regProductNestedCode(CK_ISNN, DOBJ); }
 
-    protected void regProductNestedCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductNestedCode(), "PRODUCT_NESTED_CODE"); }
-    protected abstract ConditionValue getCValueProductNestedCode();
+    protected void regProductNestedCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductNestedCode(), "PRODUCT_NESTED_CODE"); }
+    protected abstract ConditionValue xgetCValueProductNestedCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -302,7 +302,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     protected void doSetProductNestedName_InScope(Collection<String> productNestedNameList) {
-        regINS(CK_INS, cTL(productNestedNameList), getCValueProductNestedName(), "PRODUCT_NESTED_NAME");
+        regINS(CK_INS, cTL(productNestedNameList), xgetCValueProductNestedName(), "PRODUCT_NESTED_NAME");
     }
 
     /**
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     protected void doSetProductNestedName_NotInScope(Collection<String> productNestedNameList) {
-        regINS(CK_NINS, cTL(productNestedNameList), getCValueProductNestedName(), "PRODUCT_NESTED_NAME");
+        regINS(CK_NINS, cTL(productNestedNameList), xgetCValueProductNestedName(), "PRODUCT_NESTED_NAME");
     }
 
     /**
@@ -337,7 +337,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductNestedName_LikeSearch(String productNestedName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productNestedName), getCValueProductNestedName(), "PRODUCT_NESTED_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(productNestedName), xgetCValueProductNestedName(), "PRODUCT_NESTED_NAME", likeSearchOption);
     }
 
     /**
@@ -359,7 +359,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductNestedName_NotLikeSearch(String productNestedName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productNestedName), getCValueProductNestedName(), "PRODUCT_NESTED_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productNestedName), xgetCValueProductNestedName(), "PRODUCT_NESTED_NAME", likeSearchOption);
     }
 
     /**
@@ -371,8 +371,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
         setProductNestedName_LikeSearch(productNestedName, xcLSOPPre());
     }
 
-    protected void regProductNestedName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductNestedName(), "PRODUCT_NESTED_NAME"); }
-    protected abstract ConditionValue getCValueProductNestedName();
+    protected void regProductNestedName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductNestedName(), "PRODUCT_NESTED_NAME"); }
+    protected abstract ConditionValue xgetCValueProductNestedName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

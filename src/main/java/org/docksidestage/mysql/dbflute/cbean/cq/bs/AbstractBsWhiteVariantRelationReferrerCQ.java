@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReferrerId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueReferrerId(), "REFERRER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueReferrerId(), "REFERRER_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     protected void doSetReferrerId_InScope(Collection<Long> referrerIdList) {
-        regINS(CK_INS, cTL(referrerIdList), getCValueReferrerId(), "REFERRER_ID");
+        regINS(CK_INS, cTL(referrerIdList), xgetCValueReferrerId(), "REFERRER_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     protected void doSetReferrerId_NotInScope(Collection<Long> referrerIdList) {
-        regINS(CK_NINS, cTL(referrerIdList), getCValueReferrerId(), "REFERRER_ID");
+        regINS(CK_NINS, cTL(referrerIdList), xgetCValueReferrerId(), "REFERRER_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      */
     public void setReferrerId_IsNotNull() { regReferrerId(CK_ISNN, DOBJ); }
 
-    protected void regReferrerId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueReferrerId(), "REFERRER_ID"); }
-    protected abstract ConditionValue getCValueReferrerId();
+    protected void regReferrerId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReferrerId(), "REFERRER_ID"); }
+    protected abstract ConditionValue xgetCValueReferrerId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -332,7 +332,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVariantMasterId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueVariantMasterId(), "VARIANT_MASTER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueVariantMasterId(), "VARIANT_MASTER_ID", rangeOfOption);
     }
 
     /**
@@ -345,7 +345,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     protected void doSetVariantMasterId_InScope(Collection<Long> variantMasterIdList) {
-        regINS(CK_INS, cTL(variantMasterIdList), getCValueVariantMasterId(), "VARIANT_MASTER_ID");
+        regINS(CK_INS, cTL(variantMasterIdList), xgetCValueVariantMasterId(), "VARIANT_MASTER_ID");
     }
 
     /**
@@ -358,11 +358,11 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     protected void doSetVariantMasterId_NotInScope(Collection<Long> variantMasterIdList) {
-        regINS(CK_NINS, cTL(variantMasterIdList), getCValueVariantMasterId(), "VARIANT_MASTER_ID");
+        regINS(CK_NINS, cTL(variantMasterIdList), xgetCValueVariantMasterId(), "VARIANT_MASTER_ID");
     }
 
-    protected void regVariantMasterId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueVariantMasterId(), "VARIANT_MASTER_ID"); }
-    protected abstract ConditionValue getCValueVariantMasterId();
+    protected void regVariantMasterId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueVariantMasterId(), "VARIANT_MASTER_ID"); }
+    protected abstract ConditionValue xgetCValueVariantMasterId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -504,7 +504,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     protected void doSetMasterTypeCode_InScope(Collection<String> masterTypeCodeList) {
-        regINS(CK_INS, cTL(masterTypeCodeList), getCValueMasterTypeCode(), "MASTER_TYPE_CODE");
+        regINS(CK_INS, cTL(masterTypeCodeList), xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE");
     }
 
     /**
@@ -527,11 +527,11 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     protected void doSetMasterTypeCode_NotInScope(Collection<String> masterTypeCodeList) {
-        regINS(CK_NINS, cTL(masterTypeCodeList), getCValueMasterTypeCode(), "MASTER_TYPE_CODE");
+        regINS(CK_NINS, cTL(masterTypeCodeList), xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE");
     }
 
-    protected void regMasterTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMasterTypeCode(), "MASTER_TYPE_CODE"); }
-    protected abstract ConditionValue getCValueMasterTypeCode();
+    protected void regMasterTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE"); }
+    protected abstract ConditionValue xgetCValueMasterTypeCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

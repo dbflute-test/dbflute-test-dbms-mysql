@@ -78,14 +78,8 @@ public class LoaderOfWhiteVariantRelationReferrer {
     //                                                                       =============
     protected List<WhiteVariantRelationReferrerRef> _referrerWhiteVariantRelationReferrerRefList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteVariantRelationReferrerRef> loadWhiteVariantRelationReferrerRefList(ConditionBeanSetupper<WhiteVariantRelationReferrerRefCB> refCBLambda) {
-        myBhv().loadWhiteVariantRelationReferrerRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteVariantRelationReferrerRef>() {
-            public void handle(List<WhiteVariantRelationReferrerRef> referrerList) { _referrerWhiteVariantRelationReferrerRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteVariantRelationReferrerRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteVariantRelationReferrerRef> handler) {
-                handler.handle(new LoaderOfWhiteVariantRelationReferrerRef().ready(_referrerWhiteVariantRelationReferrerRefList, _selector));
-            }
-        };
+        myBhv().loadWhiteVariantRelationReferrerRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteVariantRelationReferrerRefList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteVariantRelationReferrerRef().ready(_referrerWhiteVariantRelationReferrerRefList, _selector));
     }
 
     // ===================================================================================
@@ -93,33 +87,29 @@ public class LoaderOfWhiteVariantRelationReferrer {
     //                                                                    ================
     protected LoaderOfWhiteVariantRelationMasterFoo _foreignWhiteVariantRelationMasterFooAsVariantLoader;
     public LoaderOfWhiteVariantRelationMasterFoo pulloutWhiteVariantRelationMasterFooAsVariant() {
-        if (_foreignWhiteVariantRelationMasterFooAsVariantLoader != null) { return _foreignWhiteVariantRelationMasterFooAsVariantLoader; }
-        List<WhiteVariantRelationMasterFoo> pulledList = myBhv().pulloutWhiteVariantRelationMasterFooAsVariant(_selectedList);
-        _foreignWhiteVariantRelationMasterFooAsVariantLoader = new LoaderOfWhiteVariantRelationMasterFoo().ready(pulledList, _selector);
+        if (_foreignWhiteVariantRelationMasterFooAsVariantLoader == null)
+        { _foreignWhiteVariantRelationMasterFooAsVariantLoader = new LoaderOfWhiteVariantRelationMasterFoo().ready(myBhv().pulloutWhiteVariantRelationMasterFooAsVariant(_selectedList), _selector); }
         return _foreignWhiteVariantRelationMasterFooAsVariantLoader;
     }
 
     protected LoaderOfWhiteVariantRelationMasterBar _foreignWhiteVariantRelationMasterBarAsVariantLoader;
     public LoaderOfWhiteVariantRelationMasterBar pulloutWhiteVariantRelationMasterBarAsVariant() {
-        if (_foreignWhiteVariantRelationMasterBarAsVariantLoader != null) { return _foreignWhiteVariantRelationMasterBarAsVariantLoader; }
-        List<WhiteVariantRelationMasterBar> pulledList = myBhv().pulloutWhiteVariantRelationMasterBarAsVariant(_selectedList);
-        _foreignWhiteVariantRelationMasterBarAsVariantLoader = new LoaderOfWhiteVariantRelationMasterBar().ready(pulledList, _selector);
+        if (_foreignWhiteVariantRelationMasterBarAsVariantLoader == null)
+        { _foreignWhiteVariantRelationMasterBarAsVariantLoader = new LoaderOfWhiteVariantRelationMasterBar().ready(myBhv().pulloutWhiteVariantRelationMasterBarAsVariant(_selectedList), _selector); }
         return _foreignWhiteVariantRelationMasterBarAsVariantLoader;
     }
 
     protected LoaderOfWhiteVariantRelationMasterQux _foreignWhiteVariantRelationMasterQuxAsVariantByQueLoader;
     public LoaderOfWhiteVariantRelationMasterQux pulloutWhiteVariantRelationMasterQuxAsVariantByQue() {
-        if (_foreignWhiteVariantRelationMasterQuxAsVariantByQueLoader != null) { return _foreignWhiteVariantRelationMasterQuxAsVariantByQueLoader; }
-        List<WhiteVariantRelationMasterQux> pulledList = myBhv().pulloutWhiteVariantRelationMasterQuxAsVariantByQue(_selectedList);
-        _foreignWhiteVariantRelationMasterQuxAsVariantByQueLoader = new LoaderOfWhiteVariantRelationMasterQux().ready(pulledList, _selector);
+        if (_foreignWhiteVariantRelationMasterQuxAsVariantByQueLoader == null)
+        { _foreignWhiteVariantRelationMasterQuxAsVariantByQueLoader = new LoaderOfWhiteVariantRelationMasterQux().ready(myBhv().pulloutWhiteVariantRelationMasterQuxAsVariantByQue(_selectedList), _selector); }
         return _foreignWhiteVariantRelationMasterQuxAsVariantByQueLoader;
     }
 
     protected LoaderOfWhiteVariantRelationMasterCorge _foreignWhiteVariantRelationMasterCorgeAsVariantByQuxTypeLoader;
     public LoaderOfWhiteVariantRelationMasterCorge pulloutWhiteVariantRelationMasterCorgeAsVariantByQuxType() {
-        if (_foreignWhiteVariantRelationMasterCorgeAsVariantByQuxTypeLoader != null) { return _foreignWhiteVariantRelationMasterCorgeAsVariantByQuxTypeLoader; }
-        List<WhiteVariantRelationMasterCorge> pulledList = myBhv().pulloutWhiteVariantRelationMasterCorgeAsVariantByQuxType(_selectedList);
-        _foreignWhiteVariantRelationMasterCorgeAsVariantByQuxTypeLoader = new LoaderOfWhiteVariantRelationMasterCorge().ready(pulledList, _selector);
+        if (_foreignWhiteVariantRelationMasterCorgeAsVariantByQuxTypeLoader == null)
+        { _foreignWhiteVariantRelationMasterCorgeAsVariantByQuxTypeLoader = new LoaderOfWhiteVariantRelationMasterCorge().ready(myBhv().pulloutWhiteVariantRelationMasterCorgeAsVariantByQuxType(_selectedList), _selector); }
         return _foreignWhiteVariantRelationMasterCorgeAsVariantByQuxTypeLoader;
     }
 

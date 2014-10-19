@@ -89,10 +89,10 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _compoundPkRefNestId;
-    public ConditionValue getCompoundPkRefNestId()
+    public ConditionValue xdfgetCompoundPkRefNestId()
     { if (_compoundPkRefNestId == null) { _compoundPkRefNestId = nCV(); }
       return _compoundPkRefNestId; }
-    protected ConditionValue getCValueCompoundPkRefNestId() { return getCompoundPkRefNestId(); }
+    protected ConditionValue xgetCValueCompoundPkRefNestId() { return xdfgetCompoundPkRefNestId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
     public BsWhiteCompoundPkRefNestCQ addOrderBy_CompoundPkRefNestId_Desc() { regOBD("COMPOUND_PK_REF_NEST_ID"); return this; }
 
     protected ConditionValue _fooMultipleId;
-    public ConditionValue getFooMultipleId()
+    public ConditionValue xdfgetFooMultipleId()
     { if (_fooMultipleId == null) { _fooMultipleId = nCV(); }
       return _fooMultipleId; }
-    protected ConditionValue getCValueFooMultipleId() { return getFooMultipleId(); }
+    protected ConditionValue xgetCValueFooMultipleId() { return xdfgetFooMultipleId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
     public BsWhiteCompoundPkRefNestCQ addOrderBy_FooMultipleId_Desc() { regOBD("FOO_MULTIPLE_ID"); return this; }
 
     protected ConditionValue _barMultipleId;
-    public ConditionValue getBarMultipleId()
+    public ConditionValue xdfgetBarMultipleId()
     { if (_barMultipleId == null) { _barMultipleId = nCV(); }
       return _barMultipleId; }
-    protected ConditionValue getCValueBarMultipleId() { return getBarMultipleId(); }
+    protected ConditionValue xgetCValueBarMultipleId() { return xdfgetBarMultipleId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
     public BsWhiteCompoundPkRefNestCQ addOrderBy_BarMultipleId_Desc() { regOBD("BAR_MULTIPLE_ID"); return this; }
 
     protected ConditionValue _quxMultipleId;
-    public ConditionValue getQuxMultipleId()
+    public ConditionValue xdfgetQuxMultipleId()
     { if (_quxMultipleId == null) { _quxMultipleId = nCV(); }
       return _quxMultipleId; }
-    protected ConditionValue getCValueQuxMultipleId() { return getQuxMultipleId(); }
+    protected ConditionValue xgetCValueQuxMultipleId() { return xdfgetQuxMultipleId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
     public BsWhiteCompoundPkRefNestCQ addOrderBy_QuxMultipleId_Desc() { regOBD("QUX_MULTIPLE_ID"); return this; }
 
     protected ConditionValue _nestName;
-    public ConditionValue getNestName()
+    public ConditionValue xdfgetNestName()
     { if (_nestName == null) { _nestName = nCV(); }
       return _nestName; }
-    protected ConditionValue getCValueNestName() { return getNestName(); }
+    protected ConditionValue xgetCValueNestName() { return xdfgetNestName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -246,9 +246,9 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundPkRefCQ queryWhiteCompoundPkRefByQuxMultipleId() {
-        return getConditionQueryWhiteCompoundPkRefByQuxMultipleId();
+        return xdfgetConditionQueryWhiteCompoundPkRefByQuxMultipleId();
     }
-    public WhiteCompoundPkRefCQ getConditionQueryWhiteCompoundPkRefByQuxMultipleId() {
+    public WhiteCompoundPkRefCQ xdfgetConditionQueryWhiteCompoundPkRefByQuxMultipleId() {
         String prop = "whiteCompoundPkRefByQuxMultipleId";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteCompoundPkRefByQuxMultipleId()); xsetupOuterJoinWhiteCompoundPkRefByQuxMultipleId(); }
         return xgetQueRlMap(prop);
@@ -266,9 +266,9 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundPkRefCQ queryWhiteCompoundPkRefByFooMultipleId() {
-        return getConditionQueryWhiteCompoundPkRefByFooMultipleId();
+        return xdfgetConditionQueryWhiteCompoundPkRefByFooMultipleId();
     }
-    public WhiteCompoundPkRefCQ getConditionQueryWhiteCompoundPkRefByFooMultipleId() {
+    public WhiteCompoundPkRefCQ xdfgetConditionQueryWhiteCompoundPkRefByFooMultipleId() {
         String prop = "whiteCompoundPkRefByFooMultipleId";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteCompoundPkRefByFooMultipleId()); xsetupOuterJoinWhiteCompoundPkRefByFooMultipleId(); }
         return xgetQueRlMap(prop);
@@ -287,31 +287,31 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteCompoundPkRefNestCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteCompoundPkRefNestCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteCompoundPkRefNestCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteCompoundPkRefNestCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteCompoundPkRefNestCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteCompoundPkRefNestCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteCompoundPkRefNestCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteCompoundPkRefNestCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteCompoundPkRefNestCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteCompoundPkRefNestCQ> _myselfExistsMap;
-    public Map<String, WhiteCompoundPkRefNestCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteCompoundPkRefNestCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteCompoundPkRefNestCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteCompoundPkRefNestCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteCompoundPkRefNestCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteCompoundPkRefNestCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -320,7 +320,7 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteCompoundPkRefNestCB.class.getName(); }
     protected String xCQ() { return WhiteCompoundPkRefNestCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

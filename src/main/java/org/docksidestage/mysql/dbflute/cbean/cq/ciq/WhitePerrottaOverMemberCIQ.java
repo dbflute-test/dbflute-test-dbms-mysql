@@ -76,11 +76,11 @@ public class WhitePerrottaOverMemberCIQ extends AbstractBsWhitePerrottaOverMembe
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueMemberId() { return _myCQ.getMemberId(); }
-    protected ConditionValue getCValueMemberName() { return _myCQ.getMemberName(); }
-    protected ConditionValue getCValueProductId() { return _myCQ.getProductId(); }
-    protected ConditionValue getCValueTraceTypeCode() { return _myCQ.getTraceTypeCode(); }
-    protected ConditionValue getCValueMachoCode() { return _myCQ.getMachoCode(); }
+    protected ConditionValue xgetCValueMemberId() { return _myCQ.xdfgetMemberId(); }
+    protected ConditionValue xgetCValueMemberName() { return _myCQ.xdfgetMemberName(); }
+    protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
+    protected ConditionValue xgetCValueTraceTypeCode() { return _myCQ.xdfgetTraceTypeCode(); }
+    protected ConditionValue xgetCValueMachoCode() { return _myCQ.xdfgetMachoCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhitePerrottaOverMemberCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

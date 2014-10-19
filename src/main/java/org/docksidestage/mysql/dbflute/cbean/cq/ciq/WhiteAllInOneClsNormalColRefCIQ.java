@@ -76,10 +76,10 @@ public class WhiteAllInOneClsNormalColRefCIQ extends AbstractBsWhiteAllInOneClsN
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueClsRefId() { return _myCQ.getClsRefId(); }
-    protected ConditionValue getCValueFooCode() { return _myCQ.getFooCode(); }
-    protected ConditionValue getCValueBarCode() { return _myCQ.getBarCode(); }
-    protected ConditionValue getCValueQuxCode() { return _myCQ.getQuxCode(); }
+    protected ConditionValue xgetCValueClsRefId() { return _myCQ.xdfgetClsRefId(); }
+    protected ConditionValue xgetCValueFooCode() { return _myCQ.xdfgetFooCode(); }
+    protected ConditionValue xgetCValueBarCode() { return _myCQ.xdfgetBarCode(); }
+    protected ConditionValue xgetCValueQuxCode() { return _myCQ.xdfgetQuxCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteAllInOneClsNormalColRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

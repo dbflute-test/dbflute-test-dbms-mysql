@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setOneId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueOneId(), "ONE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueOneId(), "ONE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     protected void doSetOneId_InScope(Collection<Integer> oneIdList) {
-        regINS(CK_INS, cTL(oneIdList), getCValueOneId(), "ONE_ID");
+        regINS(CK_INS, cTL(oneIdList), xgetCValueOneId(), "ONE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     protected void doSetOneId_NotInScope(Collection<Integer> oneIdList) {
-        regINS(CK_NINS, cTL(oneIdList), getCValueOneId(), "ONE_ID");
+        regINS(CK_NINS, cTL(oneIdList), xgetCValueOneId(), "ONE_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
      */
     public void setOneId_IsNotNull() { regOneId(CK_ISNN, DOBJ); }
 
-    protected void regOneId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueOneId(), "ONE_ID"); }
-    protected abstract ConditionValue getCValueOneId();
+    protected void regOneId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueOneId(), "ONE_ID"); }
+    protected abstract ConditionValue xgetCValueOneId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     protected void doSetOneName_InScope(Collection<String> oneNameList) {
-        regINS(CK_INS, cTL(oneNameList), getCValueOneName(), "ONE_NAME");
+        regINS(CK_INS, cTL(oneNameList), xgetCValueOneName(), "ONE_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     protected void doSetOneName_NotInScope(Collection<String> oneNameList) {
-        regINS(CK_NINS, cTL(oneNameList), getCValueOneName(), "ONE_NAME");
+        regINS(CK_NINS, cTL(oneNameList), xgetCValueOneName(), "ONE_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setOneName_LikeSearch(String oneName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(oneName), getCValueOneName(), "ONE_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(oneName), xgetCValueOneName(), "ONE_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setOneName_NotLikeSearch(String oneName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(oneName), getCValueOneName(), "ONE_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(oneName), xgetCValueOneName(), "ONE_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
         setOneName_LikeSearch(oneName, xcLSOPPre());
     }
 
-    protected void regOneName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueOneName(), "ONE_NAME"); }
-    protected abstract ConditionValue getCValueOneName();
+    protected void regOneName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueOneName(), "ONE_NAME"); }
+    protected abstract ConditionValue xgetCValueOneName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSuppressJoinSqId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID", rangeOfOption);
     }
 
     /**
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     protected void doSetSuppressJoinSqId_InScope(Collection<Integer> suppressJoinSqIdList) {
-        regINS(CK_INS, cTL(suppressJoinSqIdList), getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
+        regINS(CK_INS, cTL(suppressJoinSqIdList), xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
     }
 
     /**
@@ -383,11 +383,11 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     protected void doSetSuppressJoinSqId_NotInScope(Collection<Integer> suppressJoinSqIdList) {
-        regINS(CK_NINS, cTL(suppressJoinSqIdList), getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
+        regINS(CK_NINS, cTL(suppressJoinSqIdList), xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID");
     }
 
-    protected void regSuppressJoinSqId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID"); }
-    protected abstract ConditionValue getCValueSuppressJoinSqId();
+    protected void regSuppressJoinSqId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSuppressJoinSqId(), "SUPPRESS_JOIN_SQ_ID"); }
+    protected abstract ConditionValue xgetCValueSuppressJoinSqId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -461,7 +461,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setOneAddiId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueOneAddiId(), "ONE_ADDI_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueOneAddiId(), "ONE_ADDI_ID", rangeOfOption);
     }
 
     /**
@@ -474,7 +474,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     protected void doSetOneAddiId_InScope(Collection<Integer> oneAddiIdList) {
-        regINS(CK_INS, cTL(oneAddiIdList), getCValueOneAddiId(), "ONE_ADDI_ID");
+        regINS(CK_INS, cTL(oneAddiIdList), xgetCValueOneAddiId(), "ONE_ADDI_ID");
     }
 
     /**
@@ -487,11 +487,11 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     protected void doSetOneAddiId_NotInScope(Collection<Integer> oneAddiIdList) {
-        regINS(CK_NINS, cTL(oneAddiIdList), getCValueOneAddiId(), "ONE_ADDI_ID");
+        regINS(CK_NINS, cTL(oneAddiIdList), xgetCValueOneAddiId(), "ONE_ADDI_ID");
     }
 
-    protected void regOneAddiId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueOneAddiId(), "ONE_ADDI_ID"); }
-    protected abstract ConditionValue getCValueOneAddiId();
+    protected void regOneAddiId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueOneAddiId(), "ONE_ADDI_ID"); }
+    protected abstract ConditionValue xgetCValueOneAddiId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

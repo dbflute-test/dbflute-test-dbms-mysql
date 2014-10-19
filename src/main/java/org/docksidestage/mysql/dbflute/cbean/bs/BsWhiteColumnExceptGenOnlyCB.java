@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteColumnExceptGenOnlyCB extends AbstractConditionBean {
      */
     public WhiteColumnExceptGenOnlyCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteColumnExceptGenOnlyCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteColumnExceptGenOnlyCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteColumnExceptGenOnlyCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteColumnExceptGenOnlyCB extends AbstractConditionBean {
         return new WhiteColumnExceptGenOnlyCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteColumnExceptGenOnlyCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteColumnExceptGenOnlyCQ>() {
                 public boolean has() { return true; }
-                public WhiteColumnExceptGenOnlyCQ qy() { return getConditionQuery(); }
+                public WhiteColumnExceptGenOnlyCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,12 +320,12 @@ public class BsWhiteColumnExceptGenOnlyCB extends AbstractConditionBean {
          * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnGenOnlyId() { return doColumn("GEN_ONLY_ID"); }
+        public SpecifiedColumn columnGenOnlyId() { return doColumn("GEN_ONLY_ID"); }
         /**
          * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnGenOnlyName() { return doColumn("GEN_ONLY_NAME"); }
+        public SpecifiedColumn columnGenOnlyName() { return doColumn("GEN_ONLY_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -369,7 +377,7 @@ public class BsWhiteColumnExceptGenOnlyCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteColumnExceptGenOnlyCB> columnQuery(final SpecifyQuery<WhiteColumnExceptGenOnlyCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteColumnExceptGenOnlyCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteColumnExceptGenOnlyCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteColumnExceptGenOnlyCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -487,8 +495,8 @@ public class BsWhiteColumnExceptGenOnlyCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteColumnExceptGenOnlyCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteColumnExceptGenOnlyCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteColumnExceptGenOnlyCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteColumnExceptGenOnlyCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

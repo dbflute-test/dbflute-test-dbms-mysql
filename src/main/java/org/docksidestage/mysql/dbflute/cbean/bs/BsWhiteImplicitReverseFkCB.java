@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
      */
     public WhiteImplicitReverseFkCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteImplicitReverseFkCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteImplicitReverseFkCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteImplicitReverseFkCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         return new WhiteImplicitReverseFkCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -323,7 +331,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteImplicitReverseFkCQ>() {
                 public boolean has() { return true; }
-                public WhiteImplicitReverseFkCQ qy() { return getConditionQuery(); }
+                public WhiteImplicitReverseFkCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -348,12 +356,12 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
          * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWhiteImplicitReverseFkId() { return doColumn("WHITE_IMPLICIT_REVERSE_FK_ID"); }
+        public SpecifiedColumn columnWhiteImplicitReverseFkId() { return doColumn("WHITE_IMPLICIT_REVERSE_FK_ID"); }
         /**
          * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWhiteImplicitReverseFkName() { return doColumn("WHITE_IMPLICIT_REVERSE_FK_NAME"); }
+        public SpecifiedColumn columnWhiteImplicitReverseFkName() { return doColumn("WHITE_IMPLICIT_REVERSE_FK_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -394,12 +402,12 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
             if (_whiteImplicitReverseFkRefWithImplicitReverseFK == null) {
                 _whiteImplicitReverseFkRefWithImplicitReverseFK = new WhiteImplicitReverseFkRefCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteImplicitReverseFkRefCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(); }
-                    public WhiteImplicitReverseFkRefCQ qy() { return _qyCall.qy().getConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(); } }
+                    public WhiteImplicitReverseFkRefCQ qy() { return _qyCall.qy().xdfgetConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(); } }
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteImplicitReverseFkRefWithImplicitReverseFK.xsetSyncQyCall(new HpSpQyCall<WhiteImplicitReverseFkRefCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(); }
-                        public WhiteImplicitReverseFkRefCQ qy() { return xsyncQyCall().qy().getConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(); }
+                        public WhiteImplicitReverseFkRefCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(); }
                     });
                 }
             }
@@ -437,12 +445,12 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
             if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK == null) {
                 _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK = new WhiteImplicitReverseFkSuppressCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteImplicitReverseFkSuppressCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); }
-                    public WhiteImplicitReverseFkSuppressCQ qy() { return _qyCall.qy().getConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); } }
+                    public WhiteImplicitReverseFkSuppressCQ qy() { return _qyCall.qy().xdfgetConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); } }
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK.xsetSyncQyCall(new HpSpQyCall<WhiteImplicitReverseFkSuppressCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); }
-                        public WhiteImplicitReverseFkSuppressCQ qy() { return xsyncQyCall().qy().getConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); }
+                        public WhiteImplicitReverseFkSuppressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); }
                     });
                 }
             }
@@ -491,7 +499,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteImplicitReverseFkCB> columnQuery(final SpecifyQuery<WhiteImplicitReverseFkCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteImplicitReverseFkCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteImplicitReverseFkCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteImplicitReverseFkCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -609,8 +617,8 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteImplicitReverseFkCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteImplicitReverseFkCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteImplicitReverseFkCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteImplicitReverseFkCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

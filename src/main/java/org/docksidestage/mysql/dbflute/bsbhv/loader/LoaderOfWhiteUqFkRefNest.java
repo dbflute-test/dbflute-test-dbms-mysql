@@ -76,9 +76,8 @@ public class LoaderOfWhiteUqFkRefNest {
     //                                                                    ================
     protected LoaderOfWhiteUqFkRef _foreignWhiteUqFkRefLoader;
     public LoaderOfWhiteUqFkRef pulloutWhiteUqFkRef() {
-        if (_foreignWhiteUqFkRefLoader != null) { return _foreignWhiteUqFkRefLoader; }
-        List<WhiteUqFkRef> pulledList = myBhv().pulloutWhiteUqFkRef(_selectedList);
-        _foreignWhiteUqFkRefLoader = new LoaderOfWhiteUqFkRef().ready(pulledList, _selector);
+        if (_foreignWhiteUqFkRefLoader == null)
+        { _foreignWhiteUqFkRefLoader = new LoaderOfWhiteUqFkRef().ready(myBhv().pulloutWhiteUqFkRef(_selectedList), _selector); }
         return _foreignWhiteUqFkRefLoader;
     }
 

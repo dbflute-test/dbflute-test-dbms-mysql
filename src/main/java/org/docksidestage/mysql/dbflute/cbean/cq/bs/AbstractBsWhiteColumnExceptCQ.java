@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setExceptColumnId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueExceptColumnId(), "EXCEPT_COLUMN_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueExceptColumnId(), "EXCEPT_COLUMN_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     }
 
     protected void doSetExceptColumnId_InScope(Collection<Long> exceptColumnIdList) {
-        regINS(CK_INS, cTL(exceptColumnIdList), getCValueExceptColumnId(), "EXCEPT_COLUMN_ID");
+        regINS(CK_INS, cTL(exceptColumnIdList), xgetCValueExceptColumnId(), "EXCEPT_COLUMN_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     }
 
     protected void doSetExceptColumnId_NotInScope(Collection<Long> exceptColumnIdList) {
-        regINS(CK_NINS, cTL(exceptColumnIdList), getCValueExceptColumnId(), "EXCEPT_COLUMN_ID");
+        regINS(CK_NINS, cTL(exceptColumnIdList), xgetCValueExceptColumnId(), "EXCEPT_COLUMN_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
      */
     public void setExceptColumnId_IsNotNull() { regExceptColumnId(CK_ISNN, DOBJ); }
 
-    protected void regExceptColumnId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueExceptColumnId(), "EXCEPT_COLUMN_ID"); }
-    protected abstract ConditionValue getCValueExceptColumnId();
+    protected void regExceptColumnId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueExceptColumnId(), "EXCEPT_COLUMN_ID"); }
+    protected abstract ConditionValue xgetCValueExceptColumnId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setColumnExceptTest_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueColumnExceptTest(), "COLUMN_EXCEPT_TEST", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueColumnExceptTest(), "COLUMN_EXCEPT_TEST", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     }
 
     protected void doSetColumnExceptTest_InScope(Collection<Integer> columnExceptTestList) {
-        regINS(CK_INS, cTL(columnExceptTestList), getCValueColumnExceptTest(), "COLUMN_EXCEPT_TEST");
+        regINS(CK_INS, cTL(columnExceptTestList), xgetCValueColumnExceptTest(), "COLUMN_EXCEPT_TEST");
     }
 
     /**
@@ -275,7 +275,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     }
 
     protected void doSetColumnExceptTest_NotInScope(Collection<Integer> columnExceptTestList) {
-        regINS(CK_NINS, cTL(columnExceptTestList), getCValueColumnExceptTest(), "COLUMN_EXCEPT_TEST");
+        regINS(CK_NINS, cTL(columnExceptTestList), xgetCValueColumnExceptTest(), "COLUMN_EXCEPT_TEST");
     }
 
     /**
@@ -290,8 +290,8 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
      */
     public void setColumnExceptTest_IsNotNull() { regColumnExceptTest(CK_ISNN, DOBJ); }
 
-    protected void regColumnExceptTest(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueColumnExceptTest(), "COLUMN_EXCEPT_TEST"); }
-    protected abstract ConditionValue getCValueColumnExceptTest();
+    protected void regColumnExceptTest(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueColumnExceptTest(), "COLUMN_EXCEPT_TEST"); }
+    protected abstract ConditionValue xgetCValueColumnExceptTest();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -178,10 +179,14 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
      */
     public WhiteNoPkCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteNoPkCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteNoPkCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteNoPkCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -202,8 +207,11 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
         return new WhiteNoPkCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -277,7 +285,7 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteNoPkCQ>() {
                 public boolean has() { return true; }
-                public WhiteNoPkCQ qy() { return getConditionQuery(); }
+                public WhiteNoPkCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -300,17 +308,17 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
          * NO_PK_ID: {NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNoPkId() { return doColumn("NO_PK_ID"); }
+        public SpecifiedColumn columnNoPkId() { return doColumn("NO_PK_ID"); }
         /**
          * NO_PK_NAME: {VARCHAR(32)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNoPkName() { return doColumn("NO_PK_NAME"); }
+        public SpecifiedColumn columnNoPkName() { return doColumn("NO_PK_NAME"); }
         /**
          * NO_PK_INTEGER: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNoPkInteger() { return doColumn("NO_PK_INTEGER"); }
+        public SpecifiedColumn columnNoPkInteger() { return doColumn("NO_PK_INTEGER"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -351,7 +359,7 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteNoPkCB> columnQuery(final SpecifyQuery<WhiteNoPkCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteNoPkCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteNoPkCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteNoPkCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -469,8 +477,8 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteNoPkCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteNoPkCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteNoPkCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteNoPkCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

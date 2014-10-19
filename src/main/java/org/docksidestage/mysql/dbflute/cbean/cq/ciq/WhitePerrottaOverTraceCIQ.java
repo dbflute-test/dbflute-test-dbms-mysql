@@ -76,10 +76,10 @@ public class WhitePerrottaOverTraceCIQ extends AbstractBsWhitePerrottaOverTraceC
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueTraceId() { return _myCQ.getTraceId(); }
-    protected ConditionValue getCValuePreviousProductId() { return _myCQ.getPreviousProductId(); }
-    protected ConditionValue getCValueNextProductId() { return _myCQ.getNextProductId(); }
-    protected ConditionValue getCValueTraceTypeCode() { return _myCQ.getTraceTypeCode(); }
+    protected ConditionValue xgetCValueTraceId() { return _myCQ.xdfgetTraceId(); }
+    protected ConditionValue xgetCValuePreviousProductId() { return _myCQ.xdfgetPreviousProductId(); }
+    protected ConditionValue xgetCValueNextProductId() { return _myCQ.xdfgetNextProductId(); }
+    protected ConditionValue xgetCValueTraceTypeCode() { return _myCQ.xdfgetTraceTypeCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhitePerrottaOverTraceCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

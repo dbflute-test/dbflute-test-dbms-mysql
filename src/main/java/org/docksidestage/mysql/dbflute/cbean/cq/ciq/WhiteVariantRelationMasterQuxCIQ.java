@@ -76,9 +76,9 @@ public class WhiteVariantRelationMasterQuxCIQ extends AbstractBsWhiteVariantRela
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueMasterQuxId() { return _myCQ.getMasterQuxId(); }
-    protected ConditionValue getCValueMasterQuxName() { return _myCQ.getMasterQuxName(); }
-    protected ConditionValue getCValueQuxTypeCode() { return _myCQ.getQuxTypeCode(); }
+    protected ConditionValue xgetCValueMasterQuxId() { return _myCQ.xdfgetMasterQuxId(); }
+    protected ConditionValue xgetCValueMasterQuxName() { return _myCQ.xdfgetMasterQuxName(); }
+    protected ConditionValue xgetCValueQuxTypeCode() { return _myCQ.xdfgetQuxTypeCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteVariantRelationMasterQuxCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

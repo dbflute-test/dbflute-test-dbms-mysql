@@ -576,43 +576,38 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                         GroupConcat
     //                                                                         ===========
-    // TODO jflute DerivedReferrerOption extension
-    //public void test_SpecifyDerivedReferrer_option_GroupConcat_basic() throws Exception {
-    //    // ## Arrange ##
-    //    int countAll;
-    //    {
-    //        MemberCB cb = new MemberCB();
-    //        countAll = memberBhv.selectCount(cb);
-    //    }
-    //    MemberCB cb = new MemberCB();
-    //    cb.specify().derivedPurchaseList().avg(new SubQuery<PurchaseCB>() {
-    //        public void query(PurchaseCB subCB) {
-    //            subCB.specify().columnPurchasePrice();
-    //        }
-    //    }, Member.ALIAS_groupExpression, op -> op {
-    //        protected String processVarious(String functionExp) {
-    //            return Srl.replace(functionExp, "avg(", "group_concat(");
-    //        };
-    //    });
-    //
-    //    // ## Act ##
-    //    ListResultBean<Member> memberList = memberBhv.selectList(cb);
-    //
-    //    // ## Assert ##
-    //    assertNotSame(0, memberList.size());
-    //    assertEquals(countAll, memberList.size());
-    //    boolean existsNotNull = true;
-    //    boolean existsNull = true;
-    //    for (Member member : memberList) {
-    //        log(member.getMemberName() + ": " + member.getGroupExpression());
-    //        if (member.getProductKindCount() != null) {
-    //            existsNotNull = true;
-    //        } else {
-    //            existsNull = true;
-    //        }
-    //    }
-    //    assertTrue(existsNotNull);
-    //    assertTrue(existsNull);
-    //    assertTrue(cb.toDisplaySql().contains("group_concat("));
-    //}
+    public void test_SpecifyDerivedReferrer_option_GroupConcat_basic() throws Exception {
+        // ## Arrange ##
+        int countAll;
+        {
+            MemberCB cb = new MemberCB();
+            countAll = memberBhv.selectCount(cb);
+        }
+        MemberCB cb = new MemberCB();
+        cb.specify().derivedPurchaseList().groupConcat(new SubQuery<PurchaseCB>() {
+            public void query(PurchaseCB subCB) {
+                subCB.specify().columnPurchasePrice();
+            }
+        }, Member.ALIAS_groupExpression);
+    
+        // ## Act ##
+        ListResultBean<Member> memberList = memberBhv.selectList(cb);
+    
+        // ## Assert ##
+        assertNotSame(0, memberList.size());
+        assertEquals(countAll, memberList.size());
+        boolean existsNotNull = true;
+        boolean existsNull = true;
+        for (Member member : memberList) {
+            log(member.getMemberName() + ": " + member.getGroupExpression());
+            if (member.getProductKindCount() != null) {
+                existsNotNull = true;
+            } else {
+                existsNull = true;
+            }
+        }
+        assertTrue(existsNotNull);
+        assertTrue(existsNull);
+        assertTrue(cb.toDisplaySql().contains("group_concat("));
+    }
 }

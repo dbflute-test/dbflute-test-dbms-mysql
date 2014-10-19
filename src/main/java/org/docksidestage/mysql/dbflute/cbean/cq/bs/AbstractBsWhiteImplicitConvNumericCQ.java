@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setImplicitConvNumericId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     }
 
     protected void doSetImplicitConvNumericId_InScope(Collection<java.math.BigDecimal> implicitConvNumericIdList) {
-        regINS(CK_INS, cTL(implicitConvNumericIdList), getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID");
+        regINS(CK_INS, cTL(implicitConvNumericIdList), xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     }
 
     protected void doSetImplicitConvNumericId_NotInScope(Collection<java.math.BigDecimal> implicitConvNumericIdList) {
-        regINS(CK_NINS, cTL(implicitConvNumericIdList), getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID");
+        regINS(CK_NINS, cTL(implicitConvNumericIdList), xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID");
     }
 
     /**
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      */
     public void setImplicitConvNumericId_IsNotNull() { regImplicitConvNumericId(CK_ISNN, DOBJ); }
 
-    protected void regImplicitConvNumericId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID"); }
-    protected abstract ConditionValue getCValueImplicitConvNumericId();
+    protected void regImplicitConvNumericId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID"); }
+    protected abstract ConditionValue xgetCValueImplicitConvNumericId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -415,7 +415,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setImplicitConvIntegerId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID", rangeOfOption);
     }
 
     /**
@@ -428,7 +428,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     }
 
     protected void doSetImplicitConvIntegerId_InScope(Collection<java.math.BigDecimal> implicitConvIntegerIdList) {
-        regINS(CK_INS, cTL(implicitConvIntegerIdList), getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID");
+        regINS(CK_INS, cTL(implicitConvIntegerIdList), xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID");
     }
 
     /**
@@ -441,11 +441,11 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     }
 
     protected void doSetImplicitConvIntegerId_NotInScope(Collection<java.math.BigDecimal> implicitConvIntegerIdList) {
-        regINS(CK_NINS, cTL(implicitConvIntegerIdList), getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID");
+        regINS(CK_NINS, cTL(implicitConvIntegerIdList), xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID");
     }
 
-    protected void regImplicitConvIntegerId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID"); }
-    protected abstract ConditionValue getCValueImplicitConvIntegerId();
+    protected void regImplicitConvIntegerId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID"); }
+    protected abstract ConditionValue xgetCValueImplicitConvIntegerId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -519,7 +519,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setImplicitConvStringId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID", rangeOfOption);
     }
 
     /**
@@ -532,7 +532,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     }
 
     protected void doSetImplicitConvStringId_InScope(Collection<java.math.BigDecimal> implicitConvStringIdList) {
-        regINS(CK_INS, cTL(implicitConvStringIdList), getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID");
+        regINS(CK_INS, cTL(implicitConvStringIdList), xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID");
     }
 
     /**
@@ -545,11 +545,11 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     }
 
     protected void doSetImplicitConvStringId_NotInScope(Collection<java.math.BigDecimal> implicitConvStringIdList) {
-        regINS(CK_NINS, cTL(implicitConvStringIdList), getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID");
+        regINS(CK_NINS, cTL(implicitConvStringIdList), xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID");
     }
 
-    protected void regImplicitConvStringId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID"); }
-    protected abstract ConditionValue getCValueImplicitConvStringId();
+    protected void regImplicitConvStringId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID"); }
+    protected abstract ConditionValue xgetCValueImplicitConvStringId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -587,7 +587,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     }
 
     protected void doSetImplicitConvName_InScope(Collection<String> implicitConvNameList) {
-        regINS(CK_INS, cTL(implicitConvNameList), getCValueImplicitConvName(), "IMPLICIT_CONV_NAME");
+        regINS(CK_INS, cTL(implicitConvNameList), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME");
     }
 
     /**
@@ -600,7 +600,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     }
 
     protected void doSetImplicitConvName_NotInScope(Collection<String> implicitConvNameList) {
-        regINS(CK_NINS, cTL(implicitConvNameList), getCValueImplicitConvName(), "IMPLICIT_CONV_NAME");
+        regINS(CK_NINS, cTL(implicitConvNameList), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME");
     }
 
     /**
@@ -622,7 +622,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvName_LikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(implicitConvName), getCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(implicitConvName), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
     }
 
     /**
@@ -644,7 +644,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvName_NotLikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(implicitConvName), getCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(implicitConvName), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
     }
 
     /**
@@ -656,8 +656,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
         setImplicitConvName_LikeSearch(implicitConvName, xcLSOPPre());
     }
 
-    protected void regImplicitConvName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueImplicitConvName(), "IMPLICIT_CONV_NAME"); }
-    protected abstract ConditionValue getCValueImplicitConvName();
+    protected void regImplicitConvName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME"); }
+    protected abstract ConditionValue xgetCValueImplicitConvName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

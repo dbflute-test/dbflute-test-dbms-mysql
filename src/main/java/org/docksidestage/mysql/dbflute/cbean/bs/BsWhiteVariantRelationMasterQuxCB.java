@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteVariantRelationMasterQuxCB extends AbstractConditionBean {
      */
     public WhiteVariantRelationMasterQuxCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteVariantRelationMasterQuxCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteVariantRelationMasterQuxCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteVariantRelationMasterQuxCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteVariantRelationMasterQuxCB extends AbstractConditionBean {
         return new WhiteVariantRelationMasterQuxCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteVariantRelationMasterQuxCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteVariantRelationMasterQuxCQ>() {
                 public boolean has() { return true; }
-                public WhiteVariantRelationMasterQuxCQ qy() { return getConditionQuery(); }
+                public WhiteVariantRelationMasterQuxCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,17 +320,17 @@ public class BsWhiteVariantRelationMasterQuxCB extends AbstractConditionBean {
          * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMasterQuxId() { return doColumn("MASTER_QUX_ID"); }
+        public SpecifiedColumn columnMasterQuxId() { return doColumn("MASTER_QUX_ID"); }
         /**
          * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMasterQuxName() { return doColumn("MASTER_QUX_NAME"); }
+        public SpecifiedColumn columnMasterQuxName() { return doColumn("MASTER_QUX_NAME"); }
         /**
          * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnQuxTypeCode() { return doColumn("QUX_TYPE_CODE"); }
+        public SpecifiedColumn columnQuxTypeCode() { return doColumn("QUX_TYPE_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -374,7 +382,7 @@ public class BsWhiteVariantRelationMasterQuxCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteVariantRelationMasterQuxCB> columnQuery(final SpecifyQuery<WhiteVariantRelationMasterQuxCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteVariantRelationMasterQuxCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteVariantRelationMasterQuxCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteVariantRelationMasterQuxCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -492,8 +500,8 @@ public class BsWhiteVariantRelationMasterQuxCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteVariantRelationMasterQuxCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteVariantRelationMasterQuxCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteVariantRelationMasterQuxCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteVariantRelationMasterQuxCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

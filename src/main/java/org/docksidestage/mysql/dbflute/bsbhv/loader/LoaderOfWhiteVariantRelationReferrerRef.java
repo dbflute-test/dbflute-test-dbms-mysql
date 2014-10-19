@@ -76,9 +76,8 @@ public class LoaderOfWhiteVariantRelationReferrerRef {
     //                                                                    ================
     protected LoaderOfWhiteVariantRelationReferrer _foreignWhiteVariantRelationReferrerLoader;
     public LoaderOfWhiteVariantRelationReferrer pulloutWhiteVariantRelationReferrer() {
-        if (_foreignWhiteVariantRelationReferrerLoader != null) { return _foreignWhiteVariantRelationReferrerLoader; }
-        List<WhiteVariantRelationReferrer> pulledList = myBhv().pulloutWhiteVariantRelationReferrer(_selectedList);
-        _foreignWhiteVariantRelationReferrerLoader = new LoaderOfWhiteVariantRelationReferrer().ready(pulledList, _selector);
+        if (_foreignWhiteVariantRelationReferrerLoader == null)
+        { _foreignWhiteVariantRelationReferrerLoader = new LoaderOfWhiteVariantRelationReferrer().ready(myBhv().pulloutWhiteVariantRelationReferrer(_selectedList), _selector); }
         return _foreignWhiteVariantRelationReferrerLoader;
     }
 

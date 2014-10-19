@@ -76,7 +76,7 @@ public class WhiteCompoundReferredNormallyCIQ extends AbstractBsWhiteCompoundRef
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueReferredId() { return _myCQ.getReferredId(); }
+    protected ConditionValue xgetCValueReferredId() { return _myCQ.xdfgetReferredId(); }
     public String keepReferredId_ExistsReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepReferredId_NotExistsReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq)
@@ -87,7 +87,7 @@ public class WhiteCompoundReferredNormallyCIQ extends AbstractBsWhiteCompoundRef
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueReferredName() { return _myCQ.getReferredName(); }
+    protected ConditionValue xgetCValueReferredName() { return _myCQ.xdfgetReferredName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteCompoundReferredNormallyCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

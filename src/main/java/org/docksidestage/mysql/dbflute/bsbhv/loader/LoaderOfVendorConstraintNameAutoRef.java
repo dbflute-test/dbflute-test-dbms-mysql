@@ -76,25 +76,22 @@ public class LoaderOfVendorConstraintNameAutoRef {
     //                                                                    ================
     protected LoaderOfVendorConstraintNameAutoBar _foreignVendorConstraintNameAutoBarLoader;
     public LoaderOfVendorConstraintNameAutoBar pulloutVendorConstraintNameAutoBar() {
-        if (_foreignVendorConstraintNameAutoBarLoader != null) { return _foreignVendorConstraintNameAutoBarLoader; }
-        List<VendorConstraintNameAutoBar> pulledList = myBhv().pulloutVendorConstraintNameAutoBar(_selectedList);
-        _foreignVendorConstraintNameAutoBarLoader = new LoaderOfVendorConstraintNameAutoBar().ready(pulledList, _selector);
+        if (_foreignVendorConstraintNameAutoBarLoader == null)
+        { _foreignVendorConstraintNameAutoBarLoader = new LoaderOfVendorConstraintNameAutoBar().ready(myBhv().pulloutVendorConstraintNameAutoBar(_selectedList), _selector); }
         return _foreignVendorConstraintNameAutoBarLoader;
     }
 
     protected LoaderOfVendorConstraintNameAutoFoo _foreignVendorConstraintNameAutoFooLoader;
     public LoaderOfVendorConstraintNameAutoFoo pulloutVendorConstraintNameAutoFoo() {
-        if (_foreignVendorConstraintNameAutoFooLoader != null) { return _foreignVendorConstraintNameAutoFooLoader; }
-        List<VendorConstraintNameAutoFoo> pulledList = myBhv().pulloutVendorConstraintNameAutoFoo(_selectedList);
-        _foreignVendorConstraintNameAutoFooLoader = new LoaderOfVendorConstraintNameAutoFoo().ready(pulledList, _selector);
+        if (_foreignVendorConstraintNameAutoFooLoader == null)
+        { _foreignVendorConstraintNameAutoFooLoader = new LoaderOfVendorConstraintNameAutoFoo().ready(myBhv().pulloutVendorConstraintNameAutoFoo(_selectedList), _selector); }
         return _foreignVendorConstraintNameAutoFooLoader;
     }
 
     protected LoaderOfVendorConstraintNameAutoQux _foreignVendorConstraintNameAutoQuxLoader;
     public LoaderOfVendorConstraintNameAutoQux pulloutVendorConstraintNameAutoQux() {
-        if (_foreignVendorConstraintNameAutoQuxLoader != null) { return _foreignVendorConstraintNameAutoQuxLoader; }
-        List<VendorConstraintNameAutoQux> pulledList = myBhv().pulloutVendorConstraintNameAutoQux(_selectedList);
-        _foreignVendorConstraintNameAutoQuxLoader = new LoaderOfVendorConstraintNameAutoQux().ready(pulledList, _selector);
+        if (_foreignVendorConstraintNameAutoQuxLoader == null)
+        { _foreignVendorConstraintNameAutoQuxLoader = new LoaderOfVendorConstraintNameAutoQux().ready(myBhv().pulloutVendorConstraintNameAutoQux(_selectedList), _selector); }
         return _foreignVendorConstraintNameAutoQuxLoader;
     }
 

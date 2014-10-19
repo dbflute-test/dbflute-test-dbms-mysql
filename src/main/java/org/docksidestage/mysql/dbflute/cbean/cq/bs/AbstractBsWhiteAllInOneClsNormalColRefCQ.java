@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setClsRefId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueClsRefId(), "CLS_REF_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueClsRefId(), "CLS_REF_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     protected void doSetClsRefId_InScope(Collection<Integer> clsRefIdList) {
-        regINS(CK_INS, cTL(clsRefIdList), getCValueClsRefId(), "CLS_REF_ID");
+        regINS(CK_INS, cTL(clsRefIdList), xgetCValueClsRefId(), "CLS_REF_ID");
     }
 
     /**
@@ -159,11 +159,11 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     protected void doSetClsRefId_NotInScope(Collection<Integer> clsRefIdList) {
-        regINS(CK_NINS, cTL(clsRefIdList), getCValueClsRefId(), "CLS_REF_ID");
+        regINS(CK_NINS, cTL(clsRefIdList), xgetCValueClsRefId(), "CLS_REF_ID");
     }
 
-    protected void regClsRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueClsRefId(), "CLS_REF_ID"); }
-    protected abstract ConditionValue getCValueClsRefId();
+    protected void regClsRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsRefId(), "CLS_REF_ID"); }
+    protected abstract ConditionValue xgetCValueClsRefId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -201,7 +201,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     protected void doSetFooCode_InScope(Collection<String> fooCodeList) {
-        regINS(CK_INS, cTL(fooCodeList), getCValueFooCode(), "FOO_CODE");
+        regINS(CK_INS, cTL(fooCodeList), xgetCValueFooCode(), "FOO_CODE");
     }
 
     /**
@@ -214,7 +214,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     protected void doSetFooCode_NotInScope(Collection<String> fooCodeList) {
-        regINS(CK_NINS, cTL(fooCodeList), getCValueFooCode(), "FOO_CODE");
+        regINS(CK_NINS, cTL(fooCodeList), xgetCValueFooCode(), "FOO_CODE");
     }
 
     /**
@@ -236,7 +236,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFooCode_LikeSearch(String fooCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(fooCode), getCValueFooCode(), "FOO_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(fooCode), xgetCValueFooCode(), "FOO_CODE", likeSearchOption);
     }
 
     /**
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFooCode_NotLikeSearch(String fooCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(fooCode), getCValueFooCode(), "FOO_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(fooCode), xgetCValueFooCode(), "FOO_CODE", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      */
     public void setFooCode_IsNotNull() { regFooCode(CK_ISNN, DOBJ); }
 
-    protected void regFooCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooCode(), "FOO_CODE"); }
-    protected abstract ConditionValue getCValueFooCode();
+    protected void regFooCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooCode(), "FOO_CODE"); }
+    protected abstract ConditionValue xgetCValueFooCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -321,7 +321,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     protected void doSetBarCode_InScope(Collection<String> barCodeList) {
-        regINS(CK_INS, cTL(barCodeList), getCValueBarCode(), "BAR_CODE");
+        regINS(CK_INS, cTL(barCodeList), xgetCValueBarCode(), "BAR_CODE");
     }
 
     /**
@@ -334,7 +334,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     protected void doSetBarCode_NotInScope(Collection<String> barCodeList) {
-        regINS(CK_NINS, cTL(barCodeList), getCValueBarCode(), "BAR_CODE");
+        regINS(CK_NINS, cTL(barCodeList), xgetCValueBarCode(), "BAR_CODE");
     }
 
     /**
@@ -356,7 +356,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setBarCode_LikeSearch(String barCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(barCode), getCValueBarCode(), "BAR_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(barCode), xgetCValueBarCode(), "BAR_CODE", likeSearchOption);
     }
 
     /**
@@ -378,7 +378,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setBarCode_NotLikeSearch(String barCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(barCode), getCValueBarCode(), "BAR_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(barCode), xgetCValueBarCode(), "BAR_CODE", likeSearchOption);
     }
 
     /**
@@ -402,8 +402,8 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      */
     public void setBarCode_IsNotNull() { regBarCode(CK_ISNN, DOBJ); }
 
-    protected void regBarCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBarCode(), "BAR_CODE"); }
-    protected abstract ConditionValue getCValueBarCode();
+    protected void regBarCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBarCode(), "BAR_CODE"); }
+    protected abstract ConditionValue xgetCValueBarCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -441,7 +441,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     protected void doSetQuxCode_InScope(Collection<String> quxCodeList) {
-        regINS(CK_INS, cTL(quxCodeList), getCValueQuxCode(), "QUX_CODE");
+        regINS(CK_INS, cTL(quxCodeList), xgetCValueQuxCode(), "QUX_CODE");
     }
 
     /**
@@ -454,7 +454,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     protected void doSetQuxCode_NotInScope(Collection<String> quxCodeList) {
-        regINS(CK_NINS, cTL(quxCodeList), getCValueQuxCode(), "QUX_CODE");
+        regINS(CK_NINS, cTL(quxCodeList), xgetCValueQuxCode(), "QUX_CODE");
     }
 
     /**
@@ -476,7 +476,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setQuxCode_LikeSearch(String quxCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(quxCode), getCValueQuxCode(), "QUX_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(quxCode), xgetCValueQuxCode(), "QUX_CODE", likeSearchOption);
     }
 
     /**
@@ -498,7 +498,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setQuxCode_NotLikeSearch(String quxCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(quxCode), getCValueQuxCode(), "QUX_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(quxCode), xgetCValueQuxCode(), "QUX_CODE", likeSearchOption);
     }
 
     /**
@@ -522,8 +522,8 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      */
     public void setQuxCode_IsNotNull() { regQuxCode(CK_ISNN, DOBJ); }
 
-    protected void regQuxCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueQuxCode(), "QUX_CODE"); }
-    protected abstract ConditionValue getCValueQuxCode();
+    protected void regQuxCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueQuxCode(), "QUX_CODE"); }
+    protected abstract ConditionValue xgetCValueQuxCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

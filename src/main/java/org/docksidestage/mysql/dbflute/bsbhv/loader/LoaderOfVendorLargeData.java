@@ -78,14 +78,8 @@ public class LoaderOfVendorLargeData {
     //                                                                       =============
     protected List<VendorLargeDataRef> _referrerVendorLargeDataRefList;
     public NestedReferrerLoaderGateway<LoaderOfVendorLargeDataRef> loadVendorLargeDataRefList(ConditionBeanSetupper<VendorLargeDataRefCB> refCBLambda) {
-        myBhv().loadVendorLargeDataRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<VendorLargeDataRef>() {
-            public void handle(List<VendorLargeDataRef> referrerList) { _referrerVendorLargeDataRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfVendorLargeDataRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfVendorLargeDataRef> handler) {
-                handler.handle(new LoaderOfVendorLargeDataRef().ready(_referrerVendorLargeDataRefList, _selector));
-            }
-        };
+        myBhv().loadVendorLargeDataRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorLargeDataRefList = refLs);
+        return hd -> hd.handle(new LoaderOfVendorLargeDataRef().ready(_referrerVendorLargeDataRefList, _selector));
     }
 
     // ===================================================================================

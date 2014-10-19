@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteDelimiterCB extends AbstractConditionBean {
      */
     public WhiteDelimiterCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteDelimiterCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteDelimiterCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteDelimiterCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteDelimiterCB extends AbstractConditionBean {
         return new WhiteDelimiterCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteDelimiterCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteDelimiterCQ>() {
                 public boolean has() { return true; }
-                public WhiteDelimiterCQ qy() { return getConditionQuery(); }
+                public WhiteDelimiterCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,27 +320,27 @@ public class BsWhiteDelimiterCB extends AbstractConditionBean {
          * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDelimiterId() { return doColumn("DELIMITER_ID"); }
+        public SpecifiedColumn columnDelimiterId() { return doColumn("DELIMITER_ID"); }
         /**
          * NUMBER_NULLABLE: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNumberNullable() { return doColumn("NUMBER_NULLABLE"); }
+        public SpecifiedColumn columnNumberNullable() { return doColumn("NUMBER_NULLABLE"); }
         /**
          * STRING_CONVERTED: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnStringConverted() { return doColumn("STRING_CONVERTED"); }
+        public SpecifiedColumn columnStringConverted() { return doColumn("STRING_CONVERTED"); }
         /**
          * STRING_NON_CONVERTED: {VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnStringNonConverted() { return doColumn("STRING_NON_CONVERTED"); }
+        public SpecifiedColumn columnStringNonConverted() { return doColumn("STRING_NON_CONVERTED"); }
         /**
          * DATE_DEFAULT: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDateDefault() { return doColumn("DATE_DEFAULT"); }
+        public SpecifiedColumn columnDateDefault() { return doColumn("DATE_DEFAULT"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -384,7 +392,7 @@ public class BsWhiteDelimiterCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteDelimiterCB> columnQuery(final SpecifyQuery<WhiteDelimiterCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteDelimiterCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteDelimiterCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteDelimiterCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -502,8 +510,8 @@ public class BsWhiteDelimiterCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteDelimiterCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteDelimiterCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteDelimiterCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteDelimiterCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

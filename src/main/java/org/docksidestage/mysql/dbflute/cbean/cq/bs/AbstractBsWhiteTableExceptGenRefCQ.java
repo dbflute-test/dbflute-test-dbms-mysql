@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGenRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueGenRefId(), "GEN_REF_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueGenRefId(), "GEN_REF_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     }
 
     protected void doSetGenRefId_InScope(Collection<Long> genRefIdList) {
-        regINS(CK_INS, cTL(genRefIdList), getCValueGenRefId(), "GEN_REF_ID");
+        regINS(CK_INS, cTL(genRefIdList), xgetCValueGenRefId(), "GEN_REF_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     }
 
     protected void doSetGenRefId_NotInScope(Collection<Long> genRefIdList) {
-        regINS(CK_NINS, cTL(genRefIdList), getCValueGenRefId(), "GEN_REF_ID");
+        regINS(CK_NINS, cTL(genRefIdList), xgetCValueGenRefId(), "GEN_REF_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      */
     public void setGenRefId_IsNotNull() { regGenRefId(CK_ISNN, DOBJ); }
 
-    protected void regGenRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGenRefId(), "GEN_REF_ID"); }
-    protected abstract ConditionValue getCValueGenRefId();
+    protected void regGenRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenRefId(), "GEN_REF_ID"); }
+    protected abstract ConditionValue xgetCValueGenRefId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     }
 
     protected void doSetGenRefName_InScope(Collection<String> genRefNameList) {
-        regINS(CK_INS, cTL(genRefNameList), getCValueGenRefName(), "GEN_REF_NAME");
+        regINS(CK_INS, cTL(genRefNameList), xgetCValueGenRefName(), "GEN_REF_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     }
 
     protected void doSetGenRefName_NotInScope(Collection<String> genRefNameList) {
-        regINS(CK_NINS, cTL(genRefNameList), getCValueGenRefName(), "GEN_REF_NAME");
+        regINS(CK_NINS, cTL(genRefNameList), xgetCValueGenRefName(), "GEN_REF_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setGenRefName_LikeSearch(String genRefName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(genRefName), getCValueGenRefName(), "GEN_REF_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(genRefName), xgetCValueGenRefName(), "GEN_REF_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setGenRefName_NotLikeSearch(String genRefName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(genRefName), getCValueGenRefName(), "GEN_REF_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(genRefName), xgetCValueGenRefName(), "GEN_REF_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
         setGenRefName_LikeSearch(genRefName, xcLSOPPre());
     }
 
-    protected void regGenRefName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGenRefName(), "GEN_REF_NAME"); }
-    protected abstract ConditionValue getCValueGenRefName();
+    protected void regGenRefName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenRefName(), "GEN_REF_NAME"); }
+    protected abstract ConditionValue xgetCValueGenRefName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGenOnlyId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueGenOnlyId(), "GEN_ONLY_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueGenOnlyId(), "GEN_ONLY_ID", rangeOfOption);
     }
 
     /**
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     }
 
     protected void doSetGenOnlyId_InScope(Collection<Long> genOnlyIdList) {
-        regINS(CK_INS, cTL(genOnlyIdList), getCValueGenOnlyId(), "GEN_ONLY_ID");
+        regINS(CK_INS, cTL(genOnlyIdList), xgetCValueGenOnlyId(), "GEN_ONLY_ID");
     }
 
     /**
@@ -383,7 +383,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     }
 
     protected void doSetGenOnlyId_NotInScope(Collection<Long> genOnlyIdList) {
-        regINS(CK_NINS, cTL(genOnlyIdList), getCValueGenOnlyId(), "GEN_ONLY_ID");
+        regINS(CK_NINS, cTL(genOnlyIdList), xgetCValueGenOnlyId(), "GEN_ONLY_ID");
     }
 
     /**
@@ -398,8 +398,8 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      */
     public void setGenOnlyId_IsNotNull() { regGenOnlyId(CK_ISNN, DOBJ); }
 
-    protected void regGenOnlyId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGenOnlyId(), "GEN_ONLY_ID"); }
-    protected abstract ConditionValue getCValueGenOnlyId();
+    protected void regGenOnlyId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenOnlyId(), "GEN_ONLY_ID"); }
+    protected abstract ConditionValue xgetCValueGenOnlyId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

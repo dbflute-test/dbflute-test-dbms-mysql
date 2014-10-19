@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
      */
     public WhitePerrottaOverProductNestedCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhitePerrottaOverProductNestedCQ getConditionQuery() { // public for parameter comment and internal
+    public WhitePerrottaOverProductNestedCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhitePerrottaOverProductNestedCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
         return new WhitePerrottaOverProductNestedCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhitePerrottaOverProductNestedCQ>() {
                 public boolean has() { return true; }
-                public WhitePerrottaOverProductNestedCQ qy() { return getConditionQuery(); }
+                public WhitePerrottaOverProductNestedCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,12 +320,12 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
          * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductNestedCode() { return doColumn("PRODUCT_NESTED_CODE"); }
+        public SpecifiedColumn columnProductNestedCode() { return doColumn("PRODUCT_NESTED_CODE"); }
         /**
          * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductNestedName() { return doColumn("PRODUCT_NESTED_NAME"); }
+        public SpecifiedColumn columnProductNestedName() { return doColumn("PRODUCT_NESTED_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -387,7 +395,7 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePerrottaOverProductNestedCB> columnQuery(final SpecifyQuery<WhitePerrottaOverProductNestedCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhitePerrottaOverProductNestedCB>() {
-            public HpCalculator handle(SpecifyQuery<WhitePerrottaOverProductNestedCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhitePerrottaOverProductNestedCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -505,8 +513,8 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhitePerrottaOverProductNestedCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhitePerrottaOverProductNestedCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhitePerrottaOverProductNestedCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhitePerrottaOverProductNestedCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

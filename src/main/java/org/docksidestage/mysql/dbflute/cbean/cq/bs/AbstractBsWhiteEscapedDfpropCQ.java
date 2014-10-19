@@ -175,7 +175,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     }
 
     protected void doSetEscapedDfpropCode_InScope(Collection<String> escapedDfpropCodeList) {
-        regINS(CK_INS, cTL(escapedDfpropCodeList), getCValueEscapedDfpropCode(), "ESCAPED_DFPROP_CODE");
+        regINS(CK_INS, cTL(escapedDfpropCodeList), xgetCValueEscapedDfpropCode(), "ESCAPED_DFPROP_CODE");
     }
 
     /**
@@ -198,7 +198,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     }
 
     protected void doSetEscapedDfpropCode_NotInScope(Collection<String> escapedDfpropCodeList) {
-        regINS(CK_NINS, cTL(escapedDfpropCodeList), getCValueEscapedDfpropCode(), "ESCAPED_DFPROP_CODE");
+        regINS(CK_NINS, cTL(escapedDfpropCodeList), xgetCValueEscapedDfpropCode(), "ESCAPED_DFPROP_CODE");
     }
 
     /**
@@ -213,8 +213,8 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      */
     public void setEscapedDfpropCode_IsNotNull() { regEscapedDfpropCode(CK_ISNN, DOBJ); }
 
-    protected void regEscapedDfpropCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueEscapedDfpropCode(), "ESCAPED_DFPROP_CODE"); }
-    protected abstract ConditionValue getCValueEscapedDfpropCode();
+    protected void regEscapedDfpropCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueEscapedDfpropCode(), "ESCAPED_DFPROP_CODE"); }
+    protected abstract ConditionValue xgetCValueEscapedDfpropCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     }
 
     protected void doSetEscapedDfpropName_InScope(Collection<String> escapedDfpropNameList) {
-        regINS(CK_INS, cTL(escapedDfpropNameList), getCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME");
+        regINS(CK_INS, cTL(escapedDfpropNameList), xgetCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME");
     }
 
     /**
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     }
 
     protected void doSetEscapedDfpropName_NotInScope(Collection<String> escapedDfpropNameList) {
-        regINS(CK_NINS, cTL(escapedDfpropNameList), getCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME");
+        regINS(CK_NINS, cTL(escapedDfpropNameList), xgetCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME");
     }
 
     /**
@@ -287,7 +287,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setEscapedDfpropName_LikeSearch(String escapedDfpropName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(escapedDfpropName), getCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(escapedDfpropName), xgetCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME", likeSearchOption);
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setEscapedDfpropName_NotLikeSearch(String escapedDfpropName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(escapedDfpropName), getCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(escapedDfpropName), xgetCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME", likeSearchOption);
     }
 
     /**
@@ -339,8 +339,8 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      */
     public void setEscapedDfpropName_IsNotNull() { regEscapedDfpropName(CK_ISNN, DOBJ); }
 
-    protected void regEscapedDfpropName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME"); }
-    protected abstract ConditionValue getCValueEscapedDfpropName();
+    protected void regEscapedDfpropName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME"); }
+    protected abstract ConditionValue xgetCValueEscapedDfpropName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

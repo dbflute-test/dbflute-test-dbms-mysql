@@ -76,8 +76,8 @@ public class WhiteVariantRelationLocalPkReferrerCIQ extends AbstractBsWhiteVaria
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueReversefkSuppressedId() { return _myCQ.getReversefkSuppressedId(); }
-    protected ConditionValue getCValueMasterTypeCode() { return _myCQ.getMasterTypeCode(); }
+    protected ConditionValue xgetCValueReversefkSuppressedId() { return _myCQ.xdfgetReversefkSuppressedId(); }
+    protected ConditionValue xgetCValueMasterTypeCode() { return _myCQ.xdfgetMasterTypeCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteVariantRelationLocalPkReferrerCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

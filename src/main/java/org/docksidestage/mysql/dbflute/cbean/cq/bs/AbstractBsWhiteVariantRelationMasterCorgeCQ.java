@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMasterCorgeId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMasterCorgeId(), "MASTER_CORGE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMasterCorgeId(), "MASTER_CORGE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     }
 
     protected void doSetMasterCorgeId_InScope(Collection<Long> masterCorgeIdList) {
-        regINS(CK_INS, cTL(masterCorgeIdList), getCValueMasterCorgeId(), "MASTER_CORGE_ID");
+        regINS(CK_INS, cTL(masterCorgeIdList), xgetCValueMasterCorgeId(), "MASTER_CORGE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     }
 
     protected void doSetMasterCorgeId_NotInScope(Collection<Long> masterCorgeIdList) {
-        regINS(CK_NINS, cTL(masterCorgeIdList), getCValueMasterCorgeId(), "MASTER_CORGE_ID");
+        regINS(CK_NINS, cTL(masterCorgeIdList), xgetCValueMasterCorgeId(), "MASTER_CORGE_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      */
     public void setMasterCorgeId_IsNotNull() { regMasterCorgeId(CK_ISNN, DOBJ); }
 
-    protected void regMasterCorgeId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMasterCorgeId(), "MASTER_CORGE_ID"); }
-    protected abstract ConditionValue getCValueMasterCorgeId();
+    protected void regMasterCorgeId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterCorgeId(), "MASTER_CORGE_ID"); }
+    protected abstract ConditionValue xgetCValueMasterCorgeId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     }
 
     protected void doSetMasterCorgeName_InScope(Collection<String> masterCorgeNameList) {
-        regINS(CK_INS, cTL(masterCorgeNameList), getCValueMasterCorgeName(), "MASTER_CORGE_NAME");
+        regINS(CK_INS, cTL(masterCorgeNameList), xgetCValueMasterCorgeName(), "MASTER_CORGE_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     }
 
     protected void doSetMasterCorgeName_NotInScope(Collection<String> masterCorgeNameList) {
-        regINS(CK_NINS, cTL(masterCorgeNameList), getCValueMasterCorgeName(), "MASTER_CORGE_NAME");
+        regINS(CK_NINS, cTL(masterCorgeNameList), xgetCValueMasterCorgeName(), "MASTER_CORGE_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterCorgeName_LikeSearch(String masterCorgeName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(masterCorgeName), getCValueMasterCorgeName(), "MASTER_CORGE_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(masterCorgeName), xgetCValueMasterCorgeName(), "MASTER_CORGE_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterCorgeName_NotLikeSearch(String masterCorgeName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(masterCorgeName), getCValueMasterCorgeName(), "MASTER_CORGE_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(masterCorgeName), xgetCValueMasterCorgeName(), "MASTER_CORGE_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
         setMasterCorgeName_LikeSearch(masterCorgeName, xcLSOPPre());
     }
 
-    protected void regMasterCorgeName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMasterCorgeName(), "MASTER_CORGE_NAME"); }
-    protected abstract ConditionValue getCValueMasterCorgeName();
+    protected void regMasterCorgeName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterCorgeName(), "MASTER_CORGE_NAME"); }
+    protected abstract ConditionValue xgetCValueMasterCorgeName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -399,7 +399,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     }
 
     protected void doSetCorgeTypeCode_InScope(Collection<String> corgeTypeCodeList) {
-        regINS(CK_INS, cTL(corgeTypeCodeList), getCValueCorgeTypeCode(), "CORGE_TYPE_CODE");
+        regINS(CK_INS, cTL(corgeTypeCodeList), xgetCValueCorgeTypeCode(), "CORGE_TYPE_CODE");
     }
 
     /**
@@ -422,11 +422,11 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     }
 
     protected void doSetCorgeTypeCode_NotInScope(Collection<String> corgeTypeCodeList) {
-        regINS(CK_NINS, cTL(corgeTypeCodeList), getCValueCorgeTypeCode(), "CORGE_TYPE_CODE");
+        regINS(CK_NINS, cTL(corgeTypeCodeList), xgetCValueCorgeTypeCode(), "CORGE_TYPE_CODE");
     }
 
-    protected void regCorgeTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCorgeTypeCode(), "CORGE_TYPE_CODE"); }
-    protected abstract ConditionValue getCValueCorgeTypeCode();
+    protected void regCorgeTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCorgeTypeCode(), "CORGE_TYPE_CODE"); }
+    protected abstract ConditionValue xgetCValueCorgeTypeCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

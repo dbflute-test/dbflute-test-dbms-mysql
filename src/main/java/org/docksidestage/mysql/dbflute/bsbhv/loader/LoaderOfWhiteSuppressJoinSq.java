@@ -78,14 +78,8 @@ public class LoaderOfWhiteSuppressJoinSq {
     //                                                                       =============
     protected List<WhiteSuppressJoinSqMany> _referrerWhiteSuppressJoinSqManyList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqMany> loadWhiteSuppressJoinSqManyList(ConditionBeanSetupper<WhiteSuppressJoinSqManyCB> refCBLambda) {
-        myBhv().loadWhiteSuppressJoinSqManyList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteSuppressJoinSqMany>() {
-            public void handle(List<WhiteSuppressJoinSqMany> referrerList) { _referrerWhiteSuppressJoinSqManyList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqMany>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteSuppressJoinSqMany> handler) {
-                handler.handle(new LoaderOfWhiteSuppressJoinSqMany().ready(_referrerWhiteSuppressJoinSqManyList, _selector));
-            }
-        };
+        myBhv().loadWhiteSuppressJoinSqManyList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqManyList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqMany().ready(_referrerWhiteSuppressJoinSqManyList, _selector));
     }
 
     // ===================================================================================
@@ -93,9 +87,8 @@ public class LoaderOfWhiteSuppressJoinSq {
     //                                                                    ================
     protected LoaderOfWhiteSuppressJoinSqOne _foreignWhiteSuppressJoinSqOneAsOneLoader;
     public LoaderOfWhiteSuppressJoinSqOne pulloutWhiteSuppressJoinSqOneAsOne() {
-        if (_foreignWhiteSuppressJoinSqOneAsOneLoader != null) { return _foreignWhiteSuppressJoinSqOneAsOneLoader; }
-        List<WhiteSuppressJoinSqOne> pulledList = myBhv().pulloutWhiteSuppressJoinSqOneAsOne(_selectedList);
-        _foreignWhiteSuppressJoinSqOneAsOneLoader = new LoaderOfWhiteSuppressJoinSqOne().ready(pulledList, _selector);
+        if (_foreignWhiteSuppressJoinSqOneAsOneLoader == null)
+        { _foreignWhiteSuppressJoinSqOneAsOneLoader = new LoaderOfWhiteSuppressJoinSqOne().ready(myBhv().pulloutWhiteSuppressJoinSqOneAsOne(_selectedList), _selector); }
         return _foreignWhiteSuppressJoinSqOneAsOneLoader;
     }
 

@@ -76,8 +76,8 @@ public class WhitePgReservRefCIQ extends AbstractBsWhitePgReservRefCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueRefId() { return _myCQ.getRefId(); }
-    protected ConditionValue getCValueClassSynonym() { return _myCQ.getClassSynonym(); }
+    protected ConditionValue xgetCValueRefId() { return _myCQ.xdfgetRefId(); }
+    protected ConditionValue xgetCValueClassSynonym() { return _myCQ.xdfgetClassSynonym(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhitePgReservRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

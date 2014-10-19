@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhitePointTypeMappingCB extends AbstractConditionBean {
      */
     public WhitePointTypeMappingCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhitePointTypeMappingCQ getConditionQuery() { // public for parameter comment and internal
+    public WhitePointTypeMappingCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhitePointTypeMappingCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhitePointTypeMappingCB extends AbstractConditionBean {
         return new WhitePointTypeMappingCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhitePointTypeMappingCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhitePointTypeMappingCQ>() {
                 public boolean has() { return true; }
-                public WhitePointTypeMappingCQ qy() { return getConditionQuery(); }
+                public WhitePointTypeMappingCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,27 +320,27 @@ public class BsWhitePointTypeMappingCB extends AbstractConditionBean {
          * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPointTypeMappingId() { return doColumn("POINT_TYPE_MAPPING_ID"); }
+        public SpecifiedColumn columnPointTypeMappingId() { return doColumn("POINT_TYPE_MAPPING_ID"); }
         /**
          * POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPointTypeMappingMemberName() { return doColumn("POINT_TYPE_MAPPING_MEMBER_NAME"); }
+        public SpecifiedColumn columnPointTypeMappingMemberName() { return doColumn("POINT_TYPE_MAPPING_MEMBER_NAME"); }
         /**
          * POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPointTypeMappingPriceCount() { return doColumn("POINT_TYPE_MAPPING_PRICE_COUNT"); }
+        public SpecifiedColumn columnPointTypeMappingPriceCount() { return doColumn("POINT_TYPE_MAPPING_PRICE_COUNT"); }
         /**
          * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPointTypeMappingSaleDate() { return doColumn("POINT_TYPE_MAPPING_SALE_DATE"); }
+        public SpecifiedColumn columnPointTypeMappingSaleDate() { return doColumn("POINT_TYPE_MAPPING_SALE_DATE"); }
         /**
          * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPointTypeMappingWantedDatetime() { return doColumn("POINT_TYPE_MAPPING_WANTED_DATETIME"); }
+        public SpecifiedColumn columnPointTypeMappingWantedDatetime() { return doColumn("POINT_TYPE_MAPPING_WANTED_DATETIME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -384,7 +392,7 @@ public class BsWhitePointTypeMappingCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePointTypeMappingCB> columnQuery(final SpecifyQuery<WhitePointTypeMappingCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhitePointTypeMappingCB>() {
-            public HpCalculator handle(SpecifyQuery<WhitePointTypeMappingCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhitePointTypeMappingCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -502,8 +510,8 @@ public class BsWhitePointTypeMappingCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhitePointTypeMappingCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhitePointTypeMappingCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhitePointTypeMappingCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhitePointTypeMappingCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

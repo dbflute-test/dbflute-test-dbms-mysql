@@ -89,10 +89,10 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _genOnlyId;
-    public ConditionValue getGenOnlyId()
+    public ConditionValue xdfgetGenOnlyId()
     { if (_genOnlyId == null) { _genOnlyId = nCV(); }
       return _genOnlyId; }
-    protected ConditionValue getCValueGenOnlyId() { return getGenOnlyId(); }
+    protected ConditionValue xgetCValueGenOnlyId() { return xdfgetGenOnlyId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
     public BsWhiteColumnExceptGenOnlyCQ addOrderBy_GenOnlyId_Desc() { regOBD("GEN_ONLY_ID"); return this; }
 
     protected ConditionValue _genOnlyName;
-    public ConditionValue getGenOnlyName()
+    public ConditionValue xdfgetGenOnlyName()
     { if (_genOnlyName == null) { _genOnlyName = nCV(); }
       return _genOnlyName; }
-    protected ConditionValue getCValueGenOnlyName() { return getGenOnlyName(); }
+    protected ConditionValue xgetCValueGenOnlyName() { return xdfgetGenOnlyName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteColumnExceptGenOnlyCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteColumnExceptGenOnlyCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteColumnExceptGenOnlyCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteColumnExceptGenOnlyCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteColumnExceptGenOnlyCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteColumnExceptGenOnlyCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteColumnExceptGenOnlyCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteColumnExceptGenOnlyCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteColumnExceptGenOnlyCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteColumnExceptGenOnlyCQ> _myselfExistsMap;
-    public Map<String, WhiteColumnExceptGenOnlyCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteColumnExceptGenOnlyCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteColumnExceptGenOnlyCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteColumnExceptGenOnlyCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteColumnExceptGenOnlyCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteColumnExceptGenOnlyCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteColumnExceptGenOnlyCB.class.getName(); }
     protected String xCQ() { return WhiteColumnExceptGenOnlyCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

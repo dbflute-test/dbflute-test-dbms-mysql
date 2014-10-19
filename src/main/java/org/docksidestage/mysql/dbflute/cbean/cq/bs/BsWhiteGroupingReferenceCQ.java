@@ -89,10 +89,10 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _groupingReferenceId;
-    public ConditionValue getGroupingReferenceId()
+    public ConditionValue xdfgetGroupingReferenceId()
     { if (_groupingReferenceId == null) { _groupingReferenceId = nCV(); }
       return _groupingReferenceId; }
-    protected ConditionValue getCValueGroupingReferenceId() { return getGroupingReferenceId(); }
+    protected ConditionValue xgetCValueGroupingReferenceId() { return xdfgetGroupingReferenceId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
     public BsWhiteGroupingReferenceCQ addOrderBy_GroupingReferenceId_Desc() { regOBD("GROUPING_REFERENCE_ID"); return this; }
 
     protected ConditionValue _groupingReferenceCode;
-    public ConditionValue getGroupingReferenceCode()
+    public ConditionValue xdfgetGroupingReferenceCode()
     { if (_groupingReferenceCode == null) { _groupingReferenceCode = nCV(); }
       return _groupingReferenceCode; }
-    protected ConditionValue getCValueGroupingReferenceCode() { return getGroupingReferenceCode(); }
+    protected ConditionValue xgetCValueGroupingReferenceCode() { return xdfgetGroupingReferenceCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteGroupingReferenceCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteGroupingReferenceCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteGroupingReferenceCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteGroupingReferenceCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteGroupingReferenceCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteGroupingReferenceCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteGroupingReferenceCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteGroupingReferenceCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteGroupingReferenceCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteGroupingReferenceCQ> _myselfExistsMap;
-    public Map<String, WhiteGroupingReferenceCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteGroupingReferenceCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteGroupingReferenceCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteGroupingReferenceCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteGroupingReferenceCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteGroupingReferenceCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteGroupingReferenceCB.class.getName(); }
     protected String xCQ() { return WhiteGroupingReferenceCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

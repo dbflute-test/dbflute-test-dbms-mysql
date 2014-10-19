@@ -76,7 +76,7 @@ public class WhitePerrottaOverProductCIQ extends AbstractBsWhitePerrottaOverProd
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueProductId() { return _myCQ.getProductId(); }
+    protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
     public String keepProductId_ExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepProductId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq)
@@ -107,8 +107,8 @@ public class WhitePerrottaOverProductCIQ extends AbstractBsWhitePerrottaOverProd
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueProductName() { return _myCQ.getProductName(); }
-    protected ConditionValue getCValueProductNestedCode() { return _myCQ.getProductNestedCode(); }
+    protected ConditionValue xgetCValueProductName() { return _myCQ.xdfgetProductName(); }
+    protected ConditionValue xgetCValueProductNestedCode() { return _myCQ.xdfgetProductNestedCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhitePerrottaOverProductCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

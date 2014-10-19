@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteBinaryCB extends AbstractConditionBean {
      */
     public WhiteBinaryCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteBinaryCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteBinaryCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteBinaryCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteBinaryCB extends AbstractConditionBean {
         return new WhiteBinaryCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteBinaryCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteBinaryCQ>() {
                 public boolean has() { return true; }
-                public WhiteBinaryCQ qy() { return getConditionQuery(); }
+                public WhiteBinaryCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,17 +320,17 @@ public class BsWhiteBinaryCB extends AbstractConditionBean {
          * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnBinaryId() { return doColumn("BINARY_ID"); }
+        public SpecifiedColumn columnBinaryId() { return doColumn("BINARY_ID"); }
         /**
          * BINARY_DATA: {BINARY(1)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnBinaryData() { return doColumn("BINARY_DATA"); }
+        public SpecifiedColumn columnBinaryData() { return doColumn("BINARY_DATA"); }
         /**
          * BLOB_DATA: {BLOB(65535)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnBlobData() { return doColumn("BLOB_DATA"); }
+        public SpecifiedColumn columnBlobData() { return doColumn("BLOB_DATA"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -374,7 +382,7 @@ public class BsWhiteBinaryCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteBinaryCB> columnQuery(final SpecifyQuery<WhiteBinaryCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteBinaryCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteBinaryCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteBinaryCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -492,8 +500,8 @@ public class BsWhiteBinaryCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteBinaryCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteBinaryCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteBinaryCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteBinaryCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

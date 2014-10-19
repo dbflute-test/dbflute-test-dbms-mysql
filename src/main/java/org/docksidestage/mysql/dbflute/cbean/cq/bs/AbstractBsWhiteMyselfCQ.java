@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMyselfId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMyselfId(), "MYSELF_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMyselfId(), "MYSELF_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMyselfId_InScope(Collection<Integer> myselfIdList) {
-        regINS(CK_INS, cTL(myselfIdList), getCValueMyselfId(), "MYSELF_ID");
+        regINS(CK_INS, cTL(myselfIdList), xgetCValueMyselfId(), "MYSELF_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMyselfId_NotInScope(Collection<Integer> myselfIdList) {
-        regINS(CK_NINS, cTL(myselfIdList), getCValueMyselfId(), "MYSELF_ID");
+        regINS(CK_NINS, cTL(myselfIdList), xgetCValueMyselfId(), "MYSELF_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      */
     public void setMyselfId_IsNotNull() { regMyselfId(CK_ISNN, DOBJ); }
 
-    protected void regMyselfId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMyselfId(), "MYSELF_ID"); }
-    protected abstract ConditionValue getCValueMyselfId();
+    protected void regMyselfId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMyselfId(), "MYSELF_ID"); }
+    protected abstract ConditionValue xgetCValueMyselfId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMyselfName_InScope(Collection<String> myselfNameList) {
-        regINS(CK_INS, cTL(myselfNameList), getCValueMyselfName(), "MYSELF_NAME");
+        regINS(CK_INS, cTL(myselfNameList), xgetCValueMyselfName(), "MYSELF_NAME");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMyselfName_NotInScope(Collection<String> myselfNameList) {
-        regINS(CK_NINS, cTL(myselfNameList), getCValueMyselfName(), "MYSELF_NAME");
+        regINS(CK_NINS, cTL(myselfNameList), xgetCValueMyselfName(), "MYSELF_NAME");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMyselfName_LikeSearch(String myselfName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(myselfName), getCValueMyselfName(), "MYSELF_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(myselfName), xgetCValueMyselfName(), "MYSELF_NAME", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMyselfName_NotLikeSearch(String myselfName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(myselfName), getCValueMyselfName(), "MYSELF_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(myselfName), xgetCValueMyselfName(), "MYSELF_NAME", likeSearchOption);
     }
 
     /**
@@ -365,8 +365,8 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
         setMyselfName_LikeSearch(myselfName, xcLSOPPre());
     }
 
-    protected void regMyselfName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMyselfName(), "MYSELF_NAME"); }
-    protected abstract ConditionValue getCValueMyselfName();
+    protected void regMyselfName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMyselfName(), "MYSELF_NAME"); }
+    protected abstract ConditionValue xgetCValueMyselfName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

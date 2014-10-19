@@ -97,7 +97,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     }
 
     protected void doSetUqFkCode_InScope(Collection<String> uqFkCodeList) {
-        regINS(CK_INS, cTL(uqFkCodeList), getCValueUqFkCode(), "UQ_FK_CODE");
+        regINS(CK_INS, cTL(uqFkCodeList), xgetCValueUqFkCode(), "UQ_FK_CODE");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     }
 
     protected void doSetUqFkCode_NotInScope(Collection<String> uqFkCodeList) {
-        regINS(CK_NINS, cTL(uqFkCodeList), getCValueUqFkCode(), "UQ_FK_CODE");
+        regINS(CK_NINS, cTL(uqFkCodeList), xgetCValueUqFkCode(), "UQ_FK_CODE");
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUqFkCode_LikeSearch(String uqFkCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(uqFkCode), getCValueUqFkCode(), "UQ_FK_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(uqFkCode), xgetCValueUqFkCode(), "UQ_FK_CODE", likeSearchOption);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setUqFkCode_NotLikeSearch(String uqFkCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(uqFkCode), getCValueUqFkCode(), "UQ_FK_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(uqFkCode), xgetCValueUqFkCode(), "UQ_FK_CODE", likeSearchOption);
     }
 
     /**
@@ -251,8 +251,8 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     public abstract String keepUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefList(WhiteUqFkWithoutPkRefCQ sq);
     public abstract String keepUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefListParameter(Object vl);
 
-    protected void regUqFkCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUqFkCode(), "UQ_FK_CODE"); }
-    protected abstract ConditionValue getCValueUqFkCode();
+    protected void regUqFkCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUqFkCode(), "UQ_FK_CODE"); }
+    protected abstract ConditionValue xgetCValueUqFkCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -290,7 +290,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     }
 
     protected void doSetUqFkName_InScope(Collection<String> uqFkNameList) {
-        regINS(CK_INS, cTL(uqFkNameList), getCValueUqFkName(), "UQ_FK_NAME");
+        regINS(CK_INS, cTL(uqFkNameList), xgetCValueUqFkName(), "UQ_FK_NAME");
     }
 
     /**
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     }
 
     protected void doSetUqFkName_NotInScope(Collection<String> uqFkNameList) {
-        regINS(CK_NINS, cTL(uqFkNameList), getCValueUqFkName(), "UQ_FK_NAME");
+        regINS(CK_NINS, cTL(uqFkNameList), xgetCValueUqFkName(), "UQ_FK_NAME");
     }
 
     /**
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUqFkName_LikeSearch(String uqFkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(uqFkName), getCValueUqFkName(), "UQ_FK_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(uqFkName), xgetCValueUqFkName(), "UQ_FK_NAME", likeSearchOption);
     }
 
     /**
@@ -347,7 +347,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setUqFkName_NotLikeSearch(String uqFkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(uqFkName), getCValueUqFkName(), "UQ_FK_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(uqFkName), xgetCValueUqFkName(), "UQ_FK_NAME", likeSearchOption);
     }
 
     /**
@@ -359,8 +359,8 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
         setUqFkName_LikeSearch(uqFkName, xcLSOPPre());
     }
 
-    protected void regUqFkName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUqFkName(), "UQ_FK_NAME"); }
-    protected abstract ConditionValue getCValueUqFkName();
+    protected void regUqFkName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUqFkName(), "UQ_FK_NAME"); }
+    protected abstract ConditionValue xgetCValueUqFkName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -78,14 +78,8 @@ public class LoaderOfWhitePgReserv {
     //                                                                       =============
     protected List<WhitePgReservRef> _referrerWhitePgReservRefList;
     public NestedReferrerLoaderGateway<LoaderOfWhitePgReservRef> loadWhitePgReservRefList(ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
-        myBhv().loadWhitePgReservRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhitePgReservRef>() {
-            public void handle(List<WhitePgReservRef> referrerList) { _referrerWhitePgReservRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhitePgReservRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhitePgReservRef> handler) {
-                handler.handle(new LoaderOfWhitePgReservRef().ready(_referrerWhitePgReservRefList, _selector));
-            }
-        };
+        myBhv().loadWhitePgReservRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePgReservRefList = refLs);
+        return hd -> hd.handle(new LoaderOfWhitePgReservRef().ready(_referrerWhitePgReservRefList, _selector));
     }
 
     // ===================================================================================

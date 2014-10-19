@@ -89,51 +89,51 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _productId;
-    public ConditionValue getProductId()
+    public ConditionValue xdfgetProductId()
     { if (_productId == null) { _productId = nCV(); }
       return _productId; }
-    protected ConditionValue getCValueProductId() { return getProductId(); }
+    protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getProductId_ExistsReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("productId_ExistsReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetProductId_ExistsReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("productId_ExistsReferrer_WhitePerrottaOverMemberList"); }
     public String keepProductId_ExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("productId_ExistsReferrer_WhitePerrottaOverMemberList", sq); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getProductId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList() { return xgetSQueMap("productId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetProductId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList() { return xgetSQueMap("productId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
     public String keepProductId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("productId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList", sq); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getProductId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList() { return xgetSQueMap("productId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetProductId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList() { return xgetSQueMap("productId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
     public String keepProductId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("productId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList", sq); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getProductId_NotExistsReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("productId_NotExistsReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetProductId_NotExistsReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("productId_NotExistsReferrer_WhitePerrottaOverMemberList"); }
     public String keepProductId_NotExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("productId_NotExistsReferrer_WhitePerrottaOverMemberList", sq); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList() { return xgetSQueMap("productId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList() { return xgetSQueMap("productId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
     public String keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("productId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList", sq); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList() { return xgetSQueMap("productId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList() { return xgetSQueMap("productId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
     public String keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("productId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList", sq); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getProductId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetProductId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList"); }
     public String keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList", sq); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
     public String keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList", sq); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
     public String keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList", sq); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getProductId_QueryDerivedReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("productId_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetProductId_QueryDerivedReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("productId_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
     public String keepProductId_QueryDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_WhitePerrottaOverMemberList", sq); }
-    public Map<String, Object> getProductId_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
     public String keepProductId_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_WhitePerrottaOverMemberList", pm); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList() { return xgetSQueMap("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList() { return xgetSQueMap("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
     public String keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList", sq); }
-    public Map<String, Object> getProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
+    public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList"); }
     public String keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList", pm); }
 
-    public Map<String, WhitePerrottaOverTraceCQ> getProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList() { return xgetSQueMap("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
+    public Map<String, WhitePerrottaOverTraceCQ> xdfgetProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList() { return xgetSQueMap("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
     public String keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList(WhitePerrottaOverTraceCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList", sq); }
-    public Map<String, Object> getProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
+    public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList"); }
     public String keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList", pm); }
 
     /** 
@@ -151,10 +151,10 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
 
     protected ConditionValue _productName;
-    public ConditionValue getProductName()
+    public ConditionValue xdfgetProductName()
     { if (_productName == null) { _productName = nCV(); }
       return _productName; }
-    protected ConditionValue getCValueProductName() { return getProductName(); }
+    protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -171,10 +171,10 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
 
     protected ConditionValue _productNestedCode;
-    public ConditionValue getProductNestedCode()
+    public ConditionValue xdfgetProductNestedCode()
     { if (_productNestedCode == null) { _productNestedCode = nCV(); }
       return _productNestedCode; }
-    protected ConditionValue getCValueProductNestedCode() { return getProductNestedCode(); }
+    protected ConditionValue xgetCValueProductNestedCode() { return xdfgetProductNestedCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -248,9 +248,9 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverProductNestedCQ queryWhitePerrottaOverProductNested() {
-        return getConditionQueryWhitePerrottaOverProductNested();
+        return xdfgetConditionQueryWhitePerrottaOverProductNested();
     }
-    public WhitePerrottaOverProductNestedCQ getConditionQueryWhitePerrottaOverProductNested() {
+    public WhitePerrottaOverProductNestedCQ xdfgetConditionQueryWhitePerrottaOverProductNested() {
         String prop = "whitePerrottaOverProductNested";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhitePerrottaOverProductNested()); xsetupOuterJoinWhitePerrottaOverProductNested(); }
         return xgetQueRlMap(prop);
@@ -268,9 +268,9 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverTraceCQ queryWhitePerrottaOverTraceAsPerrotta() {
-        return getConditionQueryWhitePerrottaOverTraceAsPerrotta();
+        return xdfgetConditionQueryWhitePerrottaOverTraceAsPerrotta();
     }
-    public WhitePerrottaOverTraceCQ getConditionQueryWhitePerrottaOverTraceAsPerrotta() {
+    public WhitePerrottaOverTraceCQ xdfgetConditionQueryWhitePerrottaOverTraceAsPerrotta() {
         String prop = "whitePerrottaOverTraceAsPerrotta";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhitePerrottaOverTraceAsPerrotta()); xsetupOuterJoinWhitePerrottaOverTraceAsPerrotta(); }
         return xgetQueRlMap(prop);
@@ -289,31 +289,31 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhitePerrottaOverProductCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhitePerrottaOverProductCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhitePerrottaOverProductCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhitePerrottaOverProductCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhitePerrottaOverProductCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhitePerrottaOverProductCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhitePerrottaOverProductCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhitePerrottaOverProductCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhitePerrottaOverProductCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhitePerrottaOverProductCQ> _myselfExistsMap;
-    public Map<String, WhitePerrottaOverProductCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhitePerrottaOverProductCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhitePerrottaOverProductCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhitePerrottaOverProductCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhitePerrottaOverProductCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhitePerrottaOverProductCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -322,7 +322,7 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhitePerrottaOverProductCB.class.getName(); }
     protected String xCQ() { return WhitePerrottaOverProductCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

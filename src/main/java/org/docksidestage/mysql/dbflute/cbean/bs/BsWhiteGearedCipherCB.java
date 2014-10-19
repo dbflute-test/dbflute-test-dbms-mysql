@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteGearedCipherCB extends AbstractConditionBean {
      */
     public WhiteGearedCipherCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteGearedCipherCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteGearedCipherCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteGearedCipherCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteGearedCipherCB extends AbstractConditionBean {
         return new WhiteGearedCipherCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteGearedCipherCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteGearedCipherCQ>() {
                 public boolean has() { return true; }
-                public WhiteGearedCipherCQ qy() { return getConditionQuery(); }
+                public WhiteGearedCipherCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,27 +320,27 @@ public class BsWhiteGearedCipherCB extends AbstractConditionBean {
          * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnCipherId() { return doColumn("CIPHER_ID"); }
+        public SpecifiedColumn columnCipherId() { return doColumn("CIPHER_ID"); }
         /**
          * CIPHER_INTEGER: {VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnCipherInteger() { return doColumn("CIPHER_INTEGER"); }
+        public SpecifiedColumn columnCipherInteger() { return doColumn("CIPHER_INTEGER"); }
         /**
          * CIPHER_VARCHAR: {VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnCipherVarchar() { return doColumn("CIPHER_VARCHAR"); }
+        public SpecifiedColumn columnCipherVarchar() { return doColumn("CIPHER_VARCHAR"); }
         /**
          * CIPHER_DATE: {VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnCipherDate() { return doColumn("CIPHER_DATE"); }
+        public SpecifiedColumn columnCipherDate() { return doColumn("CIPHER_DATE"); }
         /**
          * CIPHER_DATETIME: {VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnCipherDatetime() { return doColumn("CIPHER_DATETIME"); }
+        public SpecifiedColumn columnCipherDatetime() { return doColumn("CIPHER_DATETIME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -384,7 +392,7 @@ public class BsWhiteGearedCipherCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteGearedCipherCB> columnQuery(final SpecifyQuery<WhiteGearedCipherCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteGearedCipherCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteGearedCipherCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteGearedCipherCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -502,8 +510,8 @@ public class BsWhiteGearedCipherCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteGearedCipherCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteGearedCipherCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteGearedCipherCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteGearedCipherCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

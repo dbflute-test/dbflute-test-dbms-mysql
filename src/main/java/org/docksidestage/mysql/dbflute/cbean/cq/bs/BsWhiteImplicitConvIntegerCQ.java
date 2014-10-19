@@ -89,37 +89,37 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _implicitConvIntegerId;
-    public ConditionValue getImplicitConvIntegerId()
+    public ConditionValue xdfgetImplicitConvIntegerId()
     { if (_implicitConvIntegerId == null) { _implicitConvIntegerId = nCV(); }
       return _implicitConvIntegerId; }
-    protected ConditionValue getCValueImplicitConvIntegerId() { return getImplicitConvIntegerId(); }
+    protected ConditionValue xgetCValueImplicitConvIntegerId() { return xdfgetImplicitConvIntegerId(); }
 
-    public Map<String, WhiteImplicitConvNumericCQ> getImplicitConvIntegerId_ExistsReferrer_WhiteImplicitConvNumericList() { return xgetSQueMap("implicitConvIntegerId_ExistsReferrer_WhiteImplicitConvNumericList"); }
+    public Map<String, WhiteImplicitConvNumericCQ> xdfgetImplicitConvIntegerId_ExistsReferrer_WhiteImplicitConvNumericList() { return xgetSQueMap("implicitConvIntegerId_ExistsReferrer_WhiteImplicitConvNumericList"); }
     public String keepImplicitConvIntegerId_ExistsReferrer_WhiteImplicitConvNumericList(WhiteImplicitConvNumericCQ sq) { return xkeepSQue("implicitConvIntegerId_ExistsReferrer_WhiteImplicitConvNumericList", sq); }
 
-    public Map<String, WhiteImplicitConvStringCQ> getImplicitConvIntegerId_ExistsReferrer_WhiteImplicitConvStringList() { return xgetSQueMap("implicitConvIntegerId_ExistsReferrer_WhiteImplicitConvStringList"); }
+    public Map<String, WhiteImplicitConvStringCQ> xdfgetImplicitConvIntegerId_ExistsReferrer_WhiteImplicitConvStringList() { return xgetSQueMap("implicitConvIntegerId_ExistsReferrer_WhiteImplicitConvStringList"); }
     public String keepImplicitConvIntegerId_ExistsReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq) { return xkeepSQue("implicitConvIntegerId_ExistsReferrer_WhiteImplicitConvStringList", sq); }
 
-    public Map<String, WhiteImplicitConvNumericCQ> getImplicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvNumericList() { return xgetSQueMap("implicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvNumericList"); }
+    public Map<String, WhiteImplicitConvNumericCQ> xdfgetImplicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvNumericList() { return xgetSQueMap("implicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvNumericList"); }
     public String keepImplicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvNumericList(WhiteImplicitConvNumericCQ sq) { return xkeepSQue("implicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvNumericList", sq); }
 
-    public Map<String, WhiteImplicitConvStringCQ> getImplicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvStringList() { return xgetSQueMap("implicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvStringList"); }
+    public Map<String, WhiteImplicitConvStringCQ> xdfgetImplicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvStringList() { return xgetSQueMap("implicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvStringList"); }
     public String keepImplicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq) { return xkeepSQue("implicitConvIntegerId_NotExistsReferrer_WhiteImplicitConvStringList", sq); }
 
-    public Map<String, WhiteImplicitConvNumericCQ> getImplicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvNumericList() { return xgetSQueMap("implicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvNumericList"); }
+    public Map<String, WhiteImplicitConvNumericCQ> xdfgetImplicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvNumericList() { return xgetSQueMap("implicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvNumericList"); }
     public String keepImplicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvNumericList(WhiteImplicitConvNumericCQ sq) { return xkeepSQue("implicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvNumericList", sq); }
 
-    public Map<String, WhiteImplicitConvStringCQ> getImplicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvStringList() { return xgetSQueMap("implicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvStringList"); }
+    public Map<String, WhiteImplicitConvStringCQ> xdfgetImplicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvStringList() { return xgetSQueMap("implicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvStringList"); }
     public String keepImplicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq) { return xkeepSQue("implicitConvIntegerId_SpecifyDerivedReferrer_WhiteImplicitConvStringList", sq); }
 
-    public Map<String, WhiteImplicitConvNumericCQ> getImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList() { return xgetSQueMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList"); }
+    public Map<String, WhiteImplicitConvNumericCQ> xdfgetImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList() { return xgetSQueMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList"); }
     public String keepImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList(WhiteImplicitConvNumericCQ sq) { return xkeepSQue("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList", sq); }
-    public Map<String, Object> getImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericListParameter() { return xgetSQuePmMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList"); }
+    public Map<String, Object> xdfgetImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericListParameter() { return xgetSQuePmMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList"); }
     public String keepImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericListParameter(Object pm) { return xkeepSQuePm("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvNumericList", pm); }
 
-    public Map<String, WhiteImplicitConvStringCQ> getImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList() { return xgetSQueMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList"); }
+    public Map<String, WhiteImplicitConvStringCQ> xdfgetImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList() { return xgetSQueMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList"); }
     public String keepImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq) { return xkeepSQue("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList", sq); }
-    public Map<String, Object> getImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringListParameter() { return xgetSQuePmMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList"); }
+    public Map<String, Object> xdfgetImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringListParameter() { return xgetSQuePmMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList"); }
     public String keepImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringListParameter(Object pm) { return xkeepSQuePm("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList", pm); }
 
     /** 
@@ -137,10 +137,10 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
     public BsWhiteImplicitConvIntegerCQ addOrderBy_ImplicitConvIntegerId_Desc() { regOBD("IMPLICIT_CONV_INTEGER_ID"); return this; }
 
     protected ConditionValue _implicitConvNumericId;
-    public ConditionValue getImplicitConvNumericId()
+    public ConditionValue xdfgetImplicitConvNumericId()
     { if (_implicitConvNumericId == null) { _implicitConvNumericId = nCV(); }
       return _implicitConvNumericId; }
-    protected ConditionValue getCValueImplicitConvNumericId() { return getImplicitConvNumericId(); }
+    protected ConditionValue xgetCValueImplicitConvNumericId() { return xdfgetImplicitConvNumericId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -157,10 +157,10 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
     public BsWhiteImplicitConvIntegerCQ addOrderBy_ImplicitConvNumericId_Desc() { regOBD("IMPLICIT_CONV_NUMERIC_ID"); return this; }
 
     protected ConditionValue _implicitConvStringId;
-    public ConditionValue getImplicitConvStringId()
+    public ConditionValue xdfgetImplicitConvStringId()
     { if (_implicitConvStringId == null) { _implicitConvStringId = nCV(); }
       return _implicitConvStringId; }
-    protected ConditionValue getCValueImplicitConvStringId() { return getImplicitConvStringId(); }
+    protected ConditionValue xgetCValueImplicitConvStringId() { return xdfgetImplicitConvStringId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -177,10 +177,10 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
     public BsWhiteImplicitConvIntegerCQ addOrderBy_ImplicitConvStringId_Desc() { regOBD("IMPLICIT_CONV_STRING_ID"); return this; }
 
     protected ConditionValue _implicitConvName;
-    public ConditionValue getImplicitConvName()
+    public ConditionValue xdfgetImplicitConvName()
     { if (_implicitConvName == null) { _implicitConvName = nCV(); }
       return _implicitConvName; }
-    protected ConditionValue getCValueImplicitConvName() { return getImplicitConvName(); }
+    protected ConditionValue xgetCValueImplicitConvName() { return xdfgetImplicitConvName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -254,9 +254,9 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteImplicitConvNumericCQ queryWhiteImplicitConvNumeric() {
-        return getConditionQueryWhiteImplicitConvNumeric();
+        return xdfgetConditionQueryWhiteImplicitConvNumeric();
     }
-    public WhiteImplicitConvNumericCQ getConditionQueryWhiteImplicitConvNumeric() {
+    public WhiteImplicitConvNumericCQ xdfgetConditionQueryWhiteImplicitConvNumeric() {
         String prop = "whiteImplicitConvNumeric";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteImplicitConvNumeric()); xsetupOuterJoinWhiteImplicitConvNumeric(); }
         return xgetQueRlMap(prop);
@@ -274,9 +274,9 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteImplicitConvStringCQ queryWhiteImplicitConvString() {
-        return getConditionQueryWhiteImplicitConvString();
+        return xdfgetConditionQueryWhiteImplicitConvString();
     }
-    public WhiteImplicitConvStringCQ getConditionQueryWhiteImplicitConvString() {
+    public WhiteImplicitConvStringCQ xdfgetConditionQueryWhiteImplicitConvString() {
         String prop = "whiteImplicitConvString";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteImplicitConvString()); xsetupOuterJoinWhiteImplicitConvString(); }
         return xgetQueRlMap(prop);
@@ -295,31 +295,31 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteImplicitConvIntegerCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteImplicitConvIntegerCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteImplicitConvIntegerCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteImplicitConvIntegerCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteImplicitConvIntegerCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteImplicitConvIntegerCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteImplicitConvIntegerCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteImplicitConvIntegerCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteImplicitConvIntegerCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteImplicitConvIntegerCQ> _myselfExistsMap;
-    public Map<String, WhiteImplicitConvIntegerCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteImplicitConvIntegerCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteImplicitConvIntegerCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteImplicitConvIntegerCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteImplicitConvIntegerCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteImplicitConvIntegerCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -328,7 +328,7 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteImplicitConvIntegerCB.class.getName(); }
     protected String xCQ() { return WhiteImplicitConvIntegerCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

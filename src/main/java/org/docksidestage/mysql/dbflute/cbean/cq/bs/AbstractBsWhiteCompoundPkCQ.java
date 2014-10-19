@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPkFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePkFirstId(), "PK_FIRST_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePkFirstId(), "PK_FIRST_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     protected void doSetPkFirstId_InScope(Collection<Integer> pkFirstIdList) {
-        regINS(CK_INS, cTL(pkFirstIdList), getCValuePkFirstId(), "PK_FIRST_ID");
+        regINS(CK_INS, cTL(pkFirstIdList), xgetCValuePkFirstId(), "PK_FIRST_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     protected void doSetPkFirstId_NotInScope(Collection<Integer> pkFirstIdList) {
-        regINS(CK_NINS, cTL(pkFirstIdList), getCValuePkFirstId(), "PK_FIRST_ID");
+        regINS(CK_NINS, cTL(pkFirstIdList), xgetCValuePkFirstId(), "PK_FIRST_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      */
     public void setPkFirstId_IsNotNull() { regPkFirstId(CK_ISNN, DOBJ); }
 
-    protected void regPkFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePkFirstId(), "PK_FIRST_ID"); }
-    protected abstract ConditionValue getCValuePkFirstId();
+    protected void regPkFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePkFirstId(), "PK_FIRST_ID"); }
+    protected abstract ConditionValue xgetCValuePkFirstId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPkSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePkSecondId(), "PK_SECOND_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePkSecondId(), "PK_SECOND_ID", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     protected void doSetPkSecondId_InScope(Collection<Integer> pkSecondIdList) {
-        regINS(CK_INS, cTL(pkSecondIdList), getCValuePkSecondId(), "PK_SECOND_ID");
+        regINS(CK_INS, cTL(pkSecondIdList), xgetCValuePkSecondId(), "PK_SECOND_ID");
     }
 
     /**
@@ -275,7 +275,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     protected void doSetPkSecondId_NotInScope(Collection<Integer> pkSecondIdList) {
-        regINS(CK_NINS, cTL(pkSecondIdList), getCValuePkSecondId(), "PK_SECOND_ID");
+        regINS(CK_NINS, cTL(pkSecondIdList), xgetCValuePkSecondId(), "PK_SECOND_ID");
     }
 
     /**
@@ -290,8 +290,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      */
     public void setPkSecondId_IsNotNull() { regPkSecondId(CK_ISNN, DOBJ); }
 
-    protected void regPkSecondId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePkSecondId(), "PK_SECOND_ID"); }
-    protected abstract ConditionValue getCValuePkSecondId();
+    protected void regPkSecondId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePkSecondId(), "PK_SECOND_ID"); }
+    protected abstract ConditionValue xgetCValuePkSecondId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -329,7 +329,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     protected void doSetPkName_InScope(Collection<String> pkNameList) {
-        regINS(CK_INS, cTL(pkNameList), getCValuePkName(), "PK_NAME");
+        regINS(CK_INS, cTL(pkNameList), xgetCValuePkName(), "PK_NAME");
     }
 
     /**
@@ -342,7 +342,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     protected void doSetPkName_NotInScope(Collection<String> pkNameList) {
-        regINS(CK_NINS, cTL(pkNameList), getCValuePkName(), "PK_NAME");
+        regINS(CK_NINS, cTL(pkNameList), xgetCValuePkName(), "PK_NAME");
     }
 
     /**
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPkName_LikeSearch(String pkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(pkName), getCValuePkName(), "PK_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(pkName), xgetCValuePkName(), "PK_NAME", likeSearchOption);
     }
 
     /**
@@ -386,7 +386,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPkName_NotLikeSearch(String pkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(pkName), getCValuePkName(), "PK_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(pkName), xgetCValuePkName(), "PK_NAME", likeSearchOption);
     }
 
     /**
@@ -398,8 +398,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
         setPkName_LikeSearch(pkName, xcLSOPPre());
     }
 
-    protected void regPkName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePkName(), "PK_NAME"); }
-    protected abstract ConditionValue getCValuePkName();
+    protected void regPkName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePkName(), "PK_NAME"); }
+    protected abstract ConditionValue xgetCValuePkName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -473,7 +473,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReferredId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueReferredId(), "REFERRED_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueReferredId(), "REFERRED_ID", rangeOfOption);
     }
 
     /**
@@ -486,7 +486,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     protected void doSetReferredId_InScope(Collection<Integer> referredIdList) {
-        regINS(CK_INS, cTL(referredIdList), getCValueReferredId(), "REFERRED_ID");
+        regINS(CK_INS, cTL(referredIdList), xgetCValueReferredId(), "REFERRED_ID");
     }
 
     /**
@@ -499,11 +499,11 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     protected void doSetReferredId_NotInScope(Collection<Integer> referredIdList) {
-        regINS(CK_NINS, cTL(referredIdList), getCValueReferredId(), "REFERRED_ID");
+        regINS(CK_NINS, cTL(referredIdList), xgetCValueReferredId(), "REFERRED_ID");
     }
 
-    protected void regReferredId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueReferredId(), "REFERRED_ID"); }
-    protected abstract ConditionValue getCValueReferredId();
+    protected void regReferredId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReferredId(), "REFERRED_ID"); }
+    protected abstract ConditionValue xgetCValueReferredId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

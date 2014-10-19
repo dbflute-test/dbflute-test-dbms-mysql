@@ -76,7 +76,7 @@ public class VendorLargeDataCIQ extends AbstractBsVendorLargeDataCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueLargeDataId() { return _myCQ.getLargeDataId(); }
+    protected ConditionValue xgetCValueLargeDataId() { return _myCQ.xdfgetLargeDataId(); }
     public String keepLargeDataId_ExistsReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepLargeDataId_NotExistsReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq)
@@ -87,12 +87,12 @@ public class VendorLargeDataCIQ extends AbstractBsVendorLargeDataCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueStringIndex() { return _myCQ.getStringIndex(); }
-    protected ConditionValue getCValueStringNoIndex() { return _myCQ.getStringNoIndex(); }
-    protected ConditionValue getCValueStringUniqueIndex() { return _myCQ.getStringUniqueIndex(); }
-    protected ConditionValue getCValueIntflgIndex() { return _myCQ.getIntflgIndex(); }
-    protected ConditionValue getCValueNumericIntegerIndex() { return _myCQ.getNumericIntegerIndex(); }
-    protected ConditionValue getCValueNumericIntegerNoIndex() { return _myCQ.getNumericIntegerNoIndex(); }
+    protected ConditionValue xgetCValueStringIndex() { return _myCQ.xdfgetStringIndex(); }
+    protected ConditionValue xgetCValueStringNoIndex() { return _myCQ.xdfgetStringNoIndex(); }
+    protected ConditionValue xgetCValueStringUniqueIndex() { return _myCQ.xdfgetStringUniqueIndex(); }
+    protected ConditionValue xgetCValueIntflgIndex() { return _myCQ.xdfgetIntflgIndex(); }
+    protected ConditionValue xgetCValueNumericIntegerIndex() { return _myCQ.xdfgetNumericIntegerIndex(); }
+    protected ConditionValue xgetCValueNumericIntegerNoIndex() { return _myCQ.xdfgetNumericIntegerNoIndex(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorLargeDataCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

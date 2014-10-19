@@ -78,14 +78,8 @@ public class LoaderOfWhiteAllInOneClsCategory {
     //                                                                       =============
     protected List<WhiteAllInOneClsElement> _referrerWhiteAllInOneClsElementList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
-        myBhv().loadWhiteAllInOneClsElementList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteAllInOneClsElement>() {
-            public void handle(List<WhiteAllInOneClsElement> referrerList) { _referrerWhiteAllInOneClsElementList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteAllInOneClsElement>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteAllInOneClsElement> handler) {
-                handler.handle(new LoaderOfWhiteAllInOneClsElement().ready(_referrerWhiteAllInOneClsElementList, _selector));
-            }
-        };
+        myBhv().loadWhiteAllInOneClsElementList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteAllInOneClsElementList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteAllInOneClsElement().ready(_referrerWhiteAllInOneClsElementList, _selector));
     }
 
     // ===================================================================================

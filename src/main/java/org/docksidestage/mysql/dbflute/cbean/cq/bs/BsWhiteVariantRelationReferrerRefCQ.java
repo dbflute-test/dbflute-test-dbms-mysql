@@ -89,10 +89,10 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _refId;
-    public ConditionValue getRefId()
+    public ConditionValue xdfgetRefId()
     { if (_refId == null) { _refId = nCV(); }
       return _refId; }
-    protected ConditionValue getCValueRefId() { return getRefId(); }
+    protected ConditionValue xgetCValueRefId() { return xdfgetRefId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     public BsWhiteVariantRelationReferrerRefCQ addOrderBy_RefId_Desc() { regOBD("REF_ID"); return this; }
 
     protected ConditionValue _referrerId;
-    public ConditionValue getReferrerId()
+    public ConditionValue xdfgetReferrerId()
     { if (_referrerId == null) { _referrerId = nCV(); }
       return _referrerId; }
-    protected ConditionValue getCValueReferrerId() { return getReferrerId(); }
+    protected ConditionValue xgetCValueReferrerId() { return xdfgetReferrerId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -183,9 +183,9 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteVariantRelationReferrerCQ queryWhiteVariantRelationReferrer() {
-        return getConditionQueryWhiteVariantRelationReferrer();
+        return xdfgetConditionQueryWhiteVariantRelationReferrer();
     }
-    public WhiteVariantRelationReferrerCQ getConditionQueryWhiteVariantRelationReferrer() {
+    public WhiteVariantRelationReferrerCQ xdfgetConditionQueryWhiteVariantRelationReferrer() {
         String prop = "whiteVariantRelationReferrer";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteVariantRelationReferrer()); xsetupOuterJoinWhiteVariantRelationReferrer(); }
         return xgetQueRlMap(prop);
@@ -204,31 +204,31 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteVariantRelationReferrerRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteVariantRelationReferrerRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteVariantRelationReferrerRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteVariantRelationReferrerRefCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteVariantRelationReferrerRefCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteVariantRelationReferrerRefCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteVariantRelationReferrerRefCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteVariantRelationReferrerRefCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteVariantRelationReferrerRefCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteVariantRelationReferrerRefCQ> _myselfExistsMap;
-    public Map<String, WhiteVariantRelationReferrerRefCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteVariantRelationReferrerRefCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteVariantRelationReferrerRefCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteVariantRelationReferrerRefCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteVariantRelationReferrerRefCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteVariantRelationReferrerRefCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -237,7 +237,7 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteVariantRelationReferrerRefCB.class.getName(); }
     protected String xCQ() { return WhiteVariantRelationReferrerRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

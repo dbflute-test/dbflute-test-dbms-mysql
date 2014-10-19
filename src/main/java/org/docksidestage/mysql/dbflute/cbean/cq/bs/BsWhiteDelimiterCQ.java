@@ -89,10 +89,10 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _delimiterId;
-    public ConditionValue getDelimiterId()
+    public ConditionValue xdfgetDelimiterId()
     { if (_delimiterId == null) { _delimiterId = nCV(); }
       return _delimiterId; }
-    protected ConditionValue getCValueDelimiterId() { return getDelimiterId(); }
+    protected ConditionValue xgetCValueDelimiterId() { return xdfgetDelimiterId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     public BsWhiteDelimiterCQ addOrderBy_DelimiterId_Desc() { regOBD("DELIMITER_ID"); return this; }
 
     protected ConditionValue _numberNullable;
-    public ConditionValue getNumberNullable()
+    public ConditionValue xdfgetNumberNullable()
     { if (_numberNullable == null) { _numberNullable = nCV(); }
       return _numberNullable; }
-    protected ConditionValue getCValueNumberNullable() { return getNumberNullable(); }
+    protected ConditionValue xgetCValueNumberNullable() { return xdfgetNumberNullable(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     public BsWhiteDelimiterCQ addOrderBy_NumberNullable_Desc() { regOBD("NUMBER_NULLABLE"); return this; }
 
     protected ConditionValue _stringConverted;
-    public ConditionValue getStringConverted()
+    public ConditionValue xdfgetStringConverted()
     { if (_stringConverted == null) { _stringConverted = nCV(); }
       return _stringConverted; }
-    protected ConditionValue getCValueStringConverted() { return getStringConverted(); }
+    protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     public BsWhiteDelimiterCQ addOrderBy_StringConverted_Desc() { regOBD("STRING_CONVERTED"); return this; }
 
     protected ConditionValue _stringNonConverted;
-    public ConditionValue getStringNonConverted()
+    public ConditionValue xdfgetStringNonConverted()
     { if (_stringNonConverted == null) { _stringNonConverted = nCV(); }
       return _stringNonConverted; }
-    protected ConditionValue getCValueStringNonConverted() { return getStringNonConverted(); }
+    protected ConditionValue xgetCValueStringNonConverted() { return xdfgetStringNonConverted(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     public BsWhiteDelimiterCQ addOrderBy_StringNonConverted_Desc() { regOBD("STRING_NON_CONVERTED"); return this; }
 
     protected ConditionValue _dateDefault;
-    public ConditionValue getDateDefault()
+    public ConditionValue xdfgetDateDefault()
     { if (_dateDefault == null) { _dateDefault = nCV(); }
       return _dateDefault; }
-    protected ConditionValue getCValueDateDefault() { return getDateDefault(); }
+    protected ConditionValue xgetCValueDateDefault() { return xdfgetDateDefault(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -239,31 +239,31 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteDelimiterCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteDelimiterCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteDelimiterCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteDelimiterCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteDelimiterCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteDelimiterCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteDelimiterCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteDelimiterCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteDelimiterCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteDelimiterCQ> _myselfExistsMap;
-    public Map<String, WhiteDelimiterCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteDelimiterCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteDelimiterCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteDelimiterCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteDelimiterCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteDelimiterCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -272,7 +272,7 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteDelimiterCB.class.getName(); }
     protected String xCQ() { return WhiteDelimiterCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

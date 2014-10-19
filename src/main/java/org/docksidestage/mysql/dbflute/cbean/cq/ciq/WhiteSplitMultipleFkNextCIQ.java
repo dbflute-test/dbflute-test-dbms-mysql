@@ -76,7 +76,7 @@ public class WhiteSplitMultipleFkNextCIQ extends AbstractBsWhiteSplitMultipleFkN
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueNextId() { return _myCQ.getNextId(); }
+    protected ConditionValue xgetCValueNextId() { return _myCQ.xdfgetNextId(); }
     public String keepNextId_ExistsReferrer_WhiteSplitMultipleFkBaseList(WhiteSplitMultipleFkBaseCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepNextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList(WhiteSplitMultipleFkBaseCQ sq)
@@ -87,7 +87,7 @@ public class WhiteSplitMultipleFkNextCIQ extends AbstractBsWhiteSplitMultipleFkN
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueSecondCode() { return _myCQ.getSecondCode(); }
+    protected ConditionValue xgetCValueSecondCode() { return _myCQ.xdfgetSecondCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSplitMultipleFkNextCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

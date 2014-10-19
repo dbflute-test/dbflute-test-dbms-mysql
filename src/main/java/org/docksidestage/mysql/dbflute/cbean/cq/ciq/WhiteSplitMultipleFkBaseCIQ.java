@@ -76,7 +76,7 @@ public class WhiteSplitMultipleFkBaseCIQ extends AbstractBsWhiteSplitMultipleFkB
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueBaseId() { return _myCQ.getBaseId(); }
+    protected ConditionValue xgetCValueBaseId() { return _myCQ.xdfgetBaseId(); }
     public String keepBaseId_ExistsReferrer_WhiteSplitMultipleFkChildList(WhiteSplitMultipleFkChildCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepBaseId_NotExistsReferrer_WhiteSplitMultipleFkChildList(WhiteSplitMultipleFkChildCQ sq)
@@ -87,9 +87,9 @@ public class WhiteSplitMultipleFkBaseCIQ extends AbstractBsWhiteSplitMultipleFkB
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepBaseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueFirstId() { return _myCQ.getFirstId(); }
-    protected ConditionValue getCValueNextId() { return _myCQ.getNextId(); }
-    protected ConditionValue getCValueSplitName() { return _myCQ.getSplitName(); }
+    protected ConditionValue xgetCValueFirstId() { return _myCQ.xdfgetFirstId(); }
+    protected ConditionValue xgetCValueNextId() { return _myCQ.xdfgetNextId(); }
+    protected ConditionValue xgetCValueSplitName() { return _myCQ.xdfgetSplitName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSplitMultipleFkBaseCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

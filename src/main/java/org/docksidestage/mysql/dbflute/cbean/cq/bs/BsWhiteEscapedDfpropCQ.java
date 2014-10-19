@@ -89,10 +89,10 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _escapedDfpropCode;
-    public ConditionValue getEscapedDfpropCode()
+    public ConditionValue xdfgetEscapedDfpropCode()
     { if (_escapedDfpropCode == null) { _escapedDfpropCode = nCV(); }
       return _escapedDfpropCode; }
-    protected ConditionValue getCValueEscapedDfpropCode() { return getEscapedDfpropCode(); }
+    protected ConditionValue xgetCValueEscapedDfpropCode() { return xdfgetEscapedDfpropCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
     public BsWhiteEscapedDfpropCQ addOrderBy_EscapedDfpropCode_Desc() { regOBD("ESCAPED_DFPROP_CODE"); return this; }
 
     protected ConditionValue _escapedDfpropName;
-    public ConditionValue getEscapedDfpropName()
+    public ConditionValue xdfgetEscapedDfpropName()
     { if (_escapedDfpropName == null) { _escapedDfpropName = nCV(); }
       return _escapedDfpropName; }
-    protected ConditionValue getCValueEscapedDfpropName() { return getEscapedDfpropName(); }
+    protected ConditionValue xgetCValueEscapedDfpropName() { return xdfgetEscapedDfpropName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteEscapedDfpropCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteEscapedDfpropCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteEscapedDfpropCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteEscapedDfpropCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteEscapedDfpropCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteEscapedDfpropCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteEscapedDfpropCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteEscapedDfpropCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteEscapedDfpropCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteEscapedDfpropCQ> _myselfExistsMap;
-    public Map<String, WhiteEscapedDfpropCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteEscapedDfpropCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteEscapedDfpropCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteEscapedDfpropCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteEscapedDfpropCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteEscapedDfpropCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteEscapedDfpropCB.class.getName(); }
     protected String xCQ() { return WhiteEscapedDfpropCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

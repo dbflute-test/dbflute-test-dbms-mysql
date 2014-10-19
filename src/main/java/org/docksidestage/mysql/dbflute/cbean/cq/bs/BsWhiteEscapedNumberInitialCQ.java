@@ -89,10 +89,10 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _numberInitialCode;
-    public ConditionValue getNumberInitialCode()
+    public ConditionValue xdfgetNumberInitialCode()
     { if (_numberInitialCode == null) { _numberInitialCode = nCV(); }
       return _numberInitialCode; }
-    protected ConditionValue getCValueNumberInitialCode() { return getNumberInitialCode(); }
+    protected ConditionValue xgetCValueNumberInitialCode() { return xdfgetNumberInitialCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
     public BsWhiteEscapedNumberInitialCQ addOrderBy_NumberInitialCode_Desc() { regOBD("NUMBER_INITIAL_CODE"); return this; }
 
     protected ConditionValue _numberInitialName;
-    public ConditionValue getNumberInitialName()
+    public ConditionValue xdfgetNumberInitialName()
     { if (_numberInitialName == null) { _numberInitialName = nCV(); }
       return _numberInitialName; }
-    protected ConditionValue getCValueNumberInitialName() { return getNumberInitialName(); }
+    protected ConditionValue xgetCValueNumberInitialName() { return xdfgetNumberInitialName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteEscapedNumberInitialCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteEscapedNumberInitialCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteEscapedNumberInitialCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteEscapedNumberInitialCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteEscapedNumberInitialCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteEscapedNumberInitialCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteEscapedNumberInitialCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteEscapedNumberInitialCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteEscapedNumberInitialCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteEscapedNumberInitialCQ> _myselfExistsMap;
-    public Map<String, WhiteEscapedNumberInitialCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteEscapedNumberInitialCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteEscapedNumberInitialCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteEscapedNumberInitialCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteEscapedNumberInitialCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteEscapedNumberInitialCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteEscapedNumberInitialCB.class.getName(); }
     protected String xCQ() { return WhiteEscapedNumberInitialCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

@@ -76,7 +76,7 @@ public class VendorConstraintNameAutoQuxCIQ extends AbstractBsVendorConstraintNa
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueConstraintNameAutoQuxId() { return _myCQ.getConstraintNameAutoQuxId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoQuxId() { return _myCQ.xdfgetConstraintNameAutoQuxId(); }
     public String keepConstraintNameAutoQuxId_ExistsReferrer_VendorConstraintNameAutoRefList(VendorConstraintNameAutoRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepConstraintNameAutoQuxId_NotExistsReferrer_VendorConstraintNameAutoRefList(VendorConstraintNameAutoRefCQ sq)
@@ -87,7 +87,7 @@ public class VendorConstraintNameAutoQuxCIQ extends AbstractBsVendorConstraintNa
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepConstraintNameAutoQuxId_QueryDerivedReferrer_VendorConstraintNameAutoRefListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueConstraintNameAutoQuxName() { return _myCQ.getConstraintNameAutoQuxName(); }
+    protected ConditionValue xgetCValueConstraintNameAutoQuxName() { return _myCQ.xdfgetConstraintNameAutoQuxName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorConstraintNameAutoQuxCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

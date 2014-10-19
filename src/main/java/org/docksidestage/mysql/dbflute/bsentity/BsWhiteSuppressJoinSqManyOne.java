@@ -15,14 +15,11 @@
  */
 package org.docksidestage.mysql.dbflute.bsentity;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Set;
 
-import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
-import org.dbflute.dbmeta.derived.DerivedMappable;
+import org.dbflute.dbmeta.AbstractEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -68,7 +65,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSuppressJoinSqManyOne implements Entity, Serializable, Cloneable, DerivedMappable {
+public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -79,9 +76,6 @@ public abstract class BsWhiteSuppressJoinSqManyOne implements Entity, Serializab
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    // -----------------------------------------------------
-    //                                                Column
-    //                                                ------
     /** MANY_ONE_ID: {PK, NotNull, INT(10)} */
     protected Integer _manyOneId;
 
@@ -91,44 +85,24 @@ public abstract class BsWhiteSuppressJoinSqManyOne implements Entity, Serializab
     /** MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one} */
     protected Integer _manyOneOneId;
 
-    // -----------------------------------------------------
-    //                                              Internal
-    //                                              --------
-    /** The unique-driven properties for this entity. (NotNull) */
-    protected final EntityUniqueDrivenProperties __uniqueDrivenProperties = newUniqueDrivenProperties();
-
-    /** The modified properties for this entity. (NotNull) */
-    protected final EntityModifiedProperties __modifiedProperties = newModifiedProperties();
-
-    /** The map of derived value, key is alias name. (NullAllowed: lazy-loaded) */
-    protected EntityDerivedMap __derivedMap;
-
-    /** Is the entity created by DBFlute select process? */
-    protected boolean __createdBySelect;
 
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public String getTableDbName() {
         return "white_suppress_join_sq_many_one";
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public String getTablePropertyName() { // according to Java Beans rule
+    /** {@inheritDoc} */
+    public String getTablePropertyName() {
         return "whiteSuppressJoinSqManyOne";
     }
 
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public DBMeta getDBMeta() {
         return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
@@ -136,23 +110,10 @@ public abstract class BsWhiteSuppressJoinSqManyOne implements Entity, Serializab
     // ===================================================================================
     //                                                                         Primary Key
     //                                                                         ===========
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
-        if (getManyOneId() == null) { return false; }
+        if (_manyOneId == null) { return false; }
         return true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public Set<String> myuniqueDrivenProperties() {
-        return __uniqueDrivenProperties.getPropertyNames();
-    }
-
-    protected EntityUniqueDrivenProperties newUniqueDrivenProperties() {
-        return new EntityUniqueDrivenProperties();
     }
 
     // ===================================================================================
@@ -162,7 +123,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne implements Entity, Serializab
     protected WhiteSuppressJoinSqManyOneOne _whiteSuppressJoinSqManyOneOne;
 
     /**
-     * [get] white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
+     * [get] white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. <br />
      * @return The entity of foreign property 'whiteSuppressJoinSqManyOneOne'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSuppressJoinSqManyOneOne getWhiteSuppressJoinSqManyOneOne() {
@@ -205,195 +166,65 @@ public abstract class BsWhiteSuppressJoinSqManyOne implements Entity, Serializab
     }
 
     // ===================================================================================
-    //                                                                 Modified Properties
-    //                                                                 ===================
-    /**
-     * {@inheritDoc}
-     */
-    public Set<String> modifiedProperties() {
-        return __modifiedProperties.getPropertyNames();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public void clearModifiedInfo() {
-        __modifiedProperties.clear();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public boolean hasModification() {
-        return !__modifiedProperties.isEmpty();
-    }
-
-    protected EntityModifiedProperties newModifiedProperties() {
-        return new EntityModifiedProperties();
-    }
-
-    // ===================================================================================
-    //                                                                     Birthplace Mark
-    //                                                                     ===============
-    /**
-     * {@inheritDoc}
-     */
-    public void markAsSelect() {
-        __createdBySelect = true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public boolean createdBySelect() {
-        return __createdBySelect;
-    }
-
-    // ===================================================================================
-    //                                                                    Derived Mappable
-    //                                                                    ================
-    /**
-     * {@inheritDoc}
-     */
-    public void registerDerivedValue(String aliasName, Object selectedValue) {
-        if (__derivedMap == null) { __derivedMap = newDerivedMap(); }
-        __derivedMap.registerDerivedValue(aliasName, selectedValue);
-    }
-
-    /**
-     * Find the derived value from derived map.
-     * <pre>
-     * mapping type:
-     *  count()      : Integer
-     *  max(), min() : (same as property type of the column)
-     *  sum(), avg() : BigDecimal
-     *
-     * e.g. use count()
-     *  Integer loginCount = member.derived("$LOGIN_COUNT");
-     * </pre>
-     * @param <VALUE> The type of the value.
-     * @param aliasName The alias name of derived-referrer. (NotNull)
-     * @return The derived value found in the map. (NullAllowed: when null selected)
-     */
-    public <VALUE> VALUE derived(String aliasName) {
-        if (__derivedMap == null) { __derivedMap = newDerivedMap(); }
-        return __derivedMap.findDerivedValue(aliasName);
-    }
-
-    protected EntityDerivedMap newDerivedMap() {
-        return new EntityDerivedMap();
-    }
-
-    // ===================================================================================
     //                                                                      Basic Override
     //                                                                      ==============
-    /**
-     * Determine the object is equal with this. <br />
-     * If primary-keys or columns of the other are same as this one, returns true.
-     * @param obj The object as other entity. (NullAllowed: if null, returns false fixedly)
-     * @return Comparing result.
-     */
-    public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof BsWhiteSuppressJoinSqManyOne)) { return false; }
-        BsWhiteSuppressJoinSqManyOne other = (BsWhiteSuppressJoinSqManyOne)obj;
-        if (!xSV(getManyOneId(), other.getManyOneId())) { return false; }
-        return true;
-    }
-    protected boolean xSV(Object v1, Object v2) {
-        return FunCustodial.isSameValue(v1, v2);
+    @Override
+    protected boolean doEquals(Object obj) {
+        if (obj instanceof BsWhiteSuppressJoinSqManyOne) {
+            BsWhiteSuppressJoinSqManyOne other = (BsWhiteSuppressJoinSqManyOne)obj;
+            if (!xSV(_manyOneId, other._manyOneId)) { return false; }
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    /**
-     * Calculate the hash-code from primary-keys or columns.
-     * @return The hash-code from primary-key or columns.
-     */
-    public int hashCode() {
-        int hs = 17;
+    @Override
+    protected int doHashCode(int initial) {
+        int hs = initial;
         hs = xCH(hs, getTableDbName());
-        hs = xCH(hs, getManyOneId());
+        hs = xCH(hs, _manyOneId);
         return hs;
     }
-    protected int xCH(int hs, Object vl) {
-        return FunCustodial.calculateHashcode(hs, vl);
-    }
 
-    /**
-     * {@inheritDoc}
-     */
-    public int instanceHash() {
-        return super.hashCode();
-    }
-
-    /**
-     * Convert to display string of entity's data. (no relation data)
-     * @return The display string of all columns and relation existences. (NotNull)
-     */
-    public String toString() {
-        return buildDisplayString(FunCustodial.toClassTitle(this), true, true);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public String toStringWithRelation() {
+    @Override
+    protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        sb.append(toString());
-        String li = "\n  ";
         if (_whiteSuppressJoinSqManyOneOne != null)
         { sb.append(li).append(xbRDS(_whiteSuppressJoinSqManyOneOne, "whiteSuppressJoinSqManyOneOne")); }
-        if (_whiteSuppressJoinSqManyList != null) { for (Entity et : _whiteSuppressJoinSqManyList)
+        if (_whiteSuppressJoinSqManyList != null) { for (WhiteSuppressJoinSqMany et : _whiteSuppressJoinSqManyList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteSuppressJoinSqManyList")); } } }
         return sb.toString();
     }
-    protected String xbRDS(Entity et, String name) { // buildRelationDisplayString()
-        return et.buildDisplayString(name, true, true);
-    }
 
-    /**
-     * {@inheritDoc}
-     */
-    public String buildDisplayString(String name, boolean column, boolean relation) {
+    @Override
+    protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (name != null) { sb.append(name).append(column || relation ? ":" : ""); }
-        if (column) { sb.append(buildColumnString()); }
-        if (relation) { sb.append(buildRelationString()); }
-        sb.append("@").append(Integer.toHexString(hashCode()));
-        return sb.toString();
-    }
-    protected String buildColumnString() {
-        StringBuilder sb = new StringBuilder();
-        String dm = ", ";
-        sb.append(dm).append(getManyOneId());
-        sb.append(dm).append(getManyOneName());
-        sb.append(dm).append(getManyOneOneId());
+        sb.append(dm).append(_manyOneId);
+        sb.append(dm).append(_manyOneName);
+        sb.append(dm).append(_manyOneOneId);
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
-    protected String buildRelationString() {
+
+    @Override
+    protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        String cm = ",";
-        if (_whiteSuppressJoinSqManyOneOne != null) { sb.append(cm).append("whiteSuppressJoinSqManyOneOne"); }
+        if (_whiteSuppressJoinSqManyOneOne != null) { sb.append(dm).append("whiteSuppressJoinSqManyOneOne"); }
         if (_whiteSuppressJoinSqManyList != null && !_whiteSuppressJoinSqManyList.isEmpty())
-        { sb.append(cm).append("whiteSuppressJoinSqManyList"); }
-        if (sb.length() > cm.length()) {
-            sb.delete(0, cm.length()).insert(0, "(").append(")");
+        { sb.append(dm).append("whiteSuppressJoinSqManyList"); }
+        if (sb.length() > dm.length()) {
+            sb.delete(0, dm.length()).insert(0, "(").append(")");
         }
         return sb.toString();
     }
 
-    /**
-     * Clone entity instance using super.clone(). (shallow copy) 
-     * @return The cloned instance of this entity. (NotNull)
-     */
+    @Override
     public WhiteSuppressJoinSqManyOne clone() {
-        try {
-            return (WhiteSuppressJoinSqManyOne)super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new IllegalStateException("Failed to clone the entity: " + toString(), e);
-        }
+        return (WhiteSuppressJoinSqManyOne)super.clone();
     }
 
     // ===================================================================================

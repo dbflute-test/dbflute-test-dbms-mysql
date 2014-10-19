@@ -89,10 +89,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _dateAdjustmentId;
-    public ConditionValue getDateAdjustmentId()
+    public ConditionValue xdfgetDateAdjustmentId()
     { if (_dateAdjustmentId == null) { _dateAdjustmentId = nCV(); }
       return _dateAdjustmentId; }
-    protected ConditionValue getCValueDateAdjustmentId() { return getDateAdjustmentId(); }
+    protected ConditionValue xgetCValueDateAdjustmentId() { return xdfgetDateAdjustmentId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_DateAdjustmentId_Desc() { regOBD("DATE_ADJUSTMENT_ID"); return this; }
 
     protected ConditionValue _adjustedDate;
-    public ConditionValue getAdjustedDate()
+    public ConditionValue xdfgetAdjustedDate()
     { if (_adjustedDate == null) { _adjustedDate = nCV(); }
       return _adjustedDate; }
-    protected ConditionValue getCValueAdjustedDate() { return getAdjustedDate(); }
+    protected ConditionValue xgetCValueAdjustedDate() { return xdfgetAdjustedDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedDate_Desc() { regOBD("ADJUSTED_DATE"); return this; }
 
     protected ConditionValue _adjustedDatetime;
-    public ConditionValue getAdjustedDatetime()
+    public ConditionValue xdfgetAdjustedDatetime()
     { if (_adjustedDatetime == null) { _adjustedDatetime = nCV(); }
       return _adjustedDatetime; }
-    protected ConditionValue getCValueAdjustedDatetime() { return getAdjustedDatetime(); }
+    protected ConditionValue xgetCValueAdjustedDatetime() { return xdfgetAdjustedDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedDatetime_Desc() { regOBD("ADJUSTED_DATETIME"); return this; }
 
     protected ConditionValue _adjustedTime;
-    public ConditionValue getAdjustedTime()
+    public ConditionValue xdfgetAdjustedTime()
     { if (_adjustedTime == null) { _adjustedTime = nCV(); }
       return _adjustedTime; }
-    protected ConditionValue getCValueAdjustedTime() { return getAdjustedTime(); }
+    protected ConditionValue xgetCValueAdjustedTime() { return xdfgetAdjustedTime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedTime_Desc() { regOBD("ADJUSTED_TIME"); return this; }
 
     protected ConditionValue _adjustedInteger;
-    public ConditionValue getAdjustedInteger()
+    public ConditionValue xdfgetAdjustedInteger()
     { if (_adjustedInteger == null) { _adjustedInteger = nCV(); }
       return _adjustedInteger; }
-    protected ConditionValue getCValueAdjustedInteger() { return getAdjustedInteger(); }
+    protected ConditionValue xgetCValueAdjustedInteger() { return xdfgetAdjustedInteger(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -189,10 +189,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedInteger_Desc() { regOBD("ADJUSTED_INTEGER"); return this; }
 
     protected ConditionValue _adjustedNamedStringLong;
-    public ConditionValue getAdjustedNamedStringLong()
+    public ConditionValue xdfgetAdjustedNamedStringLong()
     { if (_adjustedNamedStringLong == null) { _adjustedNamedStringLong = nCV(); }
       return _adjustedNamedStringLong; }
-    protected ConditionValue getCValueAdjustedNamedStringLong() { return getAdjustedNamedStringLong(); }
+    protected ConditionValue xgetCValueAdjustedNamedStringLong() { return xdfgetAdjustedNamedStringLong(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -209,10 +209,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedNamedStringLong_Desc() { regOBD("ADJUSTED_NAMED_STRING_LONG"); return this; }
 
     protected ConditionValue _adjustedNamedTypedLong;
-    public ConditionValue getAdjustedNamedTypedLong()
+    public ConditionValue xdfgetAdjustedNamedTypedLong()
     { if (_adjustedNamedTypedLong == null) { _adjustedNamedTypedLong = nCV(); }
       return _adjustedNamedTypedLong; }
-    protected ConditionValue getCValueAdjustedNamedTypedLong() { return getAdjustedNamedTypedLong(); }
+    protected ConditionValue xgetCValueAdjustedNamedTypedLong() { return xdfgetAdjustedNamedTypedLong(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -229,10 +229,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedNamedTypedLong_Desc() { regOBD("ADJUSTED_NAMED_TYPED_LONG"); return this; }
 
     protected ConditionValue _adjustedPinpointStringLong;
-    public ConditionValue getAdjustedPinpointStringLong()
+    public ConditionValue xdfgetAdjustedPinpointStringLong()
     { if (_adjustedPinpointStringLong == null) { _adjustedPinpointStringLong = nCV(); }
       return _adjustedPinpointStringLong; }
-    protected ConditionValue getCValueAdjustedPinpointStringLong() { return getAdjustedPinpointStringLong(); }
+    protected ConditionValue xgetCValueAdjustedPinpointStringLong() { return xdfgetAdjustedPinpointStringLong(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -249,10 +249,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedPinpointStringLong_Desc() { regOBD("ADJUSTED_PINPOINT_STRING_LONG"); return this; }
 
     protected ConditionValue _adjustedPinpointTypedLong;
-    public ConditionValue getAdjustedPinpointTypedLong()
+    public ConditionValue xdfgetAdjustedPinpointTypedLong()
     { if (_adjustedPinpointTypedLong == null) { _adjustedPinpointTypedLong = nCV(); }
       return _adjustedPinpointTypedLong; }
-    protected ConditionValue getCValueAdjustedPinpointTypedLong() { return getAdjustedPinpointTypedLong(); }
+    protected ConditionValue xgetCValueAdjustedPinpointTypedLong() { return xdfgetAdjustedPinpointTypedLong(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -269,10 +269,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedPinpointTypedLong_Desc() { regOBD("ADJUSTED_PINPOINT_TYPED_LONG"); return this; }
 
     protected ConditionValue _adjustedPlainLong;
-    public ConditionValue getAdjustedPlainLong()
+    public ConditionValue xdfgetAdjustedPlainLong()
     { if (_adjustedPlainLong == null) { _adjustedPlainLong = nCV(); }
       return _adjustedPlainLong; }
-    protected ConditionValue getCValueAdjustedPlainLong() { return getAdjustedPlainLong(); }
+    protected ConditionValue xgetCValueAdjustedPlainLong() { return xdfgetAdjustedPlainLong(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -289,10 +289,10 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedPlainLong_Desc() { regOBD("ADJUSTED_PLAIN_LONG"); return this; }
 
     protected ConditionValue _adjustedString;
-    public ConditionValue getAdjustedString()
+    public ConditionValue xdfgetAdjustedString()
     { if (_adjustedString == null) { _adjustedString = nCV(); }
       return _adjustedString; }
-    protected ConditionValue getCValueAdjustedString() { return getAdjustedString(); }
+    protected ConditionValue xgetCValueAdjustedString() { return xdfgetAdjustedString(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -359,31 +359,31 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteDateAdjustmentCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteDateAdjustmentCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteDateAdjustmentCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteDateAdjustmentCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteDateAdjustmentCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteDateAdjustmentCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteDateAdjustmentCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteDateAdjustmentCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteDateAdjustmentCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteDateAdjustmentCQ> _myselfExistsMap;
-    public Map<String, WhiteDateAdjustmentCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteDateAdjustmentCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteDateAdjustmentCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteDateAdjustmentCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteDateAdjustmentCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteDateAdjustmentCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -392,7 +392,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteDateAdjustmentCB.class.getName(); }
     protected String xCQ() { return WhiteDateAdjustmentCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

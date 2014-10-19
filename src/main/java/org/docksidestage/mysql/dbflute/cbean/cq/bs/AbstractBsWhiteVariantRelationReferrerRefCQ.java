@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueRefId(), "REF_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueRefId(), "REF_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     }
 
     protected void doSetRefId_InScope(Collection<Long> refIdList) {
-        regINS(CK_INS, cTL(refIdList), getCValueRefId(), "REF_ID");
+        regINS(CK_INS, cTL(refIdList), xgetCValueRefId(), "REF_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     }
 
     protected void doSetRefId_NotInScope(Collection<Long> refIdList) {
-        regINS(CK_NINS, cTL(refIdList), getCValueRefId(), "REF_ID");
+        regINS(CK_NINS, cTL(refIdList), xgetCValueRefId(), "REF_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
      */
     public void setRefId_IsNotNull() { regRefId(CK_ISNN, DOBJ); }
 
-    protected void regRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefId(), "REF_ID"); }
-    protected abstract ConditionValue getCValueRefId();
+    protected void regRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefId(), "REF_ID"); }
+    protected abstract ConditionValue xgetCValueRefId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReferrerId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueReferrerId(), "REFERRER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueReferrerId(), "REFERRER_ID", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     }
 
     protected void doSetReferrerId_InScope(Collection<Long> referrerIdList) {
-        regINS(CK_INS, cTL(referrerIdList), getCValueReferrerId(), "REFERRER_ID");
+        regINS(CK_INS, cTL(referrerIdList), xgetCValueReferrerId(), "REFERRER_ID");
     }
 
     /**
@@ -275,11 +275,11 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     }
 
     protected void doSetReferrerId_NotInScope(Collection<Long> referrerIdList) {
-        regINS(CK_NINS, cTL(referrerIdList), getCValueReferrerId(), "REFERRER_ID");
+        regINS(CK_NINS, cTL(referrerIdList), xgetCValueReferrerId(), "REFERRER_ID");
     }
 
-    protected void regReferrerId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueReferrerId(), "REFERRER_ID"); }
-    protected abstract ConditionValue getCValueReferrerId();
+    protected void regReferrerId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReferrerId(), "REFERRER_ID"); }
+    protected abstract ConditionValue xgetCValueReferrerId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

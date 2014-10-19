@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDelimiterId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueDelimiterId(), "DELIMITER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueDelimiterId(), "DELIMITER_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     protected void doSetDelimiterId_InScope(Collection<Long> delimiterIdList) {
-        regINS(CK_INS, cTL(delimiterIdList), getCValueDelimiterId(), "DELIMITER_ID");
+        regINS(CK_INS, cTL(delimiterIdList), xgetCValueDelimiterId(), "DELIMITER_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     protected void doSetDelimiterId_NotInScope(Collection<Long> delimiterIdList) {
-        regINS(CK_NINS, cTL(delimiterIdList), getCValueDelimiterId(), "DELIMITER_ID");
+        regINS(CK_NINS, cTL(delimiterIdList), xgetCValueDelimiterId(), "DELIMITER_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      */
     public void setDelimiterId_IsNotNull() { regDelimiterId(CK_ISNN, DOBJ); }
 
-    protected void regDelimiterId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDelimiterId(), "DELIMITER_ID"); }
-    protected abstract ConditionValue getCValueDelimiterId();
+    protected void regDelimiterId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDelimiterId(), "DELIMITER_ID"); }
+    protected abstract ConditionValue xgetCValueDelimiterId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNumberNullable_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNumberNullable(), "NUMBER_NULLABLE", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNumberNullable(), "NUMBER_NULLABLE", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     protected void doSetNumberNullable_InScope(Collection<Integer> numberNullableList) {
-        regINS(CK_INS, cTL(numberNullableList), getCValueNumberNullable(), "NUMBER_NULLABLE");
+        regINS(CK_INS, cTL(numberNullableList), xgetCValueNumberNullable(), "NUMBER_NULLABLE");
     }
 
     /**
@@ -275,7 +275,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     protected void doSetNumberNullable_NotInScope(Collection<Integer> numberNullableList) {
-        regINS(CK_NINS, cTL(numberNullableList), getCValueNumberNullable(), "NUMBER_NULLABLE");
+        regINS(CK_NINS, cTL(numberNullableList), xgetCValueNumberNullable(), "NUMBER_NULLABLE");
     }
 
     /**
@@ -290,8 +290,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      */
     public void setNumberNullable_IsNotNull() { regNumberNullable(CK_ISNN, DOBJ); }
 
-    protected void regNumberNullable(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNumberNullable(), "NUMBER_NULLABLE"); }
-    protected abstract ConditionValue getCValueNumberNullable();
+    protected void regNumberNullable(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNumberNullable(), "NUMBER_NULLABLE"); }
+    protected abstract ConditionValue xgetCValueNumberNullable();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -329,7 +329,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     protected void doSetStringConverted_InScope(Collection<String> stringConvertedList) {
-        regINS(CK_INS, cTL(stringConvertedList), getCValueStringConverted(), "STRING_CONVERTED");
+        regINS(CK_INS, cTL(stringConvertedList), xgetCValueStringConverted(), "STRING_CONVERTED");
     }
 
     /**
@@ -342,7 +342,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     protected void doSetStringConverted_NotInScope(Collection<String> stringConvertedList) {
-        regINS(CK_NINS, cTL(stringConvertedList), getCValueStringConverted(), "STRING_CONVERTED");
+        regINS(CK_NINS, cTL(stringConvertedList), xgetCValueStringConverted(), "STRING_CONVERTED");
     }
 
     /**
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringConverted_LikeSearch(String stringConverted, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(stringConverted), getCValueStringConverted(), "STRING_CONVERTED", likeSearchOption);
+        regLSQ(CK_LS, fRES(stringConverted), xgetCValueStringConverted(), "STRING_CONVERTED", likeSearchOption);
     }
 
     /**
@@ -386,7 +386,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringConverted_NotLikeSearch(String stringConverted, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(stringConverted), getCValueStringConverted(), "STRING_CONVERTED", likeSearchOption);
+        regLSQ(CK_NLS, fRES(stringConverted), xgetCValueStringConverted(), "STRING_CONVERTED", likeSearchOption);
     }
 
     /**
@@ -416,8 +416,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      */
     public void setStringConverted_IsNotNull() { regStringConverted(CK_ISNN, DOBJ); }
 
-    protected void regStringConverted(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueStringConverted(), "STRING_CONVERTED"); }
-    protected abstract ConditionValue getCValueStringConverted();
+    protected void regStringConverted(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringConverted(), "STRING_CONVERTED"); }
+    protected abstract ConditionValue xgetCValueStringConverted();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -455,7 +455,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     protected void doSetStringNonConverted_InScope(Collection<String> stringNonConvertedList) {
-        regINS(CK_INS, cTL(stringNonConvertedList), getCValueStringNonConverted(), "STRING_NON_CONVERTED");
+        regINS(CK_INS, cTL(stringNonConvertedList), xgetCValueStringNonConverted(), "STRING_NON_CONVERTED");
     }
 
     /**
@@ -468,7 +468,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     protected void doSetStringNonConverted_NotInScope(Collection<String> stringNonConvertedList) {
-        regINS(CK_NINS, cTL(stringNonConvertedList), getCValueStringNonConverted(), "STRING_NON_CONVERTED");
+        regINS(CK_NINS, cTL(stringNonConvertedList), xgetCValueStringNonConverted(), "STRING_NON_CONVERTED");
     }
 
     /**
@@ -490,7 +490,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringNonConverted_LikeSearch(String stringNonConverted, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(stringNonConverted), getCValueStringNonConverted(), "STRING_NON_CONVERTED", likeSearchOption);
+        regLSQ(CK_LS, fRES(stringNonConverted), xgetCValueStringNonConverted(), "STRING_NON_CONVERTED", likeSearchOption);
     }
 
     /**
@@ -512,7 +512,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringNonConverted_NotLikeSearch(String stringNonConverted, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(stringNonConverted), getCValueStringNonConverted(), "STRING_NON_CONVERTED", likeSearchOption);
+        regLSQ(CK_NLS, fRES(stringNonConverted), xgetCValueStringNonConverted(), "STRING_NON_CONVERTED", likeSearchOption);
     }
 
     /**
@@ -542,8 +542,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      */
     public void setStringNonConverted_IsNotNull() { regStringNonConverted(CK_ISNN, DOBJ); }
 
-    protected void regStringNonConverted(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueStringNonConverted(), "STRING_NON_CONVERTED"); }
-    protected abstract ConditionValue getCValueStringNonConverted();
+    protected void regStringNonConverted(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringNonConverted(), "STRING_NON_CONVERTED"); }
+    protected abstract ConditionValue xgetCValueStringNonConverted();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -613,7 +613,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setDateDefault_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueDateDefault(), "DATE_DEFAULT", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueDateDefault(), "DATE_DEFAULT", fromToOption);
     }
 
     /**
@@ -631,8 +631,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
         setDateDefault_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regDateDefault(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDateDefault(), "DATE_DEFAULT"); }
-    protected abstract ConditionValue getCValueDateDefault();
+    protected void regDateDefault(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDateDefault(), "DATE_DEFAULT"); }
+    protected abstract ConditionValue xgetCValueDateDefault();
 
     // ===================================================================================
     //                                                                     ScalarCondition

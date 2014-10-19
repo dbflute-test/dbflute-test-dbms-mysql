@@ -76,7 +76,7 @@ public class WhiteUqFkCIQ extends AbstractBsWhiteUqFkCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueUqFkId() { return _myCQ.getUqFkId(); }
+    protected ConditionValue xgetCValueUqFkId() { return _myCQ.xdfgetUqFkId(); }
     public String keepUqFkId_ExistsReferrer_WhiteUqFkRefByFkToPkIdList(WhiteUqFkRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepUqFkId_NotExistsReferrer_WhiteUqFkRefByFkToPkIdList(WhiteUqFkRefCQ sq)
@@ -87,7 +87,7 @@ public class WhiteUqFkCIQ extends AbstractBsWhiteUqFkCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueUqFkCode() { return _myCQ.getUqFkCode(); }
+    protected ConditionValue xgetCValueUqFkCode() { return _myCQ.xdfgetUqFkCode(); }
     public String keepUqFkCode_ExistsReferrer_WhiteUqFkRefByFkToUqCodeList(WhiteUqFkRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepUqFkCode_NotExistsReferrer_WhiteUqFkRefByFkToUqCodeList(WhiteUqFkRefCQ sq)

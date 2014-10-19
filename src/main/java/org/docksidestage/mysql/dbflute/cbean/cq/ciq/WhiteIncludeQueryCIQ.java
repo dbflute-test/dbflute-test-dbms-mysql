@@ -76,11 +76,11 @@ public class WhiteIncludeQueryCIQ extends AbstractBsWhiteIncludeQueryCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueIncludeQueryId() { return _myCQ.getIncludeQueryId(); }
-    protected ConditionValue getCValueIncludeQueryVarchar() { return _myCQ.getIncludeQueryVarchar(); }
-    protected ConditionValue getCValueIncludeQueryInteger() { return _myCQ.getIncludeQueryInteger(); }
-    protected ConditionValue getCValueIncludeQueryDate() { return _myCQ.getIncludeQueryDate(); }
-    protected ConditionValue getCValueIncludeQueryDatetime() { return _myCQ.getIncludeQueryDatetime(); }
+    protected ConditionValue xgetCValueIncludeQueryId() { return _myCQ.xdfgetIncludeQueryId(); }
+    protected ConditionValue xgetCValueIncludeQueryVarchar() { return _myCQ.xdfgetIncludeQueryVarchar(); }
+    protected ConditionValue xgetCValueIncludeQueryInteger() { return _myCQ.xdfgetIncludeQueryInteger(); }
+    protected ConditionValue xgetCValueIncludeQueryDate() { return _myCQ.xdfgetIncludeQueryDate(); }
+    protected ConditionValue xgetCValueIncludeQueryDatetime() { return _myCQ.xdfgetIncludeQueryDatetime(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteIncludeQueryCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

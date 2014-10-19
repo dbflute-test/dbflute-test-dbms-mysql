@@ -15,14 +15,11 @@
  */
 package org.docksidestage.mysql.dbflute.bsentity;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Set;
 
-import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
-import org.dbflute.dbmeta.derived.DerivedMappable;
+import org.dbflute.dbmeta.AbstractEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -66,7 +63,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorConstraintNameAutoFoo implements Entity, Serializable, Cloneable, DerivedMappable {
+public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -77,53 +74,30 @@ public abstract class BsVendorConstraintNameAutoFoo implements Entity, Serializa
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    // -----------------------------------------------------
-    //                                                Column
-    //                                                ------
     /** CONSTRAINT_NAME_AUTO_FOO_ID: {PK, NotNull, DECIMAL(16)} */
     protected Long _constraintNameAutoFooId;
 
     /** CONSTRAINT_NAME_AUTO_FOO_NAME: {UQ, NotNull, VARCHAR(50)} */
     protected String _constraintNameAutoFooName;
 
-    // -----------------------------------------------------
-    //                                              Internal
-    //                                              --------
-    /** The unique-driven properties for this entity. (NotNull) */
-    protected final EntityUniqueDrivenProperties __uniqueDrivenProperties = newUniqueDrivenProperties();
-
-    /** The modified properties for this entity. (NotNull) */
-    protected final EntityModifiedProperties __modifiedProperties = newModifiedProperties();
-
-    /** The map of derived value, key is alias name. (NullAllowed: lazy-loaded) */
-    protected EntityDerivedMap __derivedMap;
-
-    /** Is the entity created by DBFlute select process? */
-    protected boolean __createdBySelect;
 
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public String getTableDbName() {
         return "vendor_constraint_name_auto_foo";
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public String getTablePropertyName() { // according to Java Beans rule
+    /** {@inheritDoc} */
+    public String getTablePropertyName() {
         return "vendorConstraintNameAutoFoo";
     }
 
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public DBMeta getDBMeta() {
         return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
@@ -131,11 +105,9 @@ public abstract class BsVendorConstraintNameAutoFoo implements Entity, Serializa
     // ===================================================================================
     //                                                                         Primary Key
     //                                                                         ===========
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
-        if (getConstraintNameAutoFooId() == null) { return false; }
+        if (_constraintNameAutoFooId == null) { return false; }
         return true;
     }
 
@@ -148,17 +120,6 @@ public abstract class BsVendorConstraintNameAutoFoo implements Entity, Serializa
         __uniqueDrivenProperties.clear();
         __uniqueDrivenProperties.addPropertyName("constraintNameAutoFooName");
         setConstraintNameAutoFooName(constraintNameAutoFooName);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public Set<String> myuniqueDrivenProperties() {
-        return __uniqueDrivenProperties.getPropertyNames();
-    }
-
-    protected EntityUniqueDrivenProperties newUniqueDrivenProperties() {
-        return new EntityUniqueDrivenProperties();
     }
 
     // ===================================================================================
@@ -192,191 +153,61 @@ public abstract class BsVendorConstraintNameAutoFoo implements Entity, Serializa
     }
 
     // ===================================================================================
-    //                                                                 Modified Properties
-    //                                                                 ===================
-    /**
-     * {@inheritDoc}
-     */
-    public Set<String> modifiedProperties() {
-        return __modifiedProperties.getPropertyNames();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public void clearModifiedInfo() {
-        __modifiedProperties.clear();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public boolean hasModification() {
-        return !__modifiedProperties.isEmpty();
-    }
-
-    protected EntityModifiedProperties newModifiedProperties() {
-        return new EntityModifiedProperties();
-    }
-
-    // ===================================================================================
-    //                                                                     Birthplace Mark
-    //                                                                     ===============
-    /**
-     * {@inheritDoc}
-     */
-    public void markAsSelect() {
-        __createdBySelect = true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public boolean createdBySelect() {
-        return __createdBySelect;
-    }
-
-    // ===================================================================================
-    //                                                                    Derived Mappable
-    //                                                                    ================
-    /**
-     * {@inheritDoc}
-     */
-    public void registerDerivedValue(String aliasName, Object selectedValue) {
-        if (__derivedMap == null) { __derivedMap = newDerivedMap(); }
-        __derivedMap.registerDerivedValue(aliasName, selectedValue);
-    }
-
-    /**
-     * Find the derived value from derived map.
-     * <pre>
-     * mapping type:
-     *  count()      : Integer
-     *  max(), min() : (same as property type of the column)
-     *  sum(), avg() : BigDecimal
-     *
-     * e.g. use count()
-     *  Integer loginCount = member.derived("$LOGIN_COUNT");
-     * </pre>
-     * @param <VALUE> The type of the value.
-     * @param aliasName The alias name of derived-referrer. (NotNull)
-     * @return The derived value found in the map. (NullAllowed: when null selected)
-     */
-    public <VALUE> VALUE derived(String aliasName) {
-        if (__derivedMap == null) { __derivedMap = newDerivedMap(); }
-        return __derivedMap.findDerivedValue(aliasName);
-    }
-
-    protected EntityDerivedMap newDerivedMap() {
-        return new EntityDerivedMap();
-    }
-
-    // ===================================================================================
     //                                                                      Basic Override
     //                                                                      ==============
-    /**
-     * Determine the object is equal with this. <br />
-     * If primary-keys or columns of the other are same as this one, returns true.
-     * @param obj The object as other entity. (NullAllowed: if null, returns false fixedly)
-     * @return Comparing result.
-     */
-    public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof BsVendorConstraintNameAutoFoo)) { return false; }
-        BsVendorConstraintNameAutoFoo other = (BsVendorConstraintNameAutoFoo)obj;
-        if (!xSV(getConstraintNameAutoFooId(), other.getConstraintNameAutoFooId())) { return false; }
-        return true;
-    }
-    protected boolean xSV(Object v1, Object v2) {
-        return FunCustodial.isSameValue(v1, v2);
+    @Override
+    protected boolean doEquals(Object obj) {
+        if (obj instanceof BsVendorConstraintNameAutoFoo) {
+            BsVendorConstraintNameAutoFoo other = (BsVendorConstraintNameAutoFoo)obj;
+            if (!xSV(_constraintNameAutoFooId, other._constraintNameAutoFooId)) { return false; }
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    /**
-     * Calculate the hash-code from primary-keys or columns.
-     * @return The hash-code from primary-key or columns.
-     */
-    public int hashCode() {
-        int hs = 17;
+    @Override
+    protected int doHashCode(int initial) {
+        int hs = initial;
         hs = xCH(hs, getTableDbName());
-        hs = xCH(hs, getConstraintNameAutoFooId());
+        hs = xCH(hs, _constraintNameAutoFooId);
         return hs;
     }
-    protected int xCH(int hs, Object vl) {
-        return FunCustodial.calculateHashcode(hs, vl);
-    }
 
-    /**
-     * {@inheritDoc}
-     */
-    public int instanceHash() {
-        return super.hashCode();
-    }
-
-    /**
-     * Convert to display string of entity's data. (no relation data)
-     * @return The display string of all columns and relation existences. (NotNull)
-     */
-    public String toString() {
-        return buildDisplayString(FunCustodial.toClassTitle(this), true, true);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public String toStringWithRelation() {
+    @Override
+    protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        sb.append(toString());
-        String li = "\n  ";
-        if (_vendorConstraintNameAutoRefList != null) { for (Entity et : _vendorConstraintNameAutoRefList)
+        if (_vendorConstraintNameAutoRefList != null) { for (VendorConstraintNameAutoRef et : _vendorConstraintNameAutoRefList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "vendorConstraintNameAutoRefList")); } } }
         return sb.toString();
     }
-    protected String xbRDS(Entity et, String name) { // buildRelationDisplayString()
-        return et.buildDisplayString(name, true, true);
-    }
 
-    /**
-     * {@inheritDoc}
-     */
-    public String buildDisplayString(String name, boolean column, boolean relation) {
+    @Override
+    protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (name != null) { sb.append(name).append(column || relation ? ":" : ""); }
-        if (column) { sb.append(buildColumnString()); }
-        if (relation) { sb.append(buildRelationString()); }
-        sb.append("@").append(Integer.toHexString(hashCode()));
-        return sb.toString();
-    }
-    protected String buildColumnString() {
-        StringBuilder sb = new StringBuilder();
-        String dm = ", ";
-        sb.append(dm).append(getConstraintNameAutoFooId());
-        sb.append(dm).append(getConstraintNameAutoFooName());
+        sb.append(dm).append(_constraintNameAutoFooId);
+        sb.append(dm).append(_constraintNameAutoFooName);
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
-    protected String buildRelationString() {
+
+    @Override
+    protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        String cm = ",";
         if (_vendorConstraintNameAutoRefList != null && !_vendorConstraintNameAutoRefList.isEmpty())
-        { sb.append(cm).append("vendorConstraintNameAutoRefList"); }
-        if (sb.length() > cm.length()) {
-            sb.delete(0, cm.length()).insert(0, "(").append(")");
+        { sb.append(dm).append("vendorConstraintNameAutoRefList"); }
+        if (sb.length() > dm.length()) {
+            sb.delete(0, dm.length()).insert(0, "(").append(")");
         }
         return sb.toString();
     }
 
-    /**
-     * Clone entity instance using super.clone(). (shallow copy) 
-     * @return The cloned instance of this entity. (NotNull)
-     */
+    @Override
     public VendorConstraintNameAutoFoo clone() {
-        try {
-            return (VendorConstraintNameAutoFoo)super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new IllegalStateException("Failed to clone the entity: " + toString(), e);
-        }
+        return (VendorConstraintNameAutoFoo)super.clone();
     }
 
     // ===================================================================================

@@ -133,7 +133,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMemberId(), "MEMBER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMemberId(), "MEMBER_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberId_InScope(Collection<Integer> memberIdList) {
-        regINS(CK_INS, cTL(memberIdList), getCValueMemberId(), "MEMBER_ID");
+        regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberId_NotInScope(Collection<Integer> memberIdList) {
-        regINS(CK_NINS, cTL(memberIdList), getCValueMemberId(), "MEMBER_ID");
+        regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
@@ -423,8 +423,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      */
     public void setMemberId_IsNotNull() { regMemberId(CK_ISNN, DOBJ); }
 
-    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberId(), "MEMBER_ID"); }
-    protected abstract ConditionValue getCValueMemberId();
+    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberId(), "MEMBER_ID"); }
+    protected abstract ConditionValue xgetCValueMemberId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -462,7 +462,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberName_InScope(Collection<String> memberNameList) {
-        regINS(CK_INS, cTL(memberNameList), getCValueMemberName(), "MEMBER_NAME");
+        regINS(CK_INS, cTL(memberNameList), xgetCValueMemberName(), "MEMBER_NAME");
     }
 
     /**
@@ -475,7 +475,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberName_NotInScope(Collection<String> memberNameList) {
-        regINS(CK_NINS, cTL(memberNameList), getCValueMemberName(), "MEMBER_NAME");
+        regINS(CK_NINS, cTL(memberNameList), xgetCValueMemberName(), "MEMBER_NAME");
     }
 
     /**
@@ -497,7 +497,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberName_LikeSearch(String memberName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(memberName), getCValueMemberName(), "MEMBER_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(memberName), xgetCValueMemberName(), "MEMBER_NAME", likeSearchOption);
     }
 
     /**
@@ -519,7 +519,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberName_NotLikeSearch(String memberName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(memberName), getCValueMemberName(), "MEMBER_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(memberName), xgetCValueMemberName(), "MEMBER_NAME", likeSearchOption);
     }
 
     /**
@@ -531,8 +531,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
         setMemberName_LikeSearch(memberName, xcLSOPPre());
     }
 
-    protected void regMemberName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberName(), "MEMBER_NAME"); }
-    protected abstract ConditionValue getCValueMemberName();
+    protected void regMemberName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberName(), "MEMBER_NAME"); }
+    protected abstract ConditionValue xgetCValueMemberName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -570,7 +570,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberAccount_InScope(Collection<String> memberAccountList) {
-        regINS(CK_INS, cTL(memberAccountList), getCValueMemberAccount(), "MEMBER_ACCOUNT");
+        regINS(CK_INS, cTL(memberAccountList), xgetCValueMemberAccount(), "MEMBER_ACCOUNT");
     }
 
     /**
@@ -592,11 +592,11 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberAccount_LikeSearch(String memberAccount, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(memberAccount), getCValueMemberAccount(), "MEMBER_ACCOUNT", likeSearchOption);
+        regLSQ(CK_LS, fRES(memberAccount), xgetCValueMemberAccount(), "MEMBER_ACCOUNT", likeSearchOption);
     }
 
-    protected void regMemberAccount(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberAccount(), "MEMBER_ACCOUNT"); }
-    protected abstract ConditionValue getCValueMemberAccount();
+    protected void regMemberAccount(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberAccount(), "MEMBER_ACCOUNT"); }
+    protected abstract ConditionValue xgetCValueMemberAccount();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -712,7 +712,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
-        regINS(CK_INS, cTL(memberStatusCodeList), getCValueMemberStatusCode(), "MEMBER_STATUS_CODE");
+        regINS(CK_INS, cTL(memberStatusCodeList), xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE");
     }
 
     /**
@@ -735,11 +735,11 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberStatusCode_NotInScope(Collection<String> memberStatusCodeList) {
-        regINS(CK_NINS, cTL(memberStatusCodeList), getCValueMemberStatusCode(), "MEMBER_STATUS_CODE");
+        regINS(CK_NINS, cTL(memberStatusCodeList), xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE");
     }
 
-    protected void regMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberStatusCode(), "MEMBER_STATUS_CODE"); }
-    protected abstract ConditionValue getCValueMemberStatusCode();
+    protected void regMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE"); }
+    protected abstract ConditionValue xgetCValueMemberStatusCode();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -809,7 +809,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setFormalizedDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueFormalizedDatetime(), "FORMALIZED_DATETIME", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueFormalizedDatetime(), "FORMALIZED_DATETIME", fromToOption);
     }
 
     /**
@@ -839,8 +839,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      */
     public void setFormalizedDatetime_IsNotNull() { regFormalizedDatetime(CK_ISNN, DOBJ); }
 
-    protected void regFormalizedDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFormalizedDatetime(), "FORMALIZED_DATETIME"); }
-    protected abstract ConditionValue getCValueFormalizedDatetime();
+    protected void regFormalizedDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFormalizedDatetime(), "FORMALIZED_DATETIME"); }
+    protected abstract ConditionValue xgetCValueFormalizedDatetime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -910,7 +910,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setBirthdate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueBirthdate(), "BIRTHDATE", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueBirthdate(), "BIRTHDATE", fromToOption);
     }
 
     /**
@@ -940,8 +940,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      */
     public void setBirthdate_IsNotNull() { regBirthdate(CK_ISNN, DOBJ); }
 
-    protected void regBirthdate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBirthdate(), "BIRTHDATE"); }
-    protected abstract ConditionValue getCValueBirthdate();
+    protected void regBirthdate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBirthdate(), "BIRTHDATE"); }
+    protected abstract ConditionValue xgetCValueBirthdate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -952,8 +952,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
-    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterDatetime(), "REGISTER_DATETIME"); }
-    protected abstract ConditionValue getCValueRegisterDatetime();
+    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterDatetime(), "REGISTER_DATETIME"); }
+    protected abstract ConditionValue xgetCValueRegisterDatetime();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -987,11 +987,11 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRegisterUser_LikeSearch(String registerUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(registerUser), getCValueRegisterUser(), "REGISTER_USER", likeSearchOption);
+        regLSQ(CK_LS, fRES(registerUser), xgetCValueRegisterUser(), "REGISTER_USER", likeSearchOption);
     }
 
-    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterUser(), "REGISTER_USER"); }
-    protected abstract ConditionValue getCValueRegisterUser();
+    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterUser(), "REGISTER_USER"); }
+    protected abstract ConditionValue xgetCValueRegisterUser();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1002,8 +1002,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 
-    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateDatetime(), "UPDATE_DATETIME"); }
-    protected abstract ConditionValue getCValueUpdateDatetime();
+    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateDatetime(), "UPDATE_DATETIME"); }
+    protected abstract ConditionValue xgetCValueUpdateDatetime();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -1055,11 +1055,11 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUpdateUser_LikeSearch(String updateUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(updateUser), getCValueUpdateUser(), "UPDATE_USER", likeSearchOption);
+        regLSQ(CK_LS, fRES(updateUser), xgetCValueUpdateUser(), "UPDATE_USER", likeSearchOption);
     }
 
-    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateUser(), "UPDATE_USER"); }
-    protected abstract ConditionValue getCValueUpdateUser();
+    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateUser(), "UPDATE_USER"); }
+    protected abstract ConditionValue xgetCValueUpdateUser();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1097,11 +1097,11 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVersionNo_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueVersionNo(), "VERSION_NO", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueVersionNo(), "VERSION_NO", rangeOfOption);
     }
 
-    protected void regVersionNo(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueVersionNo(), "VERSION_NO"); }
-    protected abstract ConditionValue getCValueVersionNo();
+    protected void regVersionNo(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueVersionNo(), "VERSION_NO"); }
+    protected abstract ConditionValue xgetCValueVersionNo();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -76,11 +76,11 @@ public class WhiteGearedCipherCIQ extends AbstractBsWhiteGearedCipherCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueCipherId() { return _myCQ.getCipherId(); }
-    protected ConditionValue getCValueCipherInteger() { return _myCQ.getCipherInteger(); }
-    protected ConditionValue getCValueCipherVarchar() { return _myCQ.getCipherVarchar(); }
-    protected ConditionValue getCValueCipherDate() { return _myCQ.getCipherDate(); }
-    protected ConditionValue getCValueCipherDatetime() { return _myCQ.getCipherDatetime(); }
+    protected ConditionValue xgetCValueCipherId() { return _myCQ.xdfgetCipherId(); }
+    protected ConditionValue xgetCValueCipherInteger() { return _myCQ.xdfgetCipherInteger(); }
+    protected ConditionValue xgetCValueCipherVarchar() { return _myCQ.xdfgetCipherVarchar(); }
+    protected ConditionValue xgetCValueCipherDate() { return _myCQ.xdfgetCipherDate(); }
+    protected ConditionValue xgetCValueCipherDatetime() { return _myCQ.xdfgetCipherDatetime(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteGearedCipherCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

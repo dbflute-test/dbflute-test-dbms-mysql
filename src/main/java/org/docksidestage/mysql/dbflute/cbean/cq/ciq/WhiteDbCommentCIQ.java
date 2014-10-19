@@ -76,8 +76,8 @@ public class WhiteDbCommentCIQ extends AbstractBsWhiteDbCommentCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueDbCommentCode() { return _myCQ.getDbCommentCode(); }
-    protected ConditionValue getCValueDbCommentName() { return _myCQ.getDbCommentName(); }
+    protected ConditionValue xgetCValueDbCommentCode() { return _myCQ.xdfgetDbCommentCode(); }
+    protected ConditionValue xgetCValueDbCommentName() { return _myCQ.xdfgetDbCommentName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteDbCommentCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

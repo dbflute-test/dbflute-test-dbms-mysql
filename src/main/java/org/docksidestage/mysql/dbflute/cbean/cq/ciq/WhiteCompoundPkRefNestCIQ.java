@@ -76,11 +76,11 @@ public class WhiteCompoundPkRefNestCIQ extends AbstractBsWhiteCompoundPkRefNestC
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueCompoundPkRefNestId() { return _myCQ.getCompoundPkRefNestId(); }
-    protected ConditionValue getCValueFooMultipleId() { return _myCQ.getFooMultipleId(); }
-    protected ConditionValue getCValueBarMultipleId() { return _myCQ.getBarMultipleId(); }
-    protected ConditionValue getCValueQuxMultipleId() { return _myCQ.getQuxMultipleId(); }
-    protected ConditionValue getCValueNestName() { return _myCQ.getNestName(); }
+    protected ConditionValue xgetCValueCompoundPkRefNestId() { return _myCQ.xdfgetCompoundPkRefNestId(); }
+    protected ConditionValue xgetCValueFooMultipleId() { return _myCQ.xdfgetFooMultipleId(); }
+    protected ConditionValue xgetCValueBarMultipleId() { return _myCQ.xdfgetBarMultipleId(); }
+    protected ConditionValue xgetCValueQuxMultipleId() { return _myCQ.xdfgetQuxMultipleId(); }
+    protected ConditionValue xgetCValueNestName() { return _myCQ.xdfgetNestName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteCompoundPkRefNestCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -78,26 +78,14 @@ public class LoaderOfWhiteUqFk {
     //                                                                       =============
     protected List<WhiteUqFkRef> _referrerWhiteUqFkRefByFkToPkIdList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRef> loadWhiteUqFkRefByFkToPkIdList(ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
-        myBhv().loadWhiteUqFkRefByFkToPkIdList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteUqFkRef>() {
-            public void handle(List<WhiteUqFkRef> referrerList) { _referrerWhiteUqFkRefByFkToPkIdList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteUqFkRef> handler) {
-                handler.handle(new LoaderOfWhiteUqFkRef().ready(_referrerWhiteUqFkRefByFkToPkIdList, _selector));
-            }
-        };
+        myBhv().loadWhiteUqFkRefByFkToPkIdList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteUqFkRefByFkToPkIdList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteUqFkRef().ready(_referrerWhiteUqFkRefByFkToPkIdList, _selector));
     }
 
     protected List<WhiteUqFkRef> _referrerWhiteUqFkRefByFkToUqCodeList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRef> loadWhiteUqFkRefByFkToUqCodeList(ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
-        myBhv().loadWhiteUqFkRefByFkToUqCodeList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteUqFkRef>() {
-            public void handle(List<WhiteUqFkRef> referrerList) { _referrerWhiteUqFkRefByFkToUqCodeList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteUqFkRef> handler) {
-                handler.handle(new LoaderOfWhiteUqFkRef().ready(_referrerWhiteUqFkRefByFkToUqCodeList, _selector));
-            }
-        };
+        myBhv().loadWhiteUqFkRefByFkToUqCodeList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteUqFkRefByFkToUqCodeList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteUqFkRef().ready(_referrerWhiteUqFkRefByFkToUqCodeList, _selector));
     }
 
     // ===================================================================================

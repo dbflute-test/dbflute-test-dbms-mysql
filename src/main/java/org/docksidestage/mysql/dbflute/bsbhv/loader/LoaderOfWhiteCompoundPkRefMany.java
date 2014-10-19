@@ -76,9 +76,8 @@ public class LoaderOfWhiteCompoundPkRefMany {
     //                                                                    ================
     protected LoaderOfWhiteCompoundPk _foreignWhiteCompoundPkToPKLoader;
     public LoaderOfWhiteCompoundPk pulloutWhiteCompoundPkToPK() {
-        if (_foreignWhiteCompoundPkToPKLoader != null) { return _foreignWhiteCompoundPkToPKLoader; }
-        List<WhiteCompoundPk> pulledList = myBhv().pulloutWhiteCompoundPkToPK(_selectedList);
-        _foreignWhiteCompoundPkToPKLoader = new LoaderOfWhiteCompoundPk().ready(pulledList, _selector);
+        if (_foreignWhiteCompoundPkToPKLoader == null)
+        { _foreignWhiteCompoundPkToPKLoader = new LoaderOfWhiteCompoundPk().ready(myBhv().pulloutWhiteCompoundPkToPK(_selectedList), _selector); }
         return _foreignWhiteCompoundPkToPKLoader;
     }
 

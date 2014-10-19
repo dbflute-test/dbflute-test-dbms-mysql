@@ -89,10 +89,10 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _firstId;
-    public ConditionValue getFirstId()
+    public ConditionValue xdfgetFirstId()
     { if (_firstId == null) { _firstId = nCV(); }
       return _firstId; }
-    protected ConditionValue getCValueFirstId() { return getFirstId(); }
+    protected ConditionValue xgetCValueFirstId() { return xdfgetFirstId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     public BsWhiteSplitMultipleFkRefCQ addOrderBy_FirstId_Desc() { regOBD("FIRST_ID"); return this; }
 
     protected ConditionValue _secondCode;
-    public ConditionValue getSecondCode()
+    public ConditionValue xdfgetSecondCode()
     { if (_secondCode == null) { _secondCode = nCV(); }
       return _secondCode; }
-    protected ConditionValue getCValueSecondCode() { return getSecondCode(); }
+    protected ConditionValue xgetCValueSecondCode() { return xdfgetSecondCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     public BsWhiteSplitMultipleFkRefCQ addOrderBy_SecondCode_Desc() { regOBD("SECOND_CODE"); return this; }
 
     protected ConditionValue _refName;
-    public ConditionValue getRefName()
+    public ConditionValue xdfgetRefName()
     { if (_refName == null) { _refName = nCV(); }
       return _refName; }
-    protected ConditionValue getCValueRefName() { return getRefName(); }
+    protected ConditionValue xgetCValueRefName() { return xdfgetRefName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -199,7 +199,7 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteSplitMultipleFkRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteSplitMultipleFkRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteSplitMultipleFkRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -208,7 +208,7 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteSplitMultipleFkRefCB.class.getName(); }
     protected String xCQ() { return WhiteSplitMultipleFkRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

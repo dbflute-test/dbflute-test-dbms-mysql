@@ -89,23 +89,23 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _machoCode;
-    public ConditionValue getMachoCode()
+    public ConditionValue xdfgetMachoCode()
     { if (_machoCode == null) { _machoCode = nCV(); }
       return _machoCode; }
-    protected ConditionValue getCValueMachoCode() { return getMachoCode(); }
+    protected ConditionValue xgetCValueMachoCode() { return xdfgetMachoCode(); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getMachoCode_ExistsReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("machoCode_ExistsReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetMachoCode_ExistsReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("machoCode_ExistsReferrer_WhitePerrottaOverMemberList"); }
     public String keepMachoCode_ExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("machoCode_ExistsReferrer_WhitePerrottaOverMemberList", sq); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getMachoCode_NotExistsReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("machoCode_NotExistsReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetMachoCode_NotExistsReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("machoCode_NotExistsReferrer_WhitePerrottaOverMemberList"); }
     public String keepMachoCode_NotExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("machoCode_NotExistsReferrer_WhitePerrottaOverMemberList", sq); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getMachoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("machoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetMachoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("machoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList"); }
     public String keepMachoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("machoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList", sq); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList() { return xgetSQueMap("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
     public String keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList", sq); }
-    public Map<String, Object> getMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter() { return xgetSQuePmMap("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
+    public Map<String, Object> xdfgetMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter() { return xgetSQuePmMap("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
     public String keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(Object pm) { return xkeepSQuePm("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     public BsWhitePerrottaOverMemberMachoCQ addOrderBy_MachoCode_Desc() { regOBD("MACHO_CODE"); return this; }
 
     protected ConditionValue _machoName;
-    public ConditionValue getMachoName()
+    public ConditionValue xdfgetMachoName()
     { if (_machoName == null) { _machoName = nCV(); }
       return _machoName; }
-    protected ConditionValue getCValueMachoName() { return getMachoName(); }
+    protected ConditionValue xgetCValueMachoName() { return xdfgetMachoName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -193,31 +193,31 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhitePerrottaOverMemberMachoCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhitePerrottaOverMemberMachoCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhitePerrottaOverMemberMachoCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhitePerrottaOverMemberMachoCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhitePerrottaOverMemberMachoCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhitePerrottaOverMemberMachoCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhitePerrottaOverMemberMachoCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhitePerrottaOverMemberMachoCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhitePerrottaOverMemberMachoCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhitePerrottaOverMemberMachoCQ> _myselfExistsMap;
-    public Map<String, WhitePerrottaOverMemberMachoCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhitePerrottaOverMemberMachoCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhitePerrottaOverMemberMachoCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhitePerrottaOverMemberMachoCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhitePerrottaOverMemberMachoCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhitePerrottaOverMemberMachoCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -226,7 +226,7 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhitePerrottaOverMemberMachoCB.class.getName(); }
     protected String xCQ() { return WhitePerrottaOverMemberMachoCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

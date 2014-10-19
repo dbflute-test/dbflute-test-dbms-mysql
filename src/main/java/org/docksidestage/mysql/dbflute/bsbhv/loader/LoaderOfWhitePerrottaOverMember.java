@@ -76,17 +76,15 @@ public class LoaderOfWhitePerrottaOverMember {
     //                                                                    ================
     protected LoaderOfWhitePerrottaOverMemberMacho _foreignWhitePerrottaOverMemberMachoLoader;
     public LoaderOfWhitePerrottaOverMemberMacho pulloutWhitePerrottaOverMemberMacho() {
-        if (_foreignWhitePerrottaOverMemberMachoLoader != null) { return _foreignWhitePerrottaOverMemberMachoLoader; }
-        List<WhitePerrottaOverMemberMacho> pulledList = myBhv().pulloutWhitePerrottaOverMemberMacho(_selectedList);
-        _foreignWhitePerrottaOverMemberMachoLoader = new LoaderOfWhitePerrottaOverMemberMacho().ready(pulledList, _selector);
+        if (_foreignWhitePerrottaOverMemberMachoLoader == null)
+        { _foreignWhitePerrottaOverMemberMachoLoader = new LoaderOfWhitePerrottaOverMemberMacho().ready(myBhv().pulloutWhitePerrottaOverMemberMacho(_selectedList), _selector); }
         return _foreignWhitePerrottaOverMemberMachoLoader;
     }
 
     protected LoaderOfWhitePerrottaOverProduct _foreignWhitePerrottaOverProductLoader;
     public LoaderOfWhitePerrottaOverProduct pulloutWhitePerrottaOverProduct() {
-        if (_foreignWhitePerrottaOverProductLoader != null) { return _foreignWhitePerrottaOverProductLoader; }
-        List<WhitePerrottaOverProduct> pulledList = myBhv().pulloutWhitePerrottaOverProduct(_selectedList);
-        _foreignWhitePerrottaOverProductLoader = new LoaderOfWhitePerrottaOverProduct().ready(pulledList, _selector);
+        if (_foreignWhitePerrottaOverProductLoader == null)
+        { _foreignWhitePerrottaOverProductLoader = new LoaderOfWhitePerrottaOverProduct().ready(myBhv().pulloutWhitePerrottaOverProduct(_selectedList), _selector); }
         return _foreignWhitePerrottaOverProductLoader;
     }
 

@@ -89,23 +89,23 @@ public class BsWhiteVariantRelationMasterBarCQ extends AbstractBsWhiteVariantRel
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _masterBarId;
-    public ConditionValue getMasterBarId()
+    public ConditionValue xdfgetMasterBarId()
     { if (_masterBarId == null) { _masterBarId = nCV(); }
       return _masterBarId; }
-    protected ConditionValue getCValueMasterBarId() { return getMasterBarId(); }
+    protected ConditionValue xgetCValueMasterBarId() { return xdfgetMasterBarId(); }
 
-    public Map<String, WhiteVariantRelationReferrerCQ> getMasterBarId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList() { return xgetSQueMap("masterBarId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList"); }
+    public Map<String, WhiteVariantRelationReferrerCQ> xdfgetMasterBarId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList() { return xgetSQueMap("masterBarId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList"); }
     public String keepMasterBarId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList(WhiteVariantRelationReferrerCQ sq) { return xkeepSQue("masterBarId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList", sq); }
 
-    public Map<String, WhiteVariantRelationReferrerCQ> getMasterBarId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList() { return xgetSQueMap("masterBarId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList"); }
+    public Map<String, WhiteVariantRelationReferrerCQ> xdfgetMasterBarId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList() { return xgetSQueMap("masterBarId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList"); }
     public String keepMasterBarId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList(WhiteVariantRelationReferrerCQ sq) { return xkeepSQue("masterBarId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList", sq); }
 
-    public Map<String, WhiteVariantRelationReferrerCQ> getMasterBarId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerAsVariantList() { return xgetSQueMap("masterBarId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerAsVariantList"); }
+    public Map<String, WhiteVariantRelationReferrerCQ> xdfgetMasterBarId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerAsVariantList() { return xgetSQueMap("masterBarId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerAsVariantList"); }
     public String keepMasterBarId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerAsVariantList(WhiteVariantRelationReferrerCQ sq) { return xkeepSQue("masterBarId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerAsVariantList", sq); }
 
-    public Map<String, WhiteVariantRelationReferrerCQ> getMasterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList() { return xgetSQueMap("masterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList"); }
+    public Map<String, WhiteVariantRelationReferrerCQ> xdfgetMasterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList() { return xgetSQueMap("masterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList"); }
     public String keepMasterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList(WhiteVariantRelationReferrerCQ sq) { return xkeepSQue("masterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList", sq); }
-    public Map<String, Object> getMasterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantListParameter() { return xgetSQuePmMap("masterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList"); }
+    public Map<String, Object> xdfgetMasterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantListParameter() { return xgetSQuePmMap("masterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList"); }
     public String keepMasterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantListParameter(Object pm) { return xkeepSQuePm("masterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhiteVariantRelationMasterBarCQ extends AbstractBsWhiteVariantRel
     public BsWhiteVariantRelationMasterBarCQ addOrderBy_MasterBarId_Desc() { regOBD("MASTER_BAR_ID"); return this; }
 
     protected ConditionValue _masterBarName;
-    public ConditionValue getMasterBarName()
+    public ConditionValue xdfgetMasterBarName()
     { if (_masterBarName == null) { _masterBarName = nCV(); }
       return _masterBarName; }
-    protected ConditionValue getCValueMasterBarName() { return getMasterBarName(); }
+    protected ConditionValue xgetCValueMasterBarName() { return xdfgetMasterBarName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -193,31 +193,31 @@ public class BsWhiteVariantRelationMasterBarCQ extends AbstractBsWhiteVariantRel
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteVariantRelationMasterBarCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteVariantRelationMasterBarCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteVariantRelationMasterBarCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteVariantRelationMasterBarCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteVariantRelationMasterBarCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteVariantRelationMasterBarCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteVariantRelationMasterBarCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteVariantRelationMasterBarCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteVariantRelationMasterBarCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteVariantRelationMasterBarCQ> _myselfExistsMap;
-    public Map<String, WhiteVariantRelationMasterBarCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteVariantRelationMasterBarCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteVariantRelationMasterBarCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteVariantRelationMasterBarCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteVariantRelationMasterBarCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteVariantRelationMasterBarCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -226,7 +226,7 @@ public class BsWhiteVariantRelationMasterBarCQ extends AbstractBsWhiteVariantRel
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteVariantRelationMasterBarCB.class.getName(); }
     protected String xCQ() { return WhiteVariantRelationMasterBarCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

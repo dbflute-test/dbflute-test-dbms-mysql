@@ -78,14 +78,8 @@ public class LoaderOfWhiteSuppressJoinSqManyOne {
     //                                                                       =============
     protected List<WhiteSuppressJoinSqMany> _referrerWhiteSuppressJoinSqManyList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqMany> loadWhiteSuppressJoinSqManyList(ConditionBeanSetupper<WhiteSuppressJoinSqManyCB> refCBLambda) {
-        myBhv().loadWhiteSuppressJoinSqManyList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteSuppressJoinSqMany>() {
-            public void handle(List<WhiteSuppressJoinSqMany> referrerList) { _referrerWhiteSuppressJoinSqManyList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqMany>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteSuppressJoinSqMany> handler) {
-                handler.handle(new LoaderOfWhiteSuppressJoinSqMany().ready(_referrerWhiteSuppressJoinSqManyList, _selector));
-            }
-        };
+        myBhv().loadWhiteSuppressJoinSqManyList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqManyList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqMany().ready(_referrerWhiteSuppressJoinSqManyList, _selector));
     }
 
     // ===================================================================================
@@ -93,9 +87,8 @@ public class LoaderOfWhiteSuppressJoinSqManyOne {
     //                                                                    ================
     protected LoaderOfWhiteSuppressJoinSqManyOneOne _foreignWhiteSuppressJoinSqManyOneOneLoader;
     public LoaderOfWhiteSuppressJoinSqManyOneOne pulloutWhiteSuppressJoinSqManyOneOne() {
-        if (_foreignWhiteSuppressJoinSqManyOneOneLoader != null) { return _foreignWhiteSuppressJoinSqManyOneOneLoader; }
-        List<WhiteSuppressJoinSqManyOneOne> pulledList = myBhv().pulloutWhiteSuppressJoinSqManyOneOne(_selectedList);
-        _foreignWhiteSuppressJoinSqManyOneOneLoader = new LoaderOfWhiteSuppressJoinSqManyOneOne().ready(pulledList, _selector);
+        if (_foreignWhiteSuppressJoinSqManyOneOneLoader == null)
+        { _foreignWhiteSuppressJoinSqManyOneOneLoader = new LoaderOfWhiteSuppressJoinSqManyOneOne().ready(myBhv().pulloutWhiteSuppressJoinSqManyOneOne(_selectedList), _selector); }
         return _foreignWhiteSuppressJoinSqManyOneOneLoader;
     }
 

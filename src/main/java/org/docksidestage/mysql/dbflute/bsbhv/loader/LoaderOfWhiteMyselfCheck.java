@@ -76,9 +76,8 @@ public class LoaderOfWhiteMyselfCheck {
     //                                                                    ================
     protected LoaderOfWhiteMyself _foreignWhiteMyselfLoader;
     public LoaderOfWhiteMyself pulloutWhiteMyself() {
-        if (_foreignWhiteMyselfLoader != null) { return _foreignWhiteMyselfLoader; }
-        List<WhiteMyself> pulledList = myBhv().pulloutWhiteMyself(_selectedList);
-        _foreignWhiteMyselfLoader = new LoaderOfWhiteMyself().ready(pulledList, _selector);
+        if (_foreignWhiteMyselfLoader == null)
+        { _foreignWhiteMyselfLoader = new LoaderOfWhiteMyself().ready(myBhv().pulloutWhiteMyself(_selectedList), _selector); }
         return _foreignWhiteMyselfLoader;
     }
 

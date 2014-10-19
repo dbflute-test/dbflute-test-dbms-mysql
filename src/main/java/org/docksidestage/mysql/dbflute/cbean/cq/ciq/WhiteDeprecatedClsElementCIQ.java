@@ -76,8 +76,8 @@ public class WhiteDeprecatedClsElementCIQ extends AbstractBsWhiteDeprecatedClsEl
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueDeprecatedClsElementCode() { return _myCQ.getDeprecatedClsElementCode(); }
-    protected ConditionValue getCValueDeprecatedClsElementName() { return _myCQ.getDeprecatedClsElementName(); }
+    protected ConditionValue xgetCValueDeprecatedClsElementCode() { return _myCQ.xdfgetDeprecatedClsElementCode(); }
+    protected ConditionValue xgetCValueDeprecatedClsElementName() { return _myCQ.xdfgetDeprecatedClsElementName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteDeprecatedClsElementCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

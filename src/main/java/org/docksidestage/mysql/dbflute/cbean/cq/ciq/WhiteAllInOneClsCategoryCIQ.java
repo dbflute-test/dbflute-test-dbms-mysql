@@ -76,7 +76,7 @@ public class WhiteAllInOneClsCategoryCIQ extends AbstractBsWhiteAllInOneClsCateg
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueClsCategoryCode() { return _myCQ.getClsCategoryCode(); }
+    protected ConditionValue xgetCValueClsCategoryCode() { return _myCQ.xdfgetClsCategoryCode(); }
     public String keepClsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq)
@@ -87,8 +87,8 @@ public class WhiteAllInOneClsCategoryCIQ extends AbstractBsWhiteAllInOneClsCateg
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueClsCategoryName() { return _myCQ.getClsCategoryName(); }
-    protected ConditionValue getCValueDescription() { return _myCQ.getDescription(); }
+    protected ConditionValue xgetCValueClsCategoryName() { return _myCQ.xdfgetClsCategoryName(); }
+    protected ConditionValue xgetCValueDescription() { return _myCQ.xdfgetDescription(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteAllInOneClsCategoryCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

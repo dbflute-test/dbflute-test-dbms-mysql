@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
      */
     public VendorTheLongAndWindingTableAndColumnRefCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorTheLongAndWindingTableAndColumnRefCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorTheLongAndWindingTableAndColumnRefCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorTheLongAndWindingTableAndColumnRefCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
         return new VendorTheLongAndWindingTableAndColumnRefCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -308,7 +316,7 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorTheLongAndWindingTableAndColumnRefCQ>() {
                 public boolean has() { return true; }
-                public VendorTheLongAndWindingTableAndColumnRefCQ qy() { return getConditionQuery(); }
+                public VendorTheLongAndWindingTableAndColumnRefCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -332,22 +340,22 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
          * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTheLongAndWindingTableAndColumnRefId() { return doColumn("THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_ID"); }
+        public SpecifiedColumn columnTheLongAndWindingTableAndColumnRefId() { return doColumn("THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_ID"); }
         /**
          * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID: {IX, NotNull, BIGINT(19), FK to vendor_the_long_and_winding_table_and_column}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTheLongAndWindingTableAndColumnId() { return doColumn("THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID"); }
+        public SpecifiedColumn columnTheLongAndWindingTableAndColumnId() { return doColumn("THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID"); }
         /**
          * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTheLongAndWindingTableAndColumnRefDate() { return doColumn("THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE"); }
+        public SpecifiedColumn columnTheLongAndWindingTableAndColumnRefDate() { return doColumn("THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE"); }
         /**
          * SHORT_DATE: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnShortDate() { return doColumn("SHORT_DATE"); }
+        public SpecifiedColumn columnShortDate() { return doColumn("SHORT_DATE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -424,7 +432,7 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<VendorTheLongAndWindingTableAndColumnRefCB> columnQuery(final SpecifyQuery<VendorTheLongAndWindingTableAndColumnRefCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<VendorTheLongAndWindingTableAndColumnRefCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorTheLongAndWindingTableAndColumnRefCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorTheLongAndWindingTableAndColumnRefCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -542,8 +550,8 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorTheLongAndWindingTableAndColumnRefCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorTheLongAndWindingTableAndColumnRefCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorTheLongAndWindingTableAndColumnRefCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorTheLongAndWindingTableAndColumnRefCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

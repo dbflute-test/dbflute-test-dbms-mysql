@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteMyselfCB extends AbstractConditionBean {
      */
     public WhiteMyselfCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteMyselfCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteMyselfCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteMyselfCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteMyselfCB extends AbstractConditionBean {
         return new WhiteMyselfCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteMyselfCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteMyselfCQ>() {
                 public boolean has() { return true; }
-                public WhiteMyselfCQ qy() { return getConditionQuery(); }
+                public WhiteMyselfCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,12 +320,12 @@ public class BsWhiteMyselfCB extends AbstractConditionBean {
          * MYSELF_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMyselfId() { return doColumn("MYSELF_ID"); }
+        public SpecifiedColumn columnMyselfId() { return doColumn("MYSELF_ID"); }
         /**
          * MYSELF_NAME: {NotNull, VARCHAR(80)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMyselfName() { return doColumn("MYSELF_NAME"); }
+        public SpecifiedColumn columnMyselfName() { return doColumn("MYSELF_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -387,7 +395,7 @@ public class BsWhiteMyselfCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteMyselfCB> columnQuery(final SpecifyQuery<WhiteMyselfCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteMyselfCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteMyselfCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteMyselfCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -505,8 +513,8 @@ public class BsWhiteMyselfCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteMyselfCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteMyselfCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteMyselfCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteMyselfCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

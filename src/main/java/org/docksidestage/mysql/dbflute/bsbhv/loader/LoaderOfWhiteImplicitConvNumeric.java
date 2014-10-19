@@ -78,26 +78,14 @@ public class LoaderOfWhiteImplicitConvNumeric {
     //                                                                       =============
     protected List<WhiteImplicitConvInteger> _referrerWhiteImplicitConvIntegerList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvInteger> loadWhiteImplicitConvIntegerList(ConditionBeanSetupper<WhiteImplicitConvIntegerCB> refCBLambda) {
-        myBhv().loadWhiteImplicitConvIntegerList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteImplicitConvInteger>() {
-            public void handle(List<WhiteImplicitConvInteger> referrerList) { _referrerWhiteImplicitConvIntegerList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvInteger>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteImplicitConvInteger> handler) {
-                handler.handle(new LoaderOfWhiteImplicitConvInteger().ready(_referrerWhiteImplicitConvIntegerList, _selector));
-            }
-        };
+        myBhv().loadWhiteImplicitConvIntegerList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteImplicitConvIntegerList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteImplicitConvInteger().ready(_referrerWhiteImplicitConvIntegerList, _selector));
     }
 
     protected List<WhiteImplicitConvString> _referrerWhiteImplicitConvStringList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvString> loadWhiteImplicitConvStringList(ConditionBeanSetupper<WhiteImplicitConvStringCB> refCBLambda) {
-        myBhv().loadWhiteImplicitConvStringList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteImplicitConvString>() {
-            public void handle(List<WhiteImplicitConvString> referrerList) { _referrerWhiteImplicitConvStringList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvString>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteImplicitConvString> handler) {
-                handler.handle(new LoaderOfWhiteImplicitConvString().ready(_referrerWhiteImplicitConvStringList, _selector));
-            }
-        };
+        myBhv().loadWhiteImplicitConvStringList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteImplicitConvStringList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteImplicitConvString().ready(_referrerWhiteImplicitConvStringList, _selector));
     }
 
     // ===================================================================================
@@ -105,17 +93,15 @@ public class LoaderOfWhiteImplicitConvNumeric {
     //                                                                    ================
     protected LoaderOfWhiteImplicitConvInteger _foreignWhiteImplicitConvIntegerLoader;
     public LoaderOfWhiteImplicitConvInteger pulloutWhiteImplicitConvInteger() {
-        if (_foreignWhiteImplicitConvIntegerLoader != null) { return _foreignWhiteImplicitConvIntegerLoader; }
-        List<WhiteImplicitConvInteger> pulledList = myBhv().pulloutWhiteImplicitConvInteger(_selectedList);
-        _foreignWhiteImplicitConvIntegerLoader = new LoaderOfWhiteImplicitConvInteger().ready(pulledList, _selector);
+        if (_foreignWhiteImplicitConvIntegerLoader == null)
+        { _foreignWhiteImplicitConvIntegerLoader = new LoaderOfWhiteImplicitConvInteger().ready(myBhv().pulloutWhiteImplicitConvInteger(_selectedList), _selector); }
         return _foreignWhiteImplicitConvIntegerLoader;
     }
 
     protected LoaderOfWhiteImplicitConvString _foreignWhiteImplicitConvStringLoader;
     public LoaderOfWhiteImplicitConvString pulloutWhiteImplicitConvString() {
-        if (_foreignWhiteImplicitConvStringLoader != null) { return _foreignWhiteImplicitConvStringLoader; }
-        List<WhiteImplicitConvString> pulledList = myBhv().pulloutWhiteImplicitConvString(_selectedList);
-        _foreignWhiteImplicitConvStringLoader = new LoaderOfWhiteImplicitConvString().ready(pulledList, _selector);
+        if (_foreignWhiteImplicitConvStringLoader == null)
+        { _foreignWhiteImplicitConvStringLoader = new LoaderOfWhiteImplicitConvString().ready(myBhv().pulloutWhiteImplicitConvString(_selectedList), _selector); }
         return _foreignWhiteImplicitConvStringLoader;
     }
 

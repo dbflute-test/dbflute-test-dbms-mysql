@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMultipleFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMultipleFirstId(), "MULTIPLE_FIRST_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMultipleFirstId(), "MULTIPLE_FIRST_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetMultipleFirstId_InScope(Collection<Integer> multipleFirstIdList) {
-        regINS(CK_INS, cTL(multipleFirstIdList), getCValueMultipleFirstId(), "MULTIPLE_FIRST_ID");
+        regINS(CK_INS, cTL(multipleFirstIdList), xgetCValueMultipleFirstId(), "MULTIPLE_FIRST_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetMultipleFirstId_NotInScope(Collection<Integer> multipleFirstIdList) {
-        regINS(CK_NINS, cTL(multipleFirstIdList), getCValueMultipleFirstId(), "MULTIPLE_FIRST_ID");
+        regINS(CK_NINS, cTL(multipleFirstIdList), xgetCValueMultipleFirstId(), "MULTIPLE_FIRST_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      */
     public void setMultipleFirstId_IsNotNull() { regMultipleFirstId(CK_ISNN, DOBJ); }
 
-    protected void regMultipleFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMultipleFirstId(), "MULTIPLE_FIRST_ID"); }
-    protected abstract ConditionValue getCValueMultipleFirstId();
+    protected void regMultipleFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMultipleFirstId(), "MULTIPLE_FIRST_ID"); }
+    protected abstract ConditionValue xgetCValueMultipleFirstId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMultipleSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMultipleSecondId(), "MULTIPLE_SECOND_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMultipleSecondId(), "MULTIPLE_SECOND_ID", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetMultipleSecondId_InScope(Collection<Integer> multipleSecondIdList) {
-        regINS(CK_INS, cTL(multipleSecondIdList), getCValueMultipleSecondId(), "MULTIPLE_SECOND_ID");
+        regINS(CK_INS, cTL(multipleSecondIdList), xgetCValueMultipleSecondId(), "MULTIPLE_SECOND_ID");
     }
 
     /**
@@ -275,7 +275,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetMultipleSecondId_NotInScope(Collection<Integer> multipleSecondIdList) {
-        regINS(CK_NINS, cTL(multipleSecondIdList), getCValueMultipleSecondId(), "MULTIPLE_SECOND_ID");
+        regINS(CK_NINS, cTL(multipleSecondIdList), xgetCValueMultipleSecondId(), "MULTIPLE_SECOND_ID");
     }
 
     /**
@@ -290,8 +290,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      */
     public void setMultipleSecondId_IsNotNull() { regMultipleSecondId(CK_ISNN, DOBJ); }
 
-    protected void regMultipleSecondId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMultipleSecondId(), "MULTIPLE_SECOND_ID"); }
-    protected abstract ConditionValue getCValueMultipleSecondId();
+    protected void regMultipleSecondId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMultipleSecondId(), "MULTIPLE_SECOND_ID"); }
+    protected abstract ConditionValue xgetCValueMultipleSecondId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -365,7 +365,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefManyFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueRefManyFirstId(), "REF_MANY_FIRST_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueRefManyFirstId(), "REF_MANY_FIRST_ID", rangeOfOption);
     }
 
     /**
@@ -378,7 +378,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetRefManyFirstId_InScope(Collection<Integer> refManyFirstIdList) {
-        regINS(CK_INS, cTL(refManyFirstIdList), getCValueRefManyFirstId(), "REF_MANY_FIRST_ID");
+        regINS(CK_INS, cTL(refManyFirstIdList), xgetCValueRefManyFirstId(), "REF_MANY_FIRST_ID");
     }
 
     /**
@@ -391,11 +391,11 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetRefManyFirstId_NotInScope(Collection<Integer> refManyFirstIdList) {
-        regINS(CK_NINS, cTL(refManyFirstIdList), getCValueRefManyFirstId(), "REF_MANY_FIRST_ID");
+        regINS(CK_NINS, cTL(refManyFirstIdList), xgetCValueRefManyFirstId(), "REF_MANY_FIRST_ID");
     }
 
-    protected void regRefManyFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefManyFirstId(), "REF_MANY_FIRST_ID"); }
-    protected abstract ConditionValue getCValueRefManyFirstId();
+    protected void regRefManyFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefManyFirstId(), "REF_MANY_FIRST_ID"); }
+    protected abstract ConditionValue xgetCValueRefManyFirstId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -469,7 +469,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefManySecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueRefManySecondId(), "REF_MANY_SECOND_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueRefManySecondId(), "REF_MANY_SECOND_ID", rangeOfOption);
     }
 
     /**
@@ -482,7 +482,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetRefManySecondId_InScope(Collection<Integer> refManySecondIdList) {
-        regINS(CK_INS, cTL(refManySecondIdList), getCValueRefManySecondId(), "REF_MANY_SECOND_ID");
+        regINS(CK_INS, cTL(refManySecondIdList), xgetCValueRefManySecondId(), "REF_MANY_SECOND_ID");
     }
 
     /**
@@ -495,11 +495,11 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetRefManySecondId_NotInScope(Collection<Integer> refManySecondIdList) {
-        regINS(CK_NINS, cTL(refManySecondIdList), getCValueRefManySecondId(), "REF_MANY_SECOND_ID");
+        regINS(CK_NINS, cTL(refManySecondIdList), xgetCValueRefManySecondId(), "REF_MANY_SECOND_ID");
     }
 
-    protected void regRefManySecondId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefManySecondId(), "REF_MANY_SECOND_ID"); }
-    protected abstract ConditionValue getCValueRefManySecondId();
+    protected void regRefManySecondId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefManySecondId(), "REF_MANY_SECOND_ID"); }
+    protected abstract ConditionValue xgetCValueRefManySecondId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -537,7 +537,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetRefManyCode_InScope(Collection<String> refManyCodeList) {
-        regINS(CK_INS, cTL(refManyCodeList), getCValueRefManyCode(), "REF_MANY_CODE");
+        regINS(CK_INS, cTL(refManyCodeList), xgetCValueRefManyCode(), "REF_MANY_CODE");
     }
 
     /**
@@ -550,7 +550,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetRefManyCode_NotInScope(Collection<String> refManyCodeList) {
-        regINS(CK_NINS, cTL(refManyCodeList), getCValueRefManyCode(), "REF_MANY_CODE");
+        regINS(CK_NINS, cTL(refManyCodeList), xgetCValueRefManyCode(), "REF_MANY_CODE");
     }
 
     /**
@@ -572,7 +572,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRefManyCode_LikeSearch(String refManyCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(refManyCode), getCValueRefManyCode(), "REF_MANY_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(refManyCode), xgetCValueRefManyCode(), "REF_MANY_CODE", likeSearchOption);
     }
 
     /**
@@ -594,7 +594,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRefManyCode_NotLikeSearch(String refManyCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(refManyCode), getCValueRefManyCode(), "REF_MANY_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(refManyCode), xgetCValueRefManyCode(), "REF_MANY_CODE", likeSearchOption);
     }
 
     /**
@@ -606,8 +606,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
         setRefManyCode_LikeSearch(refManyCode, xcLSOPPre());
     }
 
-    protected void regRefManyCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefManyCode(), "REF_MANY_CODE"); }
-    protected abstract ConditionValue getCValueRefManyCode();
+    protected void regRefManyCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefManyCode(), "REF_MANY_CODE"); }
+    protected abstract ConditionValue xgetCValueRefManyCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -645,7 +645,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetRefManyName_InScope(Collection<String> refManyNameList) {
-        regINS(CK_INS, cTL(refManyNameList), getCValueRefManyName(), "REF_MANY_NAME");
+        regINS(CK_INS, cTL(refManyNameList), xgetCValueRefManyName(), "REF_MANY_NAME");
     }
 
     /**
@@ -658,7 +658,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     protected void doSetRefManyName_NotInScope(Collection<String> refManyNameList) {
-        regINS(CK_NINS, cTL(refManyNameList), getCValueRefManyName(), "REF_MANY_NAME");
+        regINS(CK_NINS, cTL(refManyNameList), xgetCValueRefManyName(), "REF_MANY_NAME");
     }
 
     /**
@@ -680,7 +680,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRefManyName_LikeSearch(String refManyName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(refManyName), getCValueRefManyName(), "REF_MANY_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(refManyName), xgetCValueRefManyName(), "REF_MANY_NAME", likeSearchOption);
     }
 
     /**
@@ -702,7 +702,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRefManyName_NotLikeSearch(String refManyName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(refManyName), getCValueRefManyName(), "REF_MANY_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(refManyName), xgetCValueRefManyName(), "REF_MANY_NAME", likeSearchOption);
     }
 
     /**
@@ -714,8 +714,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
         setRefManyName_LikeSearch(refManyName, xcLSOPPre());
     }
 
-    protected void regRefManyName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefManyName(), "REF_MANY_NAME"); }
-    protected abstract ConditionValue getCValueRefManyName();
+    protected void regRefManyName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefManyName(), "REF_MANY_NAME"); }
+    protected abstract ConditionValue xgetCValueRefManyName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -785,7 +785,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setRefManyDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueRefManyDatetime(), "REF_MANY_DATETIME", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueRefManyDatetime(), "REF_MANY_DATETIME", fromToOption);
     }
 
     /**
@@ -803,8 +803,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
         setRefManyDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regRefManyDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefManyDatetime(), "REF_MANY_DATETIME"); }
-    protected abstract ConditionValue getCValueRefManyDatetime();
+    protected void regRefManyDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefManyDatetime(), "REF_MANY_DATETIME"); }
+    protected abstract ConditionValue xgetCValueRefManyDatetime();
 
     // ===================================================================================
     //                                                                     ScalarCondition

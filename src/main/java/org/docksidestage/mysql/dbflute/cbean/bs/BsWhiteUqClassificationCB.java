@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -203,10 +204,14 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
      */
     public WhiteUqClassificationCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteUqClassificationCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteUqClassificationCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteUqClassificationCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -227,8 +232,11 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
         return new WhiteUqClassificationCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -302,7 +310,7 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteUqClassificationCQ>() {
                 public boolean has() { return true; }
-                public WhiteUqClassificationCQ qy() { return getConditionQuery(); }
+                public WhiteUqClassificationCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -325,12 +333,12 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
          * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUqClsId() { return doColumn("UQ_CLS_ID"); }
+        public SpecifiedColumn columnUqClsId() { return doColumn("UQ_CLS_ID"); }
         /**
          * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUqClsCode() { return doColumn("UQ_CLS_CODE"); }
+        public SpecifiedColumn columnUqClsCode() { return doColumn("UQ_CLS_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -382,7 +390,7 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteUqClassificationCB> columnQuery(final SpecifyQuery<WhiteUqClassificationCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteUqClassificationCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteUqClassificationCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteUqClassificationCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -500,8 +508,8 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteUqClassificationCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteUqClassificationCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteUqClassificationCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteUqClassificationCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

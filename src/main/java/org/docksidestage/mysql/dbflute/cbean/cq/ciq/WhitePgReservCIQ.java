@@ -76,7 +76,7 @@ public class WhitePgReservCIQ extends AbstractBsWhitePgReservCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueClassSynonym() { return _myCQ.getClassSynonym(); }
+    protected ConditionValue xgetCValueClassSynonym() { return _myCQ.xdfgetClassSynonym(); }
     public String keepClassSynonym_ExistsReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepClassSynonym_NotExistsReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq)
@@ -87,25 +87,25 @@ public class WhitePgReservCIQ extends AbstractBsWhitePgReservCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueCaseSynonym() { return _myCQ.getCaseSynonym(); }
-    protected ConditionValue getCValuePackageSynonym() { return _myCQ.getPackageSynonym(); }
-    protected ConditionValue getCValueDefaultSynonym() { return _myCQ.getDefaultSynonym(); }
-    protected ConditionValue getCValueNewSynonym() { return _myCQ.getNewSynonym(); }
-    protected ConditionValue getCValueNativeSynonym() { return _myCQ.getNativeSynonym(); }
-    protected ConditionValue getCValueVoidSynonym() { return _myCQ.getVoidSynonym(); }
-    protected ConditionValue getCValuePublicSynonym() { return _myCQ.getPublicSynonym(); }
-    protected ConditionValue getCValueProtectedSynonym() { return _myCQ.getProtectedSynonym(); }
-    protected ConditionValue getCValuePrivateSynonym() { return _myCQ.getPrivateSynonym(); }
-    protected ConditionValue getCValueInterfaceSynonym() { return _myCQ.getInterfaceSynonym(); }
-    protected ConditionValue getCValueAbstractSynonym() { return _myCQ.getAbstractSynonym(); }
-    protected ConditionValue getCValueFinalSynonym() { return _myCQ.getFinalSynonym(); }
-    protected ConditionValue getCValueFinallySynonym() { return _myCQ.getFinallySynonym(); }
-    protected ConditionValue getCValueReturnSynonym() { return _myCQ.getReturnSynonym(); }
-    protected ConditionValue getCValueDoubleSynonym() { return _myCQ.getDoubleSynonym(); }
-    protected ConditionValue getCValueFloatSynonym() { return _myCQ.getFloatSynonym(); }
-    protected ConditionValue getCValueShortSynonym() { return _myCQ.getShortSynonym(); }
-    protected ConditionValue getCValueType() { return _myCQ.getType(); }
-    protected ConditionValue getCValueReservName() { return _myCQ.getReservName(); }
+    protected ConditionValue xgetCValueCaseSynonym() { return _myCQ.xdfgetCaseSynonym(); }
+    protected ConditionValue xgetCValuePackageSynonym() { return _myCQ.xdfgetPackageSynonym(); }
+    protected ConditionValue xgetCValueDefaultSynonym() { return _myCQ.xdfgetDefaultSynonym(); }
+    protected ConditionValue xgetCValueNewSynonym() { return _myCQ.xdfgetNewSynonym(); }
+    protected ConditionValue xgetCValueNativeSynonym() { return _myCQ.xdfgetNativeSynonym(); }
+    protected ConditionValue xgetCValueVoidSynonym() { return _myCQ.xdfgetVoidSynonym(); }
+    protected ConditionValue xgetCValuePublicSynonym() { return _myCQ.xdfgetPublicSynonym(); }
+    protected ConditionValue xgetCValueProtectedSynonym() { return _myCQ.xdfgetProtectedSynonym(); }
+    protected ConditionValue xgetCValuePrivateSynonym() { return _myCQ.xdfgetPrivateSynonym(); }
+    protected ConditionValue xgetCValueInterfaceSynonym() { return _myCQ.xdfgetInterfaceSynonym(); }
+    protected ConditionValue xgetCValueAbstractSynonym() { return _myCQ.xdfgetAbstractSynonym(); }
+    protected ConditionValue xgetCValueFinalSynonym() { return _myCQ.xdfgetFinalSynonym(); }
+    protected ConditionValue xgetCValueFinallySynonym() { return _myCQ.xdfgetFinallySynonym(); }
+    protected ConditionValue xgetCValueReturnSynonym() { return _myCQ.xdfgetReturnSynonym(); }
+    protected ConditionValue xgetCValueDoubleSynonym() { return _myCQ.xdfgetDoubleSynonym(); }
+    protected ConditionValue xgetCValueFloatSynonym() { return _myCQ.xdfgetFloatSynonym(); }
+    protected ConditionValue xgetCValueShortSynonym() { return _myCQ.xdfgetShortSynonym(); }
+    protected ConditionValue xgetCValueType() { return _myCQ.xdfgetType(); }
+    protected ConditionValue xgetCValueReservName() { return _myCQ.xdfgetReservName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhitePgReservCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

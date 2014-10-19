@@ -76,9 +76,9 @@ public class WhiteBinaryCIQ extends AbstractBsWhiteBinaryCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueBinaryId() { return _myCQ.getBinaryId(); }
-    protected ConditionValue getCValueBinaryData() { return _myCQ.getBinaryData(); }
-    protected ConditionValue getCValueBlobData() { return _myCQ.getBlobData(); }
+    protected ConditionValue xgetCValueBinaryId() { return _myCQ.xdfgetBinaryId(); }
+    protected ConditionValue xgetCValueBinaryData() { return _myCQ.xdfgetBinaryData(); }
+    protected ConditionValue xgetCValueBlobData() { return _myCQ.xdfgetBlobData(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteBinaryCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

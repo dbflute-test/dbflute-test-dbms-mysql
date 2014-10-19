@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
      */
     public WhiteAllInOneClsCategoryCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteAllInOneClsCategoryCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteAllInOneClsCategoryCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteAllInOneClsCategoryCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
         return new WhiteAllInOneClsCategoryCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteAllInOneClsCategoryCQ>() {
                 public boolean has() { return true; }
-                public WhiteAllInOneClsCategoryCQ qy() { return getConditionQuery(); }
+                public WhiteAllInOneClsCategoryCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,17 +320,17 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
          * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnClsCategoryCode() { return doColumn("CLS_CATEGORY_CODE"); }
+        public SpecifiedColumn columnClsCategoryCode() { return doColumn("CLS_CATEGORY_CODE"); }
         /**
          * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnClsCategoryName() { return doColumn("CLS_CATEGORY_NAME"); }
+        public SpecifiedColumn columnClsCategoryName() { return doColumn("CLS_CATEGORY_NAME"); }
         /**
          * DESCRIPTION: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDescription() { return doColumn("DESCRIPTION"); }
+        public SpecifiedColumn columnDescription() { return doColumn("DESCRIPTION"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -392,7 +400,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteAllInOneClsCategoryCB> columnQuery(final SpecifyQuery<WhiteAllInOneClsCategoryCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteAllInOneClsCategoryCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteAllInOneClsCategoryCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteAllInOneClsCategoryCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -510,8 +518,8 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteAllInOneClsCategoryCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteAllInOneClsCategoryCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteAllInOneClsCategoryCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteAllInOneClsCategoryCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

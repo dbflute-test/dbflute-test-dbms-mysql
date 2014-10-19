@@ -76,9 +76,8 @@ public class LoaderOfWhiteQuotedRef {
     //                                                                    ================
     protected LoaderOfWhiteQuoted _foreignWhiteQuotedLoader;
     public LoaderOfWhiteQuoted pulloutWhiteQuoted() {
-        if (_foreignWhiteQuotedLoader != null) { return _foreignWhiteQuotedLoader; }
-        List<WhiteQuoted> pulledList = myBhv().pulloutWhiteQuoted(_selectedList);
-        _foreignWhiteQuotedLoader = new LoaderOfWhiteQuoted().ready(pulledList, _selector);
+        if (_foreignWhiteQuotedLoader == null)
+        { _foreignWhiteQuotedLoader = new LoaderOfWhiteQuoted().ready(myBhv().pulloutWhiteQuoted(_selectedList), _selector); }
         return _foreignWhiteQuotedLoader;
     }
 

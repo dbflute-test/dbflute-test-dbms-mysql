@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setManyOneId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueManyOneId(), "MANY_ONE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueManyOneId(), "MANY_ONE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     }
 
     protected void doSetManyOneId_InScope(Collection<Integer> manyOneIdList) {
-        regINS(CK_INS, cTL(manyOneIdList), getCValueManyOneId(), "MANY_ONE_ID");
+        regINS(CK_INS, cTL(manyOneIdList), xgetCValueManyOneId(), "MANY_ONE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     }
 
     protected void doSetManyOneId_NotInScope(Collection<Integer> manyOneIdList) {
-        regINS(CK_NINS, cTL(manyOneIdList), getCValueManyOneId(), "MANY_ONE_ID");
+        regINS(CK_NINS, cTL(manyOneIdList), xgetCValueManyOneId(), "MANY_ONE_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      */
     public void setManyOneId_IsNotNull() { regManyOneId(CK_ISNN, DOBJ); }
 
-    protected void regManyOneId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueManyOneId(), "MANY_ONE_ID"); }
-    protected abstract ConditionValue getCValueManyOneId();
+    protected void regManyOneId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyOneId(), "MANY_ONE_ID"); }
+    protected abstract ConditionValue xgetCValueManyOneId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     }
 
     protected void doSetManyOneName_InScope(Collection<String> manyOneNameList) {
-        regINS(CK_INS, cTL(manyOneNameList), getCValueManyOneName(), "MANY_ONE_NAME");
+        regINS(CK_INS, cTL(manyOneNameList), xgetCValueManyOneName(), "MANY_ONE_NAME");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     }
 
     protected void doSetManyOneName_NotInScope(Collection<String> manyOneNameList) {
-        regINS(CK_NINS, cTL(manyOneNameList), getCValueManyOneName(), "MANY_ONE_NAME");
+        regINS(CK_NINS, cTL(manyOneNameList), xgetCValueManyOneName(), "MANY_ONE_NAME");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setManyOneName_LikeSearch(String manyOneName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(manyOneName), getCValueManyOneName(), "MANY_ONE_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(manyOneName), xgetCValueManyOneName(), "MANY_ONE_NAME", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setManyOneName_NotLikeSearch(String manyOneName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(manyOneName), getCValueManyOneName(), "MANY_ONE_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(manyOneName), xgetCValueManyOneName(), "MANY_ONE_NAME", likeSearchOption);
     }
 
     /**
@@ -365,8 +365,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
         setManyOneName_LikeSearch(manyOneName, xcLSOPPre());
     }
 
-    protected void regManyOneName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueManyOneName(), "MANY_ONE_NAME"); }
-    protected abstract ConditionValue getCValueManyOneName();
+    protected void regManyOneName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyOneName(), "MANY_ONE_NAME"); }
+    protected abstract ConditionValue xgetCValueManyOneName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -440,7 +440,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setManyOneOneId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueManyOneOneId(), "MANY_ONE_ONE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueManyOneOneId(), "MANY_ONE_ONE_ID", rangeOfOption);
     }
 
     /**
@@ -453,7 +453,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     }
 
     protected void doSetManyOneOneId_InScope(Collection<Integer> manyOneOneIdList) {
-        regINS(CK_INS, cTL(manyOneOneIdList), getCValueManyOneOneId(), "MANY_ONE_ONE_ID");
+        regINS(CK_INS, cTL(manyOneOneIdList), xgetCValueManyOneOneId(), "MANY_ONE_ONE_ID");
     }
 
     /**
@@ -466,11 +466,11 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     }
 
     protected void doSetManyOneOneId_NotInScope(Collection<Integer> manyOneOneIdList) {
-        regINS(CK_NINS, cTL(manyOneOneIdList), getCValueManyOneOneId(), "MANY_ONE_ONE_ID");
+        regINS(CK_NINS, cTL(manyOneOneIdList), xgetCValueManyOneOneId(), "MANY_ONE_ONE_ID");
     }
 
-    protected void regManyOneOneId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueManyOneOneId(), "MANY_ONE_ONE_ID"); }
-    protected abstract ConditionValue getCValueManyOneOneId();
+    protected void regManyOneOneId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyOneOneId(), "MANY_ONE_ONE_ID"); }
+    protected abstract ConditionValue xgetCValueManyOneOneId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

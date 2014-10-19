@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReferredId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueReferredId(), "REFERRED_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueReferredId(), "REFERRED_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
     }
 
     protected void doSetReferredId_InScope(Collection<Integer> referredIdList) {
-        regINS(CK_INS, cTL(referredIdList), getCValueReferredId(), "REFERRED_ID");
+        regINS(CK_INS, cTL(referredIdList), xgetCValueReferredId(), "REFERRED_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
     }
 
     protected void doSetReferredId_NotInScope(Collection<Integer> referredIdList) {
-        regINS(CK_NINS, cTL(referredIdList), getCValueReferredId(), "REFERRED_ID");
+        regINS(CK_NINS, cTL(referredIdList), xgetCValueReferredId(), "REFERRED_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      */
     public void setReferredId_IsNotNull() { regReferredId(CK_ISNN, DOBJ); }
 
-    protected void regReferredId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueReferredId(), "REFERRED_ID"); }
-    protected abstract ConditionValue getCValueReferredId();
+    protected void regReferredId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReferredId(), "REFERRED_ID"); }
+    protected abstract ConditionValue xgetCValueReferredId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
     }
 
     protected void doSetReferredName_InScope(Collection<String> referredNameList) {
-        regINS(CK_INS, cTL(referredNameList), getCValueReferredName(), "REFERRED_NAME");
+        regINS(CK_INS, cTL(referredNameList), xgetCValueReferredName(), "REFERRED_NAME");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
     }
 
     protected void doSetReferredName_NotInScope(Collection<String> referredNameList) {
-        regINS(CK_NINS, cTL(referredNameList), getCValueReferredName(), "REFERRED_NAME");
+        regINS(CK_NINS, cTL(referredNameList), xgetCValueReferredName(), "REFERRED_NAME");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setReferredName_LikeSearch(String referredName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(referredName), getCValueReferredName(), "REFERRED_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(referredName), xgetCValueReferredName(), "REFERRED_NAME", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setReferredName_NotLikeSearch(String referredName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(referredName), getCValueReferredName(), "REFERRED_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(referredName), xgetCValueReferredName(), "REFERRED_NAME", likeSearchOption);
     }
 
     /**
@@ -365,8 +365,8 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
         setReferredName_LikeSearch(referredName, xcLSOPPre());
     }
 
-    protected void regReferredName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueReferredName(), "REFERRED_NAME"); }
-    protected abstract ConditionValue getCValueReferredName();
+    protected void regReferredName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReferredName(), "REFERRED_NAME"); }
+    protected abstract ConditionValue xgetCValueReferredName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

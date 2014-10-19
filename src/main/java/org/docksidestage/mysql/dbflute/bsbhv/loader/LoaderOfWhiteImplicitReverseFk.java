@@ -76,17 +76,15 @@ public class LoaderOfWhiteImplicitReverseFk {
     //                                                                    ================
     protected LoaderOfWhiteImplicitReverseFkRef _foreignWhiteImplicitReverseFkRefWithImplicitReverseFKLoader;
     public LoaderOfWhiteImplicitReverseFkRef pulloutWhiteImplicitReverseFkRefWithImplicitReverseFK() {
-        if (_foreignWhiteImplicitReverseFkRefWithImplicitReverseFKLoader != null) { return _foreignWhiteImplicitReverseFkRefWithImplicitReverseFKLoader; }
-        List<WhiteImplicitReverseFkRef> pulledList = myBhv().pulloutWhiteImplicitReverseFkRefWithImplicitReverseFK(_selectedList);
-        _foreignWhiteImplicitReverseFkRefWithImplicitReverseFKLoader = new LoaderOfWhiteImplicitReverseFkRef().ready(pulledList, _selector);
+        if (_foreignWhiteImplicitReverseFkRefWithImplicitReverseFKLoader == null)
+        { _foreignWhiteImplicitReverseFkRefWithImplicitReverseFKLoader = new LoaderOfWhiteImplicitReverseFkRef().ready(myBhv().pulloutWhiteImplicitReverseFkRefWithImplicitReverseFK(_selectedList), _selector); }
         return _foreignWhiteImplicitReverseFkRefWithImplicitReverseFKLoader;
     }
 
     protected LoaderOfWhiteImplicitReverseFkSuppress _foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFKLoader;
     public LoaderOfWhiteImplicitReverseFkSuppress pulloutWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK() {
-        if (_foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFKLoader != null) { return _foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFKLoader; }
-        List<WhiteImplicitReverseFkSuppress> pulledList = myBhv().pulloutWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(_selectedList);
-        _foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFKLoader = new LoaderOfWhiteImplicitReverseFkSuppress().ready(pulledList, _selector);
+        if (_foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFKLoader == null)
+        { _foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFKLoader = new LoaderOfWhiteImplicitReverseFkSuppress().ready(myBhv().pulloutWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(_selectedList), _selector); }
         return _foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFKLoader;
     }
 

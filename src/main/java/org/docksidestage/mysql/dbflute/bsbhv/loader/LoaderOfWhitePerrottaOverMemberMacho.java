@@ -78,14 +78,8 @@ public class LoaderOfWhitePerrottaOverMemberMacho {
     //                                                                       =============
     protected List<WhitePerrottaOverMember> _referrerWhitePerrottaOverMemberList;
     public NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverMember> loadWhitePerrottaOverMemberList(ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
-        myBhv().loadWhitePerrottaOverMemberList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhitePerrottaOverMember>() {
-            public void handle(List<WhitePerrottaOverMember> referrerList) { _referrerWhitePerrottaOverMemberList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverMember>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhitePerrottaOverMember> handler) {
-                handler.handle(new LoaderOfWhitePerrottaOverMember().ready(_referrerWhitePerrottaOverMemberList, _selector));
-            }
-        };
+        myBhv().loadWhitePerrottaOverMemberList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePerrottaOverMemberList = refLs);
+        return hd -> hd.handle(new LoaderOfWhitePerrottaOverMember().ready(_referrerWhitePerrottaOverMemberList, _selector));
     }
 
     // ===================================================================================

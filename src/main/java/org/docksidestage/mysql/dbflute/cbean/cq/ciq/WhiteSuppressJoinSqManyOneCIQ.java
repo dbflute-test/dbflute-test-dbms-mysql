@@ -76,7 +76,7 @@ public class WhiteSuppressJoinSqManyOneCIQ extends AbstractBsWhiteSuppressJoinSq
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueManyOneId() { return _myCQ.getManyOneId(); }
+    protected ConditionValue xgetCValueManyOneId() { return _myCQ.xdfgetManyOneId(); }
     public String keepManyOneId_ExistsReferrer_WhiteSuppressJoinSqManyList(WhiteSuppressJoinSqManyCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList(WhiteSuppressJoinSqManyCQ sq)
@@ -87,8 +87,8 @@ public class WhiteSuppressJoinSqManyOneCIQ extends AbstractBsWhiteSuppressJoinSq
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepManyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueManyOneName() { return _myCQ.getManyOneName(); }
-    protected ConditionValue getCValueManyOneOneId() { return _myCQ.getManyOneOneId(); }
+    protected ConditionValue xgetCValueManyOneName() { return _myCQ.xdfgetManyOneName(); }
+    protected ConditionValue xgetCValueManyOneOneId() { return _myCQ.xdfgetManyOneOneId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSuppressJoinSqManyOneCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

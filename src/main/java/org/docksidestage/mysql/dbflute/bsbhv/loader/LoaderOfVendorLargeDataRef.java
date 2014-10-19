@@ -78,14 +78,8 @@ public class LoaderOfVendorLargeDataRef {
     //                                                                       =============
     protected List<VendorLargeDataRef> _referrerVendorLargeDataRefSelfList;
     public NestedReferrerLoaderGateway<LoaderOfVendorLargeDataRef> loadVendorLargeDataRefSelfList(ConditionBeanSetupper<VendorLargeDataRefCB> refCBLambda) {
-        myBhv().loadVendorLargeDataRefSelfList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<VendorLargeDataRef>() {
-            public void handle(List<VendorLargeDataRef> referrerList) { _referrerVendorLargeDataRefSelfList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfVendorLargeDataRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfVendorLargeDataRef> handler) {
-                handler.handle(new LoaderOfVendorLargeDataRef().ready(_referrerVendorLargeDataRefSelfList, _selector));
-            }
-        };
+        myBhv().loadVendorLargeDataRefSelfList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorLargeDataRefSelfList = refLs);
+        return hd -> hd.handle(new LoaderOfVendorLargeDataRef().ready(_referrerVendorLargeDataRefSelfList, _selector));
     }
 
     // ===================================================================================
@@ -93,17 +87,15 @@ public class LoaderOfVendorLargeDataRef {
     //                                                                    ================
     protected LoaderOfVendorLargeData _foreignVendorLargeDataLoader;
     public LoaderOfVendorLargeData pulloutVendorLargeData() {
-        if (_foreignVendorLargeDataLoader != null) { return _foreignVendorLargeDataLoader; }
-        List<VendorLargeData> pulledList = myBhv().pulloutVendorLargeData(_selectedList);
-        _foreignVendorLargeDataLoader = new LoaderOfVendorLargeData().ready(pulledList, _selector);
+        if (_foreignVendorLargeDataLoader == null)
+        { _foreignVendorLargeDataLoader = new LoaderOfVendorLargeData().ready(myBhv().pulloutVendorLargeData(_selectedList), _selector); }
         return _foreignVendorLargeDataLoader;
     }
 
     protected LoaderOfVendorLargeDataRef _foreignVendorLargeDataRefSelfLoader;
     public LoaderOfVendorLargeDataRef pulloutVendorLargeDataRefSelf() {
-        if (_foreignVendorLargeDataRefSelfLoader != null) { return _foreignVendorLargeDataRefSelfLoader; }
-        List<VendorLargeDataRef> pulledList = myBhv().pulloutVendorLargeDataRefSelf(_selectedList);
-        _foreignVendorLargeDataRefSelfLoader = new LoaderOfVendorLargeDataRef().ready(pulledList, _selector);
+        if (_foreignVendorLargeDataRefSelfLoader == null)
+        { _foreignVendorLargeDataRefSelfLoader = new LoaderOfVendorLargeDataRef().ready(myBhv().pulloutVendorLargeDataRefSelf(_selectedList), _selector); }
         return _foreignVendorLargeDataRefSelfLoader;
     }
 

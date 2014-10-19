@@ -76,10 +76,10 @@ public class WhiteAllInOneClsElementCIQ extends AbstractBsWhiteAllInOneClsElemen
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueClsCategoryCode() { return _myCQ.getClsCategoryCode(); }
-    protected ConditionValue getCValueClsElementCode() { return _myCQ.getClsElementCode(); }
-    protected ConditionValue getCValueClsElementName() { return _myCQ.getClsElementName(); }
-    protected ConditionValue getCValueAttributeExp() { return _myCQ.getAttributeExp(); }
+    protected ConditionValue xgetCValueClsCategoryCode() { return _myCQ.xdfgetClsCategoryCode(); }
+    protected ConditionValue xgetCValueClsElementCode() { return _myCQ.xdfgetClsElementCode(); }
+    protected ConditionValue xgetCValueClsElementName() { return _myCQ.xdfgetClsElementName(); }
+    protected ConditionValue xgetCValueAttributeExp() { return _myCQ.xdfgetAttributeExp(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteAllInOneClsElementCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

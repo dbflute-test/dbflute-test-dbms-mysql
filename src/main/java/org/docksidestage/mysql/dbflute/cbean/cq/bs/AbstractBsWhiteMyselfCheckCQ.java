@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMyselfCheckId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMyselfCheckId(), "MYSELF_CHECK_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMyselfCheckId(), "MYSELF_CHECK_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     }
 
     protected void doSetMyselfCheckId_InScope(Collection<Integer> myselfCheckIdList) {
-        regINS(CK_INS, cTL(myselfCheckIdList), getCValueMyselfCheckId(), "MYSELF_CHECK_ID");
+        regINS(CK_INS, cTL(myselfCheckIdList), xgetCValueMyselfCheckId(), "MYSELF_CHECK_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     }
 
     protected void doSetMyselfCheckId_NotInScope(Collection<Integer> myselfCheckIdList) {
-        regINS(CK_NINS, cTL(myselfCheckIdList), getCValueMyselfCheckId(), "MYSELF_CHECK_ID");
+        regINS(CK_NINS, cTL(myselfCheckIdList), xgetCValueMyselfCheckId(), "MYSELF_CHECK_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      */
     public void setMyselfCheckId_IsNotNull() { regMyselfCheckId(CK_ISNN, DOBJ); }
 
-    protected void regMyselfCheckId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMyselfCheckId(), "MYSELF_CHECK_ID"); }
-    protected abstract ConditionValue getCValueMyselfCheckId();
+    protected void regMyselfCheckId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMyselfCheckId(), "MYSELF_CHECK_ID"); }
+    protected abstract ConditionValue xgetCValueMyselfCheckId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     }
 
     protected void doSetMyselfCheckName_InScope(Collection<String> myselfCheckNameList) {
-        regINS(CK_INS, cTL(myselfCheckNameList), getCValueMyselfCheckName(), "MYSELF_CHECK_NAME");
+        regINS(CK_INS, cTL(myselfCheckNameList), xgetCValueMyselfCheckName(), "MYSELF_CHECK_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     }
 
     protected void doSetMyselfCheckName_NotInScope(Collection<String> myselfCheckNameList) {
-        regINS(CK_NINS, cTL(myselfCheckNameList), getCValueMyselfCheckName(), "MYSELF_CHECK_NAME");
+        regINS(CK_NINS, cTL(myselfCheckNameList), xgetCValueMyselfCheckName(), "MYSELF_CHECK_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMyselfCheckName_LikeSearch(String myselfCheckName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(myselfCheckName), getCValueMyselfCheckName(), "MYSELF_CHECK_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(myselfCheckName), xgetCValueMyselfCheckName(), "MYSELF_CHECK_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMyselfCheckName_NotLikeSearch(String myselfCheckName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(myselfCheckName), getCValueMyselfCheckName(), "MYSELF_CHECK_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(myselfCheckName), xgetCValueMyselfCheckName(), "MYSELF_CHECK_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
         setMyselfCheckName_LikeSearch(myselfCheckName, xcLSOPPre());
     }
 
-    protected void regMyselfCheckName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMyselfCheckName(), "MYSELF_CHECK_NAME"); }
-    protected abstract ConditionValue getCValueMyselfCheckName();
+    protected void regMyselfCheckName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMyselfCheckName(), "MYSELF_CHECK_NAME"); }
+    protected abstract ConditionValue xgetCValueMyselfCheckName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMyselfId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMyselfId(), "MYSELF_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMyselfId(), "MYSELF_ID", rangeOfOption);
     }
 
     /**
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     }
 
     protected void doSetMyselfId_InScope(Collection<Integer> myselfIdList) {
-        regINS(CK_INS, cTL(myselfIdList), getCValueMyselfId(), "MYSELF_ID");
+        regINS(CK_INS, cTL(myselfIdList), xgetCValueMyselfId(), "MYSELF_ID");
     }
 
     /**
@@ -383,7 +383,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     }
 
     protected void doSetMyselfId_NotInScope(Collection<Integer> myselfIdList) {
-        regINS(CK_NINS, cTL(myselfIdList), getCValueMyselfId(), "MYSELF_ID");
+        regINS(CK_NINS, cTL(myselfIdList), xgetCValueMyselfId(), "MYSELF_ID");
     }
 
     /**
@@ -398,8 +398,8 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      */
     public void setMyselfId_IsNotNull() { regMyselfId(CK_ISNN, DOBJ); }
 
-    protected void regMyselfId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMyselfId(), "MYSELF_ID"); }
-    protected abstract ConditionValue getCValueMyselfId();
+    protected void regMyselfId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMyselfId(), "MYSELF_ID"); }
+    protected abstract ConditionValue xgetCValueMyselfId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGenHeadId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueGenHeadId(), "GEN_HEAD_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueGenHeadId(), "GEN_HEAD_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     protected void doSetGenHeadId_InScope(Collection<Long> genHeadIdList) {
-        regINS(CK_INS, cTL(genHeadIdList), getCValueGenHeadId(), "GEN_HEAD_ID");
+        regINS(CK_INS, cTL(genHeadIdList), xgetCValueGenHeadId(), "GEN_HEAD_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     protected void doSetGenHeadId_NotInScope(Collection<Long> genHeadIdList) {
-        regINS(CK_NINS, cTL(genHeadIdList), getCValueGenHeadId(), "GEN_HEAD_ID");
+        regINS(CK_NINS, cTL(genHeadIdList), xgetCValueGenHeadId(), "GEN_HEAD_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      */
     public void setGenHeadId_IsNotNull() { regGenHeadId(CK_ISNN, DOBJ); }
 
-    protected void regGenHeadId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGenHeadId(), "GEN_HEAD_ID"); }
-    protected abstract ConditionValue getCValueGenHeadId();
+    protected void regGenHeadId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenHeadId(), "GEN_HEAD_ID"); }
+    protected abstract ConditionValue xgetCValueGenHeadId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     protected void doSetGenHeadName_InScope(Collection<String> genHeadNameList) {
-        regINS(CK_INS, cTL(genHeadNameList), getCValueGenHeadName(), "GEN_HEAD_NAME");
+        regINS(CK_INS, cTL(genHeadNameList), xgetCValueGenHeadName(), "GEN_HEAD_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     protected void doSetGenHeadName_NotInScope(Collection<String> genHeadNameList) {
-        regINS(CK_NINS, cTL(genHeadNameList), getCValueGenHeadName(), "GEN_HEAD_NAME");
+        regINS(CK_NINS, cTL(genHeadNameList), xgetCValueGenHeadName(), "GEN_HEAD_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setGenHeadName_LikeSearch(String genHeadName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(genHeadName), getCValueGenHeadName(), "GEN_HEAD_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(genHeadName), xgetCValueGenHeadName(), "GEN_HEAD_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setGenHeadName_NotLikeSearch(String genHeadName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(genHeadName), getCValueGenHeadName(), "GEN_HEAD_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(genHeadName), xgetCValueGenHeadName(), "GEN_HEAD_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
         setGenHeadName_LikeSearch(genHeadName, xcLSOPPre());
     }
 
-    protected void regGenHeadName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGenHeadName(), "GEN_HEAD_NAME"); }
-    protected abstract ConditionValue getCValueGenHeadName();
+    protected void regGenHeadName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenHeadName(), "GEN_HEAD_NAME"); }
+    protected abstract ConditionValue xgetCValueGenHeadName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNometaId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNometaId(), "NOMETA_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNometaId(), "NOMETA_ID", rangeOfOption);
     }
 
     /**
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     protected void doSetNometaId_InScope(Collection<Long> nometaIdList) {
-        regINS(CK_INS, cTL(nometaIdList), getCValueNometaId(), "NOMETA_ID");
+        regINS(CK_INS, cTL(nometaIdList), xgetCValueNometaId(), "NOMETA_ID");
     }
 
     /**
@@ -383,7 +383,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     protected void doSetNometaId_NotInScope(Collection<Long> nometaIdList) {
-        regINS(CK_NINS, cTL(nometaIdList), getCValueNometaId(), "NOMETA_ID");
+        regINS(CK_NINS, cTL(nometaIdList), xgetCValueNometaId(), "NOMETA_ID");
     }
 
     /**
@@ -398,8 +398,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      */
     public void setNometaId_IsNotNull() { regNometaId(CK_ISNN, DOBJ); }
 
-    protected void regNometaId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNometaId(), "NOMETA_ID"); }
-    protected abstract ConditionValue getCValueNometaId();
+    protected void regNometaId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNometaId(), "NOMETA_ID"); }
+    protected abstract ConditionValue xgetCValueNometaId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -76,12 +76,12 @@ public class VendorConstraintNameAutoRefCIQ extends AbstractBsVendorConstraintNa
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueConstraintNameAutoRefId() { return _myCQ.getConstraintNameAutoRefId(); }
-    protected ConditionValue getCValueConstraintNameAutoFooId() { return _myCQ.getConstraintNameAutoFooId(); }
-    protected ConditionValue getCValueConstraintNameAutoBarId() { return _myCQ.getConstraintNameAutoBarId(); }
-    protected ConditionValue getCValueConstraintNameAutoQuxId() { return _myCQ.getConstraintNameAutoQuxId(); }
-    protected ConditionValue getCValueConstraintNameAutoCorgeId() { return _myCQ.getConstraintNameAutoCorgeId(); }
-    protected ConditionValue getCValueConstraintNameAutoUnique() { return _myCQ.getConstraintNameAutoUnique(); }
+    protected ConditionValue xgetCValueConstraintNameAutoRefId() { return _myCQ.xdfgetConstraintNameAutoRefId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoFooId() { return _myCQ.xdfgetConstraintNameAutoFooId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoBarId() { return _myCQ.xdfgetConstraintNameAutoBarId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoQuxId() { return _myCQ.xdfgetConstraintNameAutoQuxId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoCorgeId() { return _myCQ.xdfgetConstraintNameAutoCorgeId(); }
+    protected ConditionValue xgetCValueConstraintNameAutoUnique() { return _myCQ.xdfgetConstraintNameAutoUnique(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorConstraintNameAutoRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

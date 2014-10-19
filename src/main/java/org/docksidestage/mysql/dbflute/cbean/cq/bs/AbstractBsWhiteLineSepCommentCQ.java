@@ -169,7 +169,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     }
 
     protected void doSetLineSepCommentCode_InScope(Collection<String> lineSepCommentCodeList) {
-        regINS(CK_INS, cTL(lineSepCommentCodeList), getCValueLineSepCommentCode(), "LINE_SEP_COMMENT_CODE");
+        regINS(CK_INS, cTL(lineSepCommentCodeList), xgetCValueLineSepCommentCode(), "LINE_SEP_COMMENT_CODE");
     }
 
     /**
@@ -192,7 +192,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     }
 
     protected void doSetLineSepCommentCode_NotInScope(Collection<String> lineSepCommentCodeList) {
-        regINS(CK_NINS, cTL(lineSepCommentCodeList), getCValueLineSepCommentCode(), "LINE_SEP_COMMENT_CODE");
+        regINS(CK_NINS, cTL(lineSepCommentCodeList), xgetCValueLineSepCommentCode(), "LINE_SEP_COMMENT_CODE");
     }
 
     /**
@@ -207,8 +207,8 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      */
     public void setLineSepCommentCode_IsNotNull() { regLineSepCommentCode(CK_ISNN, DOBJ); }
 
-    protected void regLineSepCommentCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLineSepCommentCode(), "LINE_SEP_COMMENT_CODE"); }
-    protected abstract ConditionValue getCValueLineSepCommentCode();
+    protected void regLineSepCommentCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLineSepCommentCode(), "LINE_SEP_COMMENT_CODE"); }
+    protected abstract ConditionValue xgetCValueLineSepCommentCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -246,7 +246,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     }
 
     protected void doSetLineSepCommentName_InScope(Collection<String> lineSepCommentNameList) {
-        regINS(CK_INS, cTL(lineSepCommentNameList), getCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME");
+        regINS(CK_INS, cTL(lineSepCommentNameList), xgetCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME");
     }
 
     /**
@@ -259,7 +259,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     }
 
     protected void doSetLineSepCommentName_NotInScope(Collection<String> lineSepCommentNameList) {
-        regINS(CK_NINS, cTL(lineSepCommentNameList), getCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME");
+        regINS(CK_NINS, cTL(lineSepCommentNameList), xgetCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME");
     }
 
     /**
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setLineSepCommentName_LikeSearch(String lineSepCommentName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(lineSepCommentName), getCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(lineSepCommentName), xgetCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME", likeSearchOption);
     }
 
     /**
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setLineSepCommentName_NotLikeSearch(String lineSepCommentName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(lineSepCommentName), getCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(lineSepCommentName), xgetCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME", likeSearchOption);
     }
 
     /**
@@ -333,8 +333,8 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      */
     public void setLineSepCommentName_IsNotNull() { regLineSepCommentName(CK_ISNN, DOBJ); }
 
-    protected void regLineSepCommentName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME"); }
-    protected abstract ConditionValue getCValueLineSepCommentName();
+    protected void regLineSepCommentName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLineSepCommentName(), "LINE_SEP_COMMENT_NAME"); }
+    protected abstract ConditionValue xgetCValueLineSepCommentName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -203,10 +204,14 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
      */
     public WhiteImplicitReverseFkSuppressCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteImplicitReverseFkSuppressCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteImplicitReverseFkSuppressCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteImplicitReverseFkSuppressCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -227,8 +232,11 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
         return new WhiteImplicitReverseFkSuppressCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -302,7 +310,7 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteImplicitReverseFkSuppressCQ>() {
                 public boolean has() { return true; }
-                public WhiteImplicitReverseFkSuppressCQ qy() { return getConditionQuery(); }
+                public WhiteImplicitReverseFkSuppressCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -325,22 +333,22 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
          * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWhiteImplicitReverseFkSuppressId() { return doColumn("WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID"); }
+        public SpecifiedColumn columnWhiteImplicitReverseFkSuppressId() { return doColumn("WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID"); }
         /**
          * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWhiteImplicitReverseFkId() { return doColumn("WHITE_IMPLICIT_REVERSE_FK_ID"); }
+        public SpecifiedColumn columnWhiteImplicitReverseFkId() { return doColumn("WHITE_IMPLICIT_REVERSE_FK_ID"); }
         /**
          * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnValidBeginDate() { return doColumn("VALID_BEGIN_DATE"); }
+        public SpecifiedColumn columnValidBeginDate() { return doColumn("VALID_BEGIN_DATE"); }
         /**
          * VALID_END_DATE: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnValidEndDate() { return doColumn("VALID_END_DATE"); }
+        public SpecifiedColumn columnValidEndDate() { return doColumn("VALID_END_DATE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -392,7 +400,7 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteImplicitReverseFkSuppressCB> columnQuery(final SpecifyQuery<WhiteImplicitReverseFkSuppressCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteImplicitReverseFkSuppressCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteImplicitReverseFkSuppressCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteImplicitReverseFkSuppressCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -510,8 +518,8 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteImplicitReverseFkSuppressCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteImplicitReverseFkSuppressCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteImplicitReverseFkSuppressCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteImplicitReverseFkSuppressCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

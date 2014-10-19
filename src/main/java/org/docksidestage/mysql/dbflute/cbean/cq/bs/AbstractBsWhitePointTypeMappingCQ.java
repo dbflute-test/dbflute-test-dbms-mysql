@@ -133,7 +133,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPointTypeMappingId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePointTypeMappingId(), "POINT_TYPE_MAPPING_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePointTypeMappingId(), "POINT_TYPE_MAPPING_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     protected void doSetPointTypeMappingId_InScope(Collection<Long> pointTypeMappingIdList) {
-        regINS(CK_INS, cTL(pointTypeMappingIdList), getCValuePointTypeMappingId(), "POINT_TYPE_MAPPING_ID");
+        regINS(CK_INS, cTL(pointTypeMappingIdList), xgetCValuePointTypeMappingId(), "POINT_TYPE_MAPPING_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     protected void doSetPointTypeMappingId_NotInScope(Collection<Long> pointTypeMappingIdList) {
-        regINS(CK_NINS, cTL(pointTypeMappingIdList), getCValuePointTypeMappingId(), "POINT_TYPE_MAPPING_ID");
+        regINS(CK_NINS, cTL(pointTypeMappingIdList), xgetCValuePointTypeMappingId(), "POINT_TYPE_MAPPING_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      */
     public void setPointTypeMappingId_IsNotNull() { regPointTypeMappingId(CK_ISNN, DOBJ); }
 
-    protected void regPointTypeMappingId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePointTypeMappingId(), "POINT_TYPE_MAPPING_ID"); }
-    protected abstract ConditionValue getCValuePointTypeMappingId();
+    protected void regPointTypeMappingId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePointTypeMappingId(), "POINT_TYPE_MAPPING_ID"); }
+    protected abstract ConditionValue xgetCValuePointTypeMappingId();
 
 
     /**
@@ -190,8 +190,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      */
     public void setPointTypeMappingMemberName_IsNotNull() { regPointTypeMappingMemberName(CK_ISNN, DOBJ); }
 
-    protected void regPointTypeMappingMemberName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePointTypeMappingMemberName(), "POINT_TYPE_MAPPING_MEMBER_NAME"); }
-    protected abstract ConditionValue getCValuePointTypeMappingMemberName();
+    protected void regPointTypeMappingMemberName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePointTypeMappingMemberName(), "POINT_TYPE_MAPPING_MEMBER_NAME"); }
+    protected abstract ConditionValue xgetCValuePointTypeMappingMemberName();
 
 
     /**
@@ -206,8 +206,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      */
     public void setPointTypeMappingPriceCount_IsNotNull() { regPointTypeMappingPriceCount(CK_ISNN, DOBJ); }
 
-    protected void regPointTypeMappingPriceCount(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePointTypeMappingPriceCount(), "POINT_TYPE_MAPPING_PRICE_COUNT"); }
-    protected abstract ConditionValue getCValuePointTypeMappingPriceCount();
+    protected void regPointTypeMappingPriceCount(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePointTypeMappingPriceCount(), "POINT_TYPE_MAPPING_PRICE_COUNT"); }
+    protected abstract ConditionValue xgetCValuePointTypeMappingPriceCount();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -277,7 +277,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setPointTypeMappingSaleDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new org.docksidestage.mysql.mytype.MySaleDate(fromDatetime.getTime()) : null), (toDatetime != null ? new org.docksidestage.mysql.mytype.MySaleDate(toDatetime.getTime()) : null), getCValuePointTypeMappingSaleDate(), "POINT_TYPE_MAPPING_SALE_DATE", fromToOption);
+        regFTQ((fromDatetime != null ? new org.docksidestage.mysql.mytype.MySaleDate(fromDatetime.getTime()) : null), (toDatetime != null ? new org.docksidestage.mysql.mytype.MySaleDate(toDatetime.getTime()) : null), xgetCValuePointTypeMappingSaleDate(), "POINT_TYPE_MAPPING_SALE_DATE", fromToOption);
     }
 
     /**
@@ -307,8 +307,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      */
     public void setPointTypeMappingSaleDate_IsNotNull() { regPointTypeMappingSaleDate(CK_ISNN, DOBJ); }
 
-    protected void regPointTypeMappingSaleDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePointTypeMappingSaleDate(), "POINT_TYPE_MAPPING_SALE_DATE"); }
-    protected abstract ConditionValue getCValuePointTypeMappingSaleDate();
+    protected void regPointTypeMappingSaleDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePointTypeMappingSaleDate(), "POINT_TYPE_MAPPING_SALE_DATE"); }
+    protected abstract ConditionValue xgetCValuePointTypeMappingSaleDate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -378,7 +378,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setPointTypeMappingWantedDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValuePointTypeMappingWantedDatetime(), "POINT_TYPE_MAPPING_WANTED_DATETIME", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValuePointTypeMappingWantedDatetime(), "POINT_TYPE_MAPPING_WANTED_DATETIME", fromToOption);
     }
 
     /**
@@ -408,8 +408,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      */
     public void setPointTypeMappingWantedDatetime_IsNotNull() { regPointTypeMappingWantedDatetime(CK_ISNN, DOBJ); }
 
-    protected void regPointTypeMappingWantedDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePointTypeMappingWantedDatetime(), "POINT_TYPE_MAPPING_WANTED_DATETIME"); }
-    protected abstract ConditionValue getCValuePointTypeMappingWantedDatetime();
+    protected void regPointTypeMappingWantedDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePointTypeMappingWantedDatetime(), "POINT_TYPE_MAPPING_WANTED_DATETIME"); }
+    protected abstract ConditionValue xgetCValuePointTypeMappingWantedDatetime();
 
     // ===================================================================================
     //                                                                     ScalarCondition

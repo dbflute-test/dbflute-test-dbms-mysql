@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsProductCategoryCB extends AbstractConditionBean {
      */
     public ProductCategoryCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public ProductCategoryCQ getConditionQuery() { // public for parameter comment and internal
+    public ProductCategoryCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected ProductCategoryCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsProductCategoryCB extends AbstractConditionBean {
         return new ProductCategoryCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -264,7 +272,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected ProductCategoryNss _nssProductCategorySelf;
-    public ProductCategoryNss getNssProductCategorySelf() {
+    public ProductCategoryNss xdfgetNssProductCategorySelf() {
         if (_nssProductCategorySelf == null) { _nssProductCategorySelf = new ProductCategoryNss(null); }
         return _nssProductCategorySelf;
     }
@@ -318,7 +326,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<ProductCategoryCQ>() {
                 public boolean has() { return true; }
-                public ProductCategoryCQ qy() { return getConditionQuery(); }
+                public ProductCategoryCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -342,17 +350,17 @@ public class BsProductCategoryCB extends AbstractConditionBean {
          * (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductCategoryCode() { return doColumn("PRODUCT_CATEGORY_CODE"); }
+        public SpecifiedColumn columnProductCategoryCode() { return doColumn("PRODUCT_CATEGORY_CODE"); }
         /**
          * (商品カテゴリ名称)PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductCategoryName() { return doColumn("PRODUCT_CATEGORY_NAME"); }
+        public SpecifiedColumn columnProductCategoryName() { return doColumn("PRODUCT_CATEGORY_NAME"); }
         /**
          * (親カテゴリコード)PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnParentCategoryCode() { return doColumn("PARENT_CATEGORY_CODE"); }
+        public SpecifiedColumn columnParentCategoryCode() { return doColumn("PARENT_CATEGORY_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -465,7 +473,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<ProductCategoryCB> columnQuery(final SpecifyQuery<ProductCategoryCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<ProductCategoryCB>() {
-            public HpCalculator handle(SpecifyQuery<ProductCategoryCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<ProductCategoryCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -583,8 +591,8 @@ public class BsProductCategoryCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return ProductCategoryCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return ProductCategoryCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return ProductCategoryCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return ProductCategoryCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

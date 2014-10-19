@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      */
     public WhiteSplitMultipleFkBaseCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteSplitMultipleFkBaseCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteSplitMultipleFkBaseCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteSplitMultipleFkBaseCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
         return new WhiteSplitMultipleFkBaseCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -327,7 +335,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteSplitMultipleFkBaseCQ>() {
                 public boolean has() { return true; }
-                public WhiteSplitMultipleFkBaseCQ qy() { return getConditionQuery(); }
+                public WhiteSplitMultipleFkBaseCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -352,22 +360,22 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
          * BASE_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnBaseId() { return doColumn("BASE_ID"); }
+        public SpecifiedColumn columnBaseId() { return doColumn("BASE_ID"); }
         /**
          * FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFirstId() { return doColumn("FIRST_ID"); }
+        public SpecifiedColumn columnFirstId() { return doColumn("FIRST_ID"); }
         /**
          * NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNextId() { return doColumn("NEXT_ID"); }
+        public SpecifiedColumn columnNextId() { return doColumn("NEXT_ID"); }
         /**
          * SPLIT_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnSplitName() { return doColumn("SPLIT_NAME"); }
+        public SpecifiedColumn columnSplitName() { return doColumn("SPLIT_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -487,7 +495,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteSplitMultipleFkBaseCB> columnQuery(final SpecifyQuery<WhiteSplitMultipleFkBaseCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteSplitMultipleFkBaseCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteSplitMultipleFkBaseCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteSplitMultipleFkBaseCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -605,8 +613,8 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteSplitMultipleFkBaseCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteSplitMultipleFkBaseCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteSplitMultipleFkBaseCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteSplitMultipleFkBaseCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

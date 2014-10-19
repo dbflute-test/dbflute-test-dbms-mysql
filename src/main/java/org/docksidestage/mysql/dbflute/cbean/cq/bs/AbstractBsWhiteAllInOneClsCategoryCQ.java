@@ -97,7 +97,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     }
 
     protected void doSetClsCategoryCode_InScope(Collection<String> clsCategoryCodeList) {
-        regINS(CK_INS, cTL(clsCategoryCodeList), getCValueClsCategoryCode(), "CLS_CATEGORY_CODE");
+        regINS(CK_INS, cTL(clsCategoryCodeList), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     }
 
     protected void doSetClsCategoryCode_NotInScope(Collection<String> clsCategoryCodeList) {
-        regINS(CK_NINS, cTL(clsCategoryCodeList), getCValueClsCategoryCode(), "CLS_CATEGORY_CODE");
+        regINS(CK_NINS, cTL(clsCategoryCodeList), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE");
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setClsCategoryCode_LikeSearch(String clsCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(clsCategoryCode), getCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(clsCategoryCode), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setClsCategoryCode_NotLikeSearch(String clsCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(clsCategoryCode), getCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(clsCategoryCode), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
     }
 
     /**
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      */
     public void setClsCategoryCode_IsNotNull() { regClsCategoryCode(CK_ISNN, DOBJ); }
 
-    protected void regClsCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueClsCategoryCode(), "CLS_CATEGORY_CODE"); }
-    protected abstract ConditionValue getCValueClsCategoryCode();
+    protected void regClsCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE"); }
+    protected abstract ConditionValue xgetCValueClsCategoryCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -302,7 +302,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     }
 
     protected void doSetClsCategoryName_InScope(Collection<String> clsCategoryNameList) {
-        regINS(CK_INS, cTL(clsCategoryNameList), getCValueClsCategoryName(), "CLS_CATEGORY_NAME");
+        regINS(CK_INS, cTL(clsCategoryNameList), xgetCValueClsCategoryName(), "CLS_CATEGORY_NAME");
     }
 
     /**
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     }
 
     protected void doSetClsCategoryName_NotInScope(Collection<String> clsCategoryNameList) {
-        regINS(CK_NINS, cTL(clsCategoryNameList), getCValueClsCategoryName(), "CLS_CATEGORY_NAME");
+        regINS(CK_NINS, cTL(clsCategoryNameList), xgetCValueClsCategoryName(), "CLS_CATEGORY_NAME");
     }
 
     /**
@@ -337,7 +337,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setClsCategoryName_LikeSearch(String clsCategoryName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(clsCategoryName), getCValueClsCategoryName(), "CLS_CATEGORY_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(clsCategoryName), xgetCValueClsCategoryName(), "CLS_CATEGORY_NAME", likeSearchOption);
     }
 
     /**
@@ -359,7 +359,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setClsCategoryName_NotLikeSearch(String clsCategoryName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(clsCategoryName), getCValueClsCategoryName(), "CLS_CATEGORY_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(clsCategoryName), xgetCValueClsCategoryName(), "CLS_CATEGORY_NAME", likeSearchOption);
     }
 
     /**
@@ -371,8 +371,8 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
         setClsCategoryName_LikeSearch(clsCategoryName, xcLSOPPre());
     }
 
-    protected void regClsCategoryName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueClsCategoryName(), "CLS_CATEGORY_NAME"); }
-    protected abstract ConditionValue getCValueClsCategoryName();
+    protected void regClsCategoryName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsCategoryName(), "CLS_CATEGORY_NAME"); }
+    protected abstract ConditionValue xgetCValueClsCategoryName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -410,7 +410,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     }
 
     protected void doSetDescription_InScope(Collection<String> descriptionList) {
-        regINS(CK_INS, cTL(descriptionList), getCValueDescription(), "DESCRIPTION");
+        regINS(CK_INS, cTL(descriptionList), xgetCValueDescription(), "DESCRIPTION");
     }
 
     /**
@@ -423,7 +423,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     }
 
     protected void doSetDescription_NotInScope(Collection<String> descriptionList) {
-        regINS(CK_NINS, cTL(descriptionList), getCValueDescription(), "DESCRIPTION");
+        regINS(CK_NINS, cTL(descriptionList), xgetCValueDescription(), "DESCRIPTION");
     }
 
     /**
@@ -445,7 +445,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(description), getCValueDescription(), "DESCRIPTION", likeSearchOption);
+        regLSQ(CK_LS, fRES(description), xgetCValueDescription(), "DESCRIPTION", likeSearchOption);
     }
 
     /**
@@ -467,7 +467,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(description), getCValueDescription(), "DESCRIPTION", likeSearchOption);
+        regLSQ(CK_NLS, fRES(description), xgetCValueDescription(), "DESCRIPTION", likeSearchOption);
     }
 
     /**
@@ -479,8 +479,8 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
         setDescription_LikeSearch(description, xcLSOPPre());
     }
 
-    protected void regDescription(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDescription(), "DESCRIPTION"); }
-    protected abstract ConditionValue getCValueDescription();
+    protected void regDescription(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDescription(), "DESCRIPTION"); }
+    protected abstract ConditionValue xgetCValueDescription();
 
     // ===================================================================================
     //                                                                     ScalarCondition

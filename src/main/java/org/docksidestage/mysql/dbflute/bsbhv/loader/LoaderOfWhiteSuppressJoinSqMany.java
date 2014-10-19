@@ -76,17 +76,15 @@ public class LoaderOfWhiteSuppressJoinSqMany {
     //                                                                    ================
     protected LoaderOfWhiteSuppressJoinSqManyOne _foreignWhiteSuppressJoinSqManyOneLoader;
     public LoaderOfWhiteSuppressJoinSqManyOne pulloutWhiteSuppressJoinSqManyOne() {
-        if (_foreignWhiteSuppressJoinSqManyOneLoader != null) { return _foreignWhiteSuppressJoinSqManyOneLoader; }
-        List<WhiteSuppressJoinSqManyOne> pulledList = myBhv().pulloutWhiteSuppressJoinSqManyOne(_selectedList);
-        _foreignWhiteSuppressJoinSqManyOneLoader = new LoaderOfWhiteSuppressJoinSqManyOne().ready(pulledList, _selector);
+        if (_foreignWhiteSuppressJoinSqManyOneLoader == null)
+        { _foreignWhiteSuppressJoinSqManyOneLoader = new LoaderOfWhiteSuppressJoinSqManyOne().ready(myBhv().pulloutWhiteSuppressJoinSqManyOne(_selectedList), _selector); }
         return _foreignWhiteSuppressJoinSqManyOneLoader;
     }
 
     protected LoaderOfWhiteSuppressJoinSq _foreignWhiteSuppressJoinSqLoader;
     public LoaderOfWhiteSuppressJoinSq pulloutWhiteSuppressJoinSq() {
-        if (_foreignWhiteSuppressJoinSqLoader != null) { return _foreignWhiteSuppressJoinSqLoader; }
-        List<WhiteSuppressJoinSq> pulledList = myBhv().pulloutWhiteSuppressJoinSq(_selectedList);
-        _foreignWhiteSuppressJoinSqLoader = new LoaderOfWhiteSuppressJoinSq().ready(pulledList, _selector);
+        if (_foreignWhiteSuppressJoinSqLoader == null)
+        { _foreignWhiteSuppressJoinSqLoader = new LoaderOfWhiteSuppressJoinSq().ready(myBhv().pulloutWhiteSuppressJoinSq(_selectedList), _selector); }
         return _foreignWhiteSuppressJoinSqLoader;
     }
 

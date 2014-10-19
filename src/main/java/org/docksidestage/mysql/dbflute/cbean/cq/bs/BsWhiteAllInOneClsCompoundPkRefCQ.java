@@ -89,10 +89,10 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _fooCode;
-    public ConditionValue getFooCode()
+    public ConditionValue xdfgetFooCode()
     { if (_fooCode == null) { _fooCode = nCV(); }
       return _fooCode; }
-    protected ConditionValue getCValueFooCode() { return getFooCode(); }
+    protected ConditionValue xgetCValueFooCode() { return xdfgetFooCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
     public BsWhiteAllInOneClsCompoundPkRefCQ addOrderBy_FooCode_Desc() { regOBD("FOO_CODE"); return this; }
 
     protected ConditionValue _barCode;
-    public ConditionValue getBarCode()
+    public ConditionValue xdfgetBarCode()
     { if (_barCode == null) { _barCode = nCV(); }
       return _barCode; }
-    protected ConditionValue getCValueBarCode() { return getBarCode(); }
+    protected ConditionValue xgetCValueBarCode() { return xdfgetBarCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
     public BsWhiteAllInOneClsCompoundPkRefCQ addOrderBy_BarCode_Desc() { regOBD("BAR_CODE"); return this; }
 
     protected ConditionValue _quxCode;
-    public ConditionValue getQuxCode()
+    public ConditionValue xdfgetQuxCode()
     { if (_quxCode == null) { _quxCode = nCV(); }
       return _quxCode; }
-    protected ConditionValue getCValueQuxCode() { return getQuxCode(); }
+    protected ConditionValue xgetCValueQuxCode() { return xdfgetQuxCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -206,9 +206,9 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteAllInOneClsElementCQ queryWhiteAllInOneClsElementAsFoo() {
-        return getConditionQueryWhiteAllInOneClsElementAsFoo();
+        return xdfgetConditionQueryWhiteAllInOneClsElementAsFoo();
     }
-    public WhiteAllInOneClsElementCQ getConditionQueryWhiteAllInOneClsElementAsFoo() {
+    public WhiteAllInOneClsElementCQ xdfgetConditionQueryWhiteAllInOneClsElementAsFoo() {
         String prop = "whiteAllInOneClsElementAsFoo";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteAllInOneClsElementAsFoo()); xsetupOuterJoinWhiteAllInOneClsElementAsFoo(); }
         return xgetQueRlMap(prop);
@@ -226,9 +226,9 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteAllInOneClsElementCQ queryWhiteAllInOneClsElementAsBar() {
-        return getConditionQueryWhiteAllInOneClsElementAsBar();
+        return xdfgetConditionQueryWhiteAllInOneClsElementAsBar();
     }
-    public WhiteAllInOneClsElementCQ getConditionQueryWhiteAllInOneClsElementAsBar() {
+    public WhiteAllInOneClsElementCQ xdfgetConditionQueryWhiteAllInOneClsElementAsBar() {
         String prop = "whiteAllInOneClsElementAsBar";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteAllInOneClsElementAsBar()); xsetupOuterJoinWhiteAllInOneClsElementAsBar(); }
         return xgetQueRlMap(prop);
@@ -247,7 +247,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteAllInOneClsCompoundPkRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteAllInOneClsCompoundPkRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteAllInOneClsCompoundPkRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -256,7 +256,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteAllInOneClsCompoundPkRefCB.class.getName(); }
     protected String xCQ() { return WhiteAllInOneClsCompoundPkRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

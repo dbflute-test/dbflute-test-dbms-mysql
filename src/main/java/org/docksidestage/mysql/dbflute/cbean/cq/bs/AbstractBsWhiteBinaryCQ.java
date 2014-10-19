@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setBinaryId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueBinaryId(), "BINARY_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueBinaryId(), "BINARY_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     }
 
     protected void doSetBinaryId_InScope(Collection<Long> binaryIdList) {
-        regINS(CK_INS, cTL(binaryIdList), getCValueBinaryId(), "BINARY_ID");
+        regINS(CK_INS, cTL(binaryIdList), xgetCValueBinaryId(), "BINARY_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     }
 
     protected void doSetBinaryId_NotInScope(Collection<Long> binaryIdList) {
-        regINS(CK_NINS, cTL(binaryIdList), getCValueBinaryId(), "BINARY_ID");
+        regINS(CK_NINS, cTL(binaryIdList), xgetCValueBinaryId(), "BINARY_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
      */
     public void setBinaryId_IsNotNull() { regBinaryId(CK_ISNN, DOBJ); }
 
-    protected void regBinaryId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBinaryId(), "BINARY_ID"); }
-    protected abstract ConditionValue getCValueBinaryId();
+    protected void regBinaryId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBinaryId(), "BINARY_ID"); }
+    protected abstract ConditionValue xgetCValueBinaryId();
 
 
     /**
@@ -190,8 +190,8 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
      */
     public void setBinaryData_IsNotNull() { regBinaryData(CK_ISNN, DOBJ); }
 
-    protected void regBinaryData(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBinaryData(), "BINARY_DATA"); }
-    protected abstract ConditionValue getCValueBinaryData();
+    protected void regBinaryData(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBinaryData(), "BINARY_DATA"); }
+    protected abstract ConditionValue xgetCValueBinaryData();
 
 
     /**
@@ -206,8 +206,8 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
      */
     public void setBlobData_IsNotNull() { regBlobData(CK_ISNN, DOBJ); }
 
-    protected void regBlobData(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBlobData(), "BLOB_DATA"); }
-    protected abstract ConditionValue getCValueBlobData();
+    protected void regBlobData(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBlobData(), "BLOB_DATA"); }
+    protected abstract ConditionValue xgetCValueBlobData();
 
     // ===================================================================================
     //                                                                     ScalarCondition

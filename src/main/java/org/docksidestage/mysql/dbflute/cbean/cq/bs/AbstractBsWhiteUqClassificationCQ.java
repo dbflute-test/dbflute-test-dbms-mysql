@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setUqClsId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueUqClsId(), "UQ_CLS_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueUqClsId(), "UQ_CLS_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     protected void doSetUqClsId_InScope(Collection<Long> uqClsIdList) {
-        regINS(CK_INS, cTL(uqClsIdList), getCValueUqClsId(), "UQ_CLS_ID");
+        regINS(CK_INS, cTL(uqClsIdList), xgetCValueUqClsId(), "UQ_CLS_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     protected void doSetUqClsId_NotInScope(Collection<Long> uqClsIdList) {
-        regINS(CK_NINS, cTL(uqClsIdList), getCValueUqClsId(), "UQ_CLS_ID");
+        regINS(CK_NINS, cTL(uqClsIdList), xgetCValueUqClsId(), "UQ_CLS_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
      */
     public void setUqClsId_IsNotNull() { regUqClsId(CK_ISNN, DOBJ); }
 
-    protected void regUqClsId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUqClsId(), "UQ_CLS_ID"); }
-    protected abstract ConditionValue getCValueUqClsId();
+    protected void regUqClsId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUqClsId(), "UQ_CLS_ID"); }
+    protected abstract ConditionValue xgetCValueUqClsId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -243,7 +243,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     protected void doSetUqClsCode_InScope(Collection<String> uqClsCodeList) {
-        regINS(CK_INS, cTL(uqClsCodeList), getCValueUqClsCode(), "UQ_CLS_CODE");
+        regINS(CK_INS, cTL(uqClsCodeList), xgetCValueUqClsCode(), "UQ_CLS_CODE");
     }
 
     /**
@@ -266,11 +266,11 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     protected void doSetUqClsCode_NotInScope(Collection<String> uqClsCodeList) {
-        regINS(CK_NINS, cTL(uqClsCodeList), getCValueUqClsCode(), "UQ_CLS_CODE");
+        regINS(CK_NINS, cTL(uqClsCodeList), xgetCValueUqClsCode(), "UQ_CLS_CODE");
     }
 
-    protected void regUqClsCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUqClsCode(), "UQ_CLS_CODE"); }
-    protected abstract ConditionValue getCValueUqClsCode();
+    protected void regUqClsCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUqClsCode(), "UQ_CLS_CODE"); }
+    protected abstract ConditionValue xgetCValueUqClsCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

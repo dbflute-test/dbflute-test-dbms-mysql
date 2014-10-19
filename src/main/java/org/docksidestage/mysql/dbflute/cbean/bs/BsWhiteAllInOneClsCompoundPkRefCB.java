@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -197,10 +198,14 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
      */
     public WhiteAllInOneClsCompoundPkRefCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteAllInOneClsCompoundPkRefCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteAllInOneClsCompoundPkRefCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteAllInOneClsCompoundPkRefCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -221,8 +226,11 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
         return new WhiteAllInOneClsCompoundPkRefCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -270,7 +278,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhiteAllInOneClsElementNss _nssWhiteAllInOneClsElementAsFoo;
-    public WhiteAllInOneClsElementNss getNssWhiteAllInOneClsElementAsFoo() {
+    public WhiteAllInOneClsElementNss xdfgetNssWhiteAllInOneClsElementAsFoo() {
         if (_nssWhiteAllInOneClsElementAsFoo == null) { _nssWhiteAllInOneClsElementAsFoo = new WhiteAllInOneClsElementNss(null); }
         return _nssWhiteAllInOneClsElementAsFoo;
     }
@@ -295,7 +303,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
     }
 
     protected WhiteAllInOneClsElementNss _nssWhiteAllInOneClsElementAsBar;
-    public WhiteAllInOneClsElementNss getNssWhiteAllInOneClsElementAsBar() {
+    public WhiteAllInOneClsElementNss xdfgetNssWhiteAllInOneClsElementAsBar() {
         if (_nssWhiteAllInOneClsElementAsBar == null) { _nssWhiteAllInOneClsElementAsBar = new WhiteAllInOneClsElementNss(null); }
         return _nssWhiteAllInOneClsElementAsBar;
     }
@@ -346,7 +354,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteAllInOneClsCompoundPkRefCQ>() {
                 public boolean has() { return true; }
-                public WhiteAllInOneClsCompoundPkRefCQ qy() { return getConditionQuery(); }
+                public WhiteAllInOneClsCompoundPkRefCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -371,17 +379,17 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
          * FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFooCode() { return doColumn("FOO_CODE"); }
+        public SpecifiedColumn columnFooCode() { return doColumn("FOO_CODE"); }
         /**
          * BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnBarCode() { return doColumn("BAR_CODE"); }
+        public SpecifiedColumn columnBarCode() { return doColumn("BAR_CODE"); }
         /**
          * QUX_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnQuxCode() { return doColumn("QUX_CODE"); }
+        public SpecifiedColumn columnQuxCode() { return doColumn("QUX_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -467,7 +475,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteAllInOneClsCompoundPkRefCB> columnQuery(final SpecifyQuery<WhiteAllInOneClsCompoundPkRefCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteAllInOneClsCompoundPkRefCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteAllInOneClsCompoundPkRefCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteAllInOneClsCompoundPkRefCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -585,8 +593,8 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteAllInOneClsCompoundPkRefCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteAllInOneClsCompoundPkRefCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteAllInOneClsCompoundPkRefCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteAllInOneClsCompoundPkRefCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

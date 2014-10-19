@@ -90,10 +90,10 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _pkFirstId;
-    public ConditionValue getPkFirstId()
+    public ConditionValue xdfgetPkFirstId()
     { if (_pkFirstId == null) { _pkFirstId = nCV(); }
       return _pkFirstId; }
-    protected ConditionValue getCValuePkFirstId() { return getPkFirstId(); }
+    protected ConditionValue xgetCValuePkFirstId() { return xdfgetPkFirstId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -110,10 +110,10 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     public BsWhiteCompoundPkCQ addOrderBy_PkFirstId_Desc() { regOBD("PK_FIRST_ID"); return this; }
 
     protected ConditionValue _pkSecondId;
-    public ConditionValue getPkSecondId()
+    public ConditionValue xdfgetPkSecondId()
     { if (_pkSecondId == null) { _pkSecondId = nCV(); }
       return _pkSecondId; }
-    protected ConditionValue getCValuePkSecondId() { return getPkSecondId(); }
+    protected ConditionValue xgetCValuePkSecondId() { return xdfgetPkSecondId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -130,10 +130,10 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     public BsWhiteCompoundPkCQ addOrderBy_PkSecondId_Desc() { regOBD("PK_SECOND_ID"); return this; }
 
     protected ConditionValue _pkName;
-    public ConditionValue getPkName()
+    public ConditionValue xdfgetPkName()
     { if (_pkName == null) { _pkName = nCV(); }
       return _pkName; }
-    protected ConditionValue getCValuePkName() { return getPkName(); }
+    protected ConditionValue xgetCValuePkName() { return xdfgetPkName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -150,10 +150,10 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     public BsWhiteCompoundPkCQ addOrderBy_PkName_Desc() { regOBD("PK_NAME"); return this; }
 
     protected ConditionValue _referredId;
-    public ConditionValue getReferredId()
+    public ConditionValue xdfgetReferredId()
     { if (_referredId == null) { _referredId = nCV(); }
       return _referredId; }
-    protected ConditionValue getCValueReferredId() { return getReferredId(); }
+    protected ConditionValue xgetCValueReferredId() { return xdfgetReferredId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -233,9 +233,9 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundReferredNormallyCQ queryWhiteCompoundReferredNormally() {
-        return getConditionQueryWhiteCompoundReferredNormally();
+        return xdfgetConditionQueryWhiteCompoundReferredNormally();
     }
-    public WhiteCompoundReferredNormallyCQ getConditionQueryWhiteCompoundReferredNormally() {
+    public WhiteCompoundReferredNormallyCQ xdfgetConditionQueryWhiteCompoundReferredNormally() {
         String prop = "whiteCompoundReferredNormally";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteCompoundReferredNormally()); xsetupOuterJoinWhiteCompoundReferredNormally(); }
         return xgetQueRlMap(prop);
@@ -253,9 +253,9 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundReferredPrimaryCQ queryWhiteCompoundReferredPrimary() {
-        return getConditionQueryWhiteCompoundReferredPrimary();
+        return xdfgetConditionQueryWhiteCompoundReferredPrimary();
     }
-    public WhiteCompoundReferredPrimaryCQ getConditionQueryWhiteCompoundReferredPrimary() {
+    public WhiteCompoundReferredPrimaryCQ xdfgetConditionQueryWhiteCompoundReferredPrimary() {
         String prop = "whiteCompoundReferredPrimary";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteCompoundReferredPrimary()); xsetupOuterJoinWhiteCompoundReferredPrimary(); }
         return xgetQueRlMap(prop);
@@ -273,9 +273,9 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundPkRefManyCQ queryWhiteCompoundPkRefManyAsMax() {
-        return getConditionQueryWhiteCompoundPkRefManyAsMax();
+        return xdfgetConditionQueryWhiteCompoundPkRefManyAsMax();
     }
-    public WhiteCompoundPkRefManyCQ getConditionQueryWhiteCompoundPkRefManyAsMax() {
+    public WhiteCompoundPkRefManyCQ xdfgetConditionQueryWhiteCompoundPkRefManyAsMax() {
         String prop = "whiteCompoundPkRefManyAsMax";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteCompoundPkRefManyAsMax()); xsetupOuterJoinWhiteCompoundPkRefManyAsMax(); }
         return xgetQueRlMap(prop);
@@ -293,9 +293,9 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundPkRefManyCQ queryWhiteCompoundPkRefManyAsMin() {
-        return getConditionQueryWhiteCompoundPkRefManyAsMin();
+        return xdfgetConditionQueryWhiteCompoundPkRefManyAsMin();
     }
-    public WhiteCompoundPkRefManyCQ getConditionQueryWhiteCompoundPkRefManyAsMin() {
+    public WhiteCompoundPkRefManyCQ xdfgetConditionQueryWhiteCompoundPkRefManyAsMin() {
         String prop = "whiteCompoundPkRefManyAsMin";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteCompoundPkRefManyAsMin()); xsetupOuterJoinWhiteCompoundPkRefManyAsMin(); }
         return xgetQueRlMap(prop);
@@ -314,7 +314,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteCompoundPkCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteCompoundPkCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteCompoundPkCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -332,7 +332,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
         String pp = keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList(cb.query());
         registerExistsReferrer(cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefList");
     }
-    public Map<String, WhiteCompoundPkRefCQ> getTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList() { return xgetSQueMap("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList"); }
+    public Map<String, WhiteCompoundPkRefCQ> xdfgetTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList() { return xgetSQueMap("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList"); }
     public String keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList(WhiteCompoundPkRefCQ sq) { return xkeepSQue("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList", sq); }
 
     /**
@@ -347,7 +347,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
         String pp = keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefManyToPKList(cb.query());
         registerExistsReferrer(cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_MANY_FIRST_ID, REF_MANY_SECOND_ID", pp, "whiteCompoundPkRefManyToPKList");
     }
-    public Map<String, WhiteCompoundPkRefManyCQ> getTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefManyToPKList() { return xgetSQueMap("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefManyToPKList"); }
+    public Map<String, WhiteCompoundPkRefManyCQ> xdfgetTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefManyToPKList() { return xgetSQueMap("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefManyToPKList"); }
     public String keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefManyToPKList(WhiteCompoundPkRefManyCQ sq) { return xkeepSQue("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefManyToPKList", sq); }
 
     /**
@@ -362,7 +362,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
         String pp = keepTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefList(cb.query());
         registerNotExistsReferrer(cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefList");
     }
-    public Map<String, WhiteCompoundPkRefCQ> getTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefList() { return xgetSQueMap("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefList"); }
+    public Map<String, WhiteCompoundPkRefCQ> xdfgetTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefList() { return xgetSQueMap("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefList"); }
     public String keepTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefList(WhiteCompoundPkRefCQ sq) { return xkeepSQue("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefList", sq); }
 
     /**
@@ -377,7 +377,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
         String pp = keepTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefManyToPKList(cb.query());
         registerNotExistsReferrer(cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_MANY_FIRST_ID, REF_MANY_SECOND_ID", pp, "whiteCompoundPkRefManyToPKList");
     }
-    public Map<String, WhiteCompoundPkRefManyCQ> getTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefManyToPKList() { return xgetSQueMap("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefManyToPKList"); }
+    public Map<String, WhiteCompoundPkRefManyCQ> xdfgetTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefManyToPKList() { return xgetSQueMap("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefManyToPKList"); }
     public String keepTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefManyToPKList(WhiteCompoundPkRefManyCQ sq) { return xkeepSQue("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefManyToPKList", sq); }
 
     // ===================================================================================
@@ -390,7 +390,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
         String pp = keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefList", al, op);
     }
-    public Map<String, WhiteCompoundPkRefCQ> getTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefList"); }
+    public Map<String, WhiteCompoundPkRefCQ> xdfgetTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefList"); }
     public String keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefList(WhiteCompoundPkRefCQ sq) { return xkeepSQue("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefList", sq); }
 
     public void xsderiveWhiteCompoundPkRefManyToPKList(String fn, SubQuery<WhiteCompoundPkRefManyCB> sq, String al, DerivedReferrerOption op) {
@@ -400,7 +400,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
         String pp = keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefManyToPKList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_MANY_FIRST_ID, REF_MANY_SECOND_ID", pp, "whiteCompoundPkRefManyToPKList", al, op);
     }
-    public Map<String, WhiteCompoundPkRefManyCQ> getTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefManyToPKList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefManyToPKList"); }
+    public Map<String, WhiteCompoundPkRefManyCQ> xdfgetTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefManyToPKList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefManyToPKList"); }
     public String keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefManyToPKList(WhiteCompoundPkRefManyCQ sq) { return xkeepSQue("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefManyToPKList", sq); }
 
     // ===================================================================================
@@ -437,9 +437,9 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
         String sqpp = keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList(cb.query()); String prpp = keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", sqpp, "whiteCompoundPkRefList", rd, vl, prpp, op);
     }
-    public Map<String, WhiteCompoundPkRefCQ> getTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList() { return xgetSQueMap("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList"); }
+    public Map<String, WhiteCompoundPkRefCQ> xdfgetTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList() { return xgetSQueMap("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList"); }
     public String keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList(WhiteCompoundPkRefCQ sq) { return xkeepSQue("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList", sq); }
-    public Map<String, Object> getTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefListParameter() { return xgetSQuePmMap("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList"); }
+    public Map<String, Object> xdfgetTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefListParameter() { return xgetSQuePmMap("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList"); }
     public String keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefListParameter(Object pm) { return xkeepSQuePm("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefList", pm); }
 
     /**
@@ -473,9 +473,9 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
         String sqpp = keepTwoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList(cb.query()); String prpp = keepTwoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_MANY_FIRST_ID, REF_MANY_SECOND_ID", sqpp, "whiteCompoundPkRefManyToPKList", rd, vl, prpp, op);
     }
-    public Map<String, WhiteCompoundPkRefManyCQ> getTwoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList() { return xgetSQueMap("twoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList"); }
+    public Map<String, WhiteCompoundPkRefManyCQ> xdfgetTwoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList() { return xgetSQueMap("twoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList"); }
     public String keepTwoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList(WhiteCompoundPkRefManyCQ sq) { return xkeepSQue("twoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList", sq); }
-    public Map<String, Object> getTwoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKListParameter() { return xgetSQuePmMap("twoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList"); }
+    public Map<String, Object> xdfgetTwoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKListParameter() { return xgetSQuePmMap("twoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList"); }
     public String keepTwoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKListParameter(Object pm) { return xkeepSQuePm("twoOrMorePkToPK_QueryDerivedReferrer_WhiteCompoundPkRefManyToPKList", pm); }
 
     // ===================================================================================
@@ -484,7 +484,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteCompoundPkCB.class.getName(); }
     protected String xCQ() { return WhiteCompoundPkCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

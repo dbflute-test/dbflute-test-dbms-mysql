@@ -89,10 +89,10 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _dbCommentCode;
-    public ConditionValue getDbCommentCode()
+    public ConditionValue xdfgetDbCommentCode()
     { if (_dbCommentCode == null) { _dbCommentCode = nCV(); }
       return _dbCommentCode; }
-    protected ConditionValue getCValueDbCommentCode() { return getDbCommentCode(); }
+    protected ConditionValue xgetCValueDbCommentCode() { return xdfgetDbCommentCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
     public BsWhiteDbCommentCQ addOrderBy_DbCommentCode_Desc() { regOBD("DB_COMMENT_CODE"); return this; }
 
     protected ConditionValue _dbCommentName;
-    public ConditionValue getDbCommentName()
+    public ConditionValue xdfgetDbCommentName()
     { if (_dbCommentName == null) { _dbCommentName = nCV(); }
       return _dbCommentName; }
-    protected ConditionValue getCValueDbCommentName() { return getDbCommentName(); }
+    protected ConditionValue xgetCValueDbCommentName() { return xdfgetDbCommentName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteDbCommentCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteDbCommentCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteDbCommentCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteDbCommentCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteDbCommentCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteDbCommentCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteDbCommentCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteDbCommentCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteDbCommentCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteDbCommentCQ> _myselfExistsMap;
-    public Map<String, WhiteDbCommentCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteDbCommentCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteDbCommentCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteDbCommentCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteDbCommentCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteDbCommentCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteDbCommentCB.class.getName(); }
     protected String xCQ() { return WhiteDbCommentCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

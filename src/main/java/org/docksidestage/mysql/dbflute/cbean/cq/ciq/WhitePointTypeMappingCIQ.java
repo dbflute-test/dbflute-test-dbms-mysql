@@ -76,11 +76,11 @@ public class WhitePointTypeMappingCIQ extends AbstractBsWhitePointTypeMappingCQ 
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValuePointTypeMappingId() { return _myCQ.getPointTypeMappingId(); }
-    protected ConditionValue getCValuePointTypeMappingMemberName() { return _myCQ.getPointTypeMappingMemberName(); }
-    protected ConditionValue getCValuePointTypeMappingPriceCount() { return _myCQ.getPointTypeMappingPriceCount(); }
-    protected ConditionValue getCValuePointTypeMappingSaleDate() { return _myCQ.getPointTypeMappingSaleDate(); }
-    protected ConditionValue getCValuePointTypeMappingWantedDatetime() { return _myCQ.getPointTypeMappingWantedDatetime(); }
+    protected ConditionValue xgetCValuePointTypeMappingId() { return _myCQ.xdfgetPointTypeMappingId(); }
+    protected ConditionValue xgetCValuePointTypeMappingMemberName() { return _myCQ.xdfgetPointTypeMappingMemberName(); }
+    protected ConditionValue xgetCValuePointTypeMappingPriceCount() { return _myCQ.xdfgetPointTypeMappingPriceCount(); }
+    protected ConditionValue xgetCValuePointTypeMappingSaleDate() { return _myCQ.xdfgetPointTypeMappingSaleDate(); }
+    protected ConditionValue xgetCValuePointTypeMappingWantedDatetime() { return _myCQ.xdfgetPointTypeMappingWantedDatetime(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhitePointTypeMappingCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

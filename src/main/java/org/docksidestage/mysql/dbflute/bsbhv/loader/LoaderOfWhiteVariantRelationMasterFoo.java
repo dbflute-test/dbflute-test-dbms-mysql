@@ -78,14 +78,8 @@ public class LoaderOfWhiteVariantRelationMasterFoo {
     //                                                                       =============
     protected List<WhiteVariantRelationReferrer> _referrerWhiteVariantRelationReferrerAsVariantList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariantList(ConditionBeanSetupper<WhiteVariantRelationReferrerCB> refCBLambda) {
-        myBhv().loadWhiteVariantRelationReferrerAsVariantList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteVariantRelationReferrer>() {
-            public void handle(List<WhiteVariantRelationReferrer> referrerList) { _referrerWhiteVariantRelationReferrerAsVariantList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteVariantRelationReferrer>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteVariantRelationReferrer> handler) {
-                handler.handle(new LoaderOfWhiteVariantRelationReferrer().ready(_referrerWhiteVariantRelationReferrerAsVariantList, _selector));
-            }
-        };
+        myBhv().loadWhiteVariantRelationReferrerAsVariantList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteVariantRelationReferrerAsVariantList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteVariantRelationReferrer().ready(_referrerWhiteVariantRelationReferrerAsVariantList, _selector));
     }
 
     // ===================================================================================
@@ -93,17 +87,15 @@ public class LoaderOfWhiteVariantRelationMasterFoo {
     //                                                                    ================
     protected LoaderOfWhiteVariantRelationReferrer _foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOneLoader;
     public LoaderOfWhiteVariantRelationReferrer pulloutWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
-        if (_foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOneLoader != null) { return _foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOneLoader; }
-        List<WhiteVariantRelationReferrer> pulledList = myBhv().pulloutWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(_selectedList);
-        _foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOneLoader = new LoaderOfWhiteVariantRelationReferrer().ready(pulledList, _selector);
+        if (_foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOneLoader == null)
+        { _foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOneLoader = new LoaderOfWhiteVariantRelationReferrer().ready(myBhv().pulloutWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(_selectedList), _selector); }
         return _foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOneLoader;
     }
 
     protected LoaderOfWhiteVariantRelationLocalPkReferrer _foreignWhiteVariantRelationLocalPkReferrerAsOneLoader;
     public LoaderOfWhiteVariantRelationLocalPkReferrer pulloutWhiteVariantRelationLocalPkReferrerAsOne() {
-        if (_foreignWhiteVariantRelationLocalPkReferrerAsOneLoader != null) { return _foreignWhiteVariantRelationLocalPkReferrerAsOneLoader; }
-        List<WhiteVariantRelationLocalPkReferrer> pulledList = myBhv().pulloutWhiteVariantRelationLocalPkReferrerAsOne(_selectedList);
-        _foreignWhiteVariantRelationLocalPkReferrerAsOneLoader = new LoaderOfWhiteVariantRelationLocalPkReferrer().ready(pulledList, _selector);
+        if (_foreignWhiteVariantRelationLocalPkReferrerAsOneLoader == null)
+        { _foreignWhiteVariantRelationLocalPkReferrerAsOneLoader = new LoaderOfWhiteVariantRelationLocalPkReferrer().ready(myBhv().pulloutWhiteVariantRelationLocalPkReferrerAsOne(_selectedList), _selector); }
         return _foreignWhiteVariantRelationLocalPkReferrerAsOneLoader;
     }
 

@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setStilettoAliasId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueStilettoAliasId(), "STILETTO_ALIAS_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueStilettoAliasId(), "STILETTO_ALIAS_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetStilettoAliasId_InScope(Collection<Integer> stilettoAliasIdList) {
-        regINS(CK_INS, cTL(stilettoAliasIdList), getCValueStilettoAliasId(), "STILETTO_ALIAS_ID");
+        regINS(CK_INS, cTL(stilettoAliasIdList), xgetCValueStilettoAliasId(), "STILETTO_ALIAS_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetStilettoAliasId_NotInScope(Collection<Integer> stilettoAliasIdList) {
-        regINS(CK_NINS, cTL(stilettoAliasIdList), getCValueStilettoAliasId(), "STILETTO_ALIAS_ID");
+        regINS(CK_NINS, cTL(stilettoAliasIdList), xgetCValueStilettoAliasId(), "STILETTO_ALIAS_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setStilettoAliasId_IsNotNull() { regStilettoAliasId(CK_ISNN, DOBJ); }
 
-    protected void regStilettoAliasId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueStilettoAliasId(), "STILETTO_ALIAS_ID"); }
-    protected abstract ConditionValue getCValueStilettoAliasId();
+    protected void regStilettoAliasId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStilettoAliasId(), "STILETTO_ALIAS_ID"); }
+    protected abstract ConditionValue xgetCValueStilettoAliasId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo_InScope(Collection<String> fooList) {
-        regINS(CK_INS, cTL(fooList), getCValueFoo(), "FOO");
+        regINS(CK_INS, cTL(fooList), xgetCValueFoo(), "FOO");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo_NotInScope(Collection<String> fooList) {
-        regINS(CK_NINS, cTL(fooList), getCValueFoo(), "FOO");
+        regINS(CK_NINS, cTL(fooList), xgetCValueFoo(), "FOO");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo_LikeSearch(String foo, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(foo), getCValueFoo(), "FOO", likeSearchOption);
+        regLSQ(CK_LS, fRES(foo), xgetCValueFoo(), "FOO", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo_NotLikeSearch(String foo, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(foo), getCValueFoo(), "FOO", likeSearchOption);
+        regLSQ(CK_NLS, fRES(foo), xgetCValueFoo(), "FOO", likeSearchOption);
     }
 
     /**
@@ -383,8 +383,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo_IsNotNull() { regFoo(CK_ISNN, DOBJ); }
 
-    protected void regFoo(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFoo(), "FOO"); }
-    protected abstract ConditionValue getCValueFoo();
+    protected void regFoo(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFoo(), "FOO"); }
+    protected abstract ConditionValue xgetCValueFoo();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -422,7 +422,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo0_InScope(Collection<String> foo0List) {
-        regINS(CK_INS, cTL(foo0List), getCValueFoo0(), "FOO_0");
+        regINS(CK_INS, cTL(foo0List), xgetCValueFoo0(), "FOO_0");
     }
 
     /**
@@ -435,7 +435,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo0_NotInScope(Collection<String> foo0List) {
-        regINS(CK_NINS, cTL(foo0List), getCValueFoo0(), "FOO_0");
+        regINS(CK_NINS, cTL(foo0List), xgetCValueFoo0(), "FOO_0");
     }
 
     /**
@@ -457,7 +457,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo0_LikeSearch(String foo0, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(foo0), getCValueFoo0(), "FOO_0", likeSearchOption);
+        regLSQ(CK_LS, fRES(foo0), xgetCValueFoo0(), "FOO_0", likeSearchOption);
     }
 
     /**
@@ -479,7 +479,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo0_NotLikeSearch(String foo0, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(foo0), getCValueFoo0(), "FOO_0", likeSearchOption);
+        regLSQ(CK_NLS, fRES(foo0), xgetCValueFoo0(), "FOO_0", likeSearchOption);
     }
 
     /**
@@ -509,8 +509,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo0_IsNotNull() { regFoo0(CK_ISNN, DOBJ); }
 
-    protected void regFoo0(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFoo0(), "FOO_0"); }
-    protected abstract ConditionValue getCValueFoo0();
+    protected void regFoo0(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFoo0(), "FOO_0"); }
+    protected abstract ConditionValue xgetCValueFoo0();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -548,7 +548,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo1_InScope(Collection<String> foo1List) {
-        regINS(CK_INS, cTL(foo1List), getCValueFoo1(), "FOO_1");
+        regINS(CK_INS, cTL(foo1List), xgetCValueFoo1(), "FOO_1");
     }
 
     /**
@@ -561,7 +561,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo1_NotInScope(Collection<String> foo1List) {
-        regINS(CK_NINS, cTL(foo1List), getCValueFoo1(), "FOO_1");
+        regINS(CK_NINS, cTL(foo1List), xgetCValueFoo1(), "FOO_1");
     }
 
     /**
@@ -583,7 +583,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo1_LikeSearch(String foo1, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(foo1), getCValueFoo1(), "FOO_1", likeSearchOption);
+        regLSQ(CK_LS, fRES(foo1), xgetCValueFoo1(), "FOO_1", likeSearchOption);
     }
 
     /**
@@ -605,7 +605,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo1_NotLikeSearch(String foo1, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(foo1), getCValueFoo1(), "FOO_1", likeSearchOption);
+        regLSQ(CK_NLS, fRES(foo1), xgetCValueFoo1(), "FOO_1", likeSearchOption);
     }
 
     /**
@@ -635,8 +635,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo1_IsNotNull() { regFoo1(CK_ISNN, DOBJ); }
 
-    protected void regFoo1(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFoo1(), "FOO_1"); }
-    protected abstract ConditionValue getCValueFoo1();
+    protected void regFoo1(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFoo1(), "FOO_1"); }
+    protected abstract ConditionValue xgetCValueFoo1();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -674,7 +674,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo2_InScope(Collection<String> foo2List) {
-        regINS(CK_INS, cTL(foo2List), getCValueFoo2(), "FOO2");
+        regINS(CK_INS, cTL(foo2List), xgetCValueFoo2(), "FOO2");
     }
 
     /**
@@ -687,7 +687,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo2_NotInScope(Collection<String> foo2List) {
-        regINS(CK_NINS, cTL(foo2List), getCValueFoo2(), "FOO2");
+        regINS(CK_NINS, cTL(foo2List), xgetCValueFoo2(), "FOO2");
     }
 
     /**
@@ -709,7 +709,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo2_LikeSearch(String foo2, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(foo2), getCValueFoo2(), "FOO2", likeSearchOption);
+        regLSQ(CK_LS, fRES(foo2), xgetCValueFoo2(), "FOO2", likeSearchOption);
     }
 
     /**
@@ -731,7 +731,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo2_NotLikeSearch(String foo2, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(foo2), getCValueFoo2(), "FOO2", likeSearchOption);
+        regLSQ(CK_NLS, fRES(foo2), xgetCValueFoo2(), "FOO2", likeSearchOption);
     }
 
     /**
@@ -761,8 +761,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo2_IsNotNull() { regFoo2(CK_ISNN, DOBJ); }
 
-    protected void regFoo2(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFoo2(), "FOO2"); }
-    protected abstract ConditionValue getCValueFoo2();
+    protected void regFoo2(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFoo2(), "FOO2"); }
+    protected abstract ConditionValue xgetCValueFoo2();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -800,7 +800,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo3_InScope(Collection<String> foo3List) {
-        regINS(CK_INS, cTL(foo3List), getCValueFoo3(), "FOO_3");
+        regINS(CK_INS, cTL(foo3List), xgetCValueFoo3(), "FOO_3");
     }
 
     /**
@@ -813,7 +813,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo3_NotInScope(Collection<String> foo3List) {
-        regINS(CK_NINS, cTL(foo3List), getCValueFoo3(), "FOO_3");
+        regINS(CK_NINS, cTL(foo3List), xgetCValueFoo3(), "FOO_3");
     }
 
     /**
@@ -835,7 +835,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo3_LikeSearch(String foo3, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(foo3), getCValueFoo3(), "FOO_3", likeSearchOption);
+        regLSQ(CK_LS, fRES(foo3), xgetCValueFoo3(), "FOO_3", likeSearchOption);
     }
 
     /**
@@ -857,7 +857,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo3_NotLikeSearch(String foo3, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(foo3), getCValueFoo3(), "FOO_3", likeSearchOption);
+        regLSQ(CK_NLS, fRES(foo3), xgetCValueFoo3(), "FOO_3", likeSearchOption);
     }
 
     /**
@@ -887,8 +887,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo3_IsNotNull() { regFoo3(CK_ISNN, DOBJ); }
 
-    protected void regFoo3(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFoo3(), "FOO_3"); }
-    protected abstract ConditionValue getCValueFoo3();
+    protected void regFoo3(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFoo3(), "FOO_3"); }
+    protected abstract ConditionValue xgetCValueFoo3();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -926,7 +926,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo4_InScope(Collection<String> foo4List) {
-        regINS(CK_INS, cTL(foo4List), getCValueFoo4(), "FOO4");
+        regINS(CK_INS, cTL(foo4List), xgetCValueFoo4(), "FOO4");
     }
 
     /**
@@ -939,7 +939,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetFoo4_NotInScope(Collection<String> foo4List) {
-        regINS(CK_NINS, cTL(foo4List), getCValueFoo4(), "FOO4");
+        regINS(CK_NINS, cTL(foo4List), xgetCValueFoo4(), "FOO4");
     }
 
     /**
@@ -961,7 +961,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo4_LikeSearch(String foo4, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(foo4), getCValueFoo4(), "FOO4", likeSearchOption);
+        regLSQ(CK_LS, fRES(foo4), xgetCValueFoo4(), "FOO4", likeSearchOption);
     }
 
     /**
@@ -983,7 +983,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo4_NotLikeSearch(String foo4, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(foo4), getCValueFoo4(), "FOO4", likeSearchOption);
+        regLSQ(CK_NLS, fRES(foo4), xgetCValueFoo4(), "FOO4", likeSearchOption);
     }
 
     /**
@@ -1013,8 +1013,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo4_IsNotNull() { regFoo4(CK_ISNN, DOBJ); }
 
-    protected void regFoo4(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFoo4(), "FOO4"); }
-    protected abstract ConditionValue getCValueFoo4();
+    protected void regFoo4(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFoo4(), "FOO4"); }
+    protected abstract ConditionValue xgetCValueFoo4();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -1052,7 +1052,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetBar_InScope(Collection<String> barList) {
-        regINS(CK_INS, cTL(barList), getCValueBar(), "BAR");
+        regINS(CK_INS, cTL(barList), xgetCValueBar(), "BAR");
     }
 
     /**
@@ -1065,7 +1065,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetBar_NotInScope(Collection<String> barList) {
-        regINS(CK_NINS, cTL(barList), getCValueBar(), "BAR");
+        regINS(CK_NINS, cTL(barList), xgetCValueBar(), "BAR");
     }
 
     /**
@@ -1087,7 +1087,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setBar_LikeSearch(String bar, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(bar), getCValueBar(), "BAR", likeSearchOption);
+        regLSQ(CK_LS, fRES(bar), xgetCValueBar(), "BAR", likeSearchOption);
     }
 
     /**
@@ -1109,7 +1109,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setBar_NotLikeSearch(String bar, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(bar), getCValueBar(), "BAR", likeSearchOption);
+        regLSQ(CK_NLS, fRES(bar), xgetCValueBar(), "BAR", likeSearchOption);
     }
 
     /**
@@ -1139,8 +1139,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setBar_IsNotNull() { regBar(CK_ISNN, DOBJ); }
 
-    protected void regBar(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBar(), "BAR"); }
-    protected abstract ConditionValue getCValueBar();
+    protected void regBar(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBar(), "BAR"); }
+    protected abstract ConditionValue xgetCValueBar();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -1178,7 +1178,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetQux_InScope(Collection<String> quxList) {
-        regINS(CK_INS, cTL(quxList), getCValueQux(), "QUX");
+        regINS(CK_INS, cTL(quxList), xgetCValueQux(), "QUX");
     }
 
     /**
@@ -1191,7 +1191,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     protected void doSetQux_NotInScope(Collection<String> quxList) {
-        regINS(CK_NINS, cTL(quxList), getCValueQux(), "QUX");
+        regINS(CK_NINS, cTL(quxList), xgetCValueQux(), "QUX");
     }
 
     /**
@@ -1213,7 +1213,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setQux_LikeSearch(String qux, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(qux), getCValueQux(), "QUX", likeSearchOption);
+        regLSQ(CK_LS, fRES(qux), xgetCValueQux(), "QUX", likeSearchOption);
     }
 
     /**
@@ -1235,7 +1235,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setQux_NotLikeSearch(String qux, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(qux), getCValueQux(), "QUX", likeSearchOption);
+        regLSQ(CK_NLS, fRES(qux), xgetCValueQux(), "QUX", likeSearchOption);
     }
 
     /**
@@ -1265,8 +1265,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setQux_IsNotNull() { regQux(CK_ISNN, DOBJ); }
 
-    protected void regQux(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueQux(), "QUX"); }
-    protected abstract ConditionValue getCValueQux();
+    protected void regQux(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueQux(), "QUX"); }
+    protected abstract ConditionValue xgetCValueQux();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -76,8 +76,8 @@ public class WhiteSelfReferenceRefOneCIQ extends AbstractBsWhiteSelfReferenceRef
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueSelfReferenceId() { return _myCQ.getSelfReferenceId(); }
-    protected ConditionValue getCValueSelfReferenceRefOneName() { return _myCQ.getSelfReferenceRefOneName(); }
+    protected ConditionValue xgetCValueSelfReferenceId() { return _myCQ.xdfgetSelfReferenceId(); }
+    protected ConditionValue xgetCValueSelfReferenceRefOneName() { return _myCQ.xdfgetSelfReferenceRefOneName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSelfReferenceRefOneCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

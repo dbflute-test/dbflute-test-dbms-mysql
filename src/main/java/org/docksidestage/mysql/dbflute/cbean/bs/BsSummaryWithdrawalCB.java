@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -178,10 +179,14 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
      */
     public SummaryWithdrawalCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public SummaryWithdrawalCQ getConditionQuery() { // public for parameter comment and internal
+    public SummaryWithdrawalCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected SummaryWithdrawalCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -202,8 +207,11 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
         return new SummaryWithdrawalCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -277,7 +285,7 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<SummaryWithdrawalCQ>() {
                 public boolean has() { return true; }
-                public SummaryWithdrawalCQ qy() { return getConditionQuery(); }
+                public SummaryWithdrawalCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -300,47 +308,47 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
          * MEMBER_ID: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
          * (会員名称)MEMBER_NAME: {VARCHAR(180)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
+        public SpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
         /**
          * (退会理由コード)WITHDRAWAL_REASON_CODE: {CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalReasonCode() { return doColumn("WITHDRAWAL_REASON_CODE"); }
+        public SpecifiedColumn columnWithdrawalReasonCode() { return doColumn("WITHDRAWAL_REASON_CODE"); }
         /**
          * (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {TEXT(65535)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalReasonText() { return doColumn("WITHDRAWAL_REASON_TEXT"); }
+        public SpecifiedColumn columnWithdrawalReasonText() { return doColumn("WITHDRAWAL_REASON_TEXT"); }
         /**
          * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalReasonInputText() { return doColumn("WITHDRAWAL_REASON_INPUT_TEXT"); }
+        public SpecifiedColumn columnWithdrawalReasonInputText() { return doColumn("WITHDRAWAL_REASON_INPUT_TEXT"); }
         /**
          * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalDatetime() { return doColumn("WITHDRAWAL_DATETIME"); }
+        public SpecifiedColumn columnWithdrawalDatetime() { return doColumn("WITHDRAWAL_DATETIME"); }
         /**
          * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberStatusCode() { return doColumn("MEMBER_STATUS_CODE"); }
+        public SpecifiedColumn columnMemberStatusCode() { return doColumn("MEMBER_STATUS_CODE"); }
         /**
          * (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberStatusName() { return doColumn("MEMBER_STATUS_NAME"); }
+        public SpecifiedColumn columnMemberStatusName() { return doColumn("MEMBER_STATUS_NAME"); }
         /**
          * MAX_PURCHASE_PRICE: {BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMaxPurchasePrice() { return doColumn("MAX_PURCHASE_PRICE"); }
+        public SpecifiedColumn columnMaxPurchasePrice() { return doColumn("MAX_PURCHASE_PRICE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -384,7 +392,7 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<SummaryWithdrawalCB> columnQuery(final SpecifyQuery<SummaryWithdrawalCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<SummaryWithdrawalCB>() {
-            public HpCalculator handle(SpecifyQuery<SummaryWithdrawalCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<SummaryWithdrawalCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -502,8 +510,8 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return SummaryWithdrawalCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return SummaryWithdrawalCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return SummaryWithdrawalCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return SummaryWithdrawalCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

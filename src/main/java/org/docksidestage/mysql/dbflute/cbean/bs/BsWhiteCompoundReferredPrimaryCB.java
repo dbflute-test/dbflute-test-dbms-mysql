@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteCompoundReferredPrimaryCB extends AbstractConditionBean {
      */
     public WhiteCompoundReferredPrimaryCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteCompoundReferredPrimaryCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteCompoundReferredPrimaryCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteCompoundReferredPrimaryCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteCompoundReferredPrimaryCB extends AbstractConditionBean {
         return new WhiteCompoundReferredPrimaryCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteCompoundReferredPrimaryCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteCompoundReferredPrimaryCQ>() {
                 public boolean has() { return true; }
-                public WhiteCompoundReferredPrimaryCQ qy() { return getConditionQuery(); }
+                public WhiteCompoundReferredPrimaryCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,12 +320,12 @@ public class BsWhiteCompoundReferredPrimaryCB extends AbstractConditionBean {
          * REFERRED_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnReferredId() { return doColumn("REFERRED_ID"); }
+        public SpecifiedColumn columnReferredId() { return doColumn("REFERRED_ID"); }
         /**
          * REFERRED_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnReferredName() { return doColumn("REFERRED_NAME"); }
+        public SpecifiedColumn columnReferredName() { return doColumn("REFERRED_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -387,7 +395,7 @@ public class BsWhiteCompoundReferredPrimaryCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteCompoundReferredPrimaryCB> columnQuery(final SpecifyQuery<WhiteCompoundReferredPrimaryCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteCompoundReferredPrimaryCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteCompoundReferredPrimaryCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteCompoundReferredPrimaryCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -505,8 +513,8 @@ public class BsWhiteCompoundReferredPrimaryCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteCompoundReferredPrimaryCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteCompoundReferredPrimaryCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteCompoundReferredPrimaryCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteCompoundReferredPrimaryCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

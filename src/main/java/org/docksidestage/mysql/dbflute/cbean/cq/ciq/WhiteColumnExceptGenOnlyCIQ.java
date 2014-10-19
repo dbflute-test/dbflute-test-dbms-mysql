@@ -76,8 +76,8 @@ public class WhiteColumnExceptGenOnlyCIQ extends AbstractBsWhiteColumnExceptGenO
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueGenOnlyId() { return _myCQ.getGenOnlyId(); }
-    protected ConditionValue getCValueGenOnlyName() { return _myCQ.getGenOnlyName(); }
+    protected ConditionValue xgetCValueGenOnlyId() { return _myCQ.xdfgetGenOnlyId(); }
+    protected ConditionValue xgetCValueGenOnlyName() { return _myCQ.xdfgetGenOnlyName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteColumnExceptGenOnlyCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

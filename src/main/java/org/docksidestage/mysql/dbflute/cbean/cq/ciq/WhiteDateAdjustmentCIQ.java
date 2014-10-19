@@ -76,17 +76,17 @@ public class WhiteDateAdjustmentCIQ extends AbstractBsWhiteDateAdjustmentCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueDateAdjustmentId() { return _myCQ.getDateAdjustmentId(); }
-    protected ConditionValue getCValueAdjustedDate() { return _myCQ.getAdjustedDate(); }
-    protected ConditionValue getCValueAdjustedDatetime() { return _myCQ.getAdjustedDatetime(); }
-    protected ConditionValue getCValueAdjustedTime() { return _myCQ.getAdjustedTime(); }
-    protected ConditionValue getCValueAdjustedInteger() { return _myCQ.getAdjustedInteger(); }
-    protected ConditionValue getCValueAdjustedNamedStringLong() { return _myCQ.getAdjustedNamedStringLong(); }
-    protected ConditionValue getCValueAdjustedNamedTypedLong() { return _myCQ.getAdjustedNamedTypedLong(); }
-    protected ConditionValue getCValueAdjustedPinpointStringLong() { return _myCQ.getAdjustedPinpointStringLong(); }
-    protected ConditionValue getCValueAdjustedPinpointTypedLong() { return _myCQ.getAdjustedPinpointTypedLong(); }
-    protected ConditionValue getCValueAdjustedPlainLong() { return _myCQ.getAdjustedPlainLong(); }
-    protected ConditionValue getCValueAdjustedString() { return _myCQ.getAdjustedString(); }
+    protected ConditionValue xgetCValueDateAdjustmentId() { return _myCQ.xdfgetDateAdjustmentId(); }
+    protected ConditionValue xgetCValueAdjustedDate() { return _myCQ.xdfgetAdjustedDate(); }
+    protected ConditionValue xgetCValueAdjustedDatetime() { return _myCQ.xdfgetAdjustedDatetime(); }
+    protected ConditionValue xgetCValueAdjustedTime() { return _myCQ.xdfgetAdjustedTime(); }
+    protected ConditionValue xgetCValueAdjustedInteger() { return _myCQ.xdfgetAdjustedInteger(); }
+    protected ConditionValue xgetCValueAdjustedNamedStringLong() { return _myCQ.xdfgetAdjustedNamedStringLong(); }
+    protected ConditionValue xgetCValueAdjustedNamedTypedLong() { return _myCQ.xdfgetAdjustedNamedTypedLong(); }
+    protected ConditionValue xgetCValueAdjustedPinpointStringLong() { return _myCQ.xdfgetAdjustedPinpointStringLong(); }
+    protected ConditionValue xgetCValueAdjustedPinpointTypedLong() { return _myCQ.xdfgetAdjustedPinpointTypedLong(); }
+    protected ConditionValue xgetCValueAdjustedPlainLong() { return _myCQ.xdfgetAdjustedPlainLong(); }
+    protected ConditionValue xgetCValueAdjustedString() { return _myCQ.xdfgetAdjustedString(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteDateAdjustmentCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

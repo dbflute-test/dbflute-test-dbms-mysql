@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGenOnlyId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueGenOnlyId(), "GEN_ONLY_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueGenOnlyId(), "GEN_ONLY_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     }
 
     protected void doSetGenOnlyId_InScope(Collection<Long> genOnlyIdList) {
-        regINS(CK_INS, cTL(genOnlyIdList), getCValueGenOnlyId(), "GEN_ONLY_ID");
+        regINS(CK_INS, cTL(genOnlyIdList), xgetCValueGenOnlyId(), "GEN_ONLY_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     }
 
     protected void doSetGenOnlyId_NotInScope(Collection<Long> genOnlyIdList) {
-        regINS(CK_NINS, cTL(genOnlyIdList), getCValueGenOnlyId(), "GEN_ONLY_ID");
+        regINS(CK_NINS, cTL(genOnlyIdList), xgetCValueGenOnlyId(), "GEN_ONLY_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      */
     public void setGenOnlyId_IsNotNull() { regGenOnlyId(CK_ISNN, DOBJ); }
 
-    protected void regGenOnlyId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGenOnlyId(), "GEN_ONLY_ID"); }
-    protected abstract ConditionValue getCValueGenOnlyId();
+    protected void regGenOnlyId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenOnlyId(), "GEN_ONLY_ID"); }
+    protected abstract ConditionValue xgetCValueGenOnlyId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     }
 
     protected void doSetGenOnlyName_InScope(Collection<String> genOnlyNameList) {
-        regINS(CK_INS, cTL(genOnlyNameList), getCValueGenOnlyName(), "GEN_ONLY_NAME");
+        regINS(CK_INS, cTL(genOnlyNameList), xgetCValueGenOnlyName(), "GEN_ONLY_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     }
 
     protected void doSetGenOnlyName_NotInScope(Collection<String> genOnlyNameList) {
-        regINS(CK_NINS, cTL(genOnlyNameList), getCValueGenOnlyName(), "GEN_ONLY_NAME");
+        regINS(CK_NINS, cTL(genOnlyNameList), xgetCValueGenOnlyName(), "GEN_ONLY_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setGenOnlyName_LikeSearch(String genOnlyName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(genOnlyName), getCValueGenOnlyName(), "GEN_ONLY_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(genOnlyName), xgetCValueGenOnlyName(), "GEN_ONLY_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setGenOnlyName_NotLikeSearch(String genOnlyName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(genOnlyName), getCValueGenOnlyName(), "GEN_ONLY_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(genOnlyName), xgetCValueGenOnlyName(), "GEN_ONLY_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
         setGenOnlyName_LikeSearch(genOnlyName, xcLSOPPre());
     }
 
-    protected void regGenOnlyName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGenOnlyName(), "GEN_ONLY_NAME"); }
-    protected abstract ConditionValue getCValueGenOnlyName();
+    protected void regGenOnlyName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenOnlyName(), "GEN_ONLY_NAME"); }
+    protected abstract ConditionValue xgetCValueGenOnlyName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

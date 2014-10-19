@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -204,10 +205,14 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
      */
     public WhitePerrottaOverTraceCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhitePerrottaOverTraceCQ getConditionQuery() { // public for parameter comment and internal
+    public WhitePerrottaOverTraceCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhitePerrottaOverTraceCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -228,8 +233,11 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
         return new WhitePerrottaOverTraceCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -277,7 +285,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhitePerrottaOverProductNss _nssWhitePerrottaOverProductByNextProductId;
-    public WhitePerrottaOverProductNss getNssWhitePerrottaOverProductByNextProductId() {
+    public WhitePerrottaOverProductNss xdfgetNssWhitePerrottaOverProductByNextProductId() {
         if (_nssWhitePerrottaOverProductByNextProductId == null) { _nssWhitePerrottaOverProductByNextProductId = new WhitePerrottaOverProductNss(null); }
         return _nssWhitePerrottaOverProductByNextProductId;
     }
@@ -305,7 +313,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
     }
 
     protected WhitePerrottaOverProductNss _nssWhitePerrottaOverProductByPreviousProductId;
-    public WhitePerrottaOverProductNss getNssWhitePerrottaOverProductByPreviousProductId() {
+    public WhitePerrottaOverProductNss xdfgetNssWhitePerrottaOverProductByPreviousProductId() {
         if (_nssWhitePerrottaOverProductByPreviousProductId == null) { _nssWhitePerrottaOverProductByPreviousProductId = new WhitePerrottaOverProductNss(null); }
         return _nssWhitePerrottaOverProductByPreviousProductId;
     }
@@ -359,7 +367,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhitePerrottaOverTraceCQ>() {
                 public boolean has() { return true; }
-                public WhitePerrottaOverTraceCQ qy() { return getConditionQuery(); }
+                public WhitePerrottaOverTraceCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -384,22 +392,22 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
          * TRACE_ID: {PK, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTraceId() { return doColumn("TRACE_ID"); }
+        public SpecifiedColumn columnTraceId() { return doColumn("TRACE_ID"); }
         /**
          * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPreviousProductId() { return doColumn("PREVIOUS_PRODUCT_ID"); }
+        public SpecifiedColumn columnPreviousProductId() { return doColumn("PREVIOUS_PRODUCT_ID"); }
         /**
          * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNextProductId() { return doColumn("NEXT_PRODUCT_ID"); }
+        public SpecifiedColumn columnNextProductId() { return doColumn("NEXT_PRODUCT_ID"); }
         /**
          * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTraceTypeCode() { return doColumn("TRACE_TYPE_CODE"); }
+        public SpecifiedColumn columnTraceTypeCode() { return doColumn("TRACE_TYPE_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -501,7 +509,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePerrottaOverTraceCB> columnQuery(final SpecifyQuery<WhitePerrottaOverTraceCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhitePerrottaOverTraceCB>() {
-            public HpCalculator handle(SpecifyQuery<WhitePerrottaOverTraceCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhitePerrottaOverTraceCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -619,8 +627,8 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhitePerrottaOverTraceCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhitePerrottaOverTraceCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhitePerrottaOverTraceCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhitePerrottaOverTraceCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

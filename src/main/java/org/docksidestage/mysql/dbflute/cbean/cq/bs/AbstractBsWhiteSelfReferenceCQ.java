@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSelfReferenceId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSelfReferenceId(), "SELF_REFERENCE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSelfReferenceId(), "SELF_REFERENCE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     protected void doSetSelfReferenceId_InScope(Collection<Long> selfReferenceIdList) {
-        regINS(CK_INS, cTL(selfReferenceIdList), getCValueSelfReferenceId(), "SELF_REFERENCE_ID");
+        regINS(CK_INS, cTL(selfReferenceIdList), xgetCValueSelfReferenceId(), "SELF_REFERENCE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     protected void doSetSelfReferenceId_NotInScope(Collection<Long> selfReferenceIdList) {
-        regINS(CK_NINS, cTL(selfReferenceIdList), getCValueSelfReferenceId(), "SELF_REFERENCE_ID");
+        regINS(CK_NINS, cTL(selfReferenceIdList), xgetCValueSelfReferenceId(), "SELF_REFERENCE_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      */
     public void setSelfReferenceId_IsNotNull() { regSelfReferenceId(CK_ISNN, DOBJ); }
 
-    protected void regSelfReferenceId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSelfReferenceId(), "SELF_REFERENCE_ID"); }
-    protected abstract ConditionValue getCValueSelfReferenceId();
+    protected void regSelfReferenceId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSelfReferenceId(), "SELF_REFERENCE_ID"); }
+    protected abstract ConditionValue xgetCValueSelfReferenceId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     protected void doSetSelfReferenceName_InScope(Collection<String> selfReferenceNameList) {
-        regINS(CK_INS, cTL(selfReferenceNameList), getCValueSelfReferenceName(), "SELF_REFERENCE_NAME");
+        regINS(CK_INS, cTL(selfReferenceNameList), xgetCValueSelfReferenceName(), "SELF_REFERENCE_NAME");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     protected void doSetSelfReferenceName_NotInScope(Collection<String> selfReferenceNameList) {
-        regINS(CK_NINS, cTL(selfReferenceNameList), getCValueSelfReferenceName(), "SELF_REFERENCE_NAME");
+        regINS(CK_NINS, cTL(selfReferenceNameList), xgetCValueSelfReferenceName(), "SELF_REFERENCE_NAME");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSelfReferenceName_LikeSearch(String selfReferenceName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(selfReferenceName), getCValueSelfReferenceName(), "SELF_REFERENCE_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(selfReferenceName), xgetCValueSelfReferenceName(), "SELF_REFERENCE_NAME", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSelfReferenceName_NotLikeSearch(String selfReferenceName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(selfReferenceName), getCValueSelfReferenceName(), "SELF_REFERENCE_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(selfReferenceName), xgetCValueSelfReferenceName(), "SELF_REFERENCE_NAME", likeSearchOption);
     }
 
     /**
@@ -365,8 +365,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
         setSelfReferenceName_LikeSearch(selfReferenceName, xcLSOPPre());
     }
 
-    protected void regSelfReferenceName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSelfReferenceName(), "SELF_REFERENCE_NAME"); }
-    protected abstract ConditionValue getCValueSelfReferenceName();
+    protected void regSelfReferenceName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSelfReferenceName(), "SELF_REFERENCE_NAME"); }
+    protected abstract ConditionValue xgetCValueSelfReferenceName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -440,7 +440,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setParentId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueParentId(), "PARENT_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueParentId(), "PARENT_ID", rangeOfOption);
     }
 
     /**
@@ -453,7 +453,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     protected void doSetParentId_InScope(Collection<Long> parentIdList) {
-        regINS(CK_INS, cTL(parentIdList), getCValueParentId(), "PARENT_ID");
+        regINS(CK_INS, cTL(parentIdList), xgetCValueParentId(), "PARENT_ID");
     }
 
     /**
@@ -466,7 +466,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     protected void doSetParentId_NotInScope(Collection<Long> parentIdList) {
-        regINS(CK_NINS, cTL(parentIdList), getCValueParentId(), "PARENT_ID");
+        regINS(CK_NINS, cTL(parentIdList), xgetCValueParentId(), "PARENT_ID");
     }
 
     /**
@@ -481,8 +481,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      */
     public void setParentId_IsNotNull() { regParentId(CK_ISNN, DOBJ); }
 
-    protected void regParentId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueParentId(), "PARENT_ID"); }
-    protected abstract ConditionValue getCValueParentId();
+    protected void regParentId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueParentId(), "PARENT_ID"); }
+    protected abstract ConditionValue xgetCValueParentId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -76,9 +76,8 @@ public class LoaderOfWhiteOnlyOneToOneFrom {
     //                                                                    ================
     protected LoaderOfWhiteOnlyOneToOneTo _foreignWhiteOnlyOneToOneToAsOneLoader;
     public LoaderOfWhiteOnlyOneToOneTo pulloutWhiteOnlyOneToOneToAsOne() {
-        if (_foreignWhiteOnlyOneToOneToAsOneLoader != null) { return _foreignWhiteOnlyOneToOneToAsOneLoader; }
-        List<WhiteOnlyOneToOneTo> pulledList = myBhv().pulloutWhiteOnlyOneToOneToAsOne(_selectedList);
-        _foreignWhiteOnlyOneToOneToAsOneLoader = new LoaderOfWhiteOnlyOneToOneTo().ready(pulledList, _selector);
+        if (_foreignWhiteOnlyOneToOneToAsOneLoader == null)
+        { _foreignWhiteOnlyOneToOneToAsOneLoader = new LoaderOfWhiteOnlyOneToOneTo().ready(myBhv().pulloutWhiteOnlyOneToOneToAsOne(_selectedList), _selector); }
         return _foreignWhiteOnlyOneToOneToAsOneLoader;
     }
 

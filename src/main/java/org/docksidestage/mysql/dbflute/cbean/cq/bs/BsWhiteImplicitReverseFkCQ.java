@@ -89,10 +89,10 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _whiteImplicitReverseFkId;
-    public ConditionValue getWhiteImplicitReverseFkId()
+    public ConditionValue xdfgetWhiteImplicitReverseFkId()
     { if (_whiteImplicitReverseFkId == null) { _whiteImplicitReverseFkId = nCV(); }
       return _whiteImplicitReverseFkId; }
-    protected ConditionValue getCValueWhiteImplicitReverseFkId() { return getWhiteImplicitReverseFkId(); }
+    protected ConditionValue xgetCValueWhiteImplicitReverseFkId() { return xdfgetWhiteImplicitReverseFkId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
     public BsWhiteImplicitReverseFkCQ addOrderBy_WhiteImplicitReverseFkId_Desc() { regOBD("WHITE_IMPLICIT_REVERSE_FK_ID"); return this; }
 
     protected ConditionValue _whiteImplicitReverseFkName;
-    public ConditionValue getWhiteImplicitReverseFkName()
+    public ConditionValue xdfgetWhiteImplicitReverseFkName()
     { if (_whiteImplicitReverseFkName == null) { _whiteImplicitReverseFkName = nCV(); }
       return _whiteImplicitReverseFkName; }
-    protected ConditionValue getCValueWhiteImplicitReverseFkName() { return getWhiteImplicitReverseFkName(); }
+    protected ConditionValue xgetCValueWhiteImplicitReverseFkName() { return xdfgetWhiteImplicitReverseFkName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -170,12 +170,12 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
         WhiteImplicitReverseFkCQ bq = (WhiteImplicitReverseFkCQ)bqs;
         WhiteImplicitReverseFkCQ uq = (WhiteImplicitReverseFkCQ)uqs;
         if (bq.hasConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK()) {
-            uq.xsetParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK(bq.getParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK());
-            uq.getConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK().reflectRelationOnUnionQuery(bq.getConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(), uq.getConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK());
+            uq.xsetParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK(bq.xdfgetParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK());
+            uq.xdfgetConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(), uq.xdfgetConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK());
         }
         if (bq.hasConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK()) {
-            uq.xsetParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(bq.getParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK());
-            uq.getConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK().reflectRelationOnUnionQuery(bq.getConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(), uq.getConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK());
+            uq.xsetParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(bq.xdfgetParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK());
+            uq.xdfgetConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(), uq.xdfgetConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK());
         }
     }
 
@@ -189,18 +189,18 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteImplicitReverseFkRefCQ queryWhiteImplicitReverseFkRefWithImplicitReverseFK(java.util.Date targetDate) {
-        Map<String, Object> parameterMap = getParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK();
+        Map<String, Object> parameterMap = xdfgetParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK();
         parameterMap.put("targetDate", fCTPD(targetDate));
         xassertFCDP("whiteImplicitReverseFkRefWithImplicitReverseFK", parameterMap);
-        return getConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK();
+        return xdfgetConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK();
     }
-    public WhiteImplicitReverseFkRefCQ getConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK() {
+    public WhiteImplicitReverseFkRefCQ xdfgetConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK() {
         String prop = "whiteImplicitReverseFkRefWithImplicitReverseFK";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteImplicitReverseFkRefWithImplicitReverseFK()); xsetupOuterJoinWhiteImplicitReverseFkRefWithImplicitReverseFK(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK;
-    public Map<String, Object> getParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK()
+    public Map<String, Object> xdfgetParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK()
     { if (_parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK == null) { _parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK = newLinkedHashMapSized(4); }
       return _parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK; }
     public void xsetParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK(Map<String, Object> parameterMap)
@@ -219,18 +219,18 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteImplicitReverseFkSuppressCQ queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(java.util.Date targetDate) {
-        Map<String, Object> parameterMap = getParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK();
+        Map<String, Object> parameterMap = xdfgetParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK();
         parameterMap.put("targetDate", fCTPD(targetDate));
         xassertFCDP("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK", parameterMap);
-        return getConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK();
+        return xdfgetConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK();
     }
-    public WhiteImplicitReverseFkSuppressCQ getConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK() {
+    public WhiteImplicitReverseFkSuppressCQ xdfgetConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK() {
         String prop = "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK()); xsetupOuterJoinWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); }
         return xgetQueRlMap(prop);
     }
     protected Map<String, Object> _parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK;
-    public Map<String, Object> getParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK()
+    public Map<String, Object> xdfgetParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK()
     { if (_parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK == null) { _parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK = newLinkedHashMapSized(4); }
       return _parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK; }
     public void xsetParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(Map<String, Object> parameterMap)
@@ -251,31 +251,31 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteImplicitReverseFkCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteImplicitReverseFkCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteImplicitReverseFkCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteImplicitReverseFkCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteImplicitReverseFkCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteImplicitReverseFkCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteImplicitReverseFkCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteImplicitReverseFkCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteImplicitReverseFkCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteImplicitReverseFkCQ> _myselfExistsMap;
-    public Map<String, WhiteImplicitReverseFkCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteImplicitReverseFkCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteImplicitReverseFkCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteImplicitReverseFkCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteImplicitReverseFkCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteImplicitReverseFkCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -284,7 +284,7 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteImplicitReverseFkCB.class.getName(); }
     protected String xCQ() { return WhiteImplicitReverseFkCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

@@ -191,7 +191,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     protected void doSetNumberInitialCode_InScope(Collection<String> numberInitialCodeList) {
-        regINS(CK_INS, cTL(numberInitialCodeList), getCValueNumberInitialCode(), "NUMBER_INITIAL_CODE");
+        regINS(CK_INS, cTL(numberInitialCodeList), xgetCValueNumberInitialCode(), "NUMBER_INITIAL_CODE");
     }
 
     /**
@@ -214,7 +214,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     protected void doSetNumberInitialCode_NotInScope(Collection<String> numberInitialCodeList) {
-        regINS(CK_NINS, cTL(numberInitialCodeList), getCValueNumberInitialCode(), "NUMBER_INITIAL_CODE");
+        regINS(CK_NINS, cTL(numberInitialCodeList), xgetCValueNumberInitialCode(), "NUMBER_INITIAL_CODE");
     }
 
     /**
@@ -229,8 +229,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      */
     public void setNumberInitialCode_IsNotNull() { regNumberInitialCode(CK_ISNN, DOBJ); }
 
-    protected void regNumberInitialCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNumberInitialCode(), "NUMBER_INITIAL_CODE"); }
-    protected abstract ConditionValue getCValueNumberInitialCode();
+    protected void regNumberInitialCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNumberInitialCode(), "NUMBER_INITIAL_CODE"); }
+    protected abstract ConditionValue xgetCValueNumberInitialCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -268,7 +268,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     protected void doSetNumberInitialName_InScope(Collection<String> numberInitialNameList) {
-        regINS(CK_INS, cTL(numberInitialNameList), getCValueNumberInitialName(), "NUMBER_INITIAL_NAME");
+        regINS(CK_INS, cTL(numberInitialNameList), xgetCValueNumberInitialName(), "NUMBER_INITIAL_NAME");
     }
 
     /**
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     protected void doSetNumberInitialName_NotInScope(Collection<String> numberInitialNameList) {
-        regINS(CK_NINS, cTL(numberInitialNameList), getCValueNumberInitialName(), "NUMBER_INITIAL_NAME");
+        regINS(CK_NINS, cTL(numberInitialNameList), xgetCValueNumberInitialName(), "NUMBER_INITIAL_NAME");
     }
 
     /**
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNumberInitialName_LikeSearch(String numberInitialName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(numberInitialName), getCValueNumberInitialName(), "NUMBER_INITIAL_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(numberInitialName), xgetCValueNumberInitialName(), "NUMBER_INITIAL_NAME", likeSearchOption);
     }
 
     /**
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNumberInitialName_NotLikeSearch(String numberInitialName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(numberInitialName), getCValueNumberInitialName(), "NUMBER_INITIAL_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(numberInitialName), xgetCValueNumberInitialName(), "NUMBER_INITIAL_NAME", likeSearchOption);
     }
 
     /**
@@ -355,8 +355,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      */
     public void setNumberInitialName_IsNotNull() { regNumberInitialName(CK_ISNN, DOBJ); }
 
-    protected void regNumberInitialName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNumberInitialName(), "NUMBER_INITIAL_NAME"); }
-    protected abstract ConditionValue getCValueNumberInitialName();
+    protected void regNumberInitialName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNumberInitialName(), "NUMBER_INITIAL_NAME"); }
+    protected abstract ConditionValue xgetCValueNumberInitialName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -78,14 +78,8 @@ public class LoaderOfWhiteUqFkRef {
     //                                                                       =============
     protected List<WhiteUqFkRefNest> _referrerWhiteUqFkRefNestList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRefNest> loadWhiteUqFkRefNestList(ConditionBeanSetupper<WhiteUqFkRefNestCB> refCBLambda) {
-        myBhv().loadWhiteUqFkRefNestList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteUqFkRefNest>() {
-            public void handle(List<WhiteUqFkRefNest> referrerList) { _referrerWhiteUqFkRefNestList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRefNest>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteUqFkRefNest> handler) {
-                handler.handle(new LoaderOfWhiteUqFkRefNest().ready(_referrerWhiteUqFkRefNestList, _selector));
-            }
-        };
+        myBhv().loadWhiteUqFkRefNestList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteUqFkRefNestList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteUqFkRefNest().ready(_referrerWhiteUqFkRefNestList, _selector));
     }
 
     // ===================================================================================
@@ -93,17 +87,15 @@ public class LoaderOfWhiteUqFkRef {
     //                                                                    ================
     protected LoaderOfWhiteUqFk _foreignWhiteUqFkByFkToPkIdLoader;
     public LoaderOfWhiteUqFk pulloutWhiteUqFkByFkToPkId() {
-        if (_foreignWhiteUqFkByFkToPkIdLoader != null) { return _foreignWhiteUqFkByFkToPkIdLoader; }
-        List<WhiteUqFk> pulledList = myBhv().pulloutWhiteUqFkByFkToPkId(_selectedList);
-        _foreignWhiteUqFkByFkToPkIdLoader = new LoaderOfWhiteUqFk().ready(pulledList, _selector);
+        if (_foreignWhiteUqFkByFkToPkIdLoader == null)
+        { _foreignWhiteUqFkByFkToPkIdLoader = new LoaderOfWhiteUqFk().ready(myBhv().pulloutWhiteUqFkByFkToPkId(_selectedList), _selector); }
         return _foreignWhiteUqFkByFkToPkIdLoader;
     }
 
     protected LoaderOfWhiteUqFk _foreignWhiteUqFkByFkToUqCodeLoader;
     public LoaderOfWhiteUqFk pulloutWhiteUqFkByFkToUqCode() {
-        if (_foreignWhiteUqFkByFkToUqCodeLoader != null) { return _foreignWhiteUqFkByFkToUqCodeLoader; }
-        List<WhiteUqFk> pulledList = myBhv().pulloutWhiteUqFkByFkToUqCode(_selectedList);
-        _foreignWhiteUqFkByFkToUqCodeLoader = new LoaderOfWhiteUqFk().ready(pulledList, _selector);
+        if (_foreignWhiteUqFkByFkToUqCodeLoader == null)
+        { _foreignWhiteUqFkByFkToUqCodeLoader = new LoaderOfWhiteUqFk().ready(myBhv().pulloutWhiteUqFkByFkToUqCode(_selectedList), _selector); }
         return _foreignWhiteUqFkByFkToUqCodeLoader;
     }
 

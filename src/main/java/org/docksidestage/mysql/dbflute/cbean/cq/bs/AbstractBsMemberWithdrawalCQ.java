@@ -133,7 +133,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMemberId(), "MEMBER_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMemberId(), "MEMBER_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     }
 
     protected void doSetMemberId_InScope(Collection<Integer> memberIdList) {
-        regINS(CK_INS, cTL(memberIdList), getCValueMemberId(), "MEMBER_ID");
+        regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     }
 
     protected void doSetMemberId_NotInScope(Collection<Integer> memberIdList) {
-        regINS(CK_NINS, cTL(memberIdList), getCValueMemberId(), "MEMBER_ID");
+        regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      */
     public void setMemberId_IsNotNull() { regMemberId(CK_ISNN, DOBJ); }
 
-    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberId(), "MEMBER_ID"); }
-    protected abstract ConditionValue getCValueMemberId();
+    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberId(), "MEMBER_ID"); }
+    protected abstract ConditionValue xgetCValueMemberId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -307,7 +307,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonCode_InScope(Collection<String> withdrawalReasonCodeList) {
-        regINS(CK_INS, cTL(withdrawalReasonCodeList), getCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE");
+        regINS(CK_INS, cTL(withdrawalReasonCodeList), xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE");
     }
 
     /**
@@ -330,7 +330,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonCode_NotInScope(Collection<String> withdrawalReasonCodeList) {
-        regINS(CK_NINS, cTL(withdrawalReasonCodeList), getCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE");
+        regINS(CK_NINS, cTL(withdrawalReasonCodeList), xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE");
     }
 
     /**
@@ -351,8 +351,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      */
     public void setWithdrawalReasonCode_IsNotNull() { regWithdrawalReasonCode(CK_ISNN, DOBJ); }
 
-    protected void regWithdrawalReasonCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE"); }
-    protected abstract ConditionValue getCValueWithdrawalReasonCode();
+    protected void regWithdrawalReasonCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE"); }
+    protected abstract ConditionValue xgetCValueWithdrawalReasonCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -390,7 +390,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonInputText_InScope(Collection<String> withdrawalReasonInputTextList) {
-        regINS(CK_INS, cTL(withdrawalReasonInputTextList), getCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT");
+        regINS(CK_INS, cTL(withdrawalReasonInputTextList), xgetCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT");
     }
 
     /**
@@ -403,7 +403,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonInputText_NotInScope(Collection<String> withdrawalReasonInputTextList) {
-        regINS(CK_NINS, cTL(withdrawalReasonInputTextList), getCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT");
+        regINS(CK_NINS, cTL(withdrawalReasonInputTextList), xgetCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT");
     }
 
     /**
@@ -425,7 +425,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setWithdrawalReasonInputText_LikeSearch(String withdrawalReasonInputText, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(withdrawalReasonInputText), getCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT", likeSearchOption);
+        regLSQ(CK_LS, fRES(withdrawalReasonInputText), xgetCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT", likeSearchOption);
     }
 
     /**
@@ -447,7 +447,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setWithdrawalReasonInputText_NotLikeSearch(String withdrawalReasonInputText, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(withdrawalReasonInputText), getCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT", likeSearchOption);
+        regLSQ(CK_NLS, fRES(withdrawalReasonInputText), xgetCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT", likeSearchOption);
     }
 
     /**
@@ -477,8 +477,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      */
     public void setWithdrawalReasonInputText_IsNotNull() { regWithdrawalReasonInputText(CK_ISNN, DOBJ); }
 
-    protected void regWithdrawalReasonInputText(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT"); }
-    protected abstract ConditionValue getCValueWithdrawalReasonInputText();
+    protected void regWithdrawalReasonInputText(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalReasonInputText(), "WITHDRAWAL_REASON_INPUT_TEXT"); }
+    protected abstract ConditionValue xgetCValueWithdrawalReasonInputText();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -548,7 +548,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setWithdrawalDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueWithdrawalDatetime(), "WITHDRAWAL_DATETIME", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueWithdrawalDatetime(), "WITHDRAWAL_DATETIME", fromToOption);
     }
 
     /**
@@ -566,8 +566,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
         setWithdrawalDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regWithdrawalDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWithdrawalDatetime(), "WITHDRAWAL_DATETIME"); }
-    protected abstract ConditionValue getCValueWithdrawalDatetime();
+    protected void regWithdrawalDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalDatetime(), "WITHDRAWAL_DATETIME"); }
+    protected abstract ConditionValue xgetCValueWithdrawalDatetime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -578,8 +578,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
-    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterDatetime(), "REGISTER_DATETIME"); }
-    protected abstract ConditionValue getCValueRegisterDatetime();
+    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterDatetime(), "REGISTER_DATETIME"); }
+    protected abstract ConditionValue xgetCValueRegisterDatetime();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -613,11 +613,11 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRegisterUser_LikeSearch(String registerUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(registerUser), getCValueRegisterUser(), "REGISTER_USER", likeSearchOption);
+        regLSQ(CK_LS, fRES(registerUser), xgetCValueRegisterUser(), "REGISTER_USER", likeSearchOption);
     }
 
-    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterUser(), "REGISTER_USER"); }
-    protected abstract ConditionValue getCValueRegisterUser();
+    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterUser(), "REGISTER_USER"); }
+    protected abstract ConditionValue xgetCValueRegisterUser();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -628,8 +628,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 
-    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateDatetime(), "UPDATE_DATETIME"); }
-    protected abstract ConditionValue getCValueUpdateDatetime();
+    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateDatetime(), "UPDATE_DATETIME"); }
+    protected abstract ConditionValue xgetCValueUpdateDatetime();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -663,11 +663,11 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUpdateUser_LikeSearch(String updateUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(updateUser), getCValueUpdateUser(), "UPDATE_USER", likeSearchOption);
+        regLSQ(CK_LS, fRES(updateUser), xgetCValueUpdateUser(), "UPDATE_USER", likeSearchOption);
     }
 
-    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateUser(), "UPDATE_USER"); }
-    protected abstract ConditionValue getCValueUpdateUser();
+    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateUser(), "UPDATE_USER"); }
+    protected abstract ConditionValue xgetCValueUpdateUser();
 
     // ===================================================================================
     //                                                                     ScalarCondition

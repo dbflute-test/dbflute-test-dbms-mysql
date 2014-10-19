@@ -76,9 +76,8 @@ public class LoaderOfWhiteVariantRelationLocalPkReferrer {
     //                                                                    ================
     protected LoaderOfWhiteVariantRelationMasterFoo _foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOneLoader;
     public LoaderOfWhiteVariantRelationMasterFoo pulloutWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {
-        if (_foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOneLoader != null) { return _foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOneLoader; }
-        List<WhiteVariantRelationMasterFoo> pulledList = myBhv().pulloutWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(_selectedList);
-        _foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOneLoader = new LoaderOfWhiteVariantRelationMasterFoo().ready(pulledList, _selector);
+        if (_foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOneLoader == null)
+        { _foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOneLoader = new LoaderOfWhiteVariantRelationMasterFoo().ready(myBhv().pulloutWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(_selectedList), _selector); }
         return _foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOneLoader;
     }
 

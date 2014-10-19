@@ -76,17 +76,15 @@ public class LoaderOfWhiteCompoundPkRefNest {
     //                                                                    ================
     protected LoaderOfWhiteCompoundPkRef _foreignWhiteCompoundPkRefByQuxMultipleIdLoader;
     public LoaderOfWhiteCompoundPkRef pulloutWhiteCompoundPkRefByQuxMultipleId() {
-        if (_foreignWhiteCompoundPkRefByQuxMultipleIdLoader != null) { return _foreignWhiteCompoundPkRefByQuxMultipleIdLoader; }
-        List<WhiteCompoundPkRef> pulledList = myBhv().pulloutWhiteCompoundPkRefByQuxMultipleId(_selectedList);
-        _foreignWhiteCompoundPkRefByQuxMultipleIdLoader = new LoaderOfWhiteCompoundPkRef().ready(pulledList, _selector);
+        if (_foreignWhiteCompoundPkRefByQuxMultipleIdLoader == null)
+        { _foreignWhiteCompoundPkRefByQuxMultipleIdLoader = new LoaderOfWhiteCompoundPkRef().ready(myBhv().pulloutWhiteCompoundPkRefByQuxMultipleId(_selectedList), _selector); }
         return _foreignWhiteCompoundPkRefByQuxMultipleIdLoader;
     }
 
     protected LoaderOfWhiteCompoundPkRef _foreignWhiteCompoundPkRefByFooMultipleIdLoader;
     public LoaderOfWhiteCompoundPkRef pulloutWhiteCompoundPkRefByFooMultipleId() {
-        if (_foreignWhiteCompoundPkRefByFooMultipleIdLoader != null) { return _foreignWhiteCompoundPkRefByFooMultipleIdLoader; }
-        List<WhiteCompoundPkRef> pulledList = myBhv().pulloutWhiteCompoundPkRefByFooMultipleId(_selectedList);
-        _foreignWhiteCompoundPkRefByFooMultipleIdLoader = new LoaderOfWhiteCompoundPkRef().ready(pulledList, _selector);
+        if (_foreignWhiteCompoundPkRefByFooMultipleIdLoader == null)
+        { _foreignWhiteCompoundPkRefByFooMultipleIdLoader = new LoaderOfWhiteCompoundPkRef().ready(myBhv().pulloutWhiteCompoundPkRefByFooMultipleId(_selectedList), _selector); }
         return _foreignWhiteCompoundPkRefByFooMultipleIdLoader;
     }
 

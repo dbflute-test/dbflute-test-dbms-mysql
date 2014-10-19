@@ -76,8 +76,8 @@ public class WhiteEscapedNumberInitialCIQ extends AbstractBsWhiteEscapedNumberIn
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueNumberInitialCode() { return _myCQ.getNumberInitialCode(); }
-    protected ConditionValue getCValueNumberInitialName() { return _myCQ.getNumberInitialName(); }
+    protected ConditionValue xgetCValueNumberInitialCode() { return _myCQ.xdfgetNumberInitialCode(); }
+    protected ConditionValue xgetCValueNumberInitialName() { return _myCQ.xdfgetNumberInitialName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteEscapedNumberInitialCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

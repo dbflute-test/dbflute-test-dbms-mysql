@@ -15,14 +15,11 @@
  */
 package org.docksidestage.mysql.dbflute.bsentity;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Set;
 
-import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
-import org.dbflute.dbmeta.derived.DerivedMappable;
+import org.dbflute.dbmeta.AbstractEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -72,7 +69,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteUqFkRef implements Entity, Serializable, Cloneable, DerivedMappable {
+public abstract class BsWhiteUqFkRef extends AbstractEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -83,9 +80,6 @@ public abstract class BsWhiteUqFkRef implements Entity, Serializable, Cloneable,
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    // -----------------------------------------------------
-    //                                                Column
-    //                                                ------
     /** UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)} */
     protected Long _uqFkRefId;
 
@@ -101,44 +95,24 @@ public abstract class BsWhiteUqFkRef implements Entity, Serializable, Cloneable,
     /** COMPOUND_UQ_SECOND_CODE: {+UQ, NotNull, CHAR(3)} */
     protected String _compoundUqSecondCode;
 
-    // -----------------------------------------------------
-    //                                              Internal
-    //                                              --------
-    /** The unique-driven properties for this entity. (NotNull) */
-    protected final EntityUniqueDrivenProperties __uniqueDrivenProperties = newUniqueDrivenProperties();
-
-    /** The modified properties for this entity. (NotNull) */
-    protected final EntityModifiedProperties __modifiedProperties = newModifiedProperties();
-
-    /** The map of derived value, key is alias name. (NullAllowed: lazy-loaded) */
-    protected EntityDerivedMap __derivedMap;
-
-    /** Is the entity created by DBFlute select process? */
-    protected boolean __createdBySelect;
 
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public String getTableDbName() {
         return "white_uq_fk_ref";
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public String getTablePropertyName() { // according to Java Beans rule
+    /** {@inheritDoc} */
+    public String getTablePropertyName() {
         return "whiteUqFkRef";
     }
 
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public DBMeta getDBMeta() {
         return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
@@ -146,11 +120,9 @@ public abstract class BsWhiteUqFkRef implements Entity, Serializable, Cloneable,
     // ===================================================================================
     //                                                                         Primary Key
     //                                                                         ===========
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
-        if (getUqFkRefId() == null) { return false; }
+        if (_uqFkRefId == null) { return false; }
         return true;
     }
 
@@ -167,17 +139,6 @@ public abstract class BsWhiteUqFkRef implements Entity, Serializable, Cloneable,
         setCompoundUqFirstCode(compoundUqFirstCode);setCompoundUqSecondCode(compoundUqSecondCode);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public Set<String> myuniqueDrivenProperties() {
-        return __uniqueDrivenProperties.getPropertyNames();
-    }
-
-    protected EntityUniqueDrivenProperties newUniqueDrivenProperties() {
-        return new EntityUniqueDrivenProperties();
-    }
-
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
@@ -185,7 +146,7 @@ public abstract class BsWhiteUqFkRef implements Entity, Serializable, Cloneable,
     protected WhiteUqFk _whiteUqFkByFkToPkId;
 
     /**
-     * [get] white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
+     * [get] white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. <br />
      * @return The entity of foreign property 'whiteUqFkByFkToPkId'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteUqFk getWhiteUqFkByFkToPkId() {
@@ -204,7 +165,7 @@ public abstract class BsWhiteUqFkRef implements Entity, Serializable, Cloneable,
     protected WhiteUqFk _whiteUqFkByFkToUqCode;
 
     /**
-     * [get] white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
+     * [get] white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. <br />
      * @return The entity of foreign property 'whiteUqFkByFkToUqCode'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteUqFk getWhiteUqFkByFkToUqCode() {
@@ -247,200 +208,70 @@ public abstract class BsWhiteUqFkRef implements Entity, Serializable, Cloneable,
     }
 
     // ===================================================================================
-    //                                                                 Modified Properties
-    //                                                                 ===================
-    /**
-     * {@inheritDoc}
-     */
-    public Set<String> modifiedProperties() {
-        return __modifiedProperties.getPropertyNames();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public void clearModifiedInfo() {
-        __modifiedProperties.clear();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public boolean hasModification() {
-        return !__modifiedProperties.isEmpty();
-    }
-
-    protected EntityModifiedProperties newModifiedProperties() {
-        return new EntityModifiedProperties();
-    }
-
-    // ===================================================================================
-    //                                                                     Birthplace Mark
-    //                                                                     ===============
-    /**
-     * {@inheritDoc}
-     */
-    public void markAsSelect() {
-        __createdBySelect = true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public boolean createdBySelect() {
-        return __createdBySelect;
-    }
-
-    // ===================================================================================
-    //                                                                    Derived Mappable
-    //                                                                    ================
-    /**
-     * {@inheritDoc}
-     */
-    public void registerDerivedValue(String aliasName, Object selectedValue) {
-        if (__derivedMap == null) { __derivedMap = newDerivedMap(); }
-        __derivedMap.registerDerivedValue(aliasName, selectedValue);
-    }
-
-    /**
-     * Find the derived value from derived map.
-     * <pre>
-     * mapping type:
-     *  count()      : Integer
-     *  max(), min() : (same as property type of the column)
-     *  sum(), avg() : BigDecimal
-     *
-     * e.g. use count()
-     *  Integer loginCount = member.derived("$LOGIN_COUNT");
-     * </pre>
-     * @param <VALUE> The type of the value.
-     * @param aliasName The alias name of derived-referrer. (NotNull)
-     * @return The derived value found in the map. (NullAllowed: when null selected)
-     */
-    public <VALUE> VALUE derived(String aliasName) {
-        if (__derivedMap == null) { __derivedMap = newDerivedMap(); }
-        return __derivedMap.findDerivedValue(aliasName);
-    }
-
-    protected EntityDerivedMap newDerivedMap() {
-        return new EntityDerivedMap();
-    }
-
-    // ===================================================================================
     //                                                                      Basic Override
     //                                                                      ==============
-    /**
-     * Determine the object is equal with this. <br />
-     * If primary-keys or columns of the other are same as this one, returns true.
-     * @param obj The object as other entity. (NullAllowed: if null, returns false fixedly)
-     * @return Comparing result.
-     */
-    public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof BsWhiteUqFkRef)) { return false; }
-        BsWhiteUqFkRef other = (BsWhiteUqFkRef)obj;
-        if (!xSV(getUqFkRefId(), other.getUqFkRefId())) { return false; }
-        return true;
-    }
-    protected boolean xSV(Object v1, Object v2) {
-        return FunCustodial.isSameValue(v1, v2);
+    @Override
+    protected boolean doEquals(Object obj) {
+        if (obj instanceof BsWhiteUqFkRef) {
+            BsWhiteUqFkRef other = (BsWhiteUqFkRef)obj;
+            if (!xSV(_uqFkRefId, other._uqFkRefId)) { return false; }
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    /**
-     * Calculate the hash-code from primary-keys or columns.
-     * @return The hash-code from primary-key or columns.
-     */
-    public int hashCode() {
-        int hs = 17;
+    @Override
+    protected int doHashCode(int initial) {
+        int hs = initial;
         hs = xCH(hs, getTableDbName());
-        hs = xCH(hs, getUqFkRefId());
+        hs = xCH(hs, _uqFkRefId);
         return hs;
     }
-    protected int xCH(int hs, Object vl) {
-        return FunCustodial.calculateHashcode(hs, vl);
-    }
 
-    /**
-     * {@inheritDoc}
-     */
-    public int instanceHash() {
-        return super.hashCode();
-    }
-
-    /**
-     * Convert to display string of entity's data. (no relation data)
-     * @return The display string of all columns and relation existences. (NotNull)
-     */
-    public String toString() {
-        return buildDisplayString(FunCustodial.toClassTitle(this), true, true);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public String toStringWithRelation() {
+    @Override
+    protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        sb.append(toString());
-        String li = "\n  ";
         if (_whiteUqFkByFkToPkId != null)
         { sb.append(li).append(xbRDS(_whiteUqFkByFkToPkId, "whiteUqFkByFkToPkId")); }
         if (_whiteUqFkByFkToUqCode != null)
         { sb.append(li).append(xbRDS(_whiteUqFkByFkToUqCode, "whiteUqFkByFkToUqCode")); }
-        if (_whiteUqFkRefNestList != null) { for (Entity et : _whiteUqFkRefNestList)
+        if (_whiteUqFkRefNestList != null) { for (WhiteUqFkRefNest et : _whiteUqFkRefNestList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteUqFkRefNestList")); } } }
         return sb.toString();
     }
-    protected String xbRDS(Entity et, String name) { // buildRelationDisplayString()
-        return et.buildDisplayString(name, true, true);
-    }
 
-    /**
-     * {@inheritDoc}
-     */
-    public String buildDisplayString(String name, boolean column, boolean relation) {
+    @Override
+    protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (name != null) { sb.append(name).append(column || relation ? ":" : ""); }
-        if (column) { sb.append(buildColumnString()); }
-        if (relation) { sb.append(buildRelationString()); }
-        sb.append("@").append(Integer.toHexString(hashCode()));
-        return sb.toString();
-    }
-    protected String buildColumnString() {
-        StringBuilder sb = new StringBuilder();
-        String dm = ", ";
-        sb.append(dm).append(getUqFkRefId());
-        sb.append(dm).append(getFkToPkId());
-        sb.append(dm).append(getFkToUqCode());
-        sb.append(dm).append(getCompoundUqFirstCode());
-        sb.append(dm).append(getCompoundUqSecondCode());
+        sb.append(dm).append(_uqFkRefId);
+        sb.append(dm).append(_fkToPkId);
+        sb.append(dm).append(_fkToUqCode);
+        sb.append(dm).append(_compoundUqFirstCode);
+        sb.append(dm).append(_compoundUqSecondCode);
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
-    protected String buildRelationString() {
+
+    @Override
+    protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        String cm = ",";
-        if (_whiteUqFkByFkToPkId != null) { sb.append(cm).append("whiteUqFkByFkToPkId"); }
-        if (_whiteUqFkByFkToUqCode != null) { sb.append(cm).append("whiteUqFkByFkToUqCode"); }
+        if (_whiteUqFkByFkToPkId != null) { sb.append(dm).append("whiteUqFkByFkToPkId"); }
+        if (_whiteUqFkByFkToUqCode != null) { sb.append(dm).append("whiteUqFkByFkToUqCode"); }
         if (_whiteUqFkRefNestList != null && !_whiteUqFkRefNestList.isEmpty())
-        { sb.append(cm).append("whiteUqFkRefNestList"); }
-        if (sb.length() > cm.length()) {
-            sb.delete(0, cm.length()).insert(0, "(").append(")");
+        { sb.append(dm).append("whiteUqFkRefNestList"); }
+        if (sb.length() > dm.length()) {
+            sb.delete(0, dm.length()).insert(0, "(").append(")");
         }
         return sb.toString();
     }
 
-    /**
-     * Clone entity instance using super.clone(). (shallow copy) 
-     * @return The cloned instance of this entity. (NotNull)
-     */
+    @Override
     public WhiteUqFkRef clone() {
-        try {
-            return (WhiteUqFkRef)super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new IllegalStateException("Failed to clone the entity: " + toString(), e);
-        }
+        return (WhiteUqFkRef)super.clone();
     }
 
     // ===================================================================================

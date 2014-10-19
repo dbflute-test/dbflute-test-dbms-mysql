@@ -76,7 +76,7 @@ public class WhiteUqFkWithoutPkCIQ extends AbstractBsWhiteUqFkWithoutPkCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueUqFkCode() { return _myCQ.getUqFkCode(); }
+    protected ConditionValue xgetCValueUqFkCode() { return _myCQ.xdfgetUqFkCode(); }
     public String keepUqFkCode_ExistsReferrer_WhiteUqFkWithoutPkRefList(WhiteUqFkWithoutPkRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepUqFkCode_NotExistsReferrer_WhiteUqFkWithoutPkRefList(WhiteUqFkWithoutPkRefCQ sq)
@@ -87,7 +87,7 @@ public class WhiteUqFkWithoutPkCIQ extends AbstractBsWhiteUqFkWithoutPkCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepUqFkCode_QueryDerivedReferrer_WhiteUqFkWithoutPkRefListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueUqFkName() { return _myCQ.getUqFkName(); }
+    protected ConditionValue xgetCValueUqFkName() { return _myCQ.xdfgetUqFkName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteUqFkWithoutPkCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

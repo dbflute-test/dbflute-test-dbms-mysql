@@ -76,14 +76,14 @@ public class NextSchemaProductCIQ extends AbstractBsNextSchemaProductCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueProductId() { return _myCQ.getProductId(); }
-    protected ConditionValue getCValueProductName() { return _myCQ.getProductName(); }
-    protected ConditionValue getCValueRegisterDatetime() { return _myCQ.getRegisterDatetime(); }
-    protected ConditionValue getCValueRegisterUser() { return _myCQ.getRegisterUser(); }
-    protected ConditionValue getCValueRegisterProcess() { return _myCQ.getRegisterProcess(); }
-    protected ConditionValue getCValueUpdateDatetime() { return _myCQ.getUpdateDatetime(); }
-    protected ConditionValue getCValueUpdateUser() { return _myCQ.getUpdateUser(); }
-    protected ConditionValue getCValueUpdateProcess() { return _myCQ.getUpdateProcess(); }
+    protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
+    protected ConditionValue xgetCValueProductName() { return _myCQ.xdfgetProductName(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
+    protected ConditionValue xgetCValueRegisterProcess() { return _myCQ.xdfgetRegisterProcess(); }
+    protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
+    protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
+    protected ConditionValue xgetCValueUpdateProcess() { return _myCQ.xdfgetUpdateProcess(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(NextSchemaProductCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

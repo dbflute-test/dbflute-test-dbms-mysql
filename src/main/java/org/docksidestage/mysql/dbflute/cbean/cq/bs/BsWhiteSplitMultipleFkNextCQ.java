@@ -89,23 +89,23 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _nextId;
-    public ConditionValue getNextId()
+    public ConditionValue xdfgetNextId()
     { if (_nextId == null) { _nextId = nCV(); }
       return _nextId; }
-    protected ConditionValue getCValueNextId() { return getNextId(); }
+    protected ConditionValue xgetCValueNextId() { return xdfgetNextId(); }
 
-    public Map<String, WhiteSplitMultipleFkBaseCQ> getNextId_ExistsReferrer_WhiteSplitMultipleFkBaseList() { return xgetSQueMap("nextId_ExistsReferrer_WhiteSplitMultipleFkBaseList"); }
+    public Map<String, WhiteSplitMultipleFkBaseCQ> xdfgetNextId_ExistsReferrer_WhiteSplitMultipleFkBaseList() { return xgetSQueMap("nextId_ExistsReferrer_WhiteSplitMultipleFkBaseList"); }
     public String keepNextId_ExistsReferrer_WhiteSplitMultipleFkBaseList(WhiteSplitMultipleFkBaseCQ sq) { return xkeepSQue("nextId_ExistsReferrer_WhiteSplitMultipleFkBaseList", sq); }
 
-    public Map<String, WhiteSplitMultipleFkBaseCQ> getNextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList() { return xgetSQueMap("nextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList"); }
+    public Map<String, WhiteSplitMultipleFkBaseCQ> xdfgetNextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList() { return xgetSQueMap("nextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList"); }
     public String keepNextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList(WhiteSplitMultipleFkBaseCQ sq) { return xkeepSQue("nextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList", sq); }
 
-    public Map<String, WhiteSplitMultipleFkBaseCQ> getNextId_SpecifyDerivedReferrer_WhiteSplitMultipleFkBaseList() { return xgetSQueMap("nextId_SpecifyDerivedReferrer_WhiteSplitMultipleFkBaseList"); }
+    public Map<String, WhiteSplitMultipleFkBaseCQ> xdfgetNextId_SpecifyDerivedReferrer_WhiteSplitMultipleFkBaseList() { return xgetSQueMap("nextId_SpecifyDerivedReferrer_WhiteSplitMultipleFkBaseList"); }
     public String keepNextId_SpecifyDerivedReferrer_WhiteSplitMultipleFkBaseList(WhiteSplitMultipleFkBaseCQ sq) { return xkeepSQue("nextId_SpecifyDerivedReferrer_WhiteSplitMultipleFkBaseList", sq); }
 
-    public Map<String, WhiteSplitMultipleFkBaseCQ> getNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList() { return xgetSQueMap("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList"); }
+    public Map<String, WhiteSplitMultipleFkBaseCQ> xdfgetNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList() { return xgetSQueMap("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList"); }
     public String keepNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList(WhiteSplitMultipleFkBaseCQ sq) { return xkeepSQue("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList", sq); }
-    public Map<String, Object> getNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseListParameter() { return xgetSQuePmMap("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList"); }
+    public Map<String, Object> xdfgetNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseListParameter() { return xgetSQuePmMap("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList"); }
     public String keepNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseListParameter(Object pm) { return xkeepSQuePm("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     public BsWhiteSplitMultipleFkNextCQ addOrderBy_NextId_Desc() { regOBD("NEXT_ID"); return this; }
 
     protected ConditionValue _secondCode;
-    public ConditionValue getSecondCode()
+    public ConditionValue xdfgetSecondCode()
     { if (_secondCode == null) { _secondCode = nCV(); }
       return _secondCode; }
-    protected ConditionValue getCValueSecondCode() { return getSecondCode(); }
+    protected ConditionValue xgetCValueSecondCode() { return xdfgetSecondCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -193,31 +193,31 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteSplitMultipleFkNextCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteSplitMultipleFkNextCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteSplitMultipleFkNextCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteSplitMultipleFkNextCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteSplitMultipleFkNextCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteSplitMultipleFkNextCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteSplitMultipleFkNextCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteSplitMultipleFkNextCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteSplitMultipleFkNextCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteSplitMultipleFkNextCQ> _myselfExistsMap;
-    public Map<String, WhiteSplitMultipleFkNextCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteSplitMultipleFkNextCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteSplitMultipleFkNextCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteSplitMultipleFkNextCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteSplitMultipleFkNextCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteSplitMultipleFkNextCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -226,7 +226,7 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteSplitMultipleFkNextCB.class.getName(); }
     protected String xCQ() { return WhiteSplitMultipleFkNextCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

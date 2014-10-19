@@ -89,10 +89,10 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _childId;
-    public ConditionValue getChildId()
+    public ConditionValue xdfgetChildId()
     { if (_childId == null) { _childId = nCV(); }
       return _childId; }
-    protected ConditionValue getCValueChildId() { return getChildId(); }
+    protected ConditionValue xgetCValueChildId() { return xdfgetChildId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     public BsWhiteSplitMultipleFkChildCQ addOrderBy_ChildId_Desc() { regOBD("CHILD_ID"); return this; }
 
     protected ConditionValue _baseId;
-    public ConditionValue getBaseId()
+    public ConditionValue xdfgetBaseId()
     { if (_baseId == null) { _baseId = nCV(); }
       return _baseId; }
-    protected ConditionValue getCValueBaseId() { return getBaseId(); }
+    protected ConditionValue xgetCValueBaseId() { return xdfgetBaseId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     public BsWhiteSplitMultipleFkChildCQ addOrderBy_BaseId_Desc() { regOBD("BASE_ID"); return this; }
 
     protected ConditionValue _childName;
-    public ConditionValue getChildName()
+    public ConditionValue xdfgetChildName()
     { if (_childName == null) { _childName = nCV(); }
       return _childName; }
-    protected ConditionValue getCValueChildName() { return getChildName(); }
+    protected ConditionValue xgetCValueChildName() { return xdfgetChildName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -203,9 +203,9 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSplitMultipleFkBaseCQ queryWhiteSplitMultipleFkBase() {
-        return getConditionQueryWhiteSplitMultipleFkBase();
+        return xdfgetConditionQueryWhiteSplitMultipleFkBase();
     }
-    public WhiteSplitMultipleFkBaseCQ getConditionQueryWhiteSplitMultipleFkBase() {
+    public WhiteSplitMultipleFkBaseCQ xdfgetConditionQueryWhiteSplitMultipleFkBase() {
         String prop = "whiteSplitMultipleFkBase";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteSplitMultipleFkBase()); xsetupOuterJoinWhiteSplitMultipleFkBase(); }
         return xgetQueRlMap(prop);
@@ -224,31 +224,31 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteSplitMultipleFkChildCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteSplitMultipleFkChildCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteSplitMultipleFkChildCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteSplitMultipleFkChildCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteSplitMultipleFkChildCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteSplitMultipleFkChildCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteSplitMultipleFkChildCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteSplitMultipleFkChildCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteSplitMultipleFkChildCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteSplitMultipleFkChildCQ> _myselfExistsMap;
-    public Map<String, WhiteSplitMultipleFkChildCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteSplitMultipleFkChildCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteSplitMultipleFkChildCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteSplitMultipleFkChildCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteSplitMultipleFkChildCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteSplitMultipleFkChildCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -257,7 +257,7 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteSplitMultipleFkChildCB.class.getName(); }
     protected String xCQ() { return WhiteSplitMultipleFkChildCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

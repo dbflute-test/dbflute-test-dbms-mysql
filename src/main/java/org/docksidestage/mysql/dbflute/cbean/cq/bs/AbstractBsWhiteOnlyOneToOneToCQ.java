@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setToId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueToId(), "TO_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueToId(), "TO_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     }
 
     protected void doSetToId_InScope(Collection<Long> toIdList) {
-        regINS(CK_INS, cTL(toIdList), getCValueToId(), "TO_ID");
+        regINS(CK_INS, cTL(toIdList), xgetCValueToId(), "TO_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     }
 
     protected void doSetToId_NotInScope(Collection<Long> toIdList) {
-        regINS(CK_NINS, cTL(toIdList), getCValueToId(), "TO_ID");
+        regINS(CK_NINS, cTL(toIdList), xgetCValueToId(), "TO_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      */
     public void setToId_IsNotNull() { regToId(CK_ISNN, DOBJ); }
 
-    protected void regToId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueToId(), "TO_ID"); }
-    protected abstract ConditionValue getCValueToId();
+    protected void regToId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueToId(), "TO_ID"); }
+    protected abstract ConditionValue xgetCValueToId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     }
 
     protected void doSetToName_InScope(Collection<String> toNameList) {
-        regINS(CK_INS, cTL(toNameList), getCValueToName(), "TO_NAME");
+        regINS(CK_INS, cTL(toNameList), xgetCValueToName(), "TO_NAME");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     }
 
     protected void doSetToName_NotInScope(Collection<String> toNameList) {
-        regINS(CK_NINS, cTL(toNameList), getCValueToName(), "TO_NAME");
+        regINS(CK_NINS, cTL(toNameList), xgetCValueToName(), "TO_NAME");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setToName_LikeSearch(String toName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(toName), getCValueToName(), "TO_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(toName), xgetCValueToName(), "TO_NAME", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setToName_NotLikeSearch(String toName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(toName), getCValueToName(), "TO_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(toName), xgetCValueToName(), "TO_NAME", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
         setToName_LikeSearch(toName, xcLSOPPre());
     }
 
-    protected void regToName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueToName(), "TO_NAME"); }
-    protected abstract ConditionValue getCValueToName();
+    protected void regToName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueToName(), "TO_NAME"); }
+    protected abstract ConditionValue xgetCValueToName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFromId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFromId(), "FROM_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFromId(), "FROM_ID", rangeOfOption);
     }
 
     /**
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     }
 
     protected void doSetFromId_InScope(Collection<Long> fromIdList) {
-        regINS(CK_INS, cTL(fromIdList), getCValueFromId(), "FROM_ID");
+        regINS(CK_INS, cTL(fromIdList), xgetCValueFromId(), "FROM_ID");
     }
 
     /**
@@ -383,11 +383,11 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     }
 
     protected void doSetFromId_NotInScope(Collection<Long> fromIdList) {
-        regINS(CK_NINS, cTL(fromIdList), getCValueFromId(), "FROM_ID");
+        regINS(CK_NINS, cTL(fromIdList), xgetCValueFromId(), "FROM_ID");
     }
 
-    protected void regFromId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFromId(), "FROM_ID"); }
-    protected abstract ConditionValue getCValueFromId();
+    protected void regFromId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFromId(), "FROM_ID"); }
+    protected abstract ConditionValue xgetCValueFromId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMasterBarId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMasterBarId(), "MASTER_BAR_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMasterBarId(), "MASTER_BAR_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     protected void doSetMasterBarId_InScope(Collection<Long> masterBarIdList) {
-        regINS(CK_INS, cTL(masterBarIdList), getCValueMasterBarId(), "MASTER_BAR_ID");
+        regINS(CK_INS, cTL(masterBarIdList), xgetCValueMasterBarId(), "MASTER_BAR_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     protected void doSetMasterBarId_NotInScope(Collection<Long> masterBarIdList) {
-        regINS(CK_NINS, cTL(masterBarIdList), getCValueMasterBarId(), "MASTER_BAR_ID");
+        regINS(CK_NINS, cTL(masterBarIdList), xgetCValueMasterBarId(), "MASTER_BAR_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      */
     public void setMasterBarId_IsNotNull() { regMasterBarId(CK_ISNN, DOBJ); }
 
-    protected void regMasterBarId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMasterBarId(), "MASTER_BAR_ID"); }
-    protected abstract ConditionValue getCValueMasterBarId();
+    protected void regMasterBarId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterBarId(), "MASTER_BAR_ID"); }
+    protected abstract ConditionValue xgetCValueMasterBarId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     protected void doSetMasterBarName_InScope(Collection<String> masterBarNameList) {
-        regINS(CK_INS, cTL(masterBarNameList), getCValueMasterBarName(), "MASTER_BAR_NAME");
+        regINS(CK_INS, cTL(masterBarNameList), xgetCValueMasterBarName(), "MASTER_BAR_NAME");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     protected void doSetMasterBarName_NotInScope(Collection<String> masterBarNameList) {
-        regINS(CK_NINS, cTL(masterBarNameList), getCValueMasterBarName(), "MASTER_BAR_NAME");
+        regINS(CK_NINS, cTL(masterBarNameList), xgetCValueMasterBarName(), "MASTER_BAR_NAME");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterBarName_LikeSearch(String masterBarName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(masterBarName), getCValueMasterBarName(), "MASTER_BAR_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(masterBarName), xgetCValueMasterBarName(), "MASTER_BAR_NAME", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterBarName_NotLikeSearch(String masterBarName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(masterBarName), getCValueMasterBarName(), "MASTER_BAR_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(masterBarName), xgetCValueMasterBarName(), "MASTER_BAR_NAME", likeSearchOption);
     }
 
     /**
@@ -365,8 +365,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
         setMasterBarName_LikeSearch(masterBarName, xcLSOPPre());
     }
 
-    protected void regMasterBarName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMasterBarName(), "MASTER_BAR_NAME"); }
-    protected abstract ConditionValue getCValueMasterBarName();
+    protected void regMasterBarName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterBarName(), "MASTER_BAR_NAME"); }
+    protected abstract ConditionValue xgetCValueMasterBarName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -97,7 +97,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     protected void doSetClsCategoryCode_InScope(Collection<String> clsCategoryCodeList) {
-        regINS(CK_INS, cTL(clsCategoryCodeList), getCValueClsCategoryCode(), "CLS_CATEGORY_CODE");
+        regINS(CK_INS, cTL(clsCategoryCodeList), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     protected void doSetClsCategoryCode_NotInScope(Collection<String> clsCategoryCodeList) {
-        regINS(CK_NINS, cTL(clsCategoryCodeList), getCValueClsCategoryCode(), "CLS_CATEGORY_CODE");
+        regINS(CK_NINS, cTL(clsCategoryCodeList), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE");
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setClsCategoryCode_LikeSearch(String clsCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(clsCategoryCode), getCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(clsCategoryCode), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setClsCategoryCode_NotLikeSearch(String clsCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(clsCategoryCode), getCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(clsCategoryCode), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
     }
 
     /**
@@ -178,8 +178,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      */
     public void setClsCategoryCode_IsNotNull() { regClsCategoryCode(CK_ISNN, DOBJ); }
 
-    protected void regClsCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueClsCategoryCode(), "CLS_CATEGORY_CODE"); }
-    protected abstract ConditionValue getCValueClsCategoryCode();
+    protected void regClsCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE"); }
+    protected abstract ConditionValue xgetCValueClsCategoryCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     protected void doSetClsElementCode_InScope(Collection<String> clsElementCodeList) {
-        regINS(CK_INS, cTL(clsElementCodeList), getCValueClsElementCode(), "CLS_ELEMENT_CODE");
+        regINS(CK_INS, cTL(clsElementCodeList), xgetCValueClsElementCode(), "CLS_ELEMENT_CODE");
     }
 
     /**
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     protected void doSetClsElementCode_NotInScope(Collection<String> clsElementCodeList) {
-        regINS(CK_NINS, cTL(clsElementCodeList), getCValueClsElementCode(), "CLS_ELEMENT_CODE");
+        regINS(CK_NINS, cTL(clsElementCodeList), xgetCValueClsElementCode(), "CLS_ELEMENT_CODE");
     }
 
     /**
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setClsElementCode_LikeSearch(String clsElementCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(clsElementCode), getCValueClsElementCode(), "CLS_ELEMENT_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(clsElementCode), xgetCValueClsElementCode(), "CLS_ELEMENT_CODE", likeSearchOption);
     }
 
     /**
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setClsElementCode_NotLikeSearch(String clsElementCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(clsElementCode), getCValueClsElementCode(), "CLS_ELEMENT_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(clsElementCode), xgetCValueClsElementCode(), "CLS_ELEMENT_CODE", likeSearchOption);
     }
 
     /**
@@ -298,8 +298,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      */
     public void setClsElementCode_IsNotNull() { regClsElementCode(CK_ISNN, DOBJ); }
 
-    protected void regClsElementCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueClsElementCode(), "CLS_ELEMENT_CODE"); }
-    protected abstract ConditionValue getCValueClsElementCode();
+    protected void regClsElementCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsElementCode(), "CLS_ELEMENT_CODE"); }
+    protected abstract ConditionValue xgetCValueClsElementCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -337,7 +337,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     protected void doSetClsElementName_InScope(Collection<String> clsElementNameList) {
-        regINS(CK_INS, cTL(clsElementNameList), getCValueClsElementName(), "CLS_ELEMENT_NAME");
+        regINS(CK_INS, cTL(clsElementNameList), xgetCValueClsElementName(), "CLS_ELEMENT_NAME");
     }
 
     /**
@@ -350,7 +350,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     protected void doSetClsElementName_NotInScope(Collection<String> clsElementNameList) {
-        regINS(CK_NINS, cTL(clsElementNameList), getCValueClsElementName(), "CLS_ELEMENT_NAME");
+        regINS(CK_NINS, cTL(clsElementNameList), xgetCValueClsElementName(), "CLS_ELEMENT_NAME");
     }
 
     /**
@@ -372,7 +372,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setClsElementName_LikeSearch(String clsElementName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(clsElementName), getCValueClsElementName(), "CLS_ELEMENT_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(clsElementName), xgetCValueClsElementName(), "CLS_ELEMENT_NAME", likeSearchOption);
     }
 
     /**
@@ -394,7 +394,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setClsElementName_NotLikeSearch(String clsElementName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(clsElementName), getCValueClsElementName(), "CLS_ELEMENT_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(clsElementName), xgetCValueClsElementName(), "CLS_ELEMENT_NAME", likeSearchOption);
     }
 
     /**
@@ -406,8 +406,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
         setClsElementName_LikeSearch(clsElementName, xcLSOPPre());
     }
 
-    protected void regClsElementName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueClsElementName(), "CLS_ELEMENT_NAME"); }
-    protected abstract ConditionValue getCValueClsElementName();
+    protected void regClsElementName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsElementName(), "CLS_ELEMENT_NAME"); }
+    protected abstract ConditionValue xgetCValueClsElementName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -445,7 +445,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     protected void doSetAttributeExp_InScope(Collection<String> attributeExpList) {
-        regINS(CK_INS, cTL(attributeExpList), getCValueAttributeExp(), "ATTRIBUTE_EXP");
+        regINS(CK_INS, cTL(attributeExpList), xgetCValueAttributeExp(), "ATTRIBUTE_EXP");
     }
 
     /**
@@ -458,7 +458,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     protected void doSetAttributeExp_NotInScope(Collection<String> attributeExpList) {
-        regINS(CK_NINS, cTL(attributeExpList), getCValueAttributeExp(), "ATTRIBUTE_EXP");
+        regINS(CK_NINS, cTL(attributeExpList), xgetCValueAttributeExp(), "ATTRIBUTE_EXP");
     }
 
     /**
@@ -480,7 +480,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setAttributeExp_LikeSearch(String attributeExp, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(attributeExp), getCValueAttributeExp(), "ATTRIBUTE_EXP", likeSearchOption);
+        regLSQ(CK_LS, fRES(attributeExp), xgetCValueAttributeExp(), "ATTRIBUTE_EXP", likeSearchOption);
     }
 
     /**
@@ -502,7 +502,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setAttributeExp_NotLikeSearch(String attributeExp, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(attributeExp), getCValueAttributeExp(), "ATTRIBUTE_EXP", likeSearchOption);
+        regLSQ(CK_NLS, fRES(attributeExp), xgetCValueAttributeExp(), "ATTRIBUTE_EXP", likeSearchOption);
     }
 
     /**
@@ -514,8 +514,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
         setAttributeExp_LikeSearch(attributeExp, xcLSOPPre());
     }
 
-    protected void regAttributeExp(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAttributeExp(), "ATTRIBUTE_EXP"); }
-    protected abstract ConditionValue getCValueAttributeExp();
+    protected void regAttributeExp(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAttributeExp(), "ATTRIBUTE_EXP"); }
+    protected abstract ConditionValue xgetCValueAttributeExp();
 
     // ===================================================================================
     //                                                                     ScalarCondition

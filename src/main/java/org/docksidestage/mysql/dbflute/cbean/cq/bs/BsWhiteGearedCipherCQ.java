@@ -89,10 +89,10 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _cipherId;
-    public ConditionValue getCipherId()
+    public ConditionValue xdfgetCipherId()
     { if (_cipherId == null) { _cipherId = nCV(); }
       return _cipherId; }
-    protected ConditionValue getCValueCipherId() { return getCipherId(); }
+    protected ConditionValue xgetCValueCipherId() { return xdfgetCipherId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     public BsWhiteGearedCipherCQ addOrderBy_CipherId_Desc() { regOBD("CIPHER_ID"); return this; }
 
     protected ConditionValue _cipherInteger;
-    public ConditionValue getCipherInteger()
+    public ConditionValue xdfgetCipherInteger()
     { if (_cipherInteger == null) { _cipherInteger = nCV(); }
       return _cipherInteger; }
-    protected ConditionValue getCValueCipherInteger() { return getCipherInteger(); }
+    protected ConditionValue xgetCValueCipherInteger() { return xdfgetCipherInteger(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     public BsWhiteGearedCipherCQ addOrderBy_CipherInteger_Desc() { regOBD("CIPHER_INTEGER"); return this; }
 
     protected ConditionValue _cipherVarchar;
-    public ConditionValue getCipherVarchar()
+    public ConditionValue xdfgetCipherVarchar()
     { if (_cipherVarchar == null) { _cipherVarchar = nCV(); }
       return _cipherVarchar; }
-    protected ConditionValue getCValueCipherVarchar() { return getCipherVarchar(); }
+    protected ConditionValue xgetCValueCipherVarchar() { return xdfgetCipherVarchar(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     public BsWhiteGearedCipherCQ addOrderBy_CipherVarchar_Desc() { regOBD("CIPHER_VARCHAR"); return this; }
 
     protected ConditionValue _cipherDate;
-    public ConditionValue getCipherDate()
+    public ConditionValue xdfgetCipherDate()
     { if (_cipherDate == null) { _cipherDate = nCV(); }
       return _cipherDate; }
-    protected ConditionValue getCValueCipherDate() { return getCipherDate(); }
+    protected ConditionValue xgetCValueCipherDate() { return xdfgetCipherDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     public BsWhiteGearedCipherCQ addOrderBy_CipherDate_Desc() { regOBD("CIPHER_DATE"); return this; }
 
     protected ConditionValue _cipherDatetime;
-    public ConditionValue getCipherDatetime()
+    public ConditionValue xdfgetCipherDatetime()
     { if (_cipherDatetime == null) { _cipherDatetime = nCV(); }
       return _cipherDatetime; }
-    protected ConditionValue getCValueCipherDatetime() { return getCipherDatetime(); }
+    protected ConditionValue xgetCValueCipherDatetime() { return xdfgetCipherDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -239,31 +239,31 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteGearedCipherCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteGearedCipherCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteGearedCipherCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteGearedCipherCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteGearedCipherCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteGearedCipherCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteGearedCipherCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteGearedCipherCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteGearedCipherCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteGearedCipherCQ> _myselfExistsMap;
-    public Map<String, WhiteGearedCipherCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteGearedCipherCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteGearedCipherCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteGearedCipherCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteGearedCipherCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteGearedCipherCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -272,7 +272,7 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteGearedCipherCB.class.getName(); }
     protected String xCQ() { return WhiteGearedCipherCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

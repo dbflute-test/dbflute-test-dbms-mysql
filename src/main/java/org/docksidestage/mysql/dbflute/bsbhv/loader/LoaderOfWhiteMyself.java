@@ -78,14 +78,8 @@ public class LoaderOfWhiteMyself {
     //                                                                       =============
     protected List<WhiteMyselfCheck> _referrerWhiteMyselfCheckList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteMyselfCheck> loadWhiteMyselfCheckList(ConditionBeanSetupper<WhiteMyselfCheckCB> refCBLambda) {
-        myBhv().loadWhiteMyselfCheckList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteMyselfCheck>() {
-            public void handle(List<WhiteMyselfCheck> referrerList) { _referrerWhiteMyselfCheckList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteMyselfCheck>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteMyselfCheck> handler) {
-                handler.handle(new LoaderOfWhiteMyselfCheck().ready(_referrerWhiteMyselfCheckList, _selector));
-            }
-        };
+        myBhv().loadWhiteMyselfCheckList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteMyselfCheckList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteMyselfCheck().ready(_referrerWhiteMyselfCheckList, _selector));
     }
 
     // ===================================================================================

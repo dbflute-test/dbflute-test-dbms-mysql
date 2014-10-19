@@ -76,17 +76,15 @@ public class LoaderOfWhiteSelfReferenceRefOne {
     //                                                                    ================
     protected LoaderOfWhiteSelfReference _foreignWhiteSelfReferenceLoader;
     public LoaderOfWhiteSelfReference pulloutWhiteSelfReference() {
-        if (_foreignWhiteSelfReferenceLoader != null) { return _foreignWhiteSelfReferenceLoader; }
-        List<WhiteSelfReference> pulledList = myBhv().pulloutWhiteSelfReference(_selectedList);
-        _foreignWhiteSelfReferenceLoader = new LoaderOfWhiteSelfReference().ready(pulledList, _selector);
+        if (_foreignWhiteSelfReferenceLoader == null)
+        { _foreignWhiteSelfReferenceLoader = new LoaderOfWhiteSelfReference().ready(myBhv().pulloutWhiteSelfReference(_selectedList), _selector); }
         return _foreignWhiteSelfReferenceLoader;
     }
 
     protected LoaderOfWhiteSelfReference _foreignWhiteSelfReferenceAsDirectParentLoader;
     public LoaderOfWhiteSelfReference pulloutWhiteSelfReferenceAsDirectParent() {
-        if (_foreignWhiteSelfReferenceAsDirectParentLoader != null) { return _foreignWhiteSelfReferenceAsDirectParentLoader; }
-        List<WhiteSelfReference> pulledList = myBhv().pulloutWhiteSelfReferenceAsDirectParent(_selectedList);
-        _foreignWhiteSelfReferenceAsDirectParentLoader = new LoaderOfWhiteSelfReference().ready(pulledList, _selector);
+        if (_foreignWhiteSelfReferenceAsDirectParentLoader == null)
+        { _foreignWhiteSelfReferenceAsDirectParentLoader = new LoaderOfWhiteSelfReference().ready(myBhv().pulloutWhiteSelfReferenceAsDirectParent(_selectedList), _selector); }
         return _foreignWhiteSelfReferenceAsDirectParentLoader;
     }
 

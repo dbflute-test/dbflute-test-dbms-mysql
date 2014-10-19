@@ -763,10 +763,9 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
 
     protected Member encryptUpdateUser() {
         Member security = new Member();
-        security.disableCommonColumnAutoSetup();
         security.setMemberId(3);
         security.setUpdateUser("cipher");
-        memberBhv.updateNonstrict(security);
+        memberBhv.varyingUpdateNonstrict(security, op -> op.disableCommonColumnAutoSetup());
         return security;
     }
 

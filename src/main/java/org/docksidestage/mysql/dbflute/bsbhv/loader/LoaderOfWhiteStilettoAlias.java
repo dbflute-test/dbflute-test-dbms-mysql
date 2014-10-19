@@ -78,14 +78,8 @@ public class LoaderOfWhiteStilettoAlias {
     //                                                                       =============
     protected List<WhiteStilettoAliasRef> _referrerWhiteStilettoAliasRefList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
-        myBhv().loadWhiteStilettoAliasRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteStilettoAliasRef>() {
-            public void handle(List<WhiteStilettoAliasRef> referrerList) { _referrerWhiteStilettoAliasRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteStilettoAliasRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteStilettoAliasRef> handler) {
-                handler.handle(new LoaderOfWhiteStilettoAliasRef().ready(_referrerWhiteStilettoAliasRefList, _selector));
-            }
-        };
+        myBhv().loadWhiteStilettoAliasRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteStilettoAliasRefList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteStilettoAliasRef().ready(_referrerWhiteStilettoAliasRefList, _selector));
     }
 
     // ===================================================================================

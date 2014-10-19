@@ -133,7 +133,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTraceId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueTraceId(), "TRACE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueTraceId(), "TRACE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     protected void doSetTraceId_InScope(Collection<Long> traceIdList) {
-        regINS(CK_INS, cTL(traceIdList), getCValueTraceId(), "TRACE_ID");
+        regINS(CK_INS, cTL(traceIdList), xgetCValueTraceId(), "TRACE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     protected void doSetTraceId_NotInScope(Collection<Long> traceIdList) {
-        regINS(CK_NINS, cTL(traceIdList), getCValueTraceId(), "TRACE_ID");
+        regINS(CK_NINS, cTL(traceIdList), xgetCValueTraceId(), "TRACE_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      */
     public void setTraceId_IsNotNull() { regTraceId(CK_ISNN, DOBJ); }
 
-    protected void regTraceId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTraceId(), "TRACE_ID"); }
-    protected abstract ConditionValue getCValueTraceId();
+    protected void regTraceId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTraceId(), "TRACE_ID"); }
+    protected abstract ConditionValue xgetCValueTraceId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPreviousProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     protected void doSetPreviousProductId_InScope(Collection<Long> previousProductIdList) {
-        regINS(CK_INS, cTL(previousProductIdList), getCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID");
+        regINS(CK_INS, cTL(previousProductIdList), xgetCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID");
     }
 
     /**
@@ -275,11 +275,11 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     protected void doSetPreviousProductId_NotInScope(Collection<Long> previousProductIdList) {
-        regINS(CK_NINS, cTL(previousProductIdList), getCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID");
+        regINS(CK_NINS, cTL(previousProductIdList), xgetCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID");
     }
 
-    protected void regPreviousProductId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID"); }
-    protected abstract ConditionValue getCValuePreviousProductId();
+    protected void regPreviousProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID"); }
+    protected abstract ConditionValue xgetCValuePreviousProductId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNextProductId(), "NEXT_PRODUCT_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNextProductId(), "NEXT_PRODUCT_ID", rangeOfOption);
     }
 
     /**
@@ -366,7 +366,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     protected void doSetNextProductId_InScope(Collection<Long> nextProductIdList) {
-        regINS(CK_INS, cTL(nextProductIdList), getCValueNextProductId(), "NEXT_PRODUCT_ID");
+        regINS(CK_INS, cTL(nextProductIdList), xgetCValueNextProductId(), "NEXT_PRODUCT_ID");
     }
 
     /**
@@ -379,11 +379,11 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     protected void doSetNextProductId_NotInScope(Collection<Long> nextProductIdList) {
-        regINS(CK_NINS, cTL(nextProductIdList), getCValueNextProductId(), "NEXT_PRODUCT_ID");
+        regINS(CK_NINS, cTL(nextProductIdList), xgetCValueNextProductId(), "NEXT_PRODUCT_ID");
     }
 
-    protected void regNextProductId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNextProductId(), "NEXT_PRODUCT_ID"); }
-    protected abstract ConditionValue getCValueNextProductId();
+    protected void regNextProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNextProductId(), "NEXT_PRODUCT_ID"); }
+    protected abstract ConditionValue xgetCValueNextProductId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -421,7 +421,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     protected void doSetTraceTypeCode_InScope(Collection<String> traceTypeCodeList) {
-        regINS(CK_INS, cTL(traceTypeCodeList), getCValueTraceTypeCode(), "TRACE_TYPE_CODE");
+        regINS(CK_INS, cTL(traceTypeCodeList), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE");
     }
 
     /**
@@ -434,7 +434,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     protected void doSetTraceTypeCode_NotInScope(Collection<String> traceTypeCodeList) {
-        regINS(CK_NINS, cTL(traceTypeCodeList), getCValueTraceTypeCode(), "TRACE_TYPE_CODE");
+        regINS(CK_NINS, cTL(traceTypeCodeList), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE");
     }
 
     /**
@@ -456,7 +456,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTraceTypeCode_LikeSearch(String traceTypeCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(traceTypeCode), getCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(traceTypeCode), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
     }
 
     /**
@@ -478,7 +478,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTraceTypeCode_NotLikeSearch(String traceTypeCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(traceTypeCode), getCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(traceTypeCode), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
     }
 
     /**
@@ -490,8 +490,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
         setTraceTypeCode_LikeSearch(traceTypeCode, xcLSOPPre());
     }
 
-    protected void regTraceTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTraceTypeCode(), "TRACE_TYPE_CODE"); }
-    protected abstract ConditionValue getCValueTraceTypeCode();
+    protected void regTraceTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE"); }
+    protected abstract ConditionValue xgetCValueTraceTypeCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

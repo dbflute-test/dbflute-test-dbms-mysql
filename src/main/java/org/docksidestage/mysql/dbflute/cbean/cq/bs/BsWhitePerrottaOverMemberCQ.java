@@ -89,10 +89,10 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _memberId;
-    public ConditionValue getMemberId()
+    public ConditionValue xdfgetMemberId()
     { if (_memberId == null) { _memberId = nCV(); }
       return _memberId; }
-    protected ConditionValue getCValueMemberId() { return getMemberId(); }
+    protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     public BsWhitePerrottaOverMemberCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
 
     protected ConditionValue _memberName;
-    public ConditionValue getMemberName()
+    public ConditionValue xdfgetMemberName()
     { if (_memberName == null) { _memberName = nCV(); }
       return _memberName; }
-    protected ConditionValue getCValueMemberName() { return getMemberName(); }
+    protected ConditionValue xgetCValueMemberName() { return xdfgetMemberName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     public BsWhitePerrottaOverMemberCQ addOrderBy_MemberName_Desc() { regOBD("MEMBER_NAME"); return this; }
 
     protected ConditionValue _productId;
-    public ConditionValue getProductId()
+    public ConditionValue xdfgetProductId()
     { if (_productId == null) { _productId = nCV(); }
       return _productId; }
-    protected ConditionValue getCValueProductId() { return getProductId(); }
+    protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -149,10 +149,10 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     public BsWhitePerrottaOverMemberCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
 
     protected ConditionValue _traceTypeCode;
-    public ConditionValue getTraceTypeCode()
+    public ConditionValue xdfgetTraceTypeCode()
     { if (_traceTypeCode == null) { _traceTypeCode = nCV(); }
       return _traceTypeCode; }
-    protected ConditionValue getCValueTraceTypeCode() { return getTraceTypeCode(); }
+    protected ConditionValue xgetCValueTraceTypeCode() { return xdfgetTraceTypeCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -169,10 +169,10 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     public BsWhitePerrottaOverMemberCQ addOrderBy_TraceTypeCode_Desc() { regOBD("TRACE_TYPE_CODE"); return this; }
 
     protected ConditionValue _machoCode;
-    public ConditionValue getMachoCode()
+    public ConditionValue xdfgetMachoCode()
     { if (_machoCode == null) { _machoCode = nCV(); }
       return _machoCode; }
-    protected ConditionValue getCValueMachoCode() { return getMachoCode(); }
+    protected ConditionValue xgetCValueMachoCode() { return xdfgetMachoCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -246,9 +246,9 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverMemberMachoCQ queryWhitePerrottaOverMemberMacho() {
-        return getConditionQueryWhitePerrottaOverMemberMacho();
+        return xdfgetConditionQueryWhitePerrottaOverMemberMacho();
     }
-    public WhitePerrottaOverMemberMachoCQ getConditionQueryWhitePerrottaOverMemberMacho() {
+    public WhitePerrottaOverMemberMachoCQ xdfgetConditionQueryWhitePerrottaOverMemberMacho() {
         String prop = "whitePerrottaOverMemberMacho";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhitePerrottaOverMemberMacho()); xsetupOuterJoinWhitePerrottaOverMemberMacho(); }
         return xgetQueRlMap(prop);
@@ -266,9 +266,9 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverProductCQ queryWhitePerrottaOverProduct() {
-        return getConditionQueryWhitePerrottaOverProduct();
+        return xdfgetConditionQueryWhitePerrottaOverProduct();
     }
-    public WhitePerrottaOverProductCQ getConditionQueryWhitePerrottaOverProduct() {
+    public WhitePerrottaOverProductCQ xdfgetConditionQueryWhitePerrottaOverProduct() {
         String prop = "whitePerrottaOverProduct";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhitePerrottaOverProduct()); xsetupOuterJoinWhitePerrottaOverProduct(); }
         return xgetQueRlMap(prop);
@@ -287,31 +287,31 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhitePerrottaOverMemberCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhitePerrottaOverMemberCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhitePerrottaOverMemberCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhitePerrottaOverMemberCQ> _myselfExistsMap;
-    public Map<String, WhitePerrottaOverMemberCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhitePerrottaOverMemberCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhitePerrottaOverMemberCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhitePerrottaOverMemberCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -320,7 +320,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhitePerrottaOverMemberCB.class.getName(); }
     protected String xCQ() { return WhitePerrottaOverMemberCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

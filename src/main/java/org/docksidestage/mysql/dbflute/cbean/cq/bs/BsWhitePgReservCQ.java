@@ -89,23 +89,23 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _classSynonym;
-    public ConditionValue getClassSynonym()
+    public ConditionValue xdfgetClassSynonym()
     { if (_classSynonym == null) { _classSynonym = nCV(); }
       return _classSynonym; }
-    protected ConditionValue getCValueClassSynonym() { return getClassSynonym(); }
+    protected ConditionValue xgetCValueClassSynonym() { return xdfgetClassSynonym(); }
 
-    public Map<String, WhitePgReservRefCQ> getClassSynonym_ExistsReferrer_WhitePgReservRefList() { return xgetSQueMap("classSynonym_ExistsReferrer_WhitePgReservRefList"); }
+    public Map<String, WhitePgReservRefCQ> xdfgetClassSynonym_ExistsReferrer_WhitePgReservRefList() { return xgetSQueMap("classSynonym_ExistsReferrer_WhitePgReservRefList"); }
     public String keepClassSynonym_ExistsReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq) { return xkeepSQue("classSynonym_ExistsReferrer_WhitePgReservRefList", sq); }
 
-    public Map<String, WhitePgReservRefCQ> getClassSynonym_NotExistsReferrer_WhitePgReservRefList() { return xgetSQueMap("classSynonym_NotExistsReferrer_WhitePgReservRefList"); }
+    public Map<String, WhitePgReservRefCQ> xdfgetClassSynonym_NotExistsReferrer_WhitePgReservRefList() { return xgetSQueMap("classSynonym_NotExistsReferrer_WhitePgReservRefList"); }
     public String keepClassSynonym_NotExistsReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq) { return xkeepSQue("classSynonym_NotExistsReferrer_WhitePgReservRefList", sq); }
 
-    public Map<String, WhitePgReservRefCQ> getClassSynonym_SpecifyDerivedReferrer_WhitePgReservRefList() { return xgetSQueMap("classSynonym_SpecifyDerivedReferrer_WhitePgReservRefList"); }
+    public Map<String, WhitePgReservRefCQ> xdfgetClassSynonym_SpecifyDerivedReferrer_WhitePgReservRefList() { return xgetSQueMap("classSynonym_SpecifyDerivedReferrer_WhitePgReservRefList"); }
     public String keepClassSynonym_SpecifyDerivedReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq) { return xkeepSQue("classSynonym_SpecifyDerivedReferrer_WhitePgReservRefList", sq); }
 
-    public Map<String, WhitePgReservRefCQ> getClassSynonym_QueryDerivedReferrer_WhitePgReservRefList() { return xgetSQueMap("classSynonym_QueryDerivedReferrer_WhitePgReservRefList"); }
+    public Map<String, WhitePgReservRefCQ> xdfgetClassSynonym_QueryDerivedReferrer_WhitePgReservRefList() { return xgetSQueMap("classSynonym_QueryDerivedReferrer_WhitePgReservRefList"); }
     public String keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq) { return xkeepSQue("classSynonym_QueryDerivedReferrer_WhitePgReservRefList", sq); }
-    public Map<String, Object> getClassSynonym_QueryDerivedReferrer_WhitePgReservRefListParameter() { return xgetSQuePmMap("classSynonym_QueryDerivedReferrer_WhitePgReservRefList"); }
+    public Map<String, Object> xdfgetClassSynonym_QueryDerivedReferrer_WhitePgReservRefListParameter() { return xgetSQuePmMap("classSynonym_QueryDerivedReferrer_WhitePgReservRefList"); }
     public String keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefListParameter(Object pm) { return xkeepSQuePm("classSynonym_QueryDerivedReferrer_WhitePgReservRefList", pm); }
 
     /** 
@@ -123,10 +123,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_ClassSynonym_Desc() { regOBD("CLASS"); return this; }
 
     protected ConditionValue _caseSynonym;
-    public ConditionValue getCaseSynonym()
+    public ConditionValue xdfgetCaseSynonym()
     { if (_caseSynonym == null) { _caseSynonym = nCV(); }
       return _caseSynonym; }
-    protected ConditionValue getCValueCaseSynonym() { return getCaseSynonym(); }
+    protected ConditionValue xgetCValueCaseSynonym() { return xdfgetCaseSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -143,10 +143,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_CaseSynonym_Desc() { regOBD("CASE"); return this; }
 
     protected ConditionValue _packageSynonym;
-    public ConditionValue getPackageSynonym()
+    public ConditionValue xdfgetPackageSynonym()
     { if (_packageSynonym == null) { _packageSynonym = nCV(); }
       return _packageSynonym; }
-    protected ConditionValue getCValuePackageSynonym() { return getPackageSynonym(); }
+    protected ConditionValue xgetCValuePackageSynonym() { return xdfgetPackageSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -163,10 +163,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_PackageSynonym_Desc() { regOBD("PACKAGE"); return this; }
 
     protected ConditionValue _defaultSynonym;
-    public ConditionValue getDefaultSynonym()
+    public ConditionValue xdfgetDefaultSynonym()
     { if (_defaultSynonym == null) { _defaultSynonym = nCV(); }
       return _defaultSynonym; }
-    protected ConditionValue getCValueDefaultSynonym() { return getDefaultSynonym(); }
+    protected ConditionValue xgetCValueDefaultSynonym() { return xdfgetDefaultSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -183,10 +183,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_DefaultSynonym_Desc() { regOBD("DEFAULT"); return this; }
 
     protected ConditionValue _newSynonym;
-    public ConditionValue getNewSynonym()
+    public ConditionValue xdfgetNewSynonym()
     { if (_newSynonym == null) { _newSynonym = nCV(); }
       return _newSynonym; }
-    protected ConditionValue getCValueNewSynonym() { return getNewSynonym(); }
+    protected ConditionValue xgetCValueNewSynonym() { return xdfgetNewSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -203,10 +203,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_NewSynonym_Desc() { regOBD("NEW"); return this; }
 
     protected ConditionValue _nativeSynonym;
-    public ConditionValue getNativeSynonym()
+    public ConditionValue xdfgetNativeSynonym()
     { if (_nativeSynonym == null) { _nativeSynonym = nCV(); }
       return _nativeSynonym; }
-    protected ConditionValue getCValueNativeSynonym() { return getNativeSynonym(); }
+    protected ConditionValue xgetCValueNativeSynonym() { return xdfgetNativeSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -223,10 +223,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_NativeSynonym_Desc() { regOBD("NATIVE"); return this; }
 
     protected ConditionValue _voidSynonym;
-    public ConditionValue getVoidSynonym()
+    public ConditionValue xdfgetVoidSynonym()
     { if (_voidSynonym == null) { _voidSynonym = nCV(); }
       return _voidSynonym; }
-    protected ConditionValue getCValueVoidSynonym() { return getVoidSynonym(); }
+    protected ConditionValue xgetCValueVoidSynonym() { return xdfgetVoidSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -243,10 +243,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_VoidSynonym_Desc() { regOBD("VOID"); return this; }
 
     protected ConditionValue _publicSynonym;
-    public ConditionValue getPublicSynonym()
+    public ConditionValue xdfgetPublicSynonym()
     { if (_publicSynonym == null) { _publicSynonym = nCV(); }
       return _publicSynonym; }
-    protected ConditionValue getCValuePublicSynonym() { return getPublicSynonym(); }
+    protected ConditionValue xgetCValuePublicSynonym() { return xdfgetPublicSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -263,10 +263,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_PublicSynonym_Desc() { regOBD("PUBLIC"); return this; }
 
     protected ConditionValue _protectedSynonym;
-    public ConditionValue getProtectedSynonym()
+    public ConditionValue xdfgetProtectedSynonym()
     { if (_protectedSynonym == null) { _protectedSynonym = nCV(); }
       return _protectedSynonym; }
-    protected ConditionValue getCValueProtectedSynonym() { return getProtectedSynonym(); }
+    protected ConditionValue xgetCValueProtectedSynonym() { return xdfgetProtectedSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -283,10 +283,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_ProtectedSynonym_Desc() { regOBD("PROTECTED"); return this; }
 
     protected ConditionValue _privateSynonym;
-    public ConditionValue getPrivateSynonym()
+    public ConditionValue xdfgetPrivateSynonym()
     { if (_privateSynonym == null) { _privateSynonym = nCV(); }
       return _privateSynonym; }
-    protected ConditionValue getCValuePrivateSynonym() { return getPrivateSynonym(); }
+    protected ConditionValue xgetCValuePrivateSynonym() { return xdfgetPrivateSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -303,10 +303,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_PrivateSynonym_Desc() { regOBD("PRIVATE"); return this; }
 
     protected ConditionValue _interfaceSynonym;
-    public ConditionValue getInterfaceSynonym()
+    public ConditionValue xdfgetInterfaceSynonym()
     { if (_interfaceSynonym == null) { _interfaceSynonym = nCV(); }
       return _interfaceSynonym; }
-    protected ConditionValue getCValueInterfaceSynonym() { return getInterfaceSynonym(); }
+    protected ConditionValue xgetCValueInterfaceSynonym() { return xdfgetInterfaceSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -323,10 +323,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_InterfaceSynonym_Desc() { regOBD("INTERFACE"); return this; }
 
     protected ConditionValue _abstractSynonym;
-    public ConditionValue getAbstractSynonym()
+    public ConditionValue xdfgetAbstractSynonym()
     { if (_abstractSynonym == null) { _abstractSynonym = nCV(); }
       return _abstractSynonym; }
-    protected ConditionValue getCValueAbstractSynonym() { return getAbstractSynonym(); }
+    protected ConditionValue xgetCValueAbstractSynonym() { return xdfgetAbstractSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -343,10 +343,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_AbstractSynonym_Desc() { regOBD("ABSTRACT"); return this; }
 
     protected ConditionValue _finalSynonym;
-    public ConditionValue getFinalSynonym()
+    public ConditionValue xdfgetFinalSynonym()
     { if (_finalSynonym == null) { _finalSynonym = nCV(); }
       return _finalSynonym; }
-    protected ConditionValue getCValueFinalSynonym() { return getFinalSynonym(); }
+    protected ConditionValue xgetCValueFinalSynonym() { return xdfgetFinalSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -363,10 +363,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_FinalSynonym_Desc() { regOBD("FINAL"); return this; }
 
     protected ConditionValue _finallySynonym;
-    public ConditionValue getFinallySynonym()
+    public ConditionValue xdfgetFinallySynonym()
     { if (_finallySynonym == null) { _finallySynonym = nCV(); }
       return _finallySynonym; }
-    protected ConditionValue getCValueFinallySynonym() { return getFinallySynonym(); }
+    protected ConditionValue xgetCValueFinallySynonym() { return xdfgetFinallySynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -383,10 +383,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_FinallySynonym_Desc() { regOBD("FINALLY"); return this; }
 
     protected ConditionValue _returnSynonym;
-    public ConditionValue getReturnSynonym()
+    public ConditionValue xdfgetReturnSynonym()
     { if (_returnSynonym == null) { _returnSynonym = nCV(); }
       return _returnSynonym; }
-    protected ConditionValue getCValueReturnSynonym() { return getReturnSynonym(); }
+    protected ConditionValue xgetCValueReturnSynonym() { return xdfgetReturnSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -403,10 +403,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_ReturnSynonym_Desc() { regOBD("RETURN"); return this; }
 
     protected ConditionValue _doubleSynonym;
-    public ConditionValue getDoubleSynonym()
+    public ConditionValue xdfgetDoubleSynonym()
     { if (_doubleSynonym == null) { _doubleSynonym = nCV(); }
       return _doubleSynonym; }
-    protected ConditionValue getCValueDoubleSynonym() { return getDoubleSynonym(); }
+    protected ConditionValue xgetCValueDoubleSynonym() { return xdfgetDoubleSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -423,10 +423,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_DoubleSynonym_Desc() { regOBD("DOUBLE"); return this; }
 
     protected ConditionValue _floatSynonym;
-    public ConditionValue getFloatSynonym()
+    public ConditionValue xdfgetFloatSynonym()
     { if (_floatSynonym == null) { _floatSynonym = nCV(); }
       return _floatSynonym; }
-    protected ConditionValue getCValueFloatSynonym() { return getFloatSynonym(); }
+    protected ConditionValue xgetCValueFloatSynonym() { return xdfgetFloatSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -443,10 +443,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_FloatSynonym_Desc() { regOBD("FLOAT"); return this; }
 
     protected ConditionValue _shortSynonym;
-    public ConditionValue getShortSynonym()
+    public ConditionValue xdfgetShortSynonym()
     { if (_shortSynonym == null) { _shortSynonym = nCV(); }
       return _shortSynonym; }
-    protected ConditionValue getCValueShortSynonym() { return getShortSynonym(); }
+    protected ConditionValue xgetCValueShortSynonym() { return xdfgetShortSynonym(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -463,10 +463,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_ShortSynonym_Desc() { regOBD("SHORT"); return this; }
 
     protected ConditionValue _type;
-    public ConditionValue getType()
+    public ConditionValue xdfgetType()
     { if (_type == null) { _type = nCV(); }
       return _type; }
-    protected ConditionValue getCValueType() { return getType(); }
+    protected ConditionValue xgetCValueType() { return xdfgetType(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -483,10 +483,10 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public BsWhitePgReservCQ addOrderBy_Type_Desc() { regOBD("TYPE"); return this; }
 
     protected ConditionValue _reservName;
-    public ConditionValue getReservName()
+    public ConditionValue xdfgetReservName()
     { if (_reservName == null) { _reservName = nCV(); }
       return _reservName; }
-    protected ConditionValue getCValueReservName() { return getReservName(); }
+    protected ConditionValue xgetCValueReservName() { return xdfgetReservName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -553,31 +553,31 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhitePgReservCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhitePgReservCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhitePgReservCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhitePgReservCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhitePgReservCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhitePgReservCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhitePgReservCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhitePgReservCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhitePgReservCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhitePgReservCQ> _myselfExistsMap;
-    public Map<String, WhitePgReservCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhitePgReservCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhitePgReservCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhitePgReservCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhitePgReservCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhitePgReservCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -586,7 +586,7 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhitePgReservCB.class.getName(); }
     protected String xCQ() { return WhitePgReservCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

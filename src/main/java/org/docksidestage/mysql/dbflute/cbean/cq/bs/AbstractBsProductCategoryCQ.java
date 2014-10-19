@@ -97,7 +97,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetProductCategoryCode_InScope(Collection<String> productCategoryCodeList) {
-        regINS(CK_INS, cTL(productCategoryCodeList), getCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE");
+        regINS(CK_INS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetProductCategoryCode_NotInScope(Collection<String> productCategoryCodeList) {
-        regINS(CK_NINS, cTL(productCategoryCodeList), getCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE");
+        regINS(CK_NINS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE");
     }
 
     /**
@@ -295,8 +295,8 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      */
     public void setProductCategoryCode_IsNotNull() { regProductCategoryCode(CK_ISNN, DOBJ); }
 
-    protected void regProductCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE"); }
-    protected abstract ConditionValue getCValueProductCategoryCode();
+    protected void regProductCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE"); }
+    protected abstract ConditionValue xgetCValueProductCategoryCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -330,11 +330,11 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductCategoryName_LikeSearch(String productCategoryName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productCategoryName), getCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(productCategoryName), xgetCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME", likeSearchOption);
     }
 
-    protected void regProductCategoryName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME"); }
-    protected abstract ConditionValue getCValueProductCategoryName();
+    protected void regProductCategoryName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME"); }
+    protected abstract ConditionValue xgetCValueProductCategoryName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -372,7 +372,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetParentCategoryCode_InScope(Collection<String> parentCategoryCodeList) {
-        regINS(CK_INS, cTL(parentCategoryCodeList), getCValueParentCategoryCode(), "PARENT_CATEGORY_CODE");
+        regINS(CK_INS, cTL(parentCategoryCodeList), xgetCValueParentCategoryCode(), "PARENT_CATEGORY_CODE");
     }
 
     /**
@@ -385,7 +385,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetParentCategoryCode_NotInScope(Collection<String> parentCategoryCodeList) {
-        regINS(CK_NINS, cTL(parentCategoryCodeList), getCValueParentCategoryCode(), "PARENT_CATEGORY_CODE");
+        regINS(CK_NINS, cTL(parentCategoryCodeList), xgetCValueParentCategoryCode(), "PARENT_CATEGORY_CODE");
     }
 
     /**
@@ -406,8 +406,8 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      */
     public void setParentCategoryCode_IsNotNull() { regParentCategoryCode(CK_ISNN, DOBJ); }
 
-    protected void regParentCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueParentCategoryCode(), "PARENT_CATEGORY_CODE"); }
-    protected abstract ConditionValue getCValueParentCategoryCode();
+    protected void regParentCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueParentCategoryCode(), "PARENT_CATEGORY_CODE"); }
+    protected abstract ConditionValue xgetCValueParentCategoryCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

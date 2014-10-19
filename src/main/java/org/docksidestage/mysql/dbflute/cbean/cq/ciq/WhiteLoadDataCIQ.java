@@ -76,8 +76,8 @@ public class WhiteLoadDataCIQ extends AbstractBsWhiteLoadDataCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueLoadDataId() { return _myCQ.getLoadDataId(); }
-    protected ConditionValue getCValueLoadDataName() { return _myCQ.getLoadDataName(); }
+    protected ConditionValue xgetCValueLoadDataId() { return _myCQ.xdfgetLoadDataId(); }
+    protected ConditionValue xgetCValueLoadDataName() { return _myCQ.xdfgetLoadDataName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteLoadDataCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

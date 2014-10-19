@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -191,10 +192,14 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
      */
     public WhiteSelfReferenceRefOneCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteSelfReferenceRefOneCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteSelfReferenceRefOneCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteSelfReferenceRefOneCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -215,8 +220,11 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
         return new WhiteSelfReferenceRefOneCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -264,7 +272,7 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected WhiteSelfReferenceNss _nssWhiteSelfReference;
-    public WhiteSelfReferenceNss getNssWhiteSelfReference() {
+    public WhiteSelfReferenceNss xdfgetNssWhiteSelfReference() {
         if (_nssWhiteSelfReference == null) { _nssWhiteSelfReference = new WhiteSelfReferenceNss(null); }
         return _nssWhiteSelfReference;
     }
@@ -289,7 +297,7 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
     }
 
     protected WhiteSelfReferenceNss _nssWhiteSelfReferenceAsDirectParent;
-    public WhiteSelfReferenceNss getNssWhiteSelfReferenceAsDirectParent() {
+    public WhiteSelfReferenceNss xdfgetNssWhiteSelfReferenceAsDirectParent() {
         if (_nssWhiteSelfReferenceAsDirectParent == null) { _nssWhiteSelfReferenceAsDirectParent = new WhiteSelfReferenceNss(null); }
         return _nssWhiteSelfReferenceAsDirectParent;
     }
@@ -340,7 +348,7 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteSelfReferenceRefOneCQ>() {
                 public boolean has() { return true; }
-                public WhiteSelfReferenceRefOneCQ qy() { return getConditionQuery(); }
+                public WhiteSelfReferenceRefOneCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -365,12 +373,12 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
          * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnSelfReferenceId() { return doColumn("SELF_REFERENCE_ID"); }
+        public SpecifiedColumn columnSelfReferenceId() { return doColumn("SELF_REFERENCE_ID"); }
         /**
          * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnSelfReferenceRefOneName() { return doColumn("SELF_REFERENCE_REF_ONE_NAME"); }
+        public SpecifiedColumn columnSelfReferenceRefOneName() { return doColumn("SELF_REFERENCE_REF_ONE_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -464,7 +472,7 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteSelfReferenceRefOneCB> columnQuery(final SpecifyQuery<WhiteSelfReferenceRefOneCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteSelfReferenceRefOneCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteSelfReferenceRefOneCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteSelfReferenceRefOneCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -582,8 +590,8 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteSelfReferenceRefOneCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteSelfReferenceRefOneCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteSelfReferenceRefOneCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteSelfReferenceRefOneCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

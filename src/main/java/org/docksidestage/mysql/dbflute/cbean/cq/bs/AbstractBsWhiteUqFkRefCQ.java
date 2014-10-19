@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setUqFkRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueUqFkRefId(), "UQ_FK_REF_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueUqFkRefId(), "UQ_FK_REF_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetUqFkRefId_InScope(Collection<Long> uqFkRefIdList) {
-        regINS(CK_INS, cTL(uqFkRefIdList), getCValueUqFkRefId(), "UQ_FK_REF_ID");
+        regINS(CK_INS, cTL(uqFkRefIdList), xgetCValueUqFkRefId(), "UQ_FK_REF_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetUqFkRefId_NotInScope(Collection<Long> uqFkRefIdList) {
-        regINS(CK_NINS, cTL(uqFkRefIdList), getCValueUqFkRefId(), "UQ_FK_REF_ID");
+        regINS(CK_NINS, cTL(uqFkRefIdList), xgetCValueUqFkRefId(), "UQ_FK_REF_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      */
     public void setUqFkRefId_IsNotNull() { regUqFkRefId(CK_ISNN, DOBJ); }
 
-    protected void regUqFkRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUqFkRefId(), "UQ_FK_REF_ID"); }
-    protected abstract ConditionValue getCValueUqFkRefId();
+    protected void regUqFkRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUqFkRefId(), "UQ_FK_REF_ID"); }
+    protected abstract ConditionValue xgetCValueUqFkRefId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFkToPkId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFkToPkId(), "FK_TO_PK_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFkToPkId(), "FK_TO_PK_ID", rangeOfOption);
     }
 
     /**
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFkToPkId_InScope(Collection<Long> fkToPkIdList) {
-        regINS(CK_INS, cTL(fkToPkIdList), getCValueFkToPkId(), "FK_TO_PK_ID");
+        regINS(CK_INS, cTL(fkToPkIdList), xgetCValueFkToPkId(), "FK_TO_PK_ID");
     }
 
     /**
@@ -275,11 +275,11 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFkToPkId_NotInScope(Collection<Long> fkToPkIdList) {
-        regINS(CK_NINS, cTL(fkToPkIdList), getCValueFkToPkId(), "FK_TO_PK_ID");
+        regINS(CK_NINS, cTL(fkToPkIdList), xgetCValueFkToPkId(), "FK_TO_PK_ID");
     }
 
-    protected void regFkToPkId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFkToPkId(), "FK_TO_PK_ID"); }
-    protected abstract ConditionValue getCValueFkToPkId();
+    protected void regFkToPkId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFkToPkId(), "FK_TO_PK_ID"); }
+    protected abstract ConditionValue xgetCValueFkToPkId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -317,7 +317,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFkToUqCode_InScope(Collection<String> fkToUqCodeList) {
-        regINS(CK_INS, cTL(fkToUqCodeList), getCValueFkToUqCode(), "FK_TO_UQ_CODE");
+        regINS(CK_INS, cTL(fkToUqCodeList), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE");
     }
 
     /**
@@ -330,7 +330,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFkToUqCode_NotInScope(Collection<String> fkToUqCodeList) {
-        regINS(CK_NINS, cTL(fkToUqCodeList), getCValueFkToUqCode(), "FK_TO_UQ_CODE");
+        regINS(CK_NINS, cTL(fkToUqCodeList), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE");
     }
 
     /**
@@ -352,7 +352,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFkToUqCode_LikeSearch(String fkToUqCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(fkToUqCode), getCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(fkToUqCode), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
     }
 
     /**
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFkToUqCode_NotLikeSearch(String fkToUqCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(fkToUqCode), getCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(fkToUqCode), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
     }
 
     /**
@@ -386,8 +386,8 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
         setFkToUqCode_LikeSearch(fkToUqCode, xcLSOPPre());
     }
 
-    protected void regFkToUqCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFkToUqCode(), "FK_TO_UQ_CODE"); }
-    protected abstract ConditionValue getCValueFkToUqCode();
+    protected void regFkToUqCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFkToUqCode(), "FK_TO_UQ_CODE"); }
+    protected abstract ConditionValue xgetCValueFkToUqCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -425,7 +425,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetCompoundUqFirstCode_InScope(Collection<String> compoundUqFirstCodeList) {
-        regINS(CK_INS, cTL(compoundUqFirstCodeList), getCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE");
+        regINS(CK_INS, cTL(compoundUqFirstCodeList), xgetCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE");
     }
 
     /**
@@ -438,7 +438,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetCompoundUqFirstCode_NotInScope(Collection<String> compoundUqFirstCodeList) {
-        regINS(CK_NINS, cTL(compoundUqFirstCodeList), getCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE");
+        regINS(CK_NINS, cTL(compoundUqFirstCodeList), xgetCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE");
     }
 
     /**
@@ -460,7 +460,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setCompoundUqFirstCode_LikeSearch(String compoundUqFirstCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(compoundUqFirstCode), getCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(compoundUqFirstCode), xgetCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE", likeSearchOption);
     }
 
     /**
@@ -482,7 +482,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setCompoundUqFirstCode_NotLikeSearch(String compoundUqFirstCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(compoundUqFirstCode), getCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(compoundUqFirstCode), xgetCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE", likeSearchOption);
     }
 
     /**
@@ -494,8 +494,8 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
         setCompoundUqFirstCode_LikeSearch(compoundUqFirstCode, xcLSOPPre());
     }
 
-    protected void regCompoundUqFirstCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE"); }
-    protected abstract ConditionValue getCValueCompoundUqFirstCode();
+    protected void regCompoundUqFirstCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE"); }
+    protected abstract ConditionValue xgetCValueCompoundUqFirstCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -533,7 +533,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetCompoundUqSecondCode_InScope(Collection<String> compoundUqSecondCodeList) {
-        regINS(CK_INS, cTL(compoundUqSecondCodeList), getCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE");
+        regINS(CK_INS, cTL(compoundUqSecondCodeList), xgetCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE");
     }
 
     /**
@@ -546,7 +546,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     protected void doSetCompoundUqSecondCode_NotInScope(Collection<String> compoundUqSecondCodeList) {
-        regINS(CK_NINS, cTL(compoundUqSecondCodeList), getCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE");
+        regINS(CK_NINS, cTL(compoundUqSecondCodeList), xgetCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE");
     }
 
     /**
@@ -568,7 +568,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setCompoundUqSecondCode_LikeSearch(String compoundUqSecondCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(compoundUqSecondCode), getCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE", likeSearchOption);
+        regLSQ(CK_LS, fRES(compoundUqSecondCode), xgetCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE", likeSearchOption);
     }
 
     /**
@@ -590,7 +590,7 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setCompoundUqSecondCode_NotLikeSearch(String compoundUqSecondCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(compoundUqSecondCode), getCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE", likeSearchOption);
+        regLSQ(CK_NLS, fRES(compoundUqSecondCode), xgetCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE", likeSearchOption);
     }
 
     /**
@@ -602,8 +602,8 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
         setCompoundUqSecondCode_LikeSearch(compoundUqSecondCode, xcLSOPPre());
     }
 
-    protected void regCompoundUqSecondCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE"); }
-    protected abstract ConditionValue getCValueCompoundUqSecondCode();
+    protected void regCompoundUqSecondCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE"); }
+    protected abstract ConditionValue xgetCValueCompoundUqSecondCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

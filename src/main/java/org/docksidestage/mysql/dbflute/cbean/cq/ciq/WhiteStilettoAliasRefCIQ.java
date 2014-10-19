@@ -76,18 +76,18 @@ public class WhiteStilettoAliasRefCIQ extends AbstractBsWhiteStilettoAliasRefCQ 
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueRefId() { return _myCQ.getRefId(); }
-    protected ConditionValue getCValueFoo0() { return _myCQ.getFoo0(); }
-    protected ConditionValue getCValueFoo1() { return _myCQ.getFoo1(); }
-    protected ConditionValue getCValueFoo2() { return _myCQ.getFoo2(); }
-    protected ConditionValue getCValueFoo3() { return _myCQ.getFoo3(); }
-    protected ConditionValue getCValueFoo4() { return _myCQ.getFoo4(); }
-    protected ConditionValue getCValueBar0() { return _myCQ.getBar0(); }
-    protected ConditionValue getCValueQux0() { return _myCQ.getQux0(); }
-    protected ConditionValue getCValueC21() { return _myCQ.getC21(); }
-    protected ConditionValue getCValueC22() { return _myCQ.getC22(); }
-    protected ConditionValue getCValueC23() { return _myCQ.getC23(); }
-    protected ConditionValue getCValueStilettoAliasId() { return _myCQ.getStilettoAliasId(); }
+    protected ConditionValue xgetCValueRefId() { return _myCQ.xdfgetRefId(); }
+    protected ConditionValue xgetCValueFoo0() { return _myCQ.xdfgetFoo0(); }
+    protected ConditionValue xgetCValueFoo1() { return _myCQ.xdfgetFoo1(); }
+    protected ConditionValue xgetCValueFoo2() { return _myCQ.xdfgetFoo2(); }
+    protected ConditionValue xgetCValueFoo3() { return _myCQ.xdfgetFoo3(); }
+    protected ConditionValue xgetCValueFoo4() { return _myCQ.xdfgetFoo4(); }
+    protected ConditionValue xgetCValueBar0() { return _myCQ.xdfgetBar0(); }
+    protected ConditionValue xgetCValueQux0() { return _myCQ.xdfgetQux0(); }
+    protected ConditionValue xgetCValueC21() { return _myCQ.xdfgetC21(); }
+    protected ConditionValue xgetCValueC22() { return _myCQ.xdfgetC22(); }
+    protected ConditionValue xgetCValueC23() { return _myCQ.xdfgetC23(); }
+    protected ConditionValue xgetCValueStilettoAliasId() { return _myCQ.xdfgetStilettoAliasId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteStilettoAliasRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

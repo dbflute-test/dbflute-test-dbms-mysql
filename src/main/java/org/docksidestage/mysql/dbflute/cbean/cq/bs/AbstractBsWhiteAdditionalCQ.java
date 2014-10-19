@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFooId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueFooId(), "foo_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueFooId(), "foo_id", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     protected void doSetFooId_InScope(Collection<Integer> fooIdList) {
-        regINS(CK_INS, cTL(fooIdList), getCValueFooId(), "foo_id");
+        regINS(CK_INS, cTL(fooIdList), xgetCValueFooId(), "foo_id");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     protected void doSetFooId_NotInScope(Collection<Integer> fooIdList) {
-        regINS(CK_NINS, cTL(fooIdList), getCValueFooId(), "foo_id");
+        regINS(CK_NINS, cTL(fooIdList), xgetCValueFooId(), "foo_id");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      */
     public void setFooId_IsNotNull() { regFooId(CK_ISNN, DOBJ); }
 
-    protected void regFooId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooId(), "foo_id"); }
-    protected abstract ConditionValue getCValueFooId();
+    protected void regFooId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooId(), "foo_id"); }
+    protected abstract ConditionValue xgetCValueFooId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     protected void doSetFooName_InScope(Collection<String> fooNameList) {
-        regINS(CK_INS, cTL(fooNameList), getCValueFooName(), "foo_name");
+        regINS(CK_INS, cTL(fooNameList), xgetCValueFooName(), "foo_name");
     }
 
     /**
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     protected void doSetFooName_NotInScope(Collection<String> fooNameList) {
-        regINS(CK_NINS, cTL(fooNameList), getCValueFooName(), "foo_name");
+        regINS(CK_NINS, cTL(fooNameList), xgetCValueFooName(), "foo_name");
     }
 
     /**
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(fooName), getCValueFooName(), "foo_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(fooName), getCValueFooName(), "foo_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
         setFooName_LikeSearch(fooName, xcLSOPPre());
     }
 
-    protected void regFooName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooName(), "foo_name"); }
-    protected abstract ConditionValue getCValueFooName();
+    protected void regFooName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooName(), "foo_name"); }
+    protected abstract ConditionValue xgetCValueFooName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setFooDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueFooDate(), "foo_date", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueFooDate(), "foo_date", fromToOption);
     }
 
     /**
@@ -383,8 +383,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      */
     public void setFooDate_IsNotNull() { regFooDate(CK_ISNN, DOBJ); }
 
-    protected void regFooDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooDate(), "foo_date"); }
-    protected abstract ConditionValue getCValueFooDate();
+    protected void regFooDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooDate(), "foo_date"); }
+    protected abstract ConditionValue xgetCValueFooDate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -445,7 +445,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueRegisterDatetime(), "register_datetime", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueRegisterDatetime(), "register_datetime", fromToOption);
     }
 
     /**
@@ -475,8 +475,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      */
     public void setRegisterDatetime_IsNotNull() { regRegisterDatetime(CK_ISNN, DOBJ); }
 
-    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterDatetime(), "register_datetime"); }
-    protected abstract ConditionValue getCValueRegisterDatetime();
+    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterDatetime(), "register_datetime"); }
+    protected abstract ConditionValue xgetCValueRegisterDatetime();
 
     // ===================================================================================
     //                                                                     ScalarCondition

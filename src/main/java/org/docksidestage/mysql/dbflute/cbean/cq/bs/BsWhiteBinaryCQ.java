@@ -89,10 +89,10 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _binaryId;
-    public ConditionValue getBinaryId()
+    public ConditionValue xdfgetBinaryId()
     { if (_binaryId == null) { _binaryId = nCV(); }
       return _binaryId; }
-    protected ConditionValue getCValueBinaryId() { return getBinaryId(); }
+    protected ConditionValue xgetCValueBinaryId() { return xdfgetBinaryId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     public BsWhiteBinaryCQ addOrderBy_BinaryId_Desc() { regOBD("BINARY_ID"); return this; }
 
     protected ConditionValue _binaryData;
-    public ConditionValue getBinaryData()
+    public ConditionValue xdfgetBinaryData()
     { if (_binaryData == null) { _binaryData = nCV(); }
       return _binaryData; }
-    protected ConditionValue getCValueBinaryData() { return getBinaryData(); }
+    protected ConditionValue xgetCValueBinaryData() { return xdfgetBinaryData(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -129,10 +129,10 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     public BsWhiteBinaryCQ addOrderBy_BinaryData_Desc() { regOBD("BINARY_DATA"); return this; }
 
     protected ConditionValue _blobData;
-    public ConditionValue getBlobData()
+    public ConditionValue xdfgetBlobData()
     { if (_blobData == null) { _blobData = nCV(); }
       return _blobData; }
-    protected ConditionValue getCValueBlobData() { return getBlobData(); }
+    protected ConditionValue xgetCValueBlobData() { return xdfgetBlobData(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -199,31 +199,31 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteBinaryCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteBinaryCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteBinaryCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteBinaryCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteBinaryCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteBinaryCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteBinaryCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteBinaryCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteBinaryCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteBinaryCQ> _myselfExistsMap;
-    public Map<String, WhiteBinaryCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteBinaryCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteBinaryCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteBinaryCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteBinaryCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteBinaryCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -232,7 +232,7 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteBinaryCB.class.getName(); }
     protected String xCQ() { return WhiteBinaryCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

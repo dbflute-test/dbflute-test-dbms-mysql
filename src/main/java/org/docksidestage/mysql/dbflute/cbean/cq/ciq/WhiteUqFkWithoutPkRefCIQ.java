@@ -76,8 +76,8 @@ public class WhiteUqFkWithoutPkRefCIQ extends AbstractBsWhiteUqFkWithoutPkRefCQ 
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueUqFkRefId() { return _myCQ.getUqFkRefId(); }
-    protected ConditionValue getCValueFkToUqCode() { return _myCQ.getFkToUqCode(); }
+    protected ConditionValue xgetCValueUqFkRefId() { return _myCQ.xdfgetUqFkRefId(); }
+    protected ConditionValue xgetCValueFkToUqCode() { return _myCQ.xdfgetFkToUqCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteUqFkWithoutPkRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

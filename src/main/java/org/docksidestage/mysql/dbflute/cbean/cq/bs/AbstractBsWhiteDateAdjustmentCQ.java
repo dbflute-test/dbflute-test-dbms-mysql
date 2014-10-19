@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDateAdjustmentId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueDateAdjustmentId(), "DATE_ADJUSTMENT_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueDateAdjustmentId(), "DATE_ADJUSTMENT_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetDateAdjustmentId_InScope(Collection<Long> dateAdjustmentIdList) {
-        regINS(CK_INS, cTL(dateAdjustmentIdList), getCValueDateAdjustmentId(), "DATE_ADJUSTMENT_ID");
+        regINS(CK_INS, cTL(dateAdjustmentIdList), xgetCValueDateAdjustmentId(), "DATE_ADJUSTMENT_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetDateAdjustmentId_NotInScope(Collection<Long> dateAdjustmentIdList) {
-        regINS(CK_NINS, cTL(dateAdjustmentIdList), getCValueDateAdjustmentId(), "DATE_ADJUSTMENT_ID");
+        regINS(CK_NINS, cTL(dateAdjustmentIdList), xgetCValueDateAdjustmentId(), "DATE_ADJUSTMENT_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setDateAdjustmentId_IsNotNull() { regDateAdjustmentId(CK_ISNN, DOBJ); }
 
-    protected void regDateAdjustmentId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDateAdjustmentId(), "DATE_ADJUSTMENT_ID"); }
-    protected abstract ConditionValue getCValueDateAdjustmentId();
+    protected void regDateAdjustmentId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDateAdjustmentId(), "DATE_ADJUSTMENT_ID"); }
+    protected abstract ConditionValue xgetCValueDateAdjustmentId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -245,7 +245,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setAdjustedDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueAdjustedDate(), "ADJUSTED_DATE", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueAdjustedDate(), "ADJUSTED_DATE", fromToOption);
     }
 
     /**
@@ -275,8 +275,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedDate_IsNotNull() { regAdjustedDate(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedDate(), "ADJUSTED_DATE"); }
-    protected abstract ConditionValue getCValueAdjustedDate();
+    protected void regAdjustedDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDate(), "ADJUSTED_DATE"); }
+    protected abstract ConditionValue xgetCValueAdjustedDate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -346,7 +346,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setAdjustedDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueAdjustedDatetime(), "ADJUSTED_DATETIME", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueAdjustedDatetime(), "ADJUSTED_DATETIME", fromToOption);
     }
 
     /**
@@ -376,8 +376,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedDatetime_IsNotNull() { regAdjustedDatetime(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedDatetime(), "ADJUSTED_DATETIME"); }
-    protected abstract ConditionValue getCValueAdjustedDatetime();
+    protected void regAdjustedDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDatetime(), "ADJUSTED_DATETIME"); }
+    protected abstract ConditionValue xgetCValueAdjustedDatetime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -436,8 +436,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedTime_IsNotNull() { regAdjustedTime(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedTime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedTime(), "ADJUSTED_TIME"); }
-    protected abstract ConditionValue getCValueAdjustedTime();
+    protected void regAdjustedTime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedTime(), "ADJUSTED_TIME"); }
+    protected abstract ConditionValue xgetCValueAdjustedTime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -511,7 +511,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueAdjustedInteger(), "ADJUSTED_INTEGER", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueAdjustedInteger(), "ADJUSTED_INTEGER", rangeOfOption);
     }
 
     /**
@@ -524,7 +524,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedInteger_InScope(Collection<Integer> adjustedIntegerList) {
-        regINS(CK_INS, cTL(adjustedIntegerList), getCValueAdjustedInteger(), "ADJUSTED_INTEGER");
+        regINS(CK_INS, cTL(adjustedIntegerList), xgetCValueAdjustedInteger(), "ADJUSTED_INTEGER");
     }
 
     /**
@@ -537,7 +537,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedInteger_NotInScope(Collection<Integer> adjustedIntegerList) {
-        regINS(CK_NINS, cTL(adjustedIntegerList), getCValueAdjustedInteger(), "ADJUSTED_INTEGER");
+        regINS(CK_NINS, cTL(adjustedIntegerList), xgetCValueAdjustedInteger(), "ADJUSTED_INTEGER");
     }
 
     /**
@@ -552,8 +552,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedInteger_IsNotNull() { regAdjustedInteger(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedInteger(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedInteger(), "ADJUSTED_INTEGER"); }
-    protected abstract ConditionValue getCValueAdjustedInteger();
+    protected void regAdjustedInteger(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedInteger(), "ADJUSTED_INTEGER"); }
+    protected abstract ConditionValue xgetCValueAdjustedInteger();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -627,7 +627,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedNamedStringLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueAdjustedNamedStringLong(), "ADJUSTED_NAMED_STRING_LONG", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueAdjustedNamedStringLong(), "ADJUSTED_NAMED_STRING_LONG", rangeOfOption);
     }
 
     /**
@@ -640,7 +640,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedNamedStringLong_InScope(Collection<Long> adjustedNamedStringLongList) {
-        regINS(CK_INS, cTL(adjustedNamedStringLongList), getCValueAdjustedNamedStringLong(), "ADJUSTED_NAMED_STRING_LONG");
+        regINS(CK_INS, cTL(adjustedNamedStringLongList), xgetCValueAdjustedNamedStringLong(), "ADJUSTED_NAMED_STRING_LONG");
     }
 
     /**
@@ -653,7 +653,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedNamedStringLong_NotInScope(Collection<Long> adjustedNamedStringLongList) {
-        regINS(CK_NINS, cTL(adjustedNamedStringLongList), getCValueAdjustedNamedStringLong(), "ADJUSTED_NAMED_STRING_LONG");
+        regINS(CK_NINS, cTL(adjustedNamedStringLongList), xgetCValueAdjustedNamedStringLong(), "ADJUSTED_NAMED_STRING_LONG");
     }
 
     /**
@@ -668,8 +668,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedNamedStringLong_IsNotNull() { regAdjustedNamedStringLong(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedNamedStringLong(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedNamedStringLong(), "ADJUSTED_NAMED_STRING_LONG"); }
-    protected abstract ConditionValue getCValueAdjustedNamedStringLong();
+    protected void regAdjustedNamedStringLong(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedNamedStringLong(), "ADJUSTED_NAMED_STRING_LONG"); }
+    protected abstract ConditionValue xgetCValueAdjustedNamedStringLong();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -743,7 +743,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedNamedTypedLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueAdjustedNamedTypedLong(), "ADJUSTED_NAMED_TYPED_LONG", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueAdjustedNamedTypedLong(), "ADJUSTED_NAMED_TYPED_LONG", rangeOfOption);
     }
 
     /**
@@ -756,7 +756,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedNamedTypedLong_InScope(Collection<Long> adjustedNamedTypedLongList) {
-        regINS(CK_INS, cTL(adjustedNamedTypedLongList), getCValueAdjustedNamedTypedLong(), "ADJUSTED_NAMED_TYPED_LONG");
+        regINS(CK_INS, cTL(adjustedNamedTypedLongList), xgetCValueAdjustedNamedTypedLong(), "ADJUSTED_NAMED_TYPED_LONG");
     }
 
     /**
@@ -769,7 +769,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedNamedTypedLong_NotInScope(Collection<Long> adjustedNamedTypedLongList) {
-        regINS(CK_NINS, cTL(adjustedNamedTypedLongList), getCValueAdjustedNamedTypedLong(), "ADJUSTED_NAMED_TYPED_LONG");
+        regINS(CK_NINS, cTL(adjustedNamedTypedLongList), xgetCValueAdjustedNamedTypedLong(), "ADJUSTED_NAMED_TYPED_LONG");
     }
 
     /**
@@ -784,8 +784,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedNamedTypedLong_IsNotNull() { regAdjustedNamedTypedLong(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedNamedTypedLong(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedNamedTypedLong(), "ADJUSTED_NAMED_TYPED_LONG"); }
-    protected abstract ConditionValue getCValueAdjustedNamedTypedLong();
+    protected void regAdjustedNamedTypedLong(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedNamedTypedLong(), "ADJUSTED_NAMED_TYPED_LONG"); }
+    protected abstract ConditionValue xgetCValueAdjustedNamedTypedLong();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -859,7 +859,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedPinpointStringLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueAdjustedPinpointStringLong(), "ADJUSTED_PINPOINT_STRING_LONG", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueAdjustedPinpointStringLong(), "ADJUSTED_PINPOINT_STRING_LONG", rangeOfOption);
     }
 
     /**
@@ -872,7 +872,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedPinpointStringLong_InScope(Collection<Long> adjustedPinpointStringLongList) {
-        regINS(CK_INS, cTL(adjustedPinpointStringLongList), getCValueAdjustedPinpointStringLong(), "ADJUSTED_PINPOINT_STRING_LONG");
+        regINS(CK_INS, cTL(adjustedPinpointStringLongList), xgetCValueAdjustedPinpointStringLong(), "ADJUSTED_PINPOINT_STRING_LONG");
     }
 
     /**
@@ -885,7 +885,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedPinpointStringLong_NotInScope(Collection<Long> adjustedPinpointStringLongList) {
-        regINS(CK_NINS, cTL(adjustedPinpointStringLongList), getCValueAdjustedPinpointStringLong(), "ADJUSTED_PINPOINT_STRING_LONG");
+        regINS(CK_NINS, cTL(adjustedPinpointStringLongList), xgetCValueAdjustedPinpointStringLong(), "ADJUSTED_PINPOINT_STRING_LONG");
     }
 
     /**
@@ -900,8 +900,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedPinpointStringLong_IsNotNull() { regAdjustedPinpointStringLong(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedPinpointStringLong(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedPinpointStringLong(), "ADJUSTED_PINPOINT_STRING_LONG"); }
-    protected abstract ConditionValue getCValueAdjustedPinpointStringLong();
+    protected void regAdjustedPinpointStringLong(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedPinpointStringLong(), "ADJUSTED_PINPOINT_STRING_LONG"); }
+    protected abstract ConditionValue xgetCValueAdjustedPinpointStringLong();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -975,7 +975,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedPinpointTypedLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueAdjustedPinpointTypedLong(), "ADJUSTED_PINPOINT_TYPED_LONG", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueAdjustedPinpointTypedLong(), "ADJUSTED_PINPOINT_TYPED_LONG", rangeOfOption);
     }
 
     /**
@@ -988,7 +988,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedPinpointTypedLong_InScope(Collection<Long> adjustedPinpointTypedLongList) {
-        regINS(CK_INS, cTL(adjustedPinpointTypedLongList), getCValueAdjustedPinpointTypedLong(), "ADJUSTED_PINPOINT_TYPED_LONG");
+        regINS(CK_INS, cTL(adjustedPinpointTypedLongList), xgetCValueAdjustedPinpointTypedLong(), "ADJUSTED_PINPOINT_TYPED_LONG");
     }
 
     /**
@@ -1001,7 +1001,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedPinpointTypedLong_NotInScope(Collection<Long> adjustedPinpointTypedLongList) {
-        regINS(CK_NINS, cTL(adjustedPinpointTypedLongList), getCValueAdjustedPinpointTypedLong(), "ADJUSTED_PINPOINT_TYPED_LONG");
+        regINS(CK_NINS, cTL(adjustedPinpointTypedLongList), xgetCValueAdjustedPinpointTypedLong(), "ADJUSTED_PINPOINT_TYPED_LONG");
     }
 
     /**
@@ -1016,8 +1016,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedPinpointTypedLong_IsNotNull() { regAdjustedPinpointTypedLong(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedPinpointTypedLong(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedPinpointTypedLong(), "ADJUSTED_PINPOINT_TYPED_LONG"); }
-    protected abstract ConditionValue getCValueAdjustedPinpointTypedLong();
+    protected void regAdjustedPinpointTypedLong(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedPinpointTypedLong(), "ADJUSTED_PINPOINT_TYPED_LONG"); }
+    protected abstract ConditionValue xgetCValueAdjustedPinpointTypedLong();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1091,7 +1091,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedPlainLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueAdjustedPlainLong(), "ADJUSTED_PLAIN_LONG", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueAdjustedPlainLong(), "ADJUSTED_PLAIN_LONG", rangeOfOption);
     }
 
     /**
@@ -1104,7 +1104,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedPlainLong_InScope(Collection<Long> adjustedPlainLongList) {
-        regINS(CK_INS, cTL(adjustedPlainLongList), getCValueAdjustedPlainLong(), "ADJUSTED_PLAIN_LONG");
+        regINS(CK_INS, cTL(adjustedPlainLongList), xgetCValueAdjustedPlainLong(), "ADJUSTED_PLAIN_LONG");
     }
 
     /**
@@ -1117,7 +1117,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedPlainLong_NotInScope(Collection<Long> adjustedPlainLongList) {
-        regINS(CK_NINS, cTL(adjustedPlainLongList), getCValueAdjustedPlainLong(), "ADJUSTED_PLAIN_LONG");
+        regINS(CK_NINS, cTL(adjustedPlainLongList), xgetCValueAdjustedPlainLong(), "ADJUSTED_PLAIN_LONG");
     }
 
     /**
@@ -1132,8 +1132,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedPlainLong_IsNotNull() { regAdjustedPlainLong(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedPlainLong(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedPlainLong(), "ADJUSTED_PLAIN_LONG"); }
-    protected abstract ConditionValue getCValueAdjustedPlainLong();
+    protected void regAdjustedPlainLong(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedPlainLong(), "ADJUSTED_PLAIN_LONG"); }
+    protected abstract ConditionValue xgetCValueAdjustedPlainLong();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -1171,7 +1171,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedString_InScope(Collection<String> adjustedStringList) {
-        regINS(CK_INS, cTL(adjustedStringList), getCValueAdjustedString(), "ADJUSTED_STRING");
+        regINS(CK_INS, cTL(adjustedStringList), xgetCValueAdjustedString(), "ADJUSTED_STRING");
     }
 
     /**
@@ -1184,7 +1184,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     protected void doSetAdjustedString_NotInScope(Collection<String> adjustedStringList) {
-        regINS(CK_NINS, cTL(adjustedStringList), getCValueAdjustedString(), "ADJUSTED_STRING");
+        regINS(CK_NINS, cTL(adjustedStringList), xgetCValueAdjustedString(), "ADJUSTED_STRING");
     }
 
     /**
@@ -1206,7 +1206,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setAdjustedString_LikeSearch(String adjustedString, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(adjustedString), getCValueAdjustedString(), "ADJUSTED_STRING", likeSearchOption);
+        regLSQ(CK_LS, fRES(adjustedString), xgetCValueAdjustedString(), "ADJUSTED_STRING", likeSearchOption);
     }
 
     /**
@@ -1228,7 +1228,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setAdjustedString_NotLikeSearch(String adjustedString, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(adjustedString), getCValueAdjustedString(), "ADJUSTED_STRING", likeSearchOption);
+        regLSQ(CK_NLS, fRES(adjustedString), xgetCValueAdjustedString(), "ADJUSTED_STRING", likeSearchOption);
     }
 
     /**
@@ -1258,8 +1258,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedString_IsNotNull() { regAdjustedString(CK_ISNN, DOBJ); }
 
-    protected void regAdjustedString(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueAdjustedString(), "ADJUSTED_STRING"); }
-    protected abstract ConditionValue getCValueAdjustedString();
+    protected void regAdjustedString(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedString(), "ADJUSTED_STRING"); }
+    protected abstract ConditionValue xgetCValueAdjustedString();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -133,7 +133,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setConstraintNameAutoQuxId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueConstraintNameAutoQuxId(), "CONSTRAINT_NAME_AUTO_QUX_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueConstraintNameAutoQuxId(), "CONSTRAINT_NAME_AUTO_QUX_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     }
 
     protected void doSetConstraintNameAutoQuxId_InScope(Collection<Long> constraintNameAutoQuxIdList) {
-        regINS(CK_INS, cTL(constraintNameAutoQuxIdList), getCValueConstraintNameAutoQuxId(), "CONSTRAINT_NAME_AUTO_QUX_ID");
+        regINS(CK_INS, cTL(constraintNameAutoQuxIdList), xgetCValueConstraintNameAutoQuxId(), "CONSTRAINT_NAME_AUTO_QUX_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     }
 
     protected void doSetConstraintNameAutoQuxId_NotInScope(Collection<Long> constraintNameAutoQuxIdList) {
-        regINS(CK_NINS, cTL(constraintNameAutoQuxIdList), getCValueConstraintNameAutoQuxId(), "CONSTRAINT_NAME_AUTO_QUX_ID");
+        regINS(CK_NINS, cTL(constraintNameAutoQuxIdList), xgetCValueConstraintNameAutoQuxId(), "CONSTRAINT_NAME_AUTO_QUX_ID");
     }
 
     /**
@@ -257,8 +257,8 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      */
     public void setConstraintNameAutoQuxId_IsNotNull() { regConstraintNameAutoQuxId(CK_ISNN, DOBJ); }
 
-    protected void regConstraintNameAutoQuxId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueConstraintNameAutoQuxId(), "CONSTRAINT_NAME_AUTO_QUX_ID"); }
-    protected abstract ConditionValue getCValueConstraintNameAutoQuxId();
+    protected void regConstraintNameAutoQuxId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueConstraintNameAutoQuxId(), "CONSTRAINT_NAME_AUTO_QUX_ID"); }
+    protected abstract ConditionValue xgetCValueConstraintNameAutoQuxId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -296,7 +296,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     }
 
     protected void doSetConstraintNameAutoQuxName_InScope(Collection<String> constraintNameAutoQuxNameList) {
-        regINS(CK_INS, cTL(constraintNameAutoQuxNameList), getCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME");
+        regINS(CK_INS, cTL(constraintNameAutoQuxNameList), xgetCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME");
     }
 
     /**
@@ -309,7 +309,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     }
 
     protected void doSetConstraintNameAutoQuxName_NotInScope(Collection<String> constraintNameAutoQuxNameList) {
-        regINS(CK_NINS, cTL(constraintNameAutoQuxNameList), getCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME");
+        regINS(CK_NINS, cTL(constraintNameAutoQuxNameList), xgetCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME");
     }
 
     /**
@@ -331,7 +331,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setConstraintNameAutoQuxName_LikeSearch(String constraintNameAutoQuxName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(constraintNameAutoQuxName), getCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(constraintNameAutoQuxName), xgetCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME", likeSearchOption);
     }
 
     /**
@@ -353,7 +353,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setConstraintNameAutoQuxName_NotLikeSearch(String constraintNameAutoQuxName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(constraintNameAutoQuxName), getCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(constraintNameAutoQuxName), xgetCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME", likeSearchOption);
     }
 
     /**
@@ -365,8 +365,8 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
         setConstraintNameAutoQuxName_LikeSearch(constraintNameAutoQuxName, xcLSOPPre());
     }
 
-    protected void regConstraintNameAutoQuxName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME"); }
-    protected abstract ConditionValue getCValueConstraintNameAutoQuxName();
+    protected void regConstraintNameAutoQuxName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME"); }
+    protected abstract ConditionValue xgetCValueConstraintNameAutoQuxName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

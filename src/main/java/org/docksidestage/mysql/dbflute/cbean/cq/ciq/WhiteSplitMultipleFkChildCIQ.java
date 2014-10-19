@@ -76,9 +76,9 @@ public class WhiteSplitMultipleFkChildCIQ extends AbstractBsWhiteSplitMultipleFk
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueChildId() { return _myCQ.getChildId(); }
-    protected ConditionValue getCValueBaseId() { return _myCQ.getBaseId(); }
-    protected ConditionValue getCValueChildName() { return _myCQ.getChildName(); }
+    protected ConditionValue xgetCValueChildId() { return _myCQ.xdfgetChildId(); }
+    protected ConditionValue xgetCValueBaseId() { return _myCQ.xdfgetBaseId(); }
+    protected ConditionValue xgetCValueChildName() { return _myCQ.xdfgetChildName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSplitMultipleFkChildCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -78,14 +78,8 @@ public class LoaderOfWhiteSplitMultipleFkBase {
     //                                                                       =============
     protected List<WhiteSplitMultipleFkChild> _referrerWhiteSplitMultipleFkChildList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteSplitMultipleFkChild> loadWhiteSplitMultipleFkChildList(ConditionBeanSetupper<WhiteSplitMultipleFkChildCB> refCBLambda) {
-        myBhv().loadWhiteSplitMultipleFkChildList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteSplitMultipleFkChild>() {
-            public void handle(List<WhiteSplitMultipleFkChild> referrerList) { _referrerWhiteSplitMultipleFkChildList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteSplitMultipleFkChild>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteSplitMultipleFkChild> handler) {
-                handler.handle(new LoaderOfWhiteSplitMultipleFkChild().ready(_referrerWhiteSplitMultipleFkChildList, _selector));
-            }
-        };
+        myBhv().loadWhiteSplitMultipleFkChildList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSplitMultipleFkChildList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSplitMultipleFkChild().ready(_referrerWhiteSplitMultipleFkChildList, _selector));
     }
 
     // ===================================================================================
@@ -93,17 +87,15 @@ public class LoaderOfWhiteSplitMultipleFkBase {
     //                                                                    ================
     protected LoaderOfWhiteSplitMultipleFkNext _foreignWhiteSplitMultipleFkNextLoader;
     public LoaderOfWhiteSplitMultipleFkNext pulloutWhiteSplitMultipleFkNext() {
-        if (_foreignWhiteSplitMultipleFkNextLoader != null) { return _foreignWhiteSplitMultipleFkNextLoader; }
-        List<WhiteSplitMultipleFkNext> pulledList = myBhv().pulloutWhiteSplitMultipleFkNext(_selectedList);
-        _foreignWhiteSplitMultipleFkNextLoader = new LoaderOfWhiteSplitMultipleFkNext().ready(pulledList, _selector);
+        if (_foreignWhiteSplitMultipleFkNextLoader == null)
+        { _foreignWhiteSplitMultipleFkNextLoader = new LoaderOfWhiteSplitMultipleFkNext().ready(myBhv().pulloutWhiteSplitMultipleFkNext(_selectedList), _selector); }
         return _foreignWhiteSplitMultipleFkNextLoader;
     }
 
     protected LoaderOfWhiteSplitMultipleFkRef _foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTestLoader;
     public LoaderOfWhiteSplitMultipleFkRef pulloutWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
-        if (_foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTestLoader != null) { return _foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTestLoader; }
-        List<WhiteSplitMultipleFkRef> pulledList = myBhv().pulloutWhiteSplitMultipleFkRefAsSplitMultipleFkTest(_selectedList);
-        _foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTestLoader = new LoaderOfWhiteSplitMultipleFkRef().ready(pulledList, _selector);
+        if (_foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTestLoader == null)
+        { _foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTestLoader = new LoaderOfWhiteSplitMultipleFkRef().ready(myBhv().pulloutWhiteSplitMultipleFkRefAsSplitMultipleFkTest(_selectedList), _selector); }
         return _foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTestLoader;
     }
 

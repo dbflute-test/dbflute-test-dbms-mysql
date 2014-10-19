@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhitePgReservCB extends AbstractConditionBean {
      */
     public WhitePgReservCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhitePgReservCQ getConditionQuery() { // public for parameter comment and internal
+    public WhitePgReservCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhitePgReservCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhitePgReservCB extends AbstractConditionBean {
         return new WhitePgReservCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhitePgReservCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhitePgReservCQ>() {
                 public boolean has() { return true; }
-                public WhitePgReservCQ qy() { return getConditionQuery(); }
+                public WhitePgReservCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -312,102 +320,102 @@ public class BsWhitePgReservCB extends AbstractConditionBean {
          * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnClassSynonym() { return doColumn("CLASS"); }
+        public SpecifiedColumn columnClassSynonym() { return doColumn("CLASS"); }
         /**
          * ((using DBFlute synonym))CASE: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnCaseSynonym() { return doColumn("CASE"); }
+        public SpecifiedColumn columnCaseSynonym() { return doColumn("CASE"); }
         /**
          * ((using DBFlute synonym))PACKAGE: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPackageSynonym() { return doColumn("PACKAGE"); }
+        public SpecifiedColumn columnPackageSynonym() { return doColumn("PACKAGE"); }
         /**
          * ((using DBFlute synonym))DEFAULT: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDefaultSynonym() { return doColumn("DEFAULT"); }
+        public SpecifiedColumn columnDefaultSynonym() { return doColumn("DEFAULT"); }
         /**
          * ((using DBFlute synonym))NEW: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNewSynonym() { return doColumn("NEW"); }
+        public SpecifiedColumn columnNewSynonym() { return doColumn("NEW"); }
         /**
          * ((using DBFlute synonym))NATIVE: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNativeSynonym() { return doColumn("NATIVE"); }
+        public SpecifiedColumn columnNativeSynonym() { return doColumn("NATIVE"); }
         /**
          * ((using DBFlute synonym))VOID: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVoidSynonym() { return doColumn("VOID"); }
+        public SpecifiedColumn columnVoidSynonym() { return doColumn("VOID"); }
         /**
          * ((using DBFlute synonym))PUBLIC: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPublicSynonym() { return doColumn("PUBLIC"); }
+        public SpecifiedColumn columnPublicSynonym() { return doColumn("PUBLIC"); }
         /**
          * ((using DBFlute synonym))PROTECTED: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProtectedSynonym() { return doColumn("PROTECTED"); }
+        public SpecifiedColumn columnProtectedSynonym() { return doColumn("PROTECTED"); }
         /**
          * ((using DBFlute synonym))PRIVATE: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPrivateSynonym() { return doColumn("PRIVATE"); }
+        public SpecifiedColumn columnPrivateSynonym() { return doColumn("PRIVATE"); }
         /**
          * ((using DBFlute synonym))INTERFACE: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnInterfaceSynonym() { return doColumn("INTERFACE"); }
+        public SpecifiedColumn columnInterfaceSynonym() { return doColumn("INTERFACE"); }
         /**
          * ((using DBFlute synonym))ABSTRACT: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAbstractSynonym() { return doColumn("ABSTRACT"); }
+        public SpecifiedColumn columnAbstractSynonym() { return doColumn("ABSTRACT"); }
         /**
          * ((using DBFlute synonym))FINAL: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFinalSynonym() { return doColumn("FINAL"); }
+        public SpecifiedColumn columnFinalSynonym() { return doColumn("FINAL"); }
         /**
          * ((using DBFlute synonym))FINALLY: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFinallySynonym() { return doColumn("FINALLY"); }
+        public SpecifiedColumn columnFinallySynonym() { return doColumn("FINALLY"); }
         /**
          * ((using DBFlute synonym))RETURN: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnReturnSynonym() { return doColumn("RETURN"); }
+        public SpecifiedColumn columnReturnSynonym() { return doColumn("RETURN"); }
         /**
          * ((using DBFlute synonym))DOUBLE: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDoubleSynonym() { return doColumn("DOUBLE"); }
+        public SpecifiedColumn columnDoubleSynonym() { return doColumn("DOUBLE"); }
         /**
          * ((using DBFlute synonym))FLOAT: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFloatSynonym() { return doColumn("FLOAT"); }
+        public SpecifiedColumn columnFloatSynonym() { return doColumn("FLOAT"); }
         /**
          * ((using DBFlute synonym))SHORT: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnShortSynonym() { return doColumn("SHORT"); }
+        public SpecifiedColumn columnShortSynonym() { return doColumn("SHORT"); }
         /**
          * TYPE: {CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnType() { return doColumn("TYPE"); }
+        public SpecifiedColumn columnType() { return doColumn("TYPE"); }
         /**
          * RESERV_NAME: {NotNull, VARCHAR(32)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnReservName() { return doColumn("RESERV_NAME"); }
+        public SpecifiedColumn columnReservName() { return doColumn("RESERV_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -477,7 +485,7 @@ public class BsWhitePgReservCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePgReservCB> columnQuery(final SpecifyQuery<WhitePgReservCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhitePgReservCB>() {
-            public HpCalculator handle(SpecifyQuery<WhitePgReservCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhitePgReservCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -595,8 +603,8 @@ public class BsWhitePgReservCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhitePgReservCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhitePgReservCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhitePgReservCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhitePgReservCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

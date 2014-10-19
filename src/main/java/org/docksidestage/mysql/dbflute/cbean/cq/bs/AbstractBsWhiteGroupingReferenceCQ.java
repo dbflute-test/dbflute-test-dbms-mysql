@@ -133,7 +133,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGroupingReferenceId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueGroupingReferenceId(), "GROUPING_REFERENCE_ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueGroupingReferenceId(), "GROUPING_REFERENCE_ID", rangeOfOption);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     protected void doSetGroupingReferenceId_InScope(Collection<Long> groupingReferenceIdList) {
-        regINS(CK_INS, cTL(groupingReferenceIdList), getCValueGroupingReferenceId(), "GROUPING_REFERENCE_ID");
+        regINS(CK_INS, cTL(groupingReferenceIdList), xgetCValueGroupingReferenceId(), "GROUPING_REFERENCE_ID");
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     protected void doSetGroupingReferenceId_NotInScope(Collection<Long> groupingReferenceIdList) {
-        regINS(CK_NINS, cTL(groupingReferenceIdList), getCValueGroupingReferenceId(), "GROUPING_REFERENCE_ID");
+        regINS(CK_NINS, cTL(groupingReferenceIdList), xgetCValueGroupingReferenceId(), "GROUPING_REFERENCE_ID");
     }
 
     /**
@@ -174,8 +174,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      */
     public void setGroupingReferenceId_IsNotNull() { regGroupingReferenceId(CK_ISNN, DOBJ); }
 
-    protected void regGroupingReferenceId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGroupingReferenceId(), "GROUPING_REFERENCE_ID"); }
-    protected abstract ConditionValue getCValueGroupingReferenceId();
+    protected void regGroupingReferenceId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGroupingReferenceId(), "GROUPING_REFERENCE_ID"); }
+    protected abstract ConditionValue xgetCValueGroupingReferenceId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     protected void doSetGroupingReferenceCode_InScope(Collection<String> groupingReferenceCodeList) {
-        regINS(CK_INS, cTL(groupingReferenceCodeList), getCValueGroupingReferenceCode(), "GROUPING_REFERENCE_CODE");
+        regINS(CK_INS, cTL(groupingReferenceCodeList), xgetCValueGroupingReferenceCode(), "GROUPING_REFERENCE_CODE");
     }
 
     /**
@@ -376,11 +376,11 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     protected void doSetGroupingReferenceCode_NotInScope(Collection<String> groupingReferenceCodeList) {
-        regINS(CK_NINS, cTL(groupingReferenceCodeList), getCValueGroupingReferenceCode(), "GROUPING_REFERENCE_CODE");
+        regINS(CK_NINS, cTL(groupingReferenceCodeList), xgetCValueGroupingReferenceCode(), "GROUPING_REFERENCE_CODE");
     }
 
-    protected void regGroupingReferenceCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueGroupingReferenceCode(), "GROUPING_REFERENCE_CODE"); }
-    protected abstract ConditionValue getCValueGroupingReferenceCode();
+    protected void regGroupingReferenceCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGroupingReferenceCode(), "GROUPING_REFERENCE_CODE"); }
+    protected abstract ConditionValue xgetCValueGroupingReferenceCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition

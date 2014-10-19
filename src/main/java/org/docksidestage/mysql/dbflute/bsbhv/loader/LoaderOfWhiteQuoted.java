@@ -78,14 +78,8 @@ public class LoaderOfWhiteQuoted {
     //                                                                       =============
     protected List<WhiteQuotedRef> _referrerWhiteQuotedRefList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteQuotedRef> loadWhiteQuotedRefList(ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
-        myBhv().loadWhiteQuotedRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteQuotedRef>() {
-            public void handle(List<WhiteQuotedRef> referrerList) { _referrerWhiteQuotedRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteQuotedRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteQuotedRef> handler) {
-                handler.handle(new LoaderOfWhiteQuotedRef().ready(_referrerWhiteQuotedRefList, _selector));
-            }
-        };
+        myBhv().loadWhiteQuotedRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteQuotedRefList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteQuotedRef().ready(_referrerWhiteQuotedRefList, _selector));
     }
 
     // ===================================================================================

@@ -97,7 +97,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     protected void doSetImplicitConvStringId_InScope(Collection<String> implicitConvStringIdList) {
-        regINS(CK_INS, cTL(implicitConvStringIdList), getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID");
+        regINS(CK_INS, cTL(implicitConvStringIdList), xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID");
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     protected void doSetImplicitConvStringId_NotInScope(Collection<String> implicitConvStringIdList) {
-        regINS(CK_NINS, cTL(implicitConvStringIdList), getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID");
+        regINS(CK_NINS, cTL(implicitConvStringIdList), xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID");
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvStringId_LikeSearch(String implicitConvStringId, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(implicitConvStringId), getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID", likeSearchOption);
+        regLSQ(CK_LS, fRES(implicitConvStringId), xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID", likeSearchOption);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvStringId_NotLikeSearch(String implicitConvStringId, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(implicitConvStringId), getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID", likeSearchOption);
+        regLSQ(CK_NLS, fRES(implicitConvStringId), xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID", likeSearchOption);
     }
 
     /**
@@ -348,8 +348,8 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      */
     public void setImplicitConvStringId_IsNotNull() { regImplicitConvStringId(CK_ISNN, DOBJ); }
 
-    protected void regImplicitConvStringId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID"); }
-    protected abstract ConditionValue getCValueImplicitConvStringId();
+    protected void regImplicitConvStringId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvStringId(), "IMPLICIT_CONV_STRING_ID"); }
+    protected abstract ConditionValue xgetCValueImplicitConvStringId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -387,7 +387,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     protected void doSetImplicitConvIntegerId_InScope(Collection<String> implicitConvIntegerIdList) {
-        regINS(CK_INS, cTL(implicitConvIntegerIdList), getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID");
+        regINS(CK_INS, cTL(implicitConvIntegerIdList), xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID");
     }
 
     /**
@@ -400,7 +400,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     protected void doSetImplicitConvIntegerId_NotInScope(Collection<String> implicitConvIntegerIdList) {
-        regINS(CK_NINS, cTL(implicitConvIntegerIdList), getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID");
+        regINS(CK_NINS, cTL(implicitConvIntegerIdList), xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID");
     }
 
     /**
@@ -422,7 +422,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvIntegerId_LikeSearch(String implicitConvIntegerId, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(implicitConvIntegerId), getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID", likeSearchOption);
+        regLSQ(CK_LS, fRES(implicitConvIntegerId), xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID", likeSearchOption);
     }
 
     /**
@@ -444,7 +444,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvIntegerId_NotLikeSearch(String implicitConvIntegerId, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(implicitConvIntegerId), getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID", likeSearchOption);
+        regLSQ(CK_NLS, fRES(implicitConvIntegerId), xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID", likeSearchOption);
     }
 
     /**
@@ -456,8 +456,8 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
         setImplicitConvIntegerId_LikeSearch(implicitConvIntegerId, xcLSOPPre());
     }
 
-    protected void regImplicitConvIntegerId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID"); }
-    protected abstract ConditionValue getCValueImplicitConvIntegerId();
+    protected void regImplicitConvIntegerId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID"); }
+    protected abstract ConditionValue xgetCValueImplicitConvIntegerId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -495,7 +495,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     protected void doSetImplicitConvNumericId_InScope(Collection<String> implicitConvNumericIdList) {
-        regINS(CK_INS, cTL(implicitConvNumericIdList), getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID");
+        regINS(CK_INS, cTL(implicitConvNumericIdList), xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID");
     }
 
     /**
@@ -508,7 +508,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     protected void doSetImplicitConvNumericId_NotInScope(Collection<String> implicitConvNumericIdList) {
-        regINS(CK_NINS, cTL(implicitConvNumericIdList), getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID");
+        regINS(CK_NINS, cTL(implicitConvNumericIdList), xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID");
     }
 
     /**
@@ -530,7 +530,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvNumericId_LikeSearch(String implicitConvNumericId, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(implicitConvNumericId), getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID", likeSearchOption);
+        regLSQ(CK_LS, fRES(implicitConvNumericId), xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID", likeSearchOption);
     }
 
     /**
@@ -552,7 +552,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvNumericId_NotLikeSearch(String implicitConvNumericId, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(implicitConvNumericId), getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID", likeSearchOption);
+        regLSQ(CK_NLS, fRES(implicitConvNumericId), xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID", likeSearchOption);
     }
 
     /**
@@ -564,8 +564,8 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
         setImplicitConvNumericId_LikeSearch(implicitConvNumericId, xcLSOPPre());
     }
 
-    protected void regImplicitConvNumericId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID"); }
-    protected abstract ConditionValue getCValueImplicitConvNumericId();
+    protected void regImplicitConvNumericId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID"); }
+    protected abstract ConditionValue xgetCValueImplicitConvNumericId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -603,7 +603,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     protected void doSetImplicitConvName_InScope(Collection<String> implicitConvNameList) {
-        regINS(CK_INS, cTL(implicitConvNameList), getCValueImplicitConvName(), "IMPLICIT_CONV_NAME");
+        regINS(CK_INS, cTL(implicitConvNameList), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME");
     }
 
     /**
@@ -616,7 +616,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     protected void doSetImplicitConvName_NotInScope(Collection<String> implicitConvNameList) {
-        regINS(CK_NINS, cTL(implicitConvNameList), getCValueImplicitConvName(), "IMPLICIT_CONV_NAME");
+        regINS(CK_NINS, cTL(implicitConvNameList), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME");
     }
 
     /**
@@ -638,7 +638,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvName_LikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(implicitConvName), getCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(implicitConvName), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
     }
 
     /**
@@ -660,7 +660,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvName_NotLikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(implicitConvName), getCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(implicitConvName), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
     }
 
     /**
@@ -672,8 +672,8 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
         setImplicitConvName_LikeSearch(implicitConvName, xcLSOPPre());
     }
 
-    protected void regImplicitConvName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueImplicitConvName(), "IMPLICIT_CONV_NAME"); }
-    protected abstract ConditionValue getCValueImplicitConvName();
+    protected void regImplicitConvName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME"); }
+    protected abstract ConditionValue xgetCValueImplicitConvName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

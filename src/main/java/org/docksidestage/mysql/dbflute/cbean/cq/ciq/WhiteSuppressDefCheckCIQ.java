@@ -76,8 +76,8 @@ public class WhiteSuppressDefCheckCIQ extends AbstractBsWhiteSuppressDefCheckCQ 
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueDefCheckId() { return _myCQ.getDefCheckId(); }
-    protected ConditionValue getCValueDefCheckName() { return _myCQ.getDefCheckName(); }
+    protected ConditionValue xgetCValueDefCheckId() { return _myCQ.xdfgetDefCheckId(); }
+    protected ConditionValue xgetCValueDefCheckName() { return _myCQ.xdfgetDefCheckName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSuppressDefCheckCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

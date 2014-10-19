@@ -20,6 +20,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -190,10 +191,14 @@ public class BsWhiteSuppressJoinSqManyCB extends AbstractConditionBean {
      */
     public WhiteSuppressJoinSqManyCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WhiteSuppressJoinSqManyCQ getConditionQuery() { // public for parameter comment and internal
+    public WhiteSuppressJoinSqManyCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WhiteSuppressJoinSqManyCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -214,8 +219,11 @@ public class BsWhiteSuppressJoinSqManyCB extends AbstractConditionBean {
         return new WhiteSuppressJoinSqManyCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -289,7 +297,7 @@ public class BsWhiteSuppressJoinSqManyCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WhiteSuppressJoinSqManyCQ>() {
                 public boolean has() { return true; }
-                public WhiteSuppressJoinSqManyCQ qy() { return getConditionQuery(); }
+                public WhiteSuppressJoinSqManyCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -314,22 +322,22 @@ public class BsWhiteSuppressJoinSqManyCB extends AbstractConditionBean {
          * MANY_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnManyId() { return doColumn("MANY_ID"); }
+        public SpecifiedColumn columnManyId() { return doColumn("MANY_ID"); }
         /**
          * MANY_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnManyName() { return doColumn("MANY_NAME"); }
+        public SpecifiedColumn columnManyName() { return doColumn("MANY_NAME"); }
         /**
          * SUPPRESS_JOIN_SQ_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnSuppressJoinSqId() { return doColumn("SUPPRESS_JOIN_SQ_ID"); }
+        public SpecifiedColumn columnSuppressJoinSqId() { return doColumn("SUPPRESS_JOIN_SQ_ID"); }
         /**
          * MANY_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnManyOneId() { return doColumn("MANY_ONE_ID"); }
+        public SpecifiedColumn columnManyOneId() { return doColumn("MANY_ONE_ID"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -381,7 +389,7 @@ public class BsWhiteSuppressJoinSqManyCB extends AbstractConditionBean {
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteSuppressJoinSqManyCB> columnQuery(final SpecifyQuery<WhiteSuppressJoinSqManyCB> colCBLambda) {
         return xcreateColQyOperandMySql(new HpColQyHandler<WhiteSuppressJoinSqManyCB>() {
-            public HpCalculator handle(SpecifyQuery<WhiteSuppressJoinSqManyCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WhiteSuppressJoinSqManyCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -499,8 +507,8 @@ public class BsWhiteSuppressJoinSqManyCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WhiteSuppressJoinSqManyCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WhiteSuppressJoinSqManyCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteSuppressJoinSqManyCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteSuppressJoinSqManyCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

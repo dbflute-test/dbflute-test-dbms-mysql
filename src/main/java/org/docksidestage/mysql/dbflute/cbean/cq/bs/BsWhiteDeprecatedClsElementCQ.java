@@ -89,10 +89,10 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _deprecatedClsElementCode;
-    public ConditionValue getDeprecatedClsElementCode()
+    public ConditionValue xdfgetDeprecatedClsElementCode()
     { if (_deprecatedClsElementCode == null) { _deprecatedClsElementCode = nCV(); }
       return _deprecatedClsElementCode; }
-    protected ConditionValue getCValueDeprecatedClsElementCode() { return getDeprecatedClsElementCode(); }
+    protected ConditionValue xgetCValueDeprecatedClsElementCode() { return xdfgetDeprecatedClsElementCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -109,10 +109,10 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
     public BsWhiteDeprecatedClsElementCQ addOrderBy_DeprecatedClsElementCode_Desc() { regOBD("DEPRECATED_CLS_ELEMENT_CODE"); return this; }
 
     protected ConditionValue _deprecatedClsElementName;
-    public ConditionValue getDeprecatedClsElementName()
+    public ConditionValue xdfgetDeprecatedClsElementName()
     { if (_deprecatedClsElementName == null) { _deprecatedClsElementName = nCV(); }
       return _deprecatedClsElementName; }
-    protected ConditionValue getCValueDeprecatedClsElementName() { return getDeprecatedClsElementName(); }
+    protected ConditionValue xgetCValueDeprecatedClsElementName() { return xdfgetDeprecatedClsElementName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -179,31 +179,31 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteDeprecatedClsElementCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteDeprecatedClsElementCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteDeprecatedClsElementCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteDeprecatedClsElementCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteDeprecatedClsElementCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteDeprecatedClsElementCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteDeprecatedClsElementCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteDeprecatedClsElementCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteDeprecatedClsElementCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteDeprecatedClsElementCQ> _myselfExistsMap;
-    public Map<String, WhiteDeprecatedClsElementCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteDeprecatedClsElementCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteDeprecatedClsElementCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteDeprecatedClsElementCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteDeprecatedClsElementCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteDeprecatedClsElementCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -212,7 +212,7 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteDeprecatedClsElementCB.class.getName(); }
     protected String xCQ() { return WhiteDeprecatedClsElementCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }
