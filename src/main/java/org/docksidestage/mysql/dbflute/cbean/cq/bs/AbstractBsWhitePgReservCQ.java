@@ -167,7 +167,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {exists (select CLASS from white_pg_reserv_ref where ...)} <br />
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePgReservRefList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhitePgReservRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {not exists (select CLASS from white_pg_reserv_ref where ...)} <br />
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePgReservRefList</span>(new SubQuery&lt;WhitePgReservRefCB&gt;() {
-     *     public void query(WhitePgReservRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhitePgReservRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ClassSynonym_NotExistsReferrer_WhitePgReservRefList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from white_pg_reserv_ref where ...)} <br />
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePgReservRefList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhitePgReservRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -2287,7 +2285,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * TYPE: {CHAR(3)} <br />
-     * <pre>e.g. setType_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setType_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param type The value of type as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -2413,7 +2411,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * RESERV_NAME: {NotNull, VARCHAR(32)} <br />
-     * <pre>e.g. setReservName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setReservName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param reservName The value of reservName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

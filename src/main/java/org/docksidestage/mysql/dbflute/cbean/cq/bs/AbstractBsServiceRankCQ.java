@@ -240,7 +240,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * {exists (select SERVICE_RANK_CODE from member_service where ...)} <br />
      * (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberServiceList</span>(serviceCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsMemberServiceList</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     serviceCB.query().set...
      * });
      * </pre>
@@ -260,10 +260,8 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * {not exists (select SERVICE_RANK_CODE from member_service where ...)} <br />
      * (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberServiceList</span>(new SubQuery&lt;MemberServiceCB&gt;() {
-     *     public void query(MemberServiceCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsMemberServiceList</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     serviceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ServiceRankCode_NotExistsReferrer_MemberServiceList for 'not exists'. (NotNull)
@@ -291,11 +289,9 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from member_service where ...)} <br />
      * (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberServiceList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;MemberServiceCB&gt;() {
-     *     public void query(MemberServiceCB subCB) {
-     *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     *     }
+     * cb.query().<span style="color: #CC4747">derivedMemberServiceList()</span>.<span style="color: #CC4747">max</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     serviceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     serviceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
@@ -390,7 +386,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * (サービスランク名称)SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} <br />
-     * <pre>e.g. setServiceRankName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setServiceRankName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param serviceRankName The value of serviceRankName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -690,7 +686,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * DESCRIPTION: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setDescription_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setDescription_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param description The value of description as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

@@ -93,9 +93,9 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
-     * cb.query().setFoo...(value);
-     * int count = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <pre>
      * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
      * cb.query().setFoo...(value);
-     * int count = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhitePerrottaOverMember whitePerrottaOverMember = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whitePerrottaOverMember -&gt; {
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whitePerrottaOverMember</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whitePerrottaOverMember.get...
+     *     ... = <span style="color: #553000">whitePerrottaOverMember</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhitePerrottaOverMember whitePerrottaOverMember = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whitePerrottaOverMember -&gt; {
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whitePerrottaOverMember</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whitePerrottaOverMember.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whitePerrottaOverMember</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhitePerrottaOverMember> selectEntity(CBCall<WhitePerrottaOverMemberCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whitePerrottaOverMemberBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whitePerrottaOverMember -&gt; {
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whitePerrottaOverMember <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whitePerrottaOverMember.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whitePerrottaOverMember -&gt; {
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whitePerrottaOverMember <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whitePerrottaOverMember.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhitePerrottaOverMember> selectEntity(WhitePerrottaOverMemberCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
-     * cb.query().setFoo...(value);
-     * WhitePerrottaOverMember whitePerrottaOverMember = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whitePerrottaOverMember.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhitePerrottaOverMember <span style="color: #553000">whitePerrottaOverMember</span> = <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whitePerrottaOverMember</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhitePerrottaOverMember selectEntityWithDeletedCheck(CBCall<WhitePerrottaOverMemberCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
-     * cb.query().setFoo...(value);
-     * WhitePerrottaOverMember whitePerrottaOverMember = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhitePerrottaOverMember whitePerrottaOverMember = <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whitePerrottaOverMember.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhitePerrottaOverMember selectEntityWithDeletedCheck(WhitePerrottaOverMemberCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * Select the entity by the primary-key value.
      * @param memberId : PK, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhitePerrottaOverMember> selectByPK(Long memberId) {
         return facadeSelectByPK(memberId);
@@ -272,17 +270,17 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhitePerrottaOverMember&gt; whitePerrottaOverMemberList = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhitePerrottaOverMember&gt; <span style="color: #553000">whitePerrottaOverMemberList</span> = <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whitePerrottaOverMemberList.forEach(whitePerrottaOverMember -&gt; {
-     *     ... = whitePerrottaOverMember.get...();
+     * for (WhitePerrottaOverMember <span style="color: #553000">whitePerrottaOverMember</span> : <span style="color: #553000">whitePerrottaOverMemberList</span>) {
+     *     ... = <span style="color: #553000">whitePerrottaOverMember</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhitePerrottaOverMember> selectList(CBCall<WhitePerrottaOverMemberCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * Select the list as result bean.
      * <pre>
      * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhitePerrottaOverMember&gt; whitePerrottaOverMemberList = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhitePerrottaOverMember whitePerrottaOverMember : whitePerrottaOverMemberList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhitePerrottaOverMember&gt; <span style="color: #553000">whitePerrottaOverMemberList</span> = <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhitePerrottaOverMember whitePerrottaOverMember : <span style="color: #553000">whitePerrottaOverMemberList</span>) {
      *     ... = whitePerrottaOverMember.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhitePerrottaOverMember> selectList(WhitePerrottaOverMemberCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhitePerrottaOverMember&gt; page = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhitePerrottaOverMember&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhitePerrottaOverMember whitePerrottaOverMember : page) {
+     * for (WhitePerrottaOverMember whitePerrottaOverMember : <span style="color: #553000">page</span>) {
      *     ... = whitePerrottaOverMember.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhitePerrottaOverMember> selectPage(CBCall<WhitePerrottaOverMemberCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhitePerrottaOverMember&gt; page = whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhitePerrottaOverMember&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhitePerrottaOverMember whitePerrottaOverMember : page) {
+     * for (WhitePerrottaOverMember whitePerrottaOverMember : <span style="color: #553000">page</span>) {
      *     ... = whitePerrottaOverMember.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhitePerrottaOverMember> selectPage(WhitePerrottaOverMemberCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
-     * cb.query().setFoo...(value);
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePerrottaOverMember&gt;() {
-     *     public void handle(WhitePerrottaOverMember entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * Select the cursor by the condition-bean.
      * <pre>
      * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
-     * cb.query().setFoo...(value);
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePerrottaOverMember&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhitePerrottaOverMember&gt;() {
      *     public void handle(WhitePerrottaOverMember entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhitePerrottaOverMemberCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -553,12 +545,12 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whitePerrottaOverMember.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whitePerrottaOverMember.set...;</span>
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">insert</span>(whitePerrottaOverMember);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">insert</span>(whitePerrottaOverMember);
      * ... = whitePerrottaOverMember.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whitePerrottaOverMember The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhitePerrottaOverMember whitePerrottaOverMember) {
         doInsert(whitePerrottaOverMember, null);
@@ -576,15 +568,15 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whitePerrottaOverMember.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whitePerrottaOverMemberBhv.<span style="color: #CC4747">update</span>(whitePerrottaOverMember);
+     *     <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">update</span>(whitePerrottaOverMember);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whitePerrottaOverMember The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhitePerrottaOverMember whitePerrottaOverMember) {
         doUpdate(whitePerrottaOverMember, null);
@@ -595,9 +587,9 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whitePerrottaOverMember The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhitePerrottaOverMember whitePerrottaOverMember) {
         doInsertOrUpdate(whitePerrottaOverMember, null, null);
@@ -611,14 +603,14 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whitePerrottaOverMember.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whitePerrottaOverMemberBhv.<span style="color: #CC4747">delete</span>(whitePerrottaOverMember);
+     *     <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">delete</span>(whitePerrottaOverMember);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whitePerrottaOverMember The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhitePerrottaOverMember whitePerrottaOverMember) {
         doDelete(whitePerrottaOverMember, null);
@@ -643,7 +635,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whitePerrottaOverMemberList.add(whitePerrottaOverMember);
      * }
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">batchInsert</span>(whitePerrottaOverMemberList);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">batchInsert</span>(whitePerrottaOverMemberList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -673,11 +665,11 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whitePerrottaOverMemberList.add(whitePerrottaOverMember);
      * }
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">batchUpdate</span>(whitePerrottaOverMemberList);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whitePerrottaOverMemberList);
      * </pre>
      * @param whitePerrottaOverMemberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhitePerrottaOverMember> whitePerrottaOverMemberList) {
         return doBatchUpdate(whitePerrottaOverMemberList, null);
@@ -688,7 +680,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whitePerrottaOverMemberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhitePerrottaOverMember> whitePerrottaOverMemberList) {
         return doBatchDelete(whitePerrottaOverMemberList, null);
@@ -700,7 +692,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhitePerrottaOverMember, WhitePerrottaOverMemberCB&gt;() {
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhitePerrottaOverMember, WhitePerrottaOverMemberCB&gt;() {
      *     public ConditionBean setup(WhitePerrottaOverMember entity, WhitePerrottaOverMemberCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -742,12 +734,12 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whitePerrottaOverMember.setVersionNo(value);</span>
      * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
      * cb.query().setFoo...(value);
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">queryUpdate</span>(whitePerrottaOverMember, cb);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whitePerrottaOverMember, cb);
      * </pre>
      * @param whitePerrottaOverMember The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhitePerrottaOverMember whitePerrottaOverMember, CBCall<WhitePerrottaOverMemberCB> cbLambda) {
         return doQueryUpdate(whitePerrottaOverMember, createCB(cbLambda), null);
@@ -768,12 +760,12 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whitePerrottaOverMember.setVersionNo(value);</span>
      * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
      * cb.query().setFoo...(value);
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">queryUpdate</span>(whitePerrottaOverMember, cb);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whitePerrottaOverMember, cb);
      * </pre>
      * @param whitePerrottaOverMember The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhitePerrottaOverMember whitePerrottaOverMember, WhitePerrottaOverMemberCB cb) {
         return doQueryUpdate(whitePerrottaOverMember, cb, null);
@@ -784,11 +776,11 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <pre>
      * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
      * cb.query().setFoo...(value);
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverMember, cb);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverMember, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhitePerrottaOverMemberCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -799,11 +791,11 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <pre>
      * WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB();
      * cb.query().setFoo...(value);
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverMember, cb);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverMember, cb);
      * </pre>
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhitePerrottaOverMemberCB cb) {
         return doQueryDelete(cb, null);
@@ -827,12 +819,12 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * InsertOption<WhitePerrottaOverMemberCB> option = new InsertOption<WhitePerrottaOverMemberCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">varyingInsert</span>(whitePerrottaOverMember, option);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whitePerrottaOverMember, option);
      * ... = whitePerrottaOverMember.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whitePerrottaOverMember The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhitePerrottaOverMember whitePerrottaOverMember, WritableOptionCall<WhitePerrottaOverMemberCB, InsertOption<WhitePerrottaOverMemberCB>> opLambda) {
         doInsert(whitePerrottaOverMember, createInsertOption(opLambda));
@@ -856,16 +848,16 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whitePerrottaOverMemberBhv.<span style="color: #CC4747">varyingUpdate</span>(whitePerrottaOverMember, option);
+     *     <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whitePerrottaOverMember, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whitePerrottaOverMember The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhitePerrottaOverMember whitePerrottaOverMember, WritableOptionCall<WhitePerrottaOverMemberCB, UpdateOption<WhitePerrottaOverMemberCB>> opLambda) {
         doUpdate(whitePerrottaOverMember, createUpdateOption(opLambda));
@@ -877,9 +869,9 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * @param whitePerrottaOverMember The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhitePerrottaOverMember whitePerrottaOverMember, WritableOptionCall<WhitePerrottaOverMemberCB, InsertOption<WhitePerrottaOverMemberCB>> insertOpLambda, WritableOptionCall<WhitePerrottaOverMemberCB, UpdateOption<WhitePerrottaOverMemberCB>> updateOpLambda) {
         doInsertOrUpdate(whitePerrottaOverMember, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -891,8 +883,8 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * Other specifications are same as delete(entity).
      * @param whitePerrottaOverMember The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhitePerrottaOverMember whitePerrottaOverMember, WritableOptionCall<WhitePerrottaOverMemberCB, DeleteOption<WhitePerrottaOverMemberCB>> opLambda) {
         doDelete(whitePerrottaOverMember, createDeleteOption(opLambda));
@@ -976,13 +968,13 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverMember, cb, option);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverMember, cb, option);
      * </pre>
      * @param whitePerrottaOverMember The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhitePerrottaOverMember whitePerrottaOverMember, CBCall<WhitePerrottaOverMemberCB> cbLambda, WritableOptionCall<WhitePerrottaOverMemberCB, UpdateOption<WhitePerrottaOverMemberCB>> opLambda) {
         return doQueryUpdate(whitePerrottaOverMember, createCB(cbLambda), createUpdateOption(opLambda));
@@ -1010,13 +1002,13 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whitePerrottaOverMemberBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverMember, cb, option);
+     * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverMember, cb, option);
      * </pre>
      * @param whitePerrottaOverMember The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhitePerrottaOverMember whitePerrottaOverMember, WhitePerrottaOverMemberCB cb, WritableOptionCall<WhitePerrottaOverMemberCB, UpdateOption<WhitePerrottaOverMemberCB>> opLambda) {
         return doQueryUpdate(whitePerrottaOverMember, cb, createUpdateOption(opLambda));
@@ -1029,7 +1021,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMember. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhitePerrottaOverMemberCB> cbLambda, WritableOptionCall<WhitePerrottaOverMemberCB, DeleteOption<WhitePerrottaOverMemberCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1042,7 +1034,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * @param cb The condition-bean of WhitePerrottaOverMember. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhitePerrottaOverMemberCB cb, WritableOptionCall<WhitePerrottaOverMemberCB, DeleteOption<WhitePerrottaOverMemberCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

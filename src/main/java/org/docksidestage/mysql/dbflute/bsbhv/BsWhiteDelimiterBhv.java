@@ -93,9 +93,9 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteDelimiterCB cb = new WhiteDelimiterCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteDelimiterBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteDelimiterCB cb = new WhiteDelimiterCB();
      * cb.query().setFoo...(value);
-     * int count = whiteDelimiterBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteDelimiter whiteDelimiter = whiteDelimiterBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteDelimiter -&gt; {
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteDelimiter</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteDelimiter.get...
+     *     ... = <span style="color: #553000">whiteDelimiter</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteDelimiter whiteDelimiter = whiteDelimiterBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteDelimiter -&gt; {
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteDelimiter</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteDelimiter.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteDelimiter</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteDelimiter> selectEntity(CBCall<WhiteDelimiterCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteDelimiterBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteDelimiter -&gt; {
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteDelimiter <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteDelimiter.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteDelimiterBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteDelimiter -&gt; {
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteDelimiter <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteDelimiter.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteDelimiter> selectEntity(WhiteDelimiterCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteDelimiterCB cb = new WhiteDelimiterCB();
-     * cb.query().setFoo...(value);
-     * WhiteDelimiter whiteDelimiter = whiteDelimiterBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteDelimiter.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteDelimiter <span style="color: #553000">whiteDelimiter</span> = <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteDelimiter</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteDelimiter selectEntityWithDeletedCheck(CBCall<WhiteDelimiterCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteDelimiterCB cb = new WhiteDelimiterCB();
-     * cb.query().setFoo...(value);
-     * WhiteDelimiter whiteDelimiter = whiteDelimiterBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteDelimiter whiteDelimiter = <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteDelimiter.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteDelimiter selectEntityWithDeletedCheck(WhiteDelimiterCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * Select the entity by the primary-key value.
      * @param delimiterId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteDelimiter> selectByPK(Long delimiterId) {
         return facadeSelectByPK(delimiterId);
@@ -272,17 +270,17 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteDelimiter&gt; whiteDelimiterList = whiteDelimiterBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteDelimiter&gt; <span style="color: #553000">whiteDelimiterList</span> = <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteDelimiterList.forEach(whiteDelimiter -&gt; {
-     *     ... = whiteDelimiter.get...();
+     * for (WhiteDelimiter <span style="color: #553000">whiteDelimiter</span> : <span style="color: #553000">whiteDelimiterList</span>) {
+     *     ... = <span style="color: #553000">whiteDelimiter</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteDelimiter> selectList(CBCall<WhiteDelimiterCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * Select the list as result bean.
      * <pre>
      * WhiteDelimiterCB cb = new WhiteDelimiterCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteDelimiter&gt; whiteDelimiterList = whiteDelimiterBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteDelimiter whiteDelimiter : whiteDelimiterList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteDelimiter&gt; <span style="color: #553000">whiteDelimiterList</span> = <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteDelimiter whiteDelimiter : <span style="color: #553000">whiteDelimiterList</span>) {
      *     ... = whiteDelimiter.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteDelimiter> selectList(WhiteDelimiterCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteDelimiterCB cb = new WhiteDelimiterCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteDelimiter&gt; page = whiteDelimiterBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteDelimiter&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteDelimiter whiteDelimiter : page) {
+     * for (WhiteDelimiter whiteDelimiter : <span style="color: #553000">page</span>) {
      *     ... = whiteDelimiter.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteDelimiter> selectPage(CBCall<WhiteDelimiterCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteDelimiter&gt; page = whiteDelimiterBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteDelimiter&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteDelimiter whiteDelimiter : page) {
+     * for (WhiteDelimiter whiteDelimiter : <span style="color: #553000">page</span>) {
      *     ... = whiteDelimiter.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteDelimiter> selectPage(WhiteDelimiterCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteDelimiterCB cb = new WhiteDelimiterCB();
-     * cb.query().setFoo...(value);
-     * whiteDelimiterBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDelimiter&gt;() {
-     *     public void handle(WhiteDelimiter entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteDelimiterCB cb = new WhiteDelimiterCB();
-     * cb.query().setFoo...(value);
-     * whiteDelimiterBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDelimiter&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDelimiter&gt;() {
      *     public void handle(WhiteDelimiter entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteDelimiterBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteDelimiterCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -537,12 +529,12 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteDelimiter.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteDelimiter.set...;</span>
-     * whiteDelimiterBhv.<span style="color: #CC4747">insert</span>(whiteDelimiter);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">insert</span>(whiteDelimiter);
      * ... = whiteDelimiter.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteDelimiter The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteDelimiter whiteDelimiter) {
         doInsert(whiteDelimiter, null);
@@ -560,15 +552,15 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteDelimiter.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteDelimiterBhv.<span style="color: #CC4747">update</span>(whiteDelimiter);
+     *     <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">update</span>(whiteDelimiter);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteDelimiter The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteDelimiter whiteDelimiter) {
         doUpdate(whiteDelimiter, null);
@@ -579,9 +571,9 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteDelimiter The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteDelimiter whiteDelimiter) {
         doInsertOrUpdate(whiteDelimiter, null, null);
@@ -595,14 +587,14 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteDelimiter.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteDelimiterBhv.<span style="color: #CC4747">delete</span>(whiteDelimiter);
+     *     <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">delete</span>(whiteDelimiter);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteDelimiter The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteDelimiter whiteDelimiter) {
         doDelete(whiteDelimiter, null);
@@ -627,7 +619,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteDelimiterList.add(whiteDelimiter);
      * }
-     * whiteDelimiterBhv.<span style="color: #CC4747">batchInsert</span>(whiteDelimiterList);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteDelimiterList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -657,11 +649,11 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteDelimiterList.add(whiteDelimiter);
      * }
-     * whiteDelimiterBhv.<span style="color: #CC4747">batchUpdate</span>(whiteDelimiterList);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteDelimiterList);
      * </pre>
      * @param whiteDelimiterList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteDelimiter> whiteDelimiterList) {
         return doBatchUpdate(whiteDelimiterList, null);
@@ -672,7 +664,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteDelimiterList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteDelimiter> whiteDelimiterList) {
         return doBatchDelete(whiteDelimiterList, null);
@@ -684,7 +676,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteDelimiterBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteDelimiter, WhiteDelimiterCB&gt;() {
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteDelimiter, WhiteDelimiterCB&gt;() {
      *     public ConditionBean setup(WhiteDelimiter entity, WhiteDelimiterCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -726,12 +718,12 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">//whiteDelimiter.setVersionNo(value);</span>
      * WhiteDelimiterCB cb = new WhiteDelimiterCB();
      * cb.query().setFoo...(value);
-     * whiteDelimiterBhv.<span style="color: #CC4747">queryUpdate</span>(whiteDelimiter, cb);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteDelimiter, cb);
      * </pre>
      * @param whiteDelimiter The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteDelimiter whiteDelimiter, CBCall<WhiteDelimiterCB> cbLambda) {
         return doQueryUpdate(whiteDelimiter, createCB(cbLambda), null);
@@ -752,12 +744,12 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <span style="color: #3F7E5E">//whiteDelimiter.setVersionNo(value);</span>
      * WhiteDelimiterCB cb = new WhiteDelimiterCB();
      * cb.query().setFoo...(value);
-     * whiteDelimiterBhv.<span style="color: #CC4747">queryUpdate</span>(whiteDelimiter, cb);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteDelimiter, cb);
      * </pre>
      * @param whiteDelimiter The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteDelimiter whiteDelimiter, WhiteDelimiterCB cb) {
         return doQueryUpdate(whiteDelimiter, cb, null);
@@ -768,11 +760,11 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteDelimiterCB cb = new WhiteDelimiterCB();
      * cb.query().setFoo...(value);
-     * whiteDelimiterBhv.<span style="color: #CC4747">queryDelete</span>(whiteDelimiter, cb);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDelimiter, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteDelimiterCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -783,11 +775,11 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * <pre>
      * WhiteDelimiterCB cb = new WhiteDelimiterCB();
      * cb.query().setFoo...(value);
-     * whiteDelimiterBhv.<span style="color: #CC4747">queryDelete</span>(whiteDelimiter, cb);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDelimiter, cb);
      * </pre>
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteDelimiterCB cb) {
         return doQueryDelete(cb, null);
@@ -811,12 +803,12 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * InsertOption<WhiteDelimiterCB> option = new InsertOption<WhiteDelimiterCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteDelimiterBhv.<span style="color: #CC4747">varyingInsert</span>(whiteDelimiter, option);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteDelimiter, option);
      * ... = whiteDelimiter.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteDelimiter The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteDelimiter whiteDelimiter, WritableOptionCall<WhiteDelimiterCB, InsertOption<WhiteDelimiterCB>> opLambda) {
         doInsert(whiteDelimiter, createInsertOption(opLambda));
@@ -840,16 +832,16 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteDelimiterBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteDelimiter, option);
+     *     <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteDelimiter, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteDelimiter The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteDelimiter whiteDelimiter, WritableOptionCall<WhiteDelimiterCB, UpdateOption<WhiteDelimiterCB>> opLambda) {
         doUpdate(whiteDelimiter, createUpdateOption(opLambda));
@@ -861,9 +853,9 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * @param whiteDelimiter The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteDelimiter whiteDelimiter, WritableOptionCall<WhiteDelimiterCB, InsertOption<WhiteDelimiterCB>> insertOpLambda, WritableOptionCall<WhiteDelimiterCB, UpdateOption<WhiteDelimiterCB>> updateOpLambda) {
         doInsertOrUpdate(whiteDelimiter, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -875,8 +867,8 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * Other specifications are same as delete(entity).
      * @param whiteDelimiter The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteDelimiter whiteDelimiter, WritableOptionCall<WhiteDelimiterCB, DeleteOption<WhiteDelimiterCB>> opLambda) {
         doDelete(whiteDelimiter, createDeleteOption(opLambda));
@@ -960,13 +952,13 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteDelimiterBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDelimiter, cb, option);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDelimiter, cb, option);
      * </pre>
      * @param whiteDelimiter The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteDelimiter whiteDelimiter, CBCall<WhiteDelimiterCB> cbLambda, WritableOptionCall<WhiteDelimiterCB, UpdateOption<WhiteDelimiterCB>> opLambda) {
         return doQueryUpdate(whiteDelimiter, createCB(cbLambda), createUpdateOption(opLambda));
@@ -994,13 +986,13 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteDelimiterBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDelimiter, cb, option);
+     * <span style="color: #0000C0">whiteDelimiterBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDelimiter, cb, option);
      * </pre>
      * @param whiteDelimiter The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteDelimiter whiteDelimiter, WhiteDelimiterCB cb, WritableOptionCall<WhiteDelimiterCB, UpdateOption<WhiteDelimiterCB>> opLambda) {
         return doQueryUpdate(whiteDelimiter, cb, createUpdateOption(opLambda));
@@ -1013,7 +1005,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * @param cbLambda The callback for condition-bean of WhiteDelimiter. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteDelimiterCB> cbLambda, WritableOptionCall<WhiteDelimiterCB, DeleteOption<WhiteDelimiterCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1026,7 +1018,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * @param cb The condition-bean of WhiteDelimiter. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteDelimiterCB cb, WritableOptionCall<WhiteDelimiterCB, DeleteOption<WhiteDelimiterCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

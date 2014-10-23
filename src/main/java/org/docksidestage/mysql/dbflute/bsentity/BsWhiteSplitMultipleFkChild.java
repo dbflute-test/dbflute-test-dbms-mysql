@@ -85,7 +85,6 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     /** CHILD_NAME: {NotNull, VARCHAR(200)} */
     protected String _childName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -178,9 +177,9 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_childId);
-        sb.append(dm).append(_baseId);
-        sb.append(dm).append(_childName);
+        sb.append(dm).append(xfND(_childId));
+        sb.append(dm).append(xfND(_baseId));
+        sb.append(dm).append(xfND(_childName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -211,6 +210,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
      * @return The value of the column 'CHILD_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getChildId() {
+        checkSpecifiedProperty("childId");
         return _childId;
     }
 
@@ -219,7 +219,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
      * @param childId The value of the column 'CHILD_ID'. (basically NotNull if update: for the constraint)
      */
     public void setChildId(Long childId) {
-        __modifiedProperties.addPropertyName("childId");
+        registerModifiedProperty("childId");
         _childId = childId;
     }
 
@@ -228,6 +228,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
      * @return The value of the column 'BASE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getBaseId() {
+        checkSpecifiedProperty("baseId");
         return _baseId;
     }
 
@@ -236,7 +237,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
      * @param baseId The value of the column 'BASE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setBaseId(Long baseId) {
-        __modifiedProperties.addPropertyName("baseId");
+        registerModifiedProperty("baseId");
         _baseId = baseId;
     }
 
@@ -245,6 +246,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
      * @return The value of the column 'CHILD_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getChildName() {
+        checkSpecifiedProperty("childName");
         return _childName;
     }
 
@@ -253,7 +255,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
      * @param childName The value of the column 'CHILD_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setChildName(String childName) {
-        __modifiedProperties.addPropertyName("childName");
+        registerModifiedProperty("childName");
         _childName = childName;
     }
 }

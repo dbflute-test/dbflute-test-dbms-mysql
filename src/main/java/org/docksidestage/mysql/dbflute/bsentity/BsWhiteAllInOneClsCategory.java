@@ -85,7 +85,6 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
     /** DESCRIPTION: {NotNull, VARCHAR(50)} */
     protected String _description;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -179,9 +178,9 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_clsCategoryCode);
-        sb.append(dm).append(_clsCategoryName);
-        sb.append(dm).append(_description);
+        sb.append(dm).append(xfND(_clsCategoryCode));
+        sb.append(dm).append(xfND(_clsCategoryName));
+        sb.append(dm).append(xfND(_description));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -213,6 +212,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
      * @return The value of the column 'CLS_CATEGORY_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getClsCategoryCode() {
+        checkSpecifiedProperty("clsCategoryCode");
         return _clsCategoryCode;
     }
 
@@ -221,7 +221,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
      * @param clsCategoryCode The value of the column 'CLS_CATEGORY_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setClsCategoryCode(String clsCategoryCode) {
-        __modifiedProperties.addPropertyName("clsCategoryCode");
+        registerModifiedProperty("clsCategoryCode");
         _clsCategoryCode = clsCategoryCode;
     }
 
@@ -230,6 +230,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
      * @return The value of the column 'CLS_CATEGORY_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getClsCategoryName() {
+        checkSpecifiedProperty("clsCategoryName");
         return _clsCategoryName;
     }
 
@@ -238,7 +239,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
      * @param clsCategoryName The value of the column 'CLS_CATEGORY_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setClsCategoryName(String clsCategoryName) {
-        __modifiedProperties.addPropertyName("clsCategoryName");
+        registerModifiedProperty("clsCategoryName");
         _clsCategoryName = clsCategoryName;
     }
 
@@ -247,6 +248,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
      * @return The value of the column 'DESCRIPTION'. (basically NotNull if selected: for the constraint)
      */
     public String getDescription() {
+        checkSpecifiedProperty("description");
         return _description;
     }
 
@@ -255,7 +257,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
      * @param description The value of the column 'DESCRIPTION'. (basically NotNull if update: for the constraint)
      */
     public void setDescription(String description) {
-        __modifiedProperties.addPropertyName("description");
+        registerModifiedProperty("description");
         _description = description;
     }
 }

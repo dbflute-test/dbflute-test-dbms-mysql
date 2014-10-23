@@ -93,9 +93,9 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
      * cb.query().setFoo...(value);
-     * int count = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteTableExceptGenRef whiteTableExceptGenRef = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteTableExceptGenRef -&gt; {
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteTableExceptGenRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteTableExceptGenRef.get...
+     *     ... = <span style="color: #553000">whiteTableExceptGenRef</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteTableExceptGenRef whiteTableExceptGenRef = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteTableExceptGenRef -&gt; {
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteTableExceptGenRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteTableExceptGenRef.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteTableExceptGenRef</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteTableExceptGenRef> selectEntity(CBCall<WhiteTableExceptGenRefCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteTableExceptGenRefBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteTableExceptGenRef -&gt; {
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteTableExceptGenRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteTableExceptGenRef.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteTableExceptGenRef -&gt; {
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteTableExceptGenRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteTableExceptGenRef.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteTableExceptGenRef> selectEntity(WhiteTableExceptGenRefCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
-     * cb.query().setFoo...(value);
-     * WhiteTableExceptGenRef whiteTableExceptGenRef = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteTableExceptGenRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteTableExceptGenRef <span style="color: #553000">whiteTableExceptGenRef</span> = <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteTableExceptGenRef</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteTableExceptGenRef selectEntityWithDeletedCheck(CBCall<WhiteTableExceptGenRefCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
-     * cb.query().setFoo...(value);
-     * WhiteTableExceptGenRef whiteTableExceptGenRef = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteTableExceptGenRef whiteTableExceptGenRef = <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteTableExceptGenRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteTableExceptGenRef selectEntityWithDeletedCheck(WhiteTableExceptGenRefCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * Select the entity by the primary-key value.
      * @param genRefId : PK, NotNull, DECIMAL(16). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteTableExceptGenRef> selectByPK(Long genRefId) {
         return facadeSelectByPK(genRefId);
@@ -272,17 +270,17 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteTableExceptGenRef&gt; whiteTableExceptGenRefList = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteTableExceptGenRef&gt; <span style="color: #553000">whiteTableExceptGenRefList</span> = <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteTableExceptGenRefList.forEach(whiteTableExceptGenRef -&gt; {
-     *     ... = whiteTableExceptGenRef.get...();
+     * for (WhiteTableExceptGenRef <span style="color: #553000">whiteTableExceptGenRef</span> : <span style="color: #553000">whiteTableExceptGenRefList</span>) {
+     *     ... = <span style="color: #553000">whiteTableExceptGenRef</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteTableExceptGenRef> selectList(CBCall<WhiteTableExceptGenRefCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * Select the list as result bean.
      * <pre>
      * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteTableExceptGenRef&gt; whiteTableExceptGenRefList = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteTableExceptGenRef whiteTableExceptGenRef : whiteTableExceptGenRefList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteTableExceptGenRef&gt; <span style="color: #553000">whiteTableExceptGenRefList</span> = <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteTableExceptGenRef whiteTableExceptGenRef : <span style="color: #553000">whiteTableExceptGenRefList</span>) {
      *     ... = whiteTableExceptGenRef.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteTableExceptGenRef> selectList(WhiteTableExceptGenRefCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteTableExceptGenRef&gt; page = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteTableExceptGenRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteTableExceptGenRef whiteTableExceptGenRef : page) {
+     * for (WhiteTableExceptGenRef whiteTableExceptGenRef : <span style="color: #553000">page</span>) {
      *     ... = whiteTableExceptGenRef.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteTableExceptGenRef> selectPage(CBCall<WhiteTableExceptGenRefCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteTableExceptGenRef&gt; page = whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteTableExceptGenRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteTableExceptGenRef whiteTableExceptGenRef : page) {
+     * for (WhiteTableExceptGenRef whiteTableExceptGenRef : <span style="color: #553000">page</span>) {
      *     ... = whiteTableExceptGenRef.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteTableExceptGenRef> selectPage(WhiteTableExceptGenRefCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
-     * cb.query().setFoo...(value);
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteTableExceptGenRef&gt;() {
-     *     public void handle(WhiteTableExceptGenRef entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
-     * cb.query().setFoo...(value);
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteTableExceptGenRef&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteTableExceptGenRef&gt;() {
      *     public void handle(WhiteTableExceptGenRef entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteTableExceptGenRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -537,12 +529,12 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteTableExceptGenRef.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteTableExceptGenRef.set...;</span>
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">insert</span>(whiteTableExceptGenRef);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">insert</span>(whiteTableExceptGenRef);
      * ... = whiteTableExceptGenRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteTableExceptGenRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteTableExceptGenRef whiteTableExceptGenRef) {
         doInsert(whiteTableExceptGenRef, null);
@@ -560,15 +552,15 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteTableExceptGenRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteTableExceptGenRefBhv.<span style="color: #CC4747">update</span>(whiteTableExceptGenRef);
+     *     <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">update</span>(whiteTableExceptGenRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteTableExceptGenRef The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteTableExceptGenRef whiteTableExceptGenRef) {
         doUpdate(whiteTableExceptGenRef, null);
@@ -579,9 +571,9 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteTableExceptGenRef The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteTableExceptGenRef whiteTableExceptGenRef) {
         doInsertOrUpdate(whiteTableExceptGenRef, null, null);
@@ -595,14 +587,14 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteTableExceptGenRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteTableExceptGenRefBhv.<span style="color: #CC4747">delete</span>(whiteTableExceptGenRef);
+     *     <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">delete</span>(whiteTableExceptGenRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteTableExceptGenRef The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteTableExceptGenRef whiteTableExceptGenRef) {
         doDelete(whiteTableExceptGenRef, null);
@@ -627,7 +619,7 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteTableExceptGenRefList.add(whiteTableExceptGenRef);
      * }
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">batchInsert</span>(whiteTableExceptGenRefList);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteTableExceptGenRefList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -657,11 +649,11 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteTableExceptGenRefList.add(whiteTableExceptGenRef);
      * }
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">batchUpdate</span>(whiteTableExceptGenRefList);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteTableExceptGenRefList);
      * </pre>
      * @param whiteTableExceptGenRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteTableExceptGenRef> whiteTableExceptGenRefList) {
         return doBatchUpdate(whiteTableExceptGenRefList, null);
@@ -672,7 +664,7 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteTableExceptGenRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteTableExceptGenRef> whiteTableExceptGenRefList) {
         return doBatchDelete(whiteTableExceptGenRefList, null);
@@ -684,7 +676,7 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteTableExceptGenRef, WhiteTableExceptGenRefCB&gt;() {
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteTableExceptGenRef, WhiteTableExceptGenRefCB&gt;() {
      *     public ConditionBean setup(WhiteTableExceptGenRef entity, WhiteTableExceptGenRefCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -726,12 +718,12 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteTableExceptGenRef.setVersionNo(value);</span>
      * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
      * cb.query().setFoo...(value);
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">queryUpdate</span>(whiteTableExceptGenRef, cb);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteTableExceptGenRef, cb);
      * </pre>
      * @param whiteTableExceptGenRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteTableExceptGenRef whiteTableExceptGenRef, CBCall<WhiteTableExceptGenRefCB> cbLambda) {
         return doQueryUpdate(whiteTableExceptGenRef, createCB(cbLambda), null);
@@ -752,12 +744,12 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteTableExceptGenRef.setVersionNo(value);</span>
      * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
      * cb.query().setFoo...(value);
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">queryUpdate</span>(whiteTableExceptGenRef, cb);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteTableExceptGenRef, cb);
      * </pre>
      * @param whiteTableExceptGenRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteTableExceptGenRef whiteTableExceptGenRef, WhiteTableExceptGenRefCB cb) {
         return doQueryUpdate(whiteTableExceptGenRef, cb, null);
@@ -768,11 +760,11 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
      * cb.query().setFoo...(value);
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">queryDelete</span>(whiteTableExceptGenRef, cb);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteTableExceptGenRef, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteTableExceptGenRefCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -783,11 +775,11 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteTableExceptGenRefCB cb = new WhiteTableExceptGenRefCB();
      * cb.query().setFoo...(value);
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">queryDelete</span>(whiteTableExceptGenRef, cb);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteTableExceptGenRef, cb);
      * </pre>
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteTableExceptGenRefCB cb) {
         return doQueryDelete(cb, null);
@@ -811,12 +803,12 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * InsertOption<WhiteTableExceptGenRefCB> option = new InsertOption<WhiteTableExceptGenRefCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">varyingInsert</span>(whiteTableExceptGenRef, option);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteTableExceptGenRef, option);
      * ... = whiteTableExceptGenRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteTableExceptGenRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteTableExceptGenRef whiteTableExceptGenRef, WritableOptionCall<WhiteTableExceptGenRefCB, InsertOption<WhiteTableExceptGenRefCB>> opLambda) {
         doInsert(whiteTableExceptGenRef, createInsertOption(opLambda));
@@ -840,16 +832,16 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteTableExceptGenRefBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteTableExceptGenRef, option);
+     *     <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteTableExceptGenRef, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteTableExceptGenRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteTableExceptGenRef whiteTableExceptGenRef, WritableOptionCall<WhiteTableExceptGenRefCB, UpdateOption<WhiteTableExceptGenRefCB>> opLambda) {
         doUpdate(whiteTableExceptGenRef, createUpdateOption(opLambda));
@@ -861,9 +853,9 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * @param whiteTableExceptGenRef The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteTableExceptGenRef whiteTableExceptGenRef, WritableOptionCall<WhiteTableExceptGenRefCB, InsertOption<WhiteTableExceptGenRefCB>> insertOpLambda, WritableOptionCall<WhiteTableExceptGenRefCB, UpdateOption<WhiteTableExceptGenRefCB>> updateOpLambda) {
         doInsertOrUpdate(whiteTableExceptGenRef, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -875,8 +867,8 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * Other specifications are same as delete(entity).
      * @param whiteTableExceptGenRef The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteTableExceptGenRef whiteTableExceptGenRef, WritableOptionCall<WhiteTableExceptGenRefCB, DeleteOption<WhiteTableExceptGenRefCB>> opLambda) {
         doDelete(whiteTableExceptGenRef, createDeleteOption(opLambda));
@@ -960,13 +952,13 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteTableExceptGenRef, cb, option);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteTableExceptGenRef, cb, option);
      * </pre>
      * @param whiteTableExceptGenRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteTableExceptGenRef whiteTableExceptGenRef, CBCall<WhiteTableExceptGenRefCB> cbLambda, WritableOptionCall<WhiteTableExceptGenRefCB, UpdateOption<WhiteTableExceptGenRefCB>> opLambda) {
         return doQueryUpdate(whiteTableExceptGenRef, createCB(cbLambda), createUpdateOption(opLambda));
@@ -994,13 +986,13 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteTableExceptGenRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteTableExceptGenRef, cb, option);
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteTableExceptGenRef, cb, option);
      * </pre>
      * @param whiteTableExceptGenRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteTableExceptGenRef whiteTableExceptGenRef, WhiteTableExceptGenRefCB cb, WritableOptionCall<WhiteTableExceptGenRefCB, UpdateOption<WhiteTableExceptGenRefCB>> opLambda) {
         return doQueryUpdate(whiteTableExceptGenRef, cb, createUpdateOption(opLambda));
@@ -1013,7 +1005,7 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * @param cbLambda The callback for condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteTableExceptGenRefCB> cbLambda, WritableOptionCall<WhiteTableExceptGenRefCB, DeleteOption<WhiteTableExceptGenRefCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1026,7 +1018,7 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
      * @param cb The condition-bean of WhiteTableExceptGenRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteTableExceptGenRefCB cb, WritableOptionCall<WhiteTableExceptGenRefCB, DeleteOption<WhiteTableExceptGenRefCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

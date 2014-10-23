@@ -170,7 +170,6 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     /** RESERV_NAME: {NotNull, VARCHAR(32)} */
     protected String _reservName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -264,26 +263,26 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_classSynonym);
-        sb.append(dm).append(_caseSynonym);
-        sb.append(dm).append(_packageSynonym);
-        sb.append(dm).append(_defaultSynonym);
-        sb.append(dm).append(_newSynonym);
-        sb.append(dm).append(_nativeSynonym);
-        sb.append(dm).append(_voidSynonym);
-        sb.append(dm).append(_publicSynonym);
-        sb.append(dm).append(_protectedSynonym);
-        sb.append(dm).append(_privateSynonym);
-        sb.append(dm).append(_interfaceSynonym);
-        sb.append(dm).append(_abstractSynonym);
-        sb.append(dm).append(_finalSynonym);
-        sb.append(dm).append(_finallySynonym);
-        sb.append(dm).append(_returnSynonym);
-        sb.append(dm).append(_doubleSynonym);
-        sb.append(dm).append(_floatSynonym);
-        sb.append(dm).append(_shortSynonym);
-        sb.append(dm).append(_type);
-        sb.append(dm).append(_reservName);
+        sb.append(dm).append(xfND(_classSynonym));
+        sb.append(dm).append(xfND(_caseSynonym));
+        sb.append(dm).append(xfND(_packageSynonym));
+        sb.append(dm).append(xfND(_defaultSynonym));
+        sb.append(dm).append(xfND(_newSynonym));
+        sb.append(dm).append(xfND(_nativeSynonym));
+        sb.append(dm).append(xfND(_voidSynonym));
+        sb.append(dm).append(xfND(_publicSynonym));
+        sb.append(dm).append(xfND(_protectedSynonym));
+        sb.append(dm).append(xfND(_privateSynonym));
+        sb.append(dm).append(xfND(_interfaceSynonym));
+        sb.append(dm).append(xfND(_abstractSynonym));
+        sb.append(dm).append(xfND(_finalSynonym));
+        sb.append(dm).append(xfND(_finallySynonym));
+        sb.append(dm).append(xfND(_returnSynonym));
+        sb.append(dm).append(xfND(_doubleSynonym));
+        sb.append(dm).append(xfND(_floatSynonym));
+        sb.append(dm).append(xfND(_shortSynonym));
+        sb.append(dm).append(xfND(_type));
+        sb.append(dm).append(xfND(_reservName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -315,6 +314,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'CLASS'. (basically NotNull if selected: for the constraint)
      */
     public Integer getClassSynonym() {
+        checkSpecifiedProperty("classSynonym");
         return _classSynonym;
     }
 
@@ -323,7 +323,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param classSynonym The value of the column 'CLASS'. (basically NotNull if update: for the constraint)
      */
     public void setClassSynonym(Integer classSynonym) {
-        __modifiedProperties.addPropertyName("classSynonym");
+        registerModifiedProperty("classSynonym");
         _classSynonym = classSynonym;
     }
 
@@ -332,6 +332,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'CASE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getCaseSynonym() {
+        checkSpecifiedProperty("caseSynonym");
         return _caseSynonym;
     }
 
@@ -340,7 +341,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param caseSynonym The value of the column 'CASE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCaseSynonym(Integer caseSynonym) {
-        __modifiedProperties.addPropertyName("caseSynonym");
+        registerModifiedProperty("caseSynonym");
         _caseSynonym = caseSynonym;
     }
 
@@ -349,6 +350,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'PACKAGE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getPackageSynonym() {
+        checkSpecifiedProperty("packageSynonym");
         return _packageSynonym;
     }
 
@@ -357,7 +359,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param packageSynonym The value of the column 'PACKAGE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPackageSynonym(Integer packageSynonym) {
-        __modifiedProperties.addPropertyName("packageSynonym");
+        registerModifiedProperty("packageSynonym");
         _packageSynonym = packageSynonym;
     }
 
@@ -366,6 +368,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'DEFAULT'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getDefaultSynonym() {
+        checkSpecifiedProperty("defaultSynonym");
         return _defaultSynonym;
     }
 
@@ -374,7 +377,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param defaultSynonym The value of the column 'DEFAULT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDefaultSynonym(Integer defaultSynonym) {
-        __modifiedProperties.addPropertyName("defaultSynonym");
+        registerModifiedProperty("defaultSynonym");
         _defaultSynonym = defaultSynonym;
     }
 
@@ -383,6 +386,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'NEW'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNewSynonym() {
+        checkSpecifiedProperty("newSynonym");
         return _newSynonym;
     }
 
@@ -391,7 +395,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param newSynonym The value of the column 'NEW'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNewSynonym(Integer newSynonym) {
-        __modifiedProperties.addPropertyName("newSynonym");
+        registerModifiedProperty("newSynonym");
         _newSynonym = newSynonym;
     }
 
@@ -400,6 +404,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'NATIVE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNativeSynonym() {
+        checkSpecifiedProperty("nativeSynonym");
         return _nativeSynonym;
     }
 
@@ -408,7 +413,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param nativeSynonym The value of the column 'NATIVE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNativeSynonym(Integer nativeSynonym) {
-        __modifiedProperties.addPropertyName("nativeSynonym");
+        registerModifiedProperty("nativeSynonym");
         _nativeSynonym = nativeSynonym;
     }
 
@@ -417,6 +422,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'VOID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getVoidSynonym() {
+        checkSpecifiedProperty("voidSynonym");
         return _voidSynonym;
     }
 
@@ -425,7 +431,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param voidSynonym The value of the column 'VOID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setVoidSynonym(Integer voidSynonym) {
-        __modifiedProperties.addPropertyName("voidSynonym");
+        registerModifiedProperty("voidSynonym");
         _voidSynonym = voidSynonym;
     }
 
@@ -434,6 +440,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'PUBLIC'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getPublicSynonym() {
+        checkSpecifiedProperty("publicSynonym");
         return _publicSynonym;
     }
 
@@ -442,7 +449,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param publicSynonym The value of the column 'PUBLIC'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPublicSynonym(Integer publicSynonym) {
-        __modifiedProperties.addPropertyName("publicSynonym");
+        registerModifiedProperty("publicSynonym");
         _publicSynonym = publicSynonym;
     }
 
@@ -451,6 +458,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'PROTECTED'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getProtectedSynonym() {
+        checkSpecifiedProperty("protectedSynonym");
         return _protectedSynonym;
     }
 
@@ -459,7 +467,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param protectedSynonym The value of the column 'PROTECTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProtectedSynonym(Integer protectedSynonym) {
-        __modifiedProperties.addPropertyName("protectedSynonym");
+        registerModifiedProperty("protectedSynonym");
         _protectedSynonym = protectedSynonym;
     }
 
@@ -468,6 +476,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'PRIVATE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getPrivateSynonym() {
+        checkSpecifiedProperty("privateSynonym");
         return _privateSynonym;
     }
 
@@ -476,7 +485,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param privateSynonym The value of the column 'PRIVATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPrivateSynonym(Integer privateSynonym) {
-        __modifiedProperties.addPropertyName("privateSynonym");
+        registerModifiedProperty("privateSynonym");
         _privateSynonym = privateSynonym;
     }
 
@@ -485,6 +494,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'INTERFACE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getInterfaceSynonym() {
+        checkSpecifiedProperty("interfaceSynonym");
         return _interfaceSynonym;
     }
 
@@ -493,7 +503,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param interfaceSynonym The value of the column 'INTERFACE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setInterfaceSynonym(Integer interfaceSynonym) {
-        __modifiedProperties.addPropertyName("interfaceSynonym");
+        registerModifiedProperty("interfaceSynonym");
         _interfaceSynonym = interfaceSynonym;
     }
 
@@ -502,6 +512,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'ABSTRACT'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getAbstractSynonym() {
+        checkSpecifiedProperty("abstractSynonym");
         return _abstractSynonym;
     }
 
@@ -510,7 +521,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param abstractSynonym The value of the column 'ABSTRACT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAbstractSynonym(Integer abstractSynonym) {
-        __modifiedProperties.addPropertyName("abstractSynonym");
+        registerModifiedProperty("abstractSynonym");
         _abstractSynonym = abstractSynonym;
     }
 
@@ -519,6 +530,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'FINAL'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getFinalSynonym() {
+        checkSpecifiedProperty("finalSynonym");
         return _finalSynonym;
     }
 
@@ -527,7 +539,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param finalSynonym The value of the column 'FINAL'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFinalSynonym(Integer finalSynonym) {
-        __modifiedProperties.addPropertyName("finalSynonym");
+        registerModifiedProperty("finalSynonym");
         _finalSynonym = finalSynonym;
     }
 
@@ -536,6 +548,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'FINALLY'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getFinallySynonym() {
+        checkSpecifiedProperty("finallySynonym");
         return _finallySynonym;
     }
 
@@ -544,7 +557,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param finallySynonym The value of the column 'FINALLY'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFinallySynonym(Integer finallySynonym) {
-        __modifiedProperties.addPropertyName("finallySynonym");
+        registerModifiedProperty("finallySynonym");
         _finallySynonym = finallySynonym;
     }
 
@@ -553,6 +566,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'RETURN'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getReturnSynonym() {
+        checkSpecifiedProperty("returnSynonym");
         return _returnSynonym;
     }
 
@@ -561,7 +575,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param returnSynonym The value of the column 'RETURN'. (NullAllowed: null update allowed for no constraint)
      */
     public void setReturnSynonym(Integer returnSynonym) {
-        __modifiedProperties.addPropertyName("returnSynonym");
+        registerModifiedProperty("returnSynonym");
         _returnSynonym = returnSynonym;
     }
 
@@ -570,6 +584,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'DOUBLE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getDoubleSynonym() {
+        checkSpecifiedProperty("doubleSynonym");
         return _doubleSynonym;
     }
 
@@ -578,7 +593,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param doubleSynonym The value of the column 'DOUBLE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDoubleSynonym(Integer doubleSynonym) {
-        __modifiedProperties.addPropertyName("doubleSynonym");
+        registerModifiedProperty("doubleSynonym");
         _doubleSynonym = doubleSynonym;
     }
 
@@ -587,6 +602,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'FLOAT'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getFloatSynonym() {
+        checkSpecifiedProperty("floatSynonym");
         return _floatSynonym;
     }
 
@@ -595,7 +611,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param floatSynonym The value of the column 'FLOAT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFloatSynonym(Integer floatSynonym) {
-        __modifiedProperties.addPropertyName("floatSynonym");
+        registerModifiedProperty("floatSynonym");
         _floatSynonym = floatSynonym;
     }
 
@@ -604,6 +620,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'SHORT'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getShortSynonym() {
+        checkSpecifiedProperty("shortSynonym");
         return _shortSynonym;
     }
 
@@ -612,7 +629,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param shortSynonym The value of the column 'SHORT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setShortSynonym(Integer shortSynonym) {
-        __modifiedProperties.addPropertyName("shortSynonym");
+        registerModifiedProperty("shortSynonym");
         _shortSynonym = shortSynonym;
     }
 
@@ -621,6 +638,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'TYPE'. (NullAllowed even if selected: for no constraint)
      */
     public String getType() {
+        checkSpecifiedProperty("type");
         return _type;
     }
 
@@ -629,7 +647,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param type The value of the column 'TYPE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setType(String type) {
-        __modifiedProperties.addPropertyName("type");
+        registerModifiedProperty("type");
         _type = type;
     }
 
@@ -638,6 +656,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @return The value of the column 'RESERV_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getReservName() {
+        checkSpecifiedProperty("reservName");
         return _reservName;
     }
 
@@ -646,7 +665,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
      * @param reservName The value of the column 'RESERV_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setReservName(String reservName) {
-        __modifiedProperties.addPropertyName("reservName");
+        registerModifiedProperty("reservName");
         _reservName = reservName;
     }
 }

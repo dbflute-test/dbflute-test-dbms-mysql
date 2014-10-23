@@ -80,7 +80,6 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
     /** COLUMN_EXCEPT_TEST: {INT(10)} */
     protected Integer _columnExceptTest;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -151,8 +150,8 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_exceptColumnId);
-        sb.append(dm).append(_columnExceptTest);
+        sb.append(dm).append(xfND(_exceptColumnId));
+        sb.append(dm).append(xfND(_columnExceptTest));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -178,6 +177,7 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
      * @return The value of the column 'EXCEPT_COLUMN_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getExceptColumnId() {
+        checkSpecifiedProperty("exceptColumnId");
         return _exceptColumnId;
     }
 
@@ -186,7 +186,7 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
      * @param exceptColumnId The value of the column 'EXCEPT_COLUMN_ID'. (basically NotNull if update: for the constraint)
      */
     public void setExceptColumnId(Long exceptColumnId) {
-        __modifiedProperties.addPropertyName("exceptColumnId");
+        registerModifiedProperty("exceptColumnId");
         _exceptColumnId = exceptColumnId;
     }
 
@@ -195,6 +195,7 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
      * @return The value of the column 'COLUMN_EXCEPT_TEST'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getColumnExceptTest() {
+        checkSpecifiedProperty("columnExceptTest");
         return _columnExceptTest;
     }
 
@@ -203,7 +204,7 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
      * @param columnExceptTest The value of the column 'COLUMN_EXCEPT_TEST'. (NullAllowed: null update allowed for no constraint)
      */
     public void setColumnExceptTest(Integer columnExceptTest) {
-        __modifiedProperties.addPropertyName("columnExceptTest");
+        registerModifiedProperty("columnExceptTest");
         _columnExceptTest = columnExceptTest;
     }
 }

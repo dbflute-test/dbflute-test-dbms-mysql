@@ -95,7 +95,6 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     /** DATE_DEFAULT: {NotNull, DATE(10)} */
     protected java.util.Date _dateDefault;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -166,10 +165,10 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_delimiterId);
-        sb.append(dm).append(_numberNullable);
-        sb.append(dm).append(_stringConverted);
-        sb.append(dm).append(_stringNonConverted);
+        sb.append(dm).append(xfND(_delimiterId));
+        sb.append(dm).append(xfND(_numberNullable));
+        sb.append(dm).append(xfND(_stringConverted));
+        sb.append(dm).append(xfND(_stringNonConverted));
         sb.append(dm).append(xfUD(_dateDefault));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -196,6 +195,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @return The value of the column 'DELIMITER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getDelimiterId() {
+        checkSpecifiedProperty("delimiterId");
         return _delimiterId;
     }
 
@@ -204,7 +204,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @param delimiterId The value of the column 'DELIMITER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setDelimiterId(Long delimiterId) {
-        __modifiedProperties.addPropertyName("delimiterId");
+        registerModifiedProperty("delimiterId");
         _delimiterId = delimiterId;
     }
 
@@ -213,6 +213,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @return The value of the column 'NUMBER_NULLABLE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNumberNullable() {
+        checkSpecifiedProperty("numberNullable");
         return _numberNullable;
     }
 
@@ -221,7 +222,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @param numberNullable The value of the column 'NUMBER_NULLABLE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNumberNullable(Integer numberNullable) {
-        __modifiedProperties.addPropertyName("numberNullable");
+        registerModifiedProperty("numberNullable");
         _numberNullable = numberNullable;
     }
 
@@ -230,6 +231,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @return The value of the column 'STRING_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
     public String getStringConverted() {
+        checkSpecifiedProperty("stringConverted");
         return _stringConverted;
     }
 
@@ -238,7 +240,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @param stringConverted The value of the column 'STRING_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStringConverted(String stringConverted) {
-        __modifiedProperties.addPropertyName("stringConverted");
+        registerModifiedProperty("stringConverted");
         _stringConverted = stringConverted;
     }
 
@@ -247,6 +249,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @return The value of the column 'STRING_NON_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
     public String getStringNonConverted() {
+        checkSpecifiedProperty("stringNonConverted");
         return _stringNonConverted;
     }
 
@@ -255,7 +258,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @param stringNonConverted The value of the column 'STRING_NON_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStringNonConverted(String stringNonConverted) {
-        __modifiedProperties.addPropertyName("stringNonConverted");
+        registerModifiedProperty("stringNonConverted");
         _stringNonConverted = stringNonConverted;
     }
 
@@ -264,6 +267,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @return The value of the column 'DATE_DEFAULT'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getDateDefault() {
+        checkSpecifiedProperty("dateDefault");
         return _dateDefault;
     }
 
@@ -272,7 +276,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
      * @param dateDefault The value of the column 'DATE_DEFAULT'. (basically NotNull if update: for the constraint)
      */
     public void setDateDefault(java.util.Date dateDefault) {
-        __modifiedProperties.addPropertyName("dateDefault");
+        registerModifiedProperty("dateDefault");
         _dateDefault = dateDefault;
     }
 }

@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * {exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br />
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referrerCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * {not exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br />
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerAsVariantList</span>(new SubQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
-     *     public void query(WhiteVariantRelationReferrerCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     referrerCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MasterFooId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer where ...)} <br />
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerAsVariantList()</span>.<span style="color: #CC4747">max</span>(referrerCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerAsVariantList()</span>.<span style="color: #CC4747">max</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referrerCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     referrerCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -315,7 +313,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setMasterFooName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setMasterFooName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param masterFooName The value of masterFooName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

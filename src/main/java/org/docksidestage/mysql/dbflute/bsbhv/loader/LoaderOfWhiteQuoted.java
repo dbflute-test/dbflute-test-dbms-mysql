@@ -77,6 +77,34 @@ public class LoaderOfWhiteQuoted {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<WhiteQuotedRef> _referrerWhiteQuotedRefList;
+
+    /**
+     * Load referrer of whiteQuotedRefList by the set-upper of referrer. <br />
+     * white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteQuotedList</span>, <span style="color: #553000">quotedLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">quotedLoader</span>.<span style="color: #CC4747">loadWhiteQuotedRefList</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">refCB</span>.setupSelect...
+     *         <span style="color: #553000">refCB</span>.query().set...
+     *         <span style="color: #553000">refCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    refLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteQuoted whiteQuoted : <span style="color: #553000">whiteQuotedList</span>) {
+     *     ... = whiteQuoted.<span style="color: #CC4747">getWhiteQuotedRefList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setOrder_InScope(pkList);
+     * cb.query().addOrderBy_Order_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhiteQuotedRef> loadWhiteQuotedRefList(ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
         myBhv().loadWhiteQuotedRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteQuotedRefList = refLs);
         return hd -> hd.handle(new LoaderOfWhiteQuotedRef().ready(_referrerWhiteQuotedRefList, _selector));

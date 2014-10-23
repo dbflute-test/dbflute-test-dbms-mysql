@@ -77,6 +77,34 @@ public class LoaderOfWhiteSuppressJoinSqManyOneOne {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<WhiteSuppressJoinSqManyOne> _referrerWhiteSuppressJoinSqManyOneList;
+
+    /**
+     * Load referrer of whiteSuppressJoinSqManyOneList by the set-upper of referrer. <br />
+     * white_suppress_join_sq_many_one by MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteSuppressJoinSqManyOneOneBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSuppressJoinSqManyOneOneList</span>, <span style="color: #553000">oneLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">oneLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqManyOneList</span>(<span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">oneCB</span>.setupSelect...
+     *         <span style="color: #553000">oneCB</span>.query().set...
+     *         <span style="color: #553000">oneCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">oneLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    oneLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteSuppressJoinSqManyOneOne whiteSuppressJoinSqManyOneOne : <span style="color: #553000">whiteSuppressJoinSqManyOneOneList</span>) {
+     *     ... = whiteSuppressJoinSqManyOneOne.<span style="color: #CC4747">getWhiteSuppressJoinSqManyOneList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setManyOneOneId_InScope(pkList);
+     * cb.query().addOrderBy_ManyOneOneId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqManyOne> loadWhiteSuppressJoinSqManyOneList(ConditionBeanSetupper<WhiteSuppressJoinSqManyOneCB> refCBLambda) {
         myBhv().loadWhiteSuppressJoinSqManyOneList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqManyOneList = refLs);
         return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqManyOne().ready(_referrerWhiteSuppressJoinSqManyOneList, _selector));

@@ -93,9 +93,9 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <pre>
      * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
      * cb.query().setFoo...(value);
-     * int count = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteAllInOneClsNormalColRef -&gt; {
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteAllInOneClsNormalColRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteAllInOneClsNormalColRef.get...
+     *     ... = <span style="color: #553000">whiteAllInOneClsNormalColRef</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteAllInOneClsNormalColRef -&gt; {
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteAllInOneClsNormalColRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteAllInOneClsNormalColRef.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteAllInOneClsNormalColRef</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteAllInOneClsNormalColRef> selectEntity(CBCall<WhiteAllInOneClsNormalColRefCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteAllInOneClsNormalColRef -&gt; {
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteAllInOneClsNormalColRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteAllInOneClsNormalColRef.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteAllInOneClsNormalColRef -&gt; {
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteAllInOneClsNormalColRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteAllInOneClsNormalColRef.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteAllInOneClsNormalColRef> selectEntity(WhiteAllInOneClsNormalColRefCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
-     * cb.query().setFoo...(value);
-     * WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteAllInOneClsNormalColRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteAllInOneClsNormalColRef <span style="color: #553000">whiteAllInOneClsNormalColRef</span> = <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteAllInOneClsNormalColRef</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteAllInOneClsNormalColRef selectEntityWithDeletedCheck(CBCall<WhiteAllInOneClsNormalColRefCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
-     * cb.query().setFoo...(value);
-     * WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef = <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteAllInOneClsNormalColRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteAllInOneClsNormalColRef selectEntityWithDeletedCheck(WhiteAllInOneClsNormalColRefCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -243,9 +241,9 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * @param barCode : PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT. (NotNull)
      * @param quxCode : PK, NotNull, CHAR(3). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteAllInOneClsNormalColRef> selectByPK(String fooCode, String barCode, String quxCode) {
         return facadeSelectByPK(fooCode, barCode, quxCode);
@@ -274,17 +272,17 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteAllInOneClsNormalColRef&gt; whiteAllInOneClsNormalColRefList = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteAllInOneClsNormalColRef&gt; <span style="color: #553000">whiteAllInOneClsNormalColRefList</span> = <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteAllInOneClsNormalColRefList.forEach(whiteAllInOneClsNormalColRef -&gt; {
-     *     ... = whiteAllInOneClsNormalColRef.get...();
+     * for (WhiteAllInOneClsNormalColRef <span style="color: #553000">whiteAllInOneClsNormalColRef</span> : <span style="color: #553000">whiteAllInOneClsNormalColRefList</span>) {
+     *     ... = <span style="color: #553000">whiteAllInOneClsNormalColRef</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteAllInOneClsNormalColRef> selectList(CBCall<WhiteAllInOneClsNormalColRefCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -294,16 +292,16 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * Select the list as result bean.
      * <pre>
      * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteAllInOneClsNormalColRef&gt; whiteAllInOneClsNormalColRefList = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef : whiteAllInOneClsNormalColRefList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteAllInOneClsNormalColRef&gt; <span style="color: #553000">whiteAllInOneClsNormalColRefList</span> = <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef : <span style="color: #553000">whiteAllInOneClsNormalColRefList</span>) {
      *     ... = whiteAllInOneClsNormalColRef.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteAllInOneClsNormalColRef> selectList(WhiteAllInOneClsNormalColRefCB cb) {
         return facadeSelectList(cb);
@@ -319,23 +317,23 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteAllInOneClsNormalColRef&gt; page = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteAllInOneClsNormalColRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef : page) {
+     * for (WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef : <span style="color: #553000">page</span>) {
      *     ... = whiteAllInOneClsNormalColRef.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteAllInOneClsNormalColRef> selectPage(CBCall<WhiteAllInOneClsNormalColRefCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -349,19 +347,19 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteAllInOneClsNormalColRef&gt; page = whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteAllInOneClsNormalColRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef : page) {
+     * for (WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef : <span style="color: #553000">page</span>) {
      *     ... = whiteAllInOneClsNormalColRef.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteAllInOneClsNormalColRef> selectPage(WhiteAllInOneClsNormalColRefCB cb) {
         return facadeSelectPage(cb);
@@ -373,12 +371,10 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
-     * cb.query().setFoo...(value);
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteAllInOneClsNormalColRef&gt;() {
-     *     public void handle(WhiteAllInOneClsNormalColRef entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
@@ -392,8 +388,8 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
-     * cb.query().setFoo...(value);
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteAllInOneClsNormalColRef&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteAllInOneClsNormalColRef&gt;() {
      *     public void handle(WhiteAllInOneClsNormalColRef entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -413,11 +409,9 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteAllInOneClsNormalColRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -443,23 +437,24 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -479,27 +474,24 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -547,12 +539,12 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteAllInOneClsNormalColRef.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteAllInOneClsNormalColRef.set...;</span>
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">insert</span>(whiteAllInOneClsNormalColRef);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">insert</span>(whiteAllInOneClsNormalColRef);
      * ... = whiteAllInOneClsNormalColRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteAllInOneClsNormalColRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef) {
         doInsert(whiteAllInOneClsNormalColRef, null);
@@ -570,15 +562,15 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteAllInOneClsNormalColRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">update</span>(whiteAllInOneClsNormalColRef);
+     *     <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">update</span>(whiteAllInOneClsNormalColRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteAllInOneClsNormalColRef The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef) {
         doUpdate(whiteAllInOneClsNormalColRef, null);
@@ -589,9 +581,9 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteAllInOneClsNormalColRef The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef) {
         doInsertOrUpdate(whiteAllInOneClsNormalColRef, null, null);
@@ -605,14 +597,14 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteAllInOneClsNormalColRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">delete</span>(whiteAllInOneClsNormalColRef);
+     *     <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">delete</span>(whiteAllInOneClsNormalColRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteAllInOneClsNormalColRef The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef) {
         doDelete(whiteAllInOneClsNormalColRef, null);
@@ -637,7 +629,7 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteAllInOneClsNormalColRefList.add(whiteAllInOneClsNormalColRef);
      * }
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">batchInsert</span>(whiteAllInOneClsNormalColRefList);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteAllInOneClsNormalColRefList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -667,11 +659,11 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteAllInOneClsNormalColRefList.add(whiteAllInOneClsNormalColRef);
      * }
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">batchUpdate</span>(whiteAllInOneClsNormalColRefList);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteAllInOneClsNormalColRefList);
      * </pre>
      * @param whiteAllInOneClsNormalColRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteAllInOneClsNormalColRef> whiteAllInOneClsNormalColRefList) {
         return doBatchUpdate(whiteAllInOneClsNormalColRefList, null);
@@ -682,7 +674,7 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteAllInOneClsNormalColRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteAllInOneClsNormalColRef> whiteAllInOneClsNormalColRefList) {
         return doBatchDelete(whiteAllInOneClsNormalColRefList, null);
@@ -694,7 +686,7 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteAllInOneClsNormalColRef, WhiteAllInOneClsNormalColRefCB&gt;() {
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteAllInOneClsNormalColRef, WhiteAllInOneClsNormalColRefCB&gt;() {
      *     public ConditionBean setup(WhiteAllInOneClsNormalColRef entity, WhiteAllInOneClsNormalColRefCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -736,12 +728,12 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">//whiteAllInOneClsNormalColRef.setVersionNo(value);</span>
      * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">queryUpdate</span>(whiteAllInOneClsNormalColRef, cb);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteAllInOneClsNormalColRef, cb);
      * </pre>
      * @param whiteAllInOneClsNormalColRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef, CBCall<WhiteAllInOneClsNormalColRefCB> cbLambda) {
         return doQueryUpdate(whiteAllInOneClsNormalColRef, createCB(cbLambda), null);
@@ -762,12 +754,12 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">//whiteAllInOneClsNormalColRef.setVersionNo(value);</span>
      * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">queryUpdate</span>(whiteAllInOneClsNormalColRef, cb);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteAllInOneClsNormalColRef, cb);
      * </pre>
      * @param whiteAllInOneClsNormalColRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef, WhiteAllInOneClsNormalColRefCB cb) {
         return doQueryUpdate(whiteAllInOneClsNormalColRef, cb, null);
@@ -778,11 +770,11 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <pre>
      * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsNormalColRef, cb);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsNormalColRef, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteAllInOneClsNormalColRefCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -793,11 +785,11 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * <pre>
      * WhiteAllInOneClsNormalColRefCB cb = new WhiteAllInOneClsNormalColRefCB();
      * cb.query().setFoo...(value);
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsNormalColRef, cb);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsNormalColRef, cb);
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteAllInOneClsNormalColRefCB cb) {
         return doQueryDelete(cb, null);
@@ -821,12 +813,12 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * InsertOption<WhiteAllInOneClsNormalColRefCB> option = new InsertOption<WhiteAllInOneClsNormalColRefCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">varyingInsert</span>(whiteAllInOneClsNormalColRef, option);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteAllInOneClsNormalColRef, option);
      * ... = whiteAllInOneClsNormalColRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteAllInOneClsNormalColRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, InsertOption<WhiteAllInOneClsNormalColRefCB>> opLambda) {
         doInsert(whiteAllInOneClsNormalColRef, createInsertOption(opLambda));
@@ -850,16 +842,16 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteAllInOneClsNormalColRef, option);
+     *     <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteAllInOneClsNormalColRef, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteAllInOneClsNormalColRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, UpdateOption<WhiteAllInOneClsNormalColRefCB>> opLambda) {
         doUpdate(whiteAllInOneClsNormalColRef, createUpdateOption(opLambda));
@@ -871,9 +863,9 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * @param whiteAllInOneClsNormalColRef The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, InsertOption<WhiteAllInOneClsNormalColRefCB>> insertOpLambda, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, UpdateOption<WhiteAllInOneClsNormalColRefCB>> updateOpLambda) {
         doInsertOrUpdate(whiteAllInOneClsNormalColRef, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -885,8 +877,8 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * Other specifications are same as delete(entity).
      * @param whiteAllInOneClsNormalColRef The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, DeleteOption<WhiteAllInOneClsNormalColRefCB>> opLambda) {
         doDelete(whiteAllInOneClsNormalColRef, createDeleteOption(opLambda));
@@ -970,13 +962,13 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsNormalColRef, cb, option);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsNormalColRef, cb, option);
      * </pre>
      * @param whiteAllInOneClsNormalColRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef, CBCall<WhiteAllInOneClsNormalColRefCB> cbLambda, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, UpdateOption<WhiteAllInOneClsNormalColRefCB>> opLambda) {
         return doQueryUpdate(whiteAllInOneClsNormalColRef, createCB(cbLambda), createUpdateOption(opLambda));
@@ -1004,13 +996,13 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteAllInOneClsNormalColRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsNormalColRef, cb, option);
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsNormalColRef, cb, option);
      * </pre>
      * @param whiteAllInOneClsNormalColRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteAllInOneClsNormalColRef whiteAllInOneClsNormalColRef, WhiteAllInOneClsNormalColRefCB cb, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, UpdateOption<WhiteAllInOneClsNormalColRefCB>> opLambda) {
         return doQueryUpdate(whiteAllInOneClsNormalColRef, cb, createUpdateOption(opLambda));
@@ -1023,7 +1015,7 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteAllInOneClsNormalColRefCB> cbLambda, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, DeleteOption<WhiteAllInOneClsNormalColRefCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1036,7 +1028,7 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
      * @param cb The condition-bean of WhiteAllInOneClsNormalColRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteAllInOneClsNormalColRefCB cb, WritableOptionCall<WhiteAllInOneClsNormalColRefCB, DeleteOption<WhiteAllInOneClsNormalColRefCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

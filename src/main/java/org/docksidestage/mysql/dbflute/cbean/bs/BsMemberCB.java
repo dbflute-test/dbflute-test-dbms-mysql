@@ -56,6 +56,9 @@ public class BsMemberCB extends AbstractConditionBean {
         if (DBFluteConfig.getInstance().isPagingCountLeastJoin()) {
             enablePagingCountLeastJoin();
         }
+        if (DBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
+            enableNonSpecifiedColumnAccess();
+        }
         if (DBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }
@@ -141,7 +144,6 @@ public class BsMemberCB extends AbstractConditionBean {
      * cb.query().setMemberId_LessEqual(value);    <span style="color: #3F7E5E">// &lt;=</span>
      * cb.query().setMemberName_InScope(valueList);    <span style="color: #3F7E5E">// in ('a', 'b')</span>
      * cb.query().setMemberName_NotInScope(valueList); <span style="color: #3F7E5E">// not in ('a', 'b')</span>
-     * cb.query().setMemberName_PrefixSearch(value);   <span style="color: #3F7E5E">// like 'a%' escape '|'</span>
      * <span style="color: #3F7E5E">// LikeSearch with various options: (versatile)</span>
      * <span style="color: #3F7E5E">// {like ... [options]}</span>
      * cb.query().setMemberName_LikeSearch(value, option);
@@ -151,47 +153,31 @@ public class BsMemberCB extends AbstractConditionBean {
      * cb.query().setBirthdate_FromTo(fromDatetime, toDatetime, option);
      * <span style="color: #3F7E5E">// DateFromTo: (Date means yyyy/MM/dd)</span>
      * <span style="color: #3F7E5E">// {fromDate &lt;= BIRTHDATE &lt; toDate + 1 day}</span>
-     * cb.query().setBirthdate_DateFromTo(fromDate, toDate);
      * cb.query().setBirthdate_IsNull();    <span style="color: #3F7E5E">// is null</span>
      * cb.query().setBirthdate_IsNotNull(); <span style="color: #3F7E5E">// is not null</span>
      * 
      * <span style="color: #3F7E5E">// ExistsReferrer: (correlated sub-query)</span>
      * <span style="color: #3F7E5E">// {where exists (select PURCHASE_ID from PURCHASE where ...)}</span>
-     * cb.query().existsPurchaseList(new SubQuery&lt;PurchaseCB&gt;() {
-     *     public void query(PurchaseCB subCB) {
-     *         subCB.query().setXxx... <span style="color: #3F7E5E">// referrer sub-query condition</span>
-     *     }
+     * cb.query().existsPurchase(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     purchaseCB.query().set... <span style="color: #3F7E5E">// referrer sub-query condition</span>
      * });
-     * cb.query().notExistsPurchaseList...
-     * 
-     * <span style="color: #3F7E5E">// InScopeRelation: (sub-query)</span>
-     * <span style="color: #3F7E5E">// {where MEMBER_STATUS_CODE in (select MEMBER_STATUS_CODE from MEMBER_STATUS where ...)}</span>
-     * cb.query().inScopeMemberStatus(new SubQuery&lt;MemberStatusCB&gt;() {
-     *     public void query(MemberStatusCB subCB) {
-     *         subCB.query().setXxx... <span style="color: #3F7E5E">// relation sub-query condition</span>
-     *     }
-     * });
-     * cb.query().notInScopeMemberStatus...
+     * cb.query().notExistsPurchase...
      * 
      * <span style="color: #3F7E5E">// (Query)DerivedReferrer: (correlated sub-query)</span>
-     * cb.query().derivedPurchaseList().max(new SubQuery&lt;PurchaseCB&gt;() {
-     *     public void query(PurchaseCB subCB) {
-     *         subCB.specify().columnPurchasePrice(); <span style="color: #3F7E5E">// derived column for function</span>
-     *         subCB.query().setXxx... <span style="color: #3F7E5E">// referrer sub-query condition</span>
-     *     }
+     * cb.query().derivedPurchaseList().max(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     purchaseCB.specify().columnPurchasePrice(); <span style="color: #3F7E5E">// derived column for function</span>
+     *     purchaseCB.query().set... <span style="color: #3F7E5E">// referrer sub-query condition</span>
      * }).greaterEqual(value);
      * 
      * <span style="color: #3F7E5E">// ScalarCondition: (self-table sub-query)</span>
-     * cb.query().scalar_Equal().max(new SubQuery&lt;MemberCB&gt;() {
-     *     public void query(MemberCB subCB) {
-     *         subCB.specify().columnBirthdate(); <span style="color: #3F7E5E">// derived column for function</span>
-     *         subCB.query().setXxx... <span style="color: #3F7E5E">// scalar sub-query condition</span>
-     *     }
+     * cb.query().scalar_Equal().max(scalarCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     scalarCB.specify().columnBirthdate(); <span style="color: #3F7E5E">// derived column for function</span>
+     *     scalarCB.query().set... <span style="color: #3F7E5E">// scalar sub-query condition</span>
      * });
      * 
      * <span style="color: #3F7E5E">// OrderBy</span>
      * cb.query().addOrderBy_MemberName_Asc();
-     * cb.query().addOrderBy_MemberName_Desc().withManualOrder(valueList);
+     * cb.query().addOrderBy_MemberName_Desc().withManualOrder(option);
      * cb.query().addOrderBy_MemberName_Desc().withNullsFirst();
      * cb.query().addOrderBy_MemberName_Desc().withNullsLast();
      * cb.query().addSpecifiedDerivedOrderBy_Desc(aliasName);
@@ -247,17 +233,15 @@ public class BsMemberCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;MemberCB&gt;() {
-     *     public void query(MemberCB unionCB) {
-     *         unionCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">union</span>(<span style="color: #553000">unionCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">unionCB</span>.query().set...
      * });
      * </pre>
-     * @param unionQuery The query of 'union'. (NotNull)
+     * @param unionCBLambda The callback for query of 'union'. (NotNull)
      */
-    public void union(UnionQuery<MemberCB> unionQuery) {
+    public void union(UnionQuery<MemberCB> unionCBLambda) {
         final MemberCB cb = new MemberCB(); cb.xsetupForUnion(this); xsyncUQ(cb); 
-        try { lock(); unionQuery.query(cb); } finally { unlock(); } xsaveUCB(cb);
+        try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
         final MemberCQ cq = cb.query(); query().xsetUnionQuery(cq);
     }
 
@@ -266,17 +250,15 @@ public class BsMemberCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;MemberCB&gt;() {
-     *     public void query(MemberCB unionCB) {
-     *         unionCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">unionAll</span>(<span style="color: #553000">unionCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">unionCB</span>.query().set...
      * });
      * </pre>
-     * @param unionQuery The query of 'union all'. (NotNull)
+     * @param unionCBLambda The callback for query of 'union all'. (NotNull)
      */
-    public void unionAll(UnionQuery<MemberCB> unionQuery) {
+    public void unionAll(UnionQuery<MemberCB> unionCBLambda) {
         final MemberCB cb = new MemberCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
-        try { lock(); unionQuery.query(cb); } finally { unlock(); } xsaveUCB(cb);
+        try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
         final MemberCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
 
@@ -287,11 +269,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      */
     public void setupSelect_MemberStatus() {
@@ -311,11 +294,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsValid(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberAddressAsValid()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsValid(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberAddressAsValid()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -337,11 +321,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsValidBefore(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberAddressAsValidBefore()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsValidBefore(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberAddressAsValidBefore()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -363,11 +348,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsLoginStatus(statusCode)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsLoginStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLoginStatus(statusCode)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsLoginStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param statusCode The bind parameter of fixed condition for statusCode. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -389,11 +375,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsIfComment(targetDate, region)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberAddressAsIfComment()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsIfComment(targetDate, region)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberAddressAsIfComment()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
      * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
@@ -416,11 +403,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsOnlyOneDate(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberAddressAsOnlyOneDate()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsOnlyOneDate(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberAddressAsOnlyOneDate()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -442,11 +430,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsLocalBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsLocalBindOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLocalBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsLocalBindOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -469,11 +458,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -494,11 +484,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignBindOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsForeignForeignBindOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -520,11 +511,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -545,11 +537,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -570,11 +563,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -595,11 +589,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedPartOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedPartOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @param memberName The bind parameter of fixed condition for memberName. (NotNull)
@@ -622,11 +617,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedWholeOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsForeignForeignOptimizedWholeOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -648,11 +644,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignParameterOverTest(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignParameterOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignParameterOverTest(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsForeignForeignParameterOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -674,11 +671,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -699,11 +697,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -724,11 +723,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -749,11 +749,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -774,11 +775,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -799,11 +801,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsFormattedBasic(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberAddressAsFormattedBasic()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsFormattedBasic(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberAddressAsFormattedBasic()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -825,11 +828,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberAddressAsFormattedLong(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberAddressAsFormattedLong()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsFormattedLong(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberAddressAsFormattedLong()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
@@ -851,11 +855,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -876,11 +881,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -901,11 +907,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -925,11 +932,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberServiceAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberServiceAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberServiceAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberServiceAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -949,11 +957,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br />
      * (会員退会情報)member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.<span style="color: #CC4747">setupSelect_MemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     * cb.query().setFoo...(value);
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * ... = member.<span style="color: #CC4747">getMemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -974,15 +983,17 @@ public class BsMemberCB extends AbstractConditionBean {
      * Prepare for SpecifyColumn, (Specify)DerivedReferrer. <br />
      * This method should be called after SetupSelect.
      * <pre>
-     * cb.setupSelect_MemberStatus(); <span style="color: #3F7E5E">// should be called before specify()</span>
-     * cb.specify().columnMemberName();
-     * cb.specify().specifyMemberStatus().columnMemberStatusName();
-     * cb.specify().derivedPurchaseList().max(new SubQuery&lt;PurchaseCB&gt;() {
-     *     public void query(PurchaseCB subCB) {
-     *         subCB.specify().columnPurchaseDatetime();
-     *         subCB.query().set...
-     *     }
-     * }, aliasName);
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.setupSelect_MemberStatus(); <span style="color: #3F7E5E">// should be called before specify()</span>
+     *     <span style="color: #553000">cb</span>.specify().columnMemberName();
+     *     <span style="color: #553000">cb</span>.specify().specifyMemberStatus().columnMemberStatusName();
+     *     <span style="color: #553000">cb</span>.specify().derivedPurchaseList().max(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.specify().columnPurchaseDatetime();
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *     }, aliasName);
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ...
+     * });
      * </pre>
      * @return The instance of specification. (NotNull)
      */
@@ -1943,9 +1954,9 @@ public class BsMemberCB extends AbstractConditionBean {
          * {select max(FOO) from member_address where ...) as FOO_MAX} <br />
          * (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
          * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(addressCB -&gt; {
-         *     addressCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     addressCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+         *     addressCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     addressCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
          * }, MemberAddress.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
@@ -1961,9 +1972,9 @@ public class BsMemberCB extends AbstractConditionBean {
          * {select max(FOO) from member_login where ...) as FOO_MAX} <br />
          * (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
          * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(loginCB -&gt; {
-         *     loginCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     loginCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+         *     loginCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     loginCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
          * }, MemberLogin.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
@@ -1979,9 +1990,9 @@ public class BsMemberCB extends AbstractConditionBean {
          * {select max(FOO) from purchase where ...) as FOO_MAX} <br />
          * (購入)purchase by MEMBER_ID, named 'purchaseList'.
          * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(purchaseCB -&gt; {
-         *     purchaseCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     purchaseCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+         *     purchaseCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     purchaseCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
          * }, Purchase.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)

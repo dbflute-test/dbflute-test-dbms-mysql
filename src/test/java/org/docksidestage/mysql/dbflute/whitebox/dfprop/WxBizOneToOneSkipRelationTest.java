@@ -36,7 +36,8 @@ public class WxBizOneToOneSkipRelationTest extends UnitContainerTestCase {
                 assertNotNull(address.getMemberAddressId());
                 assertNotNull(memberId);
                 assertNotNull(addressStr);
-                assertNull(address.getRegionId());
+                assertNull(address.xznocheckGetRegionId());
+                assertNonSpecifiedAccess(() -> address.getRegionId());
                 assertEquals(purchase.getMemberId(), memberId);
                 exists = true;
             }
@@ -67,7 +68,8 @@ public class WxBizOneToOneSkipRelationTest extends UnitContainerTestCase {
                 assertNotNull(address.getMemberAddressId());
                 assertNotNull(memberId);
                 assertNotNull(addressStr);
-                assertNull(address.getRegionId());
+                assertNull(address.xznocheckGetRegionId());
+                assertNonSpecifiedAccess(() -> address.getRegionId());
                 assertEquals(purchase.getMemberId(), memberId);
                 exists = true;
             }

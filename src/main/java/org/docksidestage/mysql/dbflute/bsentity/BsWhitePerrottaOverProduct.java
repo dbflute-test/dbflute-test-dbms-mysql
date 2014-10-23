@@ -85,7 +85,6 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     /** PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested} */
     protected String _productNestedCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -265,9 +264,9 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_productId);
-        sb.append(dm).append(_productName);
-        sb.append(dm).append(_productNestedCode);
+        sb.append(dm).append(xfND(_productId));
+        sb.append(dm).append(xfND(_productName));
+        sb.append(dm).append(xfND(_productNestedCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -305,6 +304,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getProductId() {
+        checkSpecifiedProperty("productId");
         return _productId;
     }
 
@@ -313,7 +313,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Long productId) {
-        __modifiedProperties.addPropertyName("productId");
+        registerModifiedProperty("productId");
         _productId = productId;
     }
 
@@ -322,6 +322,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
      * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
+        checkSpecifiedProperty("productName");
         return _productName;
     }
 
@@ -330,7 +331,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
      * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
-        __modifiedProperties.addPropertyName("productName");
+        registerModifiedProperty("productName");
         _productName = productName;
     }
 
@@ -339,6 +340,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
      * @return The value of the column 'PRODUCT_NESTED_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductNestedCode() {
+        checkSpecifiedProperty("productNestedCode");
         return _productNestedCode;
     }
 
@@ -347,7 +349,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
      * @param productNestedCode The value of the column 'PRODUCT_NESTED_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductNestedCode(String productNestedCode) {
-        __modifiedProperties.addPropertyName("productNestedCode");
+        registerModifiedProperty("productNestedCode");
         _productNestedCode = productNestedCode;
     }
 }

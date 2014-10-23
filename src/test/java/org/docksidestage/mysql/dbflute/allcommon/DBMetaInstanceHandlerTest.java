@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.info.ColumnInfo;
-import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberStatusDbm;
 import org.docksidestage.mysql.dbflute.exentity.Member;

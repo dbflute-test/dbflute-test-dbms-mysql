@@ -80,7 +80,6 @@ public abstract class BsWhiteColumnExceptGenOnly extends AbstractEntity {
     /** GEN_ONLY_NAME: {NotNull, VARCHAR(200)} */
     protected String _genOnlyName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -151,8 +150,8 @@ public abstract class BsWhiteColumnExceptGenOnly extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_genOnlyId);
-        sb.append(dm).append(_genOnlyName);
+        sb.append(dm).append(xfND(_genOnlyId));
+        sb.append(dm).append(xfND(_genOnlyName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -178,6 +177,7 @@ public abstract class BsWhiteColumnExceptGenOnly extends AbstractEntity {
      * @return The value of the column 'GEN_ONLY_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getGenOnlyId() {
+        checkSpecifiedProperty("genOnlyId");
         return _genOnlyId;
     }
 
@@ -186,7 +186,7 @@ public abstract class BsWhiteColumnExceptGenOnly extends AbstractEntity {
      * @param genOnlyId The value of the column 'GEN_ONLY_ID'. (basically NotNull if update: for the constraint)
      */
     public void setGenOnlyId(Long genOnlyId) {
-        __modifiedProperties.addPropertyName("genOnlyId");
+        registerModifiedProperty("genOnlyId");
         _genOnlyId = genOnlyId;
     }
 
@@ -195,6 +195,7 @@ public abstract class BsWhiteColumnExceptGenOnly extends AbstractEntity {
      * @return The value of the column 'GEN_ONLY_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getGenOnlyName() {
+        checkSpecifiedProperty("genOnlyName");
         return _genOnlyName;
     }
 
@@ -203,7 +204,7 @@ public abstract class BsWhiteColumnExceptGenOnly extends AbstractEntity {
      * @param genOnlyName The value of the column 'GEN_ONLY_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setGenOnlyName(String genOnlyName) {
-        __modifiedProperties.addPropertyName("genOnlyName");
+        registerModifiedProperty("genOnlyName");
         _genOnlyName = genOnlyName;
     }
 }

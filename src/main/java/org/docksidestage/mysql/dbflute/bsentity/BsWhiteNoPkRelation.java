@@ -96,7 +96,6 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     /** LATEST_PURCHASE_DATETIME: {DATETIME(19)} */
     protected java.sql.Timestamp _latestPurchaseDatetime;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -282,11 +281,11 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_productId);
-        sb.append(dm).append(_productName);
-        sb.append(dm).append(_productHandleCode);
-        sb.append(dm).append(_productStatusCode);
-        sb.append(dm).append(_latestPurchaseDatetime);
+        sb.append(dm).append(xfND(_productId));
+        sb.append(dm).append(xfND(_productName));
+        sb.append(dm).append(xfND(_productHandleCode));
+        sb.append(dm).append(xfND(_productStatusCode));
+        sb.append(dm).append(xfND(_latestPurchaseDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -312,6 +311,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
+        checkSpecifiedProperty("productId");
         return _productId;
     }
 
@@ -320,7 +320,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
-        __modifiedProperties.addPropertyName("productId");
+        registerModifiedProperty("productId");
         _productId = productId;
     }
 
@@ -329,6 +329,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
+        checkSpecifiedProperty("productName");
         return _productName;
     }
 
@@ -337,7 +338,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
-        __modifiedProperties.addPropertyName("productName");
+        registerModifiedProperty("productName");
         _productName = productName;
     }
 
@@ -347,6 +348,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @return The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductHandleCode() {
+        checkSpecifiedProperty("productHandleCode");
         return _productHandleCode;
     }
 
@@ -356,7 +358,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductHandleCode(String productHandleCode) {
-        __modifiedProperties.addPropertyName("productHandleCode");
+        registerModifiedProperty("productHandleCode");
         _productHandleCode = productHandleCode;
     }
 
@@ -365,6 +367,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
+        checkSpecifiedProperty("productStatusCode");
         return _productStatusCode;
     }
 
@@ -374,7 +377,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      */
     protected void setProductStatusCode(String productStatusCode) {
         checkClassificationCode("PRODUCT_STATUS_CODE", CDef.DefMeta.ProductStatus, productStatusCode);
-        __modifiedProperties.addPropertyName("productStatusCode");
+        registerModifiedProperty("productStatusCode");
         _productStatusCode = productStatusCode;
     }
 
@@ -383,6 +386,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @return The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getLatestPurchaseDatetime() {
+        checkSpecifiedProperty("latestPurchaseDatetime");
         return _latestPurchaseDatetime;
     }
 
@@ -391,7 +395,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
      * @param latestPurchaseDatetime The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setLatestPurchaseDatetime(java.sql.Timestamp latestPurchaseDatetime) {
-        __modifiedProperties.addPropertyName("latestPurchaseDatetime");
+        registerModifiedProperty("latestPurchaseDatetime");
         _latestPurchaseDatetime = latestPurchaseDatetime;
     }
 

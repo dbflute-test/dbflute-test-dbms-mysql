@@ -85,7 +85,6 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     /** QUX_CODE: {PK, NotNull, CHAR(3)} */
     protected String _quxCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -205,9 +204,9 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_fooCode);
-        sb.append(dm).append(_barCode);
-        sb.append(dm).append(_quxCode);
+        sb.append(dm).append(xfND(_fooCode));
+        sb.append(dm).append(xfND(_barCode));
+        sb.append(dm).append(xfND(_quxCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -239,6 +238,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
      * @return The value of the column 'FOO_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getFooCode() {
+        checkSpecifiedProperty("fooCode");
         return _fooCode;
     }
 
@@ -247,7 +247,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
      * @param fooCode The value of the column 'FOO_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setFooCode(String fooCode) {
-        __modifiedProperties.addPropertyName("fooCode");
+        registerModifiedProperty("fooCode");
         _fooCode = fooCode;
     }
 
@@ -256,6 +256,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
      * @return The value of the column 'BAR_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getBarCode() {
+        checkSpecifiedProperty("barCode");
         return _barCode;
     }
 
@@ -264,7 +265,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
      * @param barCode The value of the column 'BAR_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setBarCode(String barCode) {
-        __modifiedProperties.addPropertyName("barCode");
+        registerModifiedProperty("barCode");
         _barCode = barCode;
     }
 
@@ -273,6 +274,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
      * @return The value of the column 'QUX_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getQuxCode() {
+        checkSpecifiedProperty("quxCode");
         return _quxCode;
     }
 
@@ -281,7 +283,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
      * @param quxCode The value of the column 'QUX_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setQuxCode(String quxCode) {
-        __modifiedProperties.addPropertyName("quxCode");
+        registerModifiedProperty("quxCode");
         _quxCode = quxCode;
     }
 }

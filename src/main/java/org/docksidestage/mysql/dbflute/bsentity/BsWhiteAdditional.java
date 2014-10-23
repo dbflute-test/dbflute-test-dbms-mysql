@@ -91,7 +91,6 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     /** register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} */
     protected java.sql.Timestamp _registerDatetime;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -162,10 +161,10 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_fooId);
-        sb.append(dm).append(_fooName);
+        sb.append(dm).append(xfND(_fooId));
+        sb.append(dm).append(xfND(_fooName));
         sb.append(dm).append(xfUD(_fooDate));
-        sb.append(dm).append(_registerDatetime);
+        sb.append(dm).append(xfND(_registerDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -191,6 +190,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
      * @return The value of the column 'foo_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getFooId() {
+        checkSpecifiedProperty("fooId");
         return _fooId;
     }
 
@@ -199,7 +199,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
      * @param fooId The value of the column 'foo_id'. (basically NotNull if update: for the constraint)
      */
     public void setFooId(Integer fooId) {
-        __modifiedProperties.addPropertyName("fooId");
+        registerModifiedProperty("fooId");
         _fooId = fooId;
     }
 
@@ -209,6 +209,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
      * @return The value of the column 'foo_name'. (basically NotNull if selected: for the constraint)
      */
     public String getFooName() {
+        checkSpecifiedProperty("fooName");
         return _fooName;
     }
 
@@ -218,7 +219,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
      * @param fooName The value of the column 'foo_name'. (basically NotNull if update: for the constraint)
      */
     public void setFooName(String fooName) {
-        __modifiedProperties.addPropertyName("fooName");
+        registerModifiedProperty("fooName");
         _fooName = fooName;
     }
 
@@ -227,6 +228,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
      * @return The value of the column 'foo_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getFooDate() {
+        checkSpecifiedProperty("fooDate");
         return _fooDate;
     }
 
@@ -235,7 +237,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
      * @param fooDate The value of the column 'foo_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFooDate(java.util.Date fooDate) {
-        __modifiedProperties.addPropertyName("fooDate");
+        registerModifiedProperty("fooDate");
         _fooDate = fooDate;
     }
 
@@ -244,6 +246,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
      * @return The value of the column 'register_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
+        checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
 
@@ -252,7 +255,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
      * @param registerDatetime The value of the column 'register_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
-        __modifiedProperties.addPropertyName("registerDatetime");
+        registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
 }

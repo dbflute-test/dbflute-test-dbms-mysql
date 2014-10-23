@@ -93,9 +93,9 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
      * cb.query().setFoo...(value);
-     * int count = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteSplitMultipleFkRef whiteSplitMultipleFkRef = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteSplitMultipleFkRef -&gt; {
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteSplitMultipleFkRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteSplitMultipleFkRef.get...
+     *     ... = <span style="color: #553000">whiteSplitMultipleFkRef</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteSplitMultipleFkRef whiteSplitMultipleFkRef = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteSplitMultipleFkRef -&gt; {
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteSplitMultipleFkRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteSplitMultipleFkRef.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteSplitMultipleFkRef</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteSplitMultipleFkRef> selectEntity(CBCall<WhiteSplitMultipleFkRefCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteSplitMultipleFkRefBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteSplitMultipleFkRef -&gt; {
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteSplitMultipleFkRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteSplitMultipleFkRef.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteSplitMultipleFkRef -&gt; {
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteSplitMultipleFkRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteSplitMultipleFkRef.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteSplitMultipleFkRef> selectEntity(WhiteSplitMultipleFkRefCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * WhiteSplitMultipleFkRef whiteSplitMultipleFkRef = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteSplitMultipleFkRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteSplitMultipleFkRef <span style="color: #553000">whiteSplitMultipleFkRef</span> = <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteSplitMultipleFkRef</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteSplitMultipleFkRef selectEntityWithDeletedCheck(CBCall<WhiteSplitMultipleFkRefCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * WhiteSplitMultipleFkRef whiteSplitMultipleFkRef = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteSplitMultipleFkRef whiteSplitMultipleFkRef = <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteSplitMultipleFkRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteSplitMultipleFkRef selectEntityWithDeletedCheck(WhiteSplitMultipleFkRefCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -242,9 +240,9 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * @param firstId : PK, NotNull, INT(10). (NotNull)
      * @param secondCode : PK, NotNull, CHAR(3). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteSplitMultipleFkRef> selectByPK(Integer firstId, String secondCode) {
         return facadeSelectByPK(firstId, secondCode);
@@ -273,17 +271,17 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteSplitMultipleFkRef&gt; whiteSplitMultipleFkRefList = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteSplitMultipleFkRef&gt; <span style="color: #553000">whiteSplitMultipleFkRefList</span> = <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteSplitMultipleFkRefList.forEach(whiteSplitMultipleFkRef -&gt; {
-     *     ... = whiteSplitMultipleFkRef.get...();
+     * for (WhiteSplitMultipleFkRef <span style="color: #553000">whiteSplitMultipleFkRef</span> : <span style="color: #553000">whiteSplitMultipleFkRefList</span>) {
+     *     ... = <span style="color: #553000">whiteSplitMultipleFkRef</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteSplitMultipleFkRef> selectList(CBCall<WhiteSplitMultipleFkRefCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -293,16 +291,16 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * Select the list as result bean.
      * <pre>
      * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteSplitMultipleFkRef&gt; whiteSplitMultipleFkRefList = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteSplitMultipleFkRef whiteSplitMultipleFkRef : whiteSplitMultipleFkRefList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteSplitMultipleFkRef&gt; <span style="color: #553000">whiteSplitMultipleFkRefList</span> = <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteSplitMultipleFkRef whiteSplitMultipleFkRef : <span style="color: #553000">whiteSplitMultipleFkRefList</span>) {
      *     ... = whiteSplitMultipleFkRef.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteSplitMultipleFkRef> selectList(WhiteSplitMultipleFkRefCB cb) {
         return facadeSelectList(cb);
@@ -318,23 +316,23 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteSplitMultipleFkRef&gt; page = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteSplitMultipleFkRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteSplitMultipleFkRef whiteSplitMultipleFkRef : page) {
+     * for (WhiteSplitMultipleFkRef whiteSplitMultipleFkRef : <span style="color: #553000">page</span>) {
      *     ... = whiteSplitMultipleFkRef.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteSplitMultipleFkRef> selectPage(CBCall<WhiteSplitMultipleFkRefCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -348,19 +346,19 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteSplitMultipleFkRef&gt; page = whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteSplitMultipleFkRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteSplitMultipleFkRef whiteSplitMultipleFkRef : page) {
+     * for (WhiteSplitMultipleFkRef whiteSplitMultipleFkRef : <span style="color: #553000">page</span>) {
      *     ... = whiteSplitMultipleFkRef.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteSplitMultipleFkRef> selectPage(WhiteSplitMultipleFkRefCB cb) {
         return facadeSelectPage(cb);
@@ -372,12 +370,10 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSplitMultipleFkRef&gt;() {
-     *     public void handle(WhiteSplitMultipleFkRef entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
@@ -391,8 +387,8 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSplitMultipleFkRef&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSplitMultipleFkRef&gt;() {
      *     public void handle(WhiteSplitMultipleFkRef entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -412,11 +408,9 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteSplitMultipleFkRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -442,23 +436,24 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -478,27 +473,24 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -530,12 +522,12 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkRef.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkRef.set...;</span>
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">insert</span>(whiteSplitMultipleFkRef);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">insert</span>(whiteSplitMultipleFkRef);
      * ... = whiteSplitMultipleFkRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteSplitMultipleFkRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef) {
         doInsert(whiteSplitMultipleFkRef, null);
@@ -553,15 +545,15 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSplitMultipleFkRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">update</span>(whiteSplitMultipleFkRef);
+     *     <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">update</span>(whiteSplitMultipleFkRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteSplitMultipleFkRef The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef) {
         doUpdate(whiteSplitMultipleFkRef, null);
@@ -572,9 +564,9 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteSplitMultipleFkRef The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef) {
         doInsertOrUpdate(whiteSplitMultipleFkRef, null, null);
@@ -588,14 +580,14 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSplitMultipleFkRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">delete</span>(whiteSplitMultipleFkRef);
+     *     <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">delete</span>(whiteSplitMultipleFkRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteSplitMultipleFkRef The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef) {
         doDelete(whiteSplitMultipleFkRef, null);
@@ -620,7 +612,7 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteSplitMultipleFkRefList.add(whiteSplitMultipleFkRef);
      * }
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">batchInsert</span>(whiteSplitMultipleFkRefList);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteSplitMultipleFkRefList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -650,11 +642,11 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteSplitMultipleFkRefList.add(whiteSplitMultipleFkRef);
      * }
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">batchUpdate</span>(whiteSplitMultipleFkRefList);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteSplitMultipleFkRefList);
      * </pre>
      * @param whiteSplitMultipleFkRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteSplitMultipleFkRef> whiteSplitMultipleFkRefList) {
         return doBatchUpdate(whiteSplitMultipleFkRefList, null);
@@ -665,7 +657,7 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteSplitMultipleFkRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteSplitMultipleFkRef> whiteSplitMultipleFkRefList) {
         return doBatchDelete(whiteSplitMultipleFkRefList, null);
@@ -677,7 +669,7 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteSplitMultipleFkRef, WhiteSplitMultipleFkRefCB&gt;() {
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteSplitMultipleFkRef, WhiteSplitMultipleFkRefCB&gt;() {
      *     public ConditionBean setup(WhiteSplitMultipleFkRef entity, WhiteSplitMultipleFkRefCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -719,12 +711,12 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkRef.setVersionNo(value);</span>
      * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
      * cb.query().setFoo...(value);
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkRef, cb);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkRef, cb);
      * </pre>
      * @param whiteSplitMultipleFkRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef, CBCall<WhiteSplitMultipleFkRefCB> cbLambda) {
         return doQueryUpdate(whiteSplitMultipleFkRef, createCB(cbLambda), null);
@@ -745,12 +737,12 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkRef.setVersionNo(value);</span>
      * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
      * cb.query().setFoo...(value);
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkRef, cb);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkRef, cb);
      * </pre>
      * @param whiteSplitMultipleFkRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef, WhiteSplitMultipleFkRefCB cb) {
         return doQueryUpdate(whiteSplitMultipleFkRef, cb, null);
@@ -761,11 +753,11 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
      * cb.query().setFoo...(value);
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkRef, cb);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkRef, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteSplitMultipleFkRefCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -776,11 +768,11 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <pre>
      * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
      * cb.query().setFoo...(value);
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkRef, cb);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkRef, cb);
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteSplitMultipleFkRefCB cb) {
         return doQueryDelete(cb, null);
@@ -804,12 +796,12 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * InsertOption<WhiteSplitMultipleFkRefCB> option = new InsertOption<WhiteSplitMultipleFkRefCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">varyingInsert</span>(whiteSplitMultipleFkRef, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSplitMultipleFkRef, option);
      * ... = whiteSplitMultipleFkRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteSplitMultipleFkRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef, WritableOptionCall<WhiteSplitMultipleFkRefCB, InsertOption<WhiteSplitMultipleFkRefCB>> opLambda) {
         doInsert(whiteSplitMultipleFkRef, createInsertOption(opLambda));
@@ -833,16 +825,16 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteSplitMultipleFkRef, option);
+     *     <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSplitMultipleFkRef, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteSplitMultipleFkRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef, WritableOptionCall<WhiteSplitMultipleFkRefCB, UpdateOption<WhiteSplitMultipleFkRefCB>> opLambda) {
         doUpdate(whiteSplitMultipleFkRef, createUpdateOption(opLambda));
@@ -854,9 +846,9 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * @param whiteSplitMultipleFkRef The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef, WritableOptionCall<WhiteSplitMultipleFkRefCB, InsertOption<WhiteSplitMultipleFkRefCB>> insertOpLambda, WritableOptionCall<WhiteSplitMultipleFkRefCB, UpdateOption<WhiteSplitMultipleFkRefCB>> updateOpLambda) {
         doInsertOrUpdate(whiteSplitMultipleFkRef, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -868,8 +860,8 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * Other specifications are same as delete(entity).
      * @param whiteSplitMultipleFkRef The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef, WritableOptionCall<WhiteSplitMultipleFkRefCB, DeleteOption<WhiteSplitMultipleFkRefCB>> opLambda) {
         doDelete(whiteSplitMultipleFkRef, createDeleteOption(opLambda));
@@ -953,13 +945,13 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkRef, cb, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkRef, cb, option);
      * </pre>
      * @param whiteSplitMultipleFkRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef, CBCall<WhiteSplitMultipleFkRefCB> cbLambda, WritableOptionCall<WhiteSplitMultipleFkRefCB, UpdateOption<WhiteSplitMultipleFkRefCB>> opLambda) {
         return doQueryUpdate(whiteSplitMultipleFkRef, createCB(cbLambda), createUpdateOption(opLambda));
@@ -987,13 +979,13 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteSplitMultipleFkRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkRef, cb, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkRef, cb, option);
      * </pre>
      * @param whiteSplitMultipleFkRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteSplitMultipleFkRef whiteSplitMultipleFkRef, WhiteSplitMultipleFkRefCB cb, WritableOptionCall<WhiteSplitMultipleFkRefCB, UpdateOption<WhiteSplitMultipleFkRefCB>> opLambda) {
         return doQueryUpdate(whiteSplitMultipleFkRef, cb, createUpdateOption(opLambda));
@@ -1006,7 +998,7 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteSplitMultipleFkRefCB> cbLambda, WritableOptionCall<WhiteSplitMultipleFkRefCB, DeleteOption<WhiteSplitMultipleFkRefCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1019,7 +1011,7 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteSplitMultipleFkRefCB cb, WritableOptionCall<WhiteSplitMultipleFkRefCB, DeleteOption<WhiteSplitMultipleFkRefCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

@@ -7,7 +7,6 @@ import java.util.Date;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.s2dao.extension.TnSqlLogRegistry;
-import org.docksidestage.mysql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.mysql.dbflute.exentity.Member;

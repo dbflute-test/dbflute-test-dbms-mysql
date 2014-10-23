@@ -93,9 +93,9 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <pre>
      * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
      * cb.query().setFoo...(value);
-     * int count = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationLocalPkReferrer -&gt; {
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteVariantRelationLocalPkReferrer</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteVariantRelationLocalPkReferrer.get...
+     *     ... = <span style="color: #553000">whiteVariantRelationLocalPkReferrer</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationLocalPkReferrer -&gt; {
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteVariantRelationLocalPkReferrer</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteVariantRelationLocalPkReferrer.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteVariantRelationLocalPkReferrer</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteVariantRelationLocalPkReferrer> selectEntity(CBCall<WhiteVariantRelationLocalPkReferrerCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationLocalPkReferrer -&gt; {
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationLocalPkReferrer <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteVariantRelationLocalPkReferrer.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationLocalPkReferrer -&gt; {
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationLocalPkReferrer <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteVariantRelationLocalPkReferrer.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteVariantRelationLocalPkReferrer> selectEntity(WhiteVariantRelationLocalPkReferrerCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
-     * cb.query().setFoo...(value);
-     * WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteVariantRelationLocalPkReferrer.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteVariantRelationLocalPkReferrer <span style="color: #553000">whiteVariantRelationLocalPkReferrer</span> = <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteVariantRelationLocalPkReferrer</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteVariantRelationLocalPkReferrer selectEntityWithDeletedCheck(CBCall<WhiteVariantRelationLocalPkReferrerCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
-     * cb.query().setFoo...(value);
-     * WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer = <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteVariantRelationLocalPkReferrer.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteVariantRelationLocalPkReferrer selectEntityWithDeletedCheck(WhiteVariantRelationLocalPkReferrerCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * Select the entity by the primary-key value.
      * @param reversefkSuppressedId : PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteVariantRelationLocalPkReferrer> selectByPK(Long reversefkSuppressedId) {
         return facadeSelectByPK(reversefkSuppressedId);
@@ -272,17 +270,17 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteVariantRelationLocalPkReferrer&gt; whiteVariantRelationLocalPkReferrerList = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteVariantRelationLocalPkReferrer&gt; <span style="color: #553000">whiteVariantRelationLocalPkReferrerList</span> = <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteVariantRelationLocalPkReferrerList.forEach(whiteVariantRelationLocalPkReferrer -&gt; {
-     *     ... = whiteVariantRelationLocalPkReferrer.get...();
+     * for (WhiteVariantRelationLocalPkReferrer <span style="color: #553000">whiteVariantRelationLocalPkReferrer</span> : <span style="color: #553000">whiteVariantRelationLocalPkReferrerList</span>) {
+     *     ... = <span style="color: #553000">whiteVariantRelationLocalPkReferrer</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteVariantRelationLocalPkReferrer> selectList(CBCall<WhiteVariantRelationLocalPkReferrerCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * Select the list as result bean.
      * <pre>
      * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteVariantRelationLocalPkReferrer&gt; whiteVariantRelationLocalPkReferrerList = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer : whiteVariantRelationLocalPkReferrerList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteVariantRelationLocalPkReferrer&gt; <span style="color: #553000">whiteVariantRelationLocalPkReferrerList</span> = <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer : <span style="color: #553000">whiteVariantRelationLocalPkReferrerList</span>) {
      *     ... = whiteVariantRelationLocalPkReferrer.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteVariantRelationLocalPkReferrer> selectList(WhiteVariantRelationLocalPkReferrerCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteVariantRelationLocalPkReferrer&gt; page = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteVariantRelationLocalPkReferrer&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer : page) {
+     * for (WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer : <span style="color: #553000">page</span>) {
      *     ... = whiteVariantRelationLocalPkReferrer.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteVariantRelationLocalPkReferrer> selectPage(CBCall<WhiteVariantRelationLocalPkReferrerCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteVariantRelationLocalPkReferrer&gt; page = whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteVariantRelationLocalPkReferrer&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer : page) {
+     * for (WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer : <span style="color: #553000">page</span>) {
      *     ... = whiteVariantRelationLocalPkReferrer.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteVariantRelationLocalPkReferrer> selectPage(WhiteVariantRelationLocalPkReferrerCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
-     * cb.query().setFoo...(value);
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationLocalPkReferrer&gt;() {
-     *     public void handle(WhiteVariantRelationLocalPkReferrer entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
-     * cb.query().setFoo...(value);
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationLocalPkReferrer&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationLocalPkReferrer&gt;() {
      *     public void handle(WhiteVariantRelationLocalPkReferrer entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteVariantRelationLocalPkReferrerCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -545,12 +537,12 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationLocalPkReferrer.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationLocalPkReferrer.set...;</span>
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">insert</span>(whiteVariantRelationLocalPkReferrer);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">insert</span>(whiteVariantRelationLocalPkReferrer);
      * ... = whiteVariantRelationLocalPkReferrer.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteVariantRelationLocalPkReferrer The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer) {
         doInsert(whiteVariantRelationLocalPkReferrer, null);
@@ -568,15 +560,15 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteVariantRelationLocalPkReferrer.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">update</span>(whiteVariantRelationLocalPkReferrer);
+     *     <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">update</span>(whiteVariantRelationLocalPkReferrer);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteVariantRelationLocalPkReferrer The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer) {
         doUpdate(whiteVariantRelationLocalPkReferrer, null);
@@ -587,9 +579,9 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteVariantRelationLocalPkReferrer The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer) {
         doInsertOrUpdate(whiteVariantRelationLocalPkReferrer, null, null);
@@ -603,14 +595,14 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteVariantRelationLocalPkReferrer.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">delete</span>(whiteVariantRelationLocalPkReferrer);
+     *     <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">delete</span>(whiteVariantRelationLocalPkReferrer);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteVariantRelationLocalPkReferrer The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer) {
         doDelete(whiteVariantRelationLocalPkReferrer, null);
@@ -635,7 +627,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteVariantRelationLocalPkReferrerList.add(whiteVariantRelationLocalPkReferrer);
      * }
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">batchInsert</span>(whiteVariantRelationLocalPkReferrerList);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteVariantRelationLocalPkReferrerList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -665,11 +657,11 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteVariantRelationLocalPkReferrerList.add(whiteVariantRelationLocalPkReferrer);
      * }
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">batchUpdate</span>(whiteVariantRelationLocalPkReferrerList);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteVariantRelationLocalPkReferrerList);
      * </pre>
      * @param whiteVariantRelationLocalPkReferrerList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteVariantRelationLocalPkReferrer> whiteVariantRelationLocalPkReferrerList) {
         return doBatchUpdate(whiteVariantRelationLocalPkReferrerList, null);
@@ -680,7 +672,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteVariantRelationLocalPkReferrerList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteVariantRelationLocalPkReferrer> whiteVariantRelationLocalPkReferrerList) {
         return doBatchDelete(whiteVariantRelationLocalPkReferrerList, null);
@@ -692,7 +684,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteVariantRelationLocalPkReferrer, WhiteVariantRelationLocalPkReferrerCB&gt;() {
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteVariantRelationLocalPkReferrer, WhiteVariantRelationLocalPkReferrerCB&gt;() {
      *     public ConditionBean setup(WhiteVariantRelationLocalPkReferrer entity, WhiteVariantRelationLocalPkReferrerCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -734,12 +726,12 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <span style="color: #3F7E5E">//whiteVariantRelationLocalPkReferrer.setVersionNo(value);</span>
      * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationLocalPkReferrer, cb);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationLocalPkReferrer, cb);
      * </pre>
      * @param whiteVariantRelationLocalPkReferrer The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer, CBCall<WhiteVariantRelationLocalPkReferrerCB> cbLambda) {
         return doQueryUpdate(whiteVariantRelationLocalPkReferrer, createCB(cbLambda), null);
@@ -760,12 +752,12 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <span style="color: #3F7E5E">//whiteVariantRelationLocalPkReferrer.setVersionNo(value);</span>
      * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationLocalPkReferrer, cb);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationLocalPkReferrer, cb);
      * </pre>
      * @param whiteVariantRelationLocalPkReferrer The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer, WhiteVariantRelationLocalPkReferrerCB cb) {
         return doQueryUpdate(whiteVariantRelationLocalPkReferrer, cb, null);
@@ -776,11 +768,11 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <pre>
      * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationLocalPkReferrer, cb);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationLocalPkReferrer, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteVariantRelationLocalPkReferrerCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -791,11 +783,11 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <pre>
      * WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationLocalPkReferrer, cb);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationLocalPkReferrer, cb);
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteVariantRelationLocalPkReferrerCB cb) {
         return doQueryDelete(cb, null);
@@ -819,12 +811,12 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * InsertOption<WhiteVariantRelationLocalPkReferrerCB> option = new InsertOption<WhiteVariantRelationLocalPkReferrerCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">varyingInsert</span>(whiteVariantRelationLocalPkReferrer, option);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteVariantRelationLocalPkReferrer, option);
      * ... = whiteVariantRelationLocalPkReferrer.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteVariantRelationLocalPkReferrer The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, InsertOption<WhiteVariantRelationLocalPkReferrerCB>> opLambda) {
         doInsert(whiteVariantRelationLocalPkReferrer, createInsertOption(opLambda));
@@ -848,16 +840,16 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteVariantRelationLocalPkReferrer, option);
+     *     <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteVariantRelationLocalPkReferrer, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteVariantRelationLocalPkReferrer The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, UpdateOption<WhiteVariantRelationLocalPkReferrerCB>> opLambda) {
         doUpdate(whiteVariantRelationLocalPkReferrer, createUpdateOption(opLambda));
@@ -869,9 +861,9 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * @param whiteVariantRelationLocalPkReferrer The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, InsertOption<WhiteVariantRelationLocalPkReferrerCB>> insertOpLambda, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, UpdateOption<WhiteVariantRelationLocalPkReferrerCB>> updateOpLambda) {
         doInsertOrUpdate(whiteVariantRelationLocalPkReferrer, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -883,8 +875,8 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * Other specifications are same as delete(entity).
      * @param whiteVariantRelationLocalPkReferrer The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, DeleteOption<WhiteVariantRelationLocalPkReferrerCB>> opLambda) {
         doDelete(whiteVariantRelationLocalPkReferrer, createDeleteOption(opLambda));
@@ -968,13 +960,13 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationLocalPkReferrer, cb, option);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationLocalPkReferrer, cb, option);
      * </pre>
      * @param whiteVariantRelationLocalPkReferrer The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer, CBCall<WhiteVariantRelationLocalPkReferrerCB> cbLambda, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, UpdateOption<WhiteVariantRelationLocalPkReferrerCB>> opLambda) {
         return doQueryUpdate(whiteVariantRelationLocalPkReferrer, createCB(cbLambda), createUpdateOption(opLambda));
@@ -1002,13 +994,13 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteVariantRelationLocalPkReferrerBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationLocalPkReferrer, cb, option);
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationLocalPkReferrer, cb, option);
      * </pre>
      * @param whiteVariantRelationLocalPkReferrer The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteVariantRelationLocalPkReferrer whiteVariantRelationLocalPkReferrer, WhiteVariantRelationLocalPkReferrerCB cb, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, UpdateOption<WhiteVariantRelationLocalPkReferrerCB>> opLambda) {
         return doQueryUpdate(whiteVariantRelationLocalPkReferrer, cb, createUpdateOption(opLambda));
@@ -1021,7 +1013,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteVariantRelationLocalPkReferrerCB> cbLambda, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, DeleteOption<WhiteVariantRelationLocalPkReferrerCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1034,7 +1026,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * @param cb The condition-bean of WhiteVariantRelationLocalPkReferrer. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteVariantRelationLocalPkReferrerCB cb, WritableOptionCall<WhiteVariantRelationLocalPkReferrerCB, DeleteOption<WhiteVariantRelationLocalPkReferrerCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

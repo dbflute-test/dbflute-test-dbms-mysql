@@ -94,9 +94,9 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -111,7 +111,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <pre>
      * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
      * cb.query().setFoo...(value);
-     * int count = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -130,28 +130,28 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteEscapedDfprop whiteEscapedDfprop = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteEscapedDfprop -&gt; {
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteEscapedDfprop</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteEscapedDfprop.get...
+     *     ... = <span style="color: #553000">whiteEscapedDfprop</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteEscapedDfprop whiteEscapedDfprop = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteEscapedDfprop -&gt; {
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteEscapedDfprop</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteEscapedDfprop.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteEscapedDfprop</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteEscapedDfprop> selectEntity(CBCall<WhiteEscapedDfpropCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -167,24 +167,24 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteEscapedDfpropBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteEscapedDfprop -&gt; {
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteEscapedDfprop <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteEscapedDfprop.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteEscapedDfprop -&gt; {
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteEscapedDfprop <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteEscapedDfprop.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteEscapedDfprop> selectEntity(WhiteEscapedDfpropCB cb) {
         return facadeSelectEntity(cb);
@@ -204,16 +204,14 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
-     * cb.query().setFoo...(value);
-     * WhiteEscapedDfprop whiteEscapedDfprop = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteEscapedDfprop.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteEscapedDfprop <span style="color: #553000">whiteEscapedDfprop</span> = <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteEscapedDfprop</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteEscapedDfprop selectEntityWithDeletedCheck(CBCall<WhiteEscapedDfpropCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -224,15 +222,15 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
-     * cb.query().setFoo...(value);
-     * WhiteEscapedDfprop whiteEscapedDfprop = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteEscapedDfprop whiteEscapedDfprop = <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteEscapedDfprop.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteEscapedDfprop selectEntityWithDeletedCheck(WhiteEscapedDfpropCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -242,9 +240,9 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * Select the entity by the primary-key value.
      * @param escapedDfpropCode : PK, NotNull, CHAR(3), classification=EscapedDfpropCls. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteEscapedDfprop> selectByPK(CDef.EscapedDfpropCls escapedDfpropCode) {
         return facadeSelectByPK(escapedDfpropCode);
@@ -273,17 +271,17 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteEscapedDfprop&gt; whiteEscapedDfpropList = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteEscapedDfprop&gt; <span style="color: #553000">whiteEscapedDfpropList</span> = <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteEscapedDfpropList.forEach(whiteEscapedDfprop -&gt; {
-     *     ... = whiteEscapedDfprop.get...();
+     * for (WhiteEscapedDfprop <span style="color: #553000">whiteEscapedDfprop</span> : <span style="color: #553000">whiteEscapedDfpropList</span>) {
+     *     ... = <span style="color: #553000">whiteEscapedDfprop</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteEscapedDfprop> selectList(CBCall<WhiteEscapedDfpropCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -293,16 +291,16 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * Select the list as result bean.
      * <pre>
      * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteEscapedDfprop&gt; whiteEscapedDfpropList = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteEscapedDfprop whiteEscapedDfprop : whiteEscapedDfpropList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteEscapedDfprop&gt; <span style="color: #553000">whiteEscapedDfpropList</span> = <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteEscapedDfprop whiteEscapedDfprop : <span style="color: #553000">whiteEscapedDfpropList</span>) {
      *     ... = whiteEscapedDfprop.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteEscapedDfprop> selectList(WhiteEscapedDfpropCB cb) {
         return facadeSelectList(cb);
@@ -318,23 +316,23 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteEscapedDfprop&gt; page = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteEscapedDfprop&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteEscapedDfprop whiteEscapedDfprop : page) {
+     * for (WhiteEscapedDfprop whiteEscapedDfprop : <span style="color: #553000">page</span>) {
      *     ... = whiteEscapedDfprop.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteEscapedDfprop> selectPage(CBCall<WhiteEscapedDfpropCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -348,19 +346,19 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteEscapedDfprop&gt; page = whiteEscapedDfpropBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteEscapedDfprop&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteEscapedDfprop whiteEscapedDfprop : page) {
+     * for (WhiteEscapedDfprop whiteEscapedDfprop : <span style="color: #553000">page</span>) {
      *     ... = whiteEscapedDfprop.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteEscapedDfprop> selectPage(WhiteEscapedDfpropCB cb) {
         return facadeSelectPage(cb);
@@ -372,12 +370,10 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
-     * cb.query().setFoo...(value);
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteEscapedDfprop&gt;() {
-     *     public void handle(WhiteEscapedDfprop entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
@@ -391,8 +387,8 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
-     * cb.query().setFoo...(value);
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteEscapedDfprop&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteEscapedDfprop&gt;() {
      *     public void handle(WhiteEscapedDfprop entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -412,11 +408,9 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteEscapedDfpropCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -442,23 +436,24 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -478,27 +473,24 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -538,12 +530,12 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteEscapedDfprop.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteEscapedDfprop.set...;</span>
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">insert</span>(whiteEscapedDfprop);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">insert</span>(whiteEscapedDfprop);
      * ... = whiteEscapedDfprop.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteEscapedDfprop The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteEscapedDfprop whiteEscapedDfprop) {
         doInsert(whiteEscapedDfprop, null);
@@ -561,15 +553,15 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteEscapedDfprop.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteEscapedDfpropBhv.<span style="color: #CC4747">update</span>(whiteEscapedDfprop);
+     *     <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">update</span>(whiteEscapedDfprop);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteEscapedDfprop The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteEscapedDfprop whiteEscapedDfprop) {
         doUpdate(whiteEscapedDfprop, null);
@@ -580,9 +572,9 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteEscapedDfprop The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteEscapedDfprop whiteEscapedDfprop) {
         doInsertOrUpdate(whiteEscapedDfprop, null, null);
@@ -596,14 +588,14 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteEscapedDfprop.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteEscapedDfpropBhv.<span style="color: #CC4747">delete</span>(whiteEscapedDfprop);
+     *     <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">delete</span>(whiteEscapedDfprop);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteEscapedDfprop The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteEscapedDfprop whiteEscapedDfprop) {
         doDelete(whiteEscapedDfprop, null);
@@ -628,7 +620,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteEscapedDfpropList.add(whiteEscapedDfprop);
      * }
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">batchInsert</span>(whiteEscapedDfpropList);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteEscapedDfpropList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -658,11 +650,11 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteEscapedDfpropList.add(whiteEscapedDfprop);
      * }
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">batchUpdate</span>(whiteEscapedDfpropList);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteEscapedDfpropList);
      * </pre>
      * @param whiteEscapedDfpropList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteEscapedDfprop> whiteEscapedDfpropList) {
         return doBatchUpdate(whiteEscapedDfpropList, null);
@@ -673,7 +665,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteEscapedDfpropList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteEscapedDfprop> whiteEscapedDfpropList) {
         return doBatchDelete(whiteEscapedDfpropList, null);
@@ -685,7 +677,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteEscapedDfprop, WhiteEscapedDfpropCB&gt;() {
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteEscapedDfprop, WhiteEscapedDfpropCB&gt;() {
      *     public ConditionBean setup(WhiteEscapedDfprop entity, WhiteEscapedDfpropCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -727,12 +719,12 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteEscapedDfprop.setVersionNo(value);</span>
      * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
      * cb.query().setFoo...(value);
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">queryUpdate</span>(whiteEscapedDfprop, cb);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteEscapedDfprop, cb);
      * </pre>
      * @param whiteEscapedDfprop The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteEscapedDfprop whiteEscapedDfprop, CBCall<WhiteEscapedDfpropCB> cbLambda) {
         return doQueryUpdate(whiteEscapedDfprop, createCB(cbLambda), null);
@@ -753,12 +745,12 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteEscapedDfprop.setVersionNo(value);</span>
      * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
      * cb.query().setFoo...(value);
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">queryUpdate</span>(whiteEscapedDfprop, cb);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteEscapedDfprop, cb);
      * </pre>
      * @param whiteEscapedDfprop The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteEscapedDfprop whiteEscapedDfprop, WhiteEscapedDfpropCB cb) {
         return doQueryUpdate(whiteEscapedDfprop, cb, null);
@@ -769,11 +761,11 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <pre>
      * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
      * cb.query().setFoo...(value);
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">queryDelete</span>(whiteEscapedDfprop, cb);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteEscapedDfprop, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteEscapedDfpropCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -784,11 +776,11 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <pre>
      * WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
      * cb.query().setFoo...(value);
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">queryDelete</span>(whiteEscapedDfprop, cb);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteEscapedDfprop, cb);
      * </pre>
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteEscapedDfpropCB cb) {
         return doQueryDelete(cb, null);
@@ -812,12 +804,12 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * InsertOption<WhiteEscapedDfpropCB> option = new InsertOption<WhiteEscapedDfpropCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">varyingInsert</span>(whiteEscapedDfprop, option);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteEscapedDfprop, option);
      * ... = whiteEscapedDfprop.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteEscapedDfprop The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteEscapedDfprop whiteEscapedDfprop, WritableOptionCall<WhiteEscapedDfpropCB, InsertOption<WhiteEscapedDfpropCB>> opLambda) {
         doInsert(whiteEscapedDfprop, createInsertOption(opLambda));
@@ -841,16 +833,16 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteEscapedDfpropBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteEscapedDfprop, option);
+     *     <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteEscapedDfprop, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteEscapedDfprop The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteEscapedDfprop whiteEscapedDfprop, WritableOptionCall<WhiteEscapedDfpropCB, UpdateOption<WhiteEscapedDfpropCB>> opLambda) {
         doUpdate(whiteEscapedDfprop, createUpdateOption(opLambda));
@@ -862,9 +854,9 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * @param whiteEscapedDfprop The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteEscapedDfprop whiteEscapedDfprop, WritableOptionCall<WhiteEscapedDfpropCB, InsertOption<WhiteEscapedDfpropCB>> insertOpLambda, WritableOptionCall<WhiteEscapedDfpropCB, UpdateOption<WhiteEscapedDfpropCB>> updateOpLambda) {
         doInsertOrUpdate(whiteEscapedDfprop, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -876,8 +868,8 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * Other specifications are same as delete(entity).
      * @param whiteEscapedDfprop The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteEscapedDfprop whiteEscapedDfprop, WritableOptionCall<WhiteEscapedDfpropCB, DeleteOption<WhiteEscapedDfpropCB>> opLambda) {
         doDelete(whiteEscapedDfprop, createDeleteOption(opLambda));
@@ -961,13 +953,13 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteEscapedDfprop, cb, option);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteEscapedDfprop, cb, option);
      * </pre>
      * @param whiteEscapedDfprop The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteEscapedDfprop whiteEscapedDfprop, CBCall<WhiteEscapedDfpropCB> cbLambda, WritableOptionCall<WhiteEscapedDfpropCB, UpdateOption<WhiteEscapedDfpropCB>> opLambda) {
         return doQueryUpdate(whiteEscapedDfprop, createCB(cbLambda), createUpdateOption(opLambda));
@@ -995,13 +987,13 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteEscapedDfpropBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteEscapedDfprop, cb, option);
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteEscapedDfprop, cb, option);
      * </pre>
      * @param whiteEscapedDfprop The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteEscapedDfprop whiteEscapedDfprop, WhiteEscapedDfpropCB cb, WritableOptionCall<WhiteEscapedDfpropCB, UpdateOption<WhiteEscapedDfpropCB>> opLambda) {
         return doQueryUpdate(whiteEscapedDfprop, cb, createUpdateOption(opLambda));
@@ -1014,7 +1006,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * @param cbLambda The callback for condition-bean of WhiteEscapedDfprop. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteEscapedDfpropCB> cbLambda, WritableOptionCall<WhiteEscapedDfpropCB, DeleteOption<WhiteEscapedDfpropCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1027,7 +1019,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * @param cb The condition-bean of WhiteEscapedDfprop. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteEscapedDfpropCB cb, WritableOptionCall<WhiteEscapedDfpropCB, DeleteOption<WhiteEscapedDfpropCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

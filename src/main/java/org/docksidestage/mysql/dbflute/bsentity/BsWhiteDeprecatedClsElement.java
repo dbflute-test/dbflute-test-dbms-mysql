@@ -81,7 +81,6 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     /** DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} */
     protected String _deprecatedClsElementName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -274,8 +273,8 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_deprecatedClsElementCode);
-        sb.append(dm).append(_deprecatedClsElementName);
+        sb.append(dm).append(xfND(_deprecatedClsElementCode));
+        sb.append(dm).append(xfND(_deprecatedClsElementName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -301,6 +300,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
      * @return The value of the column 'DEPRECATED_CLS_ELEMENT_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getDeprecatedClsElementCode() {
+        checkSpecifiedProperty("deprecatedClsElementCode");
         return _deprecatedClsElementCode;
     }
 
@@ -310,7 +310,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
      */
     protected void setDeprecatedClsElementCode(String deprecatedClsElementCode) {
         checkClassificationCode("DEPRECATED_CLS_ELEMENT_CODE", CDef.DefMeta.DeprecatedMapCollaborationType, deprecatedClsElementCode);
-        __modifiedProperties.addPropertyName("deprecatedClsElementCode");
+        registerModifiedProperty("deprecatedClsElementCode");
         _deprecatedClsElementCode = deprecatedClsElementCode;
     }
 
@@ -319,6 +319,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
      * @return The value of the column 'DEPRECATED_CLS_ELEMENT_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getDeprecatedClsElementName() {
+        checkSpecifiedProperty("deprecatedClsElementName");
         return _deprecatedClsElementName;
     }
 
@@ -327,7 +328,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
      * @param deprecatedClsElementName The value of the column 'DEPRECATED_CLS_ELEMENT_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDeprecatedClsElementName(String deprecatedClsElementName) {
-        __modifiedProperties.addPropertyName("deprecatedClsElementName");
+        registerModifiedProperty("deprecatedClsElementName");
         _deprecatedClsElementName = deprecatedClsElementName;
     }
 

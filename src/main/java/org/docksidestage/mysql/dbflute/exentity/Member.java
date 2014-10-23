@@ -5,6 +5,8 @@ package org.docksidestage.mysql.dbflute.exentity;
 
 import java.sql.Timestamp;
 
+import org.dbflute.jdbc.ClassificationMeta;
+
 /**
  * The entity of member. <br />
  * You can implement your original methods here. <br />
@@ -119,5 +121,22 @@ public class Member extends org.docksidestage.mysql.dbflute.bsentity.BsMember {
      */
     public void setSecond(Integer second) {
         _second = second;
+    }
+
+    // ===================================================================================
+    //                                                            for test: Classification
+    //                                                            ========================
+    protected boolean _nocheckClassification;
+
+    public Member xznocheckClassification() {
+        _nocheckClassification = true;
+        return this;
+    }
+
+    @Override
+    protected void checkClassificationCode(String columnDbName, ClassificationMeta meta, Object value) {
+        if (!_nocheckClassification) {
+            super.checkClassificationCode(columnDbName, meta, value);
+        }
     }
 }

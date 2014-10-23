@@ -80,7 +80,6 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
     /** FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk_without_pk} */
     protected String _fkToUqCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -174,8 +173,8 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_uqFkRefId);
-        sb.append(dm).append(_fkToUqCode);
+        sb.append(dm).append(xfND(_uqFkRefId));
+        sb.append(dm).append(xfND(_fkToUqCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -206,6 +205,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
      * @return The value of the column 'UQ_FK_REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getUqFkRefId() {
+        checkSpecifiedProperty("uqFkRefId");
         return _uqFkRefId;
     }
 
@@ -214,7 +214,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
      * @param uqFkRefId The value of the column 'UQ_FK_REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkRefId(Long uqFkRefId) {
-        __modifiedProperties.addPropertyName("uqFkRefId");
+        registerModifiedProperty("uqFkRefId");
         _uqFkRefId = uqFkRefId;
     }
 
@@ -223,6 +223,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
      * @return The value of the column 'FK_TO_UQ_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getFkToUqCode() {
+        checkSpecifiedProperty("fkToUqCode");
         return _fkToUqCode;
     }
 
@@ -231,7 +232,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
      * @param fkToUqCode The value of the column 'FK_TO_UQ_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setFkToUqCode(String fkToUqCode) {
-        __modifiedProperties.addPropertyName("fkToUqCode");
+        registerModifiedProperty("fkToUqCode");
         _fkToUqCode = fkToUqCode;
     }
 }

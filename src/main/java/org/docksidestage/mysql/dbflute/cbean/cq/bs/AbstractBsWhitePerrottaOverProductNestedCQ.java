@@ -116,7 +116,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)} <br />
-     * <pre>e.g. setProductNestedCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setProductNestedCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productNestedCode The value of productNestedCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -171,7 +171,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * {exists (select PRODUCT_NESTED_CODE from white_perrotta_over_product where ...)} <br />
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverProductList</span>(productCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
      * });
      * </pre>
@@ -191,10 +191,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * {not exists (select PRODUCT_NESTED_CODE from white_perrotta_over_product where ...)} <br />
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverProductList</span>(new SubQuery&lt;WhitePerrottaOverProductCB&gt;() {
-     *     public void query(WhitePerrottaOverProductCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     productCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductNestedCode_NotExistsReferrer_WhitePerrottaOverProductList for 'not exists'. (NotNull)
@@ -222,11 +220,9 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_product where ...)} <br />
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverProductList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhitePerrottaOverProductCB&gt;() {
-     *     public void query(WhitePerrottaOverProductCB subCB) {
-     *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     *     }
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverProductList()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     productCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     productCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
@@ -321,7 +317,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setProductNestedName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setProductNestedName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productNestedName The value of productNestedName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

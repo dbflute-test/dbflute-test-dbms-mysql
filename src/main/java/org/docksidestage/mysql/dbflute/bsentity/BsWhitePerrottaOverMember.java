@@ -95,7 +95,6 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     /** MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} */
     protected String _machoCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -209,11 +208,11 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_memberName);
-        sb.append(dm).append(_productId);
-        sb.append(dm).append(_traceTypeCode);
-        sb.append(dm).append(_machoCode);
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_memberName));
+        sb.append(dm).append(xfND(_productId));
+        sb.append(dm).append(xfND(_traceTypeCode));
+        sb.append(dm).append(xfND(_machoCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -245,6 +244,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -253,7 +253,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Long memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -262,6 +262,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @return The value of the column 'MEMBER_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberName() {
+        checkSpecifiedProperty("memberName");
         return _memberName;
     }
 
@@ -270,7 +271,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @param memberName The value of the column 'MEMBER_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMemberName(String memberName) {
-        __modifiedProperties.addPropertyName("memberName");
+        registerModifiedProperty("memberName");
         _memberName = memberName;
     }
 
@@ -279,6 +280,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getProductId() {
+        checkSpecifiedProperty("productId");
         return _productId;
     }
 
@@ -287,7 +289,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Long productId) {
-        __modifiedProperties.addPropertyName("productId");
+        registerModifiedProperty("productId");
         _productId = productId;
     }
 
@@ -296,6 +298,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @return The value of the column 'TRACE_TYPE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getTraceTypeCode() {
+        checkSpecifiedProperty("traceTypeCode");
         return _traceTypeCode;
     }
 
@@ -304,7 +307,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @param traceTypeCode The value of the column 'TRACE_TYPE_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setTraceTypeCode(String traceTypeCode) {
-        __modifiedProperties.addPropertyName("traceTypeCode");
+        registerModifiedProperty("traceTypeCode");
         _traceTypeCode = traceTypeCode;
     }
 
@@ -313,6 +316,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @return The value of the column 'MACHO_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMachoCode() {
+        checkSpecifiedProperty("machoCode");
         return _machoCode;
     }
 
@@ -321,7 +325,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
      * @param machoCode The value of the column 'MACHO_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setMachoCode(String machoCode) {
-        __modifiedProperties.addPropertyName("machoCode");
+        registerModifiedProperty("machoCode");
         _machoCode = machoCode;
     }
 }

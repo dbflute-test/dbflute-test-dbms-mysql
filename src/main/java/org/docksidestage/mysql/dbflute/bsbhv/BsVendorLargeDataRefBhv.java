@@ -93,9 +93,9 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.query().setFoo...(value);
-     * int count = vendorLargeDataRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <pre>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
-     * int count = vendorLargeDataRefBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * VendorLargeDataRef vendorLargeDataRef = vendorLargeDataRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(vendorLargeDataRef -&gt; {
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">vendorLargeDataRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = vendorLargeDataRef.get...
+     *     ... = <span style="color: #553000">vendorLargeDataRef</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * VendorLargeDataRef vendorLargeDataRef = vendorLargeDataRefBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(vendorLargeDataRef -&gt; {
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">vendorLargeDataRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = vendorLargeDataRef.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">vendorLargeDataRef</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<VendorLargeDataRef> selectEntity(CBCall<VendorLargeDataRefCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * vendorLargeDataRefBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(vendorLargeDataRef -&gt; {
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(vendorLargeDataRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = vendorLargeDataRef.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(vendorLargeDataRef -&gt; {
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(vendorLargeDataRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = vendorLargeDataRef.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<VendorLargeDataRef> selectEntity(VendorLargeDataRefCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.query().setFoo...(value);
-     * VendorLargeDataRef vendorLargeDataRef = vendorLargeDataRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = vendorLargeDataRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * VendorLargeDataRef <span style="color: #553000">vendorLargeDataRef</span> = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">vendorLargeDataRef</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorLargeDataRef selectEntityWithDeletedCheck(CBCall<VendorLargeDataRefCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.query().setFoo...(value);
-     * VendorLargeDataRef vendorLargeDataRef = vendorLargeDataRefBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorLargeDataRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorLargeDataRef selectEntityWithDeletedCheck(VendorLargeDataRefCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the entity by the primary-key value.
      * @param largeDataRefId : PK, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<VendorLargeDataRef> selectByPK(Long largeDataRefId) {
         return facadeSelectByPK(largeDataRefId);
@@ -272,17 +270,17 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;VendorLargeDataRef&gt; vendorLargeDataRefList = vendorLargeDataRefBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;VendorLargeDataRef&gt; <span style="color: #553000">vendorLargeDataRefList</span> = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * vendorLargeDataRefList.forEach(vendorLargeDataRef -&gt; {
-     *     ... = vendorLargeDataRef.get...();
+     * for (VendorLargeDataRef <span style="color: #553000">vendorLargeDataRef</span> : <span style="color: #553000">vendorLargeDataRefList</span>) {
+     *     ... = <span style="color: #553000">vendorLargeDataRef</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<VendorLargeDataRef> selectList(CBCall<VendorLargeDataRefCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the list as result bean.
      * <pre>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;VendorLargeDataRef&gt; vendorLargeDataRefList = vendorLargeDataRefBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (VendorLargeDataRef vendorLargeDataRef : vendorLargeDataRefList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;VendorLargeDataRef&gt; <span style="color: #553000">vendorLargeDataRefList</span> = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">vendorLargeDataRefList</span>) {
      *     ... = vendorLargeDataRef.get...();
      * }
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<VendorLargeDataRef> selectList(VendorLargeDataRefCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorLargeDataRef&gt; page = vendorLargeDataRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;VendorLargeDataRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (VendorLargeDataRef vendorLargeDataRef : page) {
+     * for (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">page</span>) {
      *     ... = vendorLargeDataRef.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<VendorLargeDataRef> selectPage(CBCall<VendorLargeDataRefCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorLargeDataRef&gt; page = vendorLargeDataRefBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;VendorLargeDataRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (VendorLargeDataRef vendorLargeDataRef : page) {
+     * for (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">page</span>) {
      *     ... = vendorLargeDataRef.get...();
      * }
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<VendorLargeDataRef> selectPage(VendorLargeDataRefCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.query().setFoo...(value);
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorLargeDataRef&gt;() {
-     *     public void handle(VendorLargeDataRef entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the cursor by the condition-bean.
      * <pre>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-     * cb.query().setFoo...(value);
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorLargeDataRef&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorLargeDataRef&gt;() {
      *     public void handle(VendorLargeDataRef entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(VendorLargeDataRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -514,15 +506,15 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Load referrer of vendorLargeDataRefSelfList by the set-upper of referrer. <br />
      * vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
      * <pre>
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">loadVendorLargeDataRefSelfList</span>(vendorLargeDataRefList, refCB -&gt; {
-     *     refCB.setupSelect...();
-     *     refCB.query().setFoo...(value);
-     *     refCB.query().addOrderBy_Bar...();
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">loadVendorLargeDataRefSelfList</span>(<span style="color: #553000">vendorLargeDataRefList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refCB</span>.setupSelect...
+     *     <span style="color: #553000">refCB</span>.query().set...
+     *     <span style="color: #553000">refCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * for (VendorLargeDataRef vendorLargeDataRef : vendorLargeDataRefList) {
+     * for (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">vendorLargeDataRefList</span>) {
      *     ... = vendorLargeDataRef.<span style="color: #CC4747">getVendorLargeDataRefSelfList()</span>;
      * }
      * </pre>
@@ -545,15 +537,15 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Load referrer of vendorLargeDataRefSelfList by the set-upper of referrer. <br />
      * vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
      * <pre>
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">loadVendorLargeDataRefSelfList</span>(vendorLargeDataRefList, refCB -&gt; {
-     *     refCB.setupSelect...();
-     *     refCB.query().setFoo...(value);
-     *     refCB.query().addOrderBy_Bar...();
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">loadVendorLargeDataRefSelfList</span>(<span style="color: #553000">vendorLargeDataRef</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refCB</span>.setupSelect...
+     *     <span style="color: #553000">refCB</span>.query().set...
+     *     <span style="color: #553000">refCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = vendorLargeDataRef.<span style="color: #CC4747">getVendorLargeDataRefSelfList()</span>;
+     * ... = <span style="color: #553000">vendorLargeDataRef</span>.<span style="color: #CC4747">getVendorLargeDataRefSelfList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -641,12 +633,12 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.set...;</span>
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">insert</span>(vendorLargeDataRef);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">insert</span>(vendorLargeDataRef);
      * ... = vendorLargeDataRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param vendorLargeDataRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(VendorLargeDataRef vendorLargeDataRef) {
         doInsert(vendorLargeDataRef, null);
@@ -664,15 +656,15 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorLargeDataRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorLargeDataRefBhv.<span style="color: #CC4747">update</span>(vendorLargeDataRef);
+     *     <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">update</span>(vendorLargeDataRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendorLargeDataRef The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(VendorLargeDataRef vendorLargeDataRef) {
         doUpdate(vendorLargeDataRef, null);
@@ -683,9 +675,9 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param vendorLargeDataRef The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(VendorLargeDataRef vendorLargeDataRef) {
         doInsertOrUpdate(vendorLargeDataRef, null, null);
@@ -699,14 +691,14 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorLargeDataRef.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorLargeDataRefBhv.<span style="color: #CC4747">delete</span>(vendorLargeDataRef);
+     *     <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">delete</span>(vendorLargeDataRef);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendorLargeDataRef The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(VendorLargeDataRef vendorLargeDataRef) {
         doDelete(vendorLargeDataRef, null);
@@ -731,7 +723,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     vendorLargeDataRefList.add(vendorLargeDataRef);
      * }
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">batchInsert</span>(vendorLargeDataRefList);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">batchInsert</span>(vendorLargeDataRefList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -761,11 +753,11 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     vendorLargeDataRefList.add(vendorLargeDataRef);
      * }
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">batchUpdate</span>(vendorLargeDataRefList);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">batchUpdate</span>(vendorLargeDataRefList);
      * </pre>
      * @param vendorLargeDataRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<VendorLargeDataRef> vendorLargeDataRefList) {
         return doBatchUpdate(vendorLargeDataRefList, null);
@@ -776,7 +768,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param vendorLargeDataRefList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<VendorLargeDataRef> vendorLargeDataRefList) {
         return doBatchDelete(vendorLargeDataRefList, null);
@@ -788,7 +780,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorLargeDataRef, VendorLargeDataRefCB&gt;() {
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorLargeDataRef, VendorLargeDataRefCB&gt;() {
      *     public ConditionBean setup(VendorLargeDataRef entity, VendorLargeDataRefCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -830,12 +822,12 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setVersionNo(value);</span>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">queryUpdate</span>(vendorLargeDataRef, cb);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorLargeDataRef, cb);
      * </pre>
      * @param vendorLargeDataRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(VendorLargeDataRef vendorLargeDataRef, CBCall<VendorLargeDataRefCB> cbLambda) {
         return doQueryUpdate(vendorLargeDataRef, createCB(cbLambda), null);
@@ -856,12 +848,12 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setVersionNo(value);</span>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">queryUpdate</span>(vendorLargeDataRef, cb);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorLargeDataRef, cb);
      * </pre>
      * @param vendorLargeDataRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(VendorLargeDataRef vendorLargeDataRef, VendorLargeDataRefCB cb) {
         return doQueryUpdate(vendorLargeDataRef, cb, null);
@@ -872,11 +864,11 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <pre>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">queryDelete</span>(vendorLargeDataRef, cb);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorLargeDataRef, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<VendorLargeDataRefCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -887,11 +879,11 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <pre>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">queryDelete</span>(vendorLargeDataRef, cb);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorLargeDataRef, cb);
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(VendorLargeDataRefCB cb) {
         return doQueryDelete(cb, null);
@@ -915,12 +907,12 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * InsertOption<VendorLargeDataRefCB> option = new InsertOption<VendorLargeDataRefCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">varyingInsert</span>(vendorLargeDataRef, option);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendorLargeDataRef, option);
      * ... = vendorLargeDataRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendorLargeDataRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(VendorLargeDataRef vendorLargeDataRef, WritableOptionCall<VendorLargeDataRefCB, InsertOption<VendorLargeDataRefCB>> opLambda) {
         doInsert(vendorLargeDataRef, createInsertOption(opLambda));
@@ -944,16 +936,16 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     vendorLargeDataRefBhv.<span style="color: #CC4747">varyingUpdate</span>(vendorLargeDataRef, option);
+     *     <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendorLargeDataRef, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendorLargeDataRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(VendorLargeDataRef vendorLargeDataRef, WritableOptionCall<VendorLargeDataRefCB, UpdateOption<VendorLargeDataRefCB>> opLambda) {
         doUpdate(vendorLargeDataRef, createUpdateOption(opLambda));
@@ -965,9 +957,9 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * @param vendorLargeDataRef The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(VendorLargeDataRef vendorLargeDataRef, WritableOptionCall<VendorLargeDataRefCB, InsertOption<VendorLargeDataRefCB>> insertOpLambda, WritableOptionCall<VendorLargeDataRefCB, UpdateOption<VendorLargeDataRefCB>> updateOpLambda) {
         doInsertOrUpdate(vendorLargeDataRef, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -979,8 +971,8 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Other specifications are same as delete(entity).
      * @param vendorLargeDataRef The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(VendorLargeDataRef vendorLargeDataRef, WritableOptionCall<VendorLargeDataRefCB, DeleteOption<VendorLargeDataRefCB>> opLambda) {
         doDelete(vendorLargeDataRef, createDeleteOption(opLambda));
@@ -1064,13 +1056,13 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorLargeDataRef, cb, option);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorLargeDataRef, cb, option);
      * </pre>
      * @param vendorLargeDataRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(VendorLargeDataRef vendorLargeDataRef, CBCall<VendorLargeDataRefCB> cbLambda, WritableOptionCall<VendorLargeDataRefCB, UpdateOption<VendorLargeDataRefCB>> opLambda) {
         return doQueryUpdate(vendorLargeDataRef, createCB(cbLambda), createUpdateOption(opLambda));
@@ -1098,13 +1090,13 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorLargeDataRefBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorLargeDataRef, cb, option);
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorLargeDataRef, cb, option);
      * </pre>
      * @param vendorLargeDataRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(VendorLargeDataRef vendorLargeDataRef, VendorLargeDataRefCB cb, WritableOptionCall<VendorLargeDataRefCB, UpdateOption<VendorLargeDataRefCB>> opLambda) {
         return doQueryUpdate(vendorLargeDataRef, cb, createUpdateOption(opLambda));
@@ -1117,7 +1109,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<VendorLargeDataRefCB> cbLambda, WritableOptionCall<VendorLargeDataRefCB, DeleteOption<VendorLargeDataRefCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1130,7 +1122,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(VendorLargeDataRefCB cb, WritableOptionCall<VendorLargeDataRefCB, DeleteOption<VendorLargeDataRefCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

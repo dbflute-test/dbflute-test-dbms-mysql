@@ -253,6 +253,7 @@ public class ConditionBeanBasicTest extends UnitContainerTestCase {
     public void test_query_Equal_ArgumentNull() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
+        cb.ignoreNullOrEmptyQuery();
         cb.query().setMemberId_Equal(null); // *Point!
 
         // ## Act & Assert ##
@@ -276,6 +277,7 @@ public class ConditionBeanBasicTest extends UnitContainerTestCase {
     public void test_query_Equal_ArgumentEmptyString() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
+        cb.ignoreNullOrEmptyQuery();
         cb.query().setMemberName_Equal("");// *Point!
 
         // ## Act ##
@@ -302,7 +304,7 @@ public class ConditionBeanBasicTest extends UnitContainerTestCase {
         Integer afterMemberId = 4;
         MemberCB cb = new MemberCB();
         cb.query().setMemberId_Equal(beforeMemberId);
-        cb.query().setMemberId_Equal(afterMemberId);// *Point!
+        cb.enableOverridingQuery(() -> cb.query().setMemberId_Equal(afterMemberId));
 
         // ## Act ##
         Member member = memberBhv.selectEntityWithDeletedCheck(cb);
@@ -323,7 +325,7 @@ public class ConditionBeanBasicTest extends UnitContainerTestCase {
         Integer afterMemberId = beforeMemberId;
         MemberCB cb = new MemberCB();
         cb.query().setMemberId_Equal(beforeMemberId);
-        cb.query().setMemberId_Equal(afterMemberId);// *Point!
+        cb.enableOverridingQuery(() -> cb.query().setMemberId_Equal(afterMemberId));
 
         // ## Act ##
         Member member = memberBhv.selectEntityWithDeletedCheck(cb);

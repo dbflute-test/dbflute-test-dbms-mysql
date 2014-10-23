@@ -95,7 +95,6 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     /** POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)} */
     protected java.util.Date _pointTypeMappingWantedDatetime;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -166,10 +165,10 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_pointTypeMappingId);
-        sb.append(dm).append(_pointTypeMappingMemberName);
-        sb.append(dm).append(_pointTypeMappingPriceCount);
-        sb.append(dm).append(_pointTypeMappingSaleDate);
+        sb.append(dm).append(xfND(_pointTypeMappingId));
+        sb.append(dm).append(xfND(_pointTypeMappingMemberName));
+        sb.append(dm).append(xfND(_pointTypeMappingPriceCount));
+        sb.append(dm).append(xfND(_pointTypeMappingSaleDate));
         sb.append(dm).append(xfUD(_pointTypeMappingWantedDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -196,6 +195,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @return The value of the column 'POINT_TYPE_MAPPING_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getPointTypeMappingId() {
+        checkSpecifiedProperty("pointTypeMappingId");
         return _pointTypeMappingId;
     }
 
@@ -204,7 +204,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @param pointTypeMappingId The value of the column 'POINT_TYPE_MAPPING_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPointTypeMappingId(Long pointTypeMappingId) {
-        __modifiedProperties.addPropertyName("pointTypeMappingId");
+        registerModifiedProperty("pointTypeMappingId");
         _pointTypeMappingId = pointTypeMappingId;
     }
 
@@ -213,6 +213,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @return The value of the column 'POINT_TYPE_MAPPING_MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.mysql.mytype.MyMemberName getPointTypeMappingMemberName() {
+        checkSpecifiedProperty("pointTypeMappingMemberName");
         return _pointTypeMappingMemberName;
     }
 
@@ -221,7 +222,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @param pointTypeMappingMemberName The value of the column 'POINT_TYPE_MAPPING_MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPointTypeMappingMemberName(org.docksidestage.mysql.mytype.MyMemberName pointTypeMappingMemberName) {
-        __modifiedProperties.addPropertyName("pointTypeMappingMemberName");
+        registerModifiedProperty("pointTypeMappingMemberName");
         _pointTypeMappingMemberName = pointTypeMappingMemberName;
     }
 
@@ -230,6 +231,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @return The value of the column 'POINT_TYPE_MAPPING_PRICE_COUNT'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.mysql.mytype.MyPriceCount getPointTypeMappingPriceCount() {
+        checkSpecifiedProperty("pointTypeMappingPriceCount");
         return _pointTypeMappingPriceCount;
     }
 
@@ -238,7 +240,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @param pointTypeMappingPriceCount The value of the column 'POINT_TYPE_MAPPING_PRICE_COUNT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPointTypeMappingPriceCount(org.docksidestage.mysql.mytype.MyPriceCount pointTypeMappingPriceCount) {
-        __modifiedProperties.addPropertyName("pointTypeMappingPriceCount");
+        registerModifiedProperty("pointTypeMappingPriceCount");
         _pointTypeMappingPriceCount = pointTypeMappingPriceCount;
     }
 
@@ -247,6 +249,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @return The value of the column 'POINT_TYPE_MAPPING_SALE_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.mysql.mytype.MySaleDate getPointTypeMappingSaleDate() {
+        checkSpecifiedProperty("pointTypeMappingSaleDate");
         return _pointTypeMappingSaleDate;
     }
 
@@ -255,7 +258,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @param pointTypeMappingSaleDate The value of the column 'POINT_TYPE_MAPPING_SALE_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPointTypeMappingSaleDate(org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate) {
-        __modifiedProperties.addPropertyName("pointTypeMappingSaleDate");
+        registerModifiedProperty("pointTypeMappingSaleDate");
         _pointTypeMappingSaleDate = pointTypeMappingSaleDate;
     }
 
@@ -264,6 +267,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @return The value of the column 'POINT_TYPE_MAPPING_WANTED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getPointTypeMappingWantedDatetime() {
+        checkSpecifiedProperty("pointTypeMappingWantedDatetime");
         return _pointTypeMappingWantedDatetime;
     }
 
@@ -272,7 +276,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
      * @param pointTypeMappingWantedDatetime The value of the column 'POINT_TYPE_MAPPING_WANTED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPointTypeMappingWantedDatetime(java.util.Date pointTypeMappingWantedDatetime) {
-        __modifiedProperties.addPropertyName("pointTypeMappingWantedDatetime");
+        registerModifiedProperty("pointTypeMappingWantedDatetime");
         _pointTypeMappingWantedDatetime = pointTypeMappingWantedDatetime;
     }
 }

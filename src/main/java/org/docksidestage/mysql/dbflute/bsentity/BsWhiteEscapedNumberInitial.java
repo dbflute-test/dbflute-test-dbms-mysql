@@ -81,7 +81,6 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     /** NUMBER_INITIAL_NAME: {VARCHAR(20)} */
     protected String _numberInitialName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -258,8 +257,8 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_numberInitialCode);
-        sb.append(dm).append(_numberInitialName);
+        sb.append(dm).append(xfND(_numberInitialCode));
+        sb.append(dm).append(xfND(_numberInitialName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -285,6 +284,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
      * @return The value of the column 'NUMBER_INITIAL_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getNumberInitialCode() {
+        checkSpecifiedProperty("numberInitialCode");
         return _numberInitialCode;
     }
 
@@ -294,7 +294,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
      */
     protected void setNumberInitialCode(String numberInitialCode) {
         checkClassificationCode("NUMBER_INITIAL_CODE", CDef.DefMeta.EscapedNumberInitialCls, numberInitialCode);
-        __modifiedProperties.addPropertyName("numberInitialCode");
+        registerModifiedProperty("numberInitialCode");
         _numberInitialCode = numberInitialCode;
     }
 
@@ -303,6 +303,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
      * @return The value of the column 'NUMBER_INITIAL_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getNumberInitialName() {
+        checkSpecifiedProperty("numberInitialName");
         return _numberInitialName;
     }
 
@@ -311,7 +312,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
      * @param numberInitialName The value of the column 'NUMBER_INITIAL_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNumberInitialName(String numberInitialName) {
-        __modifiedProperties.addPropertyName("numberInitialName");
+        registerModifiedProperty("numberInitialName");
         _numberInitialName = numberInitialName;
     }
 

@@ -85,7 +85,6 @@ public abstract class BsWhiteBinary extends AbstractEntity {
     /** BLOB_DATA: {BLOB(65535)} */
     protected byte[] _blobData;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -156,7 +155,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_binaryId);
+        sb.append(dm).append(xfND(_binaryId));
         sb.append(dm).append(xfBA(_binaryData));
         sb.append(dm).append(xfBA(_blobData));
         if (sb.length() > dm.length()) {
@@ -184,6 +183,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
      * @return The value of the column 'BINARY_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getBinaryId() {
+        checkSpecifiedProperty("binaryId");
         return _binaryId;
     }
 
@@ -192,7 +192,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
      * @param binaryId The value of the column 'BINARY_ID'. (basically NotNull if update: for the constraint)
      */
     public void setBinaryId(Long binaryId) {
-        __modifiedProperties.addPropertyName("binaryId");
+        registerModifiedProperty("binaryId");
         _binaryId = binaryId;
     }
 
@@ -201,6 +201,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
      * @return The value of the column 'BINARY_DATA'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getBinaryData() {
+        checkSpecifiedProperty("binaryData");
         return _binaryData;
     }
 
@@ -209,7 +210,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
      * @param binaryData The value of the column 'BINARY_DATA'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBinaryData(byte[] binaryData) {
-        __modifiedProperties.addPropertyName("binaryData");
+        registerModifiedProperty("binaryData");
         _binaryData = binaryData;
     }
 
@@ -218,6 +219,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
      * @return The value of the column 'BLOB_DATA'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getBlobData() {
+        checkSpecifiedProperty("blobData");
         return _blobData;
     }
 
@@ -226,7 +228,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
      * @param blobData The value of the column 'BLOB_DATA'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBlobData(byte[] blobData) {
-        __modifiedProperties.addPropertyName("blobData");
+        registerModifiedProperty("blobData");
         _blobData = blobData;
     }
 }

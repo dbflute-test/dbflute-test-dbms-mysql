@@ -85,7 +85,6 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     /** MYSELF_ID: {IX, INT(10), FK to white_myself} */
     protected Integer _myselfId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -178,9 +177,9 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_myselfCheckId);
-        sb.append(dm).append(_myselfCheckName);
-        sb.append(dm).append(_myselfId);
+        sb.append(dm).append(xfND(_myselfCheckId));
+        sb.append(dm).append(xfND(_myselfCheckName));
+        sb.append(dm).append(xfND(_myselfId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -211,6 +210,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
      * @return The value of the column 'MYSELF_CHECK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMyselfCheckId() {
+        checkSpecifiedProperty("myselfCheckId");
         return _myselfCheckId;
     }
 
@@ -219,7 +219,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
      * @param myselfCheckId The value of the column 'MYSELF_CHECK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMyselfCheckId(Integer myselfCheckId) {
-        __modifiedProperties.addPropertyName("myselfCheckId");
+        registerModifiedProperty("myselfCheckId");
         _myselfCheckId = myselfCheckId;
     }
 
@@ -228,6 +228,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
      * @return The value of the column 'MYSELF_CHECK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMyselfCheckName() {
+        checkSpecifiedProperty("myselfCheckName");
         return _myselfCheckName;
     }
 
@@ -236,7 +237,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
      * @param myselfCheckName The value of the column 'MYSELF_CHECK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMyselfCheckName(String myselfCheckName) {
-        __modifiedProperties.addPropertyName("myselfCheckName");
+        registerModifiedProperty("myselfCheckName");
         _myselfCheckName = myselfCheckName;
     }
 
@@ -245,6 +246,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
      * @return The value of the column 'MYSELF_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMyselfId() {
+        checkSpecifiedProperty("myselfId");
         return _myselfId;
     }
 
@@ -253,7 +255,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
      * @param myselfId The value of the column 'MYSELF_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMyselfId(Integer myselfId) {
-        __modifiedProperties.addPropertyName("myselfId");
+        registerModifiedProperty("myselfId");
         _myselfId = myselfId;
     }
 }

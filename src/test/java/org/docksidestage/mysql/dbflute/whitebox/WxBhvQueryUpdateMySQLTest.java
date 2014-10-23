@@ -39,6 +39,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
     public void test_queryUpdate_basic() {
         // ## Arrange ##
         Member member = new Member();
+        member.setMemberName("queryUpdate()");
         member.setMemberStatusCode_Provisional();
         member.setFormalizedDatetime(null);
 
@@ -51,11 +52,12 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
         // ## Assert ##
         assertNotSame(0, updatedCount);
         MemberCB actualCB = new MemberCB();
+        actualCB.query().setMemberName_Equal("queryUpdate()");
         actualCB.query().setMemberStatusCode_Equal_Provisional();
         actualCB.query().setFormalizedDatetime_IsNull();
-        actualCB.query().setUpdateUser_Equal(getAccessContext().getAccessUser()); // common column
-        ListResultBean<Member> actualList = memberBhv.selectList(actualCB);
-        assertEquals(actualList.size(), updatedCount);
+        actualCB.query().setUpdateUser_Equal(getAccessContext().getAccessUser()); // common column updated
+        int count = memberBhv.selectCount(actualCB);
+        assertEquals(count, updatedCount);
     }
 
     public void test_queryUpdate_OuterJoin() {

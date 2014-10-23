@@ -93,9 +93,9 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <pre>
      * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
      * cb.query().setFoo...(value);
-     * int count = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteDateAdjustment whiteDateAdjustment = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteDateAdjustment -&gt; {
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteDateAdjustment</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteDateAdjustment.get...
+     *     ... = <span style="color: #553000">whiteDateAdjustment</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteDateAdjustment whiteDateAdjustment = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteDateAdjustment -&gt; {
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteDateAdjustment</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteDateAdjustment.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteDateAdjustment</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteDateAdjustment> selectEntity(CBCall<WhiteDateAdjustmentCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteDateAdjustmentBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteDateAdjustment -&gt; {
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteDateAdjustment <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteDateAdjustment.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteDateAdjustment -&gt; {
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteDateAdjustment <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteDateAdjustment.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteDateAdjustment> selectEntity(WhiteDateAdjustmentCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
-     * cb.query().setFoo...(value);
-     * WhiteDateAdjustment whiteDateAdjustment = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteDateAdjustment.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteDateAdjustment <span style="color: #553000">whiteDateAdjustment</span> = <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteDateAdjustment</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteDateAdjustment selectEntityWithDeletedCheck(CBCall<WhiteDateAdjustmentCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
-     * cb.query().setFoo...(value);
-     * WhiteDateAdjustment whiteDateAdjustment = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteDateAdjustment whiteDateAdjustment = <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteDateAdjustment.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteDateAdjustment selectEntityWithDeletedCheck(WhiteDateAdjustmentCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * Select the entity by the primary-key value.
      * @param dateAdjustmentId : PK, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteDateAdjustment> selectByPK(Long dateAdjustmentId) {
         return facadeSelectByPK(dateAdjustmentId);
@@ -272,17 +270,17 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteDateAdjustment&gt; whiteDateAdjustmentList = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteDateAdjustment&gt; <span style="color: #553000">whiteDateAdjustmentList</span> = <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteDateAdjustmentList.forEach(whiteDateAdjustment -&gt; {
-     *     ... = whiteDateAdjustment.get...();
+     * for (WhiteDateAdjustment <span style="color: #553000">whiteDateAdjustment</span> : <span style="color: #553000">whiteDateAdjustmentList</span>) {
+     *     ... = <span style="color: #553000">whiteDateAdjustment</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteDateAdjustment> selectList(CBCall<WhiteDateAdjustmentCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * Select the list as result bean.
      * <pre>
      * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteDateAdjustment&gt; whiteDateAdjustmentList = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteDateAdjustment whiteDateAdjustment : whiteDateAdjustmentList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteDateAdjustment&gt; <span style="color: #553000">whiteDateAdjustmentList</span> = <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteDateAdjustment whiteDateAdjustment : <span style="color: #553000">whiteDateAdjustmentList</span>) {
      *     ... = whiteDateAdjustment.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteDateAdjustment> selectList(WhiteDateAdjustmentCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteDateAdjustment&gt; page = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteDateAdjustment&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteDateAdjustment whiteDateAdjustment : page) {
+     * for (WhiteDateAdjustment whiteDateAdjustment : <span style="color: #553000">page</span>) {
      *     ... = whiteDateAdjustment.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteDateAdjustment> selectPage(CBCall<WhiteDateAdjustmentCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteDateAdjustment&gt; page = whiteDateAdjustmentBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteDateAdjustment&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteDateAdjustment whiteDateAdjustment : page) {
+     * for (WhiteDateAdjustment whiteDateAdjustment : <span style="color: #553000">page</span>) {
      *     ... = whiteDateAdjustment.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteDateAdjustment> selectPage(WhiteDateAdjustmentCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
-     * cb.query().setFoo...(value);
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDateAdjustment&gt;() {
-     *     public void handle(WhiteDateAdjustment entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
-     * cb.query().setFoo...(value);
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDateAdjustment&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteDateAdjustment&gt;() {
      *     public void handle(WhiteDateAdjustment entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteDateAdjustmentCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -537,12 +529,12 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteDateAdjustment.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteDateAdjustment.set...;</span>
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">insert</span>(whiteDateAdjustment);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">insert</span>(whiteDateAdjustment);
      * ... = whiteDateAdjustment.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteDateAdjustment The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteDateAdjustment whiteDateAdjustment) {
         doInsert(whiteDateAdjustment, null);
@@ -560,15 +552,15 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteDateAdjustment.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteDateAdjustmentBhv.<span style="color: #CC4747">update</span>(whiteDateAdjustment);
+     *     <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">update</span>(whiteDateAdjustment);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteDateAdjustment The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteDateAdjustment whiteDateAdjustment) {
         doUpdate(whiteDateAdjustment, null);
@@ -579,9 +571,9 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteDateAdjustment The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteDateAdjustment whiteDateAdjustment) {
         doInsertOrUpdate(whiteDateAdjustment, null, null);
@@ -595,14 +587,14 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteDateAdjustment.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteDateAdjustmentBhv.<span style="color: #CC4747">delete</span>(whiteDateAdjustment);
+     *     <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">delete</span>(whiteDateAdjustment);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteDateAdjustment The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteDateAdjustment whiteDateAdjustment) {
         doDelete(whiteDateAdjustment, null);
@@ -627,7 +619,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteDateAdjustmentList.add(whiteDateAdjustment);
      * }
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">batchInsert</span>(whiteDateAdjustmentList);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteDateAdjustmentList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -657,11 +649,11 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteDateAdjustmentList.add(whiteDateAdjustment);
      * }
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">batchUpdate</span>(whiteDateAdjustmentList);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteDateAdjustmentList);
      * </pre>
      * @param whiteDateAdjustmentList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteDateAdjustment> whiteDateAdjustmentList) {
         return doBatchUpdate(whiteDateAdjustmentList, null);
@@ -672,7 +664,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteDateAdjustmentList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteDateAdjustment> whiteDateAdjustmentList) {
         return doBatchDelete(whiteDateAdjustmentList, null);
@@ -684,7 +676,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteDateAdjustment, WhiteDateAdjustmentCB&gt;() {
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteDateAdjustment, WhiteDateAdjustmentCB&gt;() {
      *     public ConditionBean setup(WhiteDateAdjustment entity, WhiteDateAdjustmentCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -726,12 +718,12 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <span style="color: #3F7E5E">//whiteDateAdjustment.setVersionNo(value);</span>
      * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
      * cb.query().setFoo...(value);
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">queryUpdate</span>(whiteDateAdjustment, cb);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteDateAdjustment, cb);
      * </pre>
      * @param whiteDateAdjustment The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteDateAdjustment whiteDateAdjustment, CBCall<WhiteDateAdjustmentCB> cbLambda) {
         return doQueryUpdate(whiteDateAdjustment, createCB(cbLambda), null);
@@ -752,12 +744,12 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <span style="color: #3F7E5E">//whiteDateAdjustment.setVersionNo(value);</span>
      * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
      * cb.query().setFoo...(value);
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">queryUpdate</span>(whiteDateAdjustment, cb);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteDateAdjustment, cb);
      * </pre>
      * @param whiteDateAdjustment The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteDateAdjustment whiteDateAdjustment, WhiteDateAdjustmentCB cb) {
         return doQueryUpdate(whiteDateAdjustment, cb, null);
@@ -768,11 +760,11 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <pre>
      * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
      * cb.query().setFoo...(value);
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">queryDelete</span>(whiteDateAdjustment, cb);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDateAdjustment, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteDateAdjustmentCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -783,11 +775,11 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <pre>
      * WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB();
      * cb.query().setFoo...(value);
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">queryDelete</span>(whiteDateAdjustment, cb);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDateAdjustment, cb);
      * </pre>
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteDateAdjustmentCB cb) {
         return doQueryDelete(cb, null);
@@ -811,12 +803,12 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * InsertOption<WhiteDateAdjustmentCB> option = new InsertOption<WhiteDateAdjustmentCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">varyingInsert</span>(whiteDateAdjustment, option);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteDateAdjustment, option);
      * ... = whiteDateAdjustment.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteDateAdjustment The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteDateAdjustment whiteDateAdjustment, WritableOptionCall<WhiteDateAdjustmentCB, InsertOption<WhiteDateAdjustmentCB>> opLambda) {
         doInsert(whiteDateAdjustment, createInsertOption(opLambda));
@@ -840,16 +832,16 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteDateAdjustmentBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteDateAdjustment, option);
+     *     <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteDateAdjustment, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteDateAdjustment The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteDateAdjustment whiteDateAdjustment, WritableOptionCall<WhiteDateAdjustmentCB, UpdateOption<WhiteDateAdjustmentCB>> opLambda) {
         doUpdate(whiteDateAdjustment, createUpdateOption(opLambda));
@@ -861,9 +853,9 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * @param whiteDateAdjustment The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteDateAdjustment whiteDateAdjustment, WritableOptionCall<WhiteDateAdjustmentCB, InsertOption<WhiteDateAdjustmentCB>> insertOpLambda, WritableOptionCall<WhiteDateAdjustmentCB, UpdateOption<WhiteDateAdjustmentCB>> updateOpLambda) {
         doInsertOrUpdate(whiteDateAdjustment, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -875,8 +867,8 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * Other specifications are same as delete(entity).
      * @param whiteDateAdjustment The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteDateAdjustment whiteDateAdjustment, WritableOptionCall<WhiteDateAdjustmentCB, DeleteOption<WhiteDateAdjustmentCB>> opLambda) {
         doDelete(whiteDateAdjustment, createDeleteOption(opLambda));
@@ -960,13 +952,13 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDateAdjustment, cb, option);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDateAdjustment, cb, option);
      * </pre>
      * @param whiteDateAdjustment The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteDateAdjustment whiteDateAdjustment, CBCall<WhiteDateAdjustmentCB> cbLambda, WritableOptionCall<WhiteDateAdjustmentCB, UpdateOption<WhiteDateAdjustmentCB>> opLambda) {
         return doQueryUpdate(whiteDateAdjustment, createCB(cbLambda), createUpdateOption(opLambda));
@@ -994,13 +986,13 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteDateAdjustmentBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDateAdjustment, cb, option);
+     * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDateAdjustment, cb, option);
      * </pre>
      * @param whiteDateAdjustment The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteDateAdjustment whiteDateAdjustment, WhiteDateAdjustmentCB cb, WritableOptionCall<WhiteDateAdjustmentCB, UpdateOption<WhiteDateAdjustmentCB>> opLambda) {
         return doQueryUpdate(whiteDateAdjustment, cb, createUpdateOption(opLambda));
@@ -1013,7 +1005,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * @param cbLambda The callback for condition-bean of WhiteDateAdjustment. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteDateAdjustmentCB> cbLambda, WritableOptionCall<WhiteDateAdjustmentCB, DeleteOption<WhiteDateAdjustmentCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1026,7 +1018,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * @param cb The condition-bean of WhiteDateAdjustment. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteDateAdjustmentCB cb, WritableOptionCall<WhiteDateAdjustmentCB, DeleteOption<WhiteDateAdjustmentCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

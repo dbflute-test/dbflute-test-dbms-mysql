@@ -1,6 +1,5 @@
 package org.docksidestage.mysql.dbflute.vendor;
 
-import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,8 +14,6 @@ import org.dbflute.bhv.readable.EntityRowHandler;
 import org.dbflute.cbean.result.PagingResultBean;
 import org.dbflute.cbean.sqlclause.SqlClauseMySql;
 import org.dbflute.outsidesql.OutsideSqlContext;
-import org.dbflute.util.DfReflectionUtil;
-import org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberStatusDbm;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.cbean.MemberStatusCB;
 import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;
@@ -188,7 +185,6 @@ public class VendorCheckTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
 
         // ## Act ##
-        final Method writeMethod = MemberStatusDbm.getInstance().columnMemberStatusCode().getWriteMethod();
         memberBhv.selectCursor(cb, new EntityRowHandler<Member>() {
             int count = 0;
 
@@ -201,7 +197,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
                 }
                 assertTrue(ConditionBeanContext.isExistConditionBeanOnThread());
                 String memberName = entity.getMemberName();
-                MemberStatus status = new MemberStatus();
+                MemberStatus status = new MemberStatus().xznocheckClassification();
                 String statusCode;
                 if (count >= 100) {
                     statusCode = String.valueOf(count);
@@ -210,7 +206,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
                 } else {
                     statusCode = "00" + count;
                 }
-                DfReflectionUtil.invokeForcedly(writeMethod, status, new Object[] { statusCode });
+                status.mynativeMappingMemberStatusCode(statusCode);
                 status.setMemberStatusName(memberName + count);
                 status.setDescription("foo");
                 status.setDisplayOrder(99999 + count);

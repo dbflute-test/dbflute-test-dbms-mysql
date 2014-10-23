@@ -80,7 +80,6 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
     /** LOAD_DATA_NAME: {NotNull, VARCHAR(200)} */
     protected String _loadDataName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -151,8 +150,8 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_loadDataId);
-        sb.append(dm).append(_loadDataName);
+        sb.append(dm).append(xfND(_loadDataId));
+        sb.append(dm).append(xfND(_loadDataName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -178,6 +177,7 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
      * @return The value of the column 'LOAD_DATA_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getLoadDataId() {
+        checkSpecifiedProperty("loadDataId");
         return _loadDataId;
     }
 
@@ -186,7 +186,7 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
      * @param loadDataId The value of the column 'LOAD_DATA_ID'. (basically NotNull if update: for the constraint)
      */
     public void setLoadDataId(Long loadDataId) {
-        __modifiedProperties.addPropertyName("loadDataId");
+        registerModifiedProperty("loadDataId");
         _loadDataId = loadDataId;
     }
 
@@ -195,6 +195,7 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
      * @return The value of the column 'LOAD_DATA_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getLoadDataName() {
+        checkSpecifiedProperty("loadDataName");
         return _loadDataName;
     }
 
@@ -203,7 +204,7 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
      * @param loadDataName The value of the column 'LOAD_DATA_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setLoadDataName(String loadDataName) {
-        __modifiedProperties.addPropertyName("loadDataName");
+        registerModifiedProperty("loadDataName");
         _loadDataName = loadDataName;
     }
 }

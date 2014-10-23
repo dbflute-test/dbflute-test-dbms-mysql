@@ -116,7 +116,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * MACHO_CODE: {PK, NotNull, CHAR(3)} <br />
-     * <pre>e.g. setMachoCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setMachoCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -171,7 +171,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * {exists (select MACHO_CODE from white_perrotta_over_member where ...)} <br />
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMemberList</span>(memberCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
      * });
      * </pre>
@@ -191,10 +191,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * {not exists (select MACHO_CODE from white_perrotta_over_member where ...)} <br />
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMemberList</span>(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
-     *     public void query(WhitePerrottaOverMemberCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     memberCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MachoCode_NotExistsReferrer_WhitePerrottaOverMemberList for 'not exists'. (NotNull)
@@ -222,11 +220,9 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_member where ...)} <br />
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
-     *     public void query(WhitePerrottaOverMemberCB subCB) {
-     *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     *     }
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     memberCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
@@ -321,7 +317,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * MACHO_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setMachoName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setMachoName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param machoName The value of machoName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

@@ -85,7 +85,6 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     /** TIMESTAMP_CONVERTED: {DATETIME(19)} */
     protected java.sql.Timestamp _timestampConverted;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -156,9 +155,9 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_xlsManId);
-        sb.append(dm).append(_stringConverted);
-        sb.append(dm).append(_timestampConverted);
+        sb.append(dm).append(xfND(_xlsManId));
+        sb.append(dm).append(xfND(_stringConverted));
+        sb.append(dm).append(xfND(_timestampConverted));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -184,6 +183,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @return The value of the column 'XLS_MAN_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getXlsManId() {
+        checkSpecifiedProperty("xlsManId");
         return _xlsManId;
     }
 
@@ -192,7 +192,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @param xlsManId The value of the column 'XLS_MAN_ID'. (basically NotNull if update: for the constraint)
      */
     public void setXlsManId(Long xlsManId) {
-        __modifiedProperties.addPropertyName("xlsManId");
+        registerModifiedProperty("xlsManId");
         _xlsManId = xlsManId;
     }
 
@@ -201,6 +201,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @return The value of the column 'STRING_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
     public String getStringConverted() {
+        checkSpecifiedProperty("stringConverted");
         return _stringConverted;
     }
 
@@ -209,7 +210,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @param stringConverted The value of the column 'STRING_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStringConverted(String stringConverted) {
-        __modifiedProperties.addPropertyName("stringConverted");
+        registerModifiedProperty("stringConverted");
         _stringConverted = stringConverted;
     }
 
@@ -218,6 +219,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @return The value of the column 'TIMESTAMP_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTimestampConverted() {
+        checkSpecifiedProperty("timestampConverted");
         return _timestampConverted;
     }
 
@@ -226,7 +228,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @param timestampConverted The value of the column 'TIMESTAMP_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTimestampConverted(java.sql.Timestamp timestampConverted) {
-        __modifiedProperties.addPropertyName("timestampConverted");
+        registerModifiedProperty("timestampConverted");
         _timestampConverted = timestampConverted;
     }
 }

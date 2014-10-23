@@ -77,12 +77,68 @@ public class LoaderOfWhiteImplicitConvNumeric {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<WhiteImplicitConvInteger> _referrerWhiteImplicitConvIntegerList;
+
+    /**
+     * Load referrer of whiteImplicitConvIntegerList by the set-upper of referrer. <br />
+     * white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteImplicitConvNumericList</span>, <span style="color: #553000">numericLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">numericLoader</span>.<span style="color: #CC4747">loadWhiteImplicitConvIntegerList</span>(<span style="color: #553000">integerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">integerCB</span>.setupSelect...
+     *         <span style="color: #553000">integerCB</span>.query().set...
+     *         <span style="color: #553000">integerCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">integerLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    integerLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteImplicitConvNumeric whiteImplicitConvNumeric : <span style="color: #553000">whiteImplicitConvNumericList</span>) {
+     *     ... = whiteImplicitConvNumeric.<span style="color: #CC4747">getWhiteImplicitConvIntegerList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setImplicitConvNumericId_InScope(pkList);
+     * cb.query().addOrderBy_ImplicitConvNumericId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvInteger> loadWhiteImplicitConvIntegerList(ConditionBeanSetupper<WhiteImplicitConvIntegerCB> refCBLambda) {
         myBhv().loadWhiteImplicitConvIntegerList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteImplicitConvIntegerList = refLs);
         return hd -> hd.handle(new LoaderOfWhiteImplicitConvInteger().ready(_referrerWhiteImplicitConvIntegerList, _selector));
     }
 
     protected List<WhiteImplicitConvString> _referrerWhiteImplicitConvStringList;
+
+    /**
+     * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br />
+     * white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteImplicitConvNumericList</span>, <span style="color: #553000">numericLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">numericLoader</span>.<span style="color: #CC4747">loadWhiteImplicitConvStringList</span>(<span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">stringCB</span>.setupSelect...
+     *         <span style="color: #553000">stringCB</span>.query().set...
+     *         <span style="color: #553000">stringCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">stringLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    stringLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteImplicitConvNumeric whiteImplicitConvNumeric : <span style="color: #553000">whiteImplicitConvNumericList</span>) {
+     *     ... = whiteImplicitConvNumeric.<span style="color: #CC4747">getWhiteImplicitConvStringList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setImplicitConvNumericId_InScope(pkList);
+     * cb.query().addOrderBy_ImplicitConvNumericId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvString> loadWhiteImplicitConvStringList(ConditionBeanSetupper<WhiteImplicitConvStringCB> refCBLambda) {
         myBhv().loadWhiteImplicitConvStringList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteImplicitConvStringList = refLs);
         return hd -> hd.handle(new LoaderOfWhiteImplicitConvString().ready(_referrerWhiteImplicitConvStringList, _selector));

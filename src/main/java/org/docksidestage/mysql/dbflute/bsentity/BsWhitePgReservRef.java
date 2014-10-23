@@ -80,7 +80,6 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
     /** ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv} */
     protected Integer _classSynonym;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -173,8 +172,8 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_refId);
-        sb.append(dm).append(_classSynonym);
+        sb.append(dm).append(xfND(_refId));
+        sb.append(dm).append(xfND(_classSynonym));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -205,6 +204,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
      * @return The value of the column 'REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRefId() {
+        checkSpecifiedProperty("refId");
         return _refId;
     }
 
@@ -213,7 +213,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
      * @param refId The value of the column 'REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRefId(Integer refId) {
-        __modifiedProperties.addPropertyName("refId");
+        registerModifiedProperty("refId");
         _refId = refId;
     }
 
@@ -222,6 +222,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
      * @return The value of the column 'CLASS'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getClassSynonym() {
+        checkSpecifiedProperty("classSynonym");
         return _classSynonym;
     }
 
@@ -230,7 +231,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
      * @param classSynonym The value of the column 'CLASS'. (NullAllowed: null update allowed for no constraint)
      */
     public void setClassSynonym(Integer classSynonym) {
-        __modifiedProperties.addPropertyName("classSynonym");
+        registerModifiedProperty("classSynonym");
         _classSynonym = classSynonym;
     }
 }

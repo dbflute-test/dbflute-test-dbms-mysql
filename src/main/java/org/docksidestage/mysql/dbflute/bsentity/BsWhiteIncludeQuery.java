@@ -95,7 +95,6 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     /** INCLUDE_QUERY_DATETIME: {DATETIME(19)} */
     protected java.sql.Timestamp _includeQueryDatetime;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -166,11 +165,11 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_includeQueryId);
-        sb.append(dm).append(_includeQueryVarchar);
-        sb.append(dm).append(_includeQueryInteger);
+        sb.append(dm).append(xfND(_includeQueryId));
+        sb.append(dm).append(xfND(_includeQueryVarchar));
+        sb.append(dm).append(xfND(_includeQueryInteger));
         sb.append(dm).append(xfUD(_includeQueryDate));
-        sb.append(dm).append(_includeQueryDatetime);
+        sb.append(dm).append(xfND(_includeQueryDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -196,6 +195,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @return The value of the column 'INCLUDE_QUERY_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getIncludeQueryId() {
+        checkSpecifiedProperty("includeQueryId");
         return _includeQueryId;
     }
 
@@ -204,7 +204,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @param includeQueryId The value of the column 'INCLUDE_QUERY_ID'. (basically NotNull if update: for the constraint)
      */
     public void setIncludeQueryId(Long includeQueryId) {
-        __modifiedProperties.addPropertyName("includeQueryId");
+        registerModifiedProperty("includeQueryId");
         _includeQueryId = includeQueryId;
     }
 
@@ -213,6 +213,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @return The value of the column 'INCLUDE_QUERY_VARCHAR'. (NullAllowed even if selected: for no constraint)
      */
     public String getIncludeQueryVarchar() {
+        checkSpecifiedProperty("includeQueryVarchar");
         return _includeQueryVarchar;
     }
 
@@ -221,7 +222,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @param includeQueryVarchar The value of the column 'INCLUDE_QUERY_VARCHAR'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIncludeQueryVarchar(String includeQueryVarchar) {
-        __modifiedProperties.addPropertyName("includeQueryVarchar");
+        registerModifiedProperty("includeQueryVarchar");
         _includeQueryVarchar = includeQueryVarchar;
     }
 
@@ -230,6 +231,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @return The value of the column 'INCLUDE_QUERY_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getIncludeQueryInteger() {
+        checkSpecifiedProperty("includeQueryInteger");
         return _includeQueryInteger;
     }
 
@@ -238,7 +240,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @param includeQueryInteger The value of the column 'INCLUDE_QUERY_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIncludeQueryInteger(Integer includeQueryInteger) {
-        __modifiedProperties.addPropertyName("includeQueryInteger");
+        registerModifiedProperty("includeQueryInteger");
         _includeQueryInteger = includeQueryInteger;
     }
 
@@ -247,6 +249,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @return The value of the column 'INCLUDE_QUERY_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getIncludeQueryDate() {
+        checkSpecifiedProperty("includeQueryDate");
         return _includeQueryDate;
     }
 
@@ -255,7 +258,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @param includeQueryDate The value of the column 'INCLUDE_QUERY_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIncludeQueryDate(java.util.Date includeQueryDate) {
-        __modifiedProperties.addPropertyName("includeQueryDate");
+        registerModifiedProperty("includeQueryDate");
         _includeQueryDate = includeQueryDate;
     }
 
@@ -264,6 +267,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @return The value of the column 'INCLUDE_QUERY_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getIncludeQueryDatetime() {
+        checkSpecifiedProperty("includeQueryDatetime");
         return _includeQueryDatetime;
     }
 
@@ -272,7 +276,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
      * @param includeQueryDatetime The value of the column 'INCLUDE_QUERY_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIncludeQueryDatetime(java.sql.Timestamp includeQueryDatetime) {
-        __modifiedProperties.addPropertyName("includeQueryDatetime");
+        registerModifiedProperty("includeQueryDatetime");
         _includeQueryDatetime = includeQueryDatetime;
     }
 }

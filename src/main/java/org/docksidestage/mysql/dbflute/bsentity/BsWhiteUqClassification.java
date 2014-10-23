@@ -81,7 +81,6 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     /** UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} */
     protected String _uqClsCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -193,8 +192,8 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_uqClsId);
-        sb.append(dm).append(_uqClsCode);
+        sb.append(dm).append(xfND(_uqClsId));
+        sb.append(dm).append(xfND(_uqClsCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -220,6 +219,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
      * @return The value of the column 'UQ_CLS_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getUqClsId() {
+        checkSpecifiedProperty("uqClsId");
         return _uqClsId;
     }
 
@@ -228,7 +228,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
      * @param uqClsId The value of the column 'UQ_CLS_ID'. (basically NotNull if update: for the constraint)
      */
     public void setUqClsId(Long uqClsId) {
-        __modifiedProperties.addPropertyName("uqClsId");
+        registerModifiedProperty("uqClsId");
         _uqClsId = uqClsId;
     }
 
@@ -237,6 +237,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
      * @return The value of the column 'UQ_CLS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getUqClsCode() {
+        checkSpecifiedProperty("uqClsCode");
         return _uqClsCode;
     }
 
@@ -246,7 +247,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
      */
     protected void setUqClsCode(String uqClsCode) {
         checkClassificationCode("UQ_CLS_CODE", CDef.DefMeta.UQClassificationType, uqClsCode);
-        __modifiedProperties.addPropertyName("uqClsCode");
+        registerModifiedProperty("uqClsCode");
         _uqClsCode = uqClsCode;
     }
 

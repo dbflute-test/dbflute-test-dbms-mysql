@@ -7,7 +7,6 @@ import org.dbflute.bhv.core.BehaviorCommandInvoker;
 import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.dbmeta.DBMeta;
-import org.docksidestage.mysql.dbflute.allcommon.ImplementedInvokerAssistant;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;

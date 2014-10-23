@@ -80,7 +80,6 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
     /** ORDER: {IX, INT(10), FK to white_quoted} */
     protected Integer _order;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -173,8 +172,8 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_where);
-        sb.append(dm).append(_order);
+        sb.append(dm).append(xfND(_where));
+        sb.append(dm).append(xfND(_order));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -205,6 +204,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
      * @return The value of the column 'WHERE'. (basically NotNull if selected: for the constraint)
      */
     public Integer getWhere() {
+        checkSpecifiedProperty("where");
         return _where;
     }
 
@@ -213,7 +213,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
      * @param where The value of the column 'WHERE'. (basically NotNull if update: for the constraint)
      */
     public void setWhere(Integer where) {
-        __modifiedProperties.addPropertyName("where");
+        registerModifiedProperty("where");
         _where = where;
     }
 
@@ -222,6 +222,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
      * @return The value of the column 'ORDER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getOrder() {
+        checkSpecifiedProperty("order");
         return _order;
     }
 
@@ -230,7 +231,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
      * @param order The value of the column 'ORDER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setOrder(Integer order) {
-        __modifiedProperties.addPropertyName("order");
+        registerModifiedProperty("order");
         _order = order;
     }
 }

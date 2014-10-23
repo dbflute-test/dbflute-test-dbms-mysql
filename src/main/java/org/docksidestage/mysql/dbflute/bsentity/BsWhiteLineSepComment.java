@@ -81,7 +81,6 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     /** LINE_SEP_COMMENT_NAME: {VARCHAR(20)} */
     protected String _lineSepCommentName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -242,8 +241,8 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_lineSepCommentCode);
-        sb.append(dm).append(_lineSepCommentName);
+        sb.append(dm).append(xfND(_lineSepCommentCode));
+        sb.append(dm).append(xfND(_lineSepCommentName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -269,6 +268,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
      * @return The value of the column 'LINE_SEP_COMMENT_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getLineSepCommentCode() {
+        checkSpecifiedProperty("lineSepCommentCode");
         return _lineSepCommentCode;
     }
 
@@ -278,7 +278,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
      */
     protected void setLineSepCommentCode(String lineSepCommentCode) {
         checkClassificationCode("LINE_SEP_COMMENT_CODE", CDef.DefMeta.LineSepCommentCls, lineSepCommentCode);
-        __modifiedProperties.addPropertyName("lineSepCommentCode");
+        registerModifiedProperty("lineSepCommentCode");
         _lineSepCommentCode = lineSepCommentCode;
     }
 
@@ -287,6 +287,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
      * @return The value of the column 'LINE_SEP_COMMENT_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getLineSepCommentName() {
+        checkSpecifiedProperty("lineSepCommentName");
         return _lineSepCommentName;
     }
 
@@ -295,7 +296,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
      * @param lineSepCommentName The value of the column 'LINE_SEP_COMMENT_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setLineSepCommentName(String lineSepCommentName) {
-        __modifiedProperties.addPropertyName("lineSepCommentName");
+        registerModifiedProperty("lineSepCommentName");
         _lineSepCommentName = lineSepCommentName;
     }
 

@@ -15,10 +15,10 @@
  */
 package org.docksidestage.mysql.dbflute.allcommon;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.HashMap;
 import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
@@ -229,7 +229,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
      * Find DB meta by table flexible name. (accept quoted name and schema prefix)
      * @param tableFlexibleName The flexible name of table. (NotNull)
      * @return The instance of DB meta. (NotNull)
-     * @exception org.dbflute.exception.DBMetaNotFoundException When the DB meta is not found.
+     * @throws org.dbflute.exception.DBMetaNotFoundException When the DB meta is not found.
      */
     public static DBMeta findDBMeta(String tableFlexibleName) {
         DBMeta dbmeta = byTableFlexibleName(tableFlexibleName);
@@ -244,7 +244,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
      * Find DB meta by entity type.
      * @param entityType The entity type of table, which should implement the {@link Entity} interface. (NotNull)
      * @return The instance of DB meta. (NotNull)
-     * @exception org.dbflute.exception.DBMetaNotFoundException When the DB meta is not found.
+     * @throws org.dbflute.exception.DBMetaNotFoundException When the DB meta is not found.
      */
     public static DBMeta findDBMeta(Class<?> entityType) {
         DBMeta dbmeta = byEntityType(entityType);

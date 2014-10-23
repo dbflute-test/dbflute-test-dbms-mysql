@@ -125,7 +125,6 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     /** ADJUSTED_STRING: {VARCHAR(32)} */
     protected String _adjustedString;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -196,17 +195,17 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_dateAdjustmentId);
+        sb.append(dm).append(xfND(_dateAdjustmentId));
         sb.append(dm).append(xfUD(_adjustedDate));
-        sb.append(dm).append(_adjustedDatetime);
-        sb.append(dm).append(_adjustedTime);
-        sb.append(dm).append(_adjustedInteger);
-        sb.append(dm).append(_adjustedNamedStringLong);
-        sb.append(dm).append(_adjustedNamedTypedLong);
-        sb.append(dm).append(_adjustedPinpointStringLong);
-        sb.append(dm).append(_adjustedPinpointTypedLong);
-        sb.append(dm).append(_adjustedPlainLong);
-        sb.append(dm).append(_adjustedString);
+        sb.append(dm).append(xfND(_adjustedDatetime));
+        sb.append(dm).append(xfND(_adjustedTime));
+        sb.append(dm).append(xfND(_adjustedInteger));
+        sb.append(dm).append(xfND(_adjustedNamedStringLong));
+        sb.append(dm).append(xfND(_adjustedNamedTypedLong));
+        sb.append(dm).append(xfND(_adjustedPinpointStringLong));
+        sb.append(dm).append(xfND(_adjustedPinpointTypedLong));
+        sb.append(dm).append(xfND(_adjustedPlainLong));
+        sb.append(dm).append(xfND(_adjustedString));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -232,6 +231,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'DATE_ADJUSTMENT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getDateAdjustmentId() {
+        checkSpecifiedProperty("dateAdjustmentId");
         return _dateAdjustmentId;
     }
 
@@ -240,7 +240,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param dateAdjustmentId The value of the column 'DATE_ADJUSTMENT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setDateAdjustmentId(Long dateAdjustmentId) {
-        __modifiedProperties.addPropertyName("dateAdjustmentId");
+        registerModifiedProperty("dateAdjustmentId");
         _dateAdjustmentId = dateAdjustmentId;
     }
 
@@ -249,6 +249,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getAdjustedDate() {
+        checkSpecifiedProperty("adjustedDate");
         return _adjustedDate;
     }
 
@@ -257,7 +258,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedDate The value of the column 'ADJUSTED_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedDate(java.util.Date adjustedDate) {
-        __modifiedProperties.addPropertyName("adjustedDate");
+        registerModifiedProperty("adjustedDate");
         _adjustedDate = adjustedDate;
     }
 
@@ -266,6 +267,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getAdjustedDatetime() {
+        checkSpecifiedProperty("adjustedDatetime");
         return _adjustedDatetime;
     }
 
@@ -274,7 +276,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedDatetime The value of the column 'ADJUSTED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedDatetime(java.sql.Timestamp adjustedDatetime) {
-        __modifiedProperties.addPropertyName("adjustedDatetime");
+        registerModifiedProperty("adjustedDatetime");
         _adjustedDatetime = adjustedDatetime;
     }
 
@@ -283,6 +285,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_TIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Time getAdjustedTime() {
+        checkSpecifiedProperty("adjustedTime");
         return _adjustedTime;
     }
 
@@ -291,7 +294,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedTime The value of the column 'ADJUSTED_TIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedTime(java.sql.Time adjustedTime) {
-        __modifiedProperties.addPropertyName("adjustedTime");
+        registerModifiedProperty("adjustedTime");
         _adjustedTime = adjustedTime;
     }
 
@@ -300,6 +303,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getAdjustedInteger() {
+        checkSpecifiedProperty("adjustedInteger");
         return _adjustedInteger;
     }
 
@@ -308,7 +312,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedInteger The value of the column 'ADJUSTED_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedInteger(Integer adjustedInteger) {
-        __modifiedProperties.addPropertyName("adjustedInteger");
+        registerModifiedProperty("adjustedInteger");
         _adjustedInteger = adjustedInteger;
     }
 
@@ -317,6 +321,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_NAMED_STRING_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedNamedStringLong() {
+        checkSpecifiedProperty("adjustedNamedStringLong");
         return _adjustedNamedStringLong;
     }
 
@@ -325,7 +330,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedNamedStringLong The value of the column 'ADJUSTED_NAMED_STRING_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedNamedStringLong(Long adjustedNamedStringLong) {
-        __modifiedProperties.addPropertyName("adjustedNamedStringLong");
+        registerModifiedProperty("adjustedNamedStringLong");
         _adjustedNamedStringLong = adjustedNamedStringLong;
     }
 
@@ -334,6 +339,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_NAMED_TYPED_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedNamedTypedLong() {
+        checkSpecifiedProperty("adjustedNamedTypedLong");
         return _adjustedNamedTypedLong;
     }
 
@@ -342,7 +348,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedNamedTypedLong The value of the column 'ADJUSTED_NAMED_TYPED_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedNamedTypedLong(Long adjustedNamedTypedLong) {
-        __modifiedProperties.addPropertyName("adjustedNamedTypedLong");
+        registerModifiedProperty("adjustedNamedTypedLong");
         _adjustedNamedTypedLong = adjustedNamedTypedLong;
     }
 
@@ -351,6 +357,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_PINPOINT_STRING_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedPinpointStringLong() {
+        checkSpecifiedProperty("adjustedPinpointStringLong");
         return _adjustedPinpointStringLong;
     }
 
@@ -359,7 +366,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedPinpointStringLong The value of the column 'ADJUSTED_PINPOINT_STRING_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedPinpointStringLong(Long adjustedPinpointStringLong) {
-        __modifiedProperties.addPropertyName("adjustedPinpointStringLong");
+        registerModifiedProperty("adjustedPinpointStringLong");
         _adjustedPinpointStringLong = adjustedPinpointStringLong;
     }
 
@@ -368,6 +375,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_PINPOINT_TYPED_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedPinpointTypedLong() {
+        checkSpecifiedProperty("adjustedPinpointTypedLong");
         return _adjustedPinpointTypedLong;
     }
 
@@ -376,7 +384,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedPinpointTypedLong The value of the column 'ADJUSTED_PINPOINT_TYPED_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedPinpointTypedLong(Long adjustedPinpointTypedLong) {
-        __modifiedProperties.addPropertyName("adjustedPinpointTypedLong");
+        registerModifiedProperty("adjustedPinpointTypedLong");
         _adjustedPinpointTypedLong = adjustedPinpointTypedLong;
     }
 
@@ -385,6 +393,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_PLAIN_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedPlainLong() {
+        checkSpecifiedProperty("adjustedPlainLong");
         return _adjustedPlainLong;
     }
 
@@ -393,7 +402,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedPlainLong The value of the column 'ADJUSTED_PLAIN_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedPlainLong(Long adjustedPlainLong) {
-        __modifiedProperties.addPropertyName("adjustedPlainLong");
+        registerModifiedProperty("adjustedPlainLong");
         _adjustedPlainLong = adjustedPlainLong;
     }
 
@@ -402,6 +411,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @return The value of the column 'ADJUSTED_STRING'. (NullAllowed even if selected: for no constraint)
      */
     public String getAdjustedString() {
+        checkSpecifiedProperty("adjustedString");
         return _adjustedString;
     }
 
@@ -410,7 +420,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
      * @param adjustedString The value of the column 'ADJUSTED_STRING'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedString(String adjustedString) {
-        __modifiedProperties.addPropertyName("adjustedString");
+        registerModifiedProperty("adjustedString");
         _adjustedString = adjustedString;
     }
 }

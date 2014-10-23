@@ -77,12 +77,68 @@ public class LoaderOfWhiteUqFk {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<WhiteUqFkRef> _referrerWhiteUqFkRefByFkToPkIdList;
+
+    /**
+     * Load referrer of whiteUqFkRefByFkToPkIdList by the set-upper of referrer. <br />
+     * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">fkLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">fkLoader</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToPkIdList</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">refCB</span>.setupSelect...
+     *         <span style="color: #553000">refCB</span>.query().set...
+     *         <span style="color: #553000">refCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    refLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteUqFk whiteUqFk : <span style="color: #553000">whiteUqFkList</span>) {
+     *     ... = whiteUqFk.<span style="color: #CC4747">getWhiteUqFkRefByFkToPkIdList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setFkToPkId_InScope(pkList);
+     * cb.query().addOrderBy_FkToPkId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRef> loadWhiteUqFkRefByFkToPkIdList(ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
         myBhv().loadWhiteUqFkRefByFkToPkIdList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteUqFkRefByFkToPkIdList = refLs);
         return hd -> hd.handle(new LoaderOfWhiteUqFkRef().ready(_referrerWhiteUqFkRefByFkToPkIdList, _selector));
     }
 
     protected List<WhiteUqFkRef> _referrerWhiteUqFkRefByFkToUqCodeList;
+
+    /**
+     * Load referrer of whiteUqFkRefByFkToUqCodeList by the set-upper of referrer. <br />
+     * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">fkLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">fkLoader</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToUqCodeList</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">refCB</span>.setupSelect...
+     *         <span style="color: #553000">refCB</span>.query().set...
+     *         <span style="color: #553000">refCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    refLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteUqFk whiteUqFk : <span style="color: #553000">whiteUqFkList</span>) {
+     *     ... = whiteUqFk.<span style="color: #CC4747">getWhiteUqFkRefByFkToUqCodeList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setFkToUqCode_InScope(pkList);
+     * cb.query().addOrderBy_FkToUqCode_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRef> loadWhiteUqFkRefByFkToUqCodeList(ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
         myBhv().loadWhiteUqFkRefByFkToUqCodeList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteUqFkRefByFkToUqCodeList = refLs);
         return hd -> hd.handle(new LoaderOfWhiteUqFkRef().ready(_referrerWhiteUqFkRefByFkToUqCodeList, _selector));

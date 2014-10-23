@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
      * {exists (select FK_TO_PK_ID from white_uq_fk_ref where ...)} <br />
      * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteUqFkRefByFkToPkIdList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteUqFkRefByFkToPkIdList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
      * {not exists (select FK_TO_PK_ID from white_uq_fk_ref where ...)} <br />
      * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteUqFkRefByFkToPkIdList</span>(new SubQuery&lt;WhiteUqFkRefCB&gt;() {
-     *     public void query(WhiteUqFkRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteUqFkRefByFkToPkIdList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of UqFkId_NotExistsReferrer_WhiteUqFkRefByFkToPkIdList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from white_uq_fk_ref where ...)} <br />
      * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteUqFkRefByFkToPkIdList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteUqFkRefByFkToPkIdList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -315,7 +313,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)} <br />
-     * <pre>e.g. setUqFkCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setUqFkCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param uqFkCode The value of uqFkCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -370,7 +368,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
      * {exists (select FK_TO_UQ_CODE from white_uq_fk_ref where ...)} <br />
      * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteUqFkRefByFkToUqCodeList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteUqFkRefByFkToUqCodeList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -390,10 +388,8 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
      * {not exists (select FK_TO_UQ_CODE from white_uq_fk_ref where ...)} <br />
      * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteUqFkRefByFkToUqCodeList</span>(new SubQuery&lt;WhiteUqFkRefCB&gt;() {
-     *     public void query(WhiteUqFkRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteUqFkRefByFkToUqCodeList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of UqFkCode_NotExistsReferrer_WhiteUqFkRefByFkToUqCodeList for 'not exists'. (NotNull)
@@ -421,11 +417,9 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from white_uq_fk_ref where ...)} <br />
      * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteUqFkRefByFkToUqCodeList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteUqFkRefCB&gt;() {
-     *     public void query(WhiteUqFkRefCB subCB) {
-     *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     *     }
+     * cb.query().<span style="color: #CC4747">derivedWhiteUqFkRefByFkToUqCodeList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)

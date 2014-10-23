@@ -80,7 +80,6 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
     /** MASTER_FOO_NAME: {NotNull, VARCHAR(200)} */
     protected String _masterFooName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -216,8 +215,8 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_masterFooId);
-        sb.append(dm).append(_masterFooName);
+        sb.append(dm).append(xfND(_masterFooId));
+        sb.append(dm).append(xfND(_masterFooName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -251,6 +250,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
      * @return The value of the column 'MASTER_FOO_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMasterFooId() {
+        checkSpecifiedProperty("masterFooId");
         return _masterFooId;
     }
 
@@ -259,7 +259,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
      * @param masterFooId The value of the column 'MASTER_FOO_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMasterFooId(Long masterFooId) {
-        __modifiedProperties.addPropertyName("masterFooId");
+        registerModifiedProperty("masterFooId");
         _masterFooId = masterFooId;
     }
 
@@ -268,6 +268,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
      * @return The value of the column 'MASTER_FOO_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMasterFooName() {
+        checkSpecifiedProperty("masterFooName");
         return _masterFooName;
     }
 
@@ -276,7 +277,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
      * @param masterFooName The value of the column 'MASTER_FOO_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMasterFooName(String masterFooName) {
-        __modifiedProperties.addPropertyName("masterFooName");
+        registerModifiedProperty("masterFooName");
         _masterFooName = masterFooName;
     }
 }

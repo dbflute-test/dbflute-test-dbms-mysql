@@ -82,15 +82,17 @@ public class WxStilettoAliasTest extends UnitContainerTestCase {
         for (WhiteStilettoAliasRef ref : refList) {
             WhiteStilettoAlias alias = ref.getWhiteStilettoAlias();
             log(ref, alias);
-            assertEquals(null, ref.getFoo0());
+            assertEquals(null, ref.xznocheckGetFoo0());
             assertEquals("1-" + number + ":foo1", ref.getFoo1());
-            assertEquals(null, ref.getFoo2());
-            assertEquals(null, ref.getFoo3());
-            assertEquals(null, ref.getFoo4());
-            assertEquals(null, ref.getBar0());
-            assertEquals(null, ref.getC21());
-            assertEquals(null, ref.getC22());
-            assertEquals(null, ref.getC23());
+            assertEquals(null, ref.xznocheckGetFoo2());
+            assertNonSpecifiedAccess(() -> ref.getFoo2());
+            assertEquals(null, ref.xznocheckGetFoo3());
+            assertEquals(null, ref.xznocheckGetFoo4());
+            assertEquals(null, ref.xznocheckGetBar0());
+            assertEquals(null, ref.xznocheckGetC21());
+            assertEquals(null, ref.xznocheckGetC22());
+            assertEquals(null, ref.xznocheckGetC23());
+            assertNonSpecifiedAccess(() -> ref.getC23());
             assertEquals("1:foo", alias.getFoo());
             assertEquals("1:foo0", alias.getFoo0());
             assertEquals("1:foo1", alias.getFoo1());
@@ -130,14 +132,17 @@ public class WxStilettoAliasTest extends UnitContainerTestCase {
             assertEquals("1-" + number + ":c21", ref.getC21());
             assertEquals("1-" + number + ":c22", ref.getC22());
             assertEquals("1-" + number + ":c23", ref.getC23());
-            assertEquals(null, alias.getFoo());
-            assertEquals(null, alias.getFoo0());
+            assertEquals(null, alias.xznocheckGetFoo());
+            assertEquals(null, alias.xznocheckGetFoo0());
             assertEquals("1:foo1", alias.getFoo1());
-            assertEquals(null, alias.getFoo2());
-            assertEquals(null, alias.getFoo3());
-            assertEquals(null, alias.getFoo4());
-            assertEquals(null, alias.getBar());
-            assertEquals(null, alias.getQux());
+            assertEquals(null, alias.xznocheckGetFoo2());
+            assertEquals(null, alias.xznocheckGetFoo3());
+            assertEquals(null, alias.xznocheckGetFoo4());
+            assertEquals(null, alias.xznocheckGetBar());
+            assertEquals(null, alias.xznocheckGetQux());
+            assertNonSpecifiedAccess(() -> alias.getFoo());
+            assertNonSpecifiedAccess(() -> alias.getBar());
+            assertNonSpecifiedAccess(() -> alias.getQux());
             ++number;
         }
     }

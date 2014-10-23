@@ -95,7 +95,6 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     /** CIPHER_DATETIME: {VARCHAR(100)} */
     protected java.sql.Timestamp _cipherDatetime;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -166,11 +165,11 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_cipherId);
-        sb.append(dm).append(_cipherInteger);
-        sb.append(dm).append(_cipherVarchar);
+        sb.append(dm).append(xfND(_cipherId));
+        sb.append(dm).append(xfND(_cipherInteger));
+        sb.append(dm).append(xfND(_cipherVarchar));
         sb.append(dm).append(xfUD(_cipherDate));
-        sb.append(dm).append(_cipherDatetime);
+        sb.append(dm).append(xfND(_cipherDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -196,6 +195,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @return The value of the column 'CIPHER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getCipherId() {
+        checkSpecifiedProperty("cipherId");
         return _cipherId;
     }
 
@@ -204,7 +204,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @param cipherId The value of the column 'CIPHER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setCipherId(Long cipherId) {
-        __modifiedProperties.addPropertyName("cipherId");
+        registerModifiedProperty("cipherId");
         _cipherId = cipherId;
     }
 
@@ -213,6 +213,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @return The value of the column 'CIPHER_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getCipherInteger() {
+        checkSpecifiedProperty("cipherInteger");
         return _cipherInteger;
     }
 
@@ -221,7 +222,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @param cipherInteger The value of the column 'CIPHER_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCipherInteger(Integer cipherInteger) {
-        __modifiedProperties.addPropertyName("cipherInteger");
+        registerModifiedProperty("cipherInteger");
         _cipherInteger = cipherInteger;
     }
 
@@ -230,6 +231,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @return The value of the column 'CIPHER_VARCHAR'. (NullAllowed even if selected: for no constraint)
      */
     public String getCipherVarchar() {
+        checkSpecifiedProperty("cipherVarchar");
         return _cipherVarchar;
     }
 
@@ -238,7 +240,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @param cipherVarchar The value of the column 'CIPHER_VARCHAR'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCipherVarchar(String cipherVarchar) {
-        __modifiedProperties.addPropertyName("cipherVarchar");
+        registerModifiedProperty("cipherVarchar");
         _cipherVarchar = cipherVarchar;
     }
 
@@ -247,6 +249,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @return The value of the column 'CIPHER_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getCipherDate() {
+        checkSpecifiedProperty("cipherDate");
         return _cipherDate;
     }
 
@@ -255,7 +258,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @param cipherDate The value of the column 'CIPHER_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCipherDate(java.util.Date cipherDate) {
-        __modifiedProperties.addPropertyName("cipherDate");
+        registerModifiedProperty("cipherDate");
         _cipherDate = cipherDate;
     }
 
@@ -264,6 +267,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @return The value of the column 'CIPHER_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getCipherDatetime() {
+        checkSpecifiedProperty("cipherDatetime");
         return _cipherDatetime;
     }
 
@@ -272,7 +276,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
      * @param cipherDatetime The value of the column 'CIPHER_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCipherDatetime(java.sql.Timestamp cipherDatetime) {
-        __modifiedProperties.addPropertyName("cipherDatetime");
+        registerModifiedProperty("cipherDatetime");
         _cipherDatetime = cipherDatetime;
     }
 }

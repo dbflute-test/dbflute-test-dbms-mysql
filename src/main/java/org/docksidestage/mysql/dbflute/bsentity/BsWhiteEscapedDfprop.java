@@ -81,7 +81,6 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     /** ESCAPED_DFPROP_NAME: {VARCHAR(20)} */
     protected String _escapedDfpropName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -251,8 +250,8 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_escapedDfpropCode);
-        sb.append(dm).append(_escapedDfpropName);
+        sb.append(dm).append(xfND(_escapedDfpropCode));
+        sb.append(dm).append(xfND(_escapedDfpropName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -278,6 +277,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
      * @return The value of the column 'ESCAPED_DFPROP_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getEscapedDfpropCode() {
+        checkSpecifiedProperty("escapedDfpropCode");
         return _escapedDfpropCode;
     }
 
@@ -287,7 +287,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
      */
     protected void setEscapedDfpropCode(String escapedDfpropCode) {
         checkClassificationCode("ESCAPED_DFPROP_CODE", CDef.DefMeta.EscapedDfpropCls, escapedDfpropCode);
-        __modifiedProperties.addPropertyName("escapedDfpropCode");
+        registerModifiedProperty("escapedDfpropCode");
         _escapedDfpropCode = escapedDfpropCode;
     }
 
@@ -296,6 +296,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
      * @return The value of the column 'ESCAPED_DFPROP_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getEscapedDfpropName() {
+        checkSpecifiedProperty("escapedDfpropName");
         return _escapedDfpropName;
     }
 
@@ -304,7 +305,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
      * @param escapedDfpropName The value of the column 'ESCAPED_DFPROP_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setEscapedDfpropName(String escapedDfpropName) {
-        __modifiedProperties.addPropertyName("escapedDfpropName");
+        registerModifiedProperty("escapedDfpropName");
         _escapedDfpropName = escapedDfpropName;
     }
 

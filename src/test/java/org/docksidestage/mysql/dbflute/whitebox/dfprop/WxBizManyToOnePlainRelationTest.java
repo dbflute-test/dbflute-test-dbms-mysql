@@ -39,7 +39,8 @@ public class WxBizManyToOnePlainRelationTest extends UnitContainerTestCase {
                 assertNotNull(withdrawal.getMemberId());
                 assertNotNull(memberId);
                 assertNotNull(withdrawalDatetime);
-                assertNull(withdrawal.getWithdrawalReasonCode());
+                assertNull(withdrawal.xznocheckGetMemberStatusCode());
+                assertNonSpecifiedAccess(() -> withdrawal.getWithdrawalReasonCode());
                 assertEquals(purchase.getMemberId(), memberId);
                 exists = true;
             }
@@ -70,7 +71,8 @@ public class WxBizManyToOnePlainRelationTest extends UnitContainerTestCase {
                 assertNotNull(withdrawal.getMemberId());
                 assertNotNull(memberId);
                 assertNotNull(withdrawalDatetime);
-                assertNull(withdrawal.getWithdrawalReasonCode());
+                assertNull(withdrawal.xznocheckGetMemberStatusCode());
+                assertNonSpecifiedAccess(() -> withdrawal.getWithdrawalReasonCode());
                 assertEquals(purchase.getMemberId(), memberId);
                 exists = true;
             }

@@ -81,7 +81,6 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     /** ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} */
     protected String _escapedJavaDocName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -242,8 +241,8 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_escapedJavaDocCode);
-        sb.append(dm).append(_escapedJavaDocName);
+        sb.append(dm).append(xfND(_escapedJavaDocCode));
+        sb.append(dm).append(xfND(_escapedJavaDocName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -269,6 +268,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
      * @return The value of the column 'ESCAPED_JAVA_DOC_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getEscapedJavaDocCode() {
+        checkSpecifiedProperty("escapedJavaDocCode");
         return _escapedJavaDocCode;
     }
 
@@ -278,7 +278,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
      */
     protected void setEscapedJavaDocCode(String escapedJavaDocCode) {
         checkClassificationCode("ESCAPED_JAVA_DOC_CODE", CDef.DefMeta.EscapedJavaDocCls, escapedJavaDocCode);
-        __modifiedProperties.addPropertyName("escapedJavaDocCode");
+        registerModifiedProperty("escapedJavaDocCode");
         _escapedJavaDocCode = escapedJavaDocCode;
     }
 
@@ -287,6 +287,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
      * @return The value of the column 'ESCAPED_JAVA_DOC_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getEscapedJavaDocName() {
+        checkSpecifiedProperty("escapedJavaDocName");
         return _escapedJavaDocName;
     }
 
@@ -295,7 +296,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
      * @param escapedJavaDocName The value of the column 'ESCAPED_JAVA_DOC_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setEscapedJavaDocName(String escapedJavaDocName) {
-        __modifiedProperties.addPropertyName("escapedJavaDocName");
+        registerModifiedProperty("escapedJavaDocName");
         _escapedJavaDocName = escapedJavaDocName;
     }
 

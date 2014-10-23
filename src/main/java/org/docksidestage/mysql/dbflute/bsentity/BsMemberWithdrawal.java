@@ -114,7 +114,6 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -334,14 +333,14 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_withdrawalReasonCode);
-        sb.append(dm).append(_withdrawalReasonInputText);
-        sb.append(dm).append(_withdrawalDatetime);
-        sb.append(dm).append(_registerDatetime);
-        sb.append(dm).append(_registerUser);
-        sb.append(dm).append(_updateDatetime);
-        sb.append(dm).append(_updateUser);
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_withdrawalReasonCode));
+        sb.append(dm).append(xfND(_withdrawalReasonInputText));
+        sb.append(dm).append(xfND(_withdrawalDatetime));
+        sb.append(dm).append(xfND(_registerDatetime));
+        sb.append(dm).append(xfND(_registerUser));
+        sb.append(dm).append(xfND(_updateDatetime));
+        sb.append(dm).append(xfND(_updateUser));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -373,6 +372,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -381,7 +381,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -392,6 +392,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @return The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonCode() {
+        checkSpecifiedProperty("withdrawalReasonCode");
         return _withdrawalReasonCode;
     }
 
@@ -403,7 +404,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      */
     protected void setWithdrawalReasonCode(String withdrawalReasonCode) {
         checkClassificationCode("WITHDRAWAL_REASON_CODE", CDef.DefMeta.WithdrawalReason, withdrawalReasonCode);
-        __modifiedProperties.addPropertyName("withdrawalReasonCode");
+        registerModifiedProperty("withdrawalReasonCode");
         _withdrawalReasonCode = withdrawalReasonCode;
     }
 
@@ -414,6 +415,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @return The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonInputText() {
+        checkSpecifiedProperty("withdrawalReasonInputText");
         return _withdrawalReasonInputText;
     }
 
@@ -424,7 +426,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @param withdrawalReasonInputText The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setWithdrawalReasonInputText(String withdrawalReasonInputText) {
-        __modifiedProperties.addPropertyName("withdrawalReasonInputText");
+        registerModifiedProperty("withdrawalReasonInputText");
         _withdrawalReasonInputText = withdrawalReasonInputText;
     }
 
@@ -435,6 +437,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @return The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getWithdrawalDatetime() {
+        checkSpecifiedProperty("withdrawalDatetime");
         return _withdrawalDatetime;
     }
 
@@ -445,7 +448,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @param withdrawalDatetime The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setWithdrawalDatetime(java.sql.Timestamp withdrawalDatetime) {
-        __modifiedProperties.addPropertyName("withdrawalDatetime");
+        registerModifiedProperty("withdrawalDatetime");
         _withdrawalDatetime = withdrawalDatetime;
     }
 
@@ -454,6 +457,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
+        checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
 
@@ -462,7 +466,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
-        __modifiedProperties.addPropertyName("registerDatetime");
+        registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
 
@@ -471,6 +475,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
+        checkSpecifiedProperty("registerUser");
         return _registerUser;
     }
 
@@ -479,7 +484,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
-        __modifiedProperties.addPropertyName("registerUser");
+        registerModifiedProperty("registerUser");
         _registerUser = registerUser;
     }
 
@@ -488,6 +493,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
+        checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
 
@@ -496,7 +502,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
-        __modifiedProperties.addPropertyName("updateDatetime");
+        registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }
 
@@ -505,6 +511,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
+        checkSpecifiedProperty("updateUser");
         return _updateUser;
     }
 
@@ -513,7 +520,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
      * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
-        __modifiedProperties.addPropertyName("updateUser");
+        registerModifiedProperty("updateUser");
         _updateUser = updateUser;
     }
 

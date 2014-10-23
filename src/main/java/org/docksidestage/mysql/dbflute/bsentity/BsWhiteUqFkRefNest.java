@@ -85,7 +85,6 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
     /** COMPOUND_UQ_SECOND_CODE: {NotNull, CHAR(3), FK to white_uq_fk_ref} */
     protected String _compoundUqSecondCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -178,9 +177,9 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_uqFkRefNestId);
-        sb.append(dm).append(_compoundUqFirstCode);
-        sb.append(dm).append(_compoundUqSecondCode);
+        sb.append(dm).append(xfND(_uqFkRefNestId));
+        sb.append(dm).append(xfND(_compoundUqFirstCode));
+        sb.append(dm).append(xfND(_compoundUqSecondCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -211,6 +210,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
      * @return The value of the column 'UQ_FK_REF_NEST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getUqFkRefNestId() {
+        checkSpecifiedProperty("uqFkRefNestId");
         return _uqFkRefNestId;
     }
 
@@ -219,7 +219,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
      * @param uqFkRefNestId The value of the column 'UQ_FK_REF_NEST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkRefNestId(Long uqFkRefNestId) {
-        __modifiedProperties.addPropertyName("uqFkRefNestId");
+        registerModifiedProperty("uqFkRefNestId");
         _uqFkRefNestId = uqFkRefNestId;
     }
 
@@ -228,6 +228,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
      * @return The value of the column 'COMPOUND_UQ_FIRST_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getCompoundUqFirstCode() {
+        checkSpecifiedProperty("compoundUqFirstCode");
         return _compoundUqFirstCode;
     }
 
@@ -236,7 +237,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
      * @param compoundUqFirstCode The value of the column 'COMPOUND_UQ_FIRST_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setCompoundUqFirstCode(String compoundUqFirstCode) {
-        __modifiedProperties.addPropertyName("compoundUqFirstCode");
+        registerModifiedProperty("compoundUqFirstCode");
         _compoundUqFirstCode = compoundUqFirstCode;
     }
 
@@ -245,6 +246,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
      * @return The value of the column 'COMPOUND_UQ_SECOND_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getCompoundUqSecondCode() {
+        checkSpecifiedProperty("compoundUqSecondCode");
         return _compoundUqSecondCode;
     }
 
@@ -253,7 +255,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
      * @param compoundUqSecondCode The value of the column 'COMPOUND_UQ_SECOND_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setCompoundUqSecondCode(String compoundUqSecondCode) {
-        __modifiedProperties.addPropertyName("compoundUqSecondCode");
+        registerModifiedProperty("compoundUqSecondCode");
         _compoundUqSecondCode = compoundUqSecondCode;
     }
 }

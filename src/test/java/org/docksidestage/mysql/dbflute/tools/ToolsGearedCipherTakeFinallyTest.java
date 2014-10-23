@@ -127,7 +127,7 @@ public class ToolsGearedCipherTakeFinallyTest extends UnitContainerTestCase {
     protected String deriveTakeFinallyPath() throws IOException {
         File buildDir = DfResourceUtil.getBuildDir(getClass());
         String buildPath = buildDir.getCanonicalPath();
-        File takeFinallyFIle = new File(buildPath + "/../../dbflute_exampledb/playsql/take-finally-70-cipher.sql");
+        File takeFinallyFIle = new File(buildPath + "/../../dbflute_maihamadb/playsql/take-finally-70-cipher.sql");
         return takeFinallyFIle.getCanonicalPath();
     }
 
@@ -146,7 +146,7 @@ public class ToolsGearedCipherTakeFinallyTest extends UnitContainerTestCase {
     protected String deriveRefreshDfpropPath() throws IOException {
         File buildDir = DfResourceUtil.getBuildDir(getClass());
         String buildPath = buildDir.getCanonicalPath();
-        File takeFinallyFIle = new File(buildPath + "/../../dbflute_exampledb/dfprop/refreshDefinitionMap.dfprop");
+        File takeFinallyFIle = new File(buildPath + "/../../dbflute_maihamadb/dfprop/refreshDefinitionMap.dfprop");
         return takeFinallyFIle.getCanonicalPath();
     }
 }

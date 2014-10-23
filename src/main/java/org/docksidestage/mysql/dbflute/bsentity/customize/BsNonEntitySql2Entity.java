@@ -79,7 +79,6 @@ public abstract class BsNonEntitySql2Entity extends AbstractEntity {
     /** (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} */
     protected String _memberName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -151,8 +150,8 @@ public abstract class BsNonEntitySql2Entity extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_memberName);
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_memberName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -180,6 +179,7 @@ public abstract class BsNonEntitySql2Entity extends AbstractEntity {
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -190,7 +190,7 @@ public abstract class BsNonEntitySql2Entity extends AbstractEntity {
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -200,6 +200,7 @@ public abstract class BsNonEntitySql2Entity extends AbstractEntity {
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
+        checkSpecifiedProperty("memberName");
         return _memberName;
     }
 
@@ -209,7 +210,7 @@ public abstract class BsNonEntitySql2Entity extends AbstractEntity {
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
-        __modifiedProperties.addPropertyName("memberName");
+        registerModifiedProperty("memberName");
         _memberName = memberName;
     }
 }

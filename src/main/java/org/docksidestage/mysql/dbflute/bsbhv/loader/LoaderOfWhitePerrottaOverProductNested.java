@@ -77,6 +77,34 @@ public class LoaderOfWhitePerrottaOverProductNested {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<WhitePerrottaOverProduct> _referrerWhitePerrottaOverProductList;
+
+    /**
+     * Load referrer of whitePerrottaOverProductList by the set-upper of referrer. <br />
+     * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
+     * <pre>
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whitePerrottaOverProductNestedList</span>, <span style="color: #553000">nestedLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">nestedLoader</span>.<span style="color: #CC4747">loadWhitePerrottaOverProductList</span>(<span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">productCB</span>.setupSelect...
+     *         <span style="color: #553000">productCB</span>.query().set...
+     *         <span style="color: #553000">productCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">productLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    productLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhitePerrottaOverProductNested whitePerrottaOverProductNested : <span style="color: #553000">whitePerrottaOverProductNestedList</span>) {
+     *     ... = whitePerrottaOverProductNested.<span style="color: #CC4747">getWhitePerrottaOverProductList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setProductNestedCode_InScope(pkList);
+     * cb.query().addOrderBy_ProductNestedCode_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverProduct> loadWhitePerrottaOverProductList(ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
         myBhv().loadWhitePerrottaOverProductList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePerrottaOverProductList = refLs);
         return hd -> hd.handle(new LoaderOfWhitePerrottaOverProduct().ready(_referrerWhitePerrottaOverProductList, _selector));

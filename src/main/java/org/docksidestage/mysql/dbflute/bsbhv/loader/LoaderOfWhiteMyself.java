@@ -77,6 +77,34 @@ public class LoaderOfWhiteMyself {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<WhiteMyselfCheck> _referrerWhiteMyselfCheckList;
+
+    /**
+     * Load referrer of whiteMyselfCheckList by the set-upper of referrer. <br />
+     * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteMyselfBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteMyselfList</span>, <span style="color: #553000">myselfLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">myselfLoader</span>.<span style="color: #CC4747">loadWhiteMyselfCheckList</span>(<span style="color: #553000">checkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">checkCB</span>.setupSelect...
+     *         <span style="color: #553000">checkCB</span>.query().set...
+     *         <span style="color: #553000">checkCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">checkLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    checkLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteMyself whiteMyself : <span style="color: #553000">whiteMyselfList</span>) {
+     *     ... = whiteMyself.<span style="color: #CC4747">getWhiteMyselfCheckList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMyselfId_InScope(pkList);
+     * cb.query().addOrderBy_MyselfId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhiteMyselfCheck> loadWhiteMyselfCheckList(ConditionBeanSetupper<WhiteMyselfCheckCB> refCBLambda) {
         myBhv().loadWhiteMyselfCheckList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteMyselfCheckList = refLs);
         return hd -> hd.handle(new LoaderOfWhiteMyselfCheck().ready(_referrerWhiteMyselfCheckList, _selector));

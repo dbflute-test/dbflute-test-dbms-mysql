@@ -80,7 +80,6 @@ public abstract class BsWhiteMyself extends AbstractEntity {
     /** MYSELF_NAME: {NotNull, VARCHAR(80)} */
     protected String _myselfName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -174,8 +173,8 @@ public abstract class BsWhiteMyself extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_myselfId);
-        sb.append(dm).append(_myselfName);
+        sb.append(dm).append(xfND(_myselfId));
+        sb.append(dm).append(xfND(_myselfName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -207,6 +206,7 @@ public abstract class BsWhiteMyself extends AbstractEntity {
      * @return The value of the column 'MYSELF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMyselfId() {
+        checkSpecifiedProperty("myselfId");
         return _myselfId;
     }
 
@@ -215,7 +215,7 @@ public abstract class BsWhiteMyself extends AbstractEntity {
      * @param myselfId The value of the column 'MYSELF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMyselfId(Integer myselfId) {
-        __modifiedProperties.addPropertyName("myselfId");
+        registerModifiedProperty("myselfId");
         _myselfId = myselfId;
     }
 
@@ -224,6 +224,7 @@ public abstract class BsWhiteMyself extends AbstractEntity {
      * @return The value of the column 'MYSELF_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMyselfName() {
+        checkSpecifiedProperty("myselfName");
         return _myselfName;
     }
 
@@ -232,7 +233,7 @@ public abstract class BsWhiteMyself extends AbstractEntity {
      * @param myselfName The value of the column 'MYSELF_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMyselfName(String myselfName) {
-        __modifiedProperties.addPropertyName("myselfName");
+        registerModifiedProperty("myselfName");
         _myselfName = myselfName;
     }
 }

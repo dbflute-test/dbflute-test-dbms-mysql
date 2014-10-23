@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * {exists (select STILETTO_ALIAS_ID from white_stiletto_alias_ref where ...)} <br />
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteStilettoAliasRefList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteStilettoAliasRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * {not exists (select STILETTO_ALIAS_ID from white_stiletto_alias_ref where ...)} <br />
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteStilettoAliasRefList</span>(new SubQuery&lt;WhiteStilettoAliasRefCB&gt;() {
-     *     public void query(WhiteStilettoAliasRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteStilettoAliasRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of StilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * {FOO &lt;= (select max(BAR) from white_stiletto_alias_ref where ...)} <br />
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteStilettoAliasRefList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteStilettoAliasRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -315,7 +313,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setFoo_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo The value of foo as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -441,7 +439,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO_0: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo0_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setFoo0_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo0 The value of foo0 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -567,7 +565,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO_1: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo1_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setFoo1_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo1 The value of foo1 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -693,7 +691,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO2: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo2_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setFoo2_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo2 The value of foo2 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -819,7 +817,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO_3: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo3_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setFoo3_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo3 The value of foo3 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -945,7 +943,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * FOO4: {VARCHAR(200)} <br />
-     * <pre>e.g. setFoo4_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setFoo4_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param foo4 The value of foo4 as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -1071,7 +1069,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * BAR: {VARCHAR(200)} <br />
-     * <pre>e.g. setBar_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setBar_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param bar The value of bar as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -1197,7 +1195,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * QUX: {VARCHAR(200)} <br />
-     * <pre>e.g. setQux_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setQux_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param qux The value of qux as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

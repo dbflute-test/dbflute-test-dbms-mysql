@@ -93,9 +93,9 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
      * cb.query().setFoo...(value);
-     * int count = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteGroupingReference whiteGroupingReference = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteGroupingReference -&gt; {
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteGroupingReference</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteGroupingReference.get...
+     *     ... = <span style="color: #553000">whiteGroupingReference</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteGroupingReference whiteGroupingReference = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteGroupingReference -&gt; {
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteGroupingReference</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteGroupingReference.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteGroupingReference</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteGroupingReference> selectEntity(CBCall<WhiteGroupingReferenceCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteGroupingReferenceBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteGroupingReference -&gt; {
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteGroupingReference <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteGroupingReference.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteGroupingReference -&gt; {
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteGroupingReference <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteGroupingReference.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteGroupingReference> selectEntity(WhiteGroupingReferenceCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
-     * cb.query().setFoo...(value);
-     * WhiteGroupingReference whiteGroupingReference = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteGroupingReference.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteGroupingReference <span style="color: #553000">whiteGroupingReference</span> = <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteGroupingReference</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteGroupingReference selectEntityWithDeletedCheck(CBCall<WhiteGroupingReferenceCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
-     * cb.query().setFoo...(value);
-     * WhiteGroupingReference whiteGroupingReference = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteGroupingReference whiteGroupingReference = <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteGroupingReference.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteGroupingReference selectEntityWithDeletedCheck(WhiteGroupingReferenceCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * Select the entity by the primary-key value.
      * @param groupingReferenceId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteGroupingReference> selectByPK(Long groupingReferenceId) {
         return facadeSelectByPK(groupingReferenceId);
@@ -272,17 +270,17 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteGroupingReference&gt; whiteGroupingReferenceList = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteGroupingReference&gt; <span style="color: #553000">whiteGroupingReferenceList</span> = <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteGroupingReferenceList.forEach(whiteGroupingReference -&gt; {
-     *     ... = whiteGroupingReference.get...();
+     * for (WhiteGroupingReference <span style="color: #553000">whiteGroupingReference</span> : <span style="color: #553000">whiteGroupingReferenceList</span>) {
+     *     ... = <span style="color: #553000">whiteGroupingReference</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteGroupingReference> selectList(CBCall<WhiteGroupingReferenceCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * Select the list as result bean.
      * <pre>
      * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteGroupingReference&gt; whiteGroupingReferenceList = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteGroupingReference whiteGroupingReference : whiteGroupingReferenceList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteGroupingReference&gt; <span style="color: #553000">whiteGroupingReferenceList</span> = <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteGroupingReference whiteGroupingReference : <span style="color: #553000">whiteGroupingReferenceList</span>) {
      *     ... = whiteGroupingReference.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteGroupingReference> selectList(WhiteGroupingReferenceCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteGroupingReference&gt; page = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteGroupingReference&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteGroupingReference whiteGroupingReference : page) {
+     * for (WhiteGroupingReference whiteGroupingReference : <span style="color: #553000">page</span>) {
      *     ... = whiteGroupingReference.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteGroupingReference> selectPage(CBCall<WhiteGroupingReferenceCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteGroupingReference&gt; page = whiteGroupingReferenceBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteGroupingReference&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteGroupingReference whiteGroupingReference : page) {
+     * for (WhiteGroupingReference whiteGroupingReference : <span style="color: #553000">page</span>) {
      *     ... = whiteGroupingReference.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteGroupingReference> selectPage(WhiteGroupingReferenceCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
-     * cb.query().setFoo...(value);
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteGroupingReference&gt;() {
-     *     public void handle(WhiteGroupingReference entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
-     * cb.query().setFoo...(value);
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteGroupingReference&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteGroupingReference&gt;() {
      *     public void handle(WhiteGroupingReference entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteGroupingReferenceCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -537,12 +529,12 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteGroupingReference.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteGroupingReference.set...;</span>
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">insert</span>(whiteGroupingReference);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">insert</span>(whiteGroupingReference);
      * ... = whiteGroupingReference.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteGroupingReference The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteGroupingReference whiteGroupingReference) {
         doInsert(whiteGroupingReference, null);
@@ -560,15 +552,15 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteGroupingReference.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteGroupingReferenceBhv.<span style="color: #CC4747">update</span>(whiteGroupingReference);
+     *     <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">update</span>(whiteGroupingReference);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteGroupingReference The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteGroupingReference whiteGroupingReference) {
         doUpdate(whiteGroupingReference, null);
@@ -579,9 +571,9 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteGroupingReference The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteGroupingReference whiteGroupingReference) {
         doInsertOrUpdate(whiteGroupingReference, null, null);
@@ -595,14 +587,14 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteGroupingReference.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteGroupingReferenceBhv.<span style="color: #CC4747">delete</span>(whiteGroupingReference);
+     *     <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">delete</span>(whiteGroupingReference);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteGroupingReference The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteGroupingReference whiteGroupingReference) {
         doDelete(whiteGroupingReference, null);
@@ -627,7 +619,7 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteGroupingReferenceList.add(whiteGroupingReference);
      * }
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">batchInsert</span>(whiteGroupingReferenceList);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteGroupingReferenceList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -657,11 +649,11 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteGroupingReferenceList.add(whiteGroupingReference);
      * }
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">batchUpdate</span>(whiteGroupingReferenceList);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteGroupingReferenceList);
      * </pre>
      * @param whiteGroupingReferenceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteGroupingReference> whiteGroupingReferenceList) {
         return doBatchUpdate(whiteGroupingReferenceList, null);
@@ -672,7 +664,7 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteGroupingReferenceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteGroupingReference> whiteGroupingReferenceList) {
         return doBatchDelete(whiteGroupingReferenceList, null);
@@ -684,7 +676,7 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteGroupingReference, WhiteGroupingReferenceCB&gt;() {
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteGroupingReference, WhiteGroupingReferenceCB&gt;() {
      *     public ConditionBean setup(WhiteGroupingReference entity, WhiteGroupingReferenceCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -726,12 +718,12 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteGroupingReference.setVersionNo(value);</span>
      * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
      * cb.query().setFoo...(value);
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">queryUpdate</span>(whiteGroupingReference, cb);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteGroupingReference, cb);
      * </pre>
      * @param whiteGroupingReference The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteGroupingReference whiteGroupingReference, CBCall<WhiteGroupingReferenceCB> cbLambda) {
         return doQueryUpdate(whiteGroupingReference, createCB(cbLambda), null);
@@ -752,12 +744,12 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteGroupingReference.setVersionNo(value);</span>
      * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
      * cb.query().setFoo...(value);
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">queryUpdate</span>(whiteGroupingReference, cb);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteGroupingReference, cb);
      * </pre>
      * @param whiteGroupingReference The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteGroupingReference whiteGroupingReference, WhiteGroupingReferenceCB cb) {
         return doQueryUpdate(whiteGroupingReference, cb, null);
@@ -768,11 +760,11 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
      * cb.query().setFoo...(value);
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">queryDelete</span>(whiteGroupingReference, cb);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteGroupingReference, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteGroupingReferenceCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -783,11 +775,11 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB();
      * cb.query().setFoo...(value);
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">queryDelete</span>(whiteGroupingReference, cb);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteGroupingReference, cb);
      * </pre>
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteGroupingReferenceCB cb) {
         return doQueryDelete(cb, null);
@@ -811,12 +803,12 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * InsertOption<WhiteGroupingReferenceCB> option = new InsertOption<WhiteGroupingReferenceCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">varyingInsert</span>(whiteGroupingReference, option);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteGroupingReference, option);
      * ... = whiteGroupingReference.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteGroupingReference The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteGroupingReference whiteGroupingReference, WritableOptionCall<WhiteGroupingReferenceCB, InsertOption<WhiteGroupingReferenceCB>> opLambda) {
         doInsert(whiteGroupingReference, createInsertOption(opLambda));
@@ -840,16 +832,16 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteGroupingReferenceBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteGroupingReference, option);
+     *     <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteGroupingReference, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteGroupingReference The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteGroupingReference whiteGroupingReference, WritableOptionCall<WhiteGroupingReferenceCB, UpdateOption<WhiteGroupingReferenceCB>> opLambda) {
         doUpdate(whiteGroupingReference, createUpdateOption(opLambda));
@@ -861,9 +853,9 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * @param whiteGroupingReference The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteGroupingReference whiteGroupingReference, WritableOptionCall<WhiteGroupingReferenceCB, InsertOption<WhiteGroupingReferenceCB>> insertOpLambda, WritableOptionCall<WhiteGroupingReferenceCB, UpdateOption<WhiteGroupingReferenceCB>> updateOpLambda) {
         doInsertOrUpdate(whiteGroupingReference, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -875,8 +867,8 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * Other specifications are same as delete(entity).
      * @param whiteGroupingReference The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteGroupingReference whiteGroupingReference, WritableOptionCall<WhiteGroupingReferenceCB, DeleteOption<WhiteGroupingReferenceCB>> opLambda) {
         doDelete(whiteGroupingReference, createDeleteOption(opLambda));
@@ -960,13 +952,13 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteGroupingReference, cb, option);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteGroupingReference, cb, option);
      * </pre>
      * @param whiteGroupingReference The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteGroupingReference whiteGroupingReference, CBCall<WhiteGroupingReferenceCB> cbLambda, WritableOptionCall<WhiteGroupingReferenceCB, UpdateOption<WhiteGroupingReferenceCB>> opLambda) {
         return doQueryUpdate(whiteGroupingReference, createCB(cbLambda), createUpdateOption(opLambda));
@@ -994,13 +986,13 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteGroupingReferenceBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteGroupingReference, cb, option);
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteGroupingReference, cb, option);
      * </pre>
      * @param whiteGroupingReference The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteGroupingReference whiteGroupingReference, WhiteGroupingReferenceCB cb, WritableOptionCall<WhiteGroupingReferenceCB, UpdateOption<WhiteGroupingReferenceCB>> opLambda) {
         return doQueryUpdate(whiteGroupingReference, cb, createUpdateOption(opLambda));
@@ -1013,7 +1005,7 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * @param cbLambda The callback for condition-bean of WhiteGroupingReference. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteGroupingReferenceCB> cbLambda, WritableOptionCall<WhiteGroupingReferenceCB, DeleteOption<WhiteGroupingReferenceCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1026,7 +1018,7 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
      * @param cb The condition-bean of WhiteGroupingReference. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteGroupingReferenceCB cb, WritableOptionCall<WhiteGroupingReferenceCB, DeleteOption<WhiteGroupingReferenceCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {exists (select REFERRER_ID from white_variant_relation_referrer_ref where ...)} <br />
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerRefList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {not exists (select REFERRER_ID from white_variant_relation_referrer_ref where ...)} <br />
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerRefList</span>(new SubQuery&lt;WhiteVariantRelationReferrerRefCB&gt;() {
-     *     public void query(WhiteVariantRelationReferrerRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ReferrerId_NotExistsReferrer_WhiteVariantRelationReferrerRefList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer_ref where ...)} <br />
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerRefList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>

@@ -116,7 +116,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br />
-     * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -171,7 +171,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * {exists (select CLS_CATEGORY_CODE from white_all_in_one_cls_element where ...)} <br />
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteAllInOneClsElementList</span>(elementCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteAllInOneClsElementList</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     elementCB.query().set...
      * });
      * </pre>
@@ -191,10 +191,8 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * {not exists (select CLS_CATEGORY_CODE from white_all_in_one_cls_element where ...)} <br />
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteAllInOneClsElementList</span>(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
-     *     public void query(WhiteAllInOneClsElementCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteAllInOneClsElementList</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     elementCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList for 'not exists'. (NotNull)
@@ -222,11 +220,9 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_all_in_one_cls_element where ...)} <br />
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteAllInOneClsElementList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
-     *     public void query(WhiteAllInOneClsElementCB subCB) {
-     *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     *     }
+     * cb.query().<span style="color: #CC4747">derivedWhiteAllInOneClsElementList()</span>.<span style="color: #CC4747">max</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     elementCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     elementCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
@@ -321,7 +317,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)} <br />
-     * <pre>e.g. setClsCategoryName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setClsCategoryName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param clsCategoryName The value of clsCategoryName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -429,7 +425,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * DESCRIPTION: {NotNull, VARCHAR(50)} <br />
-     * <pre>e.g. setDescription_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setDescription_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param description The value of description as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

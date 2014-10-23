@@ -1,6 +1,5 @@
 package org.docksidestage.mysql.friends.seasar.tricky;
 
-import org.docksidestage.mysql.friends.seasar.tricky.TrickyAction;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
 
 /**

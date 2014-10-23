@@ -80,7 +80,6 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
     /** SECOND_CODE: {NotNull, CHAR(3)} */
     protected String _secondCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -174,8 +173,8 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_nextId);
-        sb.append(dm).append(_secondCode);
+        sb.append(dm).append(xfND(_nextId));
+        sb.append(dm).append(xfND(_secondCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -207,6 +206,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
      * @return The value of the column 'NEXT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getNextId() {
+        checkSpecifiedProperty("nextId");
         return _nextId;
     }
 
@@ -215,7 +215,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
      * @param nextId The value of the column 'NEXT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setNextId(Long nextId) {
-        __modifiedProperties.addPropertyName("nextId");
+        registerModifiedProperty("nextId");
         _nextId = nextId;
     }
 
@@ -224,6 +224,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
      * @return The value of the column 'SECOND_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getSecondCode() {
+        checkSpecifiedProperty("secondCode");
         return _secondCode;
     }
 
@@ -232,7 +233,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
      * @param secondCode The value of the column 'SECOND_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setSecondCode(String secondCode) {
-        __modifiedProperties.addPropertyName("secondCode");
+        registerModifiedProperty("secondCode");
         _secondCode = secondCode;
     }
 }

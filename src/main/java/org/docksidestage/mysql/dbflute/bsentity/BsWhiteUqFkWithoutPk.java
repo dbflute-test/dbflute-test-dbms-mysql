@@ -80,7 +80,6 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
     /** UQ_FK_NAME: {NotNull, VARCHAR(64)} */
     protected String _uqFkName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -186,8 +185,8 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_uqFkCode);
-        sb.append(dm).append(_uqFkName);
+        sb.append(dm).append(xfND(_uqFkCode));
+        sb.append(dm).append(xfND(_uqFkName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -219,6 +218,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
      * @return The value of the column 'UQ_FK_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getUqFkCode() {
+        checkSpecifiedProperty("uqFkCode");
         return _uqFkCode;
     }
 
@@ -227,7 +227,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
      * @param uqFkCode The value of the column 'UQ_FK_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkCode(String uqFkCode) {
-        __modifiedProperties.addPropertyName("uqFkCode");
+        registerModifiedProperty("uqFkCode");
         _uqFkCode = uqFkCode;
     }
 
@@ -236,6 +236,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
      * @return The value of the column 'UQ_FK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getUqFkName() {
+        checkSpecifiedProperty("uqFkName");
         return _uqFkName;
     }
 
@@ -244,7 +245,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
      * @param uqFkName The value of the column 'UQ_FK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkName(String uqFkName) {
-        __modifiedProperties.addPropertyName("uqFkName");
+        registerModifiedProperty("uqFkName");
         _uqFkName = uqFkName;
     }
 }

@@ -90,7 +90,6 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     /** REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY} */
     protected Integer _referredId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -319,10 +318,10 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_pkFirstId);
-        sb.append(dm).append(_pkSecondId);
-        sb.append(dm).append(_pkName);
-        sb.append(dm).append(_referredId);
+        sb.append(dm).append(xfND(_pkFirstId));
+        sb.append(dm).append(xfND(_pkSecondId));
+        sb.append(dm).append(xfND(_pkName));
+        sb.append(dm).append(xfND(_referredId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -360,6 +359,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
      * @return The value of the column 'PK_FIRST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPkFirstId() {
+        checkSpecifiedProperty("pkFirstId");
         return _pkFirstId;
     }
 
@@ -368,7 +368,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
      * @param pkFirstId The value of the column 'PK_FIRST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPkFirstId(Integer pkFirstId) {
-        __modifiedProperties.addPropertyName("pkFirstId");
+        registerModifiedProperty("pkFirstId");
         _pkFirstId = pkFirstId;
     }
 
@@ -377,6 +377,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
      * @return The value of the column 'PK_SECOND_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPkSecondId() {
+        checkSpecifiedProperty("pkSecondId");
         return _pkSecondId;
     }
 
@@ -385,7 +386,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
      * @param pkSecondId The value of the column 'PK_SECOND_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPkSecondId(Integer pkSecondId) {
-        __modifiedProperties.addPropertyName("pkSecondId");
+        registerModifiedProperty("pkSecondId");
         _pkSecondId = pkSecondId;
     }
 
@@ -394,6 +395,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
      * @return The value of the column 'PK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getPkName() {
+        checkSpecifiedProperty("pkName");
         return _pkName;
     }
 
@@ -402,7 +404,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
      * @param pkName The value of the column 'PK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setPkName(String pkName) {
-        __modifiedProperties.addPropertyName("pkName");
+        registerModifiedProperty("pkName");
         _pkName = pkName;
     }
 
@@ -411,6 +413,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
      * @return The value of the column 'REFERRED_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getReferredId() {
+        checkSpecifiedProperty("referredId");
         return _referredId;
     }
 
@@ -419,7 +422,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
      * @param referredId The value of the column 'REFERRED_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReferredId(Integer referredId) {
-        __modifiedProperties.addPropertyName("referredId");
+        registerModifiedProperty("referredId");
         _referredId = referredId;
     }
 }

@@ -3,6 +3,7 @@
  */
 package org.docksidestage.mysql.dbflute.exentity;
 
+import org.dbflute.jdbc.ClassificationMeta;
 import org.docksidestage.mysql.dbflute.bsentity.BsMemberStatus;
 
 /**
@@ -37,5 +38,22 @@ public class MemberStatus extends BsMemberStatus {
 
     public void setMaxPurchasePrice(Integer maxPurchasePrice) {
         this._maxPurchasePrice = maxPurchasePrice;
+    }
+
+    // ===================================================================================
+    //                                                            for test: Classification
+    //                                                            ========================
+    protected boolean _nocheckClassification;
+
+    public MemberStatus xznocheckClassification() {
+        _nocheckClassification = true;
+        return this;
+    }
+
+    @Override
+    protected void checkClassificationCode(String columnDbName, ClassificationMeta meta, Object value) {
+        if (!_nocheckClassification) {
+            super.checkClassificationCode(columnDbName, meta, value);
+        }
     }
 }

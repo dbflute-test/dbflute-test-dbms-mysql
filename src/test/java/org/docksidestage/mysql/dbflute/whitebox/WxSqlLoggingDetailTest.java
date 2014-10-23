@@ -1,7 +1,6 @@
 package org.docksidestage.mysql.dbflute.whitebox;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +15,6 @@ import org.dbflute.hook.SqlResultInfo;
 import org.dbflute.system.QLog;
 import org.dbflute.util.DfReflectionUtil;
 import org.dbflute.util.Srl;
-import org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberStatusDbm;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.mysql.dbflute.exbhv.MemberStatusBhv;
@@ -249,13 +247,12 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
     public void test_batchInsert_sqlResultHandlerOnly_lazyBuild() {
         // ## Arrange ##
         List<MemberStatus> statusList = new ArrayList<MemberStatus>();
-        Method writeMethod = MemberStatusDbm.getInstance().columnMemberStatusCode().getWriteMethod();
         for (int i = 0; i < 255; i++) {
-            MemberStatus status = new MemberStatus();
+            MemberStatus status = new MemberStatus().xznocheckClassification();
             String indexStr = String.valueOf(i);
             int len = indexStr.length();
             String code = (len == 1 ? "00" + indexStr : (len == 2 ? "0" + indexStr : indexStr));
-            DfReflectionUtil.invokeForcedly(writeMethod, status, new Object[] { code });
+            status.mynativeMappingMemberStatusCode(code);
             status.setMemberStatusName(code + " Name");
             status.setDisplayOrder(i + 1000);
             status.setDescription(code + " Desc");
@@ -332,6 +329,7 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
     }
 
     protected void prepareQLogRevival() {
+        QLog.unlock();
         QLog.setLoggingInHolidayMood(false);
         QLog.lock();
     }

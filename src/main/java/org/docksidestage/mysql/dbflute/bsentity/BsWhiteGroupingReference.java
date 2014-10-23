@@ -81,7 +81,6 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     /** GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} */
     protected String _groupingReferenceCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -300,8 +299,8 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_groupingReferenceId);
-        sb.append(dm).append(_groupingReferenceCode);
+        sb.append(dm).append(xfND(_groupingReferenceId));
+        sb.append(dm).append(xfND(_groupingReferenceCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -327,6 +326,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
      * @return The value of the column 'GROUPING_REFERENCE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getGroupingReferenceId() {
+        checkSpecifiedProperty("groupingReferenceId");
         return _groupingReferenceId;
     }
 
@@ -335,7 +335,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
      * @param groupingReferenceId The value of the column 'GROUPING_REFERENCE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setGroupingReferenceId(Long groupingReferenceId) {
-        __modifiedProperties.addPropertyName("groupingReferenceId");
+        registerModifiedProperty("groupingReferenceId");
         _groupingReferenceId = groupingReferenceId;
     }
 
@@ -344,6 +344,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
      * @return The value of the column 'GROUPING_REFERENCE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getGroupingReferenceCode() {
+        checkSpecifiedProperty("groupingReferenceCode");
         return _groupingReferenceCode;
     }
 
@@ -353,7 +354,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
      */
     protected void setGroupingReferenceCode(String groupingReferenceCode) {
         checkClassificationCode("GROUPING_REFERENCE_CODE", CDef.DefMeta.GroupingReference, groupingReferenceCode);
-        __modifiedProperties.addPropertyName("groupingReferenceCode");
+        registerModifiedProperty("groupingReferenceCode");
         _groupingReferenceCode = groupingReferenceCode;
     }
 

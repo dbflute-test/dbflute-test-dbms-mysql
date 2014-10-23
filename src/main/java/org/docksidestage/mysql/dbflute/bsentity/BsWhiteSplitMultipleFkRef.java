@@ -85,7 +85,6 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
     /** REF_NAME: {NotNull, VARCHAR(200)} */
     protected String _refName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -159,9 +158,9 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_firstId);
-        sb.append(dm).append(_secondCode);
-        sb.append(dm).append(_refName);
+        sb.append(dm).append(xfND(_firstId));
+        sb.append(dm).append(xfND(_secondCode));
+        sb.append(dm).append(xfND(_refName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -187,6 +186,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
      * @return The value of the column 'FIRST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getFirstId() {
+        checkSpecifiedProperty("firstId");
         return _firstId;
     }
 
@@ -195,7 +195,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
      * @param firstId The value of the column 'FIRST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFirstId(Integer firstId) {
-        __modifiedProperties.addPropertyName("firstId");
+        registerModifiedProperty("firstId");
         _firstId = firstId;
     }
 
@@ -204,6 +204,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
      * @return The value of the column 'SECOND_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getSecondCode() {
+        checkSpecifiedProperty("secondCode");
         return _secondCode;
     }
 
@@ -212,7 +213,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
      * @param secondCode The value of the column 'SECOND_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setSecondCode(String secondCode) {
-        __modifiedProperties.addPropertyName("secondCode");
+        registerModifiedProperty("secondCode");
         _secondCode = secondCode;
     }
 
@@ -221,6 +222,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
      * @return The value of the column 'REF_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getRefName() {
+        checkSpecifiedProperty("refName");
         return _refName;
     }
 
@@ -229,7 +231,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
      * @param refName The value of the column 'REF_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setRefName(String refName) {
-        __modifiedProperties.addPropertyName("refName");
+        registerModifiedProperty("refName");
         _refName = refName;
     }
 }

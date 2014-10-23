@@ -77,6 +77,34 @@ public class LoaderOfVendorLargeData {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<VendorLargeDataRef> _referrerVendorLargeDataRefList;
+
+    /**
+     * Load referrer of vendorLargeDataRefList by the set-upper of referrer. <br />
+     * vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
+     * <pre>
+     * <span style="color: #0000C0">vendorLargeDataBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorLargeDataList</span>, <span style="color: #553000">dataLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">dataLoader</span>.<span style="color: #CC4747">loadVendorLargeDataRefList</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">refCB</span>.setupSelect...
+     *         <span style="color: #553000">refCB</span>.query().set...
+     *         <span style="color: #553000">refCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    refLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (VendorLargeData vendorLargeData : <span style="color: #553000">vendorLargeDataList</span>) {
+     *     ... = vendorLargeData.<span style="color: #CC4747">getVendorLargeDataRefList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setLargeDataId_InScope(pkList);
+     * cb.query().addOrderBy_LargeDataId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfVendorLargeDataRef> loadVendorLargeDataRefList(ConditionBeanSetupper<VendorLargeDataRefCB> refCBLambda) {
         myBhv().loadVendorLargeDataRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorLargeDataRefList = refLs);
         return hd -> hd.handle(new LoaderOfVendorLargeDataRef().ready(_referrerVendorLargeDataRefList, _selector));

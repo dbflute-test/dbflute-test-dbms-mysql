@@ -24,9 +24,45 @@ import org.docksidestage.mysql.dbflute.bsentity.BsWhiteStilettoAlias;
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
+ * @author jflute
  */
 public class WhiteStilettoAlias extends BsWhiteStilettoAlias {
 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
+
+    // ===================================================================================
+    //                                                             for test: Non-Specified
+    //                                                             =======================
+    public String xznocheckGetFoo() {
+        return _foo;
+    }
+
+    public String xznocheckGetFoo0() {
+        return _foo0;
+    }
+
+    public String xznocheckGetFoo1() {
+        return _foo1;
+    }
+
+    public String xznocheckGetFoo2() {
+        return _foo2;
+    }
+
+    public String xznocheckGetFoo3() {
+        return _foo3;
+    }
+
+    public String xznocheckGetFoo4() {
+        return _foo4;
+    }
+
+    public String xznocheckGetBar() {
+        return _bar;
+    }
+
+    public String xznocheckGetQux() {
+        return _qux;
+    }
 }

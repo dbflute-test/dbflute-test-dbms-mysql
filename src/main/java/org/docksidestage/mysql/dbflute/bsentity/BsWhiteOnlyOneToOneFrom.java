@@ -80,7 +80,6 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
     /** FROM_NAME: {NotNull, VARCHAR(200)} */
     protected String _fromName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -173,8 +172,8 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_fromId);
-        sb.append(dm).append(_fromName);
+        sb.append(dm).append(xfND(_fromId));
+        sb.append(dm).append(xfND(_fromName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -205,6 +204,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
      * @return The value of the column 'FROM_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getFromId() {
+        checkSpecifiedProperty("fromId");
         return _fromId;
     }
 
@@ -213,7 +213,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
      * @param fromId The value of the column 'FROM_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFromId(Long fromId) {
-        __modifiedProperties.addPropertyName("fromId");
+        registerModifiedProperty("fromId");
         _fromId = fromId;
     }
 
@@ -222,6 +222,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
      * @return The value of the column 'FROM_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getFromName() {
+        checkSpecifiedProperty("fromName");
         return _fromName;
     }
 
@@ -230,7 +231,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
      * @param fromName The value of the column 'FROM_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setFromName(String fromName) {
-        __modifiedProperties.addPropertyName("fromName");
+        registerModifiedProperty("fromName");
         _fromName = fromName;
     }
 }

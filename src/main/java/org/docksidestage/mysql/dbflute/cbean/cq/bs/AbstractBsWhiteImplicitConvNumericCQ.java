@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {exists (select IMPLICIT_CONV_NUMERIC_ID from white_implicit_conv_integer where ...)} <br />
      * white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteImplicitConvIntegerList</span>(integerCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteImplicitConvIntegerList</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     integerCB.query().set...
      * });
      * </pre>
@@ -187,7 +187,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {exists (select IMPLICIT_CONV_NUMERIC_ID from white_implicit_conv_string where ...)} <br />
      * white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteImplicitConvStringList</span>(stringCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteImplicitConvStringList</span>(stringCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     stringCB.query().set...
      * });
      * </pre>
@@ -207,10 +207,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {not exists (select IMPLICIT_CONV_NUMERIC_ID from white_implicit_conv_integer where ...)} <br />
      * white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteImplicitConvIntegerList</span>(new SubQuery&lt;WhiteImplicitConvIntegerCB&gt;() {
-     *     public void query(WhiteImplicitConvIntegerCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteImplicitConvIntegerList</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     integerCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ImplicitConvNumericId_NotExistsReferrer_WhiteImplicitConvIntegerList for 'not exists'. (NotNull)
@@ -229,10 +227,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {not exists (select IMPLICIT_CONV_NUMERIC_ID from white_implicit_conv_string where ...)} <br />
      * white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteImplicitConvStringList</span>(new SubQuery&lt;WhiteImplicitConvStringCB&gt;() {
-     *     public void query(WhiteImplicitConvStringCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteImplicitConvStringList</span>(stringCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     stringCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ImplicitConvNumericId_NotExistsReferrer_WhiteImplicitConvStringList for 'not exists'. (NotNull)
@@ -269,7 +265,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_implicit_conv_integer where ...)} <br />
      * white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteImplicitConvIntegerList()</span>.<span style="color: #CC4747">max</span>(integerCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteImplicitConvIntegerList()</span>.<span style="color: #CC4747">max</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     integerCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     integerCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -301,7 +297,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_implicit_conv_string where ...)} <br />
      * white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteImplicitConvStringList()</span>.<span style="color: #CC4747">max</span>(stringCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteImplicitConvStringList()</span>.<span style="color: #CC4747">max</span>(stringCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     stringCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     stringCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -606,7 +602,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setImplicitConvName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setImplicitConvName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param implicitConvName The value of implicitConvName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

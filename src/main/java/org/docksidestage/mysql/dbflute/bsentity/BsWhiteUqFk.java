@@ -80,7 +80,6 @@ public abstract class BsWhiteUqFk extends AbstractEntity {
     /** UQ_FK_CODE: {UQ, NotNull, CHAR(3)} */
     protected String _uqFkCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -207,8 +206,8 @@ public abstract class BsWhiteUqFk extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_uqFkId);
-        sb.append(dm).append(_uqFkCode);
+        sb.append(dm).append(xfND(_uqFkId));
+        sb.append(dm).append(xfND(_uqFkCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -242,6 +241,7 @@ public abstract class BsWhiteUqFk extends AbstractEntity {
      * @return The value of the column 'UQ_FK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getUqFkId() {
+        checkSpecifiedProperty("uqFkId");
         return _uqFkId;
     }
 
@@ -250,7 +250,7 @@ public abstract class BsWhiteUqFk extends AbstractEntity {
      * @param uqFkId The value of the column 'UQ_FK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkId(Long uqFkId) {
-        __modifiedProperties.addPropertyName("uqFkId");
+        registerModifiedProperty("uqFkId");
         _uqFkId = uqFkId;
     }
 
@@ -259,6 +259,7 @@ public abstract class BsWhiteUqFk extends AbstractEntity {
      * @return The value of the column 'UQ_FK_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getUqFkCode() {
+        checkSpecifiedProperty("uqFkCode");
         return _uqFkCode;
     }
 
@@ -267,7 +268,7 @@ public abstract class BsWhiteUqFk extends AbstractEntity {
      * @param uqFkCode The value of the column 'UQ_FK_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkCode(String uqFkCode) {
-        __modifiedProperties.addPropertyName("uqFkCode");
+        registerModifiedProperty("uqFkCode");
         _uqFkCode = uqFkCode;
     }
 }

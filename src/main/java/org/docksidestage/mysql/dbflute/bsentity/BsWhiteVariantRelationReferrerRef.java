@@ -80,7 +80,6 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
     /** REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer} */
     protected Long _referrerId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -173,8 +172,8 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_refId);
-        sb.append(dm).append(_referrerId);
+        sb.append(dm).append(xfND(_refId));
+        sb.append(dm).append(xfND(_referrerId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -205,6 +204,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
      * @return The value of the column 'REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getRefId() {
+        checkSpecifiedProperty("refId");
         return _refId;
     }
 
@@ -213,7 +213,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
      * @param refId The value of the column 'REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRefId(Long refId) {
-        __modifiedProperties.addPropertyName("refId");
+        registerModifiedProperty("refId");
         _refId = refId;
     }
 
@@ -222,6 +222,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
      * @return The value of the column 'REFERRER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getReferrerId() {
+        checkSpecifiedProperty("referrerId");
         return _referrerId;
     }
 
@@ -230,7 +231,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
      * @param referrerId The value of the column 'REFERRER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReferrerId(Long referrerId) {
-        __modifiedProperties.addPropertyName("referrerId");
+        registerModifiedProperty("referrerId");
         _referrerId = referrerId;
     }
 }

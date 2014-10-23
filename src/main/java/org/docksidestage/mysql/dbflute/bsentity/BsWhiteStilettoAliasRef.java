@@ -130,7 +130,6 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     /** STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias} */
     protected Integer _stilettoAliasId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -223,18 +222,18 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_refId);
-        sb.append(dm).append(_foo0);
-        sb.append(dm).append(_foo1);
-        sb.append(dm).append(_foo2);
-        sb.append(dm).append(_foo3);
-        sb.append(dm).append(_foo4);
-        sb.append(dm).append(_bar0);
-        sb.append(dm).append(_qux0);
-        sb.append(dm).append(_c21);
-        sb.append(dm).append(_c22);
-        sb.append(dm).append(_c23);
-        sb.append(dm).append(_stilettoAliasId);
+        sb.append(dm).append(xfND(_refId));
+        sb.append(dm).append(xfND(_foo0));
+        sb.append(dm).append(xfND(_foo1));
+        sb.append(dm).append(xfND(_foo2));
+        sb.append(dm).append(xfND(_foo3));
+        sb.append(dm).append(xfND(_foo4));
+        sb.append(dm).append(xfND(_bar0));
+        sb.append(dm).append(xfND(_qux0));
+        sb.append(dm).append(xfND(_c21));
+        sb.append(dm).append(xfND(_c22));
+        sb.append(dm).append(xfND(_c23));
+        sb.append(dm).append(xfND(_stilettoAliasId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -265,6 +264,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRefId() {
+        checkSpecifiedProperty("refId");
         return _refId;
     }
 
@@ -273,7 +273,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param refId The value of the column 'REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRefId(Integer refId) {
-        __modifiedProperties.addPropertyName("refId");
+        registerModifiedProperty("refId");
         _refId = refId;
     }
 
@@ -282,6 +282,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'FOO0'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo0() {
+        checkSpecifiedProperty("foo0");
         return _foo0;
     }
 
@@ -290,7 +291,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param foo0 The value of the column 'FOO0'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo0(String foo0) {
-        __modifiedProperties.addPropertyName("foo0");
+        registerModifiedProperty("foo0");
         _foo0 = foo0;
     }
 
@@ -299,6 +300,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'FOO_1'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo1() {
+        checkSpecifiedProperty("foo1");
         return _foo1;
     }
 
@@ -307,7 +309,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param foo1 The value of the column 'FOO_1'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo1(String foo1) {
-        __modifiedProperties.addPropertyName("foo1");
+        registerModifiedProperty("foo1");
         _foo1 = foo1;
     }
 
@@ -316,6 +318,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'FOO2'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo2() {
+        checkSpecifiedProperty("foo2");
         return _foo2;
     }
 
@@ -324,7 +327,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param foo2 The value of the column 'FOO2'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo2(String foo2) {
-        __modifiedProperties.addPropertyName("foo2");
+        registerModifiedProperty("foo2");
         _foo2 = foo2;
     }
 
@@ -333,6 +336,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'FOO3'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo3() {
+        checkSpecifiedProperty("foo3");
         return _foo3;
     }
 
@@ -341,7 +345,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param foo3 The value of the column 'FOO3'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo3(String foo3) {
-        __modifiedProperties.addPropertyName("foo3");
+        registerModifiedProperty("foo3");
         _foo3 = foo3;
     }
 
@@ -350,6 +354,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'FOO_4'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo4() {
+        checkSpecifiedProperty("foo4");
         return _foo4;
     }
 
@@ -358,7 +363,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param foo4 The value of the column 'FOO_4'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo4(String foo4) {
-        __modifiedProperties.addPropertyName("foo4");
+        registerModifiedProperty("foo4");
         _foo4 = foo4;
     }
 
@@ -367,6 +372,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'BAR_0'. (NullAllowed even if selected: for no constraint)
      */
     public String getBar0() {
+        checkSpecifiedProperty("bar0");
         return _bar0;
     }
 
@@ -375,7 +381,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param bar0 The value of the column 'BAR_0'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBar0(String bar0) {
-        __modifiedProperties.addPropertyName("bar0");
+        registerModifiedProperty("bar0");
         _bar0 = bar0;
     }
 
@@ -384,6 +390,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'QUX_0'. (NullAllowed even if selected: for no constraint)
      */
     public String getQux0() {
+        checkSpecifiedProperty("qux0");
         return _qux0;
     }
 
@@ -392,7 +399,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param qux0 The value of the column 'QUX_0'. (NullAllowed: null update allowed for no constraint)
      */
     public void setQux0(String qux0) {
-        __modifiedProperties.addPropertyName("qux0");
+        registerModifiedProperty("qux0");
         _qux0 = qux0;
     }
 
@@ -401,6 +408,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'c21'. (NullAllowed even if selected: for no constraint)
      */
     public String getC21() {
+        checkSpecifiedProperty("c21");
         return _c21;
     }
 
@@ -409,7 +417,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param c21 The value of the column 'c21'. (NullAllowed: null update allowed for no constraint)
      */
     public void setC21(String c21) {
-        __modifiedProperties.addPropertyName("c21");
+        registerModifiedProperty("c21");
         _c21 = c21;
     }
 
@@ -418,6 +426,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'c22'. (NullAllowed even if selected: for no constraint)
      */
     public String getC22() {
+        checkSpecifiedProperty("c22");
         return _c22;
     }
 
@@ -426,7 +435,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param c22 The value of the column 'c22'. (NullAllowed: null update allowed for no constraint)
      */
     public void setC22(String c22) {
-        __modifiedProperties.addPropertyName("c22");
+        registerModifiedProperty("c22");
         _c22 = c22;
     }
 
@@ -435,6 +444,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'c23'. (NullAllowed even if selected: for no constraint)
      */
     public String getC23() {
+        checkSpecifiedProperty("c23");
         return _c23;
     }
 
@@ -443,7 +453,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param c23 The value of the column 'c23'. (NullAllowed: null update allowed for no constraint)
      */
     public void setC23(String c23) {
-        __modifiedProperties.addPropertyName("c23");
+        registerModifiedProperty("c23");
         _c23 = c23;
     }
 
@@ -452,6 +462,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @return The value of the column 'STILETTO_ALIAS_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getStilettoAliasId() {
+        checkSpecifiedProperty("stilettoAliasId");
         return _stilettoAliasId;
     }
 
@@ -460,7 +471,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
      * @param stilettoAliasId The value of the column 'STILETTO_ALIAS_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStilettoAliasId(Integer stilettoAliasId) {
-        __modifiedProperties.addPropertyName("stilettoAliasId");
+        registerModifiedProperty("stilettoAliasId");
         _stilettoAliasId = stilettoAliasId;
     }
 }

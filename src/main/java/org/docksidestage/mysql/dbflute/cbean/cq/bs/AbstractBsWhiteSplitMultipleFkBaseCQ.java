@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {exists (select BASE_ID from white_split_multiple_fk_child where ...)} <br />
      * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSplitMultipleFkChildList</span>(childCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteSplitMultipleFkChildList</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     childCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {not exists (select BASE_ID from white_split_multiple_fk_child where ...)} <br />
      * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSplitMultipleFkChildList</span>(new SubQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
-     *     public void query(WhiteSplitMultipleFkChildCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSplitMultipleFkChildList</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     childCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of BaseId_NotExistsReferrer_WhiteSplitMultipleFkChildList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_split_multiple_fk_child where ...)} <br />
      * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSplitMultipleFkChildList()</span>.<span style="color: #CC4747">max</span>(childCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSplitMultipleFkChildList()</span>.<span style="color: #CC4747">max</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     childCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     childCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -523,7 +521,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * SPLIT_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setSplitName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setSplitName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param splitName The value of splitName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

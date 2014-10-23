@@ -167,7 +167,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {exists (select PRODUCT_ID from white_perrotta_over_member where ...)} <br />
      * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMemberList</span>(memberCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
      * });
      * </pre>
@@ -187,7 +187,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {exists (select NEXT_PRODUCT_ID from white_perrotta_over_trace where ...)} <br />
      * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverTraceByNextProductIdList</span>(traceCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverTraceByNextProductIdList</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.query().set...
      * });
      * </pre>
@@ -207,7 +207,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {exists (select PREVIOUS_PRODUCT_ID from white_perrotta_over_trace where ...)} <br />
      * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverTraceByPreviousProductIdList</span>(traceCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverTraceByPreviousProductIdList</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.query().set...
      * });
      * </pre>
@@ -227,10 +227,8 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {not exists (select PRODUCT_ID from white_perrotta_over_member where ...)} <br />
      * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMemberList</span>(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
-     *     public void query(WhitePerrottaOverMemberCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     memberCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductId_NotExistsReferrer_WhitePerrottaOverMemberList for 'not exists'. (NotNull)
@@ -249,10 +247,8 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {not exists (select NEXT_PRODUCT_ID from white_perrotta_over_trace where ...)} <br />
      * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverTraceByNextProductIdList</span>(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
-     *     public void query(WhitePerrottaOverTraceCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverTraceByNextProductIdList</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     traceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList for 'not exists'. (NotNull)
@@ -271,10 +267,8 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {not exists (select PREVIOUS_PRODUCT_ID from white_perrotta_over_trace where ...)} <br />
      * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverTraceByPreviousProductIdList</span>(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
-     *     public void query(WhitePerrottaOverTraceCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverTraceByPreviousProductIdList</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     traceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList for 'not exists'. (NotNull)
@@ -320,7 +314,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_member where ...)} <br />
      * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #CC4747">max</span>(memberCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     memberCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -352,7 +346,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_trace where ...)} <br />
      * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverTraceByNextProductIdList()</span>.<span style="color: #CC4747">max</span>(traceCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverTraceByNextProductIdList()</span>.<span style="color: #CC4747">max</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     traceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -384,7 +378,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_trace where ...)} <br />
      * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverTraceByPreviousProductIdList()</span>.<span style="color: #CC4747">max</span>(traceCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverTraceByPreviousProductIdList()</span>.<span style="color: #CC4747">max</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     traceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -481,7 +475,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * PRODUCT_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setProductName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setProductName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productName The value of productName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -589,7 +583,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested} <br />
-     * <pre>e.g. setProductNestedCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setProductNestedCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productNestedCode The value of productNestedCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

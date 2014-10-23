@@ -98,7 +98,6 @@ public abstract class BsMemberLogin extends AbstractEntity {
     /** (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=SubItemTable} */
     protected String _loginMemberStatusCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -408,11 +407,11 @@ public abstract class BsMemberLogin extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberLoginId);
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_loginDatetime);
-        sb.append(dm).append(_mobileLoginFlg);
-        sb.append(dm).append(_loginMemberStatusCode);
+        sb.append(dm).append(xfND(_memberLoginId));
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_loginDatetime));
+        sb.append(dm).append(xfND(_mobileLoginFlg));
+        sb.append(dm).append(xfND(_loginMemberStatusCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -444,6 +443,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      * @return The value of the column 'MEMBER_LOGIN_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMemberLoginId() {
+        checkSpecifiedProperty("memberLoginId");
         return _memberLoginId;
     }
 
@@ -452,7 +452,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      * @param memberLoginId The value of the column 'MEMBER_LOGIN_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberLoginId(Long memberLoginId) {
-        __modifiedProperties.addPropertyName("memberLoginId");
+        registerModifiedProperty("memberLoginId");
         _memberLoginId = memberLoginId;
     }
 
@@ -461,6 +461,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -469,7 +470,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -479,6 +480,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      * @return The value of the column 'LOGIN_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getLoginDatetime() {
+        checkSpecifiedProperty("loginDatetime");
         return _loginDatetime;
     }
 
@@ -488,7 +490,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      * @param loginDatetime The value of the column 'LOGIN_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setLoginDatetime(java.sql.Timestamp loginDatetime) {
-        __modifiedProperties.addPropertyName("loginDatetime");
+        registerModifiedProperty("loginDatetime");
         _loginDatetime = loginDatetime;
     }
 
@@ -498,6 +500,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      * @return The value of the column 'MOBILE_LOGIN_FLG'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMobileLoginFlg() {
+        checkSpecifiedProperty("mobileLoginFlg");
         return _mobileLoginFlg;
     }
 
@@ -508,7 +511,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      */
     protected void setMobileLoginFlg(Integer mobileLoginFlg) {
         checkClassificationCode("MOBILE_LOGIN_FLG", CDef.DefMeta.Flg, mobileLoginFlg);
-        __modifiedProperties.addPropertyName("mobileLoginFlg");
+        registerModifiedProperty("mobileLoginFlg");
         _mobileLoginFlg = mobileLoginFlg;
     }
 
@@ -518,6 +521,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      * @return The value of the column 'LOGIN_MEMBER_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getLoginMemberStatusCode() {
+        checkSpecifiedProperty("loginMemberStatusCode");
         return _loginMemberStatusCode;
     }
 
@@ -528,7 +532,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
      */
     protected void setLoginMemberStatusCode(String loginMemberStatusCode) {
         checkClassificationCode("LOGIN_MEMBER_STATUS_CODE", CDef.DefMeta.SubItemTable, loginMemberStatusCode);
-        __modifiedProperties.addPropertyName("loginMemberStatusCode");
+        registerModifiedProperty("loginMemberStatusCode");
         _loginMemberStatusCode = loginMemberStatusCode;
     }
 

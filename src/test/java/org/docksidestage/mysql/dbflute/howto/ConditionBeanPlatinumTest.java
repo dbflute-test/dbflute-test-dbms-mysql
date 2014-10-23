@@ -498,18 +498,18 @@ public class ConditionBeanPlatinumTest extends UnitContainerTestCase {
         for (Member member : memberList) {
             assertNotNull(member.getMemberId()); // PK
             assertNotNull(member.getMemberName()); // Specified
-            assertNull(member.getMemberAccount());
-            assertNull(member.getBirthdate());
-            assertNull(member.getFormalizedDatetime());
-            assertNull(member.getRegisterDatetime());
-            assertNull(member.getRegisterUser());
-            assertNull(member.getUpdateDatetime());
-            assertNull(member.getUpdateUser());
-            assertNull(member.getVersionNo());
+            assertNonSpecifiedAccess(() -> member.getMemberAccount());
+            assertNonSpecifiedAccess(() -> member.getBirthdate());
+            assertNonSpecifiedAccess(() -> member.getFormalizedDatetime());
+            assertNonSpecifiedAccess(() -> member.getRegisterDatetime());
+            assertNonSpecifiedAccess(() -> member.getRegisterUser());
+            assertNonSpecifiedAccess(() -> member.getUpdateDatetime());
+            assertNonSpecifiedAccess(() -> member.getUpdateUser());
+            assertNonSpecifiedAccess(() -> member.getVersionNo());
             assertNotNull(member.getMemberStatusCode()); // SetupSelect FK
             assertNotNull(member.getMemberStatus().getMemberStatusCode()); // PK
             assertNotNull(member.getMemberStatus().getMemberStatusName()); // Specified
-            assertNull(member.getMemberStatus().getDisplayOrder());
+            assertNonSpecifiedAccess(() -> member.getMemberStatus().getDisplayOrder());
         }
     }
 

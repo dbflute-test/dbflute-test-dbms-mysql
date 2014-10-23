@@ -85,7 +85,6 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
     /** NO_PK_INTEGER: {INT(10)} */
     protected Integer _noPkInteger;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -159,9 +158,9 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_noPkId);
-        sb.append(dm).append(_noPkName);
-        sb.append(dm).append(_noPkInteger);
+        sb.append(dm).append(xfND(_noPkId));
+        sb.append(dm).append(xfND(_noPkName));
+        sb.append(dm).append(xfND(_noPkInteger));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -187,6 +186,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
      * @return The value of the column 'NO_PK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getNoPkId() {
+        checkSpecifiedProperty("noPkId");
         return _noPkId;
     }
 
@@ -195,7 +195,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
      * @param noPkId The value of the column 'NO_PK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setNoPkId(Long noPkId) {
-        __modifiedProperties.addPropertyName("noPkId");
+        registerModifiedProperty("noPkId");
         _noPkId = noPkId;
     }
 
@@ -204,6 +204,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
      * @return The value of the column 'NO_PK_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getNoPkName() {
+        checkSpecifiedProperty("noPkName");
         return _noPkName;
     }
 
@@ -212,7 +213,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
      * @param noPkName The value of the column 'NO_PK_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNoPkName(String noPkName) {
-        __modifiedProperties.addPropertyName("noPkName");
+        registerModifiedProperty("noPkName");
         _noPkName = noPkName;
     }
 
@@ -221,6 +222,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
      * @return The value of the column 'NO_PK_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNoPkInteger() {
+        checkSpecifiedProperty("noPkInteger");
         return _noPkInteger;
     }
 
@@ -229,7 +231,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
      * @param noPkInteger The value of the column 'NO_PK_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNoPkInteger(Integer noPkInteger) {
-        __modifiedProperties.addPropertyName("noPkInteger");
+        registerModifiedProperty("noPkInteger");
         _noPkInteger = noPkInteger;
     }
 }

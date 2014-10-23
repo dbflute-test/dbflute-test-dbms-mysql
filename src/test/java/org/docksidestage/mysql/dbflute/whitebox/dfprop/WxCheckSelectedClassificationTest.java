@@ -1,11 +1,6 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
-import java.lang.reflect.Field;
-
-import org.dbflute.dbmeta.info.ColumnInfo;
 import org.dbflute.exception.UndefinedClassificationCodeException;
-import org.dbflute.util.DfReflectionUtil;
-import org.docksidestage.mysql.dbflute.bsentity.dbmeta.PurchaseDbm;
 import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;
 import org.docksidestage.mysql.dbflute.exbhv.PurchaseBhv;
 import org.docksidestage.mysql.dbflute.exentity.Purchase;
@@ -54,11 +49,7 @@ public class WxCheckSelectedClassificationTest extends UnitContainerTestCase {
         // ## Arrange ##
         Purchase purchase = new Purchase();
         purchase.setPurchaseId(3L);
-        ColumnInfo paymentCompleteFlg = PurchaseDbm.getInstance().columnPaymentCompleteFlg();
-        String propertyName = paymentCompleteFlg.getPropertyName();
-        Field field = DfReflectionUtil.getAccessibleField(Purchase.class, "_" + propertyName);
-        DfReflectionUtil.setValueForcedly(field, purchase, 99999);
-        purchase.modifiedProperties().add(propertyName);
+        purchase.xznocheckSetPaymentCompleteFlg(99999);
         purchaseBhv.updateNonstrict(purchase);
 
         // ## Act ##

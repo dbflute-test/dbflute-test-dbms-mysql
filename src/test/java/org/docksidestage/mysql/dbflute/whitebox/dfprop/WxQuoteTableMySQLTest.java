@@ -96,7 +96,8 @@ public class WxQuoteTableMySQLTest extends UnitContainerTestCase {
         assertNotSame(0, quotedList.size());
         for (WhiteQuoted quoted : quotedList) {
             assertNotNull(quoted.getSelect());
-            assertNull(quoted.getFrom());
+            assertNull(quoted.xznocheckGetFrom());
+            assertNonSpecifiedAccess(() -> quoted.getFrom());
         }
     }
 

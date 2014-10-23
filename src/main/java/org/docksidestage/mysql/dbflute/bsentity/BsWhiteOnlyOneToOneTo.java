@@ -85,7 +85,6 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     /** FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from} */
     protected Long _fromId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -189,9 +188,9 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_toId);
-        sb.append(dm).append(_toName);
-        sb.append(dm).append(_fromId);
+        sb.append(dm).append(xfND(_toId));
+        sb.append(dm).append(xfND(_toName));
+        sb.append(dm).append(xfND(_fromId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -222,6 +221,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
      * @return The value of the column 'TO_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getToId() {
+        checkSpecifiedProperty("toId");
         return _toId;
     }
 
@@ -230,7 +230,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
      * @param toId The value of the column 'TO_ID'. (basically NotNull if update: for the constraint)
      */
     public void setToId(Long toId) {
-        __modifiedProperties.addPropertyName("toId");
+        registerModifiedProperty("toId");
         _toId = toId;
     }
 
@@ -239,6 +239,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
      * @return The value of the column 'TO_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getToName() {
+        checkSpecifiedProperty("toName");
         return _toName;
     }
 
@@ -247,7 +248,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
      * @param toName The value of the column 'TO_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setToName(String toName) {
-        __modifiedProperties.addPropertyName("toName");
+        registerModifiedProperty("toName");
         _toName = toName;
     }
 
@@ -256,6 +257,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
      * @return The value of the column 'FROM_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getFromId() {
+        checkSpecifiedProperty("fromId");
         return _fromId;
     }
 
@@ -264,7 +266,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
      * @param fromId The value of the column 'FROM_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFromId(Long fromId) {
-        __modifiedProperties.addPropertyName("fromId");
+        registerModifiedProperty("fromId");
         _fromId = fromId;
     }
 }

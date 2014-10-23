@@ -80,7 +80,6 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity {
     /** WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)} */
     protected String _whiteImplicitReverseFkName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -194,8 +193,8 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_whiteImplicitReverseFkId);
-        sb.append(dm).append(_whiteImplicitReverseFkName);
+        sb.append(dm).append(xfND(_whiteImplicitReverseFkId));
+        sb.append(dm).append(xfND(_whiteImplicitReverseFkName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -227,6 +226,7 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity {
      * @return The value of the column 'WHITE_IMPLICIT_REVERSE_FK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getWhiteImplicitReverseFkId() {
+        checkSpecifiedProperty("whiteImplicitReverseFkId");
         return _whiteImplicitReverseFkId;
     }
 
@@ -235,7 +235,7 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity {
      * @param whiteImplicitReverseFkId The value of the column 'WHITE_IMPLICIT_REVERSE_FK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setWhiteImplicitReverseFkId(Integer whiteImplicitReverseFkId) {
-        __modifiedProperties.addPropertyName("whiteImplicitReverseFkId");
+        registerModifiedProperty("whiteImplicitReverseFkId");
         _whiteImplicitReverseFkId = whiteImplicitReverseFkId;
     }
 
@@ -244,6 +244,7 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity {
      * @return The value of the column 'WHITE_IMPLICIT_REVERSE_FK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getWhiteImplicitReverseFkName() {
+        checkSpecifiedProperty("whiteImplicitReverseFkName");
         return _whiteImplicitReverseFkName;
     }
 
@@ -252,7 +253,7 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity {
      * @param whiteImplicitReverseFkName The value of the column 'WHITE_IMPLICIT_REVERSE_FK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setWhiteImplicitReverseFkName(String whiteImplicitReverseFkName) {
-        __modifiedProperties.addPropertyName("whiteImplicitReverseFkName");
+        registerModifiedProperty("whiteImplicitReverseFkName");
         _whiteImplicitReverseFkName = whiteImplicitReverseFkName;
     }
 }

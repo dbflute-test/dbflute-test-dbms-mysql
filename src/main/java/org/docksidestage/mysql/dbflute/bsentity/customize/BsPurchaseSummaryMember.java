@@ -94,7 +94,6 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     /** PURCHASE_SUMMARY: {DECIMAL(32)} */
     protected java.math.BigDecimal _purchaseSummary;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -172,11 +171,11 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_memberName);
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_memberName));
         sb.append(dm).append(xfUD(_birthdate));
-        sb.append(dm).append(_formalizedDatetime);
-        sb.append(dm).append(_purchaseSummary);
+        sb.append(dm).append(xfND(_formalizedDatetime));
+        sb.append(dm).append(xfND(_purchaseSummary));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -205,6 +204,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -216,7 +216,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -226,6 +226,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
+        checkSpecifiedProperty("memberName");
         return _memberName;
     }
 
@@ -235,7 +236,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
-        __modifiedProperties.addPropertyName("memberName");
+        registerModifiedProperty("memberName");
         _memberName = memberName;
     }
 
@@ -245,6 +246,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getBirthdate() {
+        checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
 
@@ -254,7 +256,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBirthdate(java.util.Date birthdate) {
-        __modifiedProperties.addPropertyName("birthdate");
+        registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }
 
@@ -265,6 +267,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getFormalizedDatetime() {
+        checkSpecifiedProperty("formalizedDatetime");
         return _formalizedDatetime;
     }
 
@@ -275,7 +278,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFormalizedDatetime(java.sql.Timestamp formalizedDatetime) {
-        __modifiedProperties.addPropertyName("formalizedDatetime");
+        registerModifiedProperty("formalizedDatetime");
         _formalizedDatetime = formalizedDatetime;
     }
 
@@ -285,6 +288,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @return The value of the column 'PURCHASE_SUMMARY'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getPurchaseSummary() {
+        checkSpecifiedProperty("purchaseSummary");
         return _purchaseSummary;
     }
 
@@ -294,7 +298,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
      * @param purchaseSummary The value of the column 'PURCHASE_SUMMARY'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPurchaseSummary(java.math.BigDecimal purchaseSummary) {
-        __modifiedProperties.addPropertyName("purchaseSummary");
+        registerModifiedProperty("purchaseSummary");
         _purchaseSummary = purchaseSummary;
     }
 }

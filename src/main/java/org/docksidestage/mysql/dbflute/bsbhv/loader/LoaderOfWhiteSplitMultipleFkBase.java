@@ -77,6 +77,34 @@ public class LoaderOfWhiteSplitMultipleFkBase {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<WhiteSplitMultipleFkChild> _referrerWhiteSplitMultipleFkChildList;
+
+    /**
+     * Load referrer of whiteSplitMultipleFkChildList by the set-upper of referrer. <br />
+     * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteSplitMultipleFkBaseBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSplitMultipleFkBaseList</span>, <span style="color: #553000">baseLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">baseLoader</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkChildList</span>(<span style="color: #553000">childCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">childCB</span>.setupSelect...
+     *         <span style="color: #553000">childCB</span>.query().set...
+     *         <span style="color: #553000">childCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">childLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    childLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteSplitMultipleFkBase whiteSplitMultipleFkBase : <span style="color: #553000">whiteSplitMultipleFkBaseList</span>) {
+     *     ... = whiteSplitMultipleFkBase.<span style="color: #CC4747">getWhiteSplitMultipleFkChildList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setBaseId_InScope(pkList);
+     * cb.query().addOrderBy_BaseId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfWhiteSplitMultipleFkChild> loadWhiteSplitMultipleFkChildList(ConditionBeanSetupper<WhiteSplitMultipleFkChildCB> refCBLambda) {
         myBhv().loadWhiteSplitMultipleFkChildList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSplitMultipleFkChildList = refLs);
         return hd -> hd.handle(new LoaderOfWhiteSplitMultipleFkChild().ready(_referrerWhiteSplitMultipleFkChildList, _selector));

@@ -93,9 +93,9 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteMyselfCheckBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <pre>
      * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
      * cb.query().setFoo...(value);
-     * int count = whiteMyselfCheckBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteMyselfCheck whiteMyselfCheck = whiteMyselfCheckBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteMyselfCheck -&gt; {
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteMyselfCheck</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteMyselfCheck.get...
+     *     ... = <span style="color: #553000">whiteMyselfCheck</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteMyselfCheck whiteMyselfCheck = whiteMyselfCheckBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteMyselfCheck -&gt; {
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteMyselfCheck</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteMyselfCheck.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteMyselfCheck</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteMyselfCheck> selectEntity(CBCall<WhiteMyselfCheckCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteMyselfCheckBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteMyselfCheck -&gt; {
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteMyselfCheck <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteMyselfCheck.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteMyselfCheck -&gt; {
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteMyselfCheck <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteMyselfCheck.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteMyselfCheck> selectEntity(WhiteMyselfCheckCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
-     * cb.query().setFoo...(value);
-     * WhiteMyselfCheck whiteMyselfCheck = whiteMyselfCheckBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteMyselfCheck.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteMyselfCheck <span style="color: #553000">whiteMyselfCheck</span> = <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteMyselfCheck</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteMyselfCheck selectEntityWithDeletedCheck(CBCall<WhiteMyselfCheckCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
-     * cb.query().setFoo...(value);
-     * WhiteMyselfCheck whiteMyselfCheck = whiteMyselfCheckBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteMyselfCheck whiteMyselfCheck = <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteMyselfCheck.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteMyselfCheck selectEntityWithDeletedCheck(WhiteMyselfCheckCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * Select the entity by the primary-key value.
      * @param myselfCheckId : PK, NotNull, INT(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteMyselfCheck> selectByPK(Integer myselfCheckId) {
         return facadeSelectByPK(myselfCheckId);
@@ -272,17 +270,17 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteMyselfCheck&gt; whiteMyselfCheckList = whiteMyselfCheckBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteMyselfCheck&gt; <span style="color: #553000">whiteMyselfCheckList</span> = <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteMyselfCheckList.forEach(whiteMyselfCheck -&gt; {
-     *     ... = whiteMyselfCheck.get...();
+     * for (WhiteMyselfCheck <span style="color: #553000">whiteMyselfCheck</span> : <span style="color: #553000">whiteMyselfCheckList</span>) {
+     *     ... = <span style="color: #553000">whiteMyselfCheck</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteMyselfCheck> selectList(CBCall<WhiteMyselfCheckCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * Select the list as result bean.
      * <pre>
      * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteMyselfCheck&gt; whiteMyselfCheckList = whiteMyselfCheckBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteMyselfCheck whiteMyselfCheck : whiteMyselfCheckList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteMyselfCheck&gt; <span style="color: #553000">whiteMyselfCheckList</span> = <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteMyselfCheck whiteMyselfCheck : <span style="color: #553000">whiteMyselfCheckList</span>) {
      *     ... = whiteMyselfCheck.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteMyselfCheck> selectList(WhiteMyselfCheckCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteMyselfCheck&gt; page = whiteMyselfCheckBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteMyselfCheck&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteMyselfCheck whiteMyselfCheck : page) {
+     * for (WhiteMyselfCheck whiteMyselfCheck : <span style="color: #553000">page</span>) {
      *     ... = whiteMyselfCheck.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteMyselfCheck> selectPage(CBCall<WhiteMyselfCheckCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteMyselfCheck&gt; page = whiteMyselfCheckBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteMyselfCheck&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteMyselfCheck whiteMyselfCheck : page) {
+     * for (WhiteMyselfCheck whiteMyselfCheck : <span style="color: #553000">page</span>) {
      *     ... = whiteMyselfCheck.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteMyselfCheck> selectPage(WhiteMyselfCheckCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
-     * cb.query().setFoo...(value);
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteMyselfCheck&gt;() {
-     *     public void handle(WhiteMyselfCheck entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
-     * cb.query().setFoo...(value);
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteMyselfCheck&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteMyselfCheck&gt;() {
      *     public void handle(WhiteMyselfCheck entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteMyselfCheckCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -545,12 +537,12 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteMyselfCheck.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteMyselfCheck.set...;</span>
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">insert</span>(whiteMyselfCheck);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">insert</span>(whiteMyselfCheck);
      * ... = whiteMyselfCheck.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteMyselfCheck The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteMyselfCheck whiteMyselfCheck) {
         doInsert(whiteMyselfCheck, null);
@@ -568,15 +560,15 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteMyselfCheck.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteMyselfCheckBhv.<span style="color: #CC4747">update</span>(whiteMyselfCheck);
+     *     <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">update</span>(whiteMyselfCheck);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteMyselfCheck The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteMyselfCheck whiteMyselfCheck) {
         doUpdate(whiteMyselfCheck, null);
@@ -587,9 +579,9 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteMyselfCheck The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteMyselfCheck whiteMyselfCheck) {
         doInsertOrUpdate(whiteMyselfCheck, null, null);
@@ -603,14 +595,14 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteMyselfCheck.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteMyselfCheckBhv.<span style="color: #CC4747">delete</span>(whiteMyselfCheck);
+     *     <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">delete</span>(whiteMyselfCheck);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteMyselfCheck The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteMyselfCheck whiteMyselfCheck) {
         doDelete(whiteMyselfCheck, null);
@@ -635,7 +627,7 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteMyselfCheckList.add(whiteMyselfCheck);
      * }
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">batchInsert</span>(whiteMyselfCheckList);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteMyselfCheckList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -665,11 +657,11 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteMyselfCheckList.add(whiteMyselfCheck);
      * }
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">batchUpdate</span>(whiteMyselfCheckList);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteMyselfCheckList);
      * </pre>
      * @param whiteMyselfCheckList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteMyselfCheck> whiteMyselfCheckList) {
         return doBatchUpdate(whiteMyselfCheckList, null);
@@ -680,7 +672,7 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteMyselfCheckList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteMyselfCheck> whiteMyselfCheckList) {
         return doBatchDelete(whiteMyselfCheckList, null);
@@ -692,7 +684,7 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteMyselfCheck, WhiteMyselfCheckCB&gt;() {
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteMyselfCheck, WhiteMyselfCheckCB&gt;() {
      *     public ConditionBean setup(WhiteMyselfCheck entity, WhiteMyselfCheckCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -734,12 +726,12 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <span style="color: #3F7E5E">//whiteMyselfCheck.setVersionNo(value);</span>
      * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
      * cb.query().setFoo...(value);
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">queryUpdate</span>(whiteMyselfCheck, cb);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteMyselfCheck, cb);
      * </pre>
      * @param whiteMyselfCheck The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteMyselfCheck whiteMyselfCheck, CBCall<WhiteMyselfCheckCB> cbLambda) {
         return doQueryUpdate(whiteMyselfCheck, createCB(cbLambda), null);
@@ -760,12 +752,12 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <span style="color: #3F7E5E">//whiteMyselfCheck.setVersionNo(value);</span>
      * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
      * cb.query().setFoo...(value);
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">queryUpdate</span>(whiteMyselfCheck, cb);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteMyselfCheck, cb);
      * </pre>
      * @param whiteMyselfCheck The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteMyselfCheck whiteMyselfCheck, WhiteMyselfCheckCB cb) {
         return doQueryUpdate(whiteMyselfCheck, cb, null);
@@ -776,11 +768,11 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <pre>
      * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
      * cb.query().setFoo...(value);
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">queryDelete</span>(whiteMyselfCheck, cb);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteMyselfCheck, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteMyselfCheckCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -791,11 +783,11 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * <pre>
      * WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB();
      * cb.query().setFoo...(value);
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">queryDelete</span>(whiteMyselfCheck, cb);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteMyselfCheck, cb);
      * </pre>
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteMyselfCheckCB cb) {
         return doQueryDelete(cb, null);
@@ -819,12 +811,12 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * InsertOption<WhiteMyselfCheckCB> option = new InsertOption<WhiteMyselfCheckCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">varyingInsert</span>(whiteMyselfCheck, option);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteMyselfCheck, option);
      * ... = whiteMyselfCheck.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteMyselfCheck The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteMyselfCheck whiteMyselfCheck, WritableOptionCall<WhiteMyselfCheckCB, InsertOption<WhiteMyselfCheckCB>> opLambda) {
         doInsert(whiteMyselfCheck, createInsertOption(opLambda));
@@ -848,16 +840,16 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteMyselfCheckBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteMyselfCheck, option);
+     *     <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteMyselfCheck, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteMyselfCheck The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteMyselfCheck whiteMyselfCheck, WritableOptionCall<WhiteMyselfCheckCB, UpdateOption<WhiteMyselfCheckCB>> opLambda) {
         doUpdate(whiteMyselfCheck, createUpdateOption(opLambda));
@@ -869,9 +861,9 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * @param whiteMyselfCheck The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteMyselfCheck whiteMyselfCheck, WritableOptionCall<WhiteMyselfCheckCB, InsertOption<WhiteMyselfCheckCB>> insertOpLambda, WritableOptionCall<WhiteMyselfCheckCB, UpdateOption<WhiteMyselfCheckCB>> updateOpLambda) {
         doInsertOrUpdate(whiteMyselfCheck, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -883,8 +875,8 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * Other specifications are same as delete(entity).
      * @param whiteMyselfCheck The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteMyselfCheck whiteMyselfCheck, WritableOptionCall<WhiteMyselfCheckCB, DeleteOption<WhiteMyselfCheckCB>> opLambda) {
         doDelete(whiteMyselfCheck, createDeleteOption(opLambda));
@@ -968,13 +960,13 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteMyselfCheck, cb, option);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteMyselfCheck, cb, option);
      * </pre>
      * @param whiteMyselfCheck The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteMyselfCheck whiteMyselfCheck, CBCall<WhiteMyselfCheckCB> cbLambda, WritableOptionCall<WhiteMyselfCheckCB, UpdateOption<WhiteMyselfCheckCB>> opLambda) {
         return doQueryUpdate(whiteMyselfCheck, createCB(cbLambda), createUpdateOption(opLambda));
@@ -1002,13 +994,13 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteMyselfCheckBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteMyselfCheck, cb, option);
+     * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteMyselfCheck, cb, option);
      * </pre>
      * @param whiteMyselfCheck The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteMyselfCheck whiteMyselfCheck, WhiteMyselfCheckCB cb, WritableOptionCall<WhiteMyselfCheckCB, UpdateOption<WhiteMyselfCheckCB>> opLambda) {
         return doQueryUpdate(whiteMyselfCheck, cb, createUpdateOption(opLambda));
@@ -1021,7 +1013,7 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * @param cbLambda The callback for condition-bean of WhiteMyselfCheck. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteMyselfCheckCB> cbLambda, WritableOptionCall<WhiteMyselfCheckCB, DeleteOption<WhiteMyselfCheckCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1034,7 +1026,7 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
      * @param cb The condition-bean of WhiteMyselfCheck. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteMyselfCheckCB cb, WritableOptionCall<WhiteMyselfCheckCB, DeleteOption<WhiteMyselfCheckCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

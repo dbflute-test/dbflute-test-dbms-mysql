@@ -90,7 +90,6 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     /** ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI} */
     protected Integer _oneAddiId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -215,10 +214,10 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_oneId);
-        sb.append(dm).append(_oneName);
-        sb.append(dm).append(_suppressJoinSqId);
-        sb.append(dm).append(_oneAddiId);
+        sb.append(dm).append(xfND(_oneId));
+        sb.append(dm).append(xfND(_oneName));
+        sb.append(dm).append(xfND(_suppressJoinSqId));
+        sb.append(dm).append(xfND(_oneAddiId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -250,6 +249,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
      * @return The value of the column 'ONE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getOneId() {
+        checkSpecifiedProperty("oneId");
         return _oneId;
     }
 
@@ -258,7 +258,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
      * @param oneId The value of the column 'ONE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setOneId(Integer oneId) {
-        __modifiedProperties.addPropertyName("oneId");
+        registerModifiedProperty("oneId");
         _oneId = oneId;
     }
 
@@ -267,6 +267,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
      * @return The value of the column 'ONE_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getOneName() {
+        checkSpecifiedProperty("oneName");
         return _oneName;
     }
 
@@ -275,7 +276,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
      * @param oneName The value of the column 'ONE_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setOneName(String oneName) {
-        __modifiedProperties.addPropertyName("oneName");
+        registerModifiedProperty("oneName");
         _oneName = oneName;
     }
 
@@ -284,6 +285,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
      * @return The value of the column 'SUPPRESS_JOIN_SQ_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSuppressJoinSqId() {
+        checkSpecifiedProperty("suppressJoinSqId");
         return _suppressJoinSqId;
     }
 
@@ -292,7 +294,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
      * @param suppressJoinSqId The value of the column 'SUPPRESS_JOIN_SQ_ID'. (basically NotNull if update: for the constraint)
      */
     public void setSuppressJoinSqId(Integer suppressJoinSqId) {
-        __modifiedProperties.addPropertyName("suppressJoinSqId");
+        registerModifiedProperty("suppressJoinSqId");
         _suppressJoinSqId = suppressJoinSqId;
     }
 
@@ -301,6 +303,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
      * @return The value of the column 'ONE_ADDI_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getOneAddiId() {
+        checkSpecifiedProperty("oneAddiId");
         return _oneAddiId;
     }
 
@@ -309,7 +312,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
      * @param oneAddiId The value of the column 'ONE_ADDI_ID'. (basically NotNull if update: for the constraint)
      */
     public void setOneAddiId(Integer oneAddiId) {
-        __modifiedProperties.addPropertyName("oneAddiId");
+        registerModifiedProperty("oneAddiId");
         _oneAddiId = oneAddiId;
     }
 }

@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * {exists (select REFERRED_ID from white_compound_pk where ...)} <br />
      * white_compound_pk by REFERRED_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteCompoundPkList</span>(pkCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteCompoundPkList</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     pkCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * {not exists (select REFERRED_ID from white_compound_pk where ...)} <br />
      * white_compound_pk by REFERRED_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteCompoundPkList</span>(new SubQuery&lt;WhiteCompoundPkCB&gt;() {
-     *     public void query(WhiteCompoundPkCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteCompoundPkList</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     pkCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ReferredId_NotExistsReferrer_WhiteCompoundPkList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * {FOO &lt;= (select max(BAR) from white_compound_pk where ...)} <br />
      * white_compound_pk by REFERRED_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkList()</span>.<span style="color: #CC4747">max</span>(pkCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkList()</span>.<span style="color: #CC4747">max</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     pkCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     pkCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -315,7 +313,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * REFERRED_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setReferredName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setReferredName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param referredName The value of referredName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

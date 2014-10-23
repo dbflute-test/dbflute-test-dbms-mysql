@@ -93,9 +93,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <pre>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
      * cb.query().setFoo...(value);
-     * int count = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteImplicitConvInteger whiteImplicitConvInteger = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteImplicitConvInteger -&gt; {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteImplicitConvInteger</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteImplicitConvInteger.get...
+     *     ... = <span style="color: #553000">whiteImplicitConvInteger</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteImplicitConvInteger whiteImplicitConvInteger = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteImplicitConvInteger -&gt; {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteImplicitConvInteger</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteImplicitConvInteger.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteImplicitConvInteger</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteImplicitConvInteger> selectEntity(CBCall<WhiteImplicitConvIntegerCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteImplicitConvIntegerBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteImplicitConvInteger -&gt; {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteImplicitConvInteger <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteImplicitConvInteger.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteImplicitConvInteger -&gt; {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteImplicitConvInteger <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteImplicitConvInteger.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteImplicitConvInteger> selectEntity(WhiteImplicitConvIntegerCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.query().setFoo...(value);
-     * WhiteImplicitConvInteger whiteImplicitConvInteger = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteImplicitConvInteger.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteImplicitConvInteger <span style="color: #553000">whiteImplicitConvInteger</span> = <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteImplicitConvInteger</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteImplicitConvInteger selectEntityWithDeletedCheck(CBCall<WhiteImplicitConvIntegerCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.query().setFoo...(value);
-     * WhiteImplicitConvInteger whiteImplicitConvInteger = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteImplicitConvInteger whiteImplicitConvInteger = <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteImplicitConvInteger.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteImplicitConvInteger selectEntityWithDeletedCheck(WhiteImplicitConvIntegerCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Select the entity by the primary-key value.
      * @param implicitConvIntegerId : PK, NotNull, INT(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteImplicitConvInteger> selectByPK(Integer implicitConvIntegerId) {
         return facadeSelectByPK(implicitConvIntegerId);
@@ -272,17 +270,17 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteImplicitConvInteger&gt; whiteImplicitConvIntegerList = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteImplicitConvInteger&gt; <span style="color: #553000">whiteImplicitConvIntegerList</span> = <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteImplicitConvIntegerList.forEach(whiteImplicitConvInteger -&gt; {
-     *     ... = whiteImplicitConvInteger.get...();
+     * for (WhiteImplicitConvInteger <span style="color: #553000">whiteImplicitConvInteger</span> : <span style="color: #553000">whiteImplicitConvIntegerList</span>) {
+     *     ... = <span style="color: #553000">whiteImplicitConvInteger</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteImplicitConvInteger> selectList(CBCall<WhiteImplicitConvIntegerCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Select the list as result bean.
      * <pre>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteImplicitConvInteger&gt; whiteImplicitConvIntegerList = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : whiteImplicitConvIntegerList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteImplicitConvInteger&gt; <span style="color: #553000">whiteImplicitConvIntegerList</span> = <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : <span style="color: #553000">whiteImplicitConvIntegerList</span>) {
      *     ... = whiteImplicitConvInteger.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteImplicitConvInteger> selectList(WhiteImplicitConvIntegerCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteImplicitConvInteger&gt; page = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteImplicitConvInteger&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : page) {
+     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : <span style="color: #553000">page</span>) {
      *     ... = whiteImplicitConvInteger.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteImplicitConvInteger> selectPage(CBCall<WhiteImplicitConvIntegerCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteImplicitConvInteger&gt; page = whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteImplicitConvInteger&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : page) {
+     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : <span style="color: #553000">page</span>) {
      *     ... = whiteImplicitConvInteger.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteImplicitConvInteger> selectPage(WhiteImplicitConvIntegerCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.query().setFoo...(value);
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteImplicitConvInteger&gt;() {
-     *     public void handle(WhiteImplicitConvInteger entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
-     * cb.query().setFoo...(value);
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteImplicitConvInteger&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteImplicitConvInteger&gt;() {
      *     public void handle(WhiteImplicitConvInteger entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteImplicitConvIntegerCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -514,15 +506,15 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br />
      * white_implicit_conv_numeric by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(whiteImplicitConvIntegerList, numericCB -&gt; {
-     *     numericCB.setupSelect...();
-     *     numericCB.query().setFoo...(value);
-     *     numericCB.query().addOrderBy_Bar...();
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">numericCB</span>.setupSelect...
+     *     <span style="color: #553000">numericCB</span>.query().set...
+     *     <span style="color: #553000">numericCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : whiteImplicitConvIntegerList) {
+     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : <span style="color: #553000">whiteImplicitConvIntegerList</span>) {
      *     ... = whiteImplicitConvInteger.<span style="color: #CC4747">getWhiteImplicitConvNumericList()</span>;
      * }
      * </pre>
@@ -545,15 +537,15 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br />
      * white_implicit_conv_numeric by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(whiteImplicitConvIntegerList, numericCB -&gt; {
-     *     numericCB.setupSelect...();
-     *     numericCB.query().setFoo...(value);
-     *     numericCB.query().addOrderBy_Bar...();
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(<span style="color: #553000">whiteImplicitConvInteger</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">numericCB</span>.setupSelect...
+     *     <span style="color: #553000">numericCB</span>.query().set...
+     *     <span style="color: #553000">numericCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = whiteImplicitConvInteger.<span style="color: #CC4747">getWhiteImplicitConvNumericList()</span>;
+     * ... = <span style="color: #553000">whiteImplicitConvInteger</span>.<span style="color: #CC4747">getWhiteImplicitConvNumericList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -602,15 +594,15 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br />
      * white_implicit_conv_string by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
      * <pre>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">loadWhiteImplicitConvStringList</span>(whiteImplicitConvIntegerList, stringCB -&gt; {
-     *     stringCB.setupSelect...();
-     *     stringCB.query().setFoo...(value);
-     *     stringCB.query().addOrderBy_Bar...();
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvStringList</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">stringCB</span>.setupSelect...
+     *     <span style="color: #553000">stringCB</span>.query().set...
+     *     <span style="color: #553000">stringCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : whiteImplicitConvIntegerList) {
+     * for (WhiteImplicitConvInteger whiteImplicitConvInteger : <span style="color: #553000">whiteImplicitConvIntegerList</span>) {
      *     ... = whiteImplicitConvInteger.<span style="color: #CC4747">getWhiteImplicitConvStringList()</span>;
      * }
      * </pre>
@@ -633,15 +625,15 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br />
      * white_implicit_conv_string by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
      * <pre>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">loadWhiteImplicitConvStringList</span>(whiteImplicitConvIntegerList, stringCB -&gt; {
-     *     stringCB.setupSelect...();
-     *     stringCB.query().setFoo...(value);
-     *     stringCB.query().addOrderBy_Bar...();
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvStringList</span>(<span style="color: #553000">whiteImplicitConvInteger</span>, <span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">stringCB</span>.setupSelect...
+     *     <span style="color: #553000">stringCB</span>.query().set...
+     *     <span style="color: #553000">stringCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = whiteImplicitConvInteger.<span style="color: #CC4747">getWhiteImplicitConvStringList()</span>;
+     * ... = <span style="color: #553000">whiteImplicitConvInteger</span>.<span style="color: #CC4747">getWhiteImplicitConvStringList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -729,12 +721,12 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteImplicitConvInteger.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteImplicitConvInteger.set...;</span>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">insert</span>(whiteImplicitConvInteger);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">insert</span>(whiteImplicitConvInteger);
      * ... = whiteImplicitConvInteger.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteImplicitConvInteger The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteImplicitConvInteger whiteImplicitConvInteger) {
         doInsert(whiteImplicitConvInteger, null);
@@ -752,15 +744,15 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteImplicitConvInteger.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteImplicitConvIntegerBhv.<span style="color: #CC4747">update</span>(whiteImplicitConvInteger);
+     *     <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">update</span>(whiteImplicitConvInteger);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteImplicitConvInteger The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteImplicitConvInteger whiteImplicitConvInteger) {
         doUpdate(whiteImplicitConvInteger, null);
@@ -771,9 +763,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteImplicitConvInteger The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteImplicitConvInteger whiteImplicitConvInteger) {
         doInsertOrUpdate(whiteImplicitConvInteger, null, null);
@@ -787,14 +779,14 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteImplicitConvInteger.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteImplicitConvIntegerBhv.<span style="color: #CC4747">delete</span>(whiteImplicitConvInteger);
+     *     <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">delete</span>(whiteImplicitConvInteger);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteImplicitConvInteger The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteImplicitConvInteger whiteImplicitConvInteger) {
         doDelete(whiteImplicitConvInteger, null);
@@ -819,7 +811,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteImplicitConvIntegerList.add(whiteImplicitConvInteger);
      * }
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">batchInsert</span>(whiteImplicitConvIntegerList);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteImplicitConvIntegerList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -849,11 +841,11 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteImplicitConvIntegerList.add(whiteImplicitConvInteger);
      * }
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">batchUpdate</span>(whiteImplicitConvIntegerList);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteImplicitConvIntegerList);
      * </pre>
      * @param whiteImplicitConvIntegerList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList) {
         return doBatchUpdate(whiteImplicitConvIntegerList, null);
@@ -864,7 +856,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteImplicitConvIntegerList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList) {
         return doBatchDelete(whiteImplicitConvIntegerList, null);
@@ -876,7 +868,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteImplicitConvInteger, WhiteImplicitConvIntegerCB&gt;() {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteImplicitConvInteger, WhiteImplicitConvIntegerCB&gt;() {
      *     public ConditionBean setup(WhiteImplicitConvInteger entity, WhiteImplicitConvIntegerCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -918,12 +910,12 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">//whiteImplicitConvInteger.setVersionNo(value);</span>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitConvInteger, cb);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitConvInteger, cb);
      * </pre>
      * @param whiteImplicitConvInteger The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteImplicitConvInteger whiteImplicitConvInteger, CBCall<WhiteImplicitConvIntegerCB> cbLambda) {
         return doQueryUpdate(whiteImplicitConvInteger, createCB(cbLambda), null);
@@ -944,12 +936,12 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">//whiteImplicitConvInteger.setVersionNo(value);</span>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitConvInteger, cb);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitConvInteger, cb);
      * </pre>
      * @param whiteImplicitConvInteger The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteImplicitConvInteger whiteImplicitConvInteger, WhiteImplicitConvIntegerCB cb) {
         return doQueryUpdate(whiteImplicitConvInteger, cb, null);
@@ -960,11 +952,11 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <pre>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">queryDelete</span>(whiteImplicitConvInteger, cb);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitConvInteger, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteImplicitConvIntegerCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -975,11 +967,11 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <pre>
      * WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB();
      * cb.query().setFoo...(value);
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">queryDelete</span>(whiteImplicitConvInteger, cb);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitConvInteger, cb);
      * </pre>
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteImplicitConvIntegerCB cb) {
         return doQueryDelete(cb, null);
@@ -1003,12 +995,12 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * InsertOption<WhiteImplicitConvIntegerCB> option = new InsertOption<WhiteImplicitConvIntegerCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">varyingInsert</span>(whiteImplicitConvInteger, option);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteImplicitConvInteger, option);
      * ... = whiteImplicitConvInteger.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteImplicitConvInteger The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteImplicitConvInteger whiteImplicitConvInteger, WritableOptionCall<WhiteImplicitConvIntegerCB, InsertOption<WhiteImplicitConvIntegerCB>> opLambda) {
         doInsert(whiteImplicitConvInteger, createInsertOption(opLambda));
@@ -1032,16 +1024,16 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteImplicitConvIntegerBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteImplicitConvInteger, option);
+     *     <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteImplicitConvInteger, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteImplicitConvInteger The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteImplicitConvInteger whiteImplicitConvInteger, WritableOptionCall<WhiteImplicitConvIntegerCB, UpdateOption<WhiteImplicitConvIntegerCB>> opLambda) {
         doUpdate(whiteImplicitConvInteger, createUpdateOption(opLambda));
@@ -1053,9 +1045,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param whiteImplicitConvInteger The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteImplicitConvInteger whiteImplicitConvInteger, WritableOptionCall<WhiteImplicitConvIntegerCB, InsertOption<WhiteImplicitConvIntegerCB>> insertOpLambda, WritableOptionCall<WhiteImplicitConvIntegerCB, UpdateOption<WhiteImplicitConvIntegerCB>> updateOpLambda) {
         doInsertOrUpdate(whiteImplicitConvInteger, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -1067,8 +1059,8 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Other specifications are same as delete(entity).
      * @param whiteImplicitConvInteger The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteImplicitConvInteger whiteImplicitConvInteger, WritableOptionCall<WhiteImplicitConvIntegerCB, DeleteOption<WhiteImplicitConvIntegerCB>> opLambda) {
         doDelete(whiteImplicitConvInteger, createDeleteOption(opLambda));
@@ -1152,13 +1144,13 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitConvInteger, cb, option);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitConvInteger, cb, option);
      * </pre>
      * @param whiteImplicitConvInteger The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteImplicitConvInteger whiteImplicitConvInteger, CBCall<WhiteImplicitConvIntegerCB> cbLambda, WritableOptionCall<WhiteImplicitConvIntegerCB, UpdateOption<WhiteImplicitConvIntegerCB>> opLambda) {
         return doQueryUpdate(whiteImplicitConvInteger, createCB(cbLambda), createUpdateOption(opLambda));
@@ -1186,13 +1178,13 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteImplicitConvIntegerBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitConvInteger, cb, option);
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitConvInteger, cb, option);
      * </pre>
      * @param whiteImplicitConvInteger The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteImplicitConvInteger whiteImplicitConvInteger, WhiteImplicitConvIntegerCB cb, WritableOptionCall<WhiteImplicitConvIntegerCB, UpdateOption<WhiteImplicitConvIntegerCB>> opLambda) {
         return doQueryUpdate(whiteImplicitConvInteger, cb, createUpdateOption(opLambda));
@@ -1205,7 +1197,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteImplicitConvIntegerCB> cbLambda, WritableOptionCall<WhiteImplicitConvIntegerCB, DeleteOption<WhiteImplicitConvIntegerCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1218,7 +1210,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param cb The condition-bean of WhiteImplicitConvInteger. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteImplicitConvIntegerCB cb, WritableOptionCall<WhiteImplicitConvIntegerCB, DeleteOption<WhiteImplicitConvIntegerCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

@@ -80,7 +80,6 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
     /** FROM: {VARCHAR(200)} */
     protected String _from;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -174,8 +173,8 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_select);
-        sb.append(dm).append(_from);
+        sb.append(dm).append(xfND(_select));
+        sb.append(dm).append(xfND(_from));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -207,6 +206,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
      * @return The value of the column 'SELECT'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSelect() {
+        checkSpecifiedProperty("select");
         return _select;
     }
 
@@ -215,7 +215,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
      * @param select The value of the column 'SELECT'. (basically NotNull if update: for the constraint)
      */
     public void setSelect(Integer select) {
-        __modifiedProperties.addPropertyName("select");
+        registerModifiedProperty("select");
         _select = select;
     }
 
@@ -224,6 +224,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
      * @return The value of the column 'FROM'. (NullAllowed even if selected: for no constraint)
      */
     public String getFrom() {
+        checkSpecifiedProperty("from");
         return _from;
     }
 
@@ -232,7 +233,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
      * @param from The value of the column 'FROM'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFrom(String from) {
-        __modifiedProperties.addPropertyName("from");
+        registerModifiedProperty("from");
         _from = from;
     }
 }

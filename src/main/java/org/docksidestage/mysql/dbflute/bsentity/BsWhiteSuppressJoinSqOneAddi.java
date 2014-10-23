@@ -80,7 +80,6 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
     /** ONE_ADDI_NAME: {NotNull, VARCHAR(200)} */
     protected String _oneAddiName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -174,8 +173,8 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_oneAddiId);
-        sb.append(dm).append(_oneAddiName);
+        sb.append(dm).append(xfND(_oneAddiId));
+        sb.append(dm).append(xfND(_oneAddiName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -207,6 +206,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
      * @return The value of the column 'ONE_ADDI_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getOneAddiId() {
+        checkSpecifiedProperty("oneAddiId");
         return _oneAddiId;
     }
 
@@ -215,7 +215,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
      * @param oneAddiId The value of the column 'ONE_ADDI_ID'. (basically NotNull if update: for the constraint)
      */
     public void setOneAddiId(Integer oneAddiId) {
-        __modifiedProperties.addPropertyName("oneAddiId");
+        registerModifiedProperty("oneAddiId");
         _oneAddiId = oneAddiId;
     }
 
@@ -224,6 +224,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
      * @return The value of the column 'ONE_ADDI_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getOneAddiName() {
+        checkSpecifiedProperty("oneAddiName");
         return _oneAddiName;
     }
 
@@ -232,7 +233,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
      * @param oneAddiName The value of the column 'ONE_ADDI_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setOneAddiName(String oneAddiName) {
-        __modifiedProperties.addPropertyName("oneAddiName");
+        registerModifiedProperty("oneAddiName");
         _oneAddiName = oneAddiName;
     }
 }

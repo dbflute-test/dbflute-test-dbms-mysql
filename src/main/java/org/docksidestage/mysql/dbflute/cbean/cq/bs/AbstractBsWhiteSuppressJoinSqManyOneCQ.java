@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {exists (select MANY_ONE_ID from white_suppress_join_sq_many where ...)} <br />
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSuppressJoinSqManyList</span>(manyCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteSuppressJoinSqManyList</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     manyCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {not exists (select MANY_ONE_ID from white_suppress_join_sq_many where ...)} <br />
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSuppressJoinSqManyList</span>(new SubQuery&lt;WhiteSuppressJoinSqManyCB&gt;() {
-     *     public void query(WhiteSuppressJoinSqManyCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSuppressJoinSqManyList</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     manyCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {FOO &lt;= (select max(BAR) from white_suppress_join_sq_many where ...)} <br />
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSuppressJoinSqManyList()</span>.<span style="color: #CC4747">max</span>(manyCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSuppressJoinSqManyList()</span>.<span style="color: #CC4747">max</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     manyCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     manyCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -315,7 +313,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setManyOneName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setManyOneName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param manyOneName The value of manyOneName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

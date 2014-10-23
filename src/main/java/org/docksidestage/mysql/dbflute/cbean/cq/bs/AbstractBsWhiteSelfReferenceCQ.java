@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * {exists (select PARENT_ID from white_self_reference where ...)} <br />
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSelfReferenceSelfList</span>(referenceCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteSelfReferenceSelfList</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referenceCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * {not exists (select PARENT_ID from white_self_reference where ...)} <br />
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSelfReferenceSelfList</span>(new SubQuery&lt;WhiteSelfReferenceCB&gt;() {
-     *     public void query(WhiteSelfReferenceCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSelfReferenceSelfList</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     referenceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of SelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * {FOO &lt;= (select max(BAR) from white_self_reference where ...)} <br />
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSelfReferenceSelfList()</span>.<span style="color: #CC4747">max</span>(referenceCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSelfReferenceSelfList()</span>.<span style="color: #CC4747">max</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referenceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     referenceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -315,7 +313,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br />
-     * <pre>e.g. setSelfReferenceName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setSelfReferenceName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param selfReferenceName The value of selfReferenceName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

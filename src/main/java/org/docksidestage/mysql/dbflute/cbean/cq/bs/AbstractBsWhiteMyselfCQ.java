@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * {exists (select MYSELF_ID from white_myself_check where ...)} <br />
      * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteMyselfCheckList</span>(checkCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteMyselfCheckList</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     checkCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * {not exists (select MYSELF_ID from white_myself_check where ...)} <br />
      * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteMyselfCheckList</span>(new SubQuery&lt;WhiteMyselfCheckCB&gt;() {
-     *     public void query(WhiteMyselfCheckCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteMyselfCheckList</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     checkCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MyselfId_NotExistsReferrer_WhiteMyselfCheckList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from white_myself_check where ...)} <br />
      * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteMyselfCheckList()</span>.<span style="color: #CC4747">max</span>(checkCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteMyselfCheckList()</span>.<span style="color: #CC4747">max</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     checkCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     checkCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -315,7 +313,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * MYSELF_NAME: {NotNull, VARCHAR(80)} <br />
-     * <pre>e.g. setMyselfName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setMyselfName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param myselfName The value of myselfName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

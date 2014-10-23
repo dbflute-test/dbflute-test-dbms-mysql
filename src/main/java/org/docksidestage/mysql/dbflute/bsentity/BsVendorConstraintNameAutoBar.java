@@ -80,7 +80,6 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
     /** CONSTRAINT_NAME_AUTO_BAR_NAME: {UQ, NotNull, VARCHAR(50)} */
     protected String _constraintNameAutoBarName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -185,8 +184,8 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_constraintNameAutoBarId);
-        sb.append(dm).append(_constraintNameAutoBarName);
+        sb.append(dm).append(xfND(_constraintNameAutoBarId));
+        sb.append(dm).append(xfND(_constraintNameAutoBarName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -218,6 +217,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
      * @return The value of the column 'CONSTRAINT_NAME_AUTO_BAR_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getConstraintNameAutoBarId() {
+        checkSpecifiedProperty("constraintNameAutoBarId");
         return _constraintNameAutoBarId;
     }
 
@@ -226,7 +226,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
      * @param constraintNameAutoBarId The value of the column 'CONSTRAINT_NAME_AUTO_BAR_ID'. (basically NotNull if update: for the constraint)
      */
     public void setConstraintNameAutoBarId(Long constraintNameAutoBarId) {
-        __modifiedProperties.addPropertyName("constraintNameAutoBarId");
+        registerModifiedProperty("constraintNameAutoBarId");
         _constraintNameAutoBarId = constraintNameAutoBarId;
     }
 
@@ -235,6 +235,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
      * @return The value of the column 'CONSTRAINT_NAME_AUTO_BAR_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getConstraintNameAutoBarName() {
+        checkSpecifiedProperty("constraintNameAutoBarName");
         return _constraintNameAutoBarName;
     }
 
@@ -243,7 +244,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
      * @param constraintNameAutoBarName The value of the column 'CONSTRAINT_NAME_AUTO_BAR_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setConstraintNameAutoBarName(String constraintNameAutoBarName) {
-        __modifiedProperties.addPropertyName("constraintNameAutoBarName");
+        registerModifiedProperty("constraintNameAutoBarName");
         _constraintNameAutoBarName = constraintNameAutoBarName;
     }
 }

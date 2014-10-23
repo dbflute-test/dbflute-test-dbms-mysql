@@ -194,7 +194,9 @@ public class WxInvokePathDetailTest extends UnitContainerTestCase {
             }
             // *and visual judgment with DBFlute runtime
         } finally {
+            XLog.unlock();
             XLog.setLoggingInHolidayMood(false);
+            QLog.unlock();
             QLog.setLoggingInHolidayMood(false);
             XLog.lock();
             QLog.lock();

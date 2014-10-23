@@ -80,7 +80,6 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     /** MASTER_TYPE_CODE: {NotNull, CHAR(3)} */
     protected String _masterTypeCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -173,8 +172,8 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_reversefkSuppressedId);
-        sb.append(dm).append(_masterTypeCode);
+        sb.append(dm).append(xfND(_reversefkSuppressedId));
+        sb.append(dm).append(xfND(_masterTypeCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -205,6 +204,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
      * @return The value of the column 'REVERSEFK_SUPPRESSED_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getReversefkSuppressedId() {
+        checkSpecifiedProperty("reversefkSuppressedId");
         return _reversefkSuppressedId;
     }
 
@@ -213,7 +213,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
      * @param reversefkSuppressedId The value of the column 'REVERSEFK_SUPPRESSED_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReversefkSuppressedId(Long reversefkSuppressedId) {
-        __modifiedProperties.addPropertyName("reversefkSuppressedId");
+        registerModifiedProperty("reversefkSuppressedId");
         _reversefkSuppressedId = reversefkSuppressedId;
     }
 
@@ -222,6 +222,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
      * @return The value of the column 'MASTER_TYPE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMasterTypeCode() {
+        checkSpecifiedProperty("masterTypeCode");
         return _masterTypeCode;
     }
 
@@ -230,7 +231,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
      * @param masterTypeCode The value of the column 'MASTER_TYPE_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setMasterTypeCode(String masterTypeCode) {
-        __modifiedProperties.addPropertyName("masterTypeCode");
+        registerModifiedProperty("masterTypeCode");
         _masterTypeCode = masterTypeCode;
     }
 }

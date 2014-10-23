@@ -171,7 +171,7 @@ public class VendorQueryTest extends UnitContainerTestCase {
             MemberCB cb = new MemberCB();
             cb.query().setMemberId_Equal(3);
             cb.query().setMemberName_LikeSearch("ア", new LikeSearchOption().likeContain());
-            assertNull(memberBhv.selectEntity(cb));
+            assertFalse(memberBhv.selectEntity(cb).isPresent());
         }
 
         MemberCB cb = new MemberCB();

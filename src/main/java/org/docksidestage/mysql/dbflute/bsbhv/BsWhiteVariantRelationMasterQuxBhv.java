@@ -93,9 +93,9 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
-     * cb.query().setFoo...(value);
-     * int count = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,7 +110,7 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
      * cb.query().setFoo...(value);
-     * int count = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -129,28 +129,28 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * WhiteVariantRelationMasterQux whiteVariantRelationMasterQux = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationMasterQux -&gt; {
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteVariantRelationMasterQux</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = whiteVariantRelationMasterQux.get...
+     *     ... = <span style="color: #553000">whiteVariantRelationMasterQux</span>.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * WhiteVariantRelationMasterQux whiteVariantRelationMasterQux = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationMasterQux -&gt; {
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteVariantRelationMasterQux</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = whiteVariantRelationMasterQux.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     *     ... = <span style="color: #553000">whiteVariantRelationMasterQux</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteVariantRelationMasterQux> selectEntity(CBCall<WhiteVariantRelationMasterQuxCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -166,24 +166,24 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationMasterQux -&gt; {
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationMasterQux <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteVariantRelationMasterQux.get...
      * });
      * 
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationMasterQux -&gt; {
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationMasterQux <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
      *     ... = whiteVariantRelationMasterQux.get...
-     * }).<span style="color: #994747">orElse</span>(() -&gt; {
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteVariantRelationMasterQux> selectEntity(WhiteVariantRelationMasterQuxCB cb) {
         return facadeSelectEntity(cb);
@@ -203,16 +203,14 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
-     * cb.query().setFoo...(value);
-     * WhiteVariantRelationMasterQux whiteVariantRelationMasterQux = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = whiteVariantRelationMasterQux.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteVariantRelationMasterQux <span style="color: #553000">whiteVariantRelationMasterQux</span> = <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteVariantRelationMasterQux</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteVariantRelationMasterQux selectEntityWithDeletedCheck(CBCall<WhiteVariantRelationMasterQuxCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -223,15 +221,15 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
-     * cb.query().setFoo...(value);
-     * WhiteVariantRelationMasterQux whiteVariantRelationMasterQux = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * WhiteVariantRelationMasterQux whiteVariantRelationMasterQux = <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteVariantRelationMasterQux.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteVariantRelationMasterQux selectEntityWithDeletedCheck(WhiteVariantRelationMasterQuxCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -241,9 +239,9 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * Select the entity by the primary-key value.
      * @param masterQuxId : PK, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<WhiteVariantRelationMasterQux> selectByPK(Long masterQuxId) {
         return facadeSelectByPK(masterQuxId);
@@ -272,17 +270,17 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteVariantRelationMasterQux&gt; whiteVariantRelationMasterQuxList = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;WhiteVariantRelationMasterQux&gt; <span style="color: #553000">whiteVariantRelationMasterQuxList</span> = <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * whiteVariantRelationMasterQuxList.forEach(whiteVariantRelationMasterQux -&gt; {
-     *     ... = whiteVariantRelationMasterQux.get...();
+     * for (WhiteVariantRelationMasterQux <span style="color: #553000">whiteVariantRelationMasterQux</span> : <span style="color: #553000">whiteVariantRelationMasterQuxList</span>) {
+     *     ... = <span style="color: #553000">whiteVariantRelationMasterQux</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteVariantRelationMasterQux> selectList(CBCall<WhiteVariantRelationMasterQuxCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -292,16 +290,16 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * Select the list as result bean.
      * <pre>
      * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteVariantRelationMasterQux&gt; whiteVariantRelationMasterQuxList = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteVariantRelationMasterQux whiteVariantRelationMasterQux : whiteVariantRelationMasterQuxList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;WhiteVariantRelationMasterQux&gt; <span style="color: #553000">whiteVariantRelationMasterQuxList</span> = <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (WhiteVariantRelationMasterQux whiteVariantRelationMasterQux : <span style="color: #553000">whiteVariantRelationMasterQuxList</span>) {
      *     ... = whiteVariantRelationMasterQux.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteVariantRelationMasterQux> selectList(WhiteVariantRelationMasterQuxCB cb) {
         return facadeSelectList(cb);
@@ -317,23 +315,23 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteVariantRelationMasterQux&gt; page = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteVariantRelationMasterQux&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteVariantRelationMasterQux whiteVariantRelationMasterQux : page) {
+     * for (WhiteVariantRelationMasterQux whiteVariantRelationMasterQux : <span style="color: #553000">page</span>) {
      *     ... = whiteVariantRelationMasterQux.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteVariantRelationMasterQux> selectPage(CBCall<WhiteVariantRelationMasterQuxCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -347,19 +345,19 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteVariantRelationMasterQux&gt; page = whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;WhiteVariantRelationMasterQux&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteVariantRelationMasterQux whiteVariantRelationMasterQux : page) {
+     * for (WhiteVariantRelationMasterQux whiteVariantRelationMasterQux : <span style="color: #553000">page</span>) {
      *     ... = whiteVariantRelationMasterQux.get...();
      * }
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteVariantRelationMasterQux> selectPage(WhiteVariantRelationMasterQuxCB cb) {
         return facadeSelectPage(cb);
@@ -371,12 +369,10 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
-     * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationMasterQux&gt;() {
-     *     public void handle(WhiteVariantRelationMasterQux entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
@@ -390,8 +386,8 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * Select the cursor by the condition-bean.
      * <pre>
      * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
-     * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationMasterQux&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationMasterQux&gt;() {
      *     public void handle(WhiteVariantRelationMasterQux entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -411,11 +407,9 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(WhiteVariantRelationMasterQuxCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -441,23 +435,24 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -477,27 +472,24 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -537,12 +529,12 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterQux.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterQux.set...;</span>
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">insert</span>(whiteVariantRelationMasterQux);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">insert</span>(whiteVariantRelationMasterQux);
      * ... = whiteVariantRelationMasterQux.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param whiteVariantRelationMasterQux The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux) {
         doInsert(whiteVariantRelationMasterQux, null);
@@ -560,15 +552,15 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteVariantRelationMasterQux.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">update</span>(whiteVariantRelationMasterQux);
+     *     <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">update</span>(whiteVariantRelationMasterQux);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteVariantRelationMasterQux The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux) {
         doUpdate(whiteVariantRelationMasterQux, null);
@@ -579,9 +571,9 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteVariantRelationMasterQux The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux) {
         doInsertOrUpdate(whiteVariantRelationMasterQux, null, null);
@@ -595,14 +587,14 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteVariantRelationMasterQux.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">delete</span>(whiteVariantRelationMasterQux);
+     *     <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">delete</span>(whiteVariantRelationMasterQux);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteVariantRelationMasterQux The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux) {
         doDelete(whiteVariantRelationMasterQux, null);
@@ -627,7 +619,7 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteVariantRelationMasterQuxList.add(whiteVariantRelationMasterQux);
      * }
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">batchInsert</span>(whiteVariantRelationMasterQuxList);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteVariantRelationMasterQuxList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -657,11 +649,11 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteVariantRelationMasterQuxList.add(whiteVariantRelationMasterQux);
      * }
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">batchUpdate</span>(whiteVariantRelationMasterQuxList);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteVariantRelationMasterQuxList);
      * </pre>
      * @param whiteVariantRelationMasterQuxList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<WhiteVariantRelationMasterQux> whiteVariantRelationMasterQuxList) {
         return doBatchUpdate(whiteVariantRelationMasterQuxList, null);
@@ -672,7 +664,7 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param whiteVariantRelationMasterQuxList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<WhiteVariantRelationMasterQux> whiteVariantRelationMasterQuxList) {
         return doBatchDelete(whiteVariantRelationMasterQuxList, null);
@@ -684,7 +676,7 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteVariantRelationMasterQux, WhiteVariantRelationMasterQuxCB&gt;() {
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteVariantRelationMasterQux, WhiteVariantRelationMasterQuxCB&gt;() {
      *     public ConditionBean setup(WhiteVariantRelationMasterQux entity, WhiteVariantRelationMasterQuxCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -726,12 +718,12 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterQux.setVersionNo(value);</span>
      * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationMasterQux, cb);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationMasterQux, cb);
      * </pre>
      * @param whiteVariantRelationMasterQux The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux, CBCall<WhiteVariantRelationMasterQuxCB> cbLambda) {
         return doQueryUpdate(whiteVariantRelationMasterQux, createCB(cbLambda), null);
@@ -752,12 +744,12 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterQux.setVersionNo(value);</span>
      * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationMasterQux, cb);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationMasterQux, cb);
      * </pre>
      * @param whiteVariantRelationMasterQux The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux, WhiteVariantRelationMasterQuxCB cb) {
         return doQueryUpdate(whiteVariantRelationMasterQux, cb, null);
@@ -768,11 +760,11 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterQux, cb);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterQux, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteVariantRelationMasterQuxCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -783,11 +775,11 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * <pre>
      * WhiteVariantRelationMasterQuxCB cb = new WhiteVariantRelationMasterQuxCB();
      * cb.query().setFoo...(value);
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterQux, cb);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterQux, cb);
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(WhiteVariantRelationMasterQuxCB cb) {
         return doQueryDelete(cb, null);
@@ -811,12 +803,12 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * InsertOption<WhiteVariantRelationMasterQuxCB> option = new InsertOption<WhiteVariantRelationMasterQuxCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">varyingInsert</span>(whiteVariantRelationMasterQux, option);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteVariantRelationMasterQux, option);
      * ... = whiteVariantRelationMasterQux.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteVariantRelationMasterQux The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux, WritableOptionCall<WhiteVariantRelationMasterQuxCB, InsertOption<WhiteVariantRelationMasterQuxCB>> opLambda) {
         doInsert(whiteVariantRelationMasterQux, createInsertOption(opLambda));
@@ -840,16 +832,16 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteVariantRelationMasterQux, option);
+     *     <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteVariantRelationMasterQux, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param whiteVariantRelationMasterQux The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux, WritableOptionCall<WhiteVariantRelationMasterQuxCB, UpdateOption<WhiteVariantRelationMasterQuxCB>> opLambda) {
         doUpdate(whiteVariantRelationMasterQux, createUpdateOption(opLambda));
@@ -861,9 +853,9 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * @param whiteVariantRelationMasterQux The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux, WritableOptionCall<WhiteVariantRelationMasterQuxCB, InsertOption<WhiteVariantRelationMasterQuxCB>> insertOpLambda, WritableOptionCall<WhiteVariantRelationMasterQuxCB, UpdateOption<WhiteVariantRelationMasterQuxCB>> updateOpLambda) {
         doInsertOrUpdate(whiteVariantRelationMasterQux, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -875,8 +867,8 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * Other specifications are same as delete(entity).
      * @param whiteVariantRelationMasterQux The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux, WritableOptionCall<WhiteVariantRelationMasterQuxCB, DeleteOption<WhiteVariantRelationMasterQuxCB>> opLambda) {
         doDelete(whiteVariantRelationMasterQux, createDeleteOption(opLambda));
@@ -960,13 +952,13 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationMasterQux, cb, option);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationMasterQux, cb, option);
      * </pre>
      * @param whiteVariantRelationMasterQux The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux, CBCall<WhiteVariantRelationMasterQuxCB> cbLambda, WritableOptionCall<WhiteVariantRelationMasterQuxCB, UpdateOption<WhiteVariantRelationMasterQuxCB>> opLambda) {
         return doQueryUpdate(whiteVariantRelationMasterQux, createCB(cbLambda), createUpdateOption(opLambda));
@@ -994,13 +986,13 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteVariantRelationMasterQuxBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationMasterQux, cb, option);
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteVariantRelationMasterQux, cb, option);
      * </pre>
      * @param whiteVariantRelationMasterQux The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(WhiteVariantRelationMasterQux whiteVariantRelationMasterQux, WhiteVariantRelationMasterQuxCB cb, WritableOptionCall<WhiteVariantRelationMasterQuxCB, UpdateOption<WhiteVariantRelationMasterQuxCB>> opLambda) {
         return doQueryUpdate(whiteVariantRelationMasterQux, cb, createUpdateOption(opLambda));
@@ -1013,7 +1005,7 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<WhiteVariantRelationMasterQuxCB> cbLambda, WritableOptionCall<WhiteVariantRelationMasterQuxCB, DeleteOption<WhiteVariantRelationMasterQuxCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1026,7 +1018,7 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
      * @param cb The condition-bean of WhiteVariantRelationMasterQux. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(WhiteVariantRelationMasterQuxCB cb, WritableOptionCall<WhiteVariantRelationMasterQuxCB, DeleteOption<WhiteVariantRelationMasterQuxCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

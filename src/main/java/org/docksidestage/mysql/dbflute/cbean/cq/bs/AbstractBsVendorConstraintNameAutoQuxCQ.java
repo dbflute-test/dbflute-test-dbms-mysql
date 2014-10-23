@@ -167,7 +167,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * {exists (select CONSTRAINT_NAME_AUTO_QUX_ID from vendor_constraint_name_auto_ref where ...)} <br />
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorConstraintNameAutoRefList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsVendorConstraintNameAutoRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -187,10 +187,8 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * {not exists (select CONSTRAINT_NAME_AUTO_QUX_ID from vendor_constraint_name_auto_ref where ...)} <br />
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorConstraintNameAutoRefList</span>(new SubQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
-     *     public void query(VendorConstraintNameAutoRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsVendorConstraintNameAutoRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ConstraintNameAutoQuxId_NotExistsReferrer_VendorConstraintNameAutoRefList for 'not exists'. (NotNull)
@@ -218,7 +216,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * {FOO &lt;= (select max(BAR) from vendor_constraint_name_auto_ref where ...)} <br />
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorConstraintNameAutoRefList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedVendorConstraintNameAutoRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -315,7 +313,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)} <br />
-     * <pre>e.g. setConstraintNameAutoQuxName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setConstraintNameAutoQuxName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */

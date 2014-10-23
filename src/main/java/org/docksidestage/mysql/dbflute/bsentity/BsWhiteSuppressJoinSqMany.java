@@ -90,7 +90,6 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
     /** MANY_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one} */
     protected Integer _manyOneId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -204,10 +203,10 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_manyId);
-        sb.append(dm).append(_manyName);
-        sb.append(dm).append(_suppressJoinSqId);
-        sb.append(dm).append(_manyOneId);
+        sb.append(dm).append(xfND(_manyId));
+        sb.append(dm).append(xfND(_manyName));
+        sb.append(dm).append(xfND(_suppressJoinSqId));
+        sb.append(dm).append(xfND(_manyOneId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -239,6 +238,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
      * @return The value of the column 'MANY_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getManyId() {
+        checkSpecifiedProperty("manyId");
         return _manyId;
     }
 
@@ -247,7 +247,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
      * @param manyId The value of the column 'MANY_ID'. (basically NotNull if update: for the constraint)
      */
     public void setManyId(Integer manyId) {
-        __modifiedProperties.addPropertyName("manyId");
+        registerModifiedProperty("manyId");
         _manyId = manyId;
     }
 
@@ -256,6 +256,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
      * @return The value of the column 'MANY_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getManyName() {
+        checkSpecifiedProperty("manyName");
         return _manyName;
     }
 
@@ -264,7 +265,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
      * @param manyName The value of the column 'MANY_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setManyName(String manyName) {
-        __modifiedProperties.addPropertyName("manyName");
+        registerModifiedProperty("manyName");
         _manyName = manyName;
     }
 
@@ -273,6 +274,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
      * @return The value of the column 'SUPPRESS_JOIN_SQ_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSuppressJoinSqId() {
+        checkSpecifiedProperty("suppressJoinSqId");
         return _suppressJoinSqId;
     }
 
@@ -281,7 +283,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
      * @param suppressJoinSqId The value of the column 'SUPPRESS_JOIN_SQ_ID'. (basically NotNull if update: for the constraint)
      */
     public void setSuppressJoinSqId(Integer suppressJoinSqId) {
-        __modifiedProperties.addPropertyName("suppressJoinSqId");
+        registerModifiedProperty("suppressJoinSqId");
         _suppressJoinSqId = suppressJoinSqId;
     }
 
@@ -290,6 +292,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
      * @return The value of the column 'MANY_ONE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getManyOneId() {
+        checkSpecifiedProperty("manyOneId");
         return _manyOneId;
     }
 
@@ -298,7 +301,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity {
      * @param manyOneId The value of the column 'MANY_ONE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setManyOneId(Integer manyOneId) {
-        __modifiedProperties.addPropertyName("manyOneId");
+        registerModifiedProperty("manyOneId");
         _manyOneId = manyOneId;
     }
 }

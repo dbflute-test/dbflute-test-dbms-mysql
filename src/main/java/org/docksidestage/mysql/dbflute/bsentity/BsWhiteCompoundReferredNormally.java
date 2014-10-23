@@ -80,7 +80,6 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
     /** REFERRED_NAME: {NotNull, VARCHAR(200)} */
     protected String _referredName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -174,8 +173,8 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_referredId);
-        sb.append(dm).append(_referredName);
+        sb.append(dm).append(xfND(_referredId));
+        sb.append(dm).append(xfND(_referredName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -207,6 +206,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
      * @return The value of the column 'REFERRED_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getReferredId() {
+        checkSpecifiedProperty("referredId");
         return _referredId;
     }
 
@@ -215,7 +215,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
      * @param referredId The value of the column 'REFERRED_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReferredId(Integer referredId) {
-        __modifiedProperties.addPropertyName("referredId");
+        registerModifiedProperty("referredId");
         _referredId = referredId;
     }
 
@@ -224,6 +224,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
      * @return The value of the column 'REFERRED_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getReferredName() {
+        checkSpecifiedProperty("referredName");
         return _referredName;
     }
 
@@ -232,7 +233,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
      * @param referredName The value of the column 'REFERRED_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setReferredName(String referredName) {
-        __modifiedProperties.addPropertyName("referredName");
+        registerModifiedProperty("referredName");
         _referredName = referredName;
     }
 }

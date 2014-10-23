@@ -77,18 +77,102 @@ public class LoaderOfMember {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<MemberAddress> _referrerMemberAddressList;
+
+    /**
+     * Load referrer of memberAddressList by the set-upper of referrer. <br />
+     * (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberAddressList</span>(<span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">addressCB</span>.setupSelect...
+     *         <span style="color: #553000">addressCB</span>.query().set...
+     *         <span style="color: #553000">addressCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">addressLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    addressLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberAddressList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfMemberAddress> loadMemberAddressList(ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
         myBhv().loadMemberAddressList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberAddressList = refLs);
         return hd -> hd.handle(new LoaderOfMemberAddress().ready(_referrerMemberAddressList, _selector));
     }
 
     protected List<MemberLogin> _referrerMemberLoginList;
+
+    /**
+     * Load referrer of memberLoginList by the set-upper of referrer. <br />
+     * (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberLoginList</span>(<span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">loginCB</span>.setupSelect...
+     *         <span style="color: #553000">loginCB</span>.query().set...
+     *         <span style="color: #553000">loginCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">loginLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    loginLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberLoginList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfMemberLogin> loadMemberLoginList(ConditionBeanSetupper<MemberLoginCB> refCBLambda) {
         myBhv().loadMemberLoginList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberLoginList = refLs);
         return hd -> hd.handle(new LoaderOfMemberLogin().ready(_referrerMemberLoginList, _selector));
     }
 
     protected List<Purchase> _referrerPurchaseList;
+
+    /**
+     * Load referrer of purchaseList by the set-upper of referrer. <br />
+     * (購入)purchase by MEMBER_ID, named 'purchaseList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchaseList</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">purchaseLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getPurchaseList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfPurchase> loadPurchaseList(ConditionBeanSetupper<PurchaseCB> refCBLambda) {
         myBhv().loadPurchaseList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerPurchaseList = refLs);
         return hd -> hd.handle(new LoaderOfPurchase().ready(_referrerPurchaseList, _selector));
