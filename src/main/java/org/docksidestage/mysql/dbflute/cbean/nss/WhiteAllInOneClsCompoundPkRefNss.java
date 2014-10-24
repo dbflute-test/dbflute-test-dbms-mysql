@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteAllInOneClsCompoundPkRefCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteAllInOneClsCompoundPkRefNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteAllInOneClsElementNss withWhiteAllInOneClsElementAsFoo() {
-        _query.xdoNss(new WhiteAllInOneClsCompoundPkRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteAllInOneClsElementAsFoo(); }});
+        _query.xdoNss(() -> _query.queryWhiteAllInOneClsElementAsFoo());
         return new WhiteAllInOneClsElementNss(_query.queryWhiteAllInOneClsElementAsFoo());
     }
     /**
@@ -49,7 +48,7 @@ public class WhiteAllInOneClsCompoundPkRefNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteAllInOneClsElementNss withWhiteAllInOneClsElementAsBar() {
-        _query.xdoNss(new WhiteAllInOneClsCompoundPkRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteAllInOneClsElementAsBar(); }});
+        _query.xdoNss(() -> _query.queryWhiteAllInOneClsElementAsBar());
         return new WhiteAllInOneClsElementNss(_query.queryWhiteAllInOneClsElementAsBar());
     }
 }

@@ -279,10 +279,7 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhitePerrottaOverProductNestedCQ>() {
-                public boolean has() { return true; }
-                public WhitePerrottaOverProductNestedCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -332,9 +329,7 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverProductCB, WhitePerrottaOverProductNestedCQ> derivedWhitePerrottaOverProductList() {
             assertDerived("whitePerrottaOverProductList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverProductCB, WhitePerrottaOverProductNestedCQ>() {
-                public void setup(String fn, SubQuery<WhitePerrottaOverProductCB> sq, WhitePerrottaOverProductNestedCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhitePerrottaOverProductList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhitePerrottaOverProductList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -342,9 +337,7 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverProductNestedCB, WhitePerrottaOverProductNestedCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverProductNestedCB, WhitePerrottaOverProductNestedCQ>() {
-                public void setup(String fn, SubQuery<WhitePerrottaOverProductNestedCB> sq, WhitePerrottaOverProductNestedCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -378,10 +371,8 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePerrottaOverProductNestedCB> columnQuery(final SpecifyQuery<WhitePerrottaOverProductNestedCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhitePerrottaOverProductNestedCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhitePerrottaOverProductNestedCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -487,10 +478,7 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
         } else {
             cb = new WhitePerrottaOverProductNestedCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhitePerrottaOverProductNestedCQ>() {
-            public boolean has() { return true; }
-            public WhitePerrottaOverProductNestedCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

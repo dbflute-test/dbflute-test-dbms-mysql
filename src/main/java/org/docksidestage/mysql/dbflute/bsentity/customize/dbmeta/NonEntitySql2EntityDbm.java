@@ -53,16 +53,8 @@ public class NonEntitySql2EntityDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgMemberName(), "memberName");
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((NonEntitySql2Entity)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((NonEntitySql2Entity)et).setMemberId(cti(vl)); }
-    }
-    public static class EpgMemberName implements PropertyGateway {
-        public Object read(Entity et) { return ((NonEntitySql2Entity)et).getMemberName(); }
-        public void write(Entity et, Object vl) { ((NonEntitySql2Entity)et).setMemberName((String)vl); }
+        setupEpg(_epgMap, et -> ((NonEntitySql2Entity)et).getMemberId(), (et, vl) -> ((NonEntitySql2Entity)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((NonEntitySql2Entity)et).getMemberName(), (et, vl) -> ((NonEntitySql2Entity)et).setMemberName((String)vl), "memberName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -53,21 +53,9 @@ public class WhiteTableExceptGenRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgGenRefId(), "genRefId");
-        setupEpg(_epgMap, new EpgGenRefName(), "genRefName");
-        setupEpg(_epgMap, new EpgGenOnlyId(), "genOnlyId");
-    }
-    public static class EpgGenRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteTableExceptGenRef)et).getGenRefId(); }
-        public void write(Entity et, Object vl) { ((WhiteTableExceptGenRef)et).setGenRefId(ctl(vl)); }
-    }
-    public static class EpgGenRefName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteTableExceptGenRef)et).getGenRefName(); }
-        public void write(Entity et, Object vl) { ((WhiteTableExceptGenRef)et).setGenRefName((String)vl); }
-    }
-    public static class EpgGenOnlyId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteTableExceptGenRef)et).getGenOnlyId(); }
-        public void write(Entity et, Object vl) { ((WhiteTableExceptGenRef)et).setGenOnlyId(ctl(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteTableExceptGenRef)et).getGenRefId(), (et, vl) -> ((WhiteTableExceptGenRef)et).setGenRefId(ctl(vl)), "genRefId");
+        setupEpg(_epgMap, et -> ((WhiteTableExceptGenRef)et).getGenRefName(), (et, vl) -> ((WhiteTableExceptGenRef)et).setGenRefName((String)vl), "genRefName");
+        setupEpg(_epgMap, et -> ((WhiteTableExceptGenRef)et).getGenOnlyId(), (et, vl) -> ((WhiteTableExceptGenRef)et).setGenOnlyId(ctl(vl)), "genOnlyId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

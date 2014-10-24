@@ -53,12 +53,7 @@ public class WhiteDeprecatedClsElementDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgDeprecatedClsElementCode(), "deprecatedClsElementCode");
-        setupEpg(_epgMap, new EpgDeprecatedClsElementName(), "deprecatedClsElementName");
-    }
-    public class EpgDeprecatedClsElementCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDeprecatedClsElement)et).getDeprecatedClsElementCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteDeprecatedClsElement)et).getDeprecatedClsElementCode(), (et, vl) -> {
             ColumnInfo col = columnDeprecatedClsElementCode();
             ccls(col, vl);
             CDef.DeprecatedMapCollaborationType cls = (CDef.DeprecatedMapCollaborationType)gcls(col, vl);
@@ -67,11 +62,8 @@ public class WhiteDeprecatedClsElementDbm extends AbstractDBMeta {
             } else {
                 ((WhiteDeprecatedClsElement)et).mynativeMappingDeprecatedClsElementCode((String)vl);
             }
-        }
-    }
-    public static class EpgDeprecatedClsElementName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDeprecatedClsElement)et).getDeprecatedClsElementName(); }
-        public void write(Entity et, Object vl) { ((WhiteDeprecatedClsElement)et).setDeprecatedClsElementName((String)vl); }
+        }, "deprecatedClsElementCode");
+        setupEpg(_epgMap, et -> ((WhiteDeprecatedClsElement)et).getDeprecatedClsElementName(), (et, vl) -> ((WhiteDeprecatedClsElement)et).setDeprecatedClsElementName((String)vl), "deprecatedClsElementName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

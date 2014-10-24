@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteVariantRelationMasterFooCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteVariantRelationMasterFooNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteVariantRelationReferrerNss withWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
-        _query.xdoNss(new WhiteVariantRelationMasterFooCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(); }});
+        _query.xdoNss(() -> _query.queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne());
         return new WhiteVariantRelationReferrerNss(_query.queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne());
     }
     /**
@@ -49,7 +48,7 @@ public class WhiteVariantRelationMasterFooNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteVariantRelationLocalPkReferrerNss withWhiteVariantRelationLocalPkReferrerAsOne() {
-        _query.xdoNss(new WhiteVariantRelationMasterFooCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteVariantRelationLocalPkReferrerAsOne(); }});
+        _query.xdoNss(() -> _query.queryWhiteVariantRelationLocalPkReferrerAsOne());
         return new WhiteVariantRelationLocalPkReferrerNss(_query.queryWhiteVariantRelationLocalPkReferrerAsOne());
     }
 }

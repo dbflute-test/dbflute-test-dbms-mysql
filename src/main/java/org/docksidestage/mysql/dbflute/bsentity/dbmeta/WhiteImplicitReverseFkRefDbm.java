@@ -53,26 +53,10 @@ public class WhiteImplicitReverseFkRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgWhiteImplicitReverseFkRefId(), "whiteImplicitReverseFkRefId");
-        setupEpg(_epgMap, new EpgWhiteImplicitReverseFkId(), "whiteImplicitReverseFkId");
-        setupEpg(_epgMap, new EpgValidBeginDate(), "validBeginDate");
-        setupEpg(_epgMap, new EpgValidEndDate(), "validEndDate");
-    }
-    public static class EpgWhiteImplicitReverseFkRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitReverseFkRef)et).getWhiteImplicitReverseFkRefId(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitReverseFkRef)et).setWhiteImplicitReverseFkRefId(cti(vl)); }
-    }
-    public static class EpgWhiteImplicitReverseFkId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitReverseFkRef)et).getWhiteImplicitReverseFkId(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitReverseFkRef)et).setWhiteImplicitReverseFkId(cti(vl)); }
-    }
-    public static class EpgValidBeginDate implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitReverseFkRef)et).getValidBeginDate(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitReverseFkRef)et).setValidBeginDate((java.util.Date)vl); }
-    }
-    public static class EpgValidEndDate implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitReverseFkRef)et).getValidEndDate(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitReverseFkRef)et).setValidEndDate((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getWhiteImplicitReverseFkRefId(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setWhiteImplicitReverseFkRefId(cti(vl)), "whiteImplicitReverseFkRefId");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getWhiteImplicitReverseFkId(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setWhiteImplicitReverseFkId(cti(vl)), "whiteImplicitReverseFkId");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidBeginDate((java.util.Date)vl), "validBeginDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidEndDate((java.util.Date)vl), "validEndDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

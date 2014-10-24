@@ -53,16 +53,8 @@ public class WhiteMyselfDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMyselfId(), "myselfId");
-        setupEpg(_epgMap, new EpgMyselfName(), "myselfName");
-    }
-    public static class EpgMyselfId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteMyself)et).getMyselfId(); }
-        public void write(Entity et, Object vl) { ((WhiteMyself)et).setMyselfId(cti(vl)); }
-    }
-    public static class EpgMyselfName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteMyself)et).getMyselfName(); }
-        public void write(Entity et, Object vl) { ((WhiteMyself)et).setMyselfName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteMyself)et).getMyselfId(), (et, vl) -> ((WhiteMyself)et).setMyselfId(cti(vl)), "myselfId");
+        setupEpg(_epgMap, et -> ((WhiteMyself)et).getMyselfName(), (et, vl) -> ((WhiteMyself)et).setMyselfName((String)vl), "myselfName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

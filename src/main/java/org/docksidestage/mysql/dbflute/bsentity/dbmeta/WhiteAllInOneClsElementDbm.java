@@ -53,26 +53,10 @@ public class WhiteAllInOneClsElementDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgClsCategoryCode(), "clsCategoryCode");
-        setupEpg(_epgMap, new EpgClsElementCode(), "clsElementCode");
-        setupEpg(_epgMap, new EpgClsElementName(), "clsElementName");
-        setupEpg(_epgMap, new EpgAttributeExp(), "attributeExp");
-    }
-    public static class EpgClsCategoryCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsElement)et).getClsCategoryCode(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsElement)et).setClsCategoryCode((String)vl); }
-    }
-    public static class EpgClsElementCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsElement)et).getClsElementCode(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsElement)et).setClsElementCode((String)vl); }
-    }
-    public static class EpgClsElementName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsElement)et).getClsElementName(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsElement)et).setClsElementName((String)vl); }
-    }
-    public static class EpgAttributeExp implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsElement)et).getAttributeExp(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsElement)et).setAttributeExp((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteAllInOneClsElement)et).getClsCategoryCode(), (et, vl) -> ((WhiteAllInOneClsElement)et).setClsCategoryCode((String)vl), "clsCategoryCode");
+        setupEpg(_epgMap, et -> ((WhiteAllInOneClsElement)et).getClsElementCode(), (et, vl) -> ((WhiteAllInOneClsElement)et).setClsElementCode((String)vl), "clsElementCode");
+        setupEpg(_epgMap, et -> ((WhiteAllInOneClsElement)et).getClsElementName(), (et, vl) -> ((WhiteAllInOneClsElement)et).setClsElementName((String)vl), "clsElementName");
+        setupEpg(_epgMap, et -> ((WhiteAllInOneClsElement)et).getAttributeExp(), (et, vl) -> ((WhiteAllInOneClsElement)et).setAttributeExp((String)vl), "attributeExp");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -81,12 +65,9 @@ public class WhiteAllInOneClsElementDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteAllInOneClsCategory(), "whiteAllInOneClsCategory");
-    }
-    public class EfpgWhiteAllInOneClsCategory implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsElement)et).getWhiteAllInOneClsCategory(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsElement)et).setWhiteAllInOneClsCategory((WhiteAllInOneClsCategory)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsElement)et).getWhiteAllInOneClsCategory(), (et, vl) -> ((WhiteAllInOneClsElement)et).setWhiteAllInOneClsCategory((WhiteAllInOneClsCategory)vl), "whiteAllInOneClsCategory");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

@@ -279,10 +279,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhitePerrottaOverMemberMachoCQ>() {
-                public boolean has() { return true; }
-                public WhitePerrottaOverMemberMachoCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -332,9 +329,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberCB, WhitePerrottaOverMemberMachoCQ> derivedWhitePerrottaOverMemberList() {
             assertDerived("whitePerrottaOverMemberList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverMemberCB, WhitePerrottaOverMemberMachoCQ>() {
-                public void setup(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, WhitePerrottaOverMemberMachoCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhitePerrottaOverMemberList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhitePerrottaOverMemberList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -342,9 +337,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberMachoCB, WhitePerrottaOverMemberMachoCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverMemberMachoCB, WhitePerrottaOverMemberMachoCQ>() {
-                public void setup(String fn, SubQuery<WhitePerrottaOverMemberMachoCB> sq, WhitePerrottaOverMemberMachoCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -378,10 +371,8 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePerrottaOverMemberMachoCB> columnQuery(final SpecifyQuery<WhitePerrottaOverMemberMachoCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhitePerrottaOverMemberMachoCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhitePerrottaOverMemberMachoCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -487,10 +478,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
         } else {
             cb = new WhitePerrottaOverMemberMachoCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhitePerrottaOverMemberMachoCQ>() {
-            public boolean has() { return true; }
-            public WhitePerrottaOverMemberMachoCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -53,106 +53,26 @@ public class WhitePgReservDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgClassSynonym(), "classSynonym");
-        setupEpg(_epgMap, new EpgCaseSynonym(), "caseSynonym");
-        setupEpg(_epgMap, new EpgPackageSynonym(), "packageSynonym");
-        setupEpg(_epgMap, new EpgDefaultSynonym(), "defaultSynonym");
-        setupEpg(_epgMap, new EpgNewSynonym(), "newSynonym");
-        setupEpg(_epgMap, new EpgNativeSynonym(), "nativeSynonym");
-        setupEpg(_epgMap, new EpgVoidSynonym(), "voidSynonym");
-        setupEpg(_epgMap, new EpgPublicSynonym(), "publicSynonym");
-        setupEpg(_epgMap, new EpgProtectedSynonym(), "protectedSynonym");
-        setupEpg(_epgMap, new EpgPrivateSynonym(), "privateSynonym");
-        setupEpg(_epgMap, new EpgInterfaceSynonym(), "interfaceSynonym");
-        setupEpg(_epgMap, new EpgAbstractSynonym(), "abstractSynonym");
-        setupEpg(_epgMap, new EpgFinalSynonym(), "finalSynonym");
-        setupEpg(_epgMap, new EpgFinallySynonym(), "finallySynonym");
-        setupEpg(_epgMap, new EpgReturnSynonym(), "returnSynonym");
-        setupEpg(_epgMap, new EpgDoubleSynonym(), "doubleSynonym");
-        setupEpg(_epgMap, new EpgFloatSynonym(), "floatSynonym");
-        setupEpg(_epgMap, new EpgShortSynonym(), "shortSynonym");
-        setupEpg(_epgMap, new EpgType(), "type");
-        setupEpg(_epgMap, new EpgReservName(), "reservName");
-    }
-    public static class EpgClassSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getClassSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setClassSynonym(cti(vl)); }
-    }
-    public static class EpgCaseSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getCaseSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setCaseSynonym(cti(vl)); }
-    }
-    public static class EpgPackageSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getPackageSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setPackageSynonym(cti(vl)); }
-    }
-    public static class EpgDefaultSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getDefaultSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setDefaultSynonym(cti(vl)); }
-    }
-    public static class EpgNewSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getNewSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setNewSynonym(cti(vl)); }
-    }
-    public static class EpgNativeSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getNativeSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setNativeSynonym(cti(vl)); }
-    }
-    public static class EpgVoidSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getVoidSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setVoidSynonym(cti(vl)); }
-    }
-    public static class EpgPublicSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getPublicSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setPublicSynonym(cti(vl)); }
-    }
-    public static class EpgProtectedSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getProtectedSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setProtectedSynonym(cti(vl)); }
-    }
-    public static class EpgPrivateSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getPrivateSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setPrivateSynonym(cti(vl)); }
-    }
-    public static class EpgInterfaceSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getInterfaceSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setInterfaceSynonym(cti(vl)); }
-    }
-    public static class EpgAbstractSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getAbstractSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setAbstractSynonym(cti(vl)); }
-    }
-    public static class EpgFinalSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getFinalSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setFinalSynonym(cti(vl)); }
-    }
-    public static class EpgFinallySynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getFinallySynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setFinallySynonym(cti(vl)); }
-    }
-    public static class EpgReturnSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getReturnSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setReturnSynonym(cti(vl)); }
-    }
-    public static class EpgDoubleSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getDoubleSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setDoubleSynonym(cti(vl)); }
-    }
-    public static class EpgFloatSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getFloatSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setFloatSynonym(cti(vl)); }
-    }
-    public static class EpgShortSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getShortSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setShortSynonym(cti(vl)); }
-    }
-    public static class EpgType implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getType(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setType((String)vl); }
-    }
-    public static class EpgReservName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReserv)et).getReservName(); }
-        public void write(Entity et, Object vl) { ((WhitePgReserv)et).setReservName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getClassSynonym(), (et, vl) -> ((WhitePgReserv)et).setClassSynonym(cti(vl)), "classSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getCaseSynonym(), (et, vl) -> ((WhitePgReserv)et).setCaseSynonym(cti(vl)), "caseSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getPackageSynonym(), (et, vl) -> ((WhitePgReserv)et).setPackageSynonym(cti(vl)), "packageSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getDefaultSynonym(), (et, vl) -> ((WhitePgReserv)et).setDefaultSynonym(cti(vl)), "defaultSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getNewSynonym(), (et, vl) -> ((WhitePgReserv)et).setNewSynonym(cti(vl)), "newSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getNativeSynonym(), (et, vl) -> ((WhitePgReserv)et).setNativeSynonym(cti(vl)), "nativeSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getVoidSynonym(), (et, vl) -> ((WhitePgReserv)et).setVoidSynonym(cti(vl)), "voidSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getPublicSynonym(), (et, vl) -> ((WhitePgReserv)et).setPublicSynonym(cti(vl)), "publicSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getProtectedSynonym(), (et, vl) -> ((WhitePgReserv)et).setProtectedSynonym(cti(vl)), "protectedSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getPrivateSynonym(), (et, vl) -> ((WhitePgReserv)et).setPrivateSynonym(cti(vl)), "privateSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getInterfaceSynonym(), (et, vl) -> ((WhitePgReserv)et).setInterfaceSynonym(cti(vl)), "interfaceSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getAbstractSynonym(), (et, vl) -> ((WhitePgReserv)et).setAbstractSynonym(cti(vl)), "abstractSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getFinalSynonym(), (et, vl) -> ((WhitePgReserv)et).setFinalSynonym(cti(vl)), "finalSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getFinallySynonym(), (et, vl) -> ((WhitePgReserv)et).setFinallySynonym(cti(vl)), "finallySynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getReturnSynonym(), (et, vl) -> ((WhitePgReserv)et).setReturnSynonym(cti(vl)), "returnSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getDoubleSynonym(), (et, vl) -> ((WhitePgReserv)et).setDoubleSynonym(cti(vl)), "doubleSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getFloatSynonym(), (et, vl) -> ((WhitePgReserv)et).setFloatSynonym(cti(vl)), "floatSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getShortSynonym(), (et, vl) -> ((WhitePgReserv)et).setShortSynonym(cti(vl)), "shortSynonym");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getType(), (et, vl) -> ((WhitePgReserv)et).setType((String)vl), "type");
+        setupEpg(_epgMap, et -> ((WhitePgReserv)et).getReservName(), (et, vl) -> ((WhitePgReserv)et).setReservName((String)vl), "reservName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

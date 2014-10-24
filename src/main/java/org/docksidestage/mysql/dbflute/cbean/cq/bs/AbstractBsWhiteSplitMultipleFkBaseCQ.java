@@ -176,8 +176,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     public void existsWhiteSplitMultipleFkChildList(SubQuery<WhiteSplitMultipleFkChildCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSplitMultipleFkChildCB cb = new WhiteSplitMultipleFkChildCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepBaseId_ExistsReferrer_WhiteSplitMultipleFkChildList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepBaseId_ExistsReferrer_WhiteSplitMultipleFkChildList(cb.query());
         registerExistsReferrer(cb.query(), "BASE_ID", "BASE_ID", pp, "whiteSplitMultipleFkChildList");
     }
     public abstract String keepBaseId_ExistsReferrer_WhiteSplitMultipleFkChildList(WhiteSplitMultipleFkChildCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     public void notExistsWhiteSplitMultipleFkChildList(SubQuery<WhiteSplitMultipleFkChildCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSplitMultipleFkChildCB cb = new WhiteSplitMultipleFkChildCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepBaseId_NotExistsReferrer_WhiteSplitMultipleFkChildList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepBaseId_NotExistsReferrer_WhiteSplitMultipleFkChildList(cb.query());
         registerNotExistsReferrer(cb.query(), "BASE_ID", "BASE_ID", pp, "whiteSplitMultipleFkChildList");
     }
     public abstract String keepBaseId_NotExistsReferrer_WhiteSplitMultipleFkChildList(WhiteSplitMultipleFkChildCQ sq);
@@ -205,8 +203,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     public void xsderiveWhiteSplitMultipleFkChildList(String fn, SubQuery<WhiteSplitMultipleFkChildCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSplitMultipleFkChildCB cb = new WhiteSplitMultipleFkChildCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepBaseId_SpecifyDerivedReferrer_WhiteSplitMultipleFkChildList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepBaseId_SpecifyDerivedReferrer_WhiteSplitMultipleFkChildList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "BASE_ID", "BASE_ID", pp, "whiteSplitMultipleFkChildList", al, op);
     }
     public abstract String keepBaseId_SpecifyDerivedReferrer_WhiteSplitMultipleFkChildList(WhiteSplitMultipleFkChildCQ sq);
@@ -227,17 +224,12 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
         return xcreateQDRFunctionWhiteSplitMultipleFkChildList();
     }
     protected HpQDRFunction<WhiteSplitMultipleFkChildCB> xcreateQDRFunctionWhiteSplitMultipleFkChildList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteSplitMultipleFkChildCB>() {
-            public void setup(String fn, SubQuery<WhiteSplitMultipleFkChildCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteSplitMultipleFkChildList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteSplitMultipleFkChildList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteSplitMultipleFkChildList(String fn, SubQuery<WhiteSplitMultipleFkChildCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSplitMultipleFkChildCB cb = new WhiteSplitMultipleFkChildCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepBaseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildList(cb.query()); String prpp = keepBaseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepBaseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildList(cb.query()); String prpp = keepBaseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "BASE_ID", "BASE_ID", sqpp, "whiteSplitMultipleFkChildList", rd, vl, prpp, op);
     }
     public abstract String keepBaseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildList(WhiteSplitMultipleFkChildCQ sq);
@@ -703,9 +695,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     public void xsmyselfDerive(String fn, SubQuery<WhiteSplitMultipleFkBaseCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSplitMultipleFkBaseCB cb = new WhiteSplitMultipleFkBaseCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "BASE_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "BASE_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteSplitMultipleFkBaseCQ sq);
@@ -739,8 +729,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     public void myselfExists(SubQuery<WhiteSplitMultipleFkBaseCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSplitMultipleFkBaseCB cb = new WhiteSplitMultipleFkBaseCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteSplitMultipleFkBaseCQ sq);

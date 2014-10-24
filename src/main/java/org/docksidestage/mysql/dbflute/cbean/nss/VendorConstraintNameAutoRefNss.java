@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.VendorConstraintNameAutoRefCQ;
 
 /**
@@ -39,20 +38,20 @@ public class VendorConstraintNameAutoRefNss {
      * vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      */
     public void withVendorConstraintNameAutoBar() {
-        _query.xdoNss(new VendorConstraintNameAutoRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendorConstraintNameAutoBar(); }});
+        _query.xdoNss(() -> _query.queryVendorConstraintNameAutoBar());
     }
     /**
      * With nested relation columns to select clause. <br />
      * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      */
     public void withVendorConstraintNameAutoFoo() {
-        _query.xdoNss(new VendorConstraintNameAutoRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendorConstraintNameAutoFoo(); }});
+        _query.xdoNss(() -> _query.queryVendorConstraintNameAutoFoo());
     }
     /**
      * With nested relation columns to select clause. <br />
      * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      */
     public void withVendorConstraintNameAutoQux() {
-        _query.xdoNss(new VendorConstraintNameAutoRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendorConstraintNameAutoQux(); }});
+        _query.xdoNss(() -> _query.queryVendorConstraintNameAutoQux());
     }
 }

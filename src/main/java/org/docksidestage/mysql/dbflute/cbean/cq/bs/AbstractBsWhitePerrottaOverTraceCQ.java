@@ -622,9 +622,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     public void xsmyselfDerive(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "TRACE_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "TRACE_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhitePerrottaOverTraceCQ sq);
@@ -658,8 +656,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     public void myselfExists(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhitePerrottaOverTraceCQ sq);

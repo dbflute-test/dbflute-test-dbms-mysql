@@ -53,26 +53,10 @@ public class WhiteAdditionalDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgFooId(), "fooId");
-        setupEpg(_epgMap, new EpgFooName(), "fooName");
-        setupEpg(_epgMap, new EpgFooDate(), "fooDate");
-        setupEpg(_epgMap, new EpgRegisterDatetime(), "registerDatetime");
-    }
-    public static class EpgFooId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAdditional)et).getFooId(); }
-        public void write(Entity et, Object vl) { ((WhiteAdditional)et).setFooId(cti(vl)); }
-    }
-    public static class EpgFooName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAdditional)et).getFooName(); }
-        public void write(Entity et, Object vl) { ((WhiteAdditional)et).setFooName((String)vl); }
-    }
-    public static class EpgFooDate implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAdditional)et).getFooDate(); }
-        public void write(Entity et, Object vl) { ((WhiteAdditional)et).setFooDate((java.util.Date)vl); }
-    }
-    public static class EpgRegisterDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAdditional)et).getRegisterDatetime(); }
-        public void write(Entity et, Object vl) { ((WhiteAdditional)et).setRegisterDatetime((java.sql.Timestamp)vl); }
+        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooId(), (et, vl) -> ((WhiteAdditional)et).setFooId(cti(vl)), "fooId");
+        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooName(), (et, vl) -> ((WhiteAdditional)et).setFooName((String)vl), "fooName");
+        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooDate(), (et, vl) -> ((WhiteAdditional)et).setFooDate((java.util.Date)vl), "fooDate");
+        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getRegisterDatetime(), (et, vl) -> ((WhiteAdditional)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

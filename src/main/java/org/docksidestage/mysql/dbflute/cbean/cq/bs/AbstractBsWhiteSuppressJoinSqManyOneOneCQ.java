@@ -414,9 +414,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneOneCQ extends Abstract
     public void xsmyselfDerive(String fn, SubQuery<WhiteSuppressJoinSqManyOneOneCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSuppressJoinSqManyOneOneCB cb = new WhiteSuppressJoinSqManyOneOneCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "MANY_ONE_ONE_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "MANY_ONE_ONE_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteSuppressJoinSqManyOneOneCQ sq);
@@ -450,8 +448,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneOneCQ extends Abstract
     public void myselfExists(SubQuery<WhiteSuppressJoinSqManyOneOneCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSuppressJoinSqManyOneOneCB cb = new WhiteSuppressJoinSqManyOneOneCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteSuppressJoinSqManyOneOneCQ sq);

@@ -180,8 +180,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     public void existsWhitePerrottaOverMemberList(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMachoCode_ExistsReferrer_WhitePerrottaOverMemberList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMachoCode_ExistsReferrer_WhitePerrottaOverMemberList(cb.query());
         registerExistsReferrer(cb.query(), "MACHO_CODE", "MACHO_CODE", pp, "whitePerrottaOverMemberList");
     }
     public abstract String keepMachoCode_ExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
@@ -200,8 +199,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     public void notExistsWhitePerrottaOverMemberList(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMachoCode_NotExistsReferrer_WhitePerrottaOverMemberList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMachoCode_NotExistsReferrer_WhitePerrottaOverMemberList(cb.query());
         registerNotExistsReferrer(cb.query(), "MACHO_CODE", "MACHO_CODE", pp, "whitePerrottaOverMemberList");
     }
     public abstract String keepMachoCode_NotExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
@@ -209,8 +207,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     public void xsderiveWhitePerrottaOverMemberList(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepMachoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepMachoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "MACHO_CODE", "MACHO_CODE", pp, "whitePerrottaOverMemberList", al, op);
     }
     public abstract String keepMachoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
@@ -231,17 +228,12 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
         return xcreateQDRFunctionWhitePerrottaOverMemberList();
     }
     protected HpQDRFunction<WhitePerrottaOverMemberCB> xcreateQDRFunctionWhitePerrottaOverMemberList() {
-        return xcQDRFunc(new HpQDRSetupper<WhitePerrottaOverMemberCB>() {
-            public void setup(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhitePerrottaOverMemberList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhitePerrottaOverMemberList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhitePerrottaOverMemberList(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList(cb.query()); String prpp = keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList(cb.query()); String prpp = keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "MACHO_CODE", "MACHO_CODE", sqpp, "whitePerrottaOverMemberList", rd, vl, prpp, op);
     }
     public abstract String keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
@@ -499,9 +491,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     public void xsmyselfDerive(String fn, SubQuery<WhitePerrottaOverMemberMachoCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverMemberMachoCB cb = new WhitePerrottaOverMemberMachoCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "MACHO_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "MACHO_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhitePerrottaOverMemberMachoCQ sq);
@@ -535,8 +525,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     public void myselfExists(SubQuery<WhitePerrottaOverMemberMachoCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberMachoCB cb = new WhitePerrottaOverMemberMachoCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhitePerrottaOverMemberMachoCQ sq);

@@ -270,7 +270,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnMachoCode();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhitePerrottaOverMemberMacho(); } });
+        doSetupSelect(() -> query().queryWhitePerrottaOverMemberMacho());
     }
 
     protected WhitePerrottaOverProductNss _nssWhitePerrottaOverProduct;
@@ -296,7 +296,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnProductId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhitePerrottaOverProduct(); } });
+        doSetupSelect(() -> query().queryWhitePerrottaOverProduct());
         if (_nssWhitePerrottaOverProduct == null || !_nssWhitePerrottaOverProduct.hasConditionQuery())
         { _nssWhitePerrottaOverProduct = new WhitePerrottaOverProductNss(query().queryWhitePerrottaOverProduct()); }
         return _nssWhitePerrottaOverProduct;
@@ -329,10 +329,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhitePerrottaOverMemberCQ>() {
-                public boolean has() { return true; }
-                public WhitePerrottaOverMemberCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -401,15 +398,14 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         public WhitePerrottaOverMemberMachoCB.HpSpecification specifyWhitePerrottaOverMemberMacho() {
             assertRelation("whitePerrottaOverMemberMacho");
             if (_whitePerrottaOverMemberMacho == null) {
-                _whitePerrottaOverMemberMacho = new WhitePerrottaOverMemberMachoCB.HpSpecification(_baseCB, new HpSpQyCall<WhitePerrottaOverMemberMachoCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePerrottaOverMemberMacho(); }
-                    public WhitePerrottaOverMemberMachoCQ qy() { return _qyCall.qy().queryWhitePerrottaOverMemberMacho(); } }
+                _whitePerrottaOverMemberMacho = new WhitePerrottaOverMemberMachoCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePerrottaOverMemberMacho()
+                                    , () -> _qyCall.qy().queryWhitePerrottaOverMemberMacho())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whitePerrottaOverMemberMacho.xsetSyncQyCall(new HpSpQyCall<WhitePerrottaOverMemberMachoCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePerrottaOverMemberMacho(); }
-                        public WhitePerrottaOverMemberMachoCQ qy() { return xsyncQyCall().qy().queryWhitePerrottaOverMemberMacho(); }
-                    });
+                    _whitePerrottaOverMemberMacho.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePerrottaOverMemberMacho()
+                      , () -> xsyncQyCall().qy().queryWhitePerrottaOverMemberMacho()));
                 }
             }
             return _whitePerrottaOverMemberMacho;
@@ -422,15 +418,14 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         public WhitePerrottaOverProductCB.HpSpecification specifyWhitePerrottaOverProduct() {
             assertRelation("whitePerrottaOverProduct");
             if (_whitePerrottaOverProduct == null) {
-                _whitePerrottaOverProduct = new WhitePerrottaOverProductCB.HpSpecification(_baseCB, new HpSpQyCall<WhitePerrottaOverProductCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePerrottaOverProduct(); }
-                    public WhitePerrottaOverProductCQ qy() { return _qyCall.qy().queryWhitePerrottaOverProduct(); } }
+                _whitePerrottaOverProduct = new WhitePerrottaOverProductCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePerrottaOverProduct()
+                                    , () -> _qyCall.qy().queryWhitePerrottaOverProduct())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whitePerrottaOverProduct.xsetSyncQyCall(new HpSpQyCall<WhitePerrottaOverProductCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePerrottaOverProduct(); }
-                        public WhitePerrottaOverProductCQ qy() { return xsyncQyCall().qy().queryWhitePerrottaOverProduct(); }
-                    });
+                    _whitePerrottaOverProduct.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePerrottaOverProduct()
+                      , () -> xsyncQyCall().qy().queryWhitePerrottaOverProduct()));
                 }
             }
             return _whitePerrottaOverProduct;
@@ -441,9 +436,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberCB, WhitePerrottaOverMemberCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePerrottaOverMemberCB, WhitePerrottaOverMemberCQ>() {
-                public void setup(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, WhitePerrottaOverMemberCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -477,10 +470,8 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePerrottaOverMemberCB> columnQuery(final SpecifyQuery<WhitePerrottaOverMemberCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhitePerrottaOverMemberCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhitePerrottaOverMemberCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -586,10 +577,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         } else {
             cb = new WhitePerrottaOverMemberCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhitePerrottaOverMemberCQ>() {
-            public boolean has() { return true; }
-            public WhitePerrottaOverMemberCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

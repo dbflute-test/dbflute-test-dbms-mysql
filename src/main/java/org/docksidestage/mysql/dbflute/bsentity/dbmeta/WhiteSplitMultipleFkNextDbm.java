@@ -53,16 +53,8 @@ public class WhiteSplitMultipleFkNextDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgNextId(), "nextId");
-        setupEpg(_epgMap, new EpgSecondCode(), "secondCode");
-    }
-    public static class EpgNextId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkNext)et).getNextId(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkNext)et).setNextId(ctl(vl)); }
-    }
-    public static class EpgSecondCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkNext)et).getSecondCode(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkNext)et).setSecondCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkNext)et).getNextId(), (et, vl) -> ((WhiteSplitMultipleFkNext)et).setNextId(ctl(vl)), "nextId");
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkNext)et).getSecondCode(), (et, vl) -> ((WhiteSplitMultipleFkNext)et).setSecondCode((String)vl), "secondCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

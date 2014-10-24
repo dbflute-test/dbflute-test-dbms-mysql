@@ -176,8 +176,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     public void existsWhiteSelfReferenceSelfList(SubQuery<WhiteSelfReferenceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList(cb.query());
         registerExistsReferrer(cb.query(), "SELF_REFERENCE_ID", "PARENT_ID", pp, "whiteSelfReferenceSelfList");
     }
     public abstract String keepSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     public void notExistsWhiteSelfReferenceSelfList(SubQuery<WhiteSelfReferenceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepSelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepSelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList(cb.query());
         registerNotExistsReferrer(cb.query(), "SELF_REFERENCE_ID", "PARENT_ID", pp, "whiteSelfReferenceSelfList");
     }
     public abstract String keepSelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq);
@@ -205,8 +203,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     public void xsderiveWhiteSelfReferenceSelfList(String fn, SubQuery<WhiteSelfReferenceCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSelfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepSelfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "SELF_REFERENCE_ID", "PARENT_ID", pp, "whiteSelfReferenceSelfList", al, op);
     }
     public abstract String keepSelfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq);
@@ -227,17 +224,12 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
         return xcreateQDRFunctionWhiteSelfReferenceSelfList();
     }
     protected HpQDRFunction<WhiteSelfReferenceCB> xcreateQDRFunctionWhiteSelfReferenceSelfList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteSelfReferenceCB>() {
-            public void setup(String fn, SubQuery<WhiteSelfReferenceCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteSelfReferenceSelfList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteSelfReferenceSelfList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteSelfReferenceSelfList(String fn, SubQuery<WhiteSelfReferenceCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList(cb.query()); String prpp = keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList(cb.query()); String prpp = keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "SELF_REFERENCE_ID", "PARENT_ID", sqpp, "whiteSelfReferenceSelfList", rd, vl, prpp, op);
     }
     public abstract String keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq);
@@ -611,9 +603,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     public void xsmyselfDerive(String fn, SubQuery<WhiteSelfReferenceCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "SELF_REFERENCE_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "SELF_REFERENCE_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteSelfReferenceCQ sq);
@@ -647,8 +637,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     public void myselfExists(SubQuery<WhiteSelfReferenceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteSelfReferenceCQ sq);

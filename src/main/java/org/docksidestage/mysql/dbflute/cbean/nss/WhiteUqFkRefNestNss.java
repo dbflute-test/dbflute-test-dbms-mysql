@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteUqFkRefNestCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteUqFkRefNestNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteUqFkRefNss withWhiteUqFkRef() {
-        _query.xdoNss(new WhiteUqFkRefNestCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteUqFkRef(); }});
+        _query.xdoNss(() -> _query.queryWhiteUqFkRef());
         return new WhiteUqFkRefNss(_query.queryWhiteUqFkRef());
     }
 }

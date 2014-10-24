@@ -53,16 +53,8 @@ public class WhitePerrottaOverProductNestedDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgProductNestedCode(), "productNestedCode");
-        setupEpg(_epgMap, new EpgProductNestedName(), "productNestedName");
-    }
-    public static class EpgProductNestedCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverProductNested)et).getProductNestedCode(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverProductNested)et).setProductNestedCode((String)vl); }
-    }
-    public static class EpgProductNestedName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverProductNested)et).getProductNestedName(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverProductNested)et).setProductNestedName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverProductNested)et).getProductNestedCode(), (et, vl) -> ((WhitePerrottaOverProductNested)et).setProductNestedCode((String)vl), "productNestedCode");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverProductNested)et).getProductNestedName(), (et, vl) -> ((WhitePerrottaOverProductNested)et).setProductNestedName((String)vl), "productNestedName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

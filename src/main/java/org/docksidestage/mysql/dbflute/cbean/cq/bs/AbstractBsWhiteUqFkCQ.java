@@ -176,8 +176,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     public void existsWhiteUqFkRefByFkToPkIdList(SubQuery<WhiteUqFkRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepUqFkId_ExistsReferrer_WhiteUqFkRefByFkToPkIdList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepUqFkId_ExistsReferrer_WhiteUqFkRefByFkToPkIdList(cb.query());
         registerExistsReferrer(cb.query(), "UQ_FK_ID", "FK_TO_PK_ID", pp, "whiteUqFkRefByFkToPkIdList");
     }
     public abstract String keepUqFkId_ExistsReferrer_WhiteUqFkRefByFkToPkIdList(WhiteUqFkRefCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     public void notExistsWhiteUqFkRefByFkToPkIdList(SubQuery<WhiteUqFkRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepUqFkId_NotExistsReferrer_WhiteUqFkRefByFkToPkIdList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepUqFkId_NotExistsReferrer_WhiteUqFkRefByFkToPkIdList(cb.query());
         registerNotExistsReferrer(cb.query(), "UQ_FK_ID", "FK_TO_PK_ID", pp, "whiteUqFkRefByFkToPkIdList");
     }
     public abstract String keepUqFkId_NotExistsReferrer_WhiteUqFkRefByFkToPkIdList(WhiteUqFkRefCQ sq);
@@ -205,8 +203,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     public void xsderiveWhiteUqFkRefByFkToPkIdList(String fn, SubQuery<WhiteUqFkRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepUqFkId_SpecifyDerivedReferrer_WhiteUqFkRefByFkToPkIdList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepUqFkId_SpecifyDerivedReferrer_WhiteUqFkRefByFkToPkIdList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "UQ_FK_ID", "FK_TO_PK_ID", pp, "whiteUqFkRefByFkToPkIdList", al, op);
     }
     public abstract String keepUqFkId_SpecifyDerivedReferrer_WhiteUqFkRefByFkToPkIdList(WhiteUqFkRefCQ sq);
@@ -227,17 +224,12 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
         return xcreateQDRFunctionWhiteUqFkRefByFkToPkIdList();
     }
     protected HpQDRFunction<WhiteUqFkRefCB> xcreateQDRFunctionWhiteUqFkRefByFkToPkIdList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteUqFkRefCB>() {
-            public void setup(String fn, SubQuery<WhiteUqFkRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteUqFkRefByFkToPkIdList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteUqFkRefByFkToPkIdList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteUqFkRefByFkToPkIdList(String fn, SubQuery<WhiteUqFkRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdList(cb.query()); String prpp = keepUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdList(cb.query()); String prpp = keepUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "UQ_FK_ID", "FK_TO_PK_ID", sqpp, "whiteUqFkRefByFkToPkIdList", rd, vl, prpp, op);
     }
     public abstract String keepUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdList(WhiteUqFkRefCQ sq);
@@ -377,8 +369,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     public void existsWhiteUqFkRefByFkToUqCodeList(SubQuery<WhiteUqFkRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepUqFkCode_ExistsReferrer_WhiteUqFkRefByFkToUqCodeList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepUqFkCode_ExistsReferrer_WhiteUqFkRefByFkToUqCodeList(cb.query());
         registerExistsReferrer(cb.query(), "UQ_FK_CODE", "FK_TO_UQ_CODE", pp, "whiteUqFkRefByFkToUqCodeList");
     }
     public abstract String keepUqFkCode_ExistsReferrer_WhiteUqFkRefByFkToUqCodeList(WhiteUqFkRefCQ sq);
@@ -397,8 +388,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     public void notExistsWhiteUqFkRefByFkToUqCodeList(SubQuery<WhiteUqFkRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepUqFkCode_NotExistsReferrer_WhiteUqFkRefByFkToUqCodeList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepUqFkCode_NotExistsReferrer_WhiteUqFkRefByFkToUqCodeList(cb.query());
         registerNotExistsReferrer(cb.query(), "UQ_FK_CODE", "FK_TO_UQ_CODE", pp, "whiteUqFkRefByFkToUqCodeList");
     }
     public abstract String keepUqFkCode_NotExistsReferrer_WhiteUqFkRefByFkToUqCodeList(WhiteUqFkRefCQ sq);
@@ -406,8 +396,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     public void xsderiveWhiteUqFkRefByFkToUqCodeList(String fn, SubQuery<WhiteUqFkRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepUqFkCode_SpecifyDerivedReferrer_WhiteUqFkRefByFkToUqCodeList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepUqFkCode_SpecifyDerivedReferrer_WhiteUqFkRefByFkToUqCodeList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "UQ_FK_CODE", "FK_TO_UQ_CODE", pp, "whiteUqFkRefByFkToUqCodeList", al, op);
     }
     public abstract String keepUqFkCode_SpecifyDerivedReferrer_WhiteUqFkRefByFkToUqCodeList(WhiteUqFkRefCQ sq);
@@ -428,17 +417,12 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
         return xcreateQDRFunctionWhiteUqFkRefByFkToUqCodeList();
     }
     protected HpQDRFunction<WhiteUqFkRefCB> xcreateQDRFunctionWhiteUqFkRefByFkToUqCodeList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteUqFkRefCB>() {
-            public void setup(String fn, SubQuery<WhiteUqFkRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteUqFkRefByFkToUqCodeList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteUqFkRefByFkToUqCodeList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteUqFkRefByFkToUqCodeList(String fn, SubQuery<WhiteUqFkRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepUqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeList(cb.query()); String prpp = keepUqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepUqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeList(cb.query()); String prpp = keepUqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "UQ_FK_CODE", "FK_TO_UQ_CODE", sqpp, "whiteUqFkRefByFkToUqCodeList", rd, vl, prpp, op);
     }
     public abstract String keepUqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeList(WhiteUqFkRefCQ sq);
@@ -576,9 +560,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<WhiteUqFkCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteUqFkCB cb = new WhiteUqFkCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "UQ_FK_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "UQ_FK_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteUqFkCQ sq);
@@ -612,8 +594,7 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     public void myselfExists(SubQuery<WhiteUqFkCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteUqFkCB cb = new WhiteUqFkCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteUqFkCQ sq);

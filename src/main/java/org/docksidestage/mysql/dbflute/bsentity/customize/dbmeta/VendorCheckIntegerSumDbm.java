@@ -53,11 +53,7 @@ public class VendorCheckIntegerSumDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgIntegerNonDigitSum(), "integerNonDigitSum");
-    }
-    public static class EpgIntegerNonDigitSum implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorCheckIntegerSum)et).getIntegerNonDigitSum(); }
-        public void write(Entity et, Object vl) { ((VendorCheckIntegerSum)et).setIntegerNonDigitSum(ctb(vl)); }
+        setupEpg(_epgMap, et -> ((VendorCheckIntegerSum)et).getIntegerNonDigitSum(), (et, vl) -> ((VendorCheckIntegerSum)et).setIntegerNonDigitSum(ctb(vl)), "integerNonDigitSum");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

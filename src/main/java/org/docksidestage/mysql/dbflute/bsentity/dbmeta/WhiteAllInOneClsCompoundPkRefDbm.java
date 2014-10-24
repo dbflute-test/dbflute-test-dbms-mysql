@@ -53,21 +53,9 @@ public class WhiteAllInOneClsCompoundPkRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgFooCode(), "fooCode");
-        setupEpg(_epgMap, new EpgBarCode(), "barCode");
-        setupEpg(_epgMap, new EpgQuxCode(), "quxCode");
-    }
-    public static class EpgFooCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsCompoundPkRef)et).getFooCode(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsCompoundPkRef)et).setFooCode((String)vl); }
-    }
-    public static class EpgBarCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsCompoundPkRef)et).getBarCode(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsCompoundPkRef)et).setBarCode((String)vl); }
-    }
-    public static class EpgQuxCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsCompoundPkRef)et).getQuxCode(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsCompoundPkRef)et).setQuxCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteAllInOneClsCompoundPkRef)et).getFooCode(), (et, vl) -> ((WhiteAllInOneClsCompoundPkRef)et).setFooCode((String)vl), "fooCode");
+        setupEpg(_epgMap, et -> ((WhiteAllInOneClsCompoundPkRef)et).getBarCode(), (et, vl) -> ((WhiteAllInOneClsCompoundPkRef)et).setBarCode((String)vl), "barCode");
+        setupEpg(_epgMap, et -> ((WhiteAllInOneClsCompoundPkRef)et).getQuxCode(), (et, vl) -> ((WhiteAllInOneClsCompoundPkRef)et).setQuxCode((String)vl), "quxCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,17 +64,10 @@ public class WhiteAllInOneClsCompoundPkRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteAllInOneClsElementAsFoo(), "whiteAllInOneClsElementAsFoo");
-        setupEfpg(_efpgMap, new EfpgWhiteAllInOneClsElementAsBar(), "whiteAllInOneClsElementAsBar");
-    }
-    public class EfpgWhiteAllInOneClsElementAsFoo implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsCompoundPkRef)et).getWhiteAllInOneClsElementAsFoo(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsCompoundPkRef)et).setWhiteAllInOneClsElementAsFoo((WhiteAllInOneClsElement)vl); }
-    }
-    public class EfpgWhiteAllInOneClsElementAsBar implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteAllInOneClsCompoundPkRef)et).getWhiteAllInOneClsElementAsBar(); }
-        public void write(Entity et, Object vl) { ((WhiteAllInOneClsCompoundPkRef)et).setWhiteAllInOneClsElementAsBar((WhiteAllInOneClsElement)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsCompoundPkRef)et).getWhiteAllInOneClsElementAsFoo(), (et, vl) -> ((WhiteAllInOneClsCompoundPkRef)et).setWhiteAllInOneClsElementAsFoo((WhiteAllInOneClsElement)vl), "whiteAllInOneClsElementAsFoo");
+        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsCompoundPkRef)et).getWhiteAllInOneClsElementAsBar(), (et, vl) -> ((WhiteAllInOneClsCompoundPkRef)et).setWhiteAllInOneClsElementAsBar((WhiteAllInOneClsElement)vl), "whiteAllInOneClsElementAsBar");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

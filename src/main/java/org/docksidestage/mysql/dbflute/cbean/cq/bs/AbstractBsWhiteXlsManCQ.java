@@ -533,9 +533,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<WhiteXlsManCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteXlsManCB cb = new WhiteXlsManCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "XLS_MAN_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "XLS_MAN_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteXlsManCQ sq);
@@ -569,8 +567,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     public void myselfExists(SubQuery<WhiteXlsManCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteXlsManCB cb = new WhiteXlsManCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteXlsManCQ sq);

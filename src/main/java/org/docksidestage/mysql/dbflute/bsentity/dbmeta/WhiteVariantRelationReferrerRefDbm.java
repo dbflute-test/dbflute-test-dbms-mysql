@@ -53,16 +53,8 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgRefId(), "refId");
-        setupEpg(_epgMap, new EpgReferrerId(), "referrerId");
-    }
-    public static class EpgRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrerRef)et).getRefId(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrerRef)et).setRefId(ctl(vl)); }
-    }
-    public static class EpgReferrerId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrerRef)et).getReferrerId(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrerRef)et).setReferrerId(ctl(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrerRef)et).getRefId(), (et, vl) -> ((WhiteVariantRelationReferrerRef)et).setRefId(ctl(vl)), "refId");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrerRef)et).getReferrerId(), (et, vl) -> ((WhiteVariantRelationReferrerRef)et).setReferrerId(ctl(vl)), "referrerId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -71,12 +63,9 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteVariantRelationReferrer(), "whiteVariantRelationReferrer");
-    }
-    public class EfpgWhiteVariantRelationReferrer implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrerRef)et).getWhiteVariantRelationReferrer(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrerRef)et).setWhiteVariantRelationReferrer((WhiteVariantRelationReferrer)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrerRef)et).getWhiteVariantRelationReferrer(), (et, vl) -> ((WhiteVariantRelationReferrerRef)et).setWhiteVariantRelationReferrer((WhiteVariantRelationReferrer)vl), "whiteVariantRelationReferrer");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

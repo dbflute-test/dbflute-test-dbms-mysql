@@ -273,7 +273,7 @@ public class BsWhiteOnlyOneToOneFromCB extends AbstractConditionBean {
      */
     public WhiteOnlyOneToOneToNss setupSelect_WhiteOnlyOneToOneToAsOne() {
         assertSetupSelectPurpose("whiteOnlyOneToOneToAsOne");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteOnlyOneToOneToAsOne(); } });
+        doSetupSelect(() -> query().queryWhiteOnlyOneToOneToAsOne());
         if (_nssWhiteOnlyOneToOneToAsOne == null || !_nssWhiteOnlyOneToOneToAsOne.hasConditionQuery()) { _nssWhiteOnlyOneToOneToAsOne = new WhiteOnlyOneToOneToNss(query().queryWhiteOnlyOneToOneToAsOne()); }
         return _nssWhiteOnlyOneToOneToAsOne;
     }
@@ -305,10 +305,7 @@ public class BsWhiteOnlyOneToOneFromCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteOnlyOneToOneFromCQ>() {
-                public boolean has() { return true; }
-                public WhiteOnlyOneToOneFromCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -353,15 +350,14 @@ public class BsWhiteOnlyOneToOneFromCB extends AbstractConditionBean {
         public WhiteOnlyOneToOneToCB.HpSpecification specifyWhiteOnlyOneToOneToAsOne() {
             assertRelation("whiteOnlyOneToOneToAsOne");
             if (_whiteOnlyOneToOneToAsOne == null) {
-                _whiteOnlyOneToOneToAsOne = new WhiteOnlyOneToOneToCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteOnlyOneToOneToCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteOnlyOneToOneToAsOne(); }
-                    public WhiteOnlyOneToOneToCQ qy() { return _qyCall.qy().queryWhiteOnlyOneToOneToAsOne(); } }
+                _whiteOnlyOneToOneToAsOne = new WhiteOnlyOneToOneToCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteOnlyOneToOneToAsOne()
+                                    , () -> _qyCall.qy().queryWhiteOnlyOneToOneToAsOne())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteOnlyOneToOneToAsOne.xsetSyncQyCall(new HpSpQyCall<WhiteOnlyOneToOneToCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteOnlyOneToOneToAsOne(); }
-                        public WhiteOnlyOneToOneToCQ qy() { return xsyncQyCall().qy().queryWhiteOnlyOneToOneToAsOne(); }
-                    });
+                    _whiteOnlyOneToOneToAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteOnlyOneToOneToAsOne()
+                      , () -> xsyncQyCall().qy().queryWhiteOnlyOneToOneToAsOne()));
                 }
             }
             return _whiteOnlyOneToOneToAsOne;
@@ -372,9 +368,7 @@ public class BsWhiteOnlyOneToOneFromCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteOnlyOneToOneFromCB, WhiteOnlyOneToOneFromCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteOnlyOneToOneFromCB, WhiteOnlyOneToOneFromCQ>() {
-                public void setup(String fn, SubQuery<WhiteOnlyOneToOneFromCB> sq, WhiteOnlyOneToOneFromCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -408,10 +402,8 @@ public class BsWhiteOnlyOneToOneFromCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteOnlyOneToOneFromCB> columnQuery(final SpecifyQuery<WhiteOnlyOneToOneFromCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteOnlyOneToOneFromCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteOnlyOneToOneFromCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -517,10 +509,7 @@ public class BsWhiteOnlyOneToOneFromCB extends AbstractConditionBean {
         } else {
             cb = new WhiteOnlyOneToOneFromCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteOnlyOneToOneFromCQ>() {
-            public boolean has() { return true; }
-            public WhiteOnlyOneToOneFromCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

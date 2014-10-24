@@ -53,26 +53,10 @@ public class WrongPackageBqpDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgMemberName(), "memberName");
-        setupEpg(_epgMap, new EpgBirthdate(), "birthdate");
-        setupEpg(_epgMap, new EpgMemberStatusName(), "memberStatusName");
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((WrongPackageBqp)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((WrongPackageBqp)et).setMemberId(cti(vl)); }
-    }
-    public static class EpgMemberName implements PropertyGateway {
-        public Object read(Entity et) { return ((WrongPackageBqp)et).getMemberName(); }
-        public void write(Entity et, Object vl) { ((WrongPackageBqp)et).setMemberName((String)vl); }
-    }
-    public static class EpgBirthdate implements PropertyGateway {
-        public Object read(Entity et) { return ((WrongPackageBqp)et).getBirthdate(); }
-        public void write(Entity et, Object vl) { ((WrongPackageBqp)et).setBirthdate((java.util.Date)vl); }
-    }
-    public static class EpgMemberStatusName implements PropertyGateway {
-        public Object read(Entity et) { return ((WrongPackageBqp)et).getMemberStatusName(); }
-        public void write(Entity et, Object vl) { ((WrongPackageBqp)et).setMemberStatusName((String)vl); }
+        setupEpg(_epgMap, et -> ((WrongPackageBqp)et).getMemberId(), (et, vl) -> ((WrongPackageBqp)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((WrongPackageBqp)et).getMemberName(), (et, vl) -> ((WrongPackageBqp)et).setMemberName((String)vl), "memberName");
+        setupEpg(_epgMap, et -> ((WrongPackageBqp)et).getBirthdate(), (et, vl) -> ((WrongPackageBqp)et).setBirthdate((java.util.Date)vl), "birthdate");
+        setupEpg(_epgMap, et -> ((WrongPackageBqp)et).getMemberStatusName(), (et, vl) -> ((WrongPackageBqp)et).setMemberStatusName((String)vl), "memberStatusName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

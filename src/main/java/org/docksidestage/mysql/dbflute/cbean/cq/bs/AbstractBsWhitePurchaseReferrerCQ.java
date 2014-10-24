@@ -414,9 +414,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     public void xsmyselfDerive(String fn, SubQuery<WhitePurchaseReferrerCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "PURCHASE_REFERRER_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "PURCHASE_REFERRER_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhitePurchaseReferrerCQ sq);
@@ -450,8 +448,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     public void myselfExists(SubQuery<WhitePurchaseReferrerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePurchaseReferrerCB cb = new WhitePurchaseReferrerCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhitePurchaseReferrerCQ sq);

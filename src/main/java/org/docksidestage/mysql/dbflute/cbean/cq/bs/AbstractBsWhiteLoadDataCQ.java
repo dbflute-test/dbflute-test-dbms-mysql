@@ -414,9 +414,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<WhiteLoadDataCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteLoadDataCB cb = new WhiteLoadDataCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "LOAD_DATA_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "LOAD_DATA_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteLoadDataCQ sq);
@@ -450,8 +448,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     public void myselfExists(SubQuery<WhiteLoadDataCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteLoadDataCB cb = new WhiteLoadDataCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteLoadDataCQ sq);

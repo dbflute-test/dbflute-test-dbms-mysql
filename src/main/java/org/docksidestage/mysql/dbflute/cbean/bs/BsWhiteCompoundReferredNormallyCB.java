@@ -279,10 +279,7 @@ public class BsWhiteCompoundReferredNormallyCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteCompoundReferredNormallyCQ>() {
-                public boolean has() { return true; }
-                public WhiteCompoundReferredNormallyCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -332,9 +329,7 @@ public class BsWhiteCompoundReferredNormallyCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkCB, WhiteCompoundReferredNormallyCQ> derivedWhiteCompoundPkList() {
             assertDerived("whiteCompoundPkList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteCompoundPkCB, WhiteCompoundReferredNormallyCQ>() {
-                public void setup(String fn, SubQuery<WhiteCompoundPkCB> sq, WhiteCompoundReferredNormallyCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteCompoundPkList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -342,9 +337,7 @@ public class BsWhiteCompoundReferredNormallyCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundReferredNormallyCB, WhiteCompoundReferredNormallyCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteCompoundReferredNormallyCB, WhiteCompoundReferredNormallyCQ>() {
-                public void setup(String fn, SubQuery<WhiteCompoundReferredNormallyCB> sq, WhiteCompoundReferredNormallyCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -378,10 +371,8 @@ public class BsWhiteCompoundReferredNormallyCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteCompoundReferredNormallyCB> columnQuery(final SpecifyQuery<WhiteCompoundReferredNormallyCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteCompoundReferredNormallyCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteCompoundReferredNormallyCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -487,10 +478,7 @@ public class BsWhiteCompoundReferredNormallyCB extends AbstractConditionBean {
         } else {
             cb = new WhiteCompoundReferredNormallyCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteCompoundReferredNormallyCQ>() {
-            public boolean has() { return true; }
-            public WhiteCompoundReferredNormallyCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhitePerrottaOverMemberCQ;
 
 /**
@@ -39,7 +38,7 @@ public class WhitePerrottaOverMemberNss {
      * white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
      */
     public void withWhitePerrottaOverMemberMacho() {
-        _query.xdoNss(new WhitePerrottaOverMemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhitePerrottaOverMemberMacho(); }});
+        _query.xdoNss(() -> _query.queryWhitePerrottaOverMemberMacho());
     }
     /**
      * With nested relation columns to select clause. <br />
@@ -47,7 +46,7 @@ public class WhitePerrottaOverMemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhitePerrottaOverProductNss withWhitePerrottaOverProduct() {
-        _query.xdoNss(new WhitePerrottaOverMemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhitePerrottaOverProduct(); }});
+        _query.xdoNss(() -> _query.queryWhitePerrottaOverProduct());
         return new WhitePerrottaOverProductNss(_query.queryWhitePerrottaOverProduct());
     }
 }

@@ -292,10 +292,7 @@ public class BsWhiteImplicitReverseFkRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteImplicitReverseFkRefCQ>() {
-                public boolean has() { return true; }
-                public WhiteImplicitReverseFkRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -347,9 +344,7 @@ public class BsWhiteImplicitReverseFkRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitReverseFkRefCB, WhiteImplicitReverseFkRefCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteImplicitReverseFkRefCB, WhiteImplicitReverseFkRefCQ>() {
-                public void setup(String fn, SubQuery<WhiteImplicitReverseFkRefCB> sq, WhiteImplicitReverseFkRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -383,10 +378,8 @@ public class BsWhiteImplicitReverseFkRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteImplicitReverseFkRefCB> columnQuery(final SpecifyQuery<WhiteImplicitReverseFkRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteImplicitReverseFkRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteImplicitReverseFkRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -492,10 +485,7 @@ public class BsWhiteImplicitReverseFkRefCB extends AbstractConditionBean {
         } else {
             cb = new WhiteImplicitReverseFkRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteImplicitReverseFkRefCQ>() {
-            public boolean has() { return true; }
-            public WhiteImplicitReverseFkRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

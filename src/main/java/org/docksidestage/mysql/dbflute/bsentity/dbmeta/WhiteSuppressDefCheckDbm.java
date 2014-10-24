@@ -53,16 +53,8 @@ public class WhiteSuppressDefCheckDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgDefCheckId(), "defCheckId");
-        setupEpg(_epgMap, new EpgDefCheckName(), "defCheckName");
-    }
-    public static class EpgDefCheckId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressDefCheck)et).getDefCheckId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressDefCheck)et).setDefCheckId(ctl(vl)); }
-    }
-    public static class EpgDefCheckName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressDefCheck)et).getDefCheckName(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressDefCheck)et).setDefCheckName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteSuppressDefCheck)et).getDefCheckId(), (et, vl) -> ((WhiteSuppressDefCheck)et).setDefCheckId(ctl(vl)), "defCheckId");
+        setupEpg(_epgMap, et -> ((WhiteSuppressDefCheck)et).getDefCheckName(), (et, vl) -> ((WhiteSuppressDefCheck)et).setDefCheckName((String)vl), "defCheckName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

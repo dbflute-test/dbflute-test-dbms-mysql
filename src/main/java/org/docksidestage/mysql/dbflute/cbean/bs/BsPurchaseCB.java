@@ -290,7 +290,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnMemberId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMember(); } });
+        doSetupSelect(() -> query().queryMember());
         if (_nssMember == null || !_nssMember.hasConditionQuery())
         { _nssMember = new MemberNss(query().queryMember()); }
         return _nssMember;
@@ -319,7 +319,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnProductId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryProduct(); } });
+        doSetupSelect(() -> query().queryProduct());
         if (_nssProduct == null || !_nssProduct.hasConditionQuery())
         { _nssProduct = new ProductNss(query().queryProduct()); }
         return _nssProduct;
@@ -348,7 +348,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnProductId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().querySummaryProduct(); } });
+        doSetupSelect(() -> query().querySummaryProduct());
         if (_nssSummaryProduct == null || !_nssSummaryProduct.hasConditionQuery())
         { _nssSummaryProduct = new SummaryProductNss(query().querySummaryProduct()); }
         return _nssSummaryProduct;
@@ -371,7 +371,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnMemberId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().querySummaryWithdrawal(); } });
+        doSetupSelect(() -> query().querySummaryWithdrawal());
     }
 
     /**
@@ -391,7 +391,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnProductId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteNoPkRelation(); } });
+        doSetupSelect(() -> query().queryWhiteNoPkRelation());
     }
 
     protected PurchaseNss _nssPurchaseSelf;
@@ -414,7 +414,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public PurchaseNss setupSelect_PurchaseSelf() {
         assertSetupSelectPurpose("purchaseSelf");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryPurchaseSelf(); } });
+        doSetupSelect(() -> query().queryPurchaseSelf());
         if (_nssPurchaseSelf == null || !_nssPurchaseSelf.hasConditionQuery())
         { _nssPurchaseSelf = new PurchaseNss(query().queryPurchaseSelf()); }
         return _nssPurchaseSelf;
@@ -444,7 +444,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnMemberId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberAddressAsSkipRelation(targetDate); } });
+        doSetupSelect(() -> query().queryMemberAddressAsSkipRelation(targetDate));
         if (_nssMemberAddressAsSkipRelation == null || !_nssMemberAddressAsSkipRelation.hasConditionQuery())
         { _nssMemberAddressAsSkipRelation = new MemberAddressNss(query().queryMemberAddressAsSkipRelation(targetDate)); }
         return _nssMemberAddressAsSkipRelation;
@@ -470,7 +470,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public WhitePurchaseReferrerNss setupSelect_WhitePurchaseReferrerAsOne() {
         assertSetupSelectPurpose("whitePurchaseReferrerAsOne");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhitePurchaseReferrerAsOne(); } });
+        doSetupSelect(() -> query().queryWhitePurchaseReferrerAsOne());
         if (_nssWhitePurchaseReferrerAsOne == null || !_nssWhitePurchaseReferrerAsOne.hasConditionQuery()) { _nssWhitePurchaseReferrerAsOne = new WhitePurchaseReferrerNss(query().queryWhitePurchaseReferrerAsOne()); }
         return _nssWhitePurchaseReferrerAsOne;
     }
@@ -495,7 +495,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public PurchaseNss setupSelect_PurchaseSelfAsOne() {
         assertSetupSelectPurpose("purchaseSelfAsOne");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryPurchaseSelfAsOne(); } });
+        doSetupSelect(() -> query().queryPurchaseSelfAsOne());
         if (_nssPurchaseSelfAsOne == null || !_nssPurchaseSelfAsOne.hasConditionQuery()) { _nssPurchaseSelfAsOne = new PurchaseNss(query().queryPurchaseSelfAsOne()); }
         return _nssPurchaseSelfAsOne;
     }
@@ -527,10 +527,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<PurchaseCQ>() {
-                public boolean has() { return true; }
-                public PurchaseCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -657,15 +654,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public MemberCB.HpSpecification specifyMember() {
             assertRelation("member");
             if (_member == null) {
-                _member = new MemberCB.HpSpecification(_baseCB, new HpSpQyCall<MemberCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMember(); }
-                    public MemberCQ qy() { return _qyCall.qy().queryMember(); } }
+                _member = new MemberCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMember()
+                                    , () -> _qyCall.qy().queryMember())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _member.xsetSyncQyCall(new HpSpQyCall<MemberCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMember(); }
-                        public MemberCQ qy() { return xsyncQyCall().qy().queryMember(); }
-                    });
+                    _member.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMember()
+                      , () -> xsyncQyCall().qy().queryMember()));
                 }
             }
             return _member;
@@ -678,15 +674,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public ProductCB.HpSpecification specifyProduct() {
             assertRelation("product");
             if (_product == null) {
-                _product = new ProductCB.HpSpecification(_baseCB, new HpSpQyCall<ProductCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryProduct(); }
-                    public ProductCQ qy() { return _qyCall.qy().queryProduct(); } }
+                _product = new ProductCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryProduct()
+                                    , () -> _qyCall.qy().queryProduct())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _product.xsetSyncQyCall(new HpSpQyCall<ProductCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProduct(); }
-                        public ProductCQ qy() { return xsyncQyCall().qy().queryProduct(); }
-                    });
+                    _product.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProduct()
+                      , () -> xsyncQyCall().qy().queryProduct()));
                 }
             }
             return _product;
@@ -699,15 +694,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public SummaryProductCB.HpSpecification specifySummaryProduct() {
             assertRelation("summaryProduct");
             if (_summaryProduct == null) {
-                _summaryProduct = new SummaryProductCB.HpSpecification(_baseCB, new HpSpQyCall<SummaryProductCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQuerySummaryProduct(); }
-                    public SummaryProductCQ qy() { return _qyCall.qy().querySummaryProduct(); } }
+                _summaryProduct = new SummaryProductCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQuerySummaryProduct()
+                                    , () -> _qyCall.qy().querySummaryProduct())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _summaryProduct.xsetSyncQyCall(new HpSpQyCall<SummaryProductCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQuerySummaryProduct(); }
-                        public SummaryProductCQ qy() { return xsyncQyCall().qy().querySummaryProduct(); }
-                    });
+                    _summaryProduct.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQuerySummaryProduct()
+                      , () -> xsyncQyCall().qy().querySummaryProduct()));
                 }
             }
             return _summaryProduct;
@@ -720,15 +714,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public SummaryWithdrawalCB.HpSpecification specifySummaryWithdrawal() {
             assertRelation("summaryWithdrawal");
             if (_summaryWithdrawal == null) {
-                _summaryWithdrawal = new SummaryWithdrawalCB.HpSpecification(_baseCB, new HpSpQyCall<SummaryWithdrawalCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQuerySummaryWithdrawal(); }
-                    public SummaryWithdrawalCQ qy() { return _qyCall.qy().querySummaryWithdrawal(); } }
+                _summaryWithdrawal = new SummaryWithdrawalCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQuerySummaryWithdrawal()
+                                    , () -> _qyCall.qy().querySummaryWithdrawal())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _summaryWithdrawal.xsetSyncQyCall(new HpSpQyCall<SummaryWithdrawalCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQuerySummaryWithdrawal(); }
-                        public SummaryWithdrawalCQ qy() { return xsyncQyCall().qy().querySummaryWithdrawal(); }
-                    });
+                    _summaryWithdrawal.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQuerySummaryWithdrawal()
+                      , () -> xsyncQyCall().qy().querySummaryWithdrawal()));
                 }
             }
             return _summaryWithdrawal;
@@ -741,15 +734,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public WhiteNoPkRelationCB.HpSpecification specifyWhiteNoPkRelation() {
             assertRelation("whiteNoPkRelation");
             if (_whiteNoPkRelation == null) {
-                _whiteNoPkRelation = new WhiteNoPkRelationCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteNoPkRelationCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteNoPkRelation(); }
-                    public WhiteNoPkRelationCQ qy() { return _qyCall.qy().queryWhiteNoPkRelation(); } }
+                _whiteNoPkRelation = new WhiteNoPkRelationCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteNoPkRelation()
+                                    , () -> _qyCall.qy().queryWhiteNoPkRelation())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteNoPkRelation.xsetSyncQyCall(new HpSpQyCall<WhiteNoPkRelationCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteNoPkRelation(); }
-                        public WhiteNoPkRelationCQ qy() { return xsyncQyCall().qy().queryWhiteNoPkRelation(); }
-                    });
+                    _whiteNoPkRelation.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteNoPkRelation()
+                      , () -> xsyncQyCall().qy().queryWhiteNoPkRelation()));
                 }
             }
             return _whiteNoPkRelation;
@@ -762,15 +754,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public PurchaseCB.HpSpecification specifyPurchaseSelf() {
             assertRelation("purchaseSelf");
             if (_purchaseSelf == null) {
-                _purchaseSelf = new PurchaseCB.HpSpecification(_baseCB, new HpSpQyCall<PurchaseCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryPurchaseSelf(); }
-                    public PurchaseCQ qy() { return _qyCall.qy().queryPurchaseSelf(); } }
+                _purchaseSelf = new PurchaseCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryPurchaseSelf()
+                                    , () -> _qyCall.qy().queryPurchaseSelf())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _purchaseSelf.xsetSyncQyCall(new HpSpQyCall<PurchaseCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryPurchaseSelf(); }
-                        public PurchaseCQ qy() { return xsyncQyCall().qy().queryPurchaseSelf(); }
-                    });
+                    _purchaseSelf.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryPurchaseSelf()
+                      , () -> xsyncQyCall().qy().queryPurchaseSelf()));
                 }
             }
             return _purchaseSelf;
@@ -784,9 +775,9 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsSkipRelation(final java.util.Date targetDate) {
             assertRelation("memberAddressAsSkipRelation");
             if (_memberAddressAsSkipRelation == null) {
-                _memberAddressAsSkipRelation = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsSkipRelation(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsSkipRelation(targetDate); } }
+                _memberAddressAsSkipRelation = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsSkipRelation()
+                                    , () -> _qyCall.qy().queryMemberAddressAsSkipRelation(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsSkipRelation.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
@@ -805,15 +796,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsSkipRelation() {
             assertRelation("memberAddressAsSkipRelation");
             if (_memberAddressAsSkipRelation == null) {
-                _memberAddressAsSkipRelation = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsSkipRelation(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberAddressAsSkipRelation(); } }
+                _memberAddressAsSkipRelation = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsSkipRelation()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberAddressAsSkipRelation())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberAddressAsSkipRelation.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsSkipRelation(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsSkipRelation(); }
-                    });
+                    _memberAddressAsSkipRelation.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsSkipRelation()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsSkipRelation()));
                 }
             }
             return _memberAddressAsSkipRelation;
@@ -826,15 +816,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public WhitePurchaseReferrerCB.HpSpecification specifyWhitePurchaseReferrerAsOne() {
             assertRelation("whitePurchaseReferrerAsOne");
             if (_whitePurchaseReferrerAsOne == null) {
-                _whitePurchaseReferrerAsOne = new WhitePurchaseReferrerCB.HpSpecification(_baseCB, new HpSpQyCall<WhitePurchaseReferrerCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePurchaseReferrerAsOne(); }
-                    public WhitePurchaseReferrerCQ qy() { return _qyCall.qy().queryWhitePurchaseReferrerAsOne(); } }
+                _whitePurchaseReferrerAsOne = new WhitePurchaseReferrerCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePurchaseReferrerAsOne()
+                                    , () -> _qyCall.qy().queryWhitePurchaseReferrerAsOne())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whitePurchaseReferrerAsOne.xsetSyncQyCall(new HpSpQyCall<WhitePurchaseReferrerCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePurchaseReferrerAsOne(); }
-                        public WhitePurchaseReferrerCQ qy() { return xsyncQyCall().qy().queryWhitePurchaseReferrerAsOne(); }
-                    });
+                    _whitePurchaseReferrerAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePurchaseReferrerAsOne()
+                      , () -> xsyncQyCall().qy().queryWhitePurchaseReferrerAsOne()));
                 }
             }
             return _whitePurchaseReferrerAsOne;
@@ -847,15 +836,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
         public PurchaseCB.HpSpecification specifyPurchaseSelfAsOne() {
             assertRelation("purchaseSelfAsOne");
             if (_purchaseSelfAsOne == null) {
-                _purchaseSelfAsOne = new PurchaseCB.HpSpecification(_baseCB, new HpSpQyCall<PurchaseCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryPurchaseSelfAsOne(); }
-                    public PurchaseCQ qy() { return _qyCall.qy().queryPurchaseSelfAsOne(); } }
+                _purchaseSelfAsOne = new PurchaseCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryPurchaseSelfAsOne()
+                                    , () -> _qyCall.qy().queryPurchaseSelfAsOne())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _purchaseSelfAsOne.xsetSyncQyCall(new HpSpQyCall<PurchaseCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryPurchaseSelfAsOne(); }
-                        public PurchaseCQ qy() { return xsyncQyCall().qy().queryPurchaseSelfAsOne(); }
-                    });
+                    _purchaseSelfAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryPurchaseSelfAsOne()
+                      , () -> xsyncQyCall().qy().queryPurchaseSelfAsOne()));
                 }
             }
             return _purchaseSelfAsOne;
@@ -874,9 +862,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchasePaymentCB, PurchaseCQ> derivedPurchasePaymentList() {
             assertDerived("purchasePaymentList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<PurchasePaymentCB, PurchaseCQ>() {
-                public void setup(String fn, SubQuery<PurchasePaymentCB> sq, PurchaseCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderivePurchasePaymentList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderivePurchasePaymentList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -884,9 +870,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchaseCB, PurchaseCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<PurchaseCB, PurchaseCQ>() {
-                public void setup(String fn, SubQuery<PurchaseCB> sq, PurchaseCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -920,10 +904,8 @@ public class BsPurchaseCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<PurchaseCB> columnQuery(final SpecifyQuery<PurchaseCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<PurchaseCB>() {
-            public ColumnCalculator handle(SpecifyQuery<PurchaseCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -1029,10 +1011,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         } else {
             cb = new PurchaseCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<PurchaseCQ>() {
-            public boolean has() { return true; }
-            public PurchaseCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteImplicitReverseFkCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteImplicitReverseFkNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
     public void withWhiteImplicitReverseFkRefWithImplicitReverseFK(final java.util.Date targetDate) {
-        _query.xdoNss(new WhiteImplicitReverseFkCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate); }});
+        _query.xdoNss(() -> _query.queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate));
     }
     /**
      * With nested relation columns to select clause. <br />
@@ -48,6 +47,6 @@ public class WhiteImplicitReverseFkNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
     public void withWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.util.Date targetDate) {
-        _query.xdoNss(new WhiteImplicitReverseFkCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate); }});
+        _query.xdoNss(() -> _query.queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate));
     }
 }

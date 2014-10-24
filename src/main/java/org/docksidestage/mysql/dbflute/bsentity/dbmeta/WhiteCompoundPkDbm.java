@@ -53,26 +53,10 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgPkFirstId(), "pkFirstId");
-        setupEpg(_epgMap, new EpgPkSecondId(), "pkSecondId");
-        setupEpg(_epgMap, new EpgPkName(), "pkName");
-        setupEpg(_epgMap, new EpgReferredId(), "referredId");
-    }
-    public static class EpgPkFirstId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getPkFirstId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setPkFirstId(cti(vl)); }
-    }
-    public static class EpgPkSecondId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getPkSecondId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setPkSecondId(cti(vl)); }
-    }
-    public static class EpgPkName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getPkName(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setPkName((String)vl); }
-    }
-    public static class EpgReferredId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getReferredId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setReferredId(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkFirstId(), (et, vl) -> ((WhiteCompoundPk)et).setPkFirstId(cti(vl)), "pkFirstId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkSecondId(), (et, vl) -> ((WhiteCompoundPk)et).setPkSecondId(cti(vl)), "pkSecondId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkName(), (et, vl) -> ((WhiteCompoundPk)et).setPkName((String)vl), "pkName");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getReferredId(), (et, vl) -> ((WhiteCompoundPk)et).setReferredId(cti(vl)), "referredId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -81,27 +65,12 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteCompoundReferredNormally(), "whiteCompoundReferredNormally");
-        setupEfpg(_efpgMap, new EfpgWhiteCompoundReferredPrimary(), "whiteCompoundReferredPrimary");
-        setupEfpg(_efpgMap, new EfpgWhiteCompoundPkRefManyAsMax(), "whiteCompoundPkRefManyAsMax");
-        setupEfpg(_efpgMap, new EfpgWhiteCompoundPkRefManyAsMin(), "whiteCompoundPkRefManyAsMin");
-    }
-    public class EfpgWhiteCompoundReferredNormally implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getWhiteCompoundReferredNormally(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setWhiteCompoundReferredNormally((WhiteCompoundReferredNormally)vl); }
-    }
-    public class EfpgWhiteCompoundReferredPrimary implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getWhiteCompoundReferredPrimary(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setWhiteCompoundReferredPrimary((WhiteCompoundReferredPrimary)vl); }
-    }
-    public class EfpgWhiteCompoundPkRefManyAsMax implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getWhiteCompoundPkRefManyAsMax(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setWhiteCompoundPkRefManyAsMax((WhiteCompoundPkRefMany)vl); }
-    }
-    public class EfpgWhiteCompoundPkRefManyAsMin implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getWhiteCompoundPkRefManyAsMin(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setWhiteCompoundPkRefManyAsMin((WhiteCompoundPkRefMany)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPk)et).getWhiteCompoundReferredNormally(), (et, vl) -> ((WhiteCompoundPk)et).setWhiteCompoundReferredNormally((WhiteCompoundReferredNormally)vl), "whiteCompoundReferredNormally");
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPk)et).getWhiteCompoundReferredPrimary(), (et, vl) -> ((WhiteCompoundPk)et).setWhiteCompoundReferredPrimary((WhiteCompoundReferredPrimary)vl), "whiteCompoundReferredPrimary");
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPk)et).getWhiteCompoundPkRefManyAsMax(), (et, vl) -> ((WhiteCompoundPk)et).setWhiteCompoundPkRefManyAsMax((WhiteCompoundPkRefMany)vl), "whiteCompoundPkRefManyAsMax");
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPk)et).getWhiteCompoundPkRefManyAsMin(), (et, vl) -> ((WhiteCompoundPk)et).setWhiteCompoundPkRefManyAsMin((WhiteCompoundPkRefMany)vl), "whiteCompoundPkRefManyAsMin");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

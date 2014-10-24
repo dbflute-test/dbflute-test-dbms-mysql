@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.MemberCQ;
 
 /**
@@ -39,7 +38,7 @@ public class MemberNss {
      * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
      */
     public void withMemberStatus() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberStatus(); }});
+        _query.xdoNss(() -> _query.queryMemberStatus());
     }
     /**
      * With nested relation columns to select clause. <br />
@@ -48,7 +47,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberAddressNss withMemberAddressAsValid(final java.util.Date targetDate) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberAddressAsValid(targetDate); }});
+        _query.xdoNss(() -> _query.queryMemberAddressAsValid(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsValid(targetDate));
     }
     /**
@@ -58,7 +57,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberAddressNss withMemberAddressAsValidBefore(final java.util.Date targetDate) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberAddressAsValidBefore(targetDate); }});
+        _query.xdoNss(() -> _query.queryMemberAddressAsValidBefore(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsValidBefore(targetDate));
     }
     /**
@@ -68,7 +67,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsLoginStatus(final org.docksidestage.mysql.dbflute.allcommon.CDef.MemberStatus statusCode) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsLoginStatus(statusCode); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsLoginStatus(statusCode));
         return new MemberLoginNss(_query.queryMemberLoginAsLoginStatus(statusCode));
     }
     /**
@@ -79,7 +78,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberAddressNss withMemberAddressAsIfComment(final java.util.Date targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberAddressAsIfComment(targetDate, region); }});
+        _query.xdoNss(() -> _query.queryMemberAddressAsIfComment(targetDate, region));
         return new MemberAddressNss(_query.queryMemberAddressAsIfComment(targetDate, region));
     }
     /**
@@ -89,7 +88,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberAddressNss withMemberAddressAsOnlyOneDate(final java.util.Date targetDate) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberAddressAsOnlyOneDate(targetDate); }});
+        _query.xdoNss(() -> _query.queryMemberAddressAsOnlyOneDate(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsOnlyOneDate(targetDate));
     }
     /**
@@ -99,8 +98,9 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      * @deprecated the test of dep
      */
+    @SuppressWarnings("deprecation")
     public MemberLoginNss withMemberLoginAsLocalBindOverTest(final Integer displayOrder) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsLocalBindOverTest(displayOrder); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsLocalBindOverTest(displayOrder));
         return new MemberLoginNss(_query.queryMemberLoginAsLocalBindOverTest(displayOrder));
     }
     /**
@@ -109,7 +109,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsLocalForeignOverTest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsLocalForeignOverTest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsLocalForeignOverTest());
         return new MemberLoginNss(_query.queryMemberLoginAsLocalForeignOverTest());
     }
     /**
@@ -119,7 +119,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignBindOverTest(final Integer displayOrder) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsForeignForeignBindOverTest(displayOrder); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignBindOverTest(displayOrder));
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignBindOverTest(displayOrder));
     }
     /**
@@ -128,7 +128,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignEachOverTest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsForeignForeignEachOverTest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignEachOverTest());
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignEachOverTest());
     }
     /**
@@ -137,7 +137,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignOptimizedBasicOverTest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsForeignForeignOptimizedBasicOverTest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignOptimizedBasicOverTest());
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignOptimizedBasicOverTest());
     }
     /**
@@ -146,7 +146,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignOptimizedMarkOverTest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsForeignForeignOptimizedMarkOverTest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignOptimizedMarkOverTest());
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignOptimizedMarkOverTest());
     }
     /**
@@ -157,7 +157,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignOptimizedPartOverTest(final Integer displayOrder, final String memberName) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName));
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName));
     }
     /**
@@ -167,7 +167,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignOptimizedWholeOverTest(final Integer displayOrder) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder));
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder));
     }
     /**
@@ -177,7 +177,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignParameterOverTest(final java.util.Date targetDate) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsForeignForeignParameterOverTest(targetDate); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignParameterOverTest(targetDate));
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignParameterOverTest(targetDate));
     }
     /**
@@ -186,7 +186,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignVariousOverTest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsForeignForeignVariousOverTest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignVariousOverTest());
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignVariousOverTest());
     }
     /**
@@ -195,7 +195,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsReferrerOverTest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsReferrerOverTest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsReferrerOverTest());
         return new MemberLoginNss(_query.queryMemberLoginAsReferrerOverTest());
     }
     /**
@@ -204,7 +204,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsReferrerForeignOverTest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsReferrerForeignOverTest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsReferrerForeignOverTest());
         return new MemberLoginNss(_query.queryMemberLoginAsReferrerForeignOverTest());
     }
     /**
@@ -213,7 +213,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsLatest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsLatest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsLatest());
         return new MemberLoginNss(_query.queryMemberLoginAsLatest());
     }
     /**
@@ -222,7 +222,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsOldest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsOldest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsOldest());
         return new MemberLoginNss(_query.queryMemberLoginAsOldest());
     }
     /**
@@ -232,7 +232,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberAddressNss withMemberAddressAsFormattedBasic(final java.util.Date targetDate) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberAddressAsFormattedBasic(targetDate); }});
+        _query.xdoNss(() -> _query.queryMemberAddressAsFormattedBasic(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsFormattedBasic(targetDate));
     }
     /**
@@ -242,7 +242,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberAddressNss withMemberAddressAsFormattedLong(final java.util.Date targetDate) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberAddressAsFormattedLong(targetDate); }});
+        _query.xdoNss(() -> _query.queryMemberAddressAsFormattedLong(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsFormattedLong(targetDate));
     }
     /**
@@ -251,7 +251,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsFormattedMany() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsFormattedMany(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsFormattedMany());
         return new MemberLoginNss(_query.queryMemberLoginAsFormattedMany());
     }
     /**
@@ -260,7 +260,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsEmbeddedCommentClassificationTest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsEmbeddedCommentClassificationTest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsEmbeddedCommentClassificationTest());
         return new MemberLoginNss(_query.queryMemberLoginAsEmbeddedCommentClassificationTest());
     }
     /**
@@ -269,7 +269,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberSecurityNss withMemberSecurityAsOne() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberSecurityAsOne(); }});
+        _query.xdoNss(() -> _query.queryMemberSecurityAsOne());
         return new MemberSecurityNss(_query.queryMemberSecurityAsOne());
     }
     /**
@@ -278,7 +278,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberServiceNss withMemberServiceAsOne() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberServiceAsOne(); }});
+        _query.xdoNss(() -> _query.queryMemberServiceAsOne());
         return new MemberServiceNss(_query.queryMemberServiceAsOne());
     }
     /**
@@ -287,7 +287,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberWithdrawalNss withMemberWithdrawalAsOne() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberWithdrawalAsOne(); }});
+        _query.xdoNss(() -> _query.queryMemberWithdrawalAsOne());
         return new MemberWithdrawalNss(_query.queryMemberWithdrawalAsOne());
     }
 }

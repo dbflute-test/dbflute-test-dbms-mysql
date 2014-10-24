@@ -53,12 +53,7 @@ public class WhiteLineSepCommentDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgLineSepCommentCode(), "lineSepCommentCode");
-        setupEpg(_epgMap, new EpgLineSepCommentName(), "lineSepCommentName");
-    }
-    public class EpgLineSepCommentCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteLineSepComment)et).getLineSepCommentCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteLineSepComment)et).getLineSepCommentCode(), (et, vl) -> {
             ColumnInfo col = columnLineSepCommentCode();
             ccls(col, vl);
             CDef.LineSepCommentCls cls = (CDef.LineSepCommentCls)gcls(col, vl);
@@ -67,11 +62,8 @@ public class WhiteLineSepCommentDbm extends AbstractDBMeta {
             } else {
                 ((WhiteLineSepComment)et).mynativeMappingLineSepCommentCode((String)vl);
             }
-        }
-    }
-    public static class EpgLineSepCommentName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteLineSepComment)et).getLineSepCommentName(); }
-        public void write(Entity et, Object vl) { ((WhiteLineSepComment)et).setLineSepCommentName((String)vl); }
+        }, "lineSepCommentCode");
+        setupEpg(_epgMap, et -> ((WhiteLineSepComment)et).getLineSepCommentName(), (et, vl) -> ((WhiteLineSepComment)et).setLineSepCommentName((String)vl), "lineSepCommentName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

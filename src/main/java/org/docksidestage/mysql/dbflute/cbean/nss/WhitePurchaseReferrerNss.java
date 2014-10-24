@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhitePurchaseReferrerCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhitePurchaseReferrerNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public PurchaseNss withPurchase() {
-        _query.xdoNss(new WhitePurchaseReferrerCQ.NssCall() { public ConditionQuery qf() { return _query.queryPurchase(); }});
+        _query.xdoNss(() -> _query.queryPurchase());
         return new PurchaseNss(_query.queryPurchase());
     }
 }

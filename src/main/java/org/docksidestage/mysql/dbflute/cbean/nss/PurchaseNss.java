@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.PurchaseCQ;
 
 /**
@@ -40,7 +39,7 @@ public class PurchaseNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryMember(); }});
+        _query.xdoNss(() -> _query.queryMember());
         return new MemberNss(_query.queryMember());
     }
     /**
@@ -49,7 +48,7 @@ public class PurchaseNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductNss withProduct() {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryProduct(); }});
+        _query.xdoNss(() -> _query.queryProduct());
         return new ProductNss(_query.queryProduct());
     }
     /**
@@ -58,7 +57,7 @@ public class PurchaseNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public SummaryProductNss withSummaryProduct() {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.querySummaryProduct(); }});
+        _query.xdoNss(() -> _query.querySummaryProduct());
         return new SummaryProductNss(_query.querySummaryProduct());
     }
     /**
@@ -66,14 +65,14 @@ public class PurchaseNss {
      * (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
      */
     public void withSummaryWithdrawal() {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.querySummaryWithdrawal(); }});
+        _query.xdoNss(() -> _query.querySummaryWithdrawal());
     }
     /**
      * With nested relation columns to select clause. <br />
      * (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
      */
     public void withWhiteNoPkRelation() {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteNoPkRelation(); }});
+        _query.xdoNss(() -> _query.queryWhiteNoPkRelation());
     }
     /**
      * With nested relation columns to select clause. <br />
@@ -81,7 +80,7 @@ public class PurchaseNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public PurchaseNss withPurchaseSelf() {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryPurchaseSelf(); }});
+        _query.xdoNss(() -> _query.queryPurchaseSelf());
         return new PurchaseNss(_query.queryPurchaseSelf());
     }
     /**
@@ -91,7 +90,7 @@ public class PurchaseNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberAddressNss withMemberAddressAsSkipRelation(final java.util.Date targetDate) {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberAddressAsSkipRelation(targetDate); }});
+        _query.xdoNss(() -> _query.queryMemberAddressAsSkipRelation(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsSkipRelation(targetDate));
     }
     /**
@@ -100,7 +99,7 @@ public class PurchaseNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhitePurchaseReferrerNss withWhitePurchaseReferrerAsOne() {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhitePurchaseReferrerAsOne(); }});
+        _query.xdoNss(() -> _query.queryWhitePurchaseReferrerAsOne());
         return new WhitePurchaseReferrerNss(_query.queryWhitePurchaseReferrerAsOne());
     }
     /**
@@ -109,7 +108,7 @@ public class PurchaseNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public PurchaseNss withPurchaseSelfAsOne() {
-        _query.xdoNss(new PurchaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryPurchaseSelfAsOne(); }});
+        _query.xdoNss(() -> _query.queryPurchaseSelfAsOne());
         return new PurchaseNss(_query.queryPurchaseSelfAsOne());
     }
 }

@@ -53,27 +53,10 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgProductId(), "productId");
-        setupEpg(_epgMap, new EpgProductName(), "productName");
-        setupEpg(_epgMap, new EpgProductHandleCode(), "productHandleCode");
-        setupEpg(_epgMap, new EpgProductStatusCode(), "productStatusCode");
-        setupEpg(_epgMap, new EpgLatestPurchaseDatetime(), "latestPurchaseDatetime");
-    }
-    public static class EpgProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNoPkRelation)et).getProductId(); }
-        public void write(Entity et, Object vl) { ((WhiteNoPkRelation)et).setProductId(cti(vl)); }
-    }
-    public static class EpgProductName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNoPkRelation)et).getProductName(); }
-        public void write(Entity et, Object vl) { ((WhiteNoPkRelation)et).setProductName((String)vl); }
-    }
-    public static class EpgProductHandleCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNoPkRelation)et).getProductHandleCode(); }
-        public void write(Entity et, Object vl) { ((WhiteNoPkRelation)et).setProductHandleCode((String)vl); }
-    }
-    public class EpgProductStatusCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNoPkRelation)et).getProductStatusCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductId(), (et, vl) -> ((WhiteNoPkRelation)et).setProductId(cti(vl)), "productId");
+        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductName(), (et, vl) -> ((WhiteNoPkRelation)et).setProductName((String)vl), "productName");
+        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductHandleCode(), (et, vl) -> ((WhiteNoPkRelation)et).setProductHandleCode((String)vl), "productHandleCode");
+        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductStatusCode(), (et, vl) -> {
             ColumnInfo col = columnProductStatusCode();
             ccls(col, vl);
             CDef.ProductStatus cls = (CDef.ProductStatus)gcls(col, vl);
@@ -82,11 +65,8 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
             } else {
                 ((WhiteNoPkRelation)et).mynativeMappingProductStatusCode((String)vl);
             }
-        }
-    }
-    public static class EpgLatestPurchaseDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNoPkRelation)et).getLatestPurchaseDatetime(); }
-        public void write(Entity et, Object vl) { ((WhiteNoPkRelation)et).setLatestPurchaseDatetime((java.sql.Timestamp)vl); }
+        }, "productStatusCode");
+        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getLatestPurchaseDatetime(), (et, vl) -> ((WhiteNoPkRelation)et).setLatestPurchaseDatetime((java.sql.Timestamp)vl), "latestPurchaseDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -176,8 +176,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     public void existsWhiteCompoundPkList(SubQuery<WhiteCompoundPkCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepReferredId_ExistsReferrer_WhiteCompoundPkList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepReferredId_ExistsReferrer_WhiteCompoundPkList(cb.query());
         registerExistsReferrer(cb.query(), "REFERRED_ID", "REFERRED_ID", pp, "whiteCompoundPkList");
     }
     public abstract String keepReferredId_ExistsReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     public void notExistsWhiteCompoundPkList(SubQuery<WhiteCompoundPkCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepReferredId_NotExistsReferrer_WhiteCompoundPkList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepReferredId_NotExistsReferrer_WhiteCompoundPkList(cb.query());
         registerNotExistsReferrer(cb.query(), "REFERRED_ID", "REFERRED_ID", pp, "whiteCompoundPkList");
     }
     public abstract String keepReferredId_NotExistsReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq);
@@ -205,8 +203,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     public void xsderiveWhiteCompoundPkList(String fn, SubQuery<WhiteCompoundPkCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepReferredId_SpecifyDerivedReferrer_WhiteCompoundPkList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepReferredId_SpecifyDerivedReferrer_WhiteCompoundPkList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "REFERRED_ID", "REFERRED_ID", pp, "whiteCompoundPkList", al, op);
     }
     public abstract String keepReferredId_SpecifyDerivedReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq);
@@ -227,17 +224,12 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
         return xcreateQDRFunctionWhiteCompoundPkList();
     }
     protected HpQDRFunction<WhiteCompoundPkCB> xcreateQDRFunctionWhiteCompoundPkList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteCompoundPkCB>() {
-            public void setup(String fn, SubQuery<WhiteCompoundPkCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteCompoundPkList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteCompoundPkList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteCompoundPkList(String fn, SubQuery<WhiteCompoundPkCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepReferredId_QueryDerivedReferrer_WhiteCompoundPkList(cb.query()); String prpp = keepReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepReferredId_QueryDerivedReferrer_WhiteCompoundPkList(cb.query()); String prpp = keepReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "REFERRED_ID", "REFERRED_ID", sqpp, "whiteCompoundPkList", rd, vl, prpp, op);
     }
     public abstract String keepReferredId_QueryDerivedReferrer_WhiteCompoundPkList(WhiteCompoundPkCQ sq);
@@ -495,9 +487,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     public void xsmyselfDerive(String fn, SubQuery<WhiteCompoundReferredNormallyCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteCompoundReferredNormallyCB cb = new WhiteCompoundReferredNormallyCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "REFERRED_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "REFERRED_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteCompoundReferredNormallyCQ sq);
@@ -531,8 +521,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     public void myselfExists(SubQuery<WhiteCompoundReferredNormallyCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteCompoundReferredNormallyCB cb = new WhiteCompoundReferredNormallyCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteCompoundReferredNormallyCQ sq);

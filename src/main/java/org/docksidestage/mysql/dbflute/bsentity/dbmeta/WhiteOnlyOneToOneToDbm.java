@@ -53,21 +53,9 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgToId(), "toId");
-        setupEpg(_epgMap, new EpgToName(), "toName");
-        setupEpg(_epgMap, new EpgFromId(), "fromId");
-    }
-    public static class EpgToId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteOnlyOneToOneTo)et).getToId(); }
-        public void write(Entity et, Object vl) { ((WhiteOnlyOneToOneTo)et).setToId(ctl(vl)); }
-    }
-    public static class EpgToName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteOnlyOneToOneTo)et).getToName(); }
-        public void write(Entity et, Object vl) { ((WhiteOnlyOneToOneTo)et).setToName((String)vl); }
-    }
-    public static class EpgFromId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteOnlyOneToOneTo)et).getFromId(); }
-        public void write(Entity et, Object vl) { ((WhiteOnlyOneToOneTo)et).setFromId(ctl(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteOnlyOneToOneTo)et).getToId(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setToId(ctl(vl)), "toId");
+        setupEpg(_epgMap, et -> ((WhiteOnlyOneToOneTo)et).getToName(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setToName((String)vl), "toName");
+        setupEpg(_epgMap, et -> ((WhiteOnlyOneToOneTo)et).getFromId(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setFromId(ctl(vl)), "fromId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,12 +64,9 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteOnlyOneToOneFrom(), "whiteOnlyOneToOneFrom");
-    }
-    public class EfpgWhiteOnlyOneToOneFrom implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteOnlyOneToOneTo)et).getWhiteOnlyOneToOneFrom(); }
-        public void write(Entity et, Object vl) { ((WhiteOnlyOneToOneTo)et).setWhiteOnlyOneToOneFrom((WhiteOnlyOneToOneFrom)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteOnlyOneToOneTo)et).getWhiteOnlyOneToOneFrom(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setWhiteOnlyOneToOneFrom((WhiteOnlyOneToOneFrom)vl), "whiteOnlyOneToOneFrom");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

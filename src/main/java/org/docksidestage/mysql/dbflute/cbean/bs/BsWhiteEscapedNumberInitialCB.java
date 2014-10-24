@@ -280,10 +280,7 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteEscapedNumberInitialCQ>() {
-                public boolean has() { return true; }
-                public WhiteEscapedNumberInitialCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -325,9 +322,7 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteEscapedNumberInitialCB, WhiteEscapedNumberInitialCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteEscapedNumberInitialCB, WhiteEscapedNumberInitialCQ>() {
-                public void setup(String fn, SubQuery<WhiteEscapedNumberInitialCB> sq, WhiteEscapedNumberInitialCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -361,10 +356,8 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteEscapedNumberInitialCB> columnQuery(final SpecifyQuery<WhiteEscapedNumberInitialCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteEscapedNumberInitialCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteEscapedNumberInitialCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -470,10 +463,7 @@ public class BsWhiteEscapedNumberInitialCB extends AbstractConditionBean {
         } else {
             cb = new WhiteEscapedNumberInitialCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteEscapedNumberInitialCQ>() {
-            public boolean has() { return true; }
-            public WhiteEscapedNumberInitialCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

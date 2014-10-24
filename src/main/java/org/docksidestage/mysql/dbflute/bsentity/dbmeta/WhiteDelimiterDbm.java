@@ -53,31 +53,11 @@ public class WhiteDelimiterDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgDelimiterId(), "delimiterId");
-        setupEpg(_epgMap, new EpgNumberNullable(), "numberNullable");
-        setupEpg(_epgMap, new EpgStringConverted(), "stringConverted");
-        setupEpg(_epgMap, new EpgStringNonConverted(), "stringNonConverted");
-        setupEpg(_epgMap, new EpgDateDefault(), "dateDefault");
-    }
-    public static class EpgDelimiterId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDelimiter)et).getDelimiterId(); }
-        public void write(Entity et, Object vl) { ((WhiteDelimiter)et).setDelimiterId(ctl(vl)); }
-    }
-    public static class EpgNumberNullable implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDelimiter)et).getNumberNullable(); }
-        public void write(Entity et, Object vl) { ((WhiteDelimiter)et).setNumberNullable(cti(vl)); }
-    }
-    public static class EpgStringConverted implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDelimiter)et).getStringConverted(); }
-        public void write(Entity et, Object vl) { ((WhiteDelimiter)et).setStringConverted((String)vl); }
-    }
-    public static class EpgStringNonConverted implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDelimiter)et).getStringNonConverted(); }
-        public void write(Entity et, Object vl) { ((WhiteDelimiter)et).setStringNonConverted((String)vl); }
-    }
-    public static class EpgDateDefault implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDelimiter)et).getDateDefault(); }
-        public void write(Entity et, Object vl) { ((WhiteDelimiter)et).setDateDefault((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getDelimiterId(), (et, vl) -> ((WhiteDelimiter)et).setDelimiterId(ctl(vl)), "delimiterId");
+        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getNumberNullable(), (et, vl) -> ((WhiteDelimiter)et).setNumberNullable(cti(vl)), "numberNullable");
+        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getStringConverted(), (et, vl) -> ((WhiteDelimiter)et).setStringConverted((String)vl), "stringConverted");
+        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getStringNonConverted(), (et, vl) -> ((WhiteDelimiter)et).setStringNonConverted((String)vl), "stringNonConverted");
+        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getDateDefault(), (et, vl) -> ((WhiteDelimiter)et).setDateDefault((java.util.Date)vl), "dateDefault");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

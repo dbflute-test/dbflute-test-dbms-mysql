@@ -53,21 +53,9 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgReferrerId(), "referrerId");
-        setupEpg(_epgMap, new EpgVariantMasterId(), "variantMasterId");
-        setupEpg(_epgMap, new EpgMasterTypeCode(), "masterTypeCode");
-    }
-    public static class EpgReferrerId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrer)et).getReferrerId(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrer)et).setReferrerId(ctl(vl)); }
-    }
-    public static class EpgVariantMasterId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrer)et).getVariantMasterId(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrer)et).setVariantMasterId(ctl(vl)); }
-    }
-    public class EpgMasterTypeCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrer)et).getMasterTypeCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getReferrerId(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setReferrerId(ctl(vl)), "referrerId");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getVariantMasterId(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setVariantMasterId(ctl(vl)), "variantMasterId");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getMasterTypeCode(), (et, vl) -> {
             ColumnInfo col = columnMasterTypeCode();
             ccls(col, vl);
             CDef.VariantRelationMasterType cls = (CDef.VariantRelationMasterType)gcls(col, vl);
@@ -76,7 +64,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
             } else {
                 ((WhiteVariantRelationReferrer)et).mynativeMappingMasterTypeCode((String)vl);
             }
-        }
+        }, "masterTypeCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -85,27 +73,12 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteVariantRelationMasterFooAsVariant(), "whiteVariantRelationMasterFooAsVariant");
-        setupEfpg(_efpgMap, new EfpgWhiteVariantRelationMasterBarAsVariant(), "whiteVariantRelationMasterBarAsVariant");
-        setupEfpg(_efpgMap, new EfpgWhiteVariantRelationMasterQuxAsVariantByQue(), "whiteVariantRelationMasterQuxAsVariantByQue");
-        setupEfpg(_efpgMap, new EfpgWhiteVariantRelationMasterCorgeAsVariantByQuxType(), "whiteVariantRelationMasterCorgeAsVariantByQuxType");
-    }
-    public class EfpgWhiteVariantRelationMasterFooAsVariant implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterFooAsVariant(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterFooAsVariant((WhiteVariantRelationMasterFoo)vl); }
-    }
-    public class EfpgWhiteVariantRelationMasterBarAsVariant implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterBarAsVariant(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterBarAsVariant((WhiteVariantRelationMasterBar)vl); }
-    }
-    public class EfpgWhiteVariantRelationMasterQuxAsVariantByQue implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterQuxAsVariantByQue(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterQuxAsVariantByQue((WhiteVariantRelationMasterQux)vl); }
-    }
-    public class EfpgWhiteVariantRelationMasterCorgeAsVariantByQuxType implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterCorgeAsVariantByQuxType((WhiteVariantRelationMasterCorge)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterFooAsVariant(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterFooAsVariant((WhiteVariantRelationMasterFoo)vl), "whiteVariantRelationMasterFooAsVariant");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterBarAsVariant(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterBarAsVariant((WhiteVariantRelationMasterBar)vl), "whiteVariantRelationMasterBarAsVariant");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterQuxAsVariantByQue(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterQuxAsVariantByQue((WhiteVariantRelationMasterQux)vl), "whiteVariantRelationMasterQuxAsVariantByQue");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterCorgeAsVariantByQuxType(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterCorgeAsVariantByQuxType((WhiteVariantRelationMasterCorge)vl), "whiteVariantRelationMasterCorgeAsVariantByQuxType");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

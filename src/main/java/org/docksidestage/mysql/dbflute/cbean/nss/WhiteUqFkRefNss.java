@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteUqFkRefCQ;
 
 /**
@@ -39,13 +38,13 @@ public class WhiteUqFkRefNss {
      * white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      */
     public void withWhiteUqFkByFkToPkId() {
-        _query.xdoNss(new WhiteUqFkRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteUqFkByFkToPkId(); }});
+        _query.xdoNss(() -> _query.queryWhiteUqFkByFkToPkId());
     }
     /**
      * With nested relation columns to select clause. <br />
      * white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      */
     public void withWhiteUqFkByFkToUqCode() {
-        _query.xdoNss(new WhiteUqFkRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteUqFkByFkToUqCode(); }});
+        _query.xdoNss(() -> _query.queryWhiteUqFkByFkToUqCode());
     }
 }

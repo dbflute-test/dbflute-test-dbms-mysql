@@ -53,46 +53,14 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgProductId(), "productId");
-        setupEpg(_epgMap, new EpgProductName(), "productName");
-        setupEpg(_epgMap, new EpgRegisterDatetime(), "registerDatetime");
-        setupEpg(_epgMap, new EpgRegisterUser(), "registerUser");
-        setupEpg(_epgMap, new EpgRegisterProcess(), "registerProcess");
-        setupEpg(_epgMap, new EpgUpdateDatetime(), "updateDatetime");
-        setupEpg(_epgMap, new EpgUpdateUser(), "updateUser");
-        setupEpg(_epgMap, new EpgUpdateProcess(), "updateProcess");
-    }
-    public static class EpgProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getProductId(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setProductId(ctl(vl)); }
-    }
-    public static class EpgProductName implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getProductName(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setProductName((String)vl); }
-    }
-    public static class EpgRegisterDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getRegisterDatetime(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setRegisterDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgRegisterUser implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getRegisterUser(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setRegisterUser((String)vl); }
-    }
-    public static class EpgRegisterProcess implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getRegisterProcess(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setRegisterProcess((String)vl); }
-    }
-    public static class EpgUpdateDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getUpdateDatetime(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setUpdateDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgUpdateUser implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getUpdateUser(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setUpdateUser((String)vl); }
-    }
-    public static class EpgUpdateProcess implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getUpdateProcess(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setUpdateProcess((String)vl); }
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductId(), (et, vl) -> ((NextSchemaProduct)et).setProductId(ctl(vl)), "productId");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductName(), (et, vl) -> ((NextSchemaProduct)et).setProductName((String)vl), "productName");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getRegisterDatetime(), (et, vl) -> ((NextSchemaProduct)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getRegisterUser(), (et, vl) -> ((NextSchemaProduct)et).setRegisterUser((String)vl), "registerUser");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getRegisterProcess(), (et, vl) -> ((NextSchemaProduct)et).setRegisterProcess((String)vl), "registerProcess");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getUpdateDatetime(), (et, vl) -> ((NextSchemaProduct)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getUpdateUser(), (et, vl) -> ((NextSchemaProduct)et).setUpdateUser((String)vl), "updateUser");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getUpdateProcess(), (et, vl) -> ((NextSchemaProduct)et).setUpdateProcess((String)vl), "updateProcess");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

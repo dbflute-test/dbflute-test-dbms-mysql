@@ -401,9 +401,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     public void xsmyselfDerive(String fn, SubQuery<WhiteUqClassificationCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteUqClassificationCB cb = new WhiteUqClassificationCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "UQ_CLS_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "UQ_CLS_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteUqClassificationCQ sq);
@@ -437,8 +435,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     public void myselfExists(SubQuery<WhiteUqClassificationCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteUqClassificationCB cb = new WhiteUqClassificationCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteUqClassificationCQ sq);

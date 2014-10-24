@@ -422,9 +422,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     public void xsmyselfDerive(String fn, SubQuery<WhiteColumnExceptCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteColumnExceptCB cb = new WhiteColumnExceptCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "EXCEPT_COLUMN_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "EXCEPT_COLUMN_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteColumnExceptCQ sq);
@@ -458,8 +456,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     public void myselfExists(SubQuery<WhiteColumnExceptCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteColumnExceptCB cb = new WhiteColumnExceptCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteColumnExceptCQ sq);

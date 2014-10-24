@@ -53,21 +53,9 @@ public class WhiteMyselfCheckDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMyselfCheckId(), "myselfCheckId");
-        setupEpg(_epgMap, new EpgMyselfCheckName(), "myselfCheckName");
-        setupEpg(_epgMap, new EpgMyselfId(), "myselfId");
-    }
-    public static class EpgMyselfCheckId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteMyselfCheck)et).getMyselfCheckId(); }
-        public void write(Entity et, Object vl) { ((WhiteMyselfCheck)et).setMyselfCheckId(cti(vl)); }
-    }
-    public static class EpgMyselfCheckName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteMyselfCheck)et).getMyselfCheckName(); }
-        public void write(Entity et, Object vl) { ((WhiteMyselfCheck)et).setMyselfCheckName((String)vl); }
-    }
-    public static class EpgMyselfId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteMyselfCheck)et).getMyselfId(); }
-        public void write(Entity et, Object vl) { ((WhiteMyselfCheck)et).setMyselfId(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteMyselfCheck)et).getMyselfCheckId(), (et, vl) -> ((WhiteMyselfCheck)et).setMyselfCheckId(cti(vl)), "myselfCheckId");
+        setupEpg(_epgMap, et -> ((WhiteMyselfCheck)et).getMyselfCheckName(), (et, vl) -> ((WhiteMyselfCheck)et).setMyselfCheckName((String)vl), "myselfCheckName");
+        setupEpg(_epgMap, et -> ((WhiteMyselfCheck)et).getMyselfId(), (et, vl) -> ((WhiteMyselfCheck)et).setMyselfId(cti(vl)), "myselfId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,12 +64,9 @@ public class WhiteMyselfCheckDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteMyself(), "whiteMyself");
-    }
-    public class EfpgWhiteMyself implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteMyselfCheck)et).getWhiteMyself(); }
-        public void write(Entity et, Object vl) { ((WhiteMyselfCheck)et).setWhiteMyself((WhiteMyself)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteMyselfCheck)et).getWhiteMyself(), (et, vl) -> ((WhiteMyselfCheck)et).setWhiteMyself((WhiteMyself)vl), "whiteMyself");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

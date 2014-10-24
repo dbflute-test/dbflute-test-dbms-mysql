@@ -282,7 +282,7 @@ public class BsMemberCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnMemberStatusCode();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberStatus(); } });
+        doSetupSelect(() -> query().queryMemberStatus());
     }
 
     protected MemberAddressNss _nssMemberAddressAsValid;
@@ -306,7 +306,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberAddressNss setupSelect_MemberAddressAsValid(final java.util.Date targetDate) {
         assertSetupSelectPurpose("memberAddressAsValid");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberAddressAsValid(targetDate); } });
+        doSetupSelect(() -> query().queryMemberAddressAsValid(targetDate));
         if (_nssMemberAddressAsValid == null || !_nssMemberAddressAsValid.hasConditionQuery())
         { _nssMemberAddressAsValid = new MemberAddressNss(query().queryMemberAddressAsValid(targetDate)); }
         return _nssMemberAddressAsValid;
@@ -333,7 +333,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberAddressNss setupSelect_MemberAddressAsValidBefore(final java.util.Date targetDate) {
         assertSetupSelectPurpose("memberAddressAsValidBefore");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberAddressAsValidBefore(targetDate); } });
+        doSetupSelect(() -> query().queryMemberAddressAsValidBefore(targetDate));
         if (_nssMemberAddressAsValidBefore == null || !_nssMemberAddressAsValidBefore.hasConditionQuery())
         { _nssMemberAddressAsValidBefore = new MemberAddressNss(query().queryMemberAddressAsValidBefore(targetDate)); }
         return _nssMemberAddressAsValidBefore;
@@ -360,7 +360,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsLoginStatus(final org.docksidestage.mysql.dbflute.allcommon.CDef.MemberStatus statusCode) {
         assertSetupSelectPurpose("memberLoginAsLoginStatus");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsLoginStatus(statusCode); } });
+        doSetupSelect(() -> query().queryMemberLoginAsLoginStatus(statusCode));
         if (_nssMemberLoginAsLoginStatus == null || !_nssMemberLoginAsLoginStatus.hasConditionQuery())
         { _nssMemberLoginAsLoginStatus = new MemberLoginNss(query().queryMemberLoginAsLoginStatus(statusCode)); }
         return _nssMemberLoginAsLoginStatus;
@@ -388,7 +388,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberAddressNss setupSelect_MemberAddressAsIfComment(final java.util.Date targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
         assertSetupSelectPurpose("memberAddressAsIfComment");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberAddressAsIfComment(targetDate, region); } });
+        doSetupSelect(() -> query().queryMemberAddressAsIfComment(targetDate, region));
         if (_nssMemberAddressAsIfComment == null || !_nssMemberAddressAsIfComment.hasConditionQuery())
         { _nssMemberAddressAsIfComment = new MemberAddressNss(query().queryMemberAddressAsIfComment(targetDate, region)); }
         return _nssMemberAddressAsIfComment;
@@ -415,7 +415,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberAddressNss setupSelect_MemberAddressAsOnlyOneDate(final java.util.Date targetDate) {
         assertSetupSelectPurpose("memberAddressAsOnlyOneDate");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberAddressAsOnlyOneDate(targetDate); } });
+        doSetupSelect(() -> query().queryMemberAddressAsOnlyOneDate(targetDate));
         if (_nssMemberAddressAsOnlyOneDate == null || !_nssMemberAddressAsOnlyOneDate.hasConditionQuery())
         { _nssMemberAddressAsOnlyOneDate = new MemberAddressNss(query().queryMemberAddressAsOnlyOneDate(targetDate)); }
         return _nssMemberAddressAsOnlyOneDate;
@@ -443,7 +443,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsLocalBindOverTest(final Integer displayOrder) {
         assertSetupSelectPurpose("memberLoginAsLocalBindOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsLocalBindOverTest(displayOrder); } });
+        doSetupSelect(() -> query().queryMemberLoginAsLocalBindOverTest(displayOrder));
         if (_nssMemberLoginAsLocalBindOverTest == null || !_nssMemberLoginAsLocalBindOverTest.hasConditionQuery())
         { _nssMemberLoginAsLocalBindOverTest = new MemberLoginNss(query().queryMemberLoginAsLocalBindOverTest(displayOrder)); }
         return _nssMemberLoginAsLocalBindOverTest;
@@ -469,7 +469,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsLocalForeignOverTest() {
         assertSetupSelectPurpose("memberLoginAsLocalForeignOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsLocalForeignOverTest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsLocalForeignOverTest());
         if (_nssMemberLoginAsLocalForeignOverTest == null || !_nssMemberLoginAsLocalForeignOverTest.hasConditionQuery())
         { _nssMemberLoginAsLocalForeignOverTest = new MemberLoginNss(query().queryMemberLoginAsLocalForeignOverTest()); }
         return _nssMemberLoginAsLocalForeignOverTest;
@@ -496,7 +496,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsForeignForeignBindOverTest(final Integer displayOrder) {
         assertSetupSelectPurpose("memberLoginAsForeignForeignBindOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsForeignForeignBindOverTest(displayOrder); } });
+        doSetupSelect(() -> query().queryMemberLoginAsForeignForeignBindOverTest(displayOrder));
         if (_nssMemberLoginAsForeignForeignBindOverTest == null || !_nssMemberLoginAsForeignForeignBindOverTest.hasConditionQuery())
         { _nssMemberLoginAsForeignForeignBindOverTest = new MemberLoginNss(query().queryMemberLoginAsForeignForeignBindOverTest(displayOrder)); }
         return _nssMemberLoginAsForeignForeignBindOverTest;
@@ -522,7 +522,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsForeignForeignEachOverTest() {
         assertSetupSelectPurpose("memberLoginAsForeignForeignEachOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsForeignForeignEachOverTest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsForeignForeignEachOverTest());
         if (_nssMemberLoginAsForeignForeignEachOverTest == null || !_nssMemberLoginAsForeignForeignEachOverTest.hasConditionQuery())
         { _nssMemberLoginAsForeignForeignEachOverTest = new MemberLoginNss(query().queryMemberLoginAsForeignForeignEachOverTest()); }
         return _nssMemberLoginAsForeignForeignEachOverTest;
@@ -548,7 +548,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsForeignForeignOptimizedBasicOverTest() {
         assertSetupSelectPurpose("memberLoginAsForeignForeignOptimizedBasicOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsForeignForeignOptimizedBasicOverTest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsForeignForeignOptimizedBasicOverTest());
         if (_nssMemberLoginAsForeignForeignOptimizedBasicOverTest == null || !_nssMemberLoginAsForeignForeignOptimizedBasicOverTest.hasConditionQuery())
         { _nssMemberLoginAsForeignForeignOptimizedBasicOverTest = new MemberLoginNss(query().queryMemberLoginAsForeignForeignOptimizedBasicOverTest()); }
         return _nssMemberLoginAsForeignForeignOptimizedBasicOverTest;
@@ -574,7 +574,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsForeignForeignOptimizedMarkOverTest() {
         assertSetupSelectPurpose("memberLoginAsForeignForeignOptimizedMarkOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsForeignForeignOptimizedMarkOverTest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsForeignForeignOptimizedMarkOverTest());
         if (_nssMemberLoginAsForeignForeignOptimizedMarkOverTest == null || !_nssMemberLoginAsForeignForeignOptimizedMarkOverTest.hasConditionQuery())
         { _nssMemberLoginAsForeignForeignOptimizedMarkOverTest = new MemberLoginNss(query().queryMemberLoginAsForeignForeignOptimizedMarkOverTest()); }
         return _nssMemberLoginAsForeignForeignOptimizedMarkOverTest;
@@ -602,7 +602,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsForeignForeignOptimizedPartOverTest(final Integer displayOrder, final String memberName) {
         assertSetupSelectPurpose("memberLoginAsForeignForeignOptimizedPartOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName); } });
+        doSetupSelect(() -> query().queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName));
         if (_nssMemberLoginAsForeignForeignOptimizedPartOverTest == null || !_nssMemberLoginAsForeignForeignOptimizedPartOverTest.hasConditionQuery())
         { _nssMemberLoginAsForeignForeignOptimizedPartOverTest = new MemberLoginNss(query().queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName)); }
         return _nssMemberLoginAsForeignForeignOptimizedPartOverTest;
@@ -629,7 +629,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsForeignForeignOptimizedWholeOverTest(final Integer displayOrder) {
         assertSetupSelectPurpose("memberLoginAsForeignForeignOptimizedWholeOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder); } });
+        doSetupSelect(() -> query().queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder));
         if (_nssMemberLoginAsForeignForeignOptimizedWholeOverTest == null || !_nssMemberLoginAsForeignForeignOptimizedWholeOverTest.hasConditionQuery())
         { _nssMemberLoginAsForeignForeignOptimizedWholeOverTest = new MemberLoginNss(query().queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder)); }
         return _nssMemberLoginAsForeignForeignOptimizedWholeOverTest;
@@ -656,7 +656,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsForeignForeignParameterOverTest(final java.util.Date targetDate) {
         assertSetupSelectPurpose("memberLoginAsForeignForeignParameterOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsForeignForeignParameterOverTest(targetDate); } });
+        doSetupSelect(() -> query().queryMemberLoginAsForeignForeignParameterOverTest(targetDate));
         if (_nssMemberLoginAsForeignForeignParameterOverTest == null || !_nssMemberLoginAsForeignForeignParameterOverTest.hasConditionQuery())
         { _nssMemberLoginAsForeignForeignParameterOverTest = new MemberLoginNss(query().queryMemberLoginAsForeignForeignParameterOverTest(targetDate)); }
         return _nssMemberLoginAsForeignForeignParameterOverTest;
@@ -682,7 +682,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsForeignForeignVariousOverTest() {
         assertSetupSelectPurpose("memberLoginAsForeignForeignVariousOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsForeignForeignVariousOverTest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsForeignForeignVariousOverTest());
         if (_nssMemberLoginAsForeignForeignVariousOverTest == null || !_nssMemberLoginAsForeignForeignVariousOverTest.hasConditionQuery())
         { _nssMemberLoginAsForeignForeignVariousOverTest = new MemberLoginNss(query().queryMemberLoginAsForeignForeignVariousOverTest()); }
         return _nssMemberLoginAsForeignForeignVariousOverTest;
@@ -708,7 +708,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsReferrerOverTest() {
         assertSetupSelectPurpose("memberLoginAsReferrerOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsReferrerOverTest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsReferrerOverTest());
         if (_nssMemberLoginAsReferrerOverTest == null || !_nssMemberLoginAsReferrerOverTest.hasConditionQuery())
         { _nssMemberLoginAsReferrerOverTest = new MemberLoginNss(query().queryMemberLoginAsReferrerOverTest()); }
         return _nssMemberLoginAsReferrerOverTest;
@@ -734,7 +734,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsReferrerForeignOverTest() {
         assertSetupSelectPurpose("memberLoginAsReferrerForeignOverTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsReferrerForeignOverTest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsReferrerForeignOverTest());
         if (_nssMemberLoginAsReferrerForeignOverTest == null || !_nssMemberLoginAsReferrerForeignOverTest.hasConditionQuery())
         { _nssMemberLoginAsReferrerForeignOverTest = new MemberLoginNss(query().queryMemberLoginAsReferrerForeignOverTest()); }
         return _nssMemberLoginAsReferrerForeignOverTest;
@@ -760,7 +760,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsLatest() {
         assertSetupSelectPurpose("memberLoginAsLatest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsLatest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsLatest());
         if (_nssMemberLoginAsLatest == null || !_nssMemberLoginAsLatest.hasConditionQuery())
         { _nssMemberLoginAsLatest = new MemberLoginNss(query().queryMemberLoginAsLatest()); }
         return _nssMemberLoginAsLatest;
@@ -786,7 +786,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsOldest() {
         assertSetupSelectPurpose("memberLoginAsOldest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsOldest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsOldest());
         if (_nssMemberLoginAsOldest == null || !_nssMemberLoginAsOldest.hasConditionQuery())
         { _nssMemberLoginAsOldest = new MemberLoginNss(query().queryMemberLoginAsOldest()); }
         return _nssMemberLoginAsOldest;
@@ -813,7 +813,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberAddressNss setupSelect_MemberAddressAsFormattedBasic(final java.util.Date targetDate) {
         assertSetupSelectPurpose("memberAddressAsFormattedBasic");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberAddressAsFormattedBasic(targetDate); } });
+        doSetupSelect(() -> query().queryMemberAddressAsFormattedBasic(targetDate));
         if (_nssMemberAddressAsFormattedBasic == null || !_nssMemberAddressAsFormattedBasic.hasConditionQuery())
         { _nssMemberAddressAsFormattedBasic = new MemberAddressNss(query().queryMemberAddressAsFormattedBasic(targetDate)); }
         return _nssMemberAddressAsFormattedBasic;
@@ -840,7 +840,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberAddressNss setupSelect_MemberAddressAsFormattedLong(final java.util.Date targetDate) {
         assertSetupSelectPurpose("memberAddressAsFormattedLong");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberAddressAsFormattedLong(targetDate); } });
+        doSetupSelect(() -> query().queryMemberAddressAsFormattedLong(targetDate));
         if (_nssMemberAddressAsFormattedLong == null || !_nssMemberAddressAsFormattedLong.hasConditionQuery())
         { _nssMemberAddressAsFormattedLong = new MemberAddressNss(query().queryMemberAddressAsFormattedLong(targetDate)); }
         return _nssMemberAddressAsFormattedLong;
@@ -866,7 +866,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsFormattedMany() {
         assertSetupSelectPurpose("memberLoginAsFormattedMany");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsFormattedMany(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsFormattedMany());
         if (_nssMemberLoginAsFormattedMany == null || !_nssMemberLoginAsFormattedMany.hasConditionQuery())
         { _nssMemberLoginAsFormattedMany = new MemberLoginNss(query().queryMemberLoginAsFormattedMany()); }
         return _nssMemberLoginAsFormattedMany;
@@ -892,7 +892,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberLoginNss setupSelect_MemberLoginAsEmbeddedCommentClassificationTest() {
         assertSetupSelectPurpose("memberLoginAsEmbeddedCommentClassificationTest");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberLoginAsEmbeddedCommentClassificationTest(); } });
+        doSetupSelect(() -> query().queryMemberLoginAsEmbeddedCommentClassificationTest());
         if (_nssMemberLoginAsEmbeddedCommentClassificationTest == null || !_nssMemberLoginAsEmbeddedCommentClassificationTest.hasConditionQuery())
         { _nssMemberLoginAsEmbeddedCommentClassificationTest = new MemberLoginNss(query().queryMemberLoginAsEmbeddedCommentClassificationTest()); }
         return _nssMemberLoginAsEmbeddedCommentClassificationTest;
@@ -918,7 +918,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberSecurityNss setupSelect_MemberSecurityAsOne() {
         assertSetupSelectPurpose("memberSecurityAsOne");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberSecurityAsOne(); } });
+        doSetupSelect(() -> query().queryMemberSecurityAsOne());
         if (_nssMemberSecurityAsOne == null || !_nssMemberSecurityAsOne.hasConditionQuery()) { _nssMemberSecurityAsOne = new MemberSecurityNss(query().queryMemberSecurityAsOne()); }
         return _nssMemberSecurityAsOne;
     }
@@ -943,7 +943,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberServiceNss setupSelect_MemberServiceAsOne() {
         assertSetupSelectPurpose("memberServiceAsOne");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberServiceAsOne(); } });
+        doSetupSelect(() -> query().queryMemberServiceAsOne());
         if (_nssMemberServiceAsOne == null || !_nssMemberServiceAsOne.hasConditionQuery()) { _nssMemberServiceAsOne = new MemberServiceNss(query().queryMemberServiceAsOne()); }
         return _nssMemberServiceAsOne;
     }
@@ -968,7 +968,7 @@ public class BsMemberCB extends AbstractConditionBean {
      */
     public MemberWithdrawalNss setupSelect_MemberWithdrawalAsOne() {
         assertSetupSelectPurpose("memberWithdrawalAsOne");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryMemberWithdrawalAsOne(); } });
+        doSetupSelect(() -> query().queryMemberWithdrawalAsOne());
         if (_nssMemberWithdrawalAsOne == null || !_nssMemberWithdrawalAsOne.hasConditionQuery()) { _nssMemberWithdrawalAsOne = new MemberWithdrawalNss(query().queryMemberWithdrawalAsOne()); }
         return _nssMemberWithdrawalAsOne;
     }
@@ -1000,10 +1000,7 @@ public class BsMemberCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<MemberCQ>() {
-                public boolean has() { return true; }
-                public MemberCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -1123,15 +1120,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberStatusCB.HpSpecification specifyMemberStatus() {
             assertRelation("memberStatus");
             if (_memberStatus == null) {
-                _memberStatus = new MemberStatusCB.HpSpecification(_baseCB, new HpSpQyCall<MemberStatusCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberStatus(); }
-                    public MemberStatusCQ qy() { return _qyCall.qy().queryMemberStatus(); } }
+                _memberStatus = new MemberStatusCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberStatus()
+                                    , () -> _qyCall.qy().queryMemberStatus())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberStatus.xsetSyncQyCall(new HpSpQyCall<MemberStatusCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberStatus(); }
-                        public MemberStatusCQ qy() { return xsyncQyCall().qy().queryMemberStatus(); }
-                    });
+                    _memberStatus.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberStatus()
+                      , () -> xsyncQyCall().qy().queryMemberStatus()));
                 }
             }
             return _memberStatus;
@@ -1145,9 +1141,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsValid(final java.util.Date targetDate) {
             assertRelation("memberAddressAsValid");
             if (_memberAddressAsValid == null) {
-                _memberAddressAsValid = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValid(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsValid(targetDate); } }
+                _memberAddressAsValid = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValid()
+                                    , () -> _qyCall.qy().queryMemberAddressAsValid(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsValid.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
@@ -1166,15 +1162,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsValid() {
             assertRelation("memberAddressAsValid");
             if (_memberAddressAsValid == null) {
-                _memberAddressAsValid = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValid(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberAddressAsValid(); } }
+                _memberAddressAsValid = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValid()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberAddressAsValid())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberAddressAsValid.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsValid(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsValid(); }
-                    });
+                    _memberAddressAsValid.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsValid()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsValid()));
                 }
             }
             return _memberAddressAsValid;
@@ -1188,9 +1183,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsValidBefore(final java.util.Date targetDate) {
             assertRelation("memberAddressAsValidBefore");
             if (_memberAddressAsValidBefore == null) {
-                _memberAddressAsValidBefore = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValidBefore(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsValidBefore(targetDate); } }
+                _memberAddressAsValidBefore = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValidBefore()
+                                    , () -> _qyCall.qy().queryMemberAddressAsValidBefore(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsValidBefore.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
@@ -1209,15 +1204,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsValidBefore() {
             assertRelation("memberAddressAsValidBefore");
             if (_memberAddressAsValidBefore == null) {
-                _memberAddressAsValidBefore = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValidBefore(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberAddressAsValidBefore(); } }
+                _memberAddressAsValidBefore = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsValidBefore()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberAddressAsValidBefore())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberAddressAsValidBefore.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsValidBefore(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsValidBefore(); }
-                    });
+                    _memberAddressAsValidBefore.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsValidBefore()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsValidBefore()));
                 }
             }
             return _memberAddressAsValidBefore;
@@ -1231,9 +1225,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLoginStatus(final org.docksidestage.mysql.dbflute.allcommon.CDef.MemberStatus statusCode) {
             assertRelation("memberLoginAsLoginStatus");
             if (_memberLoginAsLoginStatus == null) {
-                _memberLoginAsLoginStatus = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLoginStatus(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsLoginStatus(statusCode); } }
+                _memberLoginAsLoginStatus = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLoginStatus()
+                                    , () -> _qyCall.qy().queryMemberLoginAsLoginStatus(statusCode))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsLoginStatus.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
@@ -1252,15 +1246,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLoginStatus() {
             assertRelation("memberLoginAsLoginStatus");
             if (_memberLoginAsLoginStatus == null) {
-                _memberLoginAsLoginStatus = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLoginStatus(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberLoginAsLoginStatus(); } }
+                _memberLoginAsLoginStatus = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLoginStatus()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberLoginAsLoginStatus())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsLoginStatus.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLoginStatus(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsLoginStatus(); }
-                    });
+                    _memberLoginAsLoginStatus.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLoginStatus()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsLoginStatus()));
                 }
             }
             return _memberLoginAsLoginStatus;
@@ -1275,9 +1268,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsIfComment(final java.util.Date targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
             assertRelation("memberAddressAsIfComment");
             if (_memberAddressAsIfComment == null) {
-                _memberAddressAsIfComment = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsIfComment(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsIfComment(targetDate, region); } }
+                _memberAddressAsIfComment = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsIfComment()
+                                    , () -> _qyCall.qy().queryMemberAddressAsIfComment(targetDate, region))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsIfComment.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
@@ -1296,15 +1289,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsIfComment() {
             assertRelation("memberAddressAsIfComment");
             if (_memberAddressAsIfComment == null) {
-                _memberAddressAsIfComment = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsIfComment(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberAddressAsIfComment(); } }
+                _memberAddressAsIfComment = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsIfComment()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberAddressAsIfComment())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberAddressAsIfComment.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsIfComment(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsIfComment(); }
-                    });
+                    _memberAddressAsIfComment.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsIfComment()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsIfComment()));
                 }
             }
             return _memberAddressAsIfComment;
@@ -1318,9 +1310,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsOnlyOneDate(final java.util.Date targetDate) {
             assertRelation("memberAddressAsOnlyOneDate");
             if (_memberAddressAsOnlyOneDate == null) {
-                _memberAddressAsOnlyOneDate = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsOnlyOneDate(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsOnlyOneDate(targetDate); } }
+                _memberAddressAsOnlyOneDate = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsOnlyOneDate()
+                                    , () -> _qyCall.qy().queryMemberAddressAsOnlyOneDate(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsOnlyOneDate.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
@@ -1339,15 +1331,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsOnlyOneDate() {
             assertRelation("memberAddressAsOnlyOneDate");
             if (_memberAddressAsOnlyOneDate == null) {
-                _memberAddressAsOnlyOneDate = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsOnlyOneDate(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberAddressAsOnlyOneDate(); } }
+                _memberAddressAsOnlyOneDate = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsOnlyOneDate()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberAddressAsOnlyOneDate())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberAddressAsOnlyOneDate.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsOnlyOneDate(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsOnlyOneDate(); }
-                    });
+                    _memberAddressAsOnlyOneDate.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsOnlyOneDate()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsOnlyOneDate()));
                 }
             }
             return _memberAddressAsOnlyOneDate;
@@ -1362,9 +1353,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLocalBindOverTest(final Integer displayOrder) {
             assertRelation("memberLoginAsLocalBindOverTest");
             if (_memberLoginAsLocalBindOverTest == null) {
-                _memberLoginAsLocalBindOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalBindOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsLocalBindOverTest(displayOrder); } }
+                _memberLoginAsLocalBindOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalBindOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsLocalBindOverTest(displayOrder))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsLocalBindOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
@@ -1383,15 +1374,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLocalBindOverTest() {
             assertRelation("memberLoginAsLocalBindOverTest");
             if (_memberLoginAsLocalBindOverTest == null) {
-                _memberLoginAsLocalBindOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalBindOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberLoginAsLocalBindOverTest(); } }
+                _memberLoginAsLocalBindOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalBindOverTest()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberLoginAsLocalBindOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsLocalBindOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLocalBindOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsLocalBindOverTest(); }
-                    });
+                    _memberLoginAsLocalBindOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLocalBindOverTest()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsLocalBindOverTest()));
                 }
             }
             return _memberLoginAsLocalBindOverTest;
@@ -1404,15 +1394,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLocalForeignOverTest() {
             assertRelation("memberLoginAsLocalForeignOverTest");
             if (_memberLoginAsLocalForeignOverTest == null) {
-                _memberLoginAsLocalForeignOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalForeignOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsLocalForeignOverTest(); } }
+                _memberLoginAsLocalForeignOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLocalForeignOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsLocalForeignOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsLocalForeignOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLocalForeignOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsLocalForeignOverTest(); }
-                    });
+                    _memberLoginAsLocalForeignOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLocalForeignOverTest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsLocalForeignOverTest()));
                 }
             }
             return _memberLoginAsLocalForeignOverTest;
@@ -1426,9 +1415,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignBindOverTest(final Integer displayOrder) {
             assertRelation("memberLoginAsForeignForeignBindOverTest");
             if (_memberLoginAsForeignForeignBindOverTest == null) {
-                _memberLoginAsForeignForeignBindOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignBindOverTest(displayOrder); } }
+                _memberLoginAsForeignForeignBindOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsForeignForeignBindOverTest(displayOrder))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignBindOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
@@ -1447,15 +1436,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignBindOverTest() {
             assertRelation("memberLoginAsForeignForeignBindOverTest");
             if (_memberLoginAsForeignForeignBindOverTest == null) {
-                _memberLoginAsForeignForeignBindOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest(); } }
+                _memberLoginAsForeignForeignBindOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsForeignForeignBindOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest(); }
-                    });
+                    _memberLoginAsForeignForeignBindOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignBindOverTest()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsForeignForeignBindOverTest()));
                 }
             }
             return _memberLoginAsForeignForeignBindOverTest;
@@ -1468,15 +1456,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignEachOverTest() {
             assertRelation("memberLoginAsForeignForeignEachOverTest");
             if (_memberLoginAsForeignForeignEachOverTest == null) {
-                _memberLoginAsForeignForeignEachOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignEachOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignEachOverTest(); } }
+                _memberLoginAsForeignForeignEachOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignEachOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsForeignForeignEachOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsForeignForeignEachOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignEachOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsForeignForeignEachOverTest(); }
-                    });
+                    _memberLoginAsForeignForeignEachOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignEachOverTest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsForeignForeignEachOverTest()));
                 }
             }
             return _memberLoginAsForeignForeignEachOverTest;
@@ -1489,15 +1476,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedBasicOverTest() {
             assertRelation("memberLoginAsForeignForeignOptimizedBasicOverTest");
             if (_memberLoginAsForeignForeignOptimizedBasicOverTest == null) {
-                _memberLoginAsForeignForeignOptimizedBasicOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedBasicOverTest(); } }
+                _memberLoginAsForeignForeignOptimizedBasicOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedBasicOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsForeignForeignOptimizedBasicOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsForeignForeignOptimizedBasicOverTest(); }
-                    });
+                    _memberLoginAsForeignForeignOptimizedBasicOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsForeignForeignOptimizedBasicOverTest()));
                 }
             }
             return _memberLoginAsForeignForeignOptimizedBasicOverTest;
@@ -1510,15 +1496,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedMarkOverTest() {
             assertRelation("memberLoginAsForeignForeignOptimizedMarkOverTest");
             if (_memberLoginAsForeignForeignOptimizedMarkOverTest == null) {
-                _memberLoginAsForeignForeignOptimizedMarkOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedMarkOverTest(); } }
+                _memberLoginAsForeignForeignOptimizedMarkOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedMarkOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsForeignForeignOptimizedMarkOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsForeignForeignOptimizedMarkOverTest(); }
-                    });
+                    _memberLoginAsForeignForeignOptimizedMarkOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsForeignForeignOptimizedMarkOverTest()));
                 }
             }
             return _memberLoginAsForeignForeignOptimizedMarkOverTest;
@@ -1533,9 +1518,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedPartOverTest(final Integer displayOrder, final String memberName) {
             assertRelation("memberLoginAsForeignForeignOptimizedPartOverTest");
             if (_memberLoginAsForeignForeignOptimizedPartOverTest == null) {
-                _memberLoginAsForeignForeignOptimizedPartOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName); } }
+                _memberLoginAsForeignForeignOptimizedPartOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignOptimizedPartOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
@@ -1554,15 +1539,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedPartOverTest() {
             assertRelation("memberLoginAsForeignForeignOptimizedPartOverTest");
             if (_memberLoginAsForeignForeignOptimizedPartOverTest == null) {
-                _memberLoginAsForeignForeignOptimizedPartOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); } }
+                _memberLoginAsForeignForeignOptimizedPartOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsForeignForeignOptimizedPartOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest(); }
-                    });
+                    _memberLoginAsForeignForeignOptimizedPartOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest()));
                 }
             }
             return _memberLoginAsForeignForeignOptimizedPartOverTest;
@@ -1576,9 +1560,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedWholeOverTest(final Integer displayOrder) {
             assertRelation("memberLoginAsForeignForeignOptimizedWholeOverTest");
             if (_memberLoginAsForeignForeignOptimizedWholeOverTest == null) {
-                _memberLoginAsForeignForeignOptimizedWholeOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder); } }
+                _memberLoginAsForeignForeignOptimizedWholeOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignOptimizedWholeOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
@@ -1597,15 +1581,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedWholeOverTest() {
             assertRelation("memberLoginAsForeignForeignOptimizedWholeOverTest");
             if (_memberLoginAsForeignForeignOptimizedWholeOverTest == null) {
-                _memberLoginAsForeignForeignOptimizedWholeOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); } }
+                _memberLoginAsForeignForeignOptimizedWholeOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsForeignForeignOptimizedWholeOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
-                    });
+                    _memberLoginAsForeignForeignOptimizedWholeOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest()));
                 }
             }
             return _memberLoginAsForeignForeignOptimizedWholeOverTest;
@@ -1619,9 +1602,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignParameterOverTest(final java.util.Date targetDate) {
             assertRelation("memberLoginAsForeignForeignParameterOverTest");
             if (_memberLoginAsForeignForeignParameterOverTest == null) {
-                _memberLoginAsForeignForeignParameterOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignParameterOverTest(targetDate); } }
+                _memberLoginAsForeignForeignParameterOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsForeignForeignParameterOverTest(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberLoginAsForeignForeignParameterOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
@@ -1640,15 +1623,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignParameterOverTest() {
             assertRelation("memberLoginAsForeignForeignParameterOverTest");
             if (_memberLoginAsForeignForeignParameterOverTest == null) {
-                _memberLoginAsForeignForeignParameterOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest(); } }
+                _memberLoginAsForeignForeignParameterOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsForeignForeignParameterOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest(); }
-                    });
+                    _memberLoginAsForeignForeignParameterOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignParameterOverTest()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest()));
                 }
             }
             return _memberLoginAsForeignForeignParameterOverTest;
@@ -1661,15 +1643,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignVariousOverTest() {
             assertRelation("memberLoginAsForeignForeignVariousOverTest");
             if (_memberLoginAsForeignForeignVariousOverTest == null) {
-                _memberLoginAsForeignForeignVariousOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignVariousOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsForeignForeignVariousOverTest(); } }
+                _memberLoginAsForeignForeignVariousOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsForeignForeignVariousOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsForeignForeignVariousOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsForeignForeignVariousOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignVariousOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsForeignForeignVariousOverTest(); }
-                    });
+                    _memberLoginAsForeignForeignVariousOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsForeignForeignVariousOverTest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsForeignForeignVariousOverTest()));
                 }
             }
             return _memberLoginAsForeignForeignVariousOverTest;
@@ -1682,15 +1663,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsReferrerOverTest() {
             assertRelation("memberLoginAsReferrerOverTest");
             if (_memberLoginAsReferrerOverTest == null) {
-                _memberLoginAsReferrerOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsReferrerOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsReferrerOverTest(); } }
+                _memberLoginAsReferrerOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsReferrerOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsReferrerOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsReferrerOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsReferrerOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsReferrerOverTest(); }
-                    });
+                    _memberLoginAsReferrerOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsReferrerOverTest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsReferrerOverTest()));
                 }
             }
             return _memberLoginAsReferrerOverTest;
@@ -1703,15 +1683,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsReferrerForeignOverTest() {
             assertRelation("memberLoginAsReferrerForeignOverTest");
             if (_memberLoginAsReferrerForeignOverTest == null) {
-                _memberLoginAsReferrerForeignOverTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsReferrerForeignOverTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsReferrerForeignOverTest(); } }
+                _memberLoginAsReferrerForeignOverTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsReferrerForeignOverTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsReferrerForeignOverTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsReferrerForeignOverTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsReferrerForeignOverTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsReferrerForeignOverTest(); }
-                    });
+                    _memberLoginAsReferrerForeignOverTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsReferrerForeignOverTest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsReferrerForeignOverTest()));
                 }
             }
             return _memberLoginAsReferrerForeignOverTest;
@@ -1724,15 +1703,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLatest() {
             assertRelation("memberLoginAsLatest");
             if (_memberLoginAsLatest == null) {
-                _memberLoginAsLatest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLatest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsLatest(); } }
+                _memberLoginAsLatest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLatest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsLatest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsLatest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLatest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsLatest(); }
-                    });
+                    _memberLoginAsLatest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLatest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsLatest()));
                 }
             }
             return _memberLoginAsLatest;
@@ -1745,15 +1723,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsOldest() {
             assertRelation("memberLoginAsOldest");
             if (_memberLoginAsOldest == null) {
-                _memberLoginAsOldest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsOldest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsOldest(); } }
+                _memberLoginAsOldest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsOldest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsOldest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsOldest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsOldest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsOldest(); }
-                    });
+                    _memberLoginAsOldest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsOldest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsOldest()));
                 }
             }
             return _memberLoginAsOldest;
@@ -1767,9 +1744,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedBasic(final java.util.Date targetDate) {
             assertRelation("memberAddressAsFormattedBasic");
             if (_memberAddressAsFormattedBasic == null) {
-                _memberAddressAsFormattedBasic = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedBasic(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsFormattedBasic(targetDate); } }
+                _memberAddressAsFormattedBasic = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedBasic()
+                                    , () -> _qyCall.qy().queryMemberAddressAsFormattedBasic(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsFormattedBasic.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
@@ -1788,15 +1765,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedBasic() {
             assertRelation("memberAddressAsFormattedBasic");
             if (_memberAddressAsFormattedBasic == null) {
-                _memberAddressAsFormattedBasic = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedBasic(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberAddressAsFormattedBasic(); } }
+                _memberAddressAsFormattedBasic = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedBasic()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberAddressAsFormattedBasic())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberAddressAsFormattedBasic.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsFormattedBasic(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsFormattedBasic(); }
-                    });
+                    _memberAddressAsFormattedBasic.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsFormattedBasic()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsFormattedBasic()));
                 }
             }
             return _memberAddressAsFormattedBasic;
@@ -1810,9 +1786,9 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedLong(final java.util.Date targetDate) {
             assertRelation("memberAddressAsFormattedLong");
             if (_memberAddressAsFormattedLong == null) {
-                _memberAddressAsFormattedLong = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedLong(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().queryMemberAddressAsFormattedLong(targetDate); } }
+                _memberAddressAsFormattedLong = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedLong()
+                                    , () -> _qyCall.qy().queryMemberAddressAsFormattedLong(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _memberAddressAsFormattedLong.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
@@ -1831,15 +1807,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedLong() {
             assertRelation("memberAddressAsFormattedLong");
             if (_memberAddressAsFormattedLong == null) {
-                _memberAddressAsFormattedLong = new MemberAddressCB.HpSpecification(_baseCB, new HpSpQyCall<MemberAddressCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedLong(); }
-                    public MemberAddressCQ qy() { return _qyCall.qy().xdfgetConditionQueryMemberAddressAsFormattedLong(); } }
+                _memberAddressAsFormattedLong = new MemberAddressCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberAddressAsFormattedLong()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberAddressAsFormattedLong())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberAddressAsFormattedLong.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsFormattedLong(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsFormattedLong(); }
-                    });
+                    _memberAddressAsFormattedLong.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsFormattedLong()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberAddressAsFormattedLong()));
                 }
             }
             return _memberAddressAsFormattedLong;
@@ -1852,15 +1827,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsFormattedMany() {
             assertRelation("memberLoginAsFormattedMany");
             if (_memberLoginAsFormattedMany == null) {
-                _memberLoginAsFormattedMany = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsFormattedMany(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsFormattedMany(); } }
+                _memberLoginAsFormattedMany = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsFormattedMany()
+                                    , () -> _qyCall.qy().queryMemberLoginAsFormattedMany())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsFormattedMany.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsFormattedMany(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsFormattedMany(); }
-                    });
+                    _memberLoginAsFormattedMany.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsFormattedMany()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsFormattedMany()));
                 }
             }
             return _memberLoginAsFormattedMany;
@@ -1873,15 +1847,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberLoginCB.HpSpecification specifyMemberLoginAsEmbeddedCommentClassificationTest() {
             assertRelation("memberLoginAsEmbeddedCommentClassificationTest");
             if (_memberLoginAsEmbeddedCommentClassificationTest == null) {
-                _memberLoginAsEmbeddedCommentClassificationTest = new MemberLoginCB.HpSpecification(_baseCB, new HpSpQyCall<MemberLoginCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsEmbeddedCommentClassificationTest(); }
-                    public MemberLoginCQ qy() { return _qyCall.qy().queryMemberLoginAsEmbeddedCommentClassificationTest(); } }
+                _memberLoginAsEmbeddedCommentClassificationTest = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsEmbeddedCommentClassificationTest()
+                                    , () -> _qyCall.qy().queryMemberLoginAsEmbeddedCommentClassificationTest())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsEmbeddedCommentClassificationTest.xsetSyncQyCall(new HpSpQyCall<MemberLoginCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsEmbeddedCommentClassificationTest(); }
-                        public MemberLoginCQ qy() { return xsyncQyCall().qy().queryMemberLoginAsEmbeddedCommentClassificationTest(); }
-                    });
+                    _memberLoginAsEmbeddedCommentClassificationTest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsEmbeddedCommentClassificationTest()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsEmbeddedCommentClassificationTest()));
                 }
             }
             return _memberLoginAsEmbeddedCommentClassificationTest;
@@ -1894,15 +1867,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberSecurityCB.HpSpecification specifyMemberSecurityAsOne() {
             assertRelation("memberSecurityAsOne");
             if (_memberSecurityAsOne == null) {
-                _memberSecurityAsOne = new MemberSecurityCB.HpSpecification(_baseCB, new HpSpQyCall<MemberSecurityCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberSecurityAsOne(); }
-                    public MemberSecurityCQ qy() { return _qyCall.qy().queryMemberSecurityAsOne(); } }
+                _memberSecurityAsOne = new MemberSecurityCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberSecurityAsOne()
+                                    , () -> _qyCall.qy().queryMemberSecurityAsOne())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberSecurityAsOne.xsetSyncQyCall(new HpSpQyCall<MemberSecurityCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberSecurityAsOne(); }
-                        public MemberSecurityCQ qy() { return xsyncQyCall().qy().queryMemberSecurityAsOne(); }
-                    });
+                    _memberSecurityAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberSecurityAsOne()
+                      , () -> xsyncQyCall().qy().queryMemberSecurityAsOne()));
                 }
             }
             return _memberSecurityAsOne;
@@ -1915,15 +1887,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberServiceCB.HpSpecification specifyMemberServiceAsOne() {
             assertRelation("memberServiceAsOne");
             if (_memberServiceAsOne == null) {
-                _memberServiceAsOne = new MemberServiceCB.HpSpecification(_baseCB, new HpSpQyCall<MemberServiceCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberServiceAsOne(); }
-                    public MemberServiceCQ qy() { return _qyCall.qy().queryMemberServiceAsOne(); } }
+                _memberServiceAsOne = new MemberServiceCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberServiceAsOne()
+                                    , () -> _qyCall.qy().queryMemberServiceAsOne())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberServiceAsOne.xsetSyncQyCall(new HpSpQyCall<MemberServiceCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberServiceAsOne(); }
-                        public MemberServiceCQ qy() { return xsyncQyCall().qy().queryMemberServiceAsOne(); }
-                    });
+                    _memberServiceAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberServiceAsOne()
+                      , () -> xsyncQyCall().qy().queryMemberServiceAsOne()));
                 }
             }
             return _memberServiceAsOne;
@@ -1936,15 +1907,14 @@ public class BsMemberCB extends AbstractConditionBean {
         public MemberWithdrawalCB.HpSpecification specifyMemberWithdrawalAsOne() {
             assertRelation("memberWithdrawalAsOne");
             if (_memberWithdrawalAsOne == null) {
-                _memberWithdrawalAsOne = new MemberWithdrawalCB.HpSpecification(_baseCB, new HpSpQyCall<MemberWithdrawalCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberWithdrawalAsOne(); }
-                    public MemberWithdrawalCQ qy() { return _qyCall.qy().queryMemberWithdrawalAsOne(); } }
+                _memberWithdrawalAsOne = new MemberWithdrawalCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberWithdrawalAsOne()
+                                    , () -> _qyCall.qy().queryMemberWithdrawalAsOne())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberWithdrawalAsOne.xsetSyncQyCall(new HpSpQyCall<MemberWithdrawalCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberWithdrawalAsOne(); }
-                        public MemberWithdrawalCQ qy() { return xsyncQyCall().qy().queryMemberWithdrawalAsOne(); }
-                    });
+                    _memberWithdrawalAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberWithdrawalAsOne()
+                      , () -> xsyncQyCall().qy().queryMemberWithdrawalAsOne()));
                 }
             }
             return _memberWithdrawalAsOne;
@@ -1963,9 +1933,7 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberAddressCB, MemberCQ> derivedMemberAddressList() {
             assertDerived("memberAddressList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<MemberAddressCB, MemberCQ>() {
-                public void setup(String fn, SubQuery<MemberAddressCB> sq, MemberCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveMemberAddressList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberAddressList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
@@ -1981,9 +1949,7 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberLoginCB, MemberCQ> derivedMemberLoginList() {
             assertDerived("memberLoginList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<MemberLoginCB, MemberCQ>() {
-                public void setup(String fn, SubQuery<MemberLoginCB> sq, MemberCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveMemberLoginList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberLoginList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
@@ -1999,9 +1965,7 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchaseCB, MemberCQ> derivedPurchaseList() {
             assertDerived("purchaseList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<PurchaseCB, MemberCQ>() {
-                public void setup(String fn, SubQuery<PurchaseCB> sq, MemberCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderivePurchaseList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderivePurchaseList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -2009,9 +1973,7 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberCB, MemberCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<MemberCB, MemberCQ>() {
-                public void setup(String fn, SubQuery<MemberCB> sq, MemberCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -2045,10 +2007,8 @@ public class BsMemberCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<MemberCB> columnQuery(final SpecifyQuery<MemberCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<MemberCB>() {
-            public ColumnCalculator handle(SpecifyQuery<MemberCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -2154,10 +2114,7 @@ public class BsMemberCB extends AbstractConditionBean {
         } else {
             cb = new MemberCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<MemberCQ>() {
-            public boolean has() { return true; }
-            public MemberCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

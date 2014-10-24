@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteSplitMultipleFkChildCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteSplitMultipleFkChildNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteSplitMultipleFkBaseNss withWhiteSplitMultipleFkBase() {
-        _query.xdoNss(new WhiteSplitMultipleFkChildCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteSplitMultipleFkBase(); }});
+        _query.xdoNss(() -> _query.queryWhiteSplitMultipleFkBase());
         return new WhiteSplitMultipleFkBaseNss(_query.queryWhiteSplitMultipleFkBase());
     }
 }

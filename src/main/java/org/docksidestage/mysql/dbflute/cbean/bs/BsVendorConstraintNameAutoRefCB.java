@@ -281,7 +281,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnConstraintNameAutoBarId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryVendorConstraintNameAutoBar(); } });
+        doSetupSelect(() -> query().queryVendorConstraintNameAutoBar());
     }
 
     /**
@@ -301,7 +301,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnConstraintNameAutoFooId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryVendorConstraintNameAutoFoo(); } });
+        doSetupSelect(() -> query().queryVendorConstraintNameAutoFoo());
     }
 
     /**
@@ -321,7 +321,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnConstraintNameAutoQuxId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryVendorConstraintNameAutoQux(); } });
+        doSetupSelect(() -> query().queryVendorConstraintNameAutoQux());
     }
 
     // [DBFlute-0.7.4]
@@ -351,10 +351,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<VendorConstraintNameAutoRefCQ>() {
-                public boolean has() { return true; }
-                public VendorConstraintNameAutoRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -433,15 +430,14 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         public VendorConstraintNameAutoBarCB.HpSpecification specifyVendorConstraintNameAutoBar() {
             assertRelation("vendorConstraintNameAutoBar");
             if (_vendorConstraintNameAutoBar == null) {
-                _vendorConstraintNameAutoBar = new VendorConstraintNameAutoBarCB.HpSpecification(_baseCB, new HpSpQyCall<VendorConstraintNameAutoBarCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoBar(); }
-                    public VendorConstraintNameAutoBarCQ qy() { return _qyCall.qy().queryVendorConstraintNameAutoBar(); } }
+                _vendorConstraintNameAutoBar = new VendorConstraintNameAutoBarCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoBar()
+                                    , () -> _qyCall.qy().queryVendorConstraintNameAutoBar())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _vendorConstraintNameAutoBar.xsetSyncQyCall(new HpSpQyCall<VendorConstraintNameAutoBarCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoBar(); }
-                        public VendorConstraintNameAutoBarCQ qy() { return xsyncQyCall().qy().queryVendorConstraintNameAutoBar(); }
-                    });
+                    _vendorConstraintNameAutoBar.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoBar()
+                      , () -> xsyncQyCall().qy().queryVendorConstraintNameAutoBar()));
                 }
             }
             return _vendorConstraintNameAutoBar;
@@ -454,15 +450,14 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         public VendorConstraintNameAutoFooCB.HpSpecification specifyVendorConstraintNameAutoFoo() {
             assertRelation("vendorConstraintNameAutoFoo");
             if (_vendorConstraintNameAutoFoo == null) {
-                _vendorConstraintNameAutoFoo = new VendorConstraintNameAutoFooCB.HpSpecification(_baseCB, new HpSpQyCall<VendorConstraintNameAutoFooCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoFoo(); }
-                    public VendorConstraintNameAutoFooCQ qy() { return _qyCall.qy().queryVendorConstraintNameAutoFoo(); } }
+                _vendorConstraintNameAutoFoo = new VendorConstraintNameAutoFooCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoFoo()
+                                    , () -> _qyCall.qy().queryVendorConstraintNameAutoFoo())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _vendorConstraintNameAutoFoo.xsetSyncQyCall(new HpSpQyCall<VendorConstraintNameAutoFooCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoFoo(); }
-                        public VendorConstraintNameAutoFooCQ qy() { return xsyncQyCall().qy().queryVendorConstraintNameAutoFoo(); }
-                    });
+                    _vendorConstraintNameAutoFoo.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoFoo()
+                      , () -> xsyncQyCall().qy().queryVendorConstraintNameAutoFoo()));
                 }
             }
             return _vendorConstraintNameAutoFoo;
@@ -475,15 +470,14 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         public VendorConstraintNameAutoQuxCB.HpSpecification specifyVendorConstraintNameAutoQux() {
             assertRelation("vendorConstraintNameAutoQux");
             if (_vendorConstraintNameAutoQux == null) {
-                _vendorConstraintNameAutoQux = new VendorConstraintNameAutoQuxCB.HpSpecification(_baseCB, new HpSpQyCall<VendorConstraintNameAutoQuxCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoQux(); }
-                    public VendorConstraintNameAutoQuxCQ qy() { return _qyCall.qy().queryVendorConstraintNameAutoQux(); } }
+                _vendorConstraintNameAutoQux = new VendorConstraintNameAutoQuxCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryVendorConstraintNameAutoQux()
+                                    , () -> _qyCall.qy().queryVendorConstraintNameAutoQux())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _vendorConstraintNameAutoQux.xsetSyncQyCall(new HpSpQyCall<VendorConstraintNameAutoQuxCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoQux(); }
-                        public VendorConstraintNameAutoQuxCQ qy() { return xsyncQyCall().qy().queryVendorConstraintNameAutoQux(); }
-                    });
+                    _vendorConstraintNameAutoQux.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorConstraintNameAutoQux()
+                      , () -> xsyncQyCall().qy().queryVendorConstraintNameAutoQux()));
                 }
             }
             return _vendorConstraintNameAutoQux;
@@ -494,9 +488,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRefCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRefCQ>() {
-                public void setup(String fn, SubQuery<VendorConstraintNameAutoRefCB> sq, VendorConstraintNameAutoRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -530,10 +522,8 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<VendorConstraintNameAutoRefCB> columnQuery(final SpecifyQuery<VendorConstraintNameAutoRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<VendorConstraintNameAutoRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<VendorConstraintNameAutoRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -639,10 +629,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         } else {
             cb = new VendorConstraintNameAutoRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<VendorConstraintNameAutoRefCQ>() {
-            public boolean has() { return true; }
-            public VendorConstraintNameAutoRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

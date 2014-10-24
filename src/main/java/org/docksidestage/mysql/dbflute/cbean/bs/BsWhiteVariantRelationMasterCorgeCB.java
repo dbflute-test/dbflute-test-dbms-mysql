@@ -279,10 +279,7 @@ public class BsWhiteVariantRelationMasterCorgeCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
-                public boolean has() { return true; }
-                public WhiteVariantRelationMasterCorgeCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -329,9 +326,7 @@ public class BsWhiteVariantRelationMasterCorgeCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationMasterCorgeCB, WhiteVariantRelationMasterCorgeCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteVariantRelationMasterCorgeCB, WhiteVariantRelationMasterCorgeCQ>() {
-                public void setup(String fn, SubQuery<WhiteVariantRelationMasterCorgeCB> sq, WhiteVariantRelationMasterCorgeCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -365,10 +360,8 @@ public class BsWhiteVariantRelationMasterCorgeCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteVariantRelationMasterCorgeCB> columnQuery(final SpecifyQuery<WhiteVariantRelationMasterCorgeCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteVariantRelationMasterCorgeCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteVariantRelationMasterCorgeCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -474,10 +467,7 @@ public class BsWhiteVariantRelationMasterCorgeCB extends AbstractConditionBean {
         } else {
             cb = new WhiteVariantRelationMasterCorgeCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
-            public boolean has() { return true; }
-            public WhiteVariantRelationMasterCorgeCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

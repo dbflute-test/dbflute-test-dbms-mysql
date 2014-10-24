@@ -53,31 +53,11 @@ public class WhiteUqFkRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgUqFkRefId(), "uqFkRefId");
-        setupEpg(_epgMap, new EpgFkToPkId(), "fkToPkId");
-        setupEpg(_epgMap, new EpgFkToUqCode(), "fkToUqCode");
-        setupEpg(_epgMap, new EpgCompoundUqFirstCode(), "compoundUqFirstCode");
-        setupEpg(_epgMap, new EpgCompoundUqSecondCode(), "compoundUqSecondCode");
-    }
-    public static class EpgUqFkRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRef)et).getUqFkRefId(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRef)et).setUqFkRefId(ctl(vl)); }
-    }
-    public static class EpgFkToPkId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRef)et).getFkToPkId(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRef)et).setFkToPkId(ctl(vl)); }
-    }
-    public static class EpgFkToUqCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRef)et).getFkToUqCode(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRef)et).setFkToUqCode((String)vl); }
-    }
-    public static class EpgCompoundUqFirstCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRef)et).getCompoundUqFirstCode(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRef)et).setCompoundUqFirstCode((String)vl); }
-    }
-    public static class EpgCompoundUqSecondCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRef)et).getCompoundUqSecondCode(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRef)et).setCompoundUqSecondCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteUqFkRef)et).getUqFkRefId(), (et, vl) -> ((WhiteUqFkRef)et).setUqFkRefId(ctl(vl)), "uqFkRefId");
+        setupEpg(_epgMap, et -> ((WhiteUqFkRef)et).getFkToPkId(), (et, vl) -> ((WhiteUqFkRef)et).setFkToPkId(ctl(vl)), "fkToPkId");
+        setupEpg(_epgMap, et -> ((WhiteUqFkRef)et).getFkToUqCode(), (et, vl) -> ((WhiteUqFkRef)et).setFkToUqCode((String)vl), "fkToUqCode");
+        setupEpg(_epgMap, et -> ((WhiteUqFkRef)et).getCompoundUqFirstCode(), (et, vl) -> ((WhiteUqFkRef)et).setCompoundUqFirstCode((String)vl), "compoundUqFirstCode");
+        setupEpg(_epgMap, et -> ((WhiteUqFkRef)et).getCompoundUqSecondCode(), (et, vl) -> ((WhiteUqFkRef)et).setCompoundUqSecondCode((String)vl), "compoundUqSecondCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -86,17 +66,10 @@ public class WhiteUqFkRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteUqFkByFkToPkId(), "whiteUqFkByFkToPkId");
-        setupEfpg(_efpgMap, new EfpgWhiteUqFkByFkToUqCode(), "whiteUqFkByFkToUqCode");
-    }
-    public class EfpgWhiteUqFkByFkToPkId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRef)et).getWhiteUqFkByFkToPkId(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRef)et).setWhiteUqFkByFkToPkId((WhiteUqFk)vl); }
-    }
-    public class EfpgWhiteUqFkByFkToUqCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRef)et).getWhiteUqFkByFkToUqCode(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRef)et).setWhiteUqFkByFkToUqCode((WhiteUqFk)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteUqFkRef)et).getWhiteUqFkByFkToPkId(), (et, vl) -> ((WhiteUqFkRef)et).setWhiteUqFkByFkToPkId((WhiteUqFk)vl), "whiteUqFkByFkToPkId");
+        setupEfpg(_efpgMap, et -> ((WhiteUqFkRef)et).getWhiteUqFkByFkToUqCode(), (et, vl) -> ((WhiteUqFkRef)et).setWhiteUqFkByFkToUqCode((WhiteUqFk)vl), "whiteUqFkByFkToUqCode");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

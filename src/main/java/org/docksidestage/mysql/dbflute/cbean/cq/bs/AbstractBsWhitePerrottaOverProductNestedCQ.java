@@ -180,8 +180,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     public void existsWhitePerrottaOverProductList(SubQuery<WhitePerrottaOverProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductNestedCode_ExistsReferrer_WhitePerrottaOverProductList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductNestedCode_ExistsReferrer_WhitePerrottaOverProductList(cb.query());
         registerExistsReferrer(cb.query(), "PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", pp, "whitePerrottaOverProductList");
     }
     public abstract String keepProductNestedCode_ExistsReferrer_WhitePerrottaOverProductList(WhitePerrottaOverProductCQ sq);
@@ -200,8 +199,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     public void notExistsWhitePerrottaOverProductList(SubQuery<WhitePerrottaOverProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductNestedCode_NotExistsReferrer_WhitePerrottaOverProductList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductNestedCode_NotExistsReferrer_WhitePerrottaOverProductList(cb.query());
         registerNotExistsReferrer(cb.query(), "PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", pp, "whitePerrottaOverProductList");
     }
     public abstract String keepProductNestedCode_NotExistsReferrer_WhitePerrottaOverProductList(WhitePerrottaOverProductCQ sq);
@@ -209,8 +207,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     public void xsderiveWhitePerrottaOverProductList(String fn, SubQuery<WhitePerrottaOverProductCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepProductNestedCode_SpecifyDerivedReferrer_WhitePerrottaOverProductList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepProductNestedCode_SpecifyDerivedReferrer_WhitePerrottaOverProductList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", pp, "whitePerrottaOverProductList", al, op);
     }
     public abstract String keepProductNestedCode_SpecifyDerivedReferrer_WhitePerrottaOverProductList(WhitePerrottaOverProductCQ sq);
@@ -231,17 +228,12 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
         return xcreateQDRFunctionWhitePerrottaOverProductList();
     }
     protected HpQDRFunction<WhitePerrottaOverProductCB> xcreateQDRFunctionWhitePerrottaOverProductList() {
-        return xcQDRFunc(new HpQDRSetupper<WhitePerrottaOverProductCB>() {
-            public void setup(String fn, SubQuery<WhitePerrottaOverProductCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhitePerrottaOverProductList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhitePerrottaOverProductList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhitePerrottaOverProductList(String fn, SubQuery<WhitePerrottaOverProductCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductList(cb.query()); String prpp = keepProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductList(cb.query()); String prpp = keepProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", sqpp, "whitePerrottaOverProductList", rd, vl, prpp, op);
     }
     public abstract String keepProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductList(WhitePerrottaOverProductCQ sq);
@@ -499,9 +491,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     public void xsmyselfDerive(String fn, SubQuery<WhitePerrottaOverProductNestedCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverProductNestedCB cb = new WhitePerrottaOverProductNestedCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "PRODUCT_NESTED_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "PRODUCT_NESTED_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhitePerrottaOverProductNestedCQ sq);
@@ -535,8 +525,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     public void myselfExists(SubQuery<WhitePerrottaOverProductNestedCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverProductNestedCB cb = new WhitePerrottaOverProductNestedCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhitePerrottaOverProductNestedCQ sq);

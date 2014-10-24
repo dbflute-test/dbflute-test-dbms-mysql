@@ -276,7 +276,7 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnImplicitConvIntegerId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteImplicitConvInteger(); } });
+        doSetupSelect(() -> query().queryWhiteImplicitConvInteger());
         if (_nssWhiteImplicitConvInteger == null || !_nssWhiteImplicitConvInteger.hasConditionQuery())
         { _nssWhiteImplicitConvInteger = new WhiteImplicitConvIntegerNss(query().queryWhiteImplicitConvInteger()); }
         return _nssWhiteImplicitConvInteger;
@@ -305,7 +305,7 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnImplicitConvNumericId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteImplicitConvNumeric(); } });
+        doSetupSelect(() -> query().queryWhiteImplicitConvNumeric());
         if (_nssWhiteImplicitConvNumeric == null || !_nssWhiteImplicitConvNumeric.hasConditionQuery())
         { _nssWhiteImplicitConvNumeric = new WhiteImplicitConvNumericNss(query().queryWhiteImplicitConvNumeric()); }
         return _nssWhiteImplicitConvNumeric;
@@ -338,10 +338,7 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteImplicitConvStringCQ>() {
-                public boolean has() { return true; }
-                public WhiteImplicitConvStringCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -405,15 +402,14 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
         public WhiteImplicitConvIntegerCB.HpSpecification specifyWhiteImplicitConvInteger() {
             assertRelation("whiteImplicitConvInteger");
             if (_whiteImplicitConvInteger == null) {
-                _whiteImplicitConvInteger = new WhiteImplicitConvIntegerCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteImplicitConvIntegerCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteImplicitConvInteger(); }
-                    public WhiteImplicitConvIntegerCQ qy() { return _qyCall.qy().queryWhiteImplicitConvInteger(); } }
+                _whiteImplicitConvInteger = new WhiteImplicitConvIntegerCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteImplicitConvInteger()
+                                    , () -> _qyCall.qy().queryWhiteImplicitConvInteger())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteImplicitConvInteger.xsetSyncQyCall(new HpSpQyCall<WhiteImplicitConvIntegerCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitConvInteger(); }
-                        public WhiteImplicitConvIntegerCQ qy() { return xsyncQyCall().qy().queryWhiteImplicitConvInteger(); }
-                    });
+                    _whiteImplicitConvInteger.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitConvInteger()
+                      , () -> xsyncQyCall().qy().queryWhiteImplicitConvInteger()));
                 }
             }
             return _whiteImplicitConvInteger;
@@ -426,15 +422,14 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
         public WhiteImplicitConvNumericCB.HpSpecification specifyWhiteImplicitConvNumeric() {
             assertRelation("whiteImplicitConvNumeric");
             if (_whiteImplicitConvNumeric == null) {
-                _whiteImplicitConvNumeric = new WhiteImplicitConvNumericCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteImplicitConvNumericCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteImplicitConvNumeric(); }
-                    public WhiteImplicitConvNumericCQ qy() { return _qyCall.qy().queryWhiteImplicitConvNumeric(); } }
+                _whiteImplicitConvNumeric = new WhiteImplicitConvNumericCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteImplicitConvNumeric()
+                                    , () -> _qyCall.qy().queryWhiteImplicitConvNumeric())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteImplicitConvNumeric.xsetSyncQyCall(new HpSpQyCall<WhiteImplicitConvNumericCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitConvNumeric(); }
-                        public WhiteImplicitConvNumericCQ qy() { return xsyncQyCall().qy().queryWhiteImplicitConvNumeric(); }
-                    });
+                    _whiteImplicitConvNumeric.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitConvNumeric()
+                      , () -> xsyncQyCall().qy().queryWhiteImplicitConvNumeric()));
                 }
             }
             return _whiteImplicitConvNumeric;
@@ -453,9 +448,7 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvIntegerCB, WhiteImplicitConvStringCQ> derivedWhiteImplicitConvIntegerList() {
             assertDerived("whiteImplicitConvIntegerList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteImplicitConvIntegerCB, WhiteImplicitConvStringCQ>() {
-                public void setup(String fn, SubQuery<WhiteImplicitConvIntegerCB> sq, WhiteImplicitConvStringCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteImplicitConvIntegerList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteImplicitConvIntegerList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
@@ -471,9 +464,7 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvNumericCB, WhiteImplicitConvStringCQ> derivedWhiteImplicitConvNumericList() {
             assertDerived("whiteImplicitConvNumericList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteImplicitConvNumericCB, WhiteImplicitConvStringCQ>() {
-                public void setup(String fn, SubQuery<WhiteImplicitConvNumericCB> sq, WhiteImplicitConvStringCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteImplicitConvNumericList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteImplicitConvNumericList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -481,9 +472,7 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvStringCB, WhiteImplicitConvStringCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteImplicitConvStringCB, WhiteImplicitConvStringCQ>() {
-                public void setup(String fn, SubQuery<WhiteImplicitConvStringCB> sq, WhiteImplicitConvStringCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -517,10 +506,8 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteImplicitConvStringCB> columnQuery(final SpecifyQuery<WhiteImplicitConvStringCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteImplicitConvStringCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteImplicitConvStringCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -626,10 +613,7 @@ public class BsWhiteImplicitConvStringCB extends AbstractConditionBean {
         } else {
             cb = new WhiteImplicitConvStringCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteImplicitConvStringCQ>() {
-            public boolean has() { return true; }
-            public WhiteImplicitConvStringCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -280,10 +280,7 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteEscapedDfpropCQ>() {
-                public boolean has() { return true; }
-                public WhiteEscapedDfpropCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -325,9 +322,7 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteEscapedDfpropCB, WhiteEscapedDfpropCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteEscapedDfpropCB, WhiteEscapedDfpropCQ>() {
-                public void setup(String fn, SubQuery<WhiteEscapedDfpropCB> sq, WhiteEscapedDfpropCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -361,10 +356,8 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteEscapedDfpropCB> columnQuery(final SpecifyQuery<WhiteEscapedDfpropCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteEscapedDfpropCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteEscapedDfpropCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -470,10 +463,7 @@ public class BsWhiteEscapedDfpropCB extends AbstractConditionBean {
         } else {
             cb = new WhiteEscapedDfpropCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteEscapedDfpropCQ>() {
-            public boolean has() { return true; }
-            public WhiteEscapedDfpropCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

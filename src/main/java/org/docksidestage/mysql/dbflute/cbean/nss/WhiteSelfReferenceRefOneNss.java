@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteSelfReferenceRefOneCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteSelfReferenceRefOneNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteSelfReferenceNss withWhiteSelfReference() {
-        _query.xdoNss(new WhiteSelfReferenceRefOneCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteSelfReference(); }});
+        _query.xdoNss(() -> _query.queryWhiteSelfReference());
         return new WhiteSelfReferenceNss(_query.queryWhiteSelfReference());
     }
     /**
@@ -49,7 +48,7 @@ public class WhiteSelfReferenceRefOneNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteSelfReferenceNss withWhiteSelfReferenceAsDirectParent() {
-        _query.xdoNss(new WhiteSelfReferenceRefOneCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteSelfReferenceAsDirectParent(); }});
+        _query.xdoNss(() -> _query.queryWhiteSelfReferenceAsDirectParent());
         return new WhiteSelfReferenceNss(_query.queryWhiteSelfReferenceAsDirectParent());
     }
 }

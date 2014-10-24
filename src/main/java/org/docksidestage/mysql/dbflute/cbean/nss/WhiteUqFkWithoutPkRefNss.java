@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteUqFkWithoutPkRefCQ;
 
 /**
@@ -39,6 +38,6 @@ public class WhiteUqFkWithoutPkRefNss {
      * white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
      */
     public void withWhiteUqFkWithoutPk() {
-        _query.xdoNss(new WhiteUqFkWithoutPkRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteUqFkWithoutPk(); }});
+        _query.xdoNss(() -> _query.queryWhiteUqFkWithoutPk());
     }
 }

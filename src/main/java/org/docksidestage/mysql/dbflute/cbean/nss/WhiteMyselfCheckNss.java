@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteMyselfCheckCQ;
 
 /**
@@ -39,6 +38,6 @@ public class WhiteMyselfCheckNss {
      * white_myself by my MYSELF_ID, named 'whiteMyself'.
      */
     public void withWhiteMyself() {
-        _query.xdoNss(new WhiteMyselfCheckCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteMyself(); }});
+        _query.xdoNss(() -> _query.queryWhiteMyself());
     }
 }

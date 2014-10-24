@@ -267,10 +267,7 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<SummaryWithdrawalCQ>() {
-                public boolean has() { return true; }
-                public SummaryWithdrawalCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -375,10 +372,8 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<SummaryWithdrawalCB> columnQuery(final SpecifyQuery<SummaryWithdrawalCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<SummaryWithdrawalCB>() {
-            public ColumnCalculator handle(SpecifyQuery<SummaryWithdrawalCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -484,10 +479,7 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
         } else {
             cb = new SummaryWithdrawalCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<SummaryWithdrawalCQ>() {
-            public boolean has() { return true; }
-            public SummaryWithdrawalCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -279,10 +279,7 @@ public class BsWhiteGroupingReferenceCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteGroupingReferenceCQ>() {
-                public boolean has() { return true; }
-                public WhiteGroupingReferenceCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -324,9 +321,7 @@ public class BsWhiteGroupingReferenceCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteGroupingReferenceCB, WhiteGroupingReferenceCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteGroupingReferenceCB, WhiteGroupingReferenceCQ>() {
-                public void setup(String fn, SubQuery<WhiteGroupingReferenceCB> sq, WhiteGroupingReferenceCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -360,10 +355,8 @@ public class BsWhiteGroupingReferenceCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteGroupingReferenceCB> columnQuery(final SpecifyQuery<WhiteGroupingReferenceCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteGroupingReferenceCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteGroupingReferenceCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -469,10 +462,7 @@ public class BsWhiteGroupingReferenceCB extends AbstractConditionBean {
         } else {
             cb = new WhiteGroupingReferenceCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteGroupingReferenceCQ>() {
-            public boolean has() { return true; }
-            public WhiteGroupingReferenceCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -53,16 +53,8 @@ public class WhiteQuotedRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgWhere(), "where");
-        setupEpg(_epgMap, new EpgOrder(), "order");
-    }
-    public static class EpgWhere implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteQuotedRef)et).getWhere(); }
-        public void write(Entity et, Object vl) { ((WhiteQuotedRef)et).setWhere(cti(vl)); }
-    }
-    public static class EpgOrder implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteQuotedRef)et).getOrder(); }
-        public void write(Entity et, Object vl) { ((WhiteQuotedRef)et).setOrder(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteQuotedRef)et).getWhere(), (et, vl) -> ((WhiteQuotedRef)et).setWhere(cti(vl)), "where");
+        setupEpg(_epgMap, et -> ((WhiteQuotedRef)et).getOrder(), (et, vl) -> ((WhiteQuotedRef)et).setOrder(cti(vl)), "order");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -71,12 +63,9 @@ public class WhiteQuotedRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteQuoted(), "whiteQuoted");
-    }
-    public class EfpgWhiteQuoted implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteQuotedRef)et).getWhiteQuoted(); }
-        public void write(Entity et, Object vl) { ((WhiteQuotedRef)et).setWhiteQuoted((WhiteQuoted)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteQuotedRef)et).getWhiteQuoted(), (et, vl) -> ((WhiteQuotedRef)et).setWhiteQuoted((WhiteQuoted)vl), "whiteQuoted");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

@@ -53,12 +53,7 @@ public class WhiteEscapedDfpropDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgEscapedDfpropCode(), "escapedDfpropCode");
-        setupEpg(_epgMap, new EpgEscapedDfpropName(), "escapedDfpropName");
-    }
-    public class EpgEscapedDfpropCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteEscapedDfprop)et).getEscapedDfpropCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteEscapedDfprop)et).getEscapedDfpropCode(), (et, vl) -> {
             ColumnInfo col = columnEscapedDfpropCode();
             ccls(col, vl);
             CDef.EscapedDfpropCls cls = (CDef.EscapedDfpropCls)gcls(col, vl);
@@ -67,11 +62,8 @@ public class WhiteEscapedDfpropDbm extends AbstractDBMeta {
             } else {
                 ((WhiteEscapedDfprop)et).mynativeMappingEscapedDfpropCode((String)vl);
             }
-        }
-    }
-    public static class EpgEscapedDfpropName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteEscapedDfprop)et).getEscapedDfpropName(); }
-        public void write(Entity et, Object vl) { ((WhiteEscapedDfprop)et).setEscapedDfpropName((String)vl); }
+        }, "escapedDfpropCode");
+        setupEpg(_epgMap, et -> ((WhiteEscapedDfprop)et).getEscapedDfpropName(), (et, vl) -> ((WhiteEscapedDfprop)et).setEscapedDfpropName((String)vl), "escapedDfpropName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

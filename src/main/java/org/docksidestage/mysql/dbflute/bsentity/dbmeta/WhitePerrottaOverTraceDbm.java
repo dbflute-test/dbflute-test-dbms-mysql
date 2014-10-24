@@ -53,26 +53,10 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgTraceId(), "traceId");
-        setupEpg(_epgMap, new EpgPreviousProductId(), "previousProductId");
-        setupEpg(_epgMap, new EpgNextProductId(), "nextProductId");
-        setupEpg(_epgMap, new EpgTraceTypeCode(), "traceTypeCode");
-    }
-    public static class EpgTraceId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverTrace)et).getTraceId(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverTrace)et).setTraceId(ctl(vl)); }
-    }
-    public static class EpgPreviousProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverTrace)et).getPreviousProductId(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverTrace)et).setPreviousProductId(ctl(vl)); }
-    }
-    public static class EpgNextProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverTrace)et).getNextProductId(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverTrace)et).setNextProductId(ctl(vl)); }
-    }
-    public static class EpgTraceTypeCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverTrace)et).getTraceTypeCode(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverTrace)et).setTraceTypeCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getTraceId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setTraceId(ctl(vl)), "traceId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getPreviousProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setPreviousProductId(ctl(vl)), "previousProductId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getNextProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setNextProductId(ctl(vl)), "nextProductId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getTraceTypeCode(), (et, vl) -> ((WhitePerrottaOverTrace)et).setTraceTypeCode((String)vl), "traceTypeCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -81,17 +65,10 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhitePerrottaOverProductByNextProductId(), "whitePerrottaOverProductByNextProductId");
-        setupEfpg(_efpgMap, new EfpgWhitePerrottaOverProductByPreviousProductId(), "whitePerrottaOverProductByPreviousProductId");
-    }
-    public class EfpgWhitePerrottaOverProductByNextProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverTrace)et).getWhitePerrottaOverProductByNextProductId(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverTrace)et).setWhitePerrottaOverProductByNextProductId((WhitePerrottaOverProduct)vl); }
-    }
-    public class EfpgWhitePerrottaOverProductByPreviousProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverTrace)et).getWhitePerrottaOverProductByPreviousProductId(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverTrace)et).setWhitePerrottaOverProductByPreviousProductId((WhitePerrottaOverProduct)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverTrace)et).getWhitePerrottaOverProductByNextProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setWhitePerrottaOverProductByNextProductId((WhitePerrottaOverProduct)vl), "whitePerrottaOverProductByNextProductId");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverTrace)et).getWhitePerrottaOverProductByPreviousProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setWhitePerrottaOverProductByPreviousProductId((WhitePerrottaOverProduct)vl), "whitePerrottaOverProductByPreviousProductId");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

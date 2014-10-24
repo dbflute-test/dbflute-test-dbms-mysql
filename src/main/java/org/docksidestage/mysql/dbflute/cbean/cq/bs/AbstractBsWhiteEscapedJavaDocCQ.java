@@ -465,9 +465,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     public void xsmyselfDerive(String fn, SubQuery<WhiteEscapedJavaDocCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteEscapedJavaDocCB cb = new WhiteEscapedJavaDocCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "ESCAPED_JAVA_DOC_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "ESCAPED_JAVA_DOC_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteEscapedJavaDocCQ sq);
@@ -501,8 +499,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     public void myselfExists(SubQuery<WhiteEscapedJavaDocCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteEscapedJavaDocCB cb = new WhiteEscapedJavaDocCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteEscapedJavaDocCQ sq);

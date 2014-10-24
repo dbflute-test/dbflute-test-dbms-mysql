@@ -53,21 +53,9 @@ public class WhiteNoPkDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgNoPkId(), "noPkId");
-        setupEpg(_epgMap, new EpgNoPkName(), "noPkName");
-        setupEpg(_epgMap, new EpgNoPkInteger(), "noPkInteger");
-    }
-    public static class EpgNoPkId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNoPk)et).getNoPkId(); }
-        public void write(Entity et, Object vl) { ((WhiteNoPk)et).setNoPkId(ctl(vl)); }
-    }
-    public static class EpgNoPkName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNoPk)et).getNoPkName(); }
-        public void write(Entity et, Object vl) { ((WhiteNoPk)et).setNoPkName((String)vl); }
-    }
-    public static class EpgNoPkInteger implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNoPk)et).getNoPkInteger(); }
-        public void write(Entity et, Object vl) { ((WhiteNoPk)et).setNoPkInteger(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkId(), (et, vl) -> ((WhiteNoPk)et).setNoPkId(ctl(vl)), "noPkId");
+        setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkName(), (et, vl) -> ((WhiteNoPk)et).setNoPkName((String)vl), "noPkName");
+        setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkInteger(), (et, vl) -> ((WhiteNoPk)et).setNoPkInteger(cti(vl)), "noPkInteger");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

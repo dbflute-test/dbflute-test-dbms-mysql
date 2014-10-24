@@ -292,10 +292,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WithdrawalReasonCQ>() {
-                public boolean has() { return true; }
-                public WithdrawalReasonCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -368,10 +365,8 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WithdrawalReasonCB> columnQuery(final SpecifyQuery<WithdrawalReasonCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WithdrawalReasonCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WithdrawalReasonCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -477,10 +472,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
         } else {
             cb = new WithdrawalReasonCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WithdrawalReasonCQ>() {
-            public boolean has() { return true; }
-            public WithdrawalReasonCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

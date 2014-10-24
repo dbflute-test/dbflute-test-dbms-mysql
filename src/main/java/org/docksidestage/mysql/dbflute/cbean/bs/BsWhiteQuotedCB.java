@@ -279,10 +279,7 @@ public class BsWhiteQuotedCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteQuotedCQ>() {
-                public boolean has() { return true; }
-                public WhiteQuotedCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -332,9 +329,7 @@ public class BsWhiteQuotedCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteQuotedRefCB, WhiteQuotedCQ> derivedWhiteQuotedRefList() {
             assertDerived("whiteQuotedRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteQuotedRefCB, WhiteQuotedCQ>() {
-                public void setup(String fn, SubQuery<WhiteQuotedRefCB> sq, WhiteQuotedCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteQuotedRefList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteQuotedRefList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -342,9 +337,7 @@ public class BsWhiteQuotedCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteQuotedCB, WhiteQuotedCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteQuotedCB, WhiteQuotedCQ>() {
-                public void setup(String fn, SubQuery<WhiteQuotedCB> sq, WhiteQuotedCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -378,10 +371,8 @@ public class BsWhiteQuotedCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteQuotedCB> columnQuery(final SpecifyQuery<WhiteQuotedCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteQuotedCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteQuotedCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -487,10 +478,7 @@ public class BsWhiteQuotedCB extends AbstractConditionBean {
         } else {
             cb = new WhiteQuotedCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteQuotedCQ>() {
-            public boolean has() { return true; }
-            public WhiteQuotedCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

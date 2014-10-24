@@ -291,10 +291,7 @@ public class BsVendorConstraintNameAutoFooCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<VendorConstraintNameAutoFooCQ>() {
-                public boolean has() { return true; }
-                public VendorConstraintNameAutoFooCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -344,9 +341,7 @@ public class BsVendorConstraintNameAutoFooCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoFooCQ> derivedVendorConstraintNameAutoRefList() {
             assertDerived("vendorConstraintNameAutoRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoFooCQ>() {
-                public void setup(String fn, SubQuery<VendorConstraintNameAutoRefCB> sq, VendorConstraintNameAutoFooCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveVendorConstraintNameAutoRefList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveVendorConstraintNameAutoRefList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -354,9 +349,7 @@ public class BsVendorConstraintNameAutoFooCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorConstraintNameAutoFooCB, VendorConstraintNameAutoFooCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorConstraintNameAutoFooCB, VendorConstraintNameAutoFooCQ>() {
-                public void setup(String fn, SubQuery<VendorConstraintNameAutoFooCB> sq, VendorConstraintNameAutoFooCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -390,10 +383,8 @@ public class BsVendorConstraintNameAutoFooCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<VendorConstraintNameAutoFooCB> columnQuery(final SpecifyQuery<VendorConstraintNameAutoFooCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<VendorConstraintNameAutoFooCB>() {
-            public ColumnCalculator handle(SpecifyQuery<VendorConstraintNameAutoFooCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -499,10 +490,7 @@ public class BsVendorConstraintNameAutoFooCB extends AbstractConditionBean {
         } else {
             cb = new VendorConstraintNameAutoFooCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<VendorConstraintNameAutoFooCQ>() {
-            public boolean has() { return true; }
-            public VendorConstraintNameAutoFooCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

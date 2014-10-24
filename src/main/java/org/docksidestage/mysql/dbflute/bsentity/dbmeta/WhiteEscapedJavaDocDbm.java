@@ -53,12 +53,7 @@ public class WhiteEscapedJavaDocDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgEscapedJavaDocCode(), "escapedJavaDocCode");
-        setupEpg(_epgMap, new EpgEscapedJavaDocName(), "escapedJavaDocName");
-    }
-    public class EpgEscapedJavaDocCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteEscapedJavaDoc)et).getEscapedJavaDocCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteEscapedJavaDoc)et).getEscapedJavaDocCode(), (et, vl) -> {
             ColumnInfo col = columnEscapedJavaDocCode();
             ccls(col, vl);
             CDef.EscapedJavaDocCls cls = (CDef.EscapedJavaDocCls)gcls(col, vl);
@@ -67,11 +62,8 @@ public class WhiteEscapedJavaDocDbm extends AbstractDBMeta {
             } else {
                 ((WhiteEscapedJavaDoc)et).mynativeMappingEscapedJavaDocCode((String)vl);
             }
-        }
-    }
-    public static class EpgEscapedJavaDocName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteEscapedJavaDoc)et).getEscapedJavaDocName(); }
-        public void write(Entity et, Object vl) { ((WhiteEscapedJavaDoc)et).setEscapedJavaDocName((String)vl); }
+        }, "escapedJavaDocCode");
+        setupEpg(_epgMap, et -> ((WhiteEscapedJavaDoc)et).getEscapedJavaDocName(), (et, vl) -> ((WhiteEscapedJavaDoc)et).setEscapedJavaDocName((String)vl), "escapedJavaDocName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

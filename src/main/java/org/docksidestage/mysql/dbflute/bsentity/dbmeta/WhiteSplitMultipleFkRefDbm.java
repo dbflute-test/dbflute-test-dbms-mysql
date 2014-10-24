@@ -53,21 +53,9 @@ public class WhiteSplitMultipleFkRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgFirstId(), "firstId");
-        setupEpg(_epgMap, new EpgSecondCode(), "secondCode");
-        setupEpg(_epgMap, new EpgRefName(), "refName");
-    }
-    public static class EpgFirstId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkRef)et).getFirstId(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkRef)et).setFirstId(cti(vl)); }
-    }
-    public static class EpgSecondCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkRef)et).getSecondCode(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkRef)et).setSecondCode((String)vl); }
-    }
-    public static class EpgRefName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkRef)et).getRefName(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkRef)et).setRefName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getFirstId(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setFirstId(cti(vl)), "firstId");
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getSecondCode(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setSecondCode((String)vl), "secondCode");
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getRefName(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setRefName((String)vl), "refName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

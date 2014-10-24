@@ -511,9 +511,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     public void xsmyselfDerive(String fn, SubQuery<WhiteGroupingReferenceCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "GROUPING_REFERENCE_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "GROUPING_REFERENCE_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteGroupingReferenceCQ sq);
@@ -547,8 +545,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     public void myselfExists(SubQuery<WhiteGroupingReferenceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteGroupingReferenceCB cb = new WhiteGroupingReferenceCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteGroupingReferenceCQ sq);

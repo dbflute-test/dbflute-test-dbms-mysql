@@ -53,16 +53,8 @@ public class WhiteQuotedDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgSelect(), "select");
-        setupEpg(_epgMap, new EpgFrom(), "from");
-    }
-    public static class EpgSelect implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteQuoted)et).getSelect(); }
-        public void write(Entity et, Object vl) { ((WhiteQuoted)et).setSelect(cti(vl)); }
-    }
-    public static class EpgFrom implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteQuoted)et).getFrom(); }
-        public void write(Entity et, Object vl) { ((WhiteQuoted)et).setFrom((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteQuoted)et).getSelect(), (et, vl) -> ((WhiteQuoted)et).setSelect(cti(vl)), "select");
+        setupEpg(_epgMap, et -> ((WhiteQuoted)et).getFrom(), (et, vl) -> ((WhiteQuoted)et).setFrom((String)vl), "from");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

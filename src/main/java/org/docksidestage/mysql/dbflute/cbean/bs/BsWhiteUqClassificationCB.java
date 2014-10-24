@@ -292,10 +292,7 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteUqClassificationCQ>() {
-                public boolean has() { return true; }
-                public WhiteUqClassificationCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -337,9 +334,7 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqClassificationCB, WhiteUqClassificationCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteUqClassificationCB, WhiteUqClassificationCQ>() {
-                public void setup(String fn, SubQuery<WhiteUqClassificationCB> sq, WhiteUqClassificationCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -373,10 +368,8 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteUqClassificationCB> columnQuery(final SpecifyQuery<WhiteUqClassificationCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteUqClassificationCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteUqClassificationCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -482,10 +475,7 @@ public class BsWhiteUqClassificationCB extends AbstractConditionBean {
         } else {
             cb = new WhiteUqClassificationCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteUqClassificationCQ>() {
-            public boolean has() { return true; }
-            public WhiteUqClassificationCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

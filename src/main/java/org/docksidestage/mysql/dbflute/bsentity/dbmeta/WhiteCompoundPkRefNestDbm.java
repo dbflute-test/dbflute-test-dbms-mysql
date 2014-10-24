@@ -53,31 +53,11 @@ public class WhiteCompoundPkRefNestDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgCompoundPkRefNestId(), "compoundPkRefNestId");
-        setupEpg(_epgMap, new EpgFooMultipleId(), "fooMultipleId");
-        setupEpg(_epgMap, new EpgBarMultipleId(), "barMultipleId");
-        setupEpg(_epgMap, new EpgQuxMultipleId(), "quxMultipleId");
-        setupEpg(_epgMap, new EpgNestName(), "nestName");
-    }
-    public static class EpgCompoundPkRefNestId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefNest)et).getCompoundPkRefNestId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefNest)et).setCompoundPkRefNestId(cti(vl)); }
-    }
-    public static class EpgFooMultipleId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefNest)et).getFooMultipleId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefNest)et).setFooMultipleId(cti(vl)); }
-    }
-    public static class EpgBarMultipleId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefNest)et).getBarMultipleId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefNest)et).setBarMultipleId(cti(vl)); }
-    }
-    public static class EpgQuxMultipleId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefNest)et).getQuxMultipleId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefNest)et).setQuxMultipleId(cti(vl)); }
-    }
-    public static class EpgNestName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefNest)et).getNestName(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefNest)et).setNestName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefNest)et).getCompoundPkRefNestId(), (et, vl) -> ((WhiteCompoundPkRefNest)et).setCompoundPkRefNestId(cti(vl)), "compoundPkRefNestId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefNest)et).getFooMultipleId(), (et, vl) -> ((WhiteCompoundPkRefNest)et).setFooMultipleId(cti(vl)), "fooMultipleId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefNest)et).getBarMultipleId(), (et, vl) -> ((WhiteCompoundPkRefNest)et).setBarMultipleId(cti(vl)), "barMultipleId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefNest)et).getQuxMultipleId(), (et, vl) -> ((WhiteCompoundPkRefNest)et).setQuxMultipleId(cti(vl)), "quxMultipleId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefNest)et).getNestName(), (et, vl) -> ((WhiteCompoundPkRefNest)et).setNestName((String)vl), "nestName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -86,17 +66,10 @@ public class WhiteCompoundPkRefNestDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteCompoundPkRefByQuxMultipleId(), "whiteCompoundPkRefByQuxMultipleId");
-        setupEfpg(_efpgMap, new EfpgWhiteCompoundPkRefByFooMultipleId(), "whiteCompoundPkRefByFooMultipleId");
-    }
-    public class EfpgWhiteCompoundPkRefByQuxMultipleId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefNest)et).getWhiteCompoundPkRefByQuxMultipleId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefNest)et).setWhiteCompoundPkRefByQuxMultipleId((WhiteCompoundPkRef)vl); }
-    }
-    public class EfpgWhiteCompoundPkRefByFooMultipleId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefNest)et).getWhiteCompoundPkRefByFooMultipleId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefNest)et).setWhiteCompoundPkRefByFooMultipleId((WhiteCompoundPkRef)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRefNest)et).getWhiteCompoundPkRefByQuxMultipleId(), (et, vl) -> ((WhiteCompoundPkRefNest)et).setWhiteCompoundPkRefByQuxMultipleId((WhiteCompoundPkRef)vl), "whiteCompoundPkRefByQuxMultipleId");
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRefNest)et).getWhiteCompoundPkRefByFooMultipleId(), (et, vl) -> ((WhiteCompoundPkRefNest)et).setWhiteCompoundPkRefByFooMultipleId((WhiteCompoundPkRef)vl), "whiteCompoundPkRefByFooMultipleId");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

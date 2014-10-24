@@ -540,9 +540,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     public void xsmyselfDerive(String fn, SubQuery<WhitePointTypeMappingCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePointTypeMappingCB cb = new WhitePointTypeMappingCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "POINT_TYPE_MAPPING_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "POINT_TYPE_MAPPING_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhitePointTypeMappingCQ sq);
@@ -576,8 +574,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     public void myselfExists(SubQuery<WhitePointTypeMappingCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePointTypeMappingCB cb = new WhitePointTypeMappingCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhitePointTypeMappingCQ sq);

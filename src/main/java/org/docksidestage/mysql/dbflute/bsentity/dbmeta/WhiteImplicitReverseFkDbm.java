@@ -53,16 +53,8 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgWhiteImplicitReverseFkId(), "whiteImplicitReverseFkId");
-        setupEpg(_epgMap, new EpgWhiteImplicitReverseFkName(), "whiteImplicitReverseFkName");
-    }
-    public static class EpgWhiteImplicitReverseFkId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkId(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkId(cti(vl)); }
-    }
-    public static class EpgWhiteImplicitReverseFkName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkName(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkId(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkId(cti(vl)), "whiteImplicitReverseFkId");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkName(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkName((String)vl), "whiteImplicitReverseFkName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -71,17 +63,10 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteImplicitReverseFkRefWithImplicitReverseFK(), "whiteImplicitReverseFkRefWithImplicitReverseFK");
-        setupEfpg(_efpgMap, new EfpgWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(), "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK");
-    }
-    public class EfpgWhiteImplicitReverseFkRefWithImplicitReverseFK implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkRefWithImplicitReverseFK(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkRefWithImplicitReverseFK((WhiteImplicitReverseFkRef)vl); }
-    }
-    public class EfpgWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK((WhiteImplicitReverseFkSuppress)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkRefWithImplicitReverseFK(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkRefWithImplicitReverseFK((WhiteImplicitReverseFkRef)vl), "whiteImplicitReverseFkRefWithImplicitReverseFK");
+        setupEfpg(_efpgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK((WhiteImplicitReverseFkSuppress)vl), "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

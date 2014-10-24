@@ -53,16 +53,8 @@ public class WhitePerrottaOverMemberMachoDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMachoCode(), "machoCode");
-        setupEpg(_epgMap, new EpgMachoName(), "machoName");
-    }
-    public static class EpgMachoCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMemberMacho)et).getMachoCode(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMemberMacho)et).setMachoCode((String)vl); }
-    }
-    public static class EpgMachoName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMemberMacho)et).getMachoName(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMemberMacho)et).setMachoName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMemberMacho)et).getMachoCode(), (et, vl) -> ((WhitePerrottaOverMemberMacho)et).setMachoCode((String)vl), "machoCode");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMemberMacho)et).getMachoName(), (et, vl) -> ((WhitePerrottaOverMemberMacho)et).setMachoName((String)vl), "machoName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteStilettoAliasRefCQ;
 
 /**
@@ -39,6 +38,6 @@ public class WhiteStilettoAliasRefNss {
      * white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
      */
     public void withWhiteStilettoAlias() {
-        _query.xdoNss(new WhiteStilettoAliasRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteStilettoAlias(); }});
+        _query.xdoNss(() -> _query.queryWhiteStilettoAlias());
     }
 }

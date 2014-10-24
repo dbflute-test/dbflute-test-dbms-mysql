@@ -279,10 +279,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteAllInOneClsCategoryCQ>() {
-                public boolean has() { return true; }
-                public WhiteAllInOneClsCategoryCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -337,9 +334,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteAllInOneClsElementCB, WhiteAllInOneClsCategoryCQ> derivedWhiteAllInOneClsElementList() {
             assertDerived("whiteAllInOneClsElementList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteAllInOneClsElementCB, WhiteAllInOneClsCategoryCQ>() {
-                public void setup(String fn, SubQuery<WhiteAllInOneClsElementCB> sq, WhiteAllInOneClsCategoryCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteAllInOneClsElementList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteAllInOneClsElementList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -347,9 +342,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteAllInOneClsCategoryCB, WhiteAllInOneClsCategoryCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteAllInOneClsCategoryCB, WhiteAllInOneClsCategoryCQ>() {
-                public void setup(String fn, SubQuery<WhiteAllInOneClsCategoryCB> sq, WhiteAllInOneClsCategoryCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -383,10 +376,8 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteAllInOneClsCategoryCB> columnQuery(final SpecifyQuery<WhiteAllInOneClsCategoryCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteAllInOneClsCategoryCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteAllInOneClsCategoryCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -492,10 +483,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
         } else {
             cb = new WhiteAllInOneClsCategoryCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteAllInOneClsCategoryCQ>() {
-            public boolean has() { return true; }
-            public WhiteAllInOneClsCategoryCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

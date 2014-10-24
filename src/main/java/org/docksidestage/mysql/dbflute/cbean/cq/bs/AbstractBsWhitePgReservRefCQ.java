@@ -422,9 +422,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     public void xsmyselfDerive(String fn, SubQuery<WhitePgReservRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePgReservRefCB cb = new WhitePgReservRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "REF_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "REF_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhitePgReservRefCQ sq);
@@ -458,8 +456,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     public void myselfExists(SubQuery<WhitePgReservRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePgReservRefCB cb = new WhitePgReservRefCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhitePgReservRefCQ sq);

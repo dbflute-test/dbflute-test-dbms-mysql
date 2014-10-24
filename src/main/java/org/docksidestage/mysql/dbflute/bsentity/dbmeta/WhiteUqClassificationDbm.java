@@ -53,16 +53,8 @@ public class WhiteUqClassificationDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgUqClsId(), "uqClsId");
-        setupEpg(_epgMap, new EpgUqClsCode(), "uqClsCode");
-    }
-    public static class EpgUqClsId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqClassification)et).getUqClsId(); }
-        public void write(Entity et, Object vl) { ((WhiteUqClassification)et).setUqClsId(ctl(vl)); }
-    }
-    public class EpgUqClsCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqClassification)et).getUqClsCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteUqClassification)et).getUqClsId(), (et, vl) -> ((WhiteUqClassification)et).setUqClsId(ctl(vl)), "uqClsId");
+        setupEpg(_epgMap, et -> ((WhiteUqClassification)et).getUqClsCode(), (et, vl) -> {
             ColumnInfo col = columnUqClsCode();
             ccls(col, vl);
             CDef.UQClassificationType cls = (CDef.UQClassificationType)gcls(col, vl);
@@ -71,7 +63,7 @@ public class WhiteUqClassificationDbm extends AbstractDBMeta {
             } else {
                 ((WhiteUqClassification)et).mynativeMappingUqClsCode((String)vl);
             }
-        }
+        }, "uqClsCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -485,9 +485,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     public void xsmyselfDerive(String fn, SubQuery<WhiteDeprecatedClsElementCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "DEPRECATED_CLS_ELEMENT_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "DEPRECATED_CLS_ELEMENT_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteDeprecatedClsElementCQ sq);
@@ -521,8 +519,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     public void myselfExists(SubQuery<WhiteDeprecatedClsElementCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteDeprecatedClsElementCB cb = new WhiteDeprecatedClsElementCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteDeprecatedClsElementCQ sq);

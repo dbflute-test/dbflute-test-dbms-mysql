@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteOnlyOneToOneFromCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteOnlyOneToOneFromNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteOnlyOneToOneToNss withWhiteOnlyOneToOneToAsOne() {
-        _query.xdoNss(new WhiteOnlyOneToOneFromCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteOnlyOneToOneToAsOne(); }});
+        _query.xdoNss(() -> _query.queryWhiteOnlyOneToOneToAsOne());
         return new WhiteOnlyOneToOneToNss(_query.queryWhiteOnlyOneToOneToAsOne());
     }
 }

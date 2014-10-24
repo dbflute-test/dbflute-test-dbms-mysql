@@ -270,7 +270,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnLargeDataId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryVendorLargeData(); } });
+        doSetupSelect(() -> query().queryVendorLargeData());
     }
 
     protected VendorLargeDataRefNss _nssVendorLargeDataRefSelf;
@@ -296,7 +296,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnSelfParentId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryVendorLargeDataRefSelf(); } });
+        doSetupSelect(() -> query().queryVendorLargeDataRefSelf());
         if (_nssVendorLargeDataRefSelf == null || !_nssVendorLargeDataRefSelf.hasConditionQuery())
         { _nssVendorLargeDataRefSelf = new VendorLargeDataRefNss(query().queryVendorLargeDataRefSelf()); }
         return _nssVendorLargeDataRefSelf;
@@ -329,10 +329,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<VendorLargeDataRefCQ>() {
-                public boolean has() { return true; }
-                public VendorLargeDataRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -421,15 +418,14 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         public VendorLargeDataCB.HpSpecification specifyVendorLargeData() {
             assertRelation("vendorLargeData");
             if (_vendorLargeData == null) {
-                _vendorLargeData = new VendorLargeDataCB.HpSpecification(_baseCB, new HpSpQyCall<VendorLargeDataCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorLargeData(); }
-                    public VendorLargeDataCQ qy() { return _qyCall.qy().queryVendorLargeData(); } }
+                _vendorLargeData = new VendorLargeDataCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryVendorLargeData()
+                                    , () -> _qyCall.qy().queryVendorLargeData())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _vendorLargeData.xsetSyncQyCall(new HpSpQyCall<VendorLargeDataCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorLargeData(); }
-                        public VendorLargeDataCQ qy() { return xsyncQyCall().qy().queryVendorLargeData(); }
-                    });
+                    _vendorLargeData.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorLargeData()
+                      , () -> xsyncQyCall().qy().queryVendorLargeData()));
                 }
             }
             return _vendorLargeData;
@@ -442,15 +438,14 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         public VendorLargeDataRefCB.HpSpecification specifyVendorLargeDataRefSelf() {
             assertRelation("vendorLargeDataRefSelf");
             if (_vendorLargeDataRefSelf == null) {
-                _vendorLargeDataRefSelf = new VendorLargeDataRefCB.HpSpecification(_baseCB, new HpSpQyCall<VendorLargeDataRefCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendorLargeDataRefSelf(); }
-                    public VendorLargeDataRefCQ qy() { return _qyCall.qy().queryVendorLargeDataRefSelf(); } }
+                _vendorLargeDataRefSelf = new VendorLargeDataRefCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryVendorLargeDataRefSelf()
+                                    , () -> _qyCall.qy().queryVendorLargeDataRefSelf())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _vendorLargeDataRefSelf.xsetSyncQyCall(new HpSpQyCall<VendorLargeDataRefCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorLargeDataRefSelf(); }
-                        public VendorLargeDataRefCQ qy() { return xsyncQyCall().qy().queryVendorLargeDataRefSelf(); }
-                    });
+                    _vendorLargeDataRefSelf.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendorLargeDataRefSelf()
+                      , () -> xsyncQyCall().qy().queryVendorLargeDataRefSelf()));
                 }
             }
             return _vendorLargeDataRefSelf;
@@ -469,9 +464,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorLargeDataRefCB, VendorLargeDataRefCQ> derivedVendorLargeDataRefSelfList() {
             assertDerived("vendorLargeDataRefSelfList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorLargeDataRefCB, VendorLargeDataRefCQ>() {
-                public void setup(String fn, SubQuery<VendorLargeDataRefCB> sq, VendorLargeDataRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveVendorLargeDataRefSelfList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveVendorLargeDataRefSelfList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -479,9 +472,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorLargeDataRefCB, VendorLargeDataRefCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<VendorLargeDataRefCB, VendorLargeDataRefCQ>() {
-                public void setup(String fn, SubQuery<VendorLargeDataRefCB> sq, VendorLargeDataRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -515,10 +506,8 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<VendorLargeDataRefCB> columnQuery(final SpecifyQuery<VendorLargeDataRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<VendorLargeDataRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<VendorLargeDataRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -624,10 +613,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         } else {
             cb = new VendorLargeDataRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<VendorLargeDataRefCQ>() {
-            public boolean has() { return true; }
-            public VendorLargeDataRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

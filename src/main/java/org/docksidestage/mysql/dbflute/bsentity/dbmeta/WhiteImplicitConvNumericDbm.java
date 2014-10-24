@@ -53,26 +53,10 @@ public class WhiteImplicitConvNumericDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgImplicitConvNumericId(), "implicitConvNumericId");
-        setupEpg(_epgMap, new EpgImplicitConvIntegerId(), "implicitConvIntegerId");
-        setupEpg(_epgMap, new EpgImplicitConvStringId(), "implicitConvStringId");
-        setupEpg(_epgMap, new EpgImplicitConvName(), "implicitConvName");
-    }
-    public static class EpgImplicitConvNumericId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitConvNumeric)et).getImplicitConvNumericId(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitConvNumeric)et).setImplicitConvNumericId(ctb(vl)); }
-    }
-    public static class EpgImplicitConvIntegerId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitConvNumeric)et).getImplicitConvIntegerId(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitConvNumeric)et).setImplicitConvIntegerId(ctb(vl)); }
-    }
-    public static class EpgImplicitConvStringId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitConvNumeric)et).getImplicitConvStringId(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitConvNumeric)et).setImplicitConvStringId(ctb(vl)); }
-    }
-    public static class EpgImplicitConvName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitConvNumeric)et).getImplicitConvName(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitConvNumeric)et).setImplicitConvName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteImplicitConvNumeric)et).getImplicitConvNumericId(), (et, vl) -> ((WhiteImplicitConvNumeric)et).setImplicitConvNumericId(ctb(vl)), "implicitConvNumericId");
+        setupEpg(_epgMap, et -> ((WhiteImplicitConvNumeric)et).getImplicitConvIntegerId(), (et, vl) -> ((WhiteImplicitConvNumeric)et).setImplicitConvIntegerId(ctb(vl)), "implicitConvIntegerId");
+        setupEpg(_epgMap, et -> ((WhiteImplicitConvNumeric)et).getImplicitConvStringId(), (et, vl) -> ((WhiteImplicitConvNumeric)et).setImplicitConvStringId(ctb(vl)), "implicitConvStringId");
+        setupEpg(_epgMap, et -> ((WhiteImplicitConvNumeric)et).getImplicitConvName(), (et, vl) -> ((WhiteImplicitConvNumeric)et).setImplicitConvName((String)vl), "implicitConvName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -81,17 +65,10 @@ public class WhiteImplicitConvNumericDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteImplicitConvInteger(), "whiteImplicitConvInteger");
-        setupEfpg(_efpgMap, new EfpgWhiteImplicitConvString(), "whiteImplicitConvString");
-    }
-    public class EfpgWhiteImplicitConvInteger implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitConvNumeric)et).getWhiteImplicitConvInteger(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitConvNumeric)et).setWhiteImplicitConvInteger((WhiteImplicitConvInteger)vl); }
-    }
-    public class EfpgWhiteImplicitConvString implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteImplicitConvNumeric)et).getWhiteImplicitConvString(); }
-        public void write(Entity et, Object vl) { ((WhiteImplicitConvNumeric)et).setWhiteImplicitConvString((WhiteImplicitConvString)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteImplicitConvNumeric)et).getWhiteImplicitConvInteger(), (et, vl) -> ((WhiteImplicitConvNumeric)et).setWhiteImplicitConvInteger((WhiteImplicitConvInteger)vl), "whiteImplicitConvInteger");
+        setupEfpg(_efpgMap, et -> ((WhiteImplicitConvNumeric)et).getWhiteImplicitConvString(), (et, vl) -> ((WhiteImplicitConvNumeric)et).setWhiteImplicitConvString((WhiteImplicitConvString)vl), "whiteImplicitConvString");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

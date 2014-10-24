@@ -53,31 +53,11 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgMemberName(), "memberName");
-        setupEpg(_epgMap, new EpgProductId(), "productId");
-        setupEpg(_epgMap, new EpgTraceTypeCode(), "traceTypeCode");
-        setupEpg(_epgMap, new EpgMachoCode(), "machoCode");
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMember)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMember)et).setMemberId(ctl(vl)); }
-    }
-    public static class EpgMemberName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMember)et).getMemberName(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMember)et).setMemberName((String)vl); }
-    }
-    public static class EpgProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMember)et).getProductId(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMember)et).setProductId(ctl(vl)); }
-    }
-    public static class EpgTraceTypeCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMember)et).getTraceTypeCode(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMember)et).setTraceTypeCode((String)vl); }
-    }
-    public static class EpgMachoCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMember)et).getMachoCode(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMember)et).setMachoCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberId(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberId(ctl(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberName(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberName((String)vl), "memberName");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getProductId(), (et, vl) -> ((WhitePerrottaOverMember)et).setProductId(ctl(vl)), "productId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getTraceTypeCode(), (et, vl) -> ((WhitePerrottaOverMember)et).setTraceTypeCode((String)vl), "traceTypeCode");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMachoCode(), (et, vl) -> ((WhitePerrottaOverMember)et).setMachoCode((String)vl), "machoCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -86,17 +66,10 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhitePerrottaOverMemberMacho(), "whitePerrottaOverMemberMacho");
-        setupEfpg(_efpgMap, new EfpgWhitePerrottaOverProduct(), "whitePerrottaOverProduct");
-    }
-    public class EfpgWhitePerrottaOverMemberMacho implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMember)et).getWhitePerrottaOverMemberMacho(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMember)et).setWhitePerrottaOverMemberMacho((WhitePerrottaOverMemberMacho)vl); }
-    }
-    public class EfpgWhitePerrottaOverProduct implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverMember)et).getWhitePerrottaOverProduct(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverMember)et).setWhitePerrottaOverProduct((WhitePerrottaOverProduct)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverMemberMacho(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverMemberMacho((WhitePerrottaOverMemberMacho)vl), "whitePerrottaOverMemberMacho");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverProduct(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverProduct((WhitePerrottaOverProduct)vl), "whitePerrottaOverProduct");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

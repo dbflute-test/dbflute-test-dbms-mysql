@@ -53,16 +53,8 @@ public class WhiteCompoundReferredNormallyDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgReferredId(), "referredId");
-        setupEpg(_epgMap, new EpgReferredName(), "referredName");
-    }
-    public static class EpgReferredId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundReferredNormally)et).getReferredId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundReferredNormally)et).setReferredId(cti(vl)); }
-    }
-    public static class EpgReferredName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundReferredNormally)et).getReferredName(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundReferredNormally)et).setReferredName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteCompoundReferredNormally)et).getReferredId(), (et, vl) -> ((WhiteCompoundReferredNormally)et).setReferredId(cti(vl)), "referredId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundReferredNormally)et).getReferredName(), (et, vl) -> ((WhiteCompoundReferredNormally)et).setReferredName((String)vl), "referredName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -53,26 +53,10 @@ public class WhiteSuppressJoinSqManyDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgManyId(), "manyId");
-        setupEpg(_epgMap, new EpgManyName(), "manyName");
-        setupEpg(_epgMap, new EpgSuppressJoinSqId(), "suppressJoinSqId");
-        setupEpg(_epgMap, new EpgManyOneId(), "manyOneId");
-    }
-    public static class EpgManyId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqMany)et).getManyId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqMany)et).setManyId(cti(vl)); }
-    }
-    public static class EpgManyName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqMany)et).getManyName(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqMany)et).setManyName((String)vl); }
-    }
-    public static class EpgSuppressJoinSqId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqMany)et).getSuppressJoinSqId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqMany)et).setSuppressJoinSqId(cti(vl)); }
-    }
-    public static class EpgManyOneId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqMany)et).getManyOneId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqMany)et).setManyOneId(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqMany)et).getManyId(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setManyId(cti(vl)), "manyId");
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqMany)et).getManyName(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setManyName((String)vl), "manyName");
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqMany)et).getSuppressJoinSqId(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setSuppressJoinSqId(cti(vl)), "suppressJoinSqId");
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqMany)et).getManyOneId(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setManyOneId(cti(vl)), "manyOneId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -81,17 +65,10 @@ public class WhiteSuppressJoinSqManyDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteSuppressJoinSqManyOne(), "whiteSuppressJoinSqManyOne");
-        setupEfpg(_efpgMap, new EfpgWhiteSuppressJoinSq(), "whiteSuppressJoinSq");
-    }
-    public class EfpgWhiteSuppressJoinSqManyOne implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqMany)et).getWhiteSuppressJoinSqManyOne(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqMany)et).setWhiteSuppressJoinSqManyOne((WhiteSuppressJoinSqManyOne)vl); }
-    }
-    public class EfpgWhiteSuppressJoinSq implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqMany)et).getWhiteSuppressJoinSq(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqMany)et).setWhiteSuppressJoinSq((WhiteSuppressJoinSq)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqMany)et).getWhiteSuppressJoinSqManyOne(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setWhiteSuppressJoinSqManyOne((WhiteSuppressJoinSqManyOne)vl), "whiteSuppressJoinSqManyOne");
+        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqMany)et).getWhiteSuppressJoinSq(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setWhiteSuppressJoinSq((WhiteSuppressJoinSq)vl), "whiteSuppressJoinSq");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

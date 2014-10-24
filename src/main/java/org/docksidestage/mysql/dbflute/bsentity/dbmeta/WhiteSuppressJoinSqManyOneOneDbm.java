@@ -53,16 +53,8 @@ public class WhiteSuppressJoinSqManyOneOneDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgManyOneOneId(), "manyOneOneId");
-        setupEpg(_epgMap, new EpgManyOneOneName(), "manyOneOneName");
-    }
-    public static class EpgManyOneOneId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqManyOneOne)et).getManyOneOneId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqManyOneOne)et).setManyOneOneId(cti(vl)); }
-    }
-    public static class EpgManyOneOneName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqManyOneOne)et).getManyOneOneName(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqManyOneOne)et).setManyOneOneName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOneOne)et).getManyOneOneId(), (et, vl) -> ((WhiteSuppressJoinSqManyOneOne)et).setManyOneOneId(cti(vl)), "manyOneOneId");
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOneOne)et).getManyOneOneName(), (et, vl) -> ((WhiteSuppressJoinSqManyOneOne)et).setManyOneOneName((String)vl), "manyOneOneName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

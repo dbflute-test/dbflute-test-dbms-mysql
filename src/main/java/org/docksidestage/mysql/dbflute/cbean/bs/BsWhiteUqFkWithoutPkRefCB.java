@@ -257,7 +257,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnFkToUqCode();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteUqFkWithoutPk(); } });
+        doSetupSelect(() -> query().queryWhiteUqFkWithoutPk());
     }
 
     // [DBFlute-0.7.4]
@@ -287,10 +287,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteUqFkWithoutPkRefCQ>() {
-                public boolean has() { return true; }
-                public WhiteUqFkWithoutPkRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -338,15 +335,14 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
         public WhiteUqFkWithoutPkCB.HpSpecification specifyWhiteUqFkWithoutPk() {
             assertRelation("whiteUqFkWithoutPk");
             if (_whiteUqFkWithoutPk == null) {
-                _whiteUqFkWithoutPk = new WhiteUqFkWithoutPkCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteUqFkWithoutPkCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkWithoutPk(); }
-                    public WhiteUqFkWithoutPkCQ qy() { return _qyCall.qy().queryWhiteUqFkWithoutPk(); } }
+                _whiteUqFkWithoutPk = new WhiteUqFkWithoutPkCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkWithoutPk()
+                                    , () -> _qyCall.qy().queryWhiteUqFkWithoutPk())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteUqFkWithoutPk.xsetSyncQyCall(new HpSpQyCall<WhiteUqFkWithoutPkCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkWithoutPk(); }
-                        public WhiteUqFkWithoutPkCQ qy() { return xsyncQyCall().qy().queryWhiteUqFkWithoutPk(); }
-                    });
+                    _whiteUqFkWithoutPk.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkWithoutPk()
+                      , () -> xsyncQyCall().qy().queryWhiteUqFkWithoutPk()));
                 }
             }
             return _whiteUqFkWithoutPk;
@@ -383,10 +379,8 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteUqFkWithoutPkRefCB> columnQuery(final SpecifyQuery<WhiteUqFkWithoutPkRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteUqFkWithoutPkRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteUqFkWithoutPkRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -492,10 +486,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
         } else {
             cb = new WhiteUqFkWithoutPkRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteUqFkWithoutPkRefCQ>() {
-            public boolean has() { return true; }
-            public WhiteUqFkWithoutPkRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -273,7 +273,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
      */
     public WhiteVariantRelationReferrerNss setupSelect_WhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
         assertSetupSelectPurpose("whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(); } });
+        doSetupSelect(() -> query().queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne());
         if (_nssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne == null || !_nssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne.hasConditionQuery())
         { _nssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne = new WhiteVariantRelationReferrerNss(query().queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne()); }
         return _nssWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne;
@@ -299,7 +299,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
      */
     public WhiteVariantRelationLocalPkReferrerNss setupSelect_WhiteVariantRelationLocalPkReferrerAsOne() {
         assertSetupSelectPurpose("whiteVariantRelationLocalPkReferrerAsOne");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteVariantRelationLocalPkReferrerAsOne(); } });
+        doSetupSelect(() -> query().queryWhiteVariantRelationLocalPkReferrerAsOne());
         if (_nssWhiteVariantRelationLocalPkReferrerAsOne == null || !_nssWhiteVariantRelationLocalPkReferrerAsOne.hasConditionQuery()) { _nssWhiteVariantRelationLocalPkReferrerAsOne = new WhiteVariantRelationLocalPkReferrerNss(query().queryWhiteVariantRelationLocalPkReferrerAsOne()); }
         return _nssWhiteVariantRelationLocalPkReferrerAsOne;
     }
@@ -331,10 +331,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteVariantRelationMasterFooCQ>() {
-                public boolean has() { return true; }
-                public WhiteVariantRelationMasterFooCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -380,15 +377,14 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         public WhiteVariantRelationReferrerCB.HpSpecification specifyWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
             assertRelation("whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne");
             if (_whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne == null) {
-                _whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne = new WhiteVariantRelationReferrerCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteVariantRelationReferrerCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(); }
-                    public WhiteVariantRelationReferrerCQ qy() { return _qyCall.qy().queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(); } }
+                _whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne = new WhiteVariantRelationReferrerCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne()
+                                    , () -> _qyCall.qy().queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationReferrerCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(); }
-                        public WhiteVariantRelationReferrerCQ qy() { return xsyncQyCall().qy().queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(); }
-                    });
+                    _whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne()
+                      , () -> xsyncQyCall().qy().queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne()));
                 }
             }
             return _whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne;
@@ -401,15 +397,14 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         public WhiteVariantRelationLocalPkReferrerCB.HpSpecification specifyWhiteVariantRelationLocalPkReferrerAsOne() {
             assertRelation("whiteVariantRelationLocalPkReferrerAsOne");
             if (_whiteVariantRelationLocalPkReferrerAsOne == null) {
-                _whiteVariantRelationLocalPkReferrerAsOne = new WhiteVariantRelationLocalPkReferrerCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteVariantRelationLocalPkReferrerCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationLocalPkReferrerAsOne(); }
-                    public WhiteVariantRelationLocalPkReferrerCQ qy() { return _qyCall.qy().queryWhiteVariantRelationLocalPkReferrerAsOne(); } }
+                _whiteVariantRelationLocalPkReferrerAsOne = new WhiteVariantRelationLocalPkReferrerCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteVariantRelationLocalPkReferrerAsOne()
+                                    , () -> _qyCall.qy().queryWhiteVariantRelationLocalPkReferrerAsOne())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteVariantRelationLocalPkReferrerAsOne.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationLocalPkReferrerCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationLocalPkReferrerAsOne(); }
-                        public WhiteVariantRelationLocalPkReferrerCQ qy() { return xsyncQyCall().qy().queryWhiteVariantRelationLocalPkReferrerAsOne(); }
-                    });
+                    _whiteVariantRelationLocalPkReferrerAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationLocalPkReferrerAsOne()
+                      , () -> xsyncQyCall().qy().queryWhiteVariantRelationLocalPkReferrerAsOne()));
                 }
             }
             return _whiteVariantRelationLocalPkReferrerAsOne;
@@ -428,9 +423,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationReferrerCB, WhiteVariantRelationMasterFooCQ> derivedWhiteVariantRelationReferrerAsVariantList() {
             assertDerived("whiteVariantRelationReferrerAsVariantList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteVariantRelationReferrerCB, WhiteVariantRelationMasterFooCQ>() {
-                public void setup(String fn, SubQuery<WhiteVariantRelationReferrerCB> sq, WhiteVariantRelationMasterFooCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteVariantRelationReferrerAsVariantList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteVariantRelationReferrerAsVariantList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -438,9 +431,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationMasterFooCB, WhiteVariantRelationMasterFooCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteVariantRelationMasterFooCB, WhiteVariantRelationMasterFooCQ>() {
-                public void setup(String fn, SubQuery<WhiteVariantRelationMasterFooCB> sq, WhiteVariantRelationMasterFooCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -474,10 +465,8 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteVariantRelationMasterFooCB> columnQuery(final SpecifyQuery<WhiteVariantRelationMasterFooCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteVariantRelationMasterFooCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteVariantRelationMasterFooCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -583,10 +572,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         } else {
             cb = new WhiteVariantRelationMasterFooCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterFooCQ>() {
-            public boolean has() { return true; }
-            public WhiteVariantRelationMasterFooCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

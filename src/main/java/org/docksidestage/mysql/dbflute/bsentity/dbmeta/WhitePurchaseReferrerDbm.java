@@ -53,16 +53,8 @@ public class WhitePurchaseReferrerDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgPurchaseReferrerId(), "purchaseReferrerId");
-        setupEpg(_epgMap, new EpgPurchaseReferrerName(), "purchaseReferrerName");
-    }
-    public static class EpgPurchaseReferrerId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePurchaseReferrer)et).getPurchaseReferrerId(); }
-        public void write(Entity et, Object vl) { ((WhitePurchaseReferrer)et).setPurchaseReferrerId(ctl(vl)); }
-    }
-    public static class EpgPurchaseReferrerName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePurchaseReferrer)et).getPurchaseReferrerName(); }
-        public void write(Entity et, Object vl) { ((WhitePurchaseReferrer)et).setPurchaseReferrerName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhitePurchaseReferrer)et).getPurchaseReferrerId(), (et, vl) -> ((WhitePurchaseReferrer)et).setPurchaseReferrerId(ctl(vl)), "purchaseReferrerId");
+        setupEpg(_epgMap, et -> ((WhitePurchaseReferrer)et).getPurchaseReferrerName(), (et, vl) -> ((WhitePurchaseReferrer)et).setPurchaseReferrerName((String)vl), "purchaseReferrerName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -71,12 +63,9 @@ public class WhitePurchaseReferrerDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgPurchase(), "purchase");
-    }
-    public class EfpgPurchase implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePurchaseReferrer)et).getPurchase(); }
-        public void write(Entity et, Object vl) { ((WhitePurchaseReferrer)et).setPurchase((Purchase)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhitePurchaseReferrer)et).getPurchase(), (et, vl) -> ((WhitePurchaseReferrer)et).setPurchase((Purchase)vl), "purchase");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

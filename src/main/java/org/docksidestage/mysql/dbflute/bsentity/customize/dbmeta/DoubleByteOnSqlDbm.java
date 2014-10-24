@@ -53,21 +53,9 @@ public class DoubleByteOnSqlDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgMemberNameWithSpace(), "memberNameWithSpace");
-        setupEpg(_epgMap, new EpgMemberStatusName(), "memberStatusName");
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((DoubleByteOnSql)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((DoubleByteOnSql)et).setMemberId(cti(vl)); }
-    }
-    public static class EpgMemberNameWithSpace implements PropertyGateway {
-        public Object read(Entity et) { return ((DoubleByteOnSql)et).getMemberNameWithSpace(); }
-        public void write(Entity et, Object vl) { ((DoubleByteOnSql)et).setMemberNameWithSpace((String)vl); }
-    }
-    public static class EpgMemberStatusName implements PropertyGateway {
-        public Object read(Entity et) { return ((DoubleByteOnSql)et).getMemberStatusName(); }
-        public void write(Entity et, Object vl) { ((DoubleByteOnSql)et).setMemberStatusName((String)vl); }
+        setupEpg(_epgMap, et -> ((DoubleByteOnSql)et).getMemberId(), (et, vl) -> ((DoubleByteOnSql)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((DoubleByteOnSql)et).getMemberNameWithSpace(), (et, vl) -> ((DoubleByteOnSql)et).setMemberNameWithSpace((String)vl), "memberNameWithSpace");
+        setupEpg(_epgMap, et -> ((DoubleByteOnSql)et).getMemberStatusName(), (et, vl) -> ((DoubleByteOnSql)et).setMemberStatusName((String)vl), "memberStatusName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

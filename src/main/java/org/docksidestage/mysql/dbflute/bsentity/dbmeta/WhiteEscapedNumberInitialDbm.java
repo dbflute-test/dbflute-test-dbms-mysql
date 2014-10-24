@@ -53,12 +53,7 @@ public class WhiteEscapedNumberInitialDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgNumberInitialCode(), "numberInitialCode");
-        setupEpg(_epgMap, new EpgNumberInitialName(), "numberInitialName");
-    }
-    public class EpgNumberInitialCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteEscapedNumberInitial)et).getNumberInitialCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteEscapedNumberInitial)et).getNumberInitialCode(), (et, vl) -> {
             ColumnInfo col = columnNumberInitialCode();
             ccls(col, vl);
             CDef.EscapedNumberInitialCls cls = (CDef.EscapedNumberInitialCls)gcls(col, vl);
@@ -67,11 +62,8 @@ public class WhiteEscapedNumberInitialDbm extends AbstractDBMeta {
             } else {
                 ((WhiteEscapedNumberInitial)et).mynativeMappingNumberInitialCode((String)vl);
             }
-        }
-    }
-    public static class EpgNumberInitialName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteEscapedNumberInitial)et).getNumberInitialName(); }
-        public void write(Entity et, Object vl) { ((WhiteEscapedNumberInitial)et).setNumberInitialName((String)vl); }
+        }, "numberInitialCode");
+        setupEpg(_epgMap, et -> ((WhiteEscapedNumberInitial)et).getNumberInitialName(), (et, vl) -> ((WhiteEscapedNumberInitial)et).setNumberInitialName((String)vl), "numberInitialName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

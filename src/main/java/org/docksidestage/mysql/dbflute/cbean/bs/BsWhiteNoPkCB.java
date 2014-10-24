@@ -267,10 +267,7 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteNoPkCQ>() {
-                public boolean has() { return true; }
-                public WhiteNoPkCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -342,10 +339,8 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteNoPkCB> columnQuery(final SpecifyQuery<WhiteNoPkCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteNoPkCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteNoPkCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -451,10 +446,7 @@ public class BsWhiteNoPkCB extends AbstractConditionBean {
         } else {
             cb = new WhiteNoPkCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteNoPkCQ>() {
-            public boolean has() { return true; }
-            public WhiteNoPkCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

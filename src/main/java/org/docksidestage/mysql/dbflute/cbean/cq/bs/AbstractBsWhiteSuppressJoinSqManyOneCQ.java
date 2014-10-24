@@ -176,8 +176,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     public void existsWhiteSuppressJoinSqManyList(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepManyOneId_ExistsReferrer_WhiteSuppressJoinSqManyList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepManyOneId_ExistsReferrer_WhiteSuppressJoinSqManyList(cb.query());
         registerExistsReferrer(cb.query(), "MANY_ONE_ID", "MANY_ONE_ID", pp, "whiteSuppressJoinSqManyList");
     }
     public abstract String keepManyOneId_ExistsReferrer_WhiteSuppressJoinSqManyList(WhiteSuppressJoinSqManyCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     public void notExistsWhiteSuppressJoinSqManyList(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList(cb.query());
         registerNotExistsReferrer(cb.query(), "MANY_ONE_ID", "MANY_ONE_ID", pp, "whiteSuppressJoinSqManyList");
     }
     public abstract String keepManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList(WhiteSuppressJoinSqManyCQ sq);
@@ -205,8 +203,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     public void xsderiveWhiteSuppressJoinSqManyList(String fn, SubQuery<WhiteSuppressJoinSqManyCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepManyOneId_SpecifyDerivedReferrer_WhiteSuppressJoinSqManyList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepManyOneId_SpecifyDerivedReferrer_WhiteSuppressJoinSqManyList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "MANY_ONE_ID", "MANY_ONE_ID", pp, "whiteSuppressJoinSqManyList", al, op);
     }
     public abstract String keepManyOneId_SpecifyDerivedReferrer_WhiteSuppressJoinSqManyList(WhiteSuppressJoinSqManyCQ sq);
@@ -227,17 +224,12 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
         return xcreateQDRFunctionWhiteSuppressJoinSqManyList();
     }
     protected HpQDRFunction<WhiteSuppressJoinSqManyCB> xcreateQDRFunctionWhiteSuppressJoinSqManyList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteSuppressJoinSqManyCB>() {
-            public void setup(String fn, SubQuery<WhiteSuppressJoinSqManyCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteSuppressJoinSqManyList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteSuppressJoinSqManyList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteSuppressJoinSqManyList(String fn, SubQuery<WhiteSuppressJoinSqManyCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepManyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyList(cb.query()); String prpp = keepManyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepManyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyList(cb.query()); String prpp = keepManyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "MANY_ONE_ID", "MANY_ONE_ID", sqpp, "whiteSuppressJoinSqManyList", rd, vl, prpp, op);
     }
     public abstract String keepManyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyList(WhiteSuppressJoinSqManyCQ sq);
@@ -599,9 +591,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     public void xsmyselfDerive(String fn, SubQuery<WhiteSuppressJoinSqManyOneCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSuppressJoinSqManyOneCB cb = new WhiteSuppressJoinSqManyOneCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "MANY_ONE_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "MANY_ONE_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteSuppressJoinSqManyOneCQ sq);
@@ -635,8 +625,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     public void myselfExists(SubQuery<WhiteSuppressJoinSqManyOneCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSuppressJoinSqManyOneCB cb = new WhiteSuppressJoinSqManyOneCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteSuppressJoinSqManyOneCQ sq);

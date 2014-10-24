@@ -414,9 +414,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     public void xsmyselfDerive(String fn, SubQuery<WhiteImplicitReverseFkCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "WHITE_IMPLICIT_REVERSE_FK_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "WHITE_IMPLICIT_REVERSE_FK_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteImplicitReverseFkCQ sq);
@@ -450,8 +448,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     public void myselfExists(SubQuery<WhiteImplicitReverseFkCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteImplicitReverseFkCQ sq);

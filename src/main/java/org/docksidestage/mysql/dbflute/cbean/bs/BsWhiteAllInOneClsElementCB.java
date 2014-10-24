@@ -269,7 +269,7 @@ public class BsWhiteAllInOneClsElementCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteAllInOneClsCategory() {
         assertSetupSelectPurpose("whiteAllInOneClsCategory");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteAllInOneClsCategory(); } });
+        doSetupSelect(() -> query().queryWhiteAllInOneClsCategory());
     }
 
     // [DBFlute-0.7.4]
@@ -299,10 +299,7 @@ public class BsWhiteAllInOneClsElementCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteAllInOneClsElementCQ>() {
-                public boolean has() { return true; }
-                public WhiteAllInOneClsElementCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -358,15 +355,14 @@ public class BsWhiteAllInOneClsElementCB extends AbstractConditionBean {
         public WhiteAllInOneClsCategoryCB.HpSpecification specifyWhiteAllInOneClsCategory() {
             assertRelation("whiteAllInOneClsCategory");
             if (_whiteAllInOneClsCategory == null) {
-                _whiteAllInOneClsCategory = new WhiteAllInOneClsCategoryCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteAllInOneClsCategoryCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteAllInOneClsCategory(); }
-                    public WhiteAllInOneClsCategoryCQ qy() { return _qyCall.qy().queryWhiteAllInOneClsCategory(); } }
+                _whiteAllInOneClsCategory = new WhiteAllInOneClsCategoryCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteAllInOneClsCategory()
+                                    , () -> _qyCall.qy().queryWhiteAllInOneClsCategory())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteAllInOneClsCategory.xsetSyncQyCall(new HpSpQyCall<WhiteAllInOneClsCategoryCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteAllInOneClsCategory(); }
-                        public WhiteAllInOneClsCategoryCQ qy() { return xsyncQyCall().qy().queryWhiteAllInOneClsCategory(); }
-                    });
+                    _whiteAllInOneClsCategory.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteAllInOneClsCategory()
+                      , () -> xsyncQyCall().qy().queryWhiteAllInOneClsCategory()));
                 }
             }
             return _whiteAllInOneClsCategory;
@@ -403,10 +399,8 @@ public class BsWhiteAllInOneClsElementCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteAllInOneClsElementCB> columnQuery(final SpecifyQuery<WhiteAllInOneClsElementCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteAllInOneClsElementCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteAllInOneClsElementCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -512,10 +506,7 @@ public class BsWhiteAllInOneClsElementCB extends AbstractConditionBean {
         } else {
             cb = new WhiteAllInOneClsElementCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteAllInOneClsElementCQ>() {
-            public boolean has() { return true; }
-            public WhiteAllInOneClsElementCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

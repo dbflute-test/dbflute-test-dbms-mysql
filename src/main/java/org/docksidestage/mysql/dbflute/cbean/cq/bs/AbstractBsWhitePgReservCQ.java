@@ -176,8 +176,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     public void existsWhitePgReservRefList(SubQuery<WhitePgReservRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePgReservRefCB cb = new WhitePgReservRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepClassSynonym_ExistsReferrer_WhitePgReservRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepClassSynonym_ExistsReferrer_WhitePgReservRefList(cb.query());
         registerExistsReferrer(cb.query(), "CLASS", "CLASS", pp, "whitePgReservRefList");
     }
     public abstract String keepClassSynonym_ExistsReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     public void notExistsWhitePgReservRefList(SubQuery<WhitePgReservRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePgReservRefCB cb = new WhitePgReservRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepClassSynonym_NotExistsReferrer_WhitePgReservRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepClassSynonym_NotExistsReferrer_WhitePgReservRefList(cb.query());
         registerNotExistsReferrer(cb.query(), "CLASS", "CLASS", pp, "whitePgReservRefList");
     }
     public abstract String keepClassSynonym_NotExistsReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq);
@@ -205,8 +203,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     public void xsderiveWhitePgReservRefList(String fn, SubQuery<WhitePgReservRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePgReservRefCB cb = new WhitePgReservRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepClassSynonym_SpecifyDerivedReferrer_WhitePgReservRefList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepClassSynonym_SpecifyDerivedReferrer_WhitePgReservRefList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "CLASS", "CLASS", pp, "whitePgReservRefList", al, op);
     }
     public abstract String keepClassSynonym_SpecifyDerivedReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq);
@@ -227,17 +224,12 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
         return xcreateQDRFunctionWhitePgReservRefList();
     }
     protected HpQDRFunction<WhitePgReservRefCB> xcreateQDRFunctionWhitePgReservRefList() {
-        return xcQDRFunc(new HpQDRSetupper<WhitePgReservRefCB>() {
-            public void setup(String fn, SubQuery<WhitePgReservRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhitePgReservRefList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhitePgReservRefList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhitePgReservRefList(String fn, SubQuery<WhitePgReservRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePgReservRefCB cb = new WhitePgReservRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefList(cb.query()); String prpp = keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefList(cb.query()); String prpp = keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "CLASS", "CLASS", sqpp, "whitePgReservRefList", rd, vl, prpp, op);
     }
     public abstract String keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq);
@@ -2593,9 +2585,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<WhitePgReservCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePgReservCB cb = new WhitePgReservCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "CLASS";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "CLASS";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhitePgReservCQ sq);
@@ -2629,8 +2619,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     public void myselfExists(SubQuery<WhitePgReservCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePgReservCB cb = new WhitePgReservCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhitePgReservCQ sq);

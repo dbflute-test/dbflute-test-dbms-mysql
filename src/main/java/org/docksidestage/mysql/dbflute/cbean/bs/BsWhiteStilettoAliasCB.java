@@ -279,10 +279,7 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteStilettoAliasCQ>() {
-                public boolean has() { return true; }
-                public WhiteStilettoAliasCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -367,9 +364,7 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteStilettoAliasRefCB, WhiteStilettoAliasCQ> derivedWhiteStilettoAliasRefList() {
             assertDerived("whiteStilettoAliasRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteStilettoAliasRefCB, WhiteStilettoAliasCQ>() {
-                public void setup(String fn, SubQuery<WhiteStilettoAliasRefCB> sq, WhiteStilettoAliasCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteStilettoAliasRefList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteStilettoAliasRefList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -377,9 +372,7 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteStilettoAliasCB, WhiteStilettoAliasCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteStilettoAliasCB, WhiteStilettoAliasCQ>() {
-                public void setup(String fn, SubQuery<WhiteStilettoAliasCB> sq, WhiteStilettoAliasCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -413,10 +406,8 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteStilettoAliasCB> columnQuery(final SpecifyQuery<WhiteStilettoAliasCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteStilettoAliasCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteStilettoAliasCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -522,10 +513,7 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
         } else {
             cb = new WhiteStilettoAliasCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteStilettoAliasCQ>() {
-            public boolean has() { return true; }
-            public WhiteStilettoAliasCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

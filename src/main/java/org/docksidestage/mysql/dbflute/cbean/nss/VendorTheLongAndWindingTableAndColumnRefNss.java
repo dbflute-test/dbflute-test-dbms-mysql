@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.VendorTheLongAndWindingTableAndColumnRefCQ;
 
 /**
@@ -39,6 +38,6 @@ public class VendorTheLongAndWindingTableAndColumnRefNss {
      * vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
      */
     public void withVendorTheLongAndWindingTableAndColumn() {
-        _query.xdoNss(new VendorTheLongAndWindingTableAndColumnRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendorTheLongAndWindingTableAndColumn(); }});
+        _query.xdoNss(() -> _query.queryVendorTheLongAndWindingTableAndColumn());
     }
 }

@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteVariantRelationLocalPkReferrerCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteVariantRelationLocalPkReferrerNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteVariantRelationMasterFooNss withWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {
-        _query.xdoNss(new WhiteVariantRelationLocalPkReferrerCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(); }});
+        _query.xdoNss(() -> _query.queryWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne());
         return new WhiteVariantRelationMasterFooNss(_query.queryWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne());
     }
 }

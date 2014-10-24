@@ -282,7 +282,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnFkToPkId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteUqFkByFkToPkId(); } });
+        doSetupSelect(() -> query().queryWhiteUqFkByFkToPkId());
     }
 
     /**
@@ -302,7 +302,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnFkToUqCode();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteUqFkByFkToUqCode(); } });
+        doSetupSelect(() -> query().queryWhiteUqFkByFkToUqCode());
     }
 
     // [DBFlute-0.7.4]
@@ -332,10 +332,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteUqFkRefCQ>() {
-                public boolean has() { return true; }
-                public WhiteUqFkRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -408,15 +405,14 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         public WhiteUqFkCB.HpSpecification specifyWhiteUqFkByFkToPkId() {
             assertRelation("whiteUqFkByFkToPkId");
             if (_whiteUqFkByFkToPkId == null) {
-                _whiteUqFkByFkToPkId = new WhiteUqFkCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteUqFkCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkByFkToPkId(); }
-                    public WhiteUqFkCQ qy() { return _qyCall.qy().queryWhiteUqFkByFkToPkId(); } }
+                _whiteUqFkByFkToPkId = new WhiteUqFkCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkByFkToPkId()
+                                    , () -> _qyCall.qy().queryWhiteUqFkByFkToPkId())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteUqFkByFkToPkId.xsetSyncQyCall(new HpSpQyCall<WhiteUqFkCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkByFkToPkId(); }
-                        public WhiteUqFkCQ qy() { return xsyncQyCall().qy().queryWhiteUqFkByFkToPkId(); }
-                    });
+                    _whiteUqFkByFkToPkId.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkByFkToPkId()
+                      , () -> xsyncQyCall().qy().queryWhiteUqFkByFkToPkId()));
                 }
             }
             return _whiteUqFkByFkToPkId;
@@ -429,15 +425,14 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         public WhiteUqFkCB.HpSpecification specifyWhiteUqFkByFkToUqCode() {
             assertRelation("whiteUqFkByFkToUqCode");
             if (_whiteUqFkByFkToUqCode == null) {
-                _whiteUqFkByFkToUqCode = new WhiteUqFkCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteUqFkCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkByFkToUqCode(); }
-                    public WhiteUqFkCQ qy() { return _qyCall.qy().queryWhiteUqFkByFkToUqCode(); } }
+                _whiteUqFkByFkToUqCode = new WhiteUqFkCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteUqFkByFkToUqCode()
+                                    , () -> _qyCall.qy().queryWhiteUqFkByFkToUqCode())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteUqFkByFkToUqCode.xsetSyncQyCall(new HpSpQyCall<WhiteUqFkCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkByFkToUqCode(); }
-                        public WhiteUqFkCQ qy() { return xsyncQyCall().qy().queryWhiteUqFkByFkToUqCode(); }
-                    });
+                    _whiteUqFkByFkToUqCode.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteUqFkByFkToUqCode()
+                      , () -> xsyncQyCall().qy().queryWhiteUqFkByFkToUqCode()));
                 }
             }
             return _whiteUqFkByFkToUqCode;
@@ -456,9 +451,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkRefNestCB, WhiteUqFkRefCQ> derivedWhiteUqFkRefNestList() {
             assertDerived("whiteUqFkRefNestList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteUqFkRefNestCB, WhiteUqFkRefCQ>() {
-                public void setup(String fn, SubQuery<WhiteUqFkRefNestCB> sq, WhiteUqFkRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteUqFkRefNestList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteUqFkRefNestList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -466,9 +459,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkRefCB, WhiteUqFkRefCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteUqFkRefCB, WhiteUqFkRefCQ>() {
-                public void setup(String fn, SubQuery<WhiteUqFkRefCB> sq, WhiteUqFkRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -502,10 +493,8 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteUqFkRefCB> columnQuery(final SpecifyQuery<WhiteUqFkRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteUqFkRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteUqFkRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -611,10 +600,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         } else {
             cb = new WhiteUqFkRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteUqFkRefCQ>() {
-            public boolean has() { return true; }
-            public WhiteUqFkRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

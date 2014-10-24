@@ -53,37 +53,12 @@ public class UnionVendorCheckDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgVendorCheckId(), "vendorCheckId");
-        setupEpg(_epgMap, new EpgTypeOfText(), "typeOfText");
-        setupEpg(_epgMap, new EpgTypeOfNumericDecimal(), "typeOfNumericDecimal");
-        setupEpg(_epgMap, new EpgTypeOfNumericInteger(), "typeOfNumericInteger");
-        setupEpg(_epgMap, new EpgTypeOfNumericBigint(), "typeOfNumericBigint");
-        setupEpg(_epgMap, new EpgTypeOfBoolean(), "typeOfBoolean");
-        setupEpg(_epgMap, new EpgTypeOfBlob(), "typeOfBlob");
-    }
-    public static class EpgVendorCheckId implements PropertyGateway {
-        public Object read(Entity et) { return ((UnionVendorCheck)et).getVendorCheckId(); }
-        public void write(Entity et, Object vl) { ((UnionVendorCheck)et).setVendorCheckId(ctl(vl)); }
-    }
-    public static class EpgTypeOfText implements PropertyGateway {
-        public Object read(Entity et) { return ((UnionVendorCheck)et).getTypeOfText(); }
-        public void write(Entity et, Object vl) { ((UnionVendorCheck)et).setTypeOfText((String)vl); }
-    }
-    public static class EpgTypeOfNumericDecimal implements PropertyGateway {
-        public Object read(Entity et) { return ((UnionVendorCheck)et).getTypeOfNumericDecimal(); }
-        public void write(Entity et, Object vl) { ((UnionVendorCheck)et).setTypeOfNumericDecimal(ctb(vl)); }
-    }
-    public static class EpgTypeOfNumericInteger implements PropertyGateway {
-        public Object read(Entity et) { return ((UnionVendorCheck)et).getTypeOfNumericInteger(); }
-        public void write(Entity et, Object vl) { ((UnionVendorCheck)et).setTypeOfNumericInteger(cti(vl)); }
-    }
-    public static class EpgTypeOfNumericBigint implements PropertyGateway {
-        public Object read(Entity et) { return ((UnionVendorCheck)et).getTypeOfNumericBigint(); }
-        public void write(Entity et, Object vl) { ((UnionVendorCheck)et).setTypeOfNumericBigint(ctl(vl)); }
-    }
-    public class EpgTypeOfBoolean implements PropertyGateway {
-        public Object read(Entity et) { return ((UnionVendorCheck)et).getTypeOfBoolean(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getVendorCheckId(), (et, vl) -> ((UnionVendorCheck)et).setVendorCheckId(ctl(vl)), "vendorCheckId");
+        setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfText(), (et, vl) -> ((UnionVendorCheck)et).setTypeOfText((String)vl), "typeOfText");
+        setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfNumericDecimal(), (et, vl) -> ((UnionVendorCheck)et).setTypeOfNumericDecimal(ctb(vl)), "typeOfNumericDecimal");
+        setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfNumericInteger(), (et, vl) -> ((UnionVendorCheck)et).setTypeOfNumericInteger(cti(vl)), "typeOfNumericInteger");
+        setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfNumericBigint(), (et, vl) -> ((UnionVendorCheck)et).setTypeOfNumericBigint(ctl(vl)), "typeOfNumericBigint");
+        setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfBoolean(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBoolean();
             ccls(col, vl);
             CDef.BooleanFlg cls = (CDef.BooleanFlg)gcls(col, vl);
@@ -92,11 +67,8 @@ public class UnionVendorCheckDbm extends AbstractDBMeta {
             } else {
                 ((UnionVendorCheck)et).mynativeMappingTypeOfBoolean(ctn(vl, Integer.class));
             }
-        }
-    }
-    public static class EpgTypeOfBlob implements PropertyGateway {
-        public Object read(Entity et) { return ((UnionVendorCheck)et).getTypeOfBlob(); }
-        public void write(Entity et, Object vl) { ((UnionVendorCheck)et).setTypeOfBlob((byte[])vl); }
+        }, "typeOfBoolean");
+        setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfBlob(), (et, vl) -> ((UnionVendorCheck)et).setTypeOfBlob((byte[])vl), "typeOfBlob");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

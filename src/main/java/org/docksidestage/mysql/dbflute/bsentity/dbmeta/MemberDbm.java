@@ -53,33 +53,10 @@ public class MemberDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgMemberName(), "memberName");
-        setupEpg(_epgMap, new EpgMemberAccount(), "memberAccount");
-        setupEpg(_epgMap, new EpgMemberStatusCode(), "memberStatusCode");
-        setupEpg(_epgMap, new EpgFormalizedDatetime(), "formalizedDatetime");
-        setupEpg(_epgMap, new EpgBirthdate(), "birthdate");
-        setupEpg(_epgMap, new EpgRegisterDatetime(), "registerDatetime");
-        setupEpg(_epgMap, new EpgRegisterUser(), "registerUser");
-        setupEpg(_epgMap, new EpgUpdateDatetime(), "updateDatetime");
-        setupEpg(_epgMap, new EpgUpdateUser(), "updateUser");
-        setupEpg(_epgMap, new EpgVersionNo(), "versionNo");
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberId(cti(vl)); }
-    }
-    public static class EpgMemberName implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberName(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberName((String)vl); }
-    }
-    public static class EpgMemberAccount implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberAccount(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberAccount((String)vl); }
-    }
-    public class EpgMemberStatusCode implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberStatusCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((Member)et).getMemberId(), (et, vl) -> ((Member)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((Member)et).getMemberName(), (et, vl) -> ((Member)et).setMemberName((String)vl), "memberName");
+        setupEpg(_epgMap, et -> ((Member)et).getMemberAccount(), (et, vl) -> ((Member)et).setMemberAccount((String)vl), "memberAccount");
+        setupEpg(_epgMap, et -> ((Member)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             ccls(col, vl);
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
@@ -88,35 +65,14 @@ public class MemberDbm extends AbstractDBMeta {
             } else {
                 ((Member)et).mynativeMappingMemberStatusCode((String)vl);
             }
-        }
-    }
-    public static class EpgFormalizedDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getFormalizedDatetime(); }
-        public void write(Entity et, Object vl) { ((Member)et).setFormalizedDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgBirthdate implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getBirthdate(); }
-        public void write(Entity et, Object vl) { ((Member)et).setBirthdate((java.util.Date)vl); }
-    }
-    public static class EpgRegisterDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getRegisterDatetime(); }
-        public void write(Entity et, Object vl) { ((Member)et).setRegisterDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgRegisterUser implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getRegisterUser(); }
-        public void write(Entity et, Object vl) { ((Member)et).setRegisterUser((String)vl); }
-    }
-    public static class EpgUpdateDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getUpdateDatetime(); }
-        public void write(Entity et, Object vl) { ((Member)et).setUpdateDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgUpdateUser implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getUpdateUser(); }
-        public void write(Entity et, Object vl) { ((Member)et).setUpdateUser((String)vl); }
-    }
-    public static class EpgVersionNo implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getVersionNo(); }
-        public void write(Entity et, Object vl) { ((Member)et).setVersionNo(ctl(vl)); }
+        }, "memberStatusCode");
+        setupEpg(_epgMap, et -> ((Member)et).getFormalizedDatetime(), (et, vl) -> ((Member)et).setFormalizedDatetime((java.sql.Timestamp)vl), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getBirthdate(), (et, vl) -> ((Member)et).setBirthdate((java.util.Date)vl), "birthdate");
+        setupEpg(_epgMap, et -> ((Member)et).getRegisterDatetime(), (et, vl) -> ((Member)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getRegisterUser(), (et, vl) -> ((Member)et).setRegisterUser((String)vl), "registerUser");
+        setupEpg(_epgMap, et -> ((Member)et).getUpdateDatetime(), (et, vl) -> ((Member)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getUpdateUser(), (et, vl) -> ((Member)et).setUpdateUser((String)vl), "updateUser");
+        setupEpg(_epgMap, et -> ((Member)et).getVersionNo(), (et, vl) -> ((Member)et).setVersionNo(ctl(vl)), "versionNo");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -125,144 +81,35 @@ public class MemberDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgMemberStatus(), "memberStatus");
-        setupEfpg(_efpgMap, new EfpgMemberAddressAsValid(), "memberAddressAsValid");
-        setupEfpg(_efpgMap, new EfpgMemberAddressAsValidBefore(), "memberAddressAsValidBefore");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsLoginStatus(), "memberLoginAsLoginStatus");
-        setupEfpg(_efpgMap, new EfpgMemberAddressAsIfComment(), "memberAddressAsIfComment");
-        setupEfpg(_efpgMap, new EfpgMemberAddressAsOnlyOneDate(), "memberAddressAsOnlyOneDate");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsLocalBindOverTest(), "memberLoginAsLocalBindOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsLocalForeignOverTest(), "memberLoginAsLocalForeignOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsForeignForeignBindOverTest(), "memberLoginAsForeignForeignBindOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsForeignForeignEachOverTest(), "memberLoginAsForeignForeignEachOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsForeignForeignOptimizedBasicOverTest(), "memberLoginAsForeignForeignOptimizedBasicOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsForeignForeignOptimizedMarkOverTest(), "memberLoginAsForeignForeignOptimizedMarkOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsForeignForeignOptimizedPartOverTest(), "memberLoginAsForeignForeignOptimizedPartOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsForeignForeignOptimizedWholeOverTest(), "memberLoginAsForeignForeignOptimizedWholeOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsForeignForeignParameterOverTest(), "memberLoginAsForeignForeignParameterOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsForeignForeignVariousOverTest(), "memberLoginAsForeignForeignVariousOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsReferrerOverTest(), "memberLoginAsReferrerOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsReferrerForeignOverTest(), "memberLoginAsReferrerForeignOverTest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsLatest(), "memberLoginAsLatest");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsOldest(), "memberLoginAsOldest");
-        setupEfpg(_efpgMap, new EfpgMemberAddressAsFormattedBasic(), "memberAddressAsFormattedBasic");
-        setupEfpg(_efpgMap, new EfpgMemberAddressAsFormattedLong(), "memberAddressAsFormattedLong");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsFormattedMany(), "memberLoginAsFormattedMany");
-        setupEfpg(_efpgMap, new EfpgMemberLoginAsEmbeddedCommentClassificationTest(), "memberLoginAsEmbeddedCommentClassificationTest");
-    }
-    public class EfpgMemberStatus implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberStatus(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberStatus((MemberStatus)vl); }
-    }
-    public class EfpgMemberAddressAsValid implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberAddressAsValid(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberAddressAsValid((MemberAddress)vl); }
-    }
-    public class EfpgMemberAddressAsValidBefore implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberAddressAsValidBefore(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberAddressAsValidBefore((MemberAddress)vl); }
-    }
-    public class EfpgMemberLoginAsLoginStatus implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsLoginStatus(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsLoginStatus((MemberLogin)vl); }
-    }
-    public class EfpgMemberAddressAsIfComment implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberAddressAsIfComment(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberAddressAsIfComment((MemberAddress)vl); }
-    }
-    public class EfpgMemberAddressAsOnlyOneDate implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberAddressAsOnlyOneDate(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberAddressAsOnlyOneDate((MemberAddress)vl); }
-    }
-    public class EfpgMemberLoginAsLocalBindOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsLocalBindOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsLocalBindOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsLocalForeignOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsLocalForeignOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsLocalForeignOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsForeignForeignBindOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsForeignForeignBindOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsForeignForeignBindOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsForeignForeignEachOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsForeignForeignEachOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsForeignForeignEachOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsForeignForeignOptimizedBasicOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsForeignForeignOptimizedBasicOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsForeignForeignOptimizedBasicOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsForeignForeignOptimizedMarkOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsForeignForeignOptimizedMarkOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsForeignForeignOptimizedMarkOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsForeignForeignOptimizedPartOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsForeignForeignOptimizedPartOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsForeignForeignOptimizedPartOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsForeignForeignOptimizedWholeOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsForeignForeignOptimizedWholeOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsForeignForeignOptimizedWholeOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsForeignForeignParameterOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsForeignForeignParameterOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsForeignForeignParameterOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsForeignForeignVariousOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsForeignForeignVariousOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsForeignForeignVariousOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsReferrerOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsReferrerOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsReferrerOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsReferrerForeignOverTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsReferrerForeignOverTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsReferrerForeignOverTest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsLatest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsLatest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsLatest((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsOldest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsOldest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsOldest((MemberLogin)vl); }
-    }
-    public class EfpgMemberAddressAsFormattedBasic implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberAddressAsFormattedBasic(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberAddressAsFormattedBasic((MemberAddress)vl); }
-    }
-    public class EfpgMemberAddressAsFormattedLong implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberAddressAsFormattedLong(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberAddressAsFormattedLong((MemberAddress)vl); }
-    }
-    public class EfpgMemberLoginAsFormattedMany implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsFormattedMany(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsFormattedMany((MemberLogin)vl); }
-    }
-    public class EfpgMemberLoginAsEmbeddedCommentClassificationTest implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberLoginAsEmbeddedCommentClassificationTest(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberLoginAsEmbeddedCommentClassificationTest((MemberLogin)vl); }
-    }
-    {
-        setupEfpg(_efpgMap, new EfpgMemberSecurityAsOne(), "memberSecurityAsOne");
-        setupEfpg(_efpgMap, new EfpgMemberServiceAsOne(), "memberServiceAsOne");
-        setupEfpg(_efpgMap, new EfpgMemberWithdrawalAsOne(), "memberWithdrawalAsOne");
-    }
-    public class EfpgMemberSecurityAsOne implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberSecurityAsOne(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberSecurityAsOne((MemberSecurity)vl); }
-    }
-    public class EfpgMemberServiceAsOne implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberServiceAsOne(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberServiceAsOne((MemberService)vl); }
-    }
-    public class EfpgMemberWithdrawalAsOne implements PropertyGateway {
-        public Object read(Entity et) { return ((Member)et).getMemberWithdrawalAsOne(); }
-        public void write(Entity et, Object vl) { ((Member)et).setMemberWithdrawalAsOne((MemberWithdrawal)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberStatus(), (et, vl) -> ((Member)et).setMemberStatus((MemberStatus)vl), "memberStatus");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsValid(), (et, vl) -> ((Member)et).setMemberAddressAsValid((MemberAddress)vl), "memberAddressAsValid");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsValidBefore(), (et, vl) -> ((Member)et).setMemberAddressAsValidBefore((MemberAddress)vl), "memberAddressAsValidBefore");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLoginStatus(), (et, vl) -> ((Member)et).setMemberLoginAsLoginStatus((MemberLogin)vl), "memberLoginAsLoginStatus");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsIfComment(), (et, vl) -> ((Member)et).setMemberAddressAsIfComment((MemberAddress)vl), "memberAddressAsIfComment");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsOnlyOneDate(), (et, vl) -> ((Member)et).setMemberAddressAsOnlyOneDate((MemberAddress)vl), "memberAddressAsOnlyOneDate");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLocalBindOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsLocalBindOverTest((MemberLogin)vl), "memberLoginAsLocalBindOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLocalForeignOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsLocalForeignOverTest((MemberLogin)vl), "memberLoginAsLocalForeignOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsForeignForeignBindOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsForeignForeignBindOverTest((MemberLogin)vl), "memberLoginAsForeignForeignBindOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsForeignForeignEachOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsForeignForeignEachOverTest((MemberLogin)vl), "memberLoginAsForeignForeignEachOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsForeignForeignOptimizedBasicOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsForeignForeignOptimizedBasicOverTest((MemberLogin)vl), "memberLoginAsForeignForeignOptimizedBasicOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsForeignForeignOptimizedMarkOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsForeignForeignOptimizedMarkOverTest((MemberLogin)vl), "memberLoginAsForeignForeignOptimizedMarkOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsForeignForeignOptimizedPartOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsForeignForeignOptimizedPartOverTest((MemberLogin)vl), "memberLoginAsForeignForeignOptimizedPartOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsForeignForeignOptimizedWholeOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsForeignForeignOptimizedWholeOverTest((MemberLogin)vl), "memberLoginAsForeignForeignOptimizedWholeOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsForeignForeignParameterOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsForeignForeignParameterOverTest((MemberLogin)vl), "memberLoginAsForeignForeignParameterOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsForeignForeignVariousOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsForeignForeignVariousOverTest((MemberLogin)vl), "memberLoginAsForeignForeignVariousOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsReferrerOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsReferrerOverTest((MemberLogin)vl), "memberLoginAsReferrerOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsReferrerForeignOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsReferrerForeignOverTest((MemberLogin)vl), "memberLoginAsReferrerForeignOverTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLatest(), (et, vl) -> ((Member)et).setMemberLoginAsLatest((MemberLogin)vl), "memberLoginAsLatest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsOldest(), (et, vl) -> ((Member)et).setMemberLoginAsOldest((MemberLogin)vl), "memberLoginAsOldest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsFormattedBasic(), (et, vl) -> ((Member)et).setMemberAddressAsFormattedBasic((MemberAddress)vl), "memberAddressAsFormattedBasic");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsFormattedLong(), (et, vl) -> ((Member)et).setMemberAddressAsFormattedLong((MemberAddress)vl), "memberAddressAsFormattedLong");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsFormattedMany(), (et, vl) -> ((Member)et).setMemberLoginAsFormattedMany((MemberLogin)vl), "memberLoginAsFormattedMany");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsEmbeddedCommentClassificationTest(), (et, vl) -> ((Member)et).setMemberLoginAsEmbeddedCommentClassificationTest((MemberLogin)vl), "memberLoginAsEmbeddedCommentClassificationTest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberSecurityAsOne(), (et, vl) -> ((Member)et).setMemberSecurityAsOne((MemberSecurity)vl), "memberSecurityAsOne");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberServiceAsOne(), (et, vl) -> ((Member)et).setMemberServiceAsOne((MemberService)vl), "memberServiceAsOne");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberWithdrawalAsOne(), (et, vl) -> ((Member)et).setMemberWithdrawalAsOne((MemberWithdrawal)vl), "memberWithdrawalAsOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

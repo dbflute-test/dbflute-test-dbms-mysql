@@ -53,21 +53,9 @@ public class WhiteVariantRelationMasterCorgeDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMasterCorgeId(), "masterCorgeId");
-        setupEpg(_epgMap, new EpgMasterCorgeName(), "masterCorgeName");
-        setupEpg(_epgMap, new EpgCorgeTypeCode(), "corgeTypeCode");
-    }
-    public static class EpgMasterCorgeId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationMasterCorge)et).getMasterCorgeId(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationMasterCorge)et).setMasterCorgeId(ctl(vl)); }
-    }
-    public static class EpgMasterCorgeName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationMasterCorge)et).getMasterCorgeName(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationMasterCorge)et).setMasterCorgeName((String)vl); }
-    }
-    public class EpgCorgeTypeCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationMasterCorge)et).getCorgeTypeCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getMasterCorgeId(), (et, vl) -> ((WhiteVariantRelationMasterCorge)et).setMasterCorgeId(ctl(vl)), "masterCorgeId");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getMasterCorgeName(), (et, vl) -> ((WhiteVariantRelationMasterCorge)et).setMasterCorgeName((String)vl), "masterCorgeName");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getCorgeTypeCode(), (et, vl) -> {
             ColumnInfo col = columnCorgeTypeCode();
             ccls(col, vl);
             CDef.VariantRelationQuxType cls = (CDef.VariantRelationQuxType)gcls(col, vl);
@@ -76,7 +64,7 @@ public class WhiteVariantRelationMasterCorgeDbm extends AbstractDBMeta {
             } else {
                 ((WhiteVariantRelationMasterCorge)et).mynativeMappingCorgeTypeCode((String)vl);
             }
-        }
+        }, "corgeTypeCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

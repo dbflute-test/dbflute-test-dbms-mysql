@@ -53,31 +53,11 @@ public class WhitePointTypeMappingDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgPointTypeMappingId(), "pointTypeMappingId");
-        setupEpg(_epgMap, new EpgPointTypeMappingMemberName(), "pointTypeMappingMemberName");
-        setupEpg(_epgMap, new EpgPointTypeMappingPriceCount(), "pointTypeMappingPriceCount");
-        setupEpg(_epgMap, new EpgPointTypeMappingSaleDate(), "pointTypeMappingSaleDate");
-        setupEpg(_epgMap, new EpgPointTypeMappingWantedDatetime(), "pointTypeMappingWantedDatetime");
-    }
-    public static class EpgPointTypeMappingId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePointTypeMapping)et).getPointTypeMappingId(); }
-        public void write(Entity et, Object vl) { ((WhitePointTypeMapping)et).setPointTypeMappingId(ctl(vl)); }
-    }
-    public static class EpgPointTypeMappingMemberName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePointTypeMapping)et).getPointTypeMappingMemberName(); }
-        public void write(Entity et, Object vl) { ((WhitePointTypeMapping)et).setPointTypeMappingMemberName((org.docksidestage.mysql.mytype.MyMemberName)vl); }
-    }
-    public static class EpgPointTypeMappingPriceCount implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePointTypeMapping)et).getPointTypeMappingPriceCount(); }
-        public void write(Entity et, Object vl) { ((WhitePointTypeMapping)et).setPointTypeMappingPriceCount((org.docksidestage.mysql.mytype.MyPriceCount)vl); }
-    }
-    public static class EpgPointTypeMappingSaleDate implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePointTypeMapping)et).getPointTypeMappingSaleDate(); }
-        public void write(Entity et, Object vl) { ((WhitePointTypeMapping)et).setPointTypeMappingSaleDate((org.docksidestage.mysql.mytype.MySaleDate)vl); }
-    }
-    public static class EpgPointTypeMappingWantedDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePointTypeMapping)et).getPointTypeMappingWantedDatetime(); }
-        public void write(Entity et, Object vl) { ((WhitePointTypeMapping)et).setPointTypeMappingWantedDatetime((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingId(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingId(ctl(vl)), "pointTypeMappingId");
+        setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingMemberName(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingMemberName((org.docksidestage.mysql.mytype.MyMemberName)vl), "pointTypeMappingMemberName");
+        setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingPriceCount(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingPriceCount((org.docksidestage.mysql.mytype.MyPriceCount)vl), "pointTypeMappingPriceCount");
+        setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingSaleDate(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingSaleDate((org.docksidestage.mysql.mytype.MySaleDate)vl), "pointTypeMappingSaleDate");
+        setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingWantedDatetime(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingWantedDatetime((java.util.Date)vl), "pointTypeMappingWantedDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

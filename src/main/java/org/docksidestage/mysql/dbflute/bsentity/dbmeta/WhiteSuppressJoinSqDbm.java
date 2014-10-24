@@ -53,16 +53,8 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgSuppressJoinSqId(), "suppressJoinSqId");
-        setupEpg(_epgMap, new EpgSuppressJoinSqName(), "suppressJoinSqName");
-    }
-    public static class EpgSuppressJoinSqId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSq)et).getSuppressJoinSqId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSq)et).setSuppressJoinSqId(cti(vl)); }
-    }
-    public static class EpgSuppressJoinSqName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSq)et).getSuppressJoinSqName(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSq)et).setSuppressJoinSqName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSq)et).getSuppressJoinSqId(), (et, vl) -> ((WhiteSuppressJoinSq)et).setSuppressJoinSqId(cti(vl)), "suppressJoinSqId");
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSq)et).getSuppressJoinSqName(), (et, vl) -> ((WhiteSuppressJoinSq)et).setSuppressJoinSqName((String)vl), "suppressJoinSqName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -71,12 +63,9 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteSuppressJoinSqOneAsOne(), "whiteSuppressJoinSqOneAsOne");
-    }
-    public class EfpgWhiteSuppressJoinSqOneAsOne implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSq)et).getWhiteSuppressJoinSqOneAsOne(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSq)et).setWhiteSuppressJoinSqOneAsOne((WhiteSuppressJoinSqOne)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSq)et).getWhiteSuppressJoinSqOneAsOne(), (et, vl) -> ((WhiteSuppressJoinSq)et).setWhiteSuppressJoinSqOneAsOne((WhiteSuppressJoinSqOne)vl), "whiteSuppressJoinSqOneAsOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

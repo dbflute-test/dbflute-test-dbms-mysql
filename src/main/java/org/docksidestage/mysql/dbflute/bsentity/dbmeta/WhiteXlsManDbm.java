@@ -53,21 +53,9 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgXlsManId(), "xlsManId");
-        setupEpg(_epgMap, new EpgStringConverted(), "stringConverted");
-        setupEpg(_epgMap, new EpgTimestampConverted(), "timestampConverted");
-    }
-    public static class EpgXlsManId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteXlsMan)et).getXlsManId(); }
-        public void write(Entity et, Object vl) { ((WhiteXlsMan)et).setXlsManId(ctl(vl)); }
-    }
-    public static class EpgStringConverted implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteXlsMan)et).getStringConverted(); }
-        public void write(Entity et, Object vl) { ((WhiteXlsMan)et).setStringConverted((String)vl); }
-    }
-    public static class EpgTimestampConverted implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteXlsMan)et).getTimestampConverted(); }
-        public void write(Entity et, Object vl) { ((WhiteXlsMan)et).setTimestampConverted((java.sql.Timestamp)vl); }
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getXlsManId(), (et, vl) -> ((WhiteXlsMan)et).setXlsManId(ctl(vl)), "xlsManId");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getStringConverted(), (et, vl) -> ((WhiteXlsMan)et).setStringConverted((String)vl), "stringConverted");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampConverted(), (et, vl) -> ((WhiteXlsMan)et).setTimestampConverted((java.sql.Timestamp)vl), "timestampConverted");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

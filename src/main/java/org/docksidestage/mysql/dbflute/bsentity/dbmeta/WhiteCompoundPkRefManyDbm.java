@@ -53,41 +53,13 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMultipleFirstId(), "multipleFirstId");
-        setupEpg(_epgMap, new EpgMultipleSecondId(), "multipleSecondId");
-        setupEpg(_epgMap, new EpgRefManyFirstId(), "refManyFirstId");
-        setupEpg(_epgMap, new EpgRefManySecondId(), "refManySecondId");
-        setupEpg(_epgMap, new EpgRefManyCode(), "refManyCode");
-        setupEpg(_epgMap, new EpgRefManyName(), "refManyName");
-        setupEpg(_epgMap, new EpgRefManyDatetime(), "refManyDatetime");
-    }
-    public static class EpgMultipleFirstId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefMany)et).getMultipleFirstId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefMany)et).setMultipleFirstId(cti(vl)); }
-    }
-    public static class EpgMultipleSecondId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefMany)et).getMultipleSecondId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefMany)et).setMultipleSecondId(cti(vl)); }
-    }
-    public static class EpgRefManyFirstId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefMany)et).getRefManyFirstId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefMany)et).setRefManyFirstId(cti(vl)); }
-    }
-    public static class EpgRefManySecondId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefMany)et).getRefManySecondId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefMany)et).setRefManySecondId(cti(vl)); }
-    }
-    public static class EpgRefManyCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefMany)et).getRefManyCode(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefMany)et).setRefManyCode((String)vl); }
-    }
-    public static class EpgRefManyName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefMany)et).getRefManyName(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefMany)et).setRefManyName((String)vl); }
-    }
-    public static class EpgRefManyDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefMany)et).getRefManyDatetime(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefMany)et).setRefManyDatetime((java.sql.Timestamp)vl); }
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getMultipleFirstId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setMultipleFirstId(cti(vl)), "multipleFirstId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getMultipleSecondId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setMultipleSecondId(cti(vl)), "multipleSecondId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyFirstId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyFirstId(cti(vl)), "refManyFirstId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManySecondId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManySecondId(cti(vl)), "refManySecondId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyCode(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyCode((String)vl), "refManyCode");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyName(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyName((String)vl), "refManyName");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyDatetime(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyDatetime((java.sql.Timestamp)vl), "refManyDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -96,12 +68,9 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteCompoundPkToPK(), "whiteCompoundPkToPK");
-    }
-    public class EfpgWhiteCompoundPkToPK implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPkRefMany)et).getWhiteCompoundPkToPK(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPkRefMany)et).setWhiteCompoundPkToPK((WhiteCompoundPk)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRefMany)et).getWhiteCompoundPkToPK(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setWhiteCompoundPkToPK((WhiteCompoundPk)vl), "whiteCompoundPkToPK");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

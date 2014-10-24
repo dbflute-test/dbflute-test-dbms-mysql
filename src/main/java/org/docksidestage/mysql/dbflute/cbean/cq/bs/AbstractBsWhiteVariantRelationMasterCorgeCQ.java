@@ -557,9 +557,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     public void xsmyselfDerive(String fn, SubQuery<WhiteVariantRelationMasterCorgeCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteVariantRelationMasterCorgeCB cb = new WhiteVariantRelationMasterCorgeCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "MASTER_CORGE_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "MASTER_CORGE_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteVariantRelationMasterCorgeCQ sq);
@@ -593,8 +591,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     public void myselfExists(SubQuery<WhiteVariantRelationMasterCorgeCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationMasterCorgeCB cb = new WhiteVariantRelationMasterCorgeCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteVariantRelationMasterCorgeCQ sq);

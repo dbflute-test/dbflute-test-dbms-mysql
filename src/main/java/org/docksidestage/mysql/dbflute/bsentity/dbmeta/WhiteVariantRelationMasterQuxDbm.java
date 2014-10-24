@@ -53,21 +53,9 @@ public class WhiteVariantRelationMasterQuxDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMasterQuxId(), "masterQuxId");
-        setupEpg(_epgMap, new EpgMasterQuxName(), "masterQuxName");
-        setupEpg(_epgMap, new EpgQuxTypeCode(), "quxTypeCode");
-    }
-    public static class EpgMasterQuxId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationMasterQux)et).getMasterQuxId(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationMasterQux)et).setMasterQuxId(ctl(vl)); }
-    }
-    public static class EpgMasterQuxName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationMasterQux)et).getMasterQuxName(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationMasterQux)et).setMasterQuxName((String)vl); }
-    }
-    public class EpgQuxTypeCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationMasterQux)et).getQuxTypeCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterQux)et).getMasterQuxId(), (et, vl) -> ((WhiteVariantRelationMasterQux)et).setMasterQuxId(ctl(vl)), "masterQuxId");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterQux)et).getMasterQuxName(), (et, vl) -> ((WhiteVariantRelationMasterQux)et).setMasterQuxName((String)vl), "masterQuxName");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterQux)et).getQuxTypeCode(), (et, vl) -> {
             ColumnInfo col = columnQuxTypeCode();
             ccls(col, vl);
             CDef.VariantRelationQuxType cls = (CDef.VariantRelationQuxType)gcls(col, vl);
@@ -76,7 +64,7 @@ public class WhiteVariantRelationMasterQuxDbm extends AbstractDBMeta {
             } else {
                 ((WhiteVariantRelationMasterQux)et).mynativeMappingQuxTypeCode((String)vl);
             }
-        }
+        }, "quxTypeCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -53,36 +53,12 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgConstraintNameAutoRefId(), "constraintNameAutoRefId");
-        setupEpg(_epgMap, new EpgConstraintNameAutoFooId(), "constraintNameAutoFooId");
-        setupEpg(_epgMap, new EpgConstraintNameAutoBarId(), "constraintNameAutoBarId");
-        setupEpg(_epgMap, new EpgConstraintNameAutoQuxId(), "constraintNameAutoQuxId");
-        setupEpg(_epgMap, new EpgConstraintNameAutoCorgeId(), "constraintNameAutoCorgeId");
-        setupEpg(_epgMap, new EpgConstraintNameAutoUnique(), "constraintNameAutoUnique");
-    }
-    public static class EpgConstraintNameAutoRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getConstraintNameAutoRefId(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setConstraintNameAutoRefId(ctl(vl)); }
-    }
-    public static class EpgConstraintNameAutoFooId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getConstraintNameAutoFooId(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setConstraintNameAutoFooId(ctl(vl)); }
-    }
-    public static class EpgConstraintNameAutoBarId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getConstraintNameAutoBarId(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setConstraintNameAutoBarId(ctl(vl)); }
-    }
-    public static class EpgConstraintNameAutoQuxId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getConstraintNameAutoQuxId(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setConstraintNameAutoQuxId(ctl(vl)); }
-    }
-    public static class EpgConstraintNameAutoCorgeId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getConstraintNameAutoCorgeId(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setConstraintNameAutoCorgeId(ctl(vl)); }
-    }
-    public static class EpgConstraintNameAutoUnique implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getConstraintNameAutoUnique(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setConstraintNameAutoUnique((String)vl); }
+        setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoRefId(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoRefId(ctl(vl)), "constraintNameAutoRefId");
+        setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoFooId(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoFooId(ctl(vl)), "constraintNameAutoFooId");
+        setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoBarId(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoBarId(ctl(vl)), "constraintNameAutoBarId");
+        setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoQuxId(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoQuxId(ctl(vl)), "constraintNameAutoQuxId");
+        setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoCorgeId(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoCorgeId(ctl(vl)), "constraintNameAutoCorgeId");
+        setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoUnique(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoUnique((String)vl), "constraintNameAutoUnique");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -91,22 +67,11 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgVendorConstraintNameAutoBar(), "vendorConstraintNameAutoBar");
-        setupEfpg(_efpgMap, new EfpgVendorConstraintNameAutoFoo(), "vendorConstraintNameAutoFoo");
-        setupEfpg(_efpgMap, new EfpgVendorConstraintNameAutoQux(), "vendorConstraintNameAutoQux");
-    }
-    public class EfpgVendorConstraintNameAutoBar implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoBar(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoBar((VendorConstraintNameAutoBar)vl); }
-    }
-    public class EfpgVendorConstraintNameAutoFoo implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoFoo(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoFoo((VendorConstraintNameAutoFoo)vl); }
-    }
-    public class EfpgVendorConstraintNameAutoQux implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoQux(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoQux((VendorConstraintNameAutoQux)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoBar(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoBar((VendorConstraintNameAutoBar)vl), "vendorConstraintNameAutoBar");
+        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoFoo(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoFoo((VendorConstraintNameAutoFoo)vl), "vendorConstraintNameAutoFoo");
+        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoQux(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoQux((VendorConstraintNameAutoQux)vl), "vendorConstraintNameAutoQux");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

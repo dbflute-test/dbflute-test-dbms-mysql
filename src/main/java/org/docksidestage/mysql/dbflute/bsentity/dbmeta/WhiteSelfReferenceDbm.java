@@ -53,21 +53,9 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgSelfReferenceId(), "selfReferenceId");
-        setupEpg(_epgMap, new EpgSelfReferenceName(), "selfReferenceName");
-        setupEpg(_epgMap, new EpgParentId(), "parentId");
-    }
-    public static class EpgSelfReferenceId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSelfReference)et).getSelfReferenceId(); }
-        public void write(Entity et, Object vl) { ((WhiteSelfReference)et).setSelfReferenceId(ctl(vl)); }
-    }
-    public static class EpgSelfReferenceName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSelfReference)et).getSelfReferenceName(); }
-        public void write(Entity et, Object vl) { ((WhiteSelfReference)et).setSelfReferenceName((String)vl); }
-    }
-    public static class EpgParentId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSelfReference)et).getParentId(); }
-        public void write(Entity et, Object vl) { ((WhiteSelfReference)et).setParentId(ctl(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getSelfReferenceId(), (et, vl) -> ((WhiteSelfReference)et).setSelfReferenceId(ctl(vl)), "selfReferenceId");
+        setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getSelfReferenceName(), (et, vl) -> ((WhiteSelfReference)et).setSelfReferenceName((String)vl), "selfReferenceName");
+        setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getParentId(), (et, vl) -> ((WhiteSelfReference)et).setParentId(ctl(vl)), "parentId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,19 +64,10 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteSelfReferenceSelf(), "whiteSelfReferenceSelf");
-    }
-    public class EfpgWhiteSelfReferenceSelf implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSelfReference)et).getWhiteSelfReferenceSelf(); }
-        public void write(Entity et, Object vl) { ((WhiteSelfReference)et).setWhiteSelfReferenceSelf((WhiteSelfReference)vl); }
-    }
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteSelfReferenceRefOneAsOne(), "whiteSelfReferenceRefOneAsOne");
-    }
-    public class EfpgWhiteSelfReferenceRefOneAsOne implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSelfReference)et).getWhiteSelfReferenceRefOneAsOne(); }
-        public void write(Entity et, Object vl) { ((WhiteSelfReference)et).setWhiteSelfReferenceRefOneAsOne((WhiteSelfReferenceRefOne)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteSelfReference)et).getWhiteSelfReferenceSelf(), (et, vl) -> ((WhiteSelfReference)et).setWhiteSelfReferenceSelf((WhiteSelfReference)vl), "whiteSelfReferenceSelf");
+        setupEfpg(_efpgMap, et -> ((WhiteSelfReference)et).getWhiteSelfReferenceRefOneAsOne(), (et, vl) -> ((WhiteSelfReference)et).setWhiteSelfReferenceRefOneAsOne((WhiteSelfReferenceRefOne)vl), "whiteSelfReferenceRefOneAsOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

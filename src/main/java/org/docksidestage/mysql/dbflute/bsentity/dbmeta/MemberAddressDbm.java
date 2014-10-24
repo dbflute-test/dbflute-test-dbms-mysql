@@ -53,41 +53,12 @@ public class MemberAddressDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberAddressId(), "memberAddressId");
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgValidBeginDate(), "validBeginDate");
-        setupEpg(_epgMap, new EpgValidEndDate(), "validEndDate");
-        setupEpg(_epgMap, new EpgAddress(), "address");
-        setupEpg(_epgMap, new EpgRegionId(), "regionId");
-        setupEpg(_epgMap, new EpgRegisterDatetime(), "registerDatetime");
-        setupEpg(_epgMap, new EpgRegisterUser(), "registerUser");
-        setupEpg(_epgMap, new EpgUpdateDatetime(), "updateDatetime");
-        setupEpg(_epgMap, new EpgUpdateUser(), "updateUser");
-        setupEpg(_epgMap, new EpgVersionNo(), "versionNo");
-    }
-    public static class EpgMemberAddressId implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getMemberAddressId(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setMemberAddressId(cti(vl)); }
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setMemberId(cti(vl)); }
-    }
-    public static class EpgValidBeginDate implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getValidBeginDate(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setValidBeginDate((java.util.Date)vl); }
-    }
-    public static class EpgValidEndDate implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getValidEndDate(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setValidEndDate((java.util.Date)vl); }
-    }
-    public static class EpgAddress implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getAddress(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setAddress((String)vl); }
-    }
-    public class EpgRegionId implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getRegionId(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getMemberAddressId(), (et, vl) -> ((MemberAddress)et).setMemberAddressId(cti(vl)), "memberAddressId");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getMemberId(), (et, vl) -> ((MemberAddress)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getValidBeginDate(), (et, vl) -> ((MemberAddress)et).setValidBeginDate((java.util.Date)vl), "validBeginDate");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getValidEndDate(), (et, vl) -> ((MemberAddress)et).setValidEndDate((java.util.Date)vl), "validEndDate");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getAddress(), (et, vl) -> ((MemberAddress)et).setAddress((String)vl), "address");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getRegionId(), (et, vl) -> {
             ColumnInfo col = columnRegionId();
             ccls(col, vl);
             CDef.Region cls = (CDef.Region)gcls(col, vl);
@@ -96,27 +67,12 @@ public class MemberAddressDbm extends AbstractDBMeta {
             } else {
                 ((MemberAddress)et).mynativeMappingRegionId(ctn(vl, Integer.class));
             }
-        }
-    }
-    public static class EpgRegisterDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getRegisterDatetime(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setRegisterDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgRegisterUser implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getRegisterUser(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setRegisterUser((String)vl); }
-    }
-    public static class EpgUpdateDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getUpdateDatetime(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setUpdateDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgUpdateUser implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getUpdateUser(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setUpdateUser((String)vl); }
-    }
-    public static class EpgVersionNo implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getVersionNo(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setVersionNo(ctl(vl)); }
+        }, "regionId");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getRegisterDatetime(), (et, vl) -> ((MemberAddress)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getRegisterUser(), (et, vl) -> ((MemberAddress)et).setRegisterUser((String)vl), "registerUser");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getUpdateDatetime(), (et, vl) -> ((MemberAddress)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getUpdateUser(), (et, vl) -> ((MemberAddress)et).setUpdateUser((String)vl), "updateUser");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getVersionNo(), (et, vl) -> ((MemberAddress)et).setVersionNo(ctl(vl)), "versionNo");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -125,17 +81,10 @@ public class MemberAddressDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgMember(), "member");
-        setupEfpg(_efpgMap, new EfpgRegion(), "region");
-    }
-    public class EfpgMember implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getMember(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setMember((Member)vl); }
-    }
-    public class EfpgRegion implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberAddress)et).getRegion(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setRegion((Region)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((MemberAddress)et).getMember(), (et, vl) -> ((MemberAddress)et).setMember((Member)vl), "member");
+        setupEfpg(_efpgMap, et -> ((MemberAddress)et).getRegion(), (et, vl) -> ((MemberAddress)et).setRegion((Region)vl), "region");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

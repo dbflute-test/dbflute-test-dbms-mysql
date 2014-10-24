@@ -176,8 +176,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     public void existsWhiteImplicitConvIntegerList(SubQuery<WhiteImplicitConvIntegerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepImplicitConvNumericId_ExistsReferrer_WhiteImplicitConvIntegerList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepImplicitConvNumericId_ExistsReferrer_WhiteImplicitConvIntegerList(cb.query());
         registerExistsReferrer(cb.query(), "IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", pp, "whiteImplicitConvIntegerList");
     }
     public abstract String keepImplicitConvNumericId_ExistsReferrer_WhiteImplicitConvIntegerList(WhiteImplicitConvIntegerCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     public void existsWhiteImplicitConvStringList(SubQuery<WhiteImplicitConvStringCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvStringCB cb = new WhiteImplicitConvStringCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepImplicitConvNumericId_ExistsReferrer_WhiteImplicitConvStringList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepImplicitConvNumericId_ExistsReferrer_WhiteImplicitConvStringList(cb.query());
         registerExistsReferrer(cb.query(), "IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", pp, "whiteImplicitConvStringList");
     }
     public abstract String keepImplicitConvNumericId_ExistsReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq);
@@ -216,8 +214,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     public void notExistsWhiteImplicitConvIntegerList(SubQuery<WhiteImplicitConvIntegerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepImplicitConvNumericId_NotExistsReferrer_WhiteImplicitConvIntegerList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepImplicitConvNumericId_NotExistsReferrer_WhiteImplicitConvIntegerList(cb.query());
         registerNotExistsReferrer(cb.query(), "IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", pp, "whiteImplicitConvIntegerList");
     }
     public abstract String keepImplicitConvNumericId_NotExistsReferrer_WhiteImplicitConvIntegerList(WhiteImplicitConvIntegerCQ sq);
@@ -236,8 +233,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     public void notExistsWhiteImplicitConvStringList(SubQuery<WhiteImplicitConvStringCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvStringCB cb = new WhiteImplicitConvStringCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepImplicitConvNumericId_NotExistsReferrer_WhiteImplicitConvStringList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepImplicitConvNumericId_NotExistsReferrer_WhiteImplicitConvStringList(cb.query());
         registerNotExistsReferrer(cb.query(), "IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", pp, "whiteImplicitConvStringList");
     }
     public abstract String keepImplicitConvNumericId_NotExistsReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq);
@@ -245,8 +241,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     public void xsderiveWhiteImplicitConvIntegerList(String fn, SubQuery<WhiteImplicitConvIntegerCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepImplicitConvNumericId_SpecifyDerivedReferrer_WhiteImplicitConvIntegerList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepImplicitConvNumericId_SpecifyDerivedReferrer_WhiteImplicitConvIntegerList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", pp, "whiteImplicitConvIntegerList", al, op);
     }
     public abstract String keepImplicitConvNumericId_SpecifyDerivedReferrer_WhiteImplicitConvIntegerList(WhiteImplicitConvIntegerCQ sq);
@@ -254,8 +249,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     public void xsderiveWhiteImplicitConvStringList(String fn, SubQuery<WhiteImplicitConvStringCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteImplicitConvStringCB cb = new WhiteImplicitConvStringCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepImplicitConvNumericId_SpecifyDerivedReferrer_WhiteImplicitConvStringList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepImplicitConvNumericId_SpecifyDerivedReferrer_WhiteImplicitConvStringList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", pp, "whiteImplicitConvStringList", al, op);
     }
     public abstract String keepImplicitConvNumericId_SpecifyDerivedReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq);
@@ -276,17 +270,12 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
         return xcreateQDRFunctionWhiteImplicitConvIntegerList();
     }
     protected HpQDRFunction<WhiteImplicitConvIntegerCB> xcreateQDRFunctionWhiteImplicitConvIntegerList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteImplicitConvIntegerCB>() {
-            public void setup(String fn, SubQuery<WhiteImplicitConvIntegerCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteImplicitConvIntegerList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteImplicitConvIntegerList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteImplicitConvIntegerList(String fn, SubQuery<WhiteImplicitConvIntegerCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvIntegerList(cb.query()); String prpp = keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvIntegerListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvIntegerList(cb.query()); String prpp = keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvIntegerListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", sqpp, "whiteImplicitConvIntegerList", rd, vl, prpp, op);
     }
     public abstract String keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvIntegerList(WhiteImplicitConvIntegerCQ sq);
@@ -308,17 +297,12 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
         return xcreateQDRFunctionWhiteImplicitConvStringList();
     }
     protected HpQDRFunction<WhiteImplicitConvStringCB> xcreateQDRFunctionWhiteImplicitConvStringList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteImplicitConvStringCB>() {
-            public void setup(String fn, SubQuery<WhiteImplicitConvStringCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteImplicitConvStringList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteImplicitConvStringList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteImplicitConvStringList(String fn, SubQuery<WhiteImplicitConvStringCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteImplicitConvStringCB cb = new WhiteImplicitConvStringCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvStringList(cb.query()); String prpp = keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvStringListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvStringList(cb.query()); String prpp = keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvStringListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", sqpp, "whiteImplicitConvStringList", rd, vl, prpp, op);
     }
     public abstract String keepImplicitConvNumericId_QueryDerivedReferrer_WhiteImplicitConvStringList(WhiteImplicitConvStringCQ sq);
@@ -784,9 +768,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     public void xsmyselfDerive(String fn, SubQuery<WhiteImplicitConvNumericCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteImplicitConvNumericCB cb = new WhiteImplicitConvNumericCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "IMPLICIT_CONV_NUMERIC_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "IMPLICIT_CONV_NUMERIC_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteImplicitConvNumericCQ sq);
@@ -820,8 +802,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     public void myselfExists(SubQuery<WhiteImplicitConvNumericCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvNumericCB cb = new WhiteImplicitConvNumericCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteImplicitConvNumericCQ sq);

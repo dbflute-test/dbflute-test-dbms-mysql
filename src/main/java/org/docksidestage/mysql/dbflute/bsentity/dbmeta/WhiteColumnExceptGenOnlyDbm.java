@@ -53,16 +53,8 @@ public class WhiteColumnExceptGenOnlyDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgGenOnlyId(), "genOnlyId");
-        setupEpg(_epgMap, new EpgGenOnlyName(), "genOnlyName");
-    }
-    public static class EpgGenOnlyId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteColumnExceptGenOnly)et).getGenOnlyId(); }
-        public void write(Entity et, Object vl) { ((WhiteColumnExceptGenOnly)et).setGenOnlyId(ctl(vl)); }
-    }
-    public static class EpgGenOnlyName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteColumnExceptGenOnly)et).getGenOnlyName(); }
-        public void write(Entity et, Object vl) { ((WhiteColumnExceptGenOnly)et).setGenOnlyName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteColumnExceptGenOnly)et).getGenOnlyId(), (et, vl) -> ((WhiteColumnExceptGenOnly)et).setGenOnlyId(ctl(vl)), "genOnlyId");
+        setupEpg(_epgMap, et -> ((WhiteColumnExceptGenOnly)et).getGenOnlyName(), (et, vl) -> ((WhiteColumnExceptGenOnly)et).setGenOnlyName((String)vl), "genOnlyName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

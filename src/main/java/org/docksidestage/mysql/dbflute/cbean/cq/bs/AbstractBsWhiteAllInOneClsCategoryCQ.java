@@ -180,8 +180,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     public void existsWhiteAllInOneClsElementList(SubQuery<WhiteAllInOneClsElementCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepClsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepClsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList(cb.query());
         registerExistsReferrer(cb.query(), "CLS_CATEGORY_CODE", "CLS_CATEGORY_CODE", pp, "whiteAllInOneClsElementList");
     }
     public abstract String keepClsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq);
@@ -200,8 +199,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     public void notExistsWhiteAllInOneClsElementList(SubQuery<WhiteAllInOneClsElementCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList(cb.query());
         registerNotExistsReferrer(cb.query(), "CLS_CATEGORY_CODE", "CLS_CATEGORY_CODE", pp, "whiteAllInOneClsElementList");
     }
     public abstract String keepClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq);
@@ -209,8 +207,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     public void xsderiveWhiteAllInOneClsElementList(String fn, SubQuery<WhiteAllInOneClsElementCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepClsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepClsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "CLS_CATEGORY_CODE", "CLS_CATEGORY_CODE", pp, "whiteAllInOneClsElementList", al, op);
     }
     public abstract String keepClsCategoryCode_SpecifyDerivedReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq);
@@ -231,17 +228,12 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
         return xcreateQDRFunctionWhiteAllInOneClsElementList();
     }
     protected HpQDRFunction<WhiteAllInOneClsElementCB> xcreateQDRFunctionWhiteAllInOneClsElementList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteAllInOneClsElementCB>() {
-            public void setup(String fn, SubQuery<WhiteAllInOneClsElementCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteAllInOneClsElementList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteAllInOneClsElementList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteAllInOneClsElementList(String fn, SubQuery<WhiteAllInOneClsElementCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList(cb.query()); String prpp = keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList(cb.query()); String prpp = keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "CLS_CATEGORY_CODE", "CLS_CATEGORY_CODE", sqpp, "whiteAllInOneClsElementList", rd, vl, prpp, op);
     }
     public abstract String keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList(WhiteAllInOneClsElementCQ sq);
@@ -607,9 +599,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     public void xsmyselfDerive(String fn, SubQuery<WhiteAllInOneClsCategoryCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteAllInOneClsCategoryCB cb = new WhiteAllInOneClsCategoryCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "CLS_CATEGORY_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "CLS_CATEGORY_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteAllInOneClsCategoryCQ sq);
@@ -643,8 +633,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     public void myselfExists(SubQuery<WhiteAllInOneClsCategoryCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteAllInOneClsCategoryCB cb = new WhiteAllInOneClsCategoryCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteAllInOneClsCategoryCQ sq);

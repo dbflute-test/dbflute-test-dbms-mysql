@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteSplitMultipleFkBaseCQ;
 
 /**
@@ -39,13 +38,13 @@ public class WhiteSplitMultipleFkBaseNss {
      * white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
      */
     public void withWhiteSplitMultipleFkNext() {
-        _query.xdoNss(new WhiteSplitMultipleFkBaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteSplitMultipleFkNext(); }});
+        _query.xdoNss(() -> _query.queryWhiteSplitMultipleFkNext());
     }
     /**
      * With nested relation columns to select clause. <br />
      * white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
      */
     public void withWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
-        _query.xdoNss(new WhiteSplitMultipleFkBaseCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteSplitMultipleFkRefAsSplitMultipleFkTest(); }});
+        _query.xdoNss(() -> _query.queryWhiteSplitMultipleFkRefAsSplitMultipleFkTest());
     }
 }

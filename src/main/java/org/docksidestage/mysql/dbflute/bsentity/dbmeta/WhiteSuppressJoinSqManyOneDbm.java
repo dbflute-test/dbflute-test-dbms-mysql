@@ -53,21 +53,9 @@ public class WhiteSuppressJoinSqManyOneDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgManyOneId(), "manyOneId");
-        setupEpg(_epgMap, new EpgManyOneName(), "manyOneName");
-        setupEpg(_epgMap, new EpgManyOneOneId(), "manyOneOneId");
-    }
-    public static class EpgManyOneId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqManyOne)et).getManyOneId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqManyOne)et).setManyOneId(cti(vl)); }
-    }
-    public static class EpgManyOneName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqManyOne)et).getManyOneName(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqManyOne)et).setManyOneName((String)vl); }
-    }
-    public static class EpgManyOneOneId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqManyOne)et).getManyOneOneId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqManyOne)et).setManyOneOneId(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getManyOneId(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setManyOneId(cti(vl)), "manyOneId");
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getManyOneName(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setManyOneName((String)vl), "manyOneName");
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getManyOneOneId(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setManyOneOneId(cti(vl)), "manyOneOneId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,12 +64,9 @@ public class WhiteSuppressJoinSqManyOneDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteSuppressJoinSqManyOneOne(), "whiteSuppressJoinSqManyOneOne");
-    }
-    public class EfpgWhiteSuppressJoinSqManyOneOne implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqManyOne)et).getWhiteSuppressJoinSqManyOneOne(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqManyOne)et).setWhiteSuppressJoinSqManyOneOne((WhiteSuppressJoinSqManyOneOne)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getWhiteSuppressJoinSqManyOneOne(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setWhiteSuppressJoinSqManyOneOne((WhiteSuppressJoinSqManyOneOne)vl), "whiteSuppressJoinSqManyOneOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

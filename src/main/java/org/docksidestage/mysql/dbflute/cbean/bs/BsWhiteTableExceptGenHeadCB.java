@@ -279,10 +279,7 @@ public class BsWhiteTableExceptGenHeadCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteTableExceptGenHeadCQ>() {
-                public boolean has() { return true; }
-                public WhiteTableExceptGenHeadCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -329,9 +326,7 @@ public class BsWhiteTableExceptGenHeadCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteTableExceptGenHeadCB, WhiteTableExceptGenHeadCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteTableExceptGenHeadCB, WhiteTableExceptGenHeadCQ>() {
-                public void setup(String fn, SubQuery<WhiteTableExceptGenHeadCB> sq, WhiteTableExceptGenHeadCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -365,10 +360,8 @@ public class BsWhiteTableExceptGenHeadCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteTableExceptGenHeadCB> columnQuery(final SpecifyQuery<WhiteTableExceptGenHeadCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteTableExceptGenHeadCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteTableExceptGenHeadCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -474,10 +467,7 @@ public class BsWhiteTableExceptGenHeadCB extends AbstractConditionBean {
         } else {
             cb = new WhiteTableExceptGenHeadCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteTableExceptGenHeadCQ>() {
-            public boolean has() { return true; }
-            public WhiteTableExceptGenHeadCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

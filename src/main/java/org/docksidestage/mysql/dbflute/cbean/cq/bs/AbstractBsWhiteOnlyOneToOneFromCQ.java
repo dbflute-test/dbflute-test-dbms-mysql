@@ -414,9 +414,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     public void xsmyselfDerive(String fn, SubQuery<WhiteOnlyOneToOneFromCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "FROM_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "FROM_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteOnlyOneToOneFromCQ sq);
@@ -450,8 +448,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     public void myselfExists(SubQuery<WhiteOnlyOneToOneFromCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteOnlyOneToOneFromCB cb = new WhiteOnlyOneToOneFromCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteOnlyOneToOneFromCQ sq);

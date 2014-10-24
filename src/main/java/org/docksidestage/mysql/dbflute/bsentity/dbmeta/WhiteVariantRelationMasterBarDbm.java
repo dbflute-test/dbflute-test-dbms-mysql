@@ -53,16 +53,8 @@ public class WhiteVariantRelationMasterBarDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMasterBarId(), "masterBarId");
-        setupEpg(_epgMap, new EpgMasterBarName(), "masterBarName");
-    }
-    public static class EpgMasterBarId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationMasterBar)et).getMasterBarId(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationMasterBar)et).setMasterBarId(ctl(vl)); }
-    }
-    public static class EpgMasterBarName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationMasterBar)et).getMasterBarName(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationMasterBar)et).setMasterBarName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterBar)et).getMasterBarId(), (et, vl) -> ((WhiteVariantRelationMasterBar)et).setMasterBarId(ctl(vl)), "masterBarId");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterBar)et).getMasterBarName(), (et, vl) -> ((WhiteVariantRelationMasterBar)et).setMasterBarName((String)vl), "masterBarName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -1390,9 +1390,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     public void xsmyselfDerive(String fn, SubQuery<WhiteDateAdjustmentCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "DATE_ADJUSTMENT_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "DATE_ADJUSTMENT_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteDateAdjustmentCQ sq);
@@ -1426,8 +1424,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     public void myselfExists(SubQuery<WhiteDateAdjustmentCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteDateAdjustmentCB cb = new WhiteDateAdjustmentCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteDateAdjustmentCQ sq);

@@ -465,9 +465,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     public void xsmyselfDerive(String fn, SubQuery<WhiteLineSepCommentCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteLineSepCommentCB cb = new WhiteLineSepCommentCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "LINE_SEP_COMMENT_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "LINE_SEP_COMMENT_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteLineSepCommentCQ sq);
@@ -501,8 +499,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     public void myselfExists(SubQuery<WhiteLineSepCommentCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteLineSepCommentCB cb = new WhiteLineSepCommentCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteLineSepCommentCQ sq);

@@ -53,16 +53,8 @@ public class WhiteVariantRelationLocalPkReferrerDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgReversefkSuppressedId(), "reversefkSuppressedId");
-        setupEpg(_epgMap, new EpgMasterTypeCode(), "masterTypeCode");
-    }
-    public static class EpgReversefkSuppressedId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationLocalPkReferrer)et).getReversefkSuppressedId(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationLocalPkReferrer)et).setReversefkSuppressedId(ctl(vl)); }
-    }
-    public static class EpgMasterTypeCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationLocalPkReferrer)et).getMasterTypeCode(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationLocalPkReferrer)et).setMasterTypeCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationLocalPkReferrer)et).getReversefkSuppressedId(), (et, vl) -> ((WhiteVariantRelationLocalPkReferrer)et).setReversefkSuppressedId(ctl(vl)), "reversefkSuppressedId");
+        setupEpg(_epgMap, et -> ((WhiteVariantRelationLocalPkReferrer)et).getMasterTypeCode(), (et, vl) -> ((WhiteVariantRelationLocalPkReferrer)et).setMasterTypeCode((String)vl), "masterTypeCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -71,12 +63,9 @@ public class WhiteVariantRelationLocalPkReferrerDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(), "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne");
-    }
-    public class EfpgWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteVariantRelationLocalPkReferrer)et).getWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(); }
-        public void write(Entity et, Object vl) { ((WhiteVariantRelationLocalPkReferrer)et).setWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne((WhiteVariantRelationMasterFoo)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationLocalPkReferrer)et).getWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(), (et, vl) -> ((WhiteVariantRelationLocalPkReferrer)et).setWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne((WhiteVariantRelationMasterFoo)vl), "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

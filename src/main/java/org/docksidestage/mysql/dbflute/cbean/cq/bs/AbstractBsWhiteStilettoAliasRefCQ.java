@@ -1682,9 +1682,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     public void xsmyselfDerive(String fn, SubQuery<WhiteStilettoAliasRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteStilettoAliasRefCB cb = new WhiteStilettoAliasRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "REF_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "REF_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteStilettoAliasRefCQ sq);
@@ -1718,8 +1716,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     public void myselfExists(SubQuery<WhiteStilettoAliasRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteStilettoAliasRefCB cb = new WhiteStilettoAliasRefCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteStilettoAliasRefCQ sq);

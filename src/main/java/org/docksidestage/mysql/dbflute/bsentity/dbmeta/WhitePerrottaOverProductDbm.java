@@ -53,21 +53,9 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgProductId(), "productId");
-        setupEpg(_epgMap, new EpgProductName(), "productName");
-        setupEpg(_epgMap, new EpgProductNestedCode(), "productNestedCode");
-    }
-    public static class EpgProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverProduct)et).getProductId(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverProduct)et).setProductId(ctl(vl)); }
-    }
-    public static class EpgProductName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverProduct)et).getProductName(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverProduct)et).setProductName((String)vl); }
-    }
-    public static class EpgProductNestedCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverProduct)et).getProductNestedCode(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverProduct)et).setProductNestedCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverProduct)et).getProductId(), (et, vl) -> ((WhitePerrottaOverProduct)et).setProductId(ctl(vl)), "productId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverProduct)et).getProductName(), (et, vl) -> ((WhitePerrottaOverProduct)et).setProductName((String)vl), "productName");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverProduct)et).getProductNestedCode(), (et, vl) -> ((WhitePerrottaOverProduct)et).setProductNestedCode((String)vl), "productNestedCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,17 +64,10 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhitePerrottaOverProductNested(), "whitePerrottaOverProductNested");
-        setupEfpg(_efpgMap, new EfpgWhitePerrottaOverTraceAsPerrotta(), "whitePerrottaOverTraceAsPerrotta");
-    }
-    public class EfpgWhitePerrottaOverProductNested implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverProduct)et).getWhitePerrottaOverProductNested(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverProduct)et).setWhitePerrottaOverProductNested((WhitePerrottaOverProductNested)vl); }
-    }
-    public class EfpgWhitePerrottaOverTraceAsPerrotta implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePerrottaOverProduct)et).getWhitePerrottaOverTraceAsPerrotta(); }
-        public void write(Entity et, Object vl) { ((WhitePerrottaOverProduct)et).setWhitePerrottaOverTraceAsPerrotta((WhitePerrottaOverTrace)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverProduct)et).getWhitePerrottaOverProductNested(), (et, vl) -> ((WhitePerrottaOverProduct)et).setWhitePerrottaOverProductNested((WhitePerrottaOverProductNested)vl), "whitePerrottaOverProductNested");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverProduct)et).getWhitePerrottaOverTraceAsPerrotta(), (et, vl) -> ((WhitePerrottaOverProduct)et).setWhitePerrottaOverTraceAsPerrotta((WhitePerrottaOverTrace)vl), "whitePerrottaOverTraceAsPerrotta");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

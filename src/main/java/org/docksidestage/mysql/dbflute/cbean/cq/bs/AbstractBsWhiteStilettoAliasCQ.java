@@ -176,8 +176,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     public void existsWhiteStilettoAliasRefList(SubQuery<WhiteStilettoAliasRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteStilettoAliasRefCB cb = new WhiteStilettoAliasRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepStilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepStilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList(cb.query());
         registerExistsReferrer(cb.query(), "STILETTO_ALIAS_ID", "STILETTO_ALIAS_ID", pp, "whiteStilettoAliasRefList");
     }
     public abstract String keepStilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList(WhiteStilettoAliasRefCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     public void notExistsWhiteStilettoAliasRefList(SubQuery<WhiteStilettoAliasRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteStilettoAliasRefCB cb = new WhiteStilettoAliasRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepStilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepStilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList(cb.query());
         registerNotExistsReferrer(cb.query(), "STILETTO_ALIAS_ID", "STILETTO_ALIAS_ID", pp, "whiteStilettoAliasRefList");
     }
     public abstract String keepStilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList(WhiteStilettoAliasRefCQ sq);
@@ -205,8 +203,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     public void xsderiveWhiteStilettoAliasRefList(String fn, SubQuery<WhiteStilettoAliasRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteStilettoAliasRefCB cb = new WhiteStilettoAliasRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepStilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepStilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "STILETTO_ALIAS_ID", "STILETTO_ALIAS_ID", pp, "whiteStilettoAliasRefList", al, op);
     }
     public abstract String keepStilettoAliasId_SpecifyDerivedReferrer_WhiteStilettoAliasRefList(WhiteStilettoAliasRefCQ sq);
@@ -227,17 +224,12 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
         return xcreateQDRFunctionWhiteStilettoAliasRefList();
     }
     protected HpQDRFunction<WhiteStilettoAliasRefCB> xcreateQDRFunctionWhiteStilettoAliasRefList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteStilettoAliasRefCB>() {
-            public void setup(String fn, SubQuery<WhiteStilettoAliasRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteStilettoAliasRefList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteStilettoAliasRefList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteStilettoAliasRefList(String fn, SubQuery<WhiteStilettoAliasRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteStilettoAliasRefCB cb = new WhiteStilettoAliasRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList(cb.query()); String prpp = keepStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList(cb.query()); String prpp = keepStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "STILETTO_ALIAS_ID", "STILETTO_ALIAS_ID", sqpp, "whiteStilettoAliasRefList", rd, vl, prpp, op);
     }
     public abstract String keepStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList(WhiteStilettoAliasRefCQ sq);
@@ -1395,9 +1387,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     public void xsmyselfDerive(String fn, SubQuery<WhiteStilettoAliasCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteStilettoAliasCB cb = new WhiteStilettoAliasCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "STILETTO_ALIAS_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "STILETTO_ALIAS_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteStilettoAliasCQ sq);
@@ -1431,8 +1421,7 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     public void myselfExists(SubQuery<WhiteStilettoAliasCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteStilettoAliasCB cb = new WhiteStilettoAliasCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteStilettoAliasCQ sq);

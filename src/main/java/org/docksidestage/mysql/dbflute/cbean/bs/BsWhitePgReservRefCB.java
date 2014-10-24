@@ -269,7 +269,7 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnClassSynonym();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhitePgReserv(); } });
+        doSetupSelect(() -> query().queryWhitePgReserv());
     }
 
     // [DBFlute-0.7.4]
@@ -299,10 +299,7 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhitePgReservRefCQ>() {
-                public boolean has() { return true; }
-                public WhitePgReservRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -351,15 +348,14 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
         public WhitePgReservCB.HpSpecification specifyWhitePgReserv() {
             assertRelation("whitePgReserv");
             if (_whitePgReserv == null) {
-                _whitePgReserv = new WhitePgReservCB.HpSpecification(_baseCB, new HpSpQyCall<WhitePgReservCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePgReserv(); }
-                    public WhitePgReservCQ qy() { return _qyCall.qy().queryWhitePgReserv(); } }
+                _whitePgReserv = new WhitePgReservCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhitePgReserv()
+                                    , () -> _qyCall.qy().queryWhitePgReserv())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whitePgReserv.xsetSyncQyCall(new HpSpQyCall<WhitePgReservCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePgReserv(); }
-                        public WhitePgReservCQ qy() { return xsyncQyCall().qy().queryWhitePgReserv(); }
-                    });
+                    _whitePgReserv.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhitePgReserv()
+                      , () -> xsyncQyCall().qy().queryWhitePgReserv()));
                 }
             }
             return _whitePgReserv;
@@ -370,9 +366,7 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePgReservRefCB, WhitePgReservRefCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePgReservRefCB, WhitePgReservRefCQ>() {
-                public void setup(String fn, SubQuery<WhitePgReservRefCB> sq, WhitePgReservRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -406,10 +400,8 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePgReservRefCB> columnQuery(final SpecifyQuery<WhitePgReservRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhitePgReservRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhitePgReservRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -515,10 +507,7 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
         } else {
             cb = new WhitePgReservRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhitePgReservRefCQ>() {
-            public boolean has() { return true; }
-            public WhitePgReservRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

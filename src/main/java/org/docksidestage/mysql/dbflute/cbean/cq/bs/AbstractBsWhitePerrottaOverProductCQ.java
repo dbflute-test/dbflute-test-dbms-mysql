@@ -176,8 +176,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void existsWhitePerrottaOverMemberList(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductId_ExistsReferrer_WhitePerrottaOverMemberList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_ExistsReferrer_WhitePerrottaOverMemberList(cb.query());
         registerExistsReferrer(cb.query(), "PRODUCT_ID", "PRODUCT_ID", pp, "whitePerrottaOverMemberList");
     }
     public abstract String keepProductId_ExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void existsWhitePerrottaOverTraceByNextProductIdList(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query());
         registerExistsReferrer(cb.query(), "PRODUCT_ID", "NEXT_PRODUCT_ID", pp, "whitePerrottaOverTraceByNextProductIdList");
     }
     public abstract String keepProductId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq);
@@ -216,8 +214,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void existsWhitePerrottaOverTraceByPreviousProductIdList(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query());
         registerExistsReferrer(cb.query(), "PRODUCT_ID", "PREVIOUS_PRODUCT_ID", pp, "whitePerrottaOverTraceByPreviousProductIdList");
     }
     public abstract String keepProductId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(WhitePerrottaOverTraceCQ sq);
@@ -236,8 +233,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void notExistsWhitePerrottaOverMemberList(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverMemberList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverMemberList(cb.query());
         registerNotExistsReferrer(cb.query(), "PRODUCT_ID", "PRODUCT_ID", pp, "whitePerrottaOverMemberList");
     }
     public abstract String keepProductId_NotExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
@@ -256,8 +252,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void notExistsWhitePerrottaOverTraceByNextProductIdList(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query());
         registerNotExistsReferrer(cb.query(), "PRODUCT_ID", "NEXT_PRODUCT_ID", pp, "whitePerrottaOverTraceByNextProductIdList");
     }
     public abstract String keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq);
@@ -276,8 +271,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void notExistsWhitePerrottaOverTraceByPreviousProductIdList(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query());
         registerNotExistsReferrer(cb.query(), "PRODUCT_ID", "PREVIOUS_PRODUCT_ID", pp, "whitePerrottaOverTraceByPreviousProductIdList");
     }
     public abstract String keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(WhitePerrottaOverTraceCQ sq);
@@ -285,8 +279,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void xsderiveWhitePerrottaOverMemberList(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "PRODUCT_ID", pp, "whitePerrottaOverMemberList", al, op);
     }
     public abstract String keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
@@ -294,8 +287,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void xsderiveWhitePerrottaOverTraceByNextProductIdList(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "NEXT_PRODUCT_ID", pp, "whitePerrottaOverTraceByNextProductIdList", al, op);
     }
     public abstract String keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq);
@@ -303,8 +295,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void xsderiveWhitePerrottaOverTraceByPreviousProductIdList(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "PREVIOUS_PRODUCT_ID", pp, "whitePerrottaOverTraceByPreviousProductIdList", al, op);
     }
     public abstract String keepProductId_SpecifyDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList(WhitePerrottaOverTraceCQ sq);
@@ -325,17 +316,12 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
         return xcreateQDRFunctionWhitePerrottaOverMemberList();
     }
     protected HpQDRFunction<WhitePerrottaOverMemberCB> xcreateQDRFunctionWhitePerrottaOverMemberList() {
-        return xcQDRFunc(new HpQDRSetupper<WhitePerrottaOverMemberCB>() {
-            public void setup(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhitePerrottaOverMemberList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhitePerrottaOverMemberList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhitePerrottaOverMemberList(String fn, SubQuery<WhitePerrottaOverMemberCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverMemberList(cb.query()); String prpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverMemberList(cb.query()); String prpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "PRODUCT_ID", sqpp, "whitePerrottaOverMemberList", rd, vl, prpp, op);
     }
     public abstract String keepProductId_QueryDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
@@ -357,17 +343,12 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
         return xcreateQDRFunctionWhitePerrottaOverTraceByNextProductIdList();
     }
     protected HpQDRFunction<WhitePerrottaOverTraceCB> xcreateQDRFunctionWhitePerrottaOverTraceByNextProductIdList() {
-        return xcQDRFunc(new HpQDRSetupper<WhitePerrottaOverTraceCB>() {
-            public void setup(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhitePerrottaOverTraceByNextProductIdList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhitePerrottaOverTraceByNextProductIdList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhitePerrottaOverTraceByNextProductIdList(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query()); String prpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query()); String prpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "NEXT_PRODUCT_ID", sqpp, "whitePerrottaOverTraceByNextProductIdList", rd, vl, prpp, op);
     }
     public abstract String keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByNextProductIdList(WhitePerrottaOverTraceCQ sq);
@@ -389,17 +370,12 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
         return xcreateQDRFunctionWhitePerrottaOverTraceByPreviousProductIdList();
     }
     protected HpQDRFunction<WhitePerrottaOverTraceCB> xcreateQDRFunctionWhitePerrottaOverTraceByPreviousProductIdList() {
-        return xcQDRFunc(new HpQDRSetupper<WhitePerrottaOverTraceCB>() {
-            public void setup(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhitePerrottaOverTraceByPreviousProductIdList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhitePerrottaOverTraceByPreviousProductIdList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhitePerrottaOverTraceByPreviousProductIdList(String fn, SubQuery<WhitePerrottaOverTraceCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query()); String prpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query()); String prpp = keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "PREVIOUS_PRODUCT_ID", sqpp, "whitePerrottaOverTraceByPreviousProductIdList", rd, vl, prpp, op);
     }
     public abstract String keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList(WhitePerrottaOverTraceCQ sq);
@@ -765,9 +741,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void xsmyselfDerive(String fn, SubQuery<WhitePerrottaOverProductCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "PRODUCT_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "PRODUCT_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhitePerrottaOverProductCQ sq);
@@ -801,8 +775,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     public void myselfExists(SubQuery<WhitePerrottaOverProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhitePerrottaOverProductCQ sq);

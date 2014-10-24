@@ -280,7 +280,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
             specify().columnRefFirstId();
             specify().columnRefSecondId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteCompoundPk(); } });
+        doSetupSelect(() -> query().queryWhiteCompoundPk());
         if (_nssWhiteCompoundPk == null || !_nssWhiteCompoundPk.hasConditionQuery())
         { _nssWhiteCompoundPk = new WhiteCompoundPkNss(query().queryWhiteCompoundPk()); }
         return _nssWhiteCompoundPk;
@@ -313,10 +313,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteCompoundPkRefCQ>() {
-                public boolean has() { return true; }
-                public WhiteCompoundPkRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -382,15 +379,14 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         public WhiteCompoundPkCB.HpSpecification specifyWhiteCompoundPk() {
             assertRelation("whiteCompoundPk");
             if (_whiteCompoundPk == null) {
-                _whiteCompoundPk = new WhiteCompoundPkCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteCompoundPkCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundPk(); }
-                    public WhiteCompoundPkCQ qy() { return _qyCall.qy().queryWhiteCompoundPk(); } }
+                _whiteCompoundPk = new WhiteCompoundPkCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundPk()
+                                    , () -> _qyCall.qy().queryWhiteCompoundPk())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteCompoundPk.xsetSyncQyCall(new HpSpQyCall<WhiteCompoundPkCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundPk(); }
-                        public WhiteCompoundPkCQ qy() { return xsyncQyCall().qy().queryWhiteCompoundPk(); }
-                    });
+                    _whiteCompoundPk.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundPk()
+                      , () -> xsyncQyCall().qy().queryWhiteCompoundPk()));
                 }
             }
             return _whiteCompoundPk;
@@ -409,9 +405,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ> derivedWhiteCompoundPkRefNestByQuxMultipleIdList() {
             assertDerived("whiteCompoundPkRefNestByQuxMultipleIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ>() {
-                public void setup(String fn, SubQuery<WhiteCompoundPkRefNestCB> sq, WhiteCompoundPkRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteCompoundPkRefNestByQuxMultipleIdList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefNestByQuxMultipleIdList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
@@ -427,9 +421,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ> derivedWhiteCompoundPkRefNestByFooMultipleIdList() {
             assertDerived("whiteCompoundPkRefNestByFooMultipleIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ>() {
-                public void setup(String fn, SubQuery<WhiteCompoundPkRefNestCB> sq, WhiteCompoundPkRefCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteCompoundPkRefNestByFooMultipleIdList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefNestByFooMultipleIdList(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -463,10 +455,8 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteCompoundPkRefCB> columnQuery(final SpecifyQuery<WhiteCompoundPkRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteCompoundPkRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteCompoundPkRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -572,10 +562,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         } else {
             cb = new WhiteCompoundPkRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteCompoundPkRefCQ>() {
-            public boolean has() { return true; }
-            public WhiteCompoundPkRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

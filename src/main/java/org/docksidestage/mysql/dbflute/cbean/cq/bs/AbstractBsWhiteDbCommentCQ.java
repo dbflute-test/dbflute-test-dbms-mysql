@@ -436,9 +436,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     public void xsmyselfDerive(String fn, SubQuery<WhiteDbCommentCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteDbCommentCB cb = new WhiteDbCommentCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "DB_COMMENT_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "DB_COMMENT_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteDbCommentCQ sq);
@@ -472,8 +470,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     public void myselfExists(SubQuery<WhiteDbCommentCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteDbCommentCB cb = new WhiteDbCommentCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteDbCommentCQ sq);

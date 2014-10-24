@@ -53,31 +53,11 @@ public class WhiteGearedCipherDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgCipherId(), "cipherId");
-        setupEpg(_epgMap, new EpgCipherInteger(), "cipherInteger");
-        setupEpg(_epgMap, new EpgCipherVarchar(), "cipherVarchar");
-        setupEpg(_epgMap, new EpgCipherDate(), "cipherDate");
-        setupEpg(_epgMap, new EpgCipherDatetime(), "cipherDatetime");
-    }
-    public static class EpgCipherId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteGearedCipher)et).getCipherId(); }
-        public void write(Entity et, Object vl) { ((WhiteGearedCipher)et).setCipherId(ctl(vl)); }
-    }
-    public static class EpgCipherInteger implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteGearedCipher)et).getCipherInteger(); }
-        public void write(Entity et, Object vl) { ((WhiteGearedCipher)et).setCipherInteger(cti(vl)); }
-    }
-    public static class EpgCipherVarchar implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteGearedCipher)et).getCipherVarchar(); }
-        public void write(Entity et, Object vl) { ((WhiteGearedCipher)et).setCipherVarchar((String)vl); }
-    }
-    public static class EpgCipherDate implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteGearedCipher)et).getCipherDate(); }
-        public void write(Entity et, Object vl) { ((WhiteGearedCipher)et).setCipherDate((java.util.Date)vl); }
-    }
-    public static class EpgCipherDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteGearedCipher)et).getCipherDatetime(); }
-        public void write(Entity et, Object vl) { ((WhiteGearedCipher)et).setCipherDatetime((java.sql.Timestamp)vl); }
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherId(), (et, vl) -> ((WhiteGearedCipher)et).setCipherId(ctl(vl)), "cipherId");
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherInteger(), (et, vl) -> ((WhiteGearedCipher)et).setCipherInteger(cti(vl)), "cipherInteger");
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherVarchar(), (et, vl) -> ((WhiteGearedCipher)et).setCipherVarchar((String)vl), "cipherVarchar");
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDate(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDate((java.util.Date)vl), "cipherDate");
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDatetime(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDatetime((java.sql.Timestamp)vl), "cipherDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

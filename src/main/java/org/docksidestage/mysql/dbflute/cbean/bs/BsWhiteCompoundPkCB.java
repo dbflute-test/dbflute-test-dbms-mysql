@@ -299,7 +299,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnReferredId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteCompoundReferredNormally(); } });
+        doSetupSelect(() -> query().queryWhiteCompoundReferredNormally());
     }
 
     /**
@@ -316,7 +316,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteCompoundReferredPrimary() {
         assertSetupSelectPurpose("whiteCompoundReferredPrimary");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteCompoundReferredPrimary(); } });
+        doSetupSelect(() -> query().queryWhiteCompoundReferredPrimary());
     }
 
     protected WhiteCompoundPkRefManyNss _nssWhiteCompoundPkRefManyAsMax;
@@ -339,7 +339,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
      */
     public WhiteCompoundPkRefManyNss setupSelect_WhiteCompoundPkRefManyAsMax() {
         assertSetupSelectPurpose("whiteCompoundPkRefManyAsMax");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteCompoundPkRefManyAsMax(); } });
+        doSetupSelect(() -> query().queryWhiteCompoundPkRefManyAsMax());
         if (_nssWhiteCompoundPkRefManyAsMax == null || !_nssWhiteCompoundPkRefManyAsMax.hasConditionQuery())
         { _nssWhiteCompoundPkRefManyAsMax = new WhiteCompoundPkRefManyNss(query().queryWhiteCompoundPkRefManyAsMax()); }
         return _nssWhiteCompoundPkRefManyAsMax;
@@ -365,7 +365,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
      */
     public WhiteCompoundPkRefManyNss setupSelect_WhiteCompoundPkRefManyAsMin() {
         assertSetupSelectPurpose("whiteCompoundPkRefManyAsMin");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteCompoundPkRefManyAsMin(); } });
+        doSetupSelect(() -> query().queryWhiteCompoundPkRefManyAsMin());
         if (_nssWhiteCompoundPkRefManyAsMin == null || !_nssWhiteCompoundPkRefManyAsMin.hasConditionQuery())
         { _nssWhiteCompoundPkRefManyAsMin = new WhiteCompoundPkRefManyNss(query().queryWhiteCompoundPkRefManyAsMin()); }
         return _nssWhiteCompoundPkRefManyAsMin;
@@ -398,10 +398,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteCompoundPkCQ>() {
-                public boolean has() { return true; }
-                public WhiteCompoundPkCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -464,15 +461,14 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         public WhiteCompoundReferredNormallyCB.HpSpecification specifyWhiteCompoundReferredNormally() {
             assertRelation("whiteCompoundReferredNormally");
             if (_whiteCompoundReferredNormally == null) {
-                _whiteCompoundReferredNormally = new WhiteCompoundReferredNormallyCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteCompoundReferredNormallyCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundReferredNormally(); }
-                    public WhiteCompoundReferredNormallyCQ qy() { return _qyCall.qy().queryWhiteCompoundReferredNormally(); } }
+                _whiteCompoundReferredNormally = new WhiteCompoundReferredNormallyCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundReferredNormally()
+                                    , () -> _qyCall.qy().queryWhiteCompoundReferredNormally())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteCompoundReferredNormally.xsetSyncQyCall(new HpSpQyCall<WhiteCompoundReferredNormallyCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundReferredNormally(); }
-                        public WhiteCompoundReferredNormallyCQ qy() { return xsyncQyCall().qy().queryWhiteCompoundReferredNormally(); }
-                    });
+                    _whiteCompoundReferredNormally.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundReferredNormally()
+                      , () -> xsyncQyCall().qy().queryWhiteCompoundReferredNormally()));
                 }
             }
             return _whiteCompoundReferredNormally;
@@ -485,15 +481,14 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         public WhiteCompoundReferredPrimaryCB.HpSpecification specifyWhiteCompoundReferredPrimary() {
             assertRelation("whiteCompoundReferredPrimary");
             if (_whiteCompoundReferredPrimary == null) {
-                _whiteCompoundReferredPrimary = new WhiteCompoundReferredPrimaryCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteCompoundReferredPrimaryCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundReferredPrimary(); }
-                    public WhiteCompoundReferredPrimaryCQ qy() { return _qyCall.qy().queryWhiteCompoundReferredPrimary(); } }
+                _whiteCompoundReferredPrimary = new WhiteCompoundReferredPrimaryCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundReferredPrimary()
+                                    , () -> _qyCall.qy().queryWhiteCompoundReferredPrimary())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteCompoundReferredPrimary.xsetSyncQyCall(new HpSpQyCall<WhiteCompoundReferredPrimaryCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundReferredPrimary(); }
-                        public WhiteCompoundReferredPrimaryCQ qy() { return xsyncQyCall().qy().queryWhiteCompoundReferredPrimary(); }
-                    });
+                    _whiteCompoundReferredPrimary.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundReferredPrimary()
+                      , () -> xsyncQyCall().qy().queryWhiteCompoundReferredPrimary()));
                 }
             }
             return _whiteCompoundReferredPrimary;
@@ -506,15 +501,14 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         public WhiteCompoundPkRefManyCB.HpSpecification specifyWhiteCompoundPkRefManyAsMax() {
             assertRelation("whiteCompoundPkRefManyAsMax");
             if (_whiteCompoundPkRefManyAsMax == null) {
-                _whiteCompoundPkRefManyAsMax = new WhiteCompoundPkRefManyCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteCompoundPkRefManyCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundPkRefManyAsMax(); }
-                    public WhiteCompoundPkRefManyCQ qy() { return _qyCall.qy().queryWhiteCompoundPkRefManyAsMax(); } }
+                _whiteCompoundPkRefManyAsMax = new WhiteCompoundPkRefManyCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundPkRefManyAsMax()
+                                    , () -> _qyCall.qy().queryWhiteCompoundPkRefManyAsMax())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteCompoundPkRefManyAsMax.xsetSyncQyCall(new HpSpQyCall<WhiteCompoundPkRefManyCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundPkRefManyAsMax(); }
-                        public WhiteCompoundPkRefManyCQ qy() { return xsyncQyCall().qy().queryWhiteCompoundPkRefManyAsMax(); }
-                    });
+                    _whiteCompoundPkRefManyAsMax.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundPkRefManyAsMax()
+                      , () -> xsyncQyCall().qy().queryWhiteCompoundPkRefManyAsMax()));
                 }
             }
             return _whiteCompoundPkRefManyAsMax;
@@ -527,15 +521,14 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         public WhiteCompoundPkRefManyCB.HpSpecification specifyWhiteCompoundPkRefManyAsMin() {
             assertRelation("whiteCompoundPkRefManyAsMin");
             if (_whiteCompoundPkRefManyAsMin == null) {
-                _whiteCompoundPkRefManyAsMin = new WhiteCompoundPkRefManyCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteCompoundPkRefManyCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundPkRefManyAsMin(); }
-                    public WhiteCompoundPkRefManyCQ qy() { return _qyCall.qy().queryWhiteCompoundPkRefManyAsMin(); } }
+                _whiteCompoundPkRefManyAsMin = new WhiteCompoundPkRefManyCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteCompoundPkRefManyAsMin()
+                                    , () -> _qyCall.qy().queryWhiteCompoundPkRefManyAsMin())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteCompoundPkRefManyAsMin.xsetSyncQyCall(new HpSpQyCall<WhiteCompoundPkRefManyCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundPkRefManyAsMin(); }
-                        public WhiteCompoundPkRefManyCQ qy() { return xsyncQyCall().qy().queryWhiteCompoundPkRefManyAsMin(); }
-                    });
+                    _whiteCompoundPkRefManyAsMin.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteCompoundPkRefManyAsMin()
+                      , () -> xsyncQyCall().qy().queryWhiteCompoundPkRefManyAsMin()));
                 }
             }
             return _whiteCompoundPkRefManyAsMin;
@@ -554,9 +547,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefCB, WhiteCompoundPkCQ> derivedWhiteCompoundPkRefList() {
             assertDerived("whiteCompoundPkRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteCompoundPkRefCB, WhiteCompoundPkCQ>() {
-                public void setup(String fn, SubQuery<WhiteCompoundPkRefCB> sq, WhiteCompoundPkCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteCompoundPkRefList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
@@ -572,9 +563,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefManyCB, WhiteCompoundPkCQ> derivedWhiteCompoundPkRefManyToPKList() {
             assertDerived("whiteCompoundPkRefManyToPKList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteCompoundPkRefManyCB, WhiteCompoundPkCQ>() {
-                public void setup(String fn, SubQuery<WhiteCompoundPkRefManyCB> sq, WhiteCompoundPkCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteCompoundPkRefManyToPKList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefManyToPKList(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -608,10 +597,8 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteCompoundPkCB> columnQuery(final SpecifyQuery<WhiteCompoundPkCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteCompoundPkCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteCompoundPkCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -717,10 +704,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         } else {
             cb = new WhiteCompoundPkCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteCompoundPkCQ>() {
-            public boolean has() { return true; }
-            public WhiteCompoundPkCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

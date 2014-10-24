@@ -273,7 +273,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      */
     public PurchaseNss setupSelect_Purchase() {
         assertSetupSelectPurpose("purchase");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryPurchase(); } });
+        doSetupSelect(() -> query().queryPurchase());
         if (_nssPurchase == null || !_nssPurchase.hasConditionQuery())
         { _nssPurchase = new PurchaseNss(query().queryPurchase()); }
         return _nssPurchase;
@@ -306,10 +306,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhitePurchaseReferrerCQ>() {
-                public boolean has() { return true; }
-                public WhitePurchaseReferrerCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -354,15 +351,14 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
         public PurchaseCB.HpSpecification specifyPurchase() {
             assertRelation("purchase");
             if (_purchase == null) {
-                _purchase = new PurchaseCB.HpSpecification(_baseCB, new HpSpQyCall<PurchaseCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryPurchase(); }
-                    public PurchaseCQ qy() { return _qyCall.qy().queryPurchase(); } }
+                _purchase = new PurchaseCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryPurchase()
+                                    , () -> _qyCall.qy().queryPurchase())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _purchase.xsetSyncQyCall(new HpSpQyCall<PurchaseCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryPurchase(); }
-                        public PurchaseCQ qy() { return xsyncQyCall().qy().queryPurchase(); }
-                    });
+                    _purchase.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryPurchase()
+                      , () -> xsyncQyCall().qy().queryPurchase()));
                 }
             }
             return _purchase;
@@ -373,9 +369,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePurchaseReferrerCB, WhitePurchaseReferrerCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhitePurchaseReferrerCB, WhitePurchaseReferrerCQ>() {
-                public void setup(String fn, SubQuery<WhitePurchaseReferrerCB> sq, WhitePurchaseReferrerCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -409,10 +403,8 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhitePurchaseReferrerCB> columnQuery(final SpecifyQuery<WhitePurchaseReferrerCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhitePurchaseReferrerCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhitePurchaseReferrerCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -518,10 +510,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
         } else {
             cb = new WhitePurchaseReferrerCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhitePurchaseReferrerCQ>() {
-            public boolean has() { return true; }
-            public WhitePurchaseReferrerCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteCompoundPkRefNestCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteCompoundPkRefNestNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkRefNss withWhiteCompoundPkRefByQuxMultipleId() {
-        _query.xdoNss(new WhiteCompoundPkRefNestCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteCompoundPkRefByQuxMultipleId(); }});
+        _query.xdoNss(() -> _query.queryWhiteCompoundPkRefByQuxMultipleId());
         return new WhiteCompoundPkRefNss(_query.queryWhiteCompoundPkRefByQuxMultipleId());
     }
     /**
@@ -49,7 +48,7 @@ public class WhiteCompoundPkRefNestNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkRefNss withWhiteCompoundPkRefByFooMultipleId() {
-        _query.xdoNss(new WhiteCompoundPkRefNestCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteCompoundPkRefByFooMultipleId(); }});
+        _query.xdoNss(() -> _query.queryWhiteCompoundPkRefByFooMultipleId());
         return new WhiteCompoundPkRefNss(_query.queryWhiteCompoundPkRefByFooMultipleId());
     }
 }

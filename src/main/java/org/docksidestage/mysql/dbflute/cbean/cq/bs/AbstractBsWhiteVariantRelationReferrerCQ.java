@@ -176,8 +176,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     public void existsWhiteVariantRelationReferrerRefList(SubQuery<WhiteVariantRelationReferrerRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerRefCB cb = new WhiteVariantRelationReferrerRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepReferrerId_ExistsReferrer_WhiteVariantRelationReferrerRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepReferrerId_ExistsReferrer_WhiteVariantRelationReferrerRefList(cb.query());
         registerExistsReferrer(cb.query(), "REFERRER_ID", "REFERRER_ID", pp, "whiteVariantRelationReferrerRefList");
     }
     public abstract String keepReferrerId_ExistsReferrer_WhiteVariantRelationReferrerRefList(WhiteVariantRelationReferrerRefCQ sq);
@@ -196,8 +195,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     public void notExistsWhiteVariantRelationReferrerRefList(SubQuery<WhiteVariantRelationReferrerRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerRefCB cb = new WhiteVariantRelationReferrerRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepReferrerId_NotExistsReferrer_WhiteVariantRelationReferrerRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepReferrerId_NotExistsReferrer_WhiteVariantRelationReferrerRefList(cb.query());
         registerNotExistsReferrer(cb.query(), "REFERRER_ID", "REFERRER_ID", pp, "whiteVariantRelationReferrerRefList");
     }
     public abstract String keepReferrerId_NotExistsReferrer_WhiteVariantRelationReferrerRefList(WhiteVariantRelationReferrerRefCQ sq);
@@ -205,8 +203,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     public void xsderiveWhiteVariantRelationReferrerRefList(String fn, SubQuery<WhiteVariantRelationReferrerRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteVariantRelationReferrerRefCB cb = new WhiteVariantRelationReferrerRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepReferrerId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerRefList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepReferrerId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerRefList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "REFERRER_ID", "REFERRER_ID", pp, "whiteVariantRelationReferrerRefList", al, op);
     }
     public abstract String keepReferrerId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerRefList(WhiteVariantRelationReferrerRefCQ sq);
@@ -227,17 +224,12 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
         return xcreateQDRFunctionWhiteVariantRelationReferrerRefList();
     }
     protected HpQDRFunction<WhiteVariantRelationReferrerRefCB> xcreateQDRFunctionWhiteVariantRelationReferrerRefList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteVariantRelationReferrerRefCB>() {
-            public void setup(String fn, SubQuery<WhiteVariantRelationReferrerRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteVariantRelationReferrerRefList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteVariantRelationReferrerRefList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteVariantRelationReferrerRefList(String fn, SubQuery<WhiteVariantRelationReferrerRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteVariantRelationReferrerRefCB cb = new WhiteVariantRelationReferrerRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefList(cb.query()); String prpp = keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefList(cb.query()); String prpp = keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "REFERRER_ID", "REFERRER_ID", sqpp, "whiteVariantRelationReferrerRefList", rd, vl, prpp, op);
     }
     public abstract String keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefList(WhiteVariantRelationReferrerRefCQ sq);
@@ -660,9 +652,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     public void xsmyselfDerive(String fn, SubQuery<WhiteVariantRelationReferrerCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "REFERRER_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "REFERRER_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteVariantRelationReferrerCQ sq);
@@ -696,8 +686,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     public void myselfExists(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteVariantRelationReferrerCQ sq);

@@ -53,16 +53,8 @@ public class WhitePgReservRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgRefId(), "refId");
-        setupEpg(_epgMap, new EpgClassSynonym(), "classSynonym");
-    }
-    public static class EpgRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReservRef)et).getRefId(); }
-        public void write(Entity et, Object vl) { ((WhitePgReservRef)et).setRefId(cti(vl)); }
-    }
-    public static class EpgClassSynonym implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReservRef)et).getClassSynonym(); }
-        public void write(Entity et, Object vl) { ((WhitePgReservRef)et).setClassSynonym(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhitePgReservRef)et).getRefId(), (et, vl) -> ((WhitePgReservRef)et).setRefId(cti(vl)), "refId");
+        setupEpg(_epgMap, et -> ((WhitePgReservRef)et).getClassSynonym(), (et, vl) -> ((WhitePgReservRef)et).setClassSynonym(cti(vl)), "classSynonym");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -71,12 +63,9 @@ public class WhitePgReservRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhitePgReserv(), "whitePgReserv");
-    }
-    public class EfpgWhitePgReserv implements PropertyGateway {
-        public Object read(Entity et) { return ((WhitePgReservRef)et).getWhitePgReserv(); }
-        public void write(Entity et, Object vl) { ((WhitePgReservRef)et).setWhitePgReserv((WhitePgReserv)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhitePgReservRef)et).getWhitePgReserv(), (et, vl) -> ((WhitePgReservRef)et).setWhitePgReserv((WhitePgReserv)vl), "whitePgReserv");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

@@ -53,66 +53,18 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgRefId(), "refId");
-        setupEpg(_epgMap, new EpgFoo0(), "foo0");
-        setupEpg(_epgMap, new EpgFoo1(), "foo1");
-        setupEpg(_epgMap, new EpgFoo2(), "foo2");
-        setupEpg(_epgMap, new EpgFoo3(), "foo3");
-        setupEpg(_epgMap, new EpgFoo4(), "foo4");
-        setupEpg(_epgMap, new EpgBar0(), "bar0");
-        setupEpg(_epgMap, new EpgQux0(), "qux0");
-        setupEpg(_epgMap, new EpgC21(), "c21");
-        setupEpg(_epgMap, new EpgC22(), "c22");
-        setupEpg(_epgMap, new EpgC23(), "c23");
-        setupEpg(_epgMap, new EpgStilettoAliasId(), "stilettoAliasId");
-    }
-    public static class EpgRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getRefId(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setRefId(cti(vl)); }
-    }
-    public static class EpgFoo0 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getFoo0(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setFoo0((String)vl); }
-    }
-    public static class EpgFoo1 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getFoo1(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setFoo1((String)vl); }
-    }
-    public static class EpgFoo2 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getFoo2(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setFoo2((String)vl); }
-    }
-    public static class EpgFoo3 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getFoo3(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setFoo3((String)vl); }
-    }
-    public static class EpgFoo4 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getFoo4(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setFoo4((String)vl); }
-    }
-    public static class EpgBar0 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getBar0(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setBar0((String)vl); }
-    }
-    public static class EpgQux0 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getQux0(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setQux0((String)vl); }
-    }
-    public static class EpgC21 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getC21(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setC21((String)vl); }
-    }
-    public static class EpgC22 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getC22(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setC22((String)vl); }
-    }
-    public static class EpgC23 implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getC23(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setC23((String)vl); }
-    }
-    public static class EpgStilettoAliasId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getStilettoAliasId(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setStilettoAliasId(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getRefId(), (et, vl) -> ((WhiteStilettoAliasRef)et).setRefId(cti(vl)), "refId");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo0(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo0((String)vl), "foo0");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo1(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo1((String)vl), "foo1");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo2(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo2((String)vl), "foo2");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo3(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo3((String)vl), "foo3");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo4(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo4((String)vl), "foo4");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getBar0(), (et, vl) -> ((WhiteStilettoAliasRef)et).setBar0((String)vl), "bar0");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getQux0(), (et, vl) -> ((WhiteStilettoAliasRef)et).setQux0((String)vl), "qux0");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getC21(), (et, vl) -> ((WhiteStilettoAliasRef)et).setC21((String)vl), "c21");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getC22(), (et, vl) -> ((WhiteStilettoAliasRef)et).setC22((String)vl), "c22");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getC23(), (et, vl) -> ((WhiteStilettoAliasRef)et).setC23((String)vl), "c23");
+        setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getStilettoAliasId(), (et, vl) -> ((WhiteStilettoAliasRef)et).setStilettoAliasId(cti(vl)), "stilettoAliasId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -121,12 +73,9 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteStilettoAlias(), "whiteStilettoAlias");
-    }
-    public class EfpgWhiteStilettoAlias implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteStilettoAliasRef)et).getWhiteStilettoAlias(); }
-        public void write(Entity et, Object vl) { ((WhiteStilettoAliasRef)et).setWhiteStilettoAlias((WhiteStilettoAlias)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteStilettoAliasRef)et).getWhiteStilettoAlias(), (et, vl) -> ((WhiteStilettoAliasRef)et).setWhiteStilettoAlias((WhiteStilettoAlias)vl), "whiteStilettoAlias");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

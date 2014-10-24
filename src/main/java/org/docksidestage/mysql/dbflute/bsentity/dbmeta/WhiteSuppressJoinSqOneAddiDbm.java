@@ -53,16 +53,8 @@ public class WhiteSuppressJoinSqOneAddiDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgOneAddiId(), "oneAddiId");
-        setupEpg(_epgMap, new EpgOneAddiName(), "oneAddiName");
-    }
-    public static class EpgOneAddiId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqOneAddi)et).getOneAddiId(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqOneAddi)et).setOneAddiId(cti(vl)); }
-    }
-    public static class EpgOneAddiName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSuppressJoinSqOneAddi)et).getOneAddiName(); }
-        public void write(Entity et, Object vl) { ((WhiteSuppressJoinSqOneAddi)et).setOneAddiName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqOneAddi)et).getOneAddiId(), (et, vl) -> ((WhiteSuppressJoinSqOneAddi)et).setOneAddiId(cti(vl)), "oneAddiId");
+        setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqOneAddi)et).getOneAddiName(), (et, vl) -> ((WhiteSuppressJoinSqOneAddi)et).setOneAddiName((String)vl), "oneAddiName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

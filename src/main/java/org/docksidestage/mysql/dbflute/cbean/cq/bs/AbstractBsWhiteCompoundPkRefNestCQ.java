@@ -726,9 +726,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     public void xsmyselfDerive(String fn, SubQuery<WhiteCompoundPkRefNestCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteCompoundPkRefNestCB cb = new WhiteCompoundPkRefNestCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "COMPOUND_PK_REF_NEST_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "COMPOUND_PK_REF_NEST_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteCompoundPkRefNestCQ sq);
@@ -762,8 +760,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     public void myselfExists(SubQuery<WhiteCompoundPkRefNestCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteCompoundPkRefNestCB cb = new WhiteCompoundPkRefNestCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteCompoundPkRefNestCQ sq);

@@ -269,7 +269,7 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnMyselfId();
         }
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteMyself(); } });
+        doSetupSelect(() -> query().queryWhiteMyself());
     }
 
     // [DBFlute-0.7.4]
@@ -299,10 +299,7 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteMyselfCheckCQ>() {
-                public boolean has() { return true; }
-                public WhiteMyselfCheckCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -356,15 +353,14 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
         public WhiteMyselfCB.HpSpecification specifyWhiteMyself() {
             assertRelation("whiteMyself");
             if (_whiteMyself == null) {
-                _whiteMyself = new WhiteMyselfCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteMyselfCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteMyself(); }
-                    public WhiteMyselfCQ qy() { return _qyCall.qy().queryWhiteMyself(); } }
+                _whiteMyself = new WhiteMyselfCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteMyself()
+                                    , () -> _qyCall.qy().queryWhiteMyself())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteMyself.xsetSyncQyCall(new HpSpQyCall<WhiteMyselfCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteMyself(); }
-                        public WhiteMyselfCQ qy() { return xsyncQyCall().qy().queryWhiteMyself(); }
-                    });
+                    _whiteMyself.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteMyself()
+                      , () -> xsyncQyCall().qy().queryWhiteMyself()));
                 }
             }
             return _whiteMyself;
@@ -375,9 +371,7 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteMyselfCheckCB, WhiteMyselfCheckCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteMyselfCheckCB, WhiteMyselfCheckCQ>() {
-                public void setup(String fn, SubQuery<WhiteMyselfCheckCB> sq, WhiteMyselfCheckCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -411,10 +405,8 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteMyselfCheckCB> columnQuery(final SpecifyQuery<WhiteMyselfCheckCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteMyselfCheckCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteMyselfCheckCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -520,10 +512,7 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
         } else {
             cb = new WhiteMyselfCheckCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteMyselfCheckCQ>() {
-            public boolean has() { return true; }
-            public WhiteMyselfCheckCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

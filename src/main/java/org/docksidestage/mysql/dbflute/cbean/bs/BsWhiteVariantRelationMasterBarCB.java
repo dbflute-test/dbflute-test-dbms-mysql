@@ -279,10 +279,7 @@ public class BsWhiteVariantRelationMasterBarCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteVariantRelationMasterBarCQ>() {
-                public boolean has() { return true; }
-                public WhiteVariantRelationMasterBarCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -332,9 +329,7 @@ public class BsWhiteVariantRelationMasterBarCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationReferrerCB, WhiteVariantRelationMasterBarCQ> derivedWhiteVariantRelationReferrerAsVariantList() {
             assertDerived("whiteVariantRelationReferrerAsVariantList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteVariantRelationReferrerCB, WhiteVariantRelationMasterBarCQ>() {
-                public void setup(String fn, SubQuery<WhiteVariantRelationReferrerCB> sq, WhiteVariantRelationMasterBarCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteVariantRelationReferrerAsVariantList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteVariantRelationReferrerAsVariantList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -342,9 +337,7 @@ public class BsWhiteVariantRelationMasterBarCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationMasterBarCB, WhiteVariantRelationMasterBarCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteVariantRelationMasterBarCB, WhiteVariantRelationMasterBarCQ>() {
-                public void setup(String fn, SubQuery<WhiteVariantRelationMasterBarCB> sq, WhiteVariantRelationMasterBarCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -378,10 +371,8 @@ public class BsWhiteVariantRelationMasterBarCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteVariantRelationMasterBarCB> columnQuery(final SpecifyQuery<WhiteVariantRelationMasterBarCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteVariantRelationMasterBarCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteVariantRelationMasterBarCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -487,10 +478,7 @@ public class BsWhiteVariantRelationMasterBarCB extends AbstractConditionBean {
         } else {
             cb = new WhiteVariantRelationMasterBarCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterBarCQ>() {
-            public boolean has() { return true; }
-            public WhiteVariantRelationMasterBarCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

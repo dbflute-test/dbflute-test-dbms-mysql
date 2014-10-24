@@ -53,21 +53,9 @@ public class WhiteUqFkRefNestDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgUqFkRefNestId(), "uqFkRefNestId");
-        setupEpg(_epgMap, new EpgCompoundUqFirstCode(), "compoundUqFirstCode");
-        setupEpg(_epgMap, new EpgCompoundUqSecondCode(), "compoundUqSecondCode");
-    }
-    public static class EpgUqFkRefNestId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRefNest)et).getUqFkRefNestId(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRefNest)et).setUqFkRefNestId(ctl(vl)); }
-    }
-    public static class EpgCompoundUqFirstCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRefNest)et).getCompoundUqFirstCode(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRefNest)et).setCompoundUqFirstCode((String)vl); }
-    }
-    public static class EpgCompoundUqSecondCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRefNest)et).getCompoundUqSecondCode(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRefNest)et).setCompoundUqSecondCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteUqFkRefNest)et).getUqFkRefNestId(), (et, vl) -> ((WhiteUqFkRefNest)et).setUqFkRefNestId(ctl(vl)), "uqFkRefNestId");
+        setupEpg(_epgMap, et -> ((WhiteUqFkRefNest)et).getCompoundUqFirstCode(), (et, vl) -> ((WhiteUqFkRefNest)et).setCompoundUqFirstCode((String)vl), "compoundUqFirstCode");
+        setupEpg(_epgMap, et -> ((WhiteUqFkRefNest)et).getCompoundUqSecondCode(), (et, vl) -> ((WhiteUqFkRefNest)et).setCompoundUqSecondCode((String)vl), "compoundUqSecondCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,12 +64,9 @@ public class WhiteUqFkRefNestDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteUqFkRef(), "whiteUqFkRef");
-    }
-    public class EfpgWhiteUqFkRef implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkRefNest)et).getWhiteUqFkRef(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkRefNest)et).setWhiteUqFkRef((WhiteUqFkRef)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteUqFkRefNest)et).getWhiteUqFkRef(), (et, vl) -> ((WhiteUqFkRefNest)et).setWhiteUqFkRef((WhiteUqFkRef)vl), "whiteUqFkRef");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

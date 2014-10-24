@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteAllInOneClsElementCQ;
 
 /**
@@ -39,6 +38,6 @@ public class WhiteAllInOneClsElementNss {
      * white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
      */
     public void withWhiteAllInOneClsCategory() {
-        _query.xdoNss(new WhiteAllInOneClsElementCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteAllInOneClsCategory(); }});
+        _query.xdoNss(() -> _query.queryWhiteAllInOneClsCategory());
     }
 }

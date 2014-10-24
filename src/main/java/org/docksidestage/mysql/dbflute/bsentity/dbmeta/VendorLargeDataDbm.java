@@ -53,41 +53,13 @@ public class VendorLargeDataDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgLargeDataId(), "largeDataId");
-        setupEpg(_epgMap, new EpgStringIndex(), "stringIndex");
-        setupEpg(_epgMap, new EpgStringNoIndex(), "stringNoIndex");
-        setupEpg(_epgMap, new EpgStringUniqueIndex(), "stringUniqueIndex");
-        setupEpg(_epgMap, new EpgIntflgIndex(), "intflgIndex");
-        setupEpg(_epgMap, new EpgNumericIntegerIndex(), "numericIntegerIndex");
-        setupEpg(_epgMap, new EpgNumericIntegerNoIndex(), "numericIntegerNoIndex");
-    }
-    public static class EpgLargeDataId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeData)et).getLargeDataId(); }
-        public void write(Entity et, Object vl) { ((VendorLargeData)et).setLargeDataId(ctl(vl)); }
-    }
-    public static class EpgStringIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeData)et).getStringIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeData)et).setStringIndex((String)vl); }
-    }
-    public static class EpgStringNoIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeData)et).getStringNoIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeData)et).setStringNoIndex((String)vl); }
-    }
-    public static class EpgStringUniqueIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeData)et).getStringUniqueIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeData)et).setStringUniqueIndex((String)vl); }
-    }
-    public static class EpgIntflgIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeData)et).getIntflgIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeData)et).setIntflgIndex(cti(vl)); }
-    }
-    public static class EpgNumericIntegerIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeData)et).getNumericIntegerIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeData)et).setNumericIntegerIndex(cti(vl)); }
-    }
-    public static class EpgNumericIntegerNoIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeData)et).getNumericIntegerNoIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeData)et).setNumericIntegerNoIndex(cti(vl)); }
+        setupEpg(_epgMap, et -> ((VendorLargeData)et).getLargeDataId(), (et, vl) -> ((VendorLargeData)et).setLargeDataId(ctl(vl)), "largeDataId");
+        setupEpg(_epgMap, et -> ((VendorLargeData)et).getStringIndex(), (et, vl) -> ((VendorLargeData)et).setStringIndex((String)vl), "stringIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeData)et).getStringNoIndex(), (et, vl) -> ((VendorLargeData)et).setStringNoIndex((String)vl), "stringNoIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeData)et).getStringUniqueIndex(), (et, vl) -> ((VendorLargeData)et).setStringUniqueIndex((String)vl), "stringUniqueIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeData)et).getIntflgIndex(), (et, vl) -> ((VendorLargeData)et).setIntflgIndex(cti(vl)), "intflgIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeData)et).getNumericIntegerIndex(), (et, vl) -> ((VendorLargeData)et).setNumericIntegerIndex(cti(vl)), "numericIntegerIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeData)et).getNumericIntegerNoIndex(), (et, vl) -> ((VendorLargeData)et).setNumericIntegerNoIndex(cti(vl)), "numericIntegerNoIndex");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

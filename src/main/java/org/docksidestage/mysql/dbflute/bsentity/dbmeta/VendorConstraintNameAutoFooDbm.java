@@ -53,16 +53,8 @@ public class VendorConstraintNameAutoFooDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgConstraintNameAutoFooId(), "constraintNameAutoFooId");
-        setupEpg(_epgMap, new EpgConstraintNameAutoFooName(), "constraintNameAutoFooName");
-    }
-    public static class EpgConstraintNameAutoFooId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoFoo)et).getConstraintNameAutoFooId(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoFoo)et).setConstraintNameAutoFooId(ctl(vl)); }
-    }
-    public static class EpgConstraintNameAutoFooName implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorConstraintNameAutoFoo)et).getConstraintNameAutoFooName(); }
-        public void write(Entity et, Object vl) { ((VendorConstraintNameAutoFoo)et).setConstraintNameAutoFooName((String)vl); }
+        setupEpg(_epgMap, et -> ((VendorConstraintNameAutoFoo)et).getConstraintNameAutoFooId(), (et, vl) -> ((VendorConstraintNameAutoFoo)et).setConstraintNameAutoFooId(ctl(vl)), "constraintNameAutoFooId");
+        setupEpg(_epgMap, et -> ((VendorConstraintNameAutoFoo)et).getConstraintNameAutoFooName(), (et, vl) -> ((VendorConstraintNameAutoFoo)et).setConstraintNameAutoFooName((String)vl), "constraintNameAutoFooName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

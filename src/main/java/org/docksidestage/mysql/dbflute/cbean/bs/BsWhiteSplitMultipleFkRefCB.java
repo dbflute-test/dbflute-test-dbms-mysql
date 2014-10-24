@@ -282,10 +282,7 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteSplitMultipleFkRefCQ>() {
-                public boolean has() { return true; }
-                public WhiteSplitMultipleFkRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -359,10 +356,8 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteSplitMultipleFkRefCB> columnQuery(final SpecifyQuery<WhiteSplitMultipleFkRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteSplitMultipleFkRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteSplitMultipleFkRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -468,10 +463,7 @@ public class BsWhiteSplitMultipleFkRefCB extends AbstractConditionBean {
         } else {
             cb = new WhiteSplitMultipleFkRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteSplitMultipleFkRefCQ>() {
-            public boolean has() { return true; }
-            public WhiteSplitMultipleFkRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -53,21 +53,9 @@ public class WhiteBinaryDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgBinaryId(), "binaryId");
-        setupEpg(_epgMap, new EpgBinaryData(), "binaryData");
-        setupEpg(_epgMap, new EpgBlobData(), "blobData");
-    }
-    public static class EpgBinaryId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteBinary)et).getBinaryId(); }
-        public void write(Entity et, Object vl) { ((WhiteBinary)et).setBinaryId(ctl(vl)); }
-    }
-    public static class EpgBinaryData implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteBinary)et).getBinaryData(); }
-        public void write(Entity et, Object vl) { ((WhiteBinary)et).setBinaryData((byte[])vl); }
-    }
-    public static class EpgBlobData implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteBinary)et).getBlobData(); }
-        public void write(Entity et, Object vl) { ((WhiteBinary)et).setBlobData((byte[])vl); }
+        setupEpg(_epgMap, et -> ((WhiteBinary)et).getBinaryId(), (et, vl) -> ((WhiteBinary)et).setBinaryId(ctl(vl)), "binaryId");
+        setupEpg(_epgMap, et -> ((WhiteBinary)et).getBinaryData(), (et, vl) -> ((WhiteBinary)et).setBinaryData((byte[])vl), "binaryData");
+        setupEpg(_epgMap, et -> ((WhiteBinary)et).getBlobData(), (et, vl) -> ((WhiteBinary)et).setBlobData((byte[])vl), "blobData");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

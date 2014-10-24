@@ -53,16 +53,8 @@ public class WhiteDbCommentDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgDbCommentCode(), "dbCommentCode");
-        setupEpg(_epgMap, new EpgDbCommentName(), "dbCommentName");
-    }
-    public static class EpgDbCommentCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDbComment)et).getDbCommentCode(); }
-        public void write(Entity et, Object vl) { ((WhiteDbComment)et).setDbCommentCode((String)vl); }
-    }
-    public static class EpgDbCommentName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDbComment)et).getDbCommentName(); }
-        public void write(Entity et, Object vl) { ((WhiteDbComment)et).setDbCommentName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteDbComment)et).getDbCommentCode(), (et, vl) -> ((WhiteDbComment)et).setDbCommentCode((String)vl), "dbCommentCode");
+        setupEpg(_epgMap, et -> ((WhiteDbComment)et).getDbCommentName(), (et, vl) -> ((WhiteDbComment)et).setDbCommentName((String)vl), "dbCommentName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

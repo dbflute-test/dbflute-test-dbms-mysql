@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteQuotedRefCQ;
 
 /**
@@ -39,6 +38,6 @@ public class WhiteQuotedRefNss {
      * white_quoted by my ORDER, named 'whiteQuoted'.
      */
     public void withWhiteQuoted() {
-        _query.xdoNss(new WhiteQuotedRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteQuoted(); }});
+        _query.xdoNss(() -> _query.queryWhiteQuoted());
     }
 }

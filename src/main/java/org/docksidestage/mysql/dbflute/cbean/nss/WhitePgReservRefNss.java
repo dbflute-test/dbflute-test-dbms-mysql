@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhitePgReservRefCQ;
 
 /**
@@ -39,6 +38,6 @@ public class WhitePgReservRefNss {
      * white_pg_reserv by my CLASS, named 'whitePgReserv'.
      */
     public void withWhitePgReserv() {
-        _query.xdoNss(new WhitePgReservRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhitePgReserv(); }});
+        _query.xdoNss(() -> _query.queryWhitePgReserv());
     }
 }

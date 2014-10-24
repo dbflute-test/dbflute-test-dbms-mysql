@@ -53,14 +53,7 @@ public class SpReturnResultSetWithNotParamResult2Dbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberStatusCode(), "memberStatusCode");
-        setupEpg(_epgMap, new EpgMemberStatusName(), "memberStatusName");
-        setupEpg(_epgMap, new EpgDescription(), "description");
-        setupEpg(_epgMap, new EpgDisplayOrder(), "displayOrder");
-    }
-    public class EpgMemberStatusCode implements PropertyGateway {
-        public Object read(Entity et) { return ((SpReturnResultSetWithNotParamResult2)et).getMemberStatusCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult2)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             ccls(col, vl);
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
@@ -69,19 +62,10 @@ public class SpReturnResultSetWithNotParamResult2Dbm extends AbstractDBMeta {
             } else {
                 ((SpReturnResultSetWithNotParamResult2)et).mynativeMappingMemberStatusCode((String)vl);
             }
-        }
-    }
-    public static class EpgMemberStatusName implements PropertyGateway {
-        public Object read(Entity et) { return ((SpReturnResultSetWithNotParamResult2)et).getMemberStatusName(); }
-        public void write(Entity et, Object vl) { ((SpReturnResultSetWithNotParamResult2)et).setMemberStatusName((String)vl); }
-    }
-    public static class EpgDescription implements PropertyGateway {
-        public Object read(Entity et) { return ((SpReturnResultSetWithNotParamResult2)et).getDescription(); }
-        public void write(Entity et, Object vl) { ((SpReturnResultSetWithNotParamResult2)et).setDescription((String)vl); }
-    }
-    public static class EpgDisplayOrder implements PropertyGateway {
-        public Object read(Entity et) { return ((SpReturnResultSetWithNotParamResult2)et).getDisplayOrder(); }
-        public void write(Entity et, Object vl) { ((SpReturnResultSetWithNotParamResult2)et).setDisplayOrder(cti(vl)); }
+        }, "memberStatusCode");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult2)et).getMemberStatusName(), (et, vl) -> ((SpReturnResultSetWithNotParamResult2)et).setMemberStatusName((String)vl), "memberStatusName");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult2)et).getDescription(), (et, vl) -> ((SpReturnResultSetWithNotParamResult2)et).setDescription((String)vl), "description");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult2)et).getDisplayOrder(), (et, vl) -> ((SpReturnResultSetWithNotParamResult2)et).setDisplayOrder(cti(vl)), "displayOrder");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

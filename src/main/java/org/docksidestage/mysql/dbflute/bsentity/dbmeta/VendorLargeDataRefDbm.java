@@ -53,51 +53,15 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgLargeDataRefId(), "largeDataRefId");
-        setupEpg(_epgMap, new EpgLargeDataId(), "largeDataId");
-        setupEpg(_epgMap, new EpgDateIndex(), "dateIndex");
-        setupEpg(_epgMap, new EpgDateNoIndex(), "dateNoIndex");
-        setupEpg(_epgMap, new EpgTimestampIndex(), "timestampIndex");
-        setupEpg(_epgMap, new EpgTimestampNoIndex(), "timestampNoIndex");
-        setupEpg(_epgMap, new EpgNullableDecimalIndex(), "nullableDecimalIndex");
-        setupEpg(_epgMap, new EpgNullableDecimalNoIndex(), "nullableDecimalNoIndex");
-        setupEpg(_epgMap, new EpgSelfParentId(), "selfParentId");
-    }
-    public static class EpgLargeDataRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getLargeDataRefId(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setLargeDataRefId(ctl(vl)); }
-    }
-    public static class EpgLargeDataId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getLargeDataId(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setLargeDataId(ctl(vl)); }
-    }
-    public static class EpgDateIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getDateIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setDateIndex((java.util.Date)vl); }
-    }
-    public static class EpgDateNoIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getDateNoIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setDateNoIndex((java.util.Date)vl); }
-    }
-    public static class EpgTimestampIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getTimestampIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setTimestampIndex((java.sql.Timestamp)vl); }
-    }
-    public static class EpgTimestampNoIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getTimestampNoIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setTimestampNoIndex((java.sql.Timestamp)vl); }
-    }
-    public static class EpgNullableDecimalIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getNullableDecimalIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setNullableDecimalIndex(ctb(vl)); }
-    }
-    public static class EpgNullableDecimalNoIndex implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getNullableDecimalNoIndex(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setNullableDecimalNoIndex(ctb(vl)); }
-    }
-    public static class EpgSelfParentId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getSelfParentId(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setSelfParentId(ctl(vl)); }
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getLargeDataRefId(), (et, vl) -> ((VendorLargeDataRef)et).setLargeDataRefId(ctl(vl)), "largeDataRefId");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getLargeDataId(), (et, vl) -> ((VendorLargeDataRef)et).setLargeDataId(ctl(vl)), "largeDataId");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getDateIndex(), (et, vl) -> ((VendorLargeDataRef)et).setDateIndex((java.util.Date)vl), "dateIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getDateNoIndex(), (et, vl) -> ((VendorLargeDataRef)et).setDateNoIndex((java.util.Date)vl), "dateNoIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getTimestampIndex(), (et, vl) -> ((VendorLargeDataRef)et).setTimestampIndex((java.sql.Timestamp)vl), "timestampIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getTimestampNoIndex(), (et, vl) -> ((VendorLargeDataRef)et).setTimestampNoIndex((java.sql.Timestamp)vl), "timestampNoIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getNullableDecimalIndex(), (et, vl) -> ((VendorLargeDataRef)et).setNullableDecimalIndex(ctb(vl)), "nullableDecimalIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getNullableDecimalNoIndex(), (et, vl) -> ((VendorLargeDataRef)et).setNullableDecimalNoIndex(ctb(vl)), "nullableDecimalNoIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getSelfParentId(), (et, vl) -> ((VendorLargeDataRef)et).setSelfParentId(ctl(vl)), "selfParentId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -106,17 +70,10 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgVendorLargeData(), "vendorLargeData");
-        setupEfpg(_efpgMap, new EfpgVendorLargeDataRefSelf(), "vendorLargeDataRefSelf");
-    }
-    public class EfpgVendorLargeData implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getVendorLargeData(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setVendorLargeData((VendorLargeData)vl); }
-    }
-    public class EfpgVendorLargeDataRefSelf implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorLargeDataRef)et).getVendorLargeDataRefSelf(); }
-        public void write(Entity et, Object vl) { ((VendorLargeDataRef)et).setVendorLargeDataRefSelf((VendorLargeDataRef)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((VendorLargeDataRef)et).getVendorLargeData(), (et, vl) -> ((VendorLargeDataRef)et).setVendorLargeData((VendorLargeData)vl), "vendorLargeData");
+        setupEfpg(_efpgMap, et -> ((VendorLargeDataRef)et).getVendorLargeDataRefSelf(), (et, vl) -> ((VendorLargeDataRef)et).setVendorLargeDataRefSelf((VendorLargeDataRef)vl), "vendorLargeDataRefSelf");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

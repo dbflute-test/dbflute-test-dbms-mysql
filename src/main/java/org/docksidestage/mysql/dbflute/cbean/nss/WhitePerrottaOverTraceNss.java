@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhitePerrottaOverTraceCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhitePerrottaOverTraceNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhitePerrottaOverProductNss withWhitePerrottaOverProductByNextProductId() {
-        _query.xdoNss(new WhitePerrottaOverTraceCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhitePerrottaOverProductByNextProductId(); }});
+        _query.xdoNss(() -> _query.queryWhitePerrottaOverProductByNextProductId());
         return new WhitePerrottaOverProductNss(_query.queryWhitePerrottaOverProductByNextProductId());
     }
     /**
@@ -49,7 +48,7 @@ public class WhitePerrottaOverTraceNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhitePerrottaOverProductNss withWhitePerrottaOverProductByPreviousProductId() {
-        _query.xdoNss(new WhitePerrottaOverTraceCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhitePerrottaOverProductByPreviousProductId(); }});
+        _query.xdoNss(() -> _query.queryWhitePerrottaOverProductByPreviousProductId());
         return new WhitePerrottaOverProductNss(_query.queryWhitePerrottaOverProductByPreviousProductId());
     }
 }

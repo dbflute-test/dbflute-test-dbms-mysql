@@ -53,16 +53,8 @@ public class WhiteColumnExceptDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgExceptColumnId(), "exceptColumnId");
-        setupEpg(_epgMap, new EpgColumnExceptTest(), "columnExceptTest");
-    }
-    public static class EpgExceptColumnId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteColumnExcept)et).getExceptColumnId(); }
-        public void write(Entity et, Object vl) { ((WhiteColumnExcept)et).setExceptColumnId(ctl(vl)); }
-    }
-    public static class EpgColumnExceptTest implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteColumnExcept)et).getColumnExceptTest(); }
-        public void write(Entity et, Object vl) { ((WhiteColumnExcept)et).setColumnExceptTest(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteColumnExcept)et).getExceptColumnId(), (et, vl) -> ((WhiteColumnExcept)et).setExceptColumnId(ctl(vl)), "exceptColumnId");
+        setupEpg(_epgMap, et -> ((WhiteColumnExcept)et).getColumnExceptTest(), (et, vl) -> ((WhiteColumnExcept)et).setColumnExceptTest(cti(vl)), "columnExceptTest");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

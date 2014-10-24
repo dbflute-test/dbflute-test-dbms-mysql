@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteImplicitConvIntegerCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteImplicitConvIntegerNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteImplicitConvNumericNss withWhiteImplicitConvNumeric() {
-        _query.xdoNss(new WhiteImplicitConvIntegerCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteImplicitConvNumeric(); }});
+        _query.xdoNss(() -> _query.queryWhiteImplicitConvNumeric());
         return new WhiteImplicitConvNumericNss(_query.queryWhiteImplicitConvNumeric());
     }
     /**
@@ -49,7 +48,7 @@ public class WhiteImplicitConvIntegerNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteImplicitConvStringNss withWhiteImplicitConvString() {
-        _query.xdoNss(new WhiteImplicitConvIntegerCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteImplicitConvString(); }});
+        _query.xdoNss(() -> _query.queryWhiteImplicitConvString());
         return new WhiteImplicitConvStringNss(_query.queryWhiteImplicitConvString());
     }
 }

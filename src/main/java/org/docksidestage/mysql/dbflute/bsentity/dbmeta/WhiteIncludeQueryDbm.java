@@ -53,31 +53,11 @@ public class WhiteIncludeQueryDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgIncludeQueryId(), "includeQueryId");
-        setupEpg(_epgMap, new EpgIncludeQueryVarchar(), "includeQueryVarchar");
-        setupEpg(_epgMap, new EpgIncludeQueryInteger(), "includeQueryInteger");
-        setupEpg(_epgMap, new EpgIncludeQueryDate(), "includeQueryDate");
-        setupEpg(_epgMap, new EpgIncludeQueryDatetime(), "includeQueryDatetime");
-    }
-    public static class EpgIncludeQueryId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteIncludeQuery)et).getIncludeQueryId(); }
-        public void write(Entity et, Object vl) { ((WhiteIncludeQuery)et).setIncludeQueryId(ctl(vl)); }
-    }
-    public static class EpgIncludeQueryVarchar implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteIncludeQuery)et).getIncludeQueryVarchar(); }
-        public void write(Entity et, Object vl) { ((WhiteIncludeQuery)et).setIncludeQueryVarchar((String)vl); }
-    }
-    public static class EpgIncludeQueryInteger implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteIncludeQuery)et).getIncludeQueryInteger(); }
-        public void write(Entity et, Object vl) { ((WhiteIncludeQuery)et).setIncludeQueryInteger(cti(vl)); }
-    }
-    public static class EpgIncludeQueryDate implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteIncludeQuery)et).getIncludeQueryDate(); }
-        public void write(Entity et, Object vl) { ((WhiteIncludeQuery)et).setIncludeQueryDate((java.util.Date)vl); }
-    }
-    public static class EpgIncludeQueryDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteIncludeQuery)et).getIncludeQueryDatetime(); }
-        public void write(Entity et, Object vl) { ((WhiteIncludeQuery)et).setIncludeQueryDatetime((java.sql.Timestamp)vl); }
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryId(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryId(ctl(vl)), "includeQueryId");
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryVarchar(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryVarchar((String)vl), "includeQueryVarchar");
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryInteger(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryInteger(cti(vl)), "includeQueryInteger");
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDate(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDate((java.util.Date)vl), "includeQueryDate");
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDatetime(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDatetime((java.sql.Timestamp)vl), "includeQueryDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

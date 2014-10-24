@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteVariantRelationReferrerRefCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteVariantRelationReferrerRefNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteVariantRelationReferrerNss withWhiteVariantRelationReferrer() {
-        _query.xdoNss(new WhiteVariantRelationReferrerRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteVariantRelationReferrer(); }});
+        _query.xdoNss(() -> _query.queryWhiteVariantRelationReferrer());
         return new WhiteVariantRelationReferrerNss(_query.queryWhiteVariantRelationReferrer());
     }
 }

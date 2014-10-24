@@ -279,7 +279,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
      */
     public WhiteAllInOneClsElementNss setupSelect_WhiteAllInOneClsElementAsFoo() {
         assertSetupSelectPurpose("whiteAllInOneClsElementAsFoo");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteAllInOneClsElementAsFoo(); } });
+        doSetupSelect(() -> query().queryWhiteAllInOneClsElementAsFoo());
         if (_nssWhiteAllInOneClsElementAsFoo == null || !_nssWhiteAllInOneClsElementAsFoo.hasConditionQuery())
         { _nssWhiteAllInOneClsElementAsFoo = new WhiteAllInOneClsElementNss(query().queryWhiteAllInOneClsElementAsFoo()); }
         return _nssWhiteAllInOneClsElementAsFoo;
@@ -305,7 +305,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
      */
     public WhiteAllInOneClsElementNss setupSelect_WhiteAllInOneClsElementAsBar() {
         assertSetupSelectPurpose("whiteAllInOneClsElementAsBar");
-        doSetupSelect(new SsCall() { public ConditionQuery qf() { return query().queryWhiteAllInOneClsElementAsBar(); } });
+        doSetupSelect(() -> query().queryWhiteAllInOneClsElementAsBar());
         if (_nssWhiteAllInOneClsElementAsBar == null || !_nssWhiteAllInOneClsElementAsBar.hasConditionQuery())
         { _nssWhiteAllInOneClsElementAsBar = new WhiteAllInOneClsElementNss(query().queryWhiteAllInOneClsElementAsBar()); }
         return _nssWhiteAllInOneClsElementAsBar;
@@ -338,10 +338,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteAllInOneClsCompoundPkRefCQ>() {
-                public boolean has() { return true; }
-                public WhiteAllInOneClsCompoundPkRefCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -394,15 +391,14 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
         public WhiteAllInOneClsElementCB.HpSpecification specifyWhiteAllInOneClsElementAsFoo() {
             assertRelation("whiteAllInOneClsElementAsFoo");
             if (_whiteAllInOneClsElementAsFoo == null) {
-                _whiteAllInOneClsElementAsFoo = new WhiteAllInOneClsElementCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteAllInOneClsElementCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteAllInOneClsElementAsFoo(); }
-                    public WhiteAllInOneClsElementCQ qy() { return _qyCall.qy().queryWhiteAllInOneClsElementAsFoo(); } }
+                _whiteAllInOneClsElementAsFoo = new WhiteAllInOneClsElementCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteAllInOneClsElementAsFoo()
+                                    , () -> _qyCall.qy().queryWhiteAllInOneClsElementAsFoo())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteAllInOneClsElementAsFoo.xsetSyncQyCall(new HpSpQyCall<WhiteAllInOneClsElementCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteAllInOneClsElementAsFoo(); }
-                        public WhiteAllInOneClsElementCQ qy() { return xsyncQyCall().qy().queryWhiteAllInOneClsElementAsFoo(); }
-                    });
+                    _whiteAllInOneClsElementAsFoo.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteAllInOneClsElementAsFoo()
+                      , () -> xsyncQyCall().qy().queryWhiteAllInOneClsElementAsFoo()));
                 }
             }
             return _whiteAllInOneClsElementAsFoo;
@@ -415,15 +411,14 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
         public WhiteAllInOneClsElementCB.HpSpecification specifyWhiteAllInOneClsElementAsBar() {
             assertRelation("whiteAllInOneClsElementAsBar");
             if (_whiteAllInOneClsElementAsBar == null) {
-                _whiteAllInOneClsElementAsBar = new WhiteAllInOneClsElementCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteAllInOneClsElementCQ>() {
-                    public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteAllInOneClsElementAsBar(); }
-                    public WhiteAllInOneClsElementCQ qy() { return _qyCall.qy().queryWhiteAllInOneClsElementAsBar(); } }
+                _whiteAllInOneClsElementAsBar = new WhiteAllInOneClsElementCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteAllInOneClsElementAsBar()
+                                    , () -> _qyCall.qy().queryWhiteAllInOneClsElementAsBar())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteAllInOneClsElementAsBar.xsetSyncQyCall(new HpSpQyCall<WhiteAllInOneClsElementCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteAllInOneClsElementAsBar(); }
-                        public WhiteAllInOneClsElementCQ qy() { return xsyncQyCall().qy().queryWhiteAllInOneClsElementAsBar(); }
-                    });
+                    _whiteAllInOneClsElementAsBar.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteAllInOneClsElementAsBar()
+                      , () -> xsyncQyCall().qy().queryWhiteAllInOneClsElementAsBar()));
                 }
             }
             return _whiteAllInOneClsElementAsBar;
@@ -460,10 +455,8 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteAllInOneClsCompoundPkRefCB> columnQuery(final SpecifyQuery<WhiteAllInOneClsCompoundPkRefCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteAllInOneClsCompoundPkRefCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteAllInOneClsCompoundPkRefCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -569,10 +562,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCB extends AbstractConditionBean {
         } else {
             cb = new WhiteAllInOneClsCompoundPkRefCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteAllInOneClsCompoundPkRefCQ>() {
-            public boolean has() { return true; }
-            public WhiteAllInOneClsCompoundPkRefCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -471,9 +471,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     public void xsmyselfDerive(String fn, SubQuery<WhiteEscapedDfpropCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "ESCAPED_DFPROP_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "ESCAPED_DFPROP_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteEscapedDfpropCQ sq);
@@ -507,8 +505,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     public void myselfExists(SubQuery<WhiteEscapedDfpropCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteEscapedDfpropCQ sq);

@@ -279,10 +279,7 @@ public class BsWhiteSuppressJoinSqCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteSuppressJoinSqCQ>() {
-                public boolean has() { return true; }
-                public WhiteSuppressJoinSqCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -325,9 +322,7 @@ public class BsWhiteSuppressJoinSqCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSuppressJoinSqCB, WhiteSuppressJoinSqCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteSuppressJoinSqCB, WhiteSuppressJoinSqCQ>() {
-                public void setup(String fn, SubQuery<WhiteSuppressJoinSqCB> sq, WhiteSuppressJoinSqCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -361,10 +356,8 @@ public class BsWhiteSuppressJoinSqCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteSuppressJoinSqCB> columnQuery(final SpecifyQuery<WhiteSuppressJoinSqCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteSuppressJoinSqCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteSuppressJoinSqCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -470,10 +463,7 @@ public class BsWhiteSuppressJoinSqCB extends AbstractConditionBean {
         } else {
             cb = new WhiteSuppressJoinSqCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteSuppressJoinSqCQ>() {
-            public boolean has() { return true; }
-            public WhiteSuppressJoinSqCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

@@ -53,16 +53,8 @@ public class WhiteUqFkDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgUqFkId(), "uqFkId");
-        setupEpg(_epgMap, new EpgUqFkCode(), "uqFkCode");
-    }
-    public static class EpgUqFkId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFk)et).getUqFkId(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFk)et).setUqFkId(ctl(vl)); }
-    }
-    public static class EpgUqFkCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFk)et).getUqFkCode(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFk)et).setUqFkCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteUqFk)et).getUqFkId(), (et, vl) -> ((WhiteUqFk)et).setUqFkId(ctl(vl)), "uqFkId");
+        setupEpg(_epgMap, et -> ((WhiteUqFk)et).getUqFkCode(), (et, vl) -> ((WhiteUqFk)et).setUqFkCode((String)vl), "uqFkCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

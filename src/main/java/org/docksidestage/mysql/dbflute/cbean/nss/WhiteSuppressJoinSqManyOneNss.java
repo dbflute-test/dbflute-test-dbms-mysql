@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteSuppressJoinSqManyOneCQ;
 
 /**
@@ -39,6 +38,6 @@ public class WhiteSuppressJoinSqManyOneNss {
      * white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
      */
     public void withWhiteSuppressJoinSqManyOneOne() {
-        _query.xdoNss(new WhiteSuppressJoinSqManyOneCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteSuppressJoinSqManyOneOne(); }});
+        _query.xdoNss(() -> _query.queryWhiteSuppressJoinSqManyOneOne());
     }
 }

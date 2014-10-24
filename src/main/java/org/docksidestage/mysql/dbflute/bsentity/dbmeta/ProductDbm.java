@@ -53,37 +53,11 @@ public class ProductDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgProductId(), "productId");
-        setupEpg(_epgMap, new EpgProductName(), "productName");
-        setupEpg(_epgMap, new EpgProductHandleCode(), "productHandleCode");
-        setupEpg(_epgMap, new EpgProductCategoryCode(), "productCategoryCode");
-        setupEpg(_epgMap, new EpgProductStatusCode(), "productStatusCode");
-        setupEpg(_epgMap, new EpgRegularPrice(), "regularPrice");
-        setupEpg(_epgMap, new EpgRegisterDatetime(), "registerDatetime");
-        setupEpg(_epgMap, new EpgRegisterUser(), "registerUser");
-        setupEpg(_epgMap, new EpgUpdateDatetime(), "updateDatetime");
-        setupEpg(_epgMap, new EpgUpdateUser(), "updateUser");
-        setupEpg(_epgMap, new EpgVersionNo(), "versionNo");
-    }
-    public static class EpgProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getProductId(); }
-        public void write(Entity et, Object vl) { ((Product)et).setProductId(cti(vl)); }
-    }
-    public static class EpgProductName implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getProductName(); }
-        public void write(Entity et, Object vl) { ((Product)et).setProductName((String)vl); }
-    }
-    public static class EpgProductHandleCode implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getProductHandleCode(); }
-        public void write(Entity et, Object vl) { ((Product)et).setProductHandleCode((String)vl); }
-    }
-    public static class EpgProductCategoryCode implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getProductCategoryCode(); }
-        public void write(Entity et, Object vl) { ((Product)et).setProductCategoryCode((String)vl); }
-    }
-    public class EpgProductStatusCode implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getProductStatusCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((Product)et).getProductId(), (et, vl) -> ((Product)et).setProductId(cti(vl)), "productId");
+        setupEpg(_epgMap, et -> ((Product)et).getProductName(), (et, vl) -> ((Product)et).setProductName((String)vl), "productName");
+        setupEpg(_epgMap, et -> ((Product)et).getProductHandleCode(), (et, vl) -> ((Product)et).setProductHandleCode((String)vl), "productHandleCode");
+        setupEpg(_epgMap, et -> ((Product)et).getProductCategoryCode(), (et, vl) -> ((Product)et).setProductCategoryCode((String)vl), "productCategoryCode");
+        setupEpg(_epgMap, et -> ((Product)et).getProductStatusCode(), (et, vl) -> {
             ColumnInfo col = columnProductStatusCode();
             ccls(col, vl);
             CDef.ProductStatus cls = (CDef.ProductStatus)gcls(col, vl);
@@ -92,31 +66,13 @@ public class ProductDbm extends AbstractDBMeta {
             } else {
                 ((Product)et).mynativeMappingProductStatusCode((String)vl);
             }
-        }
-    }
-    public static class EpgRegularPrice implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getRegularPrice(); }
-        public void write(Entity et, Object vl) { ((Product)et).setRegularPrice(cti(vl)); }
-    }
-    public static class EpgRegisterDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getRegisterDatetime(); }
-        public void write(Entity et, Object vl) { ((Product)et).setRegisterDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgRegisterUser implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getRegisterUser(); }
-        public void write(Entity et, Object vl) { ((Product)et).setRegisterUser((String)vl); }
-    }
-    public static class EpgUpdateDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getUpdateDatetime(); }
-        public void write(Entity et, Object vl) { ((Product)et).setUpdateDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgUpdateUser implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getUpdateUser(); }
-        public void write(Entity et, Object vl) { ((Product)et).setUpdateUser((String)vl); }
-    }
-    public static class EpgVersionNo implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getVersionNo(); }
-        public void write(Entity et, Object vl) { ((Product)et).setVersionNo(ctl(vl)); }
+        }, "productStatusCode");
+        setupEpg(_epgMap, et -> ((Product)et).getRegularPrice(), (et, vl) -> ((Product)et).setRegularPrice(cti(vl)), "regularPrice");
+        setupEpg(_epgMap, et -> ((Product)et).getRegisterDatetime(), (et, vl) -> ((Product)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((Product)et).getRegisterUser(), (et, vl) -> ((Product)et).setRegisterUser((String)vl), "registerUser");
+        setupEpg(_epgMap, et -> ((Product)et).getUpdateDatetime(), (et, vl) -> ((Product)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((Product)et).getUpdateUser(), (et, vl) -> ((Product)et).setUpdateUser((String)vl), "updateUser");
+        setupEpg(_epgMap, et -> ((Product)et).getVersionNo(), (et, vl) -> ((Product)et).setVersionNo(ctl(vl)), "versionNo");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -125,17 +81,10 @@ public class ProductDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgProductCategory(), "productCategory");
-        setupEfpg(_efpgMap, new EfpgProductStatus(), "productStatus");
-    }
-    public class EfpgProductCategory implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getProductCategory(); }
-        public void write(Entity et, Object vl) { ((Product)et).setProductCategory((ProductCategory)vl); }
-    }
-    public class EfpgProductStatus implements PropertyGateway {
-        public Object read(Entity et) { return ((Product)et).getProductStatus(); }
-        public void write(Entity et, Object vl) { ((Product)et).setProductStatus((ProductStatus)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((Product)et).getProductCategory(), (et, vl) -> ((Product)et).setProductCategory((ProductCategory)vl), "productCategory");
+        setupEfpg(_efpgMap, et -> ((Product)et).getProductStatus(), (et, vl) -> ((Product)et).setProductStatus((ProductStatus)vl), "productStatus");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

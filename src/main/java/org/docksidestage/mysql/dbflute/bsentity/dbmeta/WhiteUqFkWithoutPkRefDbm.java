@@ -53,16 +53,8 @@ public class WhiteUqFkWithoutPkRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgUqFkRefId(), "uqFkRefId");
-        setupEpg(_epgMap, new EpgFkToUqCode(), "fkToUqCode");
-    }
-    public static class EpgUqFkRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkWithoutPkRef)et).getUqFkRefId(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkWithoutPkRef)et).setUqFkRefId(ctl(vl)); }
-    }
-    public static class EpgFkToUqCode implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkWithoutPkRef)et).getFkToUqCode(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkWithoutPkRef)et).setFkToUqCode((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteUqFkWithoutPkRef)et).getUqFkRefId(), (et, vl) -> ((WhiteUqFkWithoutPkRef)et).setUqFkRefId(ctl(vl)), "uqFkRefId");
+        setupEpg(_epgMap, et -> ((WhiteUqFkWithoutPkRef)et).getFkToUqCode(), (et, vl) -> ((WhiteUqFkWithoutPkRef)et).setFkToUqCode((String)vl), "fkToUqCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -71,12 +63,9 @@ public class WhiteUqFkWithoutPkRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteUqFkWithoutPk(), "whiteUqFkWithoutPk");
-    }
-    public class EfpgWhiteUqFkWithoutPk implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteUqFkWithoutPkRef)et).getWhiteUqFkWithoutPk(); }
-        public void write(Entity et, Object vl) { ((WhiteUqFkWithoutPkRef)et).setWhiteUqFkWithoutPk((WhiteUqFkWithoutPk)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteUqFkWithoutPkRef)et).getWhiteUqFkWithoutPk(), (et, vl) -> ((WhiteUqFkWithoutPkRef)et).setWhiteUqFkWithoutPk((WhiteUqFkWithoutPk)vl), "whiteUqFkWithoutPk");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

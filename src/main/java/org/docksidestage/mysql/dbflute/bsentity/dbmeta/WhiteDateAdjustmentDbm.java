@@ -53,61 +53,17 @@ public class WhiteDateAdjustmentDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgDateAdjustmentId(), "dateAdjustmentId");
-        setupEpg(_epgMap, new EpgAdjustedDate(), "adjustedDate");
-        setupEpg(_epgMap, new EpgAdjustedDatetime(), "adjustedDatetime");
-        setupEpg(_epgMap, new EpgAdjustedTime(), "adjustedTime");
-        setupEpg(_epgMap, new EpgAdjustedInteger(), "adjustedInteger");
-        setupEpg(_epgMap, new EpgAdjustedNamedStringLong(), "adjustedNamedStringLong");
-        setupEpg(_epgMap, new EpgAdjustedNamedTypedLong(), "adjustedNamedTypedLong");
-        setupEpg(_epgMap, new EpgAdjustedPinpointStringLong(), "adjustedPinpointStringLong");
-        setupEpg(_epgMap, new EpgAdjustedPinpointTypedLong(), "adjustedPinpointTypedLong");
-        setupEpg(_epgMap, new EpgAdjustedPlainLong(), "adjustedPlainLong");
-        setupEpg(_epgMap, new EpgAdjustedString(), "adjustedString");
-    }
-    public static class EpgDateAdjustmentId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getDateAdjustmentId(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setDateAdjustmentId(ctl(vl)); }
-    }
-    public static class EpgAdjustedDate implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedDate(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedDate((java.util.Date)vl); }
-    }
-    public static class EpgAdjustedDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedDatetime(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgAdjustedTime implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedTime(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedTime((java.sql.Time)vl); }
-    }
-    public static class EpgAdjustedInteger implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedInteger(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedInteger(cti(vl)); }
-    }
-    public static class EpgAdjustedNamedStringLong implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedNamedStringLong(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedNamedStringLong(ctl(vl)); }
-    }
-    public static class EpgAdjustedNamedTypedLong implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedNamedTypedLong(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedNamedTypedLong(ctl(vl)); }
-    }
-    public static class EpgAdjustedPinpointStringLong implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedPinpointStringLong(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedPinpointStringLong(ctl(vl)); }
-    }
-    public static class EpgAdjustedPinpointTypedLong implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedPinpointTypedLong(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedPinpointTypedLong(ctl(vl)); }
-    }
-    public static class EpgAdjustedPlainLong implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedPlainLong(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedPlainLong(ctl(vl)); }
-    }
-    public static class EpgAdjustedString implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteDateAdjustment)et).getAdjustedString(); }
-        public void write(Entity et, Object vl) { ((WhiteDateAdjustment)et).setAdjustedString((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getDateAdjustmentId(), (et, vl) -> ((WhiteDateAdjustment)et).setDateAdjustmentId(ctl(vl)), "dateAdjustmentId");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedDate(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedDate((java.util.Date)vl), "adjustedDate");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedDatetime(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedDatetime((java.sql.Timestamp)vl), "adjustedDatetime");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedTime(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedTime((java.sql.Time)vl), "adjustedTime");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedInteger(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedInteger(cti(vl)), "adjustedInteger");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedNamedStringLong(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedNamedStringLong(ctl(vl)), "adjustedNamedStringLong");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedNamedTypedLong(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedNamedTypedLong(ctl(vl)), "adjustedNamedTypedLong");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedPinpointStringLong(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedPinpointStringLong(ctl(vl)), "adjustedPinpointStringLong");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedPinpointTypedLong(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedPinpointTypedLong(ctl(vl)), "adjustedPinpointTypedLong");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedPlainLong(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedPlainLong(ctl(vl)), "adjustedPlainLong");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedString(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedString((String)vl), "adjustedString");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

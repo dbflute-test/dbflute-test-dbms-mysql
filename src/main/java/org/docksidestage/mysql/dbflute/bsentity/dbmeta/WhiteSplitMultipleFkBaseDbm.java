@@ -53,26 +53,10 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgBaseId(), "baseId");
-        setupEpg(_epgMap, new EpgFirstId(), "firstId");
-        setupEpg(_epgMap, new EpgNextId(), "nextId");
-        setupEpg(_epgMap, new EpgSplitName(), "splitName");
-    }
-    public static class EpgBaseId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkBase)et).getBaseId(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkBase)et).setBaseId(ctl(vl)); }
-    }
-    public static class EpgFirstId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkBase)et).getFirstId(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkBase)et).setFirstId(cti(vl)); }
-    }
-    public static class EpgNextId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkBase)et).getNextId(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkBase)et).setNextId(ctl(vl)); }
-    }
-    public static class EpgSplitName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkBase)et).getSplitName(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkBase)et).setSplitName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkBase)et).getBaseId(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setBaseId(ctl(vl)), "baseId");
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkBase)et).getFirstId(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setFirstId(cti(vl)), "firstId");
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkBase)et).getNextId(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setNextId(ctl(vl)), "nextId");
+        setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkBase)et).getSplitName(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setSplitName((String)vl), "splitName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -81,17 +65,10 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteSplitMultipleFkNext(), "whiteSplitMultipleFkNext");
-        setupEfpg(_efpgMap, new EfpgWhiteSplitMultipleFkRefAsSplitMultipleFkTest(), "whiteSplitMultipleFkRefAsSplitMultipleFkTest");
-    }
-    public class EfpgWhiteSplitMultipleFkNext implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkBase)et).getWhiteSplitMultipleFkNext(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkBase)et).setWhiteSplitMultipleFkNext((WhiteSplitMultipleFkNext)vl); }
-    }
-    public class EfpgWhiteSplitMultipleFkRefAsSplitMultipleFkTest implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteSplitMultipleFkBase)et).getWhiteSplitMultipleFkRefAsSplitMultipleFkTest(); }
-        public void write(Entity et, Object vl) { ((WhiteSplitMultipleFkBase)et).setWhiteSplitMultipleFkRefAsSplitMultipleFkTest((WhiteSplitMultipleFkRef)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((WhiteSplitMultipleFkBase)et).getWhiteSplitMultipleFkNext(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setWhiteSplitMultipleFkNext((WhiteSplitMultipleFkNext)vl), "whiteSplitMultipleFkNext");
+        setupEfpg(_efpgMap, et -> ((WhiteSplitMultipleFkBase)et).getWhiteSplitMultipleFkRefAsSplitMultipleFkTest(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setWhiteSplitMultipleFkRefAsSplitMultipleFkTest((WhiteSplitMultipleFkRef)vl), "whiteSplitMultipleFkRefAsSplitMultipleFkTest");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

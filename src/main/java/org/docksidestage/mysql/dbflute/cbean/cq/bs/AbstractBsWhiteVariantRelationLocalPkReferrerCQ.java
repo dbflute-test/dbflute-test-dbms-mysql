@@ -414,9 +414,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     public void xsmyselfDerive(String fn, SubQuery<WhiteVariantRelationLocalPkReferrerCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "REVERSEFK_SUPPRESSED_ID";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "REVERSEFK_SUPPRESSED_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteVariantRelationLocalPkReferrerCQ sq);
@@ -450,8 +448,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     public void myselfExists(SubQuery<WhiteVariantRelationLocalPkReferrerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationLocalPkReferrerCB cb = new WhiteVariantRelationLocalPkReferrerCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteVariantRelationLocalPkReferrerCQ sq);

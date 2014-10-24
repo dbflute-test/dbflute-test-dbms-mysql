@@ -53,16 +53,8 @@ public class WhiteLoadDataDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgLoadDataId(), "loadDataId");
-        setupEpg(_epgMap, new EpgLoadDataName(), "loadDataName");
-    }
-    public static class EpgLoadDataId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteLoadData)et).getLoadDataId(); }
-        public void write(Entity et, Object vl) { ((WhiteLoadData)et).setLoadDataId(ctl(vl)); }
-    }
-    public static class EpgLoadDataName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteLoadData)et).getLoadDataName(); }
-        public void write(Entity et, Object vl) { ((WhiteLoadData)et).setLoadDataName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteLoadData)et).getLoadDataId(), (et, vl) -> ((WhiteLoadData)et).setLoadDataId(ctl(vl)), "loadDataId");
+        setupEpg(_epgMap, et -> ((WhiteLoadData)et).getLoadDataName(), (et, vl) -> ((WhiteLoadData)et).setLoadDataName((String)vl), "loadDataName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

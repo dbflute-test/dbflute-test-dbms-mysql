@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteVariantRelationReferrerCQ;
 
 /**
@@ -40,7 +39,7 @@ public class WhiteVariantRelationReferrerNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteVariantRelationMasterFooNss withWhiteVariantRelationMasterFooAsVariant() {
-        _query.xdoNss(new WhiteVariantRelationReferrerCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteVariantRelationMasterFooAsVariant(); }});
+        _query.xdoNss(() -> _query.queryWhiteVariantRelationMasterFooAsVariant());
         return new WhiteVariantRelationMasterFooNss(_query.queryWhiteVariantRelationMasterFooAsVariant());
     }
     /**
@@ -48,14 +47,14 @@ public class WhiteVariantRelationReferrerNss {
      * white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
      */
     public void withWhiteVariantRelationMasterBarAsVariant() {
-        _query.xdoNss(new WhiteVariantRelationReferrerCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteVariantRelationMasterBarAsVariant(); }});
+        _query.xdoNss(() -> _query.queryWhiteVariantRelationMasterBarAsVariant());
     }
     /**
      * With nested relation columns to select clause. <br />
      * white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
      */
     public void withWhiteVariantRelationMasterQuxAsVariantByQue() {
-        _query.xdoNss(new WhiteVariantRelationReferrerCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteVariantRelationMasterQuxAsVariantByQue(); }});
+        _query.xdoNss(() -> _query.queryWhiteVariantRelationMasterQuxAsVariantByQue());
     }
     /**
      * With nested relation columns to select clause. <br />
@@ -63,6 +62,6 @@ public class WhiteVariantRelationReferrerNss {
      * @param quxType The bind parameter of fixed condition for quxType. (NotNull)
      */
     public void withWhiteVariantRelationMasterCorgeAsVariantByQuxType(final org.docksidestage.mysql.dbflute.allcommon.CDef.VariantRelationQuxType quxType) {
-        _query.xdoNss(new WhiteVariantRelationReferrerCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType); }});
+        _query.xdoNss(() -> _query.queryWhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType));
     }
 }

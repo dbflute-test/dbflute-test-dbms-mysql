@@ -279,10 +279,7 @@ public class BsWhiteSplitMultipleFkNextCB extends AbstractConditionBean {
     public HpSpecification specify() {
         assertSpecifyPurpose();
         if (_specification == null) { _specification = new HpSpecification(this
-            , new HpSpQyCall<WhiteSplitMultipleFkNextCQ>() {
-                public boolean has() { return true; }
-                public WhiteSplitMultipleFkNextCQ qy() { return xdfgetConditionQuery(); }
-            }
+            , xcreateSpQyCall(() -> true, () -> xdfgetConditionQuery())
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
@@ -332,9 +329,7 @@ public class BsWhiteSplitMultipleFkNextCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkNextCQ> derivedWhiteSplitMultipleFkBaseList() {
             assertDerived("whiteSplitMultipleFkBaseList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkNextCQ>() {
-                public void setup(String fn, SubQuery<WhiteSplitMultipleFkBaseCB> sq, WhiteSplitMultipleFkNextCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsderiveWhiteSplitMultipleFkBaseList(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteSplitMultipleFkBaseList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -342,9 +337,7 @@ public class BsWhiteSplitMultipleFkNextCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSplitMultipleFkNextCB, WhiteSplitMultipleFkNextCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), new HpSDRSetupper<WhiteSplitMultipleFkNextCB, WhiteSplitMultipleFkNextCQ>() {
-                public void setup(String fn, SubQuery<WhiteSplitMultipleFkNextCB> sq, WhiteSplitMultipleFkNextCQ cq, String al, DerivedReferrerOption op) {
-                    cq.xsmyselfDerive(fn, sq, al, op); } }, _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -378,10 +371,8 @@ public class BsWhiteSplitMultipleFkNextCB extends AbstractConditionBean {
      * @return The object for setting up operand and right column. (NotNull)
      */
     public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteSplitMultipleFkNextCB> columnQuery(final SpecifyQuery<WhiteSplitMultipleFkNextCB> colCBLambda) {
-        return xcreateColQyOperandMySql(new HpColQyHandler<WhiteSplitMultipleFkNextCB>() {
-            public ColumnCalculator handle(SpecifyQuery<WhiteSplitMultipleFkNextCB> rightSp, String operand) {
-                return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-            }
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
@@ -487,10 +478,7 @@ public class BsWhiteSplitMultipleFkNextCB extends AbstractConditionBean {
         } else {
             cb = new WhiteSplitMultipleFkNextCB();
         }
-        specify().xsetSyncQyCall(new HpSpQyCall<WhiteSplitMultipleFkNextCQ>() {
-            public boolean has() { return true; }
-            public WhiteSplitMultipleFkNextCQ qy() { return cb.query(); }
-        });
+        specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
 
     // ===================================================================================

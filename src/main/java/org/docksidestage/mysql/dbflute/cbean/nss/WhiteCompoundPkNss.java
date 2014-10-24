@@ -15,7 +15,6 @@
  */
 package org.docksidestage.mysql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.mysql.dbflute.cbean.cq.WhiteCompoundPkCQ;
 
 /**
@@ -39,14 +38,14 @@ public class WhiteCompoundPkNss {
      * white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
      */
     public void withWhiteCompoundReferredNormally() {
-        _query.xdoNss(new WhiteCompoundPkCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteCompoundReferredNormally(); }});
+        _query.xdoNss(() -> _query.queryWhiteCompoundReferredNormally());
     }
     /**
      * With nested relation columns to select clause. <br />
      * white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
      */
     public void withWhiteCompoundReferredPrimary() {
-        _query.xdoNss(new WhiteCompoundPkCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteCompoundReferredPrimary(); }});
+        _query.xdoNss(() -> _query.queryWhiteCompoundReferredPrimary());
     }
     /**
      * With nested relation columns to select clause. <br />
@@ -54,7 +53,7 @@ public class WhiteCompoundPkNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkRefManyNss withWhiteCompoundPkRefManyAsMax() {
-        _query.xdoNss(new WhiteCompoundPkCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteCompoundPkRefManyAsMax(); }});
+        _query.xdoNss(() -> _query.queryWhiteCompoundPkRefManyAsMax());
         return new WhiteCompoundPkRefManyNss(_query.queryWhiteCompoundPkRefManyAsMax());
     }
     /**
@@ -63,7 +62,7 @@ public class WhiteCompoundPkNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkRefManyNss withWhiteCompoundPkRefManyAsMin() {
-        _query.xdoNss(new WhiteCompoundPkCQ.NssCall() { public ConditionQuery qf() { return _query.queryWhiteCompoundPkRefManyAsMin(); }});
+        _query.xdoNss(() -> _query.queryWhiteCompoundPkRefManyAsMin());
         return new WhiteCompoundPkRefManyNss(_query.queryWhiteCompoundPkRefManyAsMin());
     }
 }
