@@ -227,8 +227,10 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne != null) { sb.append(dm).append("whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne"); }
-        if (_whiteVariantRelationLocalPkReferrerAsOne != null) { sb.append(dm).append("whiteVariantRelationLocalPkReferrerAsOne"); }
+        if (_whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne != null)
+        { sb.append(dm).append("whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne"); }
+        if (_whiteVariantRelationLocalPkReferrerAsOne != null)
+        { sb.append(dm).append("whiteVariantRelationLocalPkReferrerAsOne"); }
         if (_whiteVariantRelationReferrerAsVariantList != null && !_whiteVariantRelationReferrerAsVariantList.isEmpty())
         { sb.append(dm).append("whiteVariantRelationReferrerAsVariantList"); }
         if (sb.length() > dm.length()) {

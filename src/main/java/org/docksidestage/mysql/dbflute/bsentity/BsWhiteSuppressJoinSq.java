@@ -206,7 +206,8 @@ public abstract class BsWhiteSuppressJoinSq extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSuppressJoinSqOneAsOne != null) { sb.append(dm).append("whiteSuppressJoinSqOneAsOne"); }
+        if (_whiteSuppressJoinSqOneAsOne != null)
+        { sb.append(dm).append("whiteSuppressJoinSqOneAsOne"); }
         if (_whiteSuppressJoinSqManyList != null && !_whiteSuppressJoinSqManyList.isEmpty())
         { sb.append(dm).append("whiteSuppressJoinSqManyList"); }
         if (sb.length() > dm.length()) {

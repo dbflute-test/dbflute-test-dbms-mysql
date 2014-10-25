@@ -332,10 +332,14 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundReferredNormally != null) { sb.append(dm).append("whiteCompoundReferredNormally"); }
-        if (_whiteCompoundReferredPrimary != null) { sb.append(dm).append("whiteCompoundReferredPrimary"); }
-        if (_whiteCompoundPkRefManyAsMax != null) { sb.append(dm).append("whiteCompoundPkRefManyAsMax"); }
-        if (_whiteCompoundPkRefManyAsMin != null) { sb.append(dm).append("whiteCompoundPkRefManyAsMin"); }
+        if (_whiteCompoundReferredNormally != null)
+        { sb.append(dm).append("whiteCompoundReferredNormally"); }
+        if (_whiteCompoundReferredPrimary != null)
+        { sb.append(dm).append("whiteCompoundReferredPrimary"); }
+        if (_whiteCompoundPkRefManyAsMax != null)
+        { sb.append(dm).append("whiteCompoundPkRefManyAsMax"); }
+        if (_whiteCompoundPkRefManyAsMin != null)
+        { sb.append(dm).append("whiteCompoundPkRefManyAsMin"); }
         if (_whiteCompoundPkRefList != null && !_whiteCompoundPkRefList.isEmpty())
         { sb.append(dm).append("whiteCompoundPkRefList"); }
         if (_whiteCompoundPkRefManyToPKList != null && !_whiteCompoundPkRefManyToPKList.isEmpty())

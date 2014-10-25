@@ -184,7 +184,8 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne != null) { sb.append(dm).append("whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne"); }
+        if (_whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne != null)
+        { sb.append(dm).append("whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

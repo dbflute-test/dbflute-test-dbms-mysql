@@ -269,8 +269,10 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorLargeData != null) { sb.append(dm).append("vendorLargeData"); }
-        if (_vendorLargeDataRefSelf != null) { sb.append(dm).append("vendorLargeDataRefSelf"); }
+        if (_vendorLargeData != null)
+        { sb.append(dm).append("vendorLargeData"); }
+        if (_vendorLargeDataRefSelf != null)
+        { sb.append(dm).append("vendorLargeDataRefSelf"); }
         if (_vendorLargeDataRefSelfList != null && !_vendorLargeDataRefSelfList.isEmpty())
         { sb.append(dm).append("vendorLargeDataRefSelfList"); }
         if (sb.length() > dm.length()) {

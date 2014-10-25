@@ -185,7 +185,8 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteUqFkWithoutPk != null) { sb.append(dm).append("whiteUqFkWithoutPk"); }
+        if (_whiteUqFkWithoutPk != null)
+        { sb.append(dm).append("whiteUqFkWithoutPk"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

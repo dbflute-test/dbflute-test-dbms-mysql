@@ -190,7 +190,8 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSplitMultipleFkBase != null) { sb.append(dm).append("whiteSplitMultipleFkBase"); }
+        if (_whiteSplitMultipleFkBase != null)
+        { sb.append(dm).append("whiteSplitMultipleFkBase"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

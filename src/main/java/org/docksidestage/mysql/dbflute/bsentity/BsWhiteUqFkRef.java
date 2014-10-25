@@ -258,8 +258,10 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteUqFkByFkToPkId != null) { sb.append(dm).append("whiteUqFkByFkToPkId"); }
-        if (_whiteUqFkByFkToUqCode != null) { sb.append(dm).append("whiteUqFkByFkToUqCode"); }
+        if (_whiteUqFkByFkToPkId != null)
+        { sb.append(dm).append("whiteUqFkByFkToPkId"); }
+        if (_whiteUqFkByFkToUqCode != null)
+        { sb.append(dm).append("whiteUqFkByFkToUqCode"); }
         if (_whiteUqFkRefNestList != null && !_whiteUqFkRefNestList.isEmpty())
         { sb.append(dm).append("whiteUqFkRefNestList"); }
         if (sb.length() > dm.length()) {

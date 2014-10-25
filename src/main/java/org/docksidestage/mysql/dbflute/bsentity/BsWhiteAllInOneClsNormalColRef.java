@@ -223,8 +223,10 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteAllInOneClsElementAsFoo != null) { sb.append(dm).append("whiteAllInOneClsElementAsFoo"); }
-        if (_whiteAllInOneClsElementAsBar != null) { sb.append(dm).append("whiteAllInOneClsElementAsBar"); }
+        if (_whiteAllInOneClsElementAsFoo != null)
+        { sb.append(dm).append("whiteAllInOneClsElementAsFoo"); }
+        if (_whiteAllInOneClsElementAsBar != null)
+        { sb.append(dm).append("whiteAllInOneClsElementAsBar"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

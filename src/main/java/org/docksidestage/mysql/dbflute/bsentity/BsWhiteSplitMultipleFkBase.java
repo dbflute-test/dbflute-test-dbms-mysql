@@ -239,8 +239,10 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSplitMultipleFkNext != null) { sb.append(dm).append("whiteSplitMultipleFkNext"); }
-        if (_whiteSplitMultipleFkRefAsSplitMultipleFkTest != null) { sb.append(dm).append("whiteSplitMultipleFkRefAsSplitMultipleFkTest"); }
+        if (_whiteSplitMultipleFkNext != null)
+        { sb.append(dm).append("whiteSplitMultipleFkNext"); }
+        if (_whiteSplitMultipleFkRefAsSplitMultipleFkTest != null)
+        { sb.append(dm).append("whiteSplitMultipleFkRefAsSplitMultipleFkTest"); }
         if (_whiteSplitMultipleFkChildList != null && !_whiteSplitMultipleFkChildList.isEmpty())
         { sb.append(dm).append("whiteSplitMultipleFkChildList"); }
         if (sb.length() > dm.length()) {

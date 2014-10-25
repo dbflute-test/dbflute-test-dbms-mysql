@@ -190,7 +190,8 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteMyself != null) { sb.append(dm).append("whiteMyself"); }
+        if (_whiteMyself != null)
+        { sb.append(dm).append("whiteMyself"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

@@ -404,10 +404,14 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationMasterFooAsVariant != null) { sb.append(dm).append("whiteVariantRelationMasterFooAsVariant"); }
-        if (_whiteVariantRelationMasterBarAsVariant != null) { sb.append(dm).append("whiteVariantRelationMasterBarAsVariant"); }
-        if (_whiteVariantRelationMasterQuxAsVariantByQue != null) { sb.append(dm).append("whiteVariantRelationMasterQuxAsVariantByQue"); }
-        if (_whiteVariantRelationMasterCorgeAsVariantByQuxType != null) { sb.append(dm).append("whiteVariantRelationMasterCorgeAsVariantByQuxType"); }
+        if (_whiteVariantRelationMasterFooAsVariant != null)
+        { sb.append(dm).append("whiteVariantRelationMasterFooAsVariant"); }
+        if (_whiteVariantRelationMasterBarAsVariant != null)
+        { sb.append(dm).append("whiteVariantRelationMasterBarAsVariant"); }
+        if (_whiteVariantRelationMasterQuxAsVariantByQue != null)
+        { sb.append(dm).append("whiteVariantRelationMasterQuxAsVariantByQue"); }
+        if (_whiteVariantRelationMasterCorgeAsVariantByQuxType != null)
+        { sb.append(dm).append("whiteVariantRelationMasterCorgeAsVariantByQuxType"); }
         if (_whiteVariantRelationReferrerRefList != null && !_whiteVariantRelationReferrerRefList.isEmpty())
         { sb.append(dm).append("whiteVariantRelationReferrerRefList"); }
         if (sb.length() > dm.length()) {

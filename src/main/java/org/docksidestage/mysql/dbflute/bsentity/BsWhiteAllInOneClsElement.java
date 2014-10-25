@@ -199,7 +199,8 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteAllInOneClsCategory != null) { sb.append(dm).append("whiteAllInOneClsCategory"); }
+        if (_whiteAllInOneClsCategory != null)
+        { sb.append(dm).append("whiteAllInOneClsCategory"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

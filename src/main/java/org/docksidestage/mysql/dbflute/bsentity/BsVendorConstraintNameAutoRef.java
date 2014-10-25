@@ -261,9 +261,12 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorConstraintNameAutoBar != null) { sb.append(dm).append("vendorConstraintNameAutoBar"); }
-        if (_vendorConstraintNameAutoFoo != null) { sb.append(dm).append("vendorConstraintNameAutoFoo"); }
-        if (_vendorConstraintNameAutoQux != null) { sb.append(dm).append("vendorConstraintNameAutoQux"); }
+        if (_vendorConstraintNameAutoBar != null)
+        { sb.append(dm).append("vendorConstraintNameAutoBar"); }
+        if (_vendorConstraintNameAutoFoo != null)
+        { sb.append(dm).append("vendorConstraintNameAutoFoo"); }
+        if (_vendorConstraintNameAutoQux != null)
+        { sb.append(dm).append("vendorConstraintNameAutoQux"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

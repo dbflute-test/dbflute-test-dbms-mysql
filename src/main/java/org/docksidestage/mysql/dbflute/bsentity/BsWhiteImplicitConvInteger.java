@@ -261,8 +261,10 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteImplicitConvNumeric != null) { sb.append(dm).append("whiteImplicitConvNumeric"); }
-        if (_whiteImplicitConvString != null) { sb.append(dm).append("whiteImplicitConvString"); }
+        if (_whiteImplicitConvNumeric != null)
+        { sb.append(dm).append("whiteImplicitConvNumeric"); }
+        if (_whiteImplicitConvString != null)
+        { sb.append(dm).append("whiteImplicitConvString"); }
         if (_whiteImplicitConvNumericList != null && !_whiteImplicitConvNumericList.isEmpty())
         { sb.append(dm).append("whiteImplicitConvNumericList"); }
         if (_whiteImplicitConvStringList != null && !_whiteImplicitConvStringList.isEmpty())

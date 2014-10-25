@@ -542,15 +542,24 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_member != null) { sb.append(dm).append("member"); }
-        if (_product != null) { sb.append(dm).append("product"); }
-        if (_summaryProduct != null) { sb.append(dm).append("summaryProduct"); }
-        if (_summaryWithdrawal != null) { sb.append(dm).append("summaryWithdrawal"); }
-        if (_whiteNoPkRelation != null) { sb.append(dm).append("whiteNoPkRelation"); }
-        if (_purchaseSelf != null) { sb.append(dm).append("purchaseSelf"); }
-        if (_memberAddressAsSkipRelation != null) { sb.append(dm).append("memberAddressAsSkipRelation"); }
-        if (_whitePurchaseReferrerAsOne != null) { sb.append(dm).append("whitePurchaseReferrerAsOne"); }
-        if (_purchaseSelfAsOne != null) { sb.append(dm).append("purchaseSelfAsOne"); }
+        if (_member != null)
+        { sb.append(dm).append("member"); }
+        if (_product != null)
+        { sb.append(dm).append("product"); }
+        if (_summaryProduct != null)
+        { sb.append(dm).append("summaryProduct"); }
+        if (_summaryWithdrawal != null)
+        { sb.append(dm).append("summaryWithdrawal"); }
+        if (_whiteNoPkRelation != null)
+        { sb.append(dm).append("whiteNoPkRelation"); }
+        if (_purchaseSelf != null)
+        { sb.append(dm).append("purchaseSelf"); }
+        if (_memberAddressAsSkipRelation != null)
+        { sb.append(dm).append("memberAddressAsSkipRelation"); }
+        if (_whitePurchaseReferrerAsOne != null)
+        { sb.append(dm).append("whitePurchaseReferrerAsOne"); }
+        if (_purchaseSelfAsOne != null)
+        { sb.append(dm).append("purchaseSelfAsOne"); }
         if (_purchasePaymentList != null && !_purchasePaymentList.isEmpty())
         { sb.append(dm).append("purchasePaymentList"); }
         if (sb.length() > dm.length()) {

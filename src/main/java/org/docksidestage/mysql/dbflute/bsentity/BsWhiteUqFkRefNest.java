@@ -190,7 +190,8 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteUqFkRef != null) { sb.append(dm).append("whiteUqFkRef"); }
+        if (_whiteUqFkRef != null)
+        { sb.append(dm).append("whiteUqFkRef"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

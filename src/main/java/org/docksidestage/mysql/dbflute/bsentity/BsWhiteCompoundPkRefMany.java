@@ -217,7 +217,8 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPkToPK != null) { sb.append(dm).append("whiteCompoundPkToPK"); }
+        if (_whiteCompoundPkToPK != null)
+        { sb.append(dm).append("whiteCompoundPkToPK"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

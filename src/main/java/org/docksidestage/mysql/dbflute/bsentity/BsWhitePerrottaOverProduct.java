@@ -277,8 +277,10 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePerrottaOverProductNested != null) { sb.append(dm).append("whitePerrottaOverProductNested"); }
-        if (_whitePerrottaOverTraceAsPerrotta != null) { sb.append(dm).append("whitePerrottaOverTraceAsPerrotta"); }
+        if (_whitePerrottaOverProductNested != null)
+        { sb.append(dm).append("whitePerrottaOverProductNested"); }
+        if (_whitePerrottaOverTraceAsPerrotta != null)
+        { sb.append(dm).append("whitePerrottaOverTraceAsPerrotta"); }
         if (_whitePerrottaOverMemberList != null && !_whitePerrottaOverMemberList.isEmpty())
         { sb.append(dm).append("whitePerrottaOverMemberList"); }
         if (_whitePerrottaOverTraceByNextProductIdList != null && !_whitePerrottaOverTraceByNextProductIdList.isEmpty())

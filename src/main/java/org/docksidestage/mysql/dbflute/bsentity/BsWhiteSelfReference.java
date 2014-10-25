@@ -233,8 +233,10 @@ public abstract class BsWhiteSelfReference extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSelfReferenceSelf != null) { sb.append(dm).append("whiteSelfReferenceSelf"); }
-        if (_whiteSelfReferenceRefOneAsOne != null) { sb.append(dm).append("whiteSelfReferenceRefOneAsOne"); }
+        if (_whiteSelfReferenceSelf != null)
+        { sb.append(dm).append("whiteSelfReferenceSelf"); }
+        if (_whiteSelfReferenceRefOneAsOne != null)
+        { sb.append(dm).append("whiteSelfReferenceRefOneAsOne"); }
         if (_whiteSelfReferenceSelfList != null && !_whiteSelfReferenceSelfList.isEmpty())
         { sb.append(dm).append("whiteSelfReferenceSelfList"); }
         if (sb.length() > dm.length()) {

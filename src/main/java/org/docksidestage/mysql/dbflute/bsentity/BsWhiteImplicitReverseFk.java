@@ -205,8 +205,10 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteImplicitReverseFkRefWithImplicitReverseFK != null) { sb.append(dm).append("whiteImplicitReverseFkRefWithImplicitReverseFK"); }
-        if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK != null) { sb.append(dm).append("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK"); }
+        if (_whiteImplicitReverseFkRefWithImplicitReverseFK != null)
+        { sb.append(dm).append("whiteImplicitReverseFkRefWithImplicitReverseFK"); }
+        if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK != null)
+        { sb.append(dm).append("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

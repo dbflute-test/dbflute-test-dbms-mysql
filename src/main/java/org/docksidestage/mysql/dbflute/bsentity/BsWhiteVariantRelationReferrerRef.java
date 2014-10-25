@@ -184,7 +184,8 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationReferrer != null) { sb.append(dm).append("whiteVariantRelationReferrer"); }
+        if (_whiteVariantRelationReferrer != null)
+        { sb.append(dm).append("whiteVariantRelationReferrer"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

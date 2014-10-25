@@ -223,8 +223,10 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePerrottaOverMemberMacho != null) { sb.append(dm).append("whitePerrottaOverMemberMacho"); }
-        if (_whitePerrottaOverProduct != null) { sb.append(dm).append("whitePerrottaOverProduct"); }
+        if (_whitePerrottaOverMemberMacho != null)
+        { sb.append(dm).append("whitePerrottaOverMemberMacho"); }
+        if (_whitePerrottaOverProduct != null)
+        { sb.append(dm).append("whitePerrottaOverProduct"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

@@ -201,7 +201,8 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteOnlyOneToOneFrom != null) { sb.append(dm).append("whiteOnlyOneToOneFrom"); }
+        if (_whiteOnlyOneToOneFrom != null)
+        { sb.append(dm).append("whiteOnlyOneToOneFrom"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

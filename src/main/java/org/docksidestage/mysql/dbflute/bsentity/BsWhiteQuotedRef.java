@@ -184,7 +184,8 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteQuoted != null) { sb.append(dm).append("whiteQuoted"); }
+        if (_whiteQuoted != null)
+        { sb.append(dm).append("whiteQuoted"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

@@ -184,7 +184,8 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePgReserv != null) { sb.append(dm).append("whitePgReserv"); }
+        if (_whitePgReserv != null)
+        { sb.append(dm).append("whitePgReserv"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

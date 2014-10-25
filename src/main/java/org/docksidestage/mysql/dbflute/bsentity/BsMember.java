@@ -977,33 +977,60 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_memberStatus != null) { sb.append(dm).append("memberStatus"); }
-        if (_memberAddressAsValid != null) { sb.append(dm).append("memberAddressAsValid"); }
-        if (_memberAddressAsValidBefore != null) { sb.append(dm).append("memberAddressAsValidBefore"); }
-        if (_memberLoginAsLoginStatus != null) { sb.append(dm).append("memberLoginAsLoginStatus"); }
-        if (_memberAddressAsIfComment != null) { sb.append(dm).append("memberAddressAsIfComment"); }
-        if (_memberAddressAsOnlyOneDate != null) { sb.append(dm).append("memberAddressAsOnlyOneDate"); }
-        if (_memberLoginAsLocalBindOverTest != null) { sb.append(dm).append("memberLoginAsLocalBindOverTest"); }
-        if (_memberLoginAsLocalForeignOverTest != null) { sb.append(dm).append("memberLoginAsLocalForeignOverTest"); }
-        if (_memberLoginAsForeignForeignBindOverTest != null) { sb.append(dm).append("memberLoginAsForeignForeignBindOverTest"); }
-        if (_memberLoginAsForeignForeignEachOverTest != null) { sb.append(dm).append("memberLoginAsForeignForeignEachOverTest"); }
-        if (_memberLoginAsForeignForeignOptimizedBasicOverTest != null) { sb.append(dm).append("memberLoginAsForeignForeignOptimizedBasicOverTest"); }
-        if (_memberLoginAsForeignForeignOptimizedMarkOverTest != null) { sb.append(dm).append("memberLoginAsForeignForeignOptimizedMarkOverTest"); }
-        if (_memberLoginAsForeignForeignOptimizedPartOverTest != null) { sb.append(dm).append("memberLoginAsForeignForeignOptimizedPartOverTest"); }
-        if (_memberLoginAsForeignForeignOptimizedWholeOverTest != null) { sb.append(dm).append("memberLoginAsForeignForeignOptimizedWholeOverTest"); }
-        if (_memberLoginAsForeignForeignParameterOverTest != null) { sb.append(dm).append("memberLoginAsForeignForeignParameterOverTest"); }
-        if (_memberLoginAsForeignForeignVariousOverTest != null) { sb.append(dm).append("memberLoginAsForeignForeignVariousOverTest"); }
-        if (_memberLoginAsReferrerOverTest != null) { sb.append(dm).append("memberLoginAsReferrerOverTest"); }
-        if (_memberLoginAsReferrerForeignOverTest != null) { sb.append(dm).append("memberLoginAsReferrerForeignOverTest"); }
-        if (_memberLoginAsLatest != null) { sb.append(dm).append("memberLoginAsLatest"); }
-        if (_memberLoginAsOldest != null) { sb.append(dm).append("memberLoginAsOldest"); }
-        if (_memberAddressAsFormattedBasic != null) { sb.append(dm).append("memberAddressAsFormattedBasic"); }
-        if (_memberAddressAsFormattedLong != null) { sb.append(dm).append("memberAddressAsFormattedLong"); }
-        if (_memberLoginAsFormattedMany != null) { sb.append(dm).append("memberLoginAsFormattedMany"); }
-        if (_memberLoginAsEmbeddedCommentClassificationTest != null) { sb.append(dm).append("memberLoginAsEmbeddedCommentClassificationTest"); }
-        if (_memberSecurityAsOne != null) { sb.append(dm).append("memberSecurityAsOne"); }
-        if (_memberServiceAsOne != null) { sb.append(dm).append("memberServiceAsOne"); }
-        if (_memberWithdrawalAsOne != null) { sb.append(dm).append("memberWithdrawalAsOne"); }
+        if (_memberStatus != null)
+        { sb.append(dm).append("memberStatus"); }
+        if (_memberAddressAsValid != null)
+        { sb.append(dm).append("memberAddressAsValid"); }
+        if (_memberAddressAsValidBefore != null)
+        { sb.append(dm).append("memberAddressAsValidBefore"); }
+        if (_memberLoginAsLoginStatus != null)
+        { sb.append(dm).append("memberLoginAsLoginStatus"); }
+        if (_memberAddressAsIfComment != null)
+        { sb.append(dm).append("memberAddressAsIfComment"); }
+        if (_memberAddressAsOnlyOneDate != null)
+        { sb.append(dm).append("memberAddressAsOnlyOneDate"); }
+        if (_memberLoginAsLocalBindOverTest != null)
+        { sb.append(dm).append("memberLoginAsLocalBindOverTest"); }
+        if (_memberLoginAsLocalForeignOverTest != null)
+        { sb.append(dm).append("memberLoginAsLocalForeignOverTest"); }
+        if (_memberLoginAsForeignForeignBindOverTest != null)
+        { sb.append(dm).append("memberLoginAsForeignForeignBindOverTest"); }
+        if (_memberLoginAsForeignForeignEachOverTest != null)
+        { sb.append(dm).append("memberLoginAsForeignForeignEachOverTest"); }
+        if (_memberLoginAsForeignForeignOptimizedBasicOverTest != null)
+        { sb.append(dm).append("memberLoginAsForeignForeignOptimizedBasicOverTest"); }
+        if (_memberLoginAsForeignForeignOptimizedMarkOverTest != null)
+        { sb.append(dm).append("memberLoginAsForeignForeignOptimizedMarkOverTest"); }
+        if (_memberLoginAsForeignForeignOptimizedPartOverTest != null)
+        { sb.append(dm).append("memberLoginAsForeignForeignOptimizedPartOverTest"); }
+        if (_memberLoginAsForeignForeignOptimizedWholeOverTest != null)
+        { sb.append(dm).append("memberLoginAsForeignForeignOptimizedWholeOverTest"); }
+        if (_memberLoginAsForeignForeignParameterOverTest != null)
+        { sb.append(dm).append("memberLoginAsForeignForeignParameterOverTest"); }
+        if (_memberLoginAsForeignForeignVariousOverTest != null)
+        { sb.append(dm).append("memberLoginAsForeignForeignVariousOverTest"); }
+        if (_memberLoginAsReferrerOverTest != null)
+        { sb.append(dm).append("memberLoginAsReferrerOverTest"); }
+        if (_memberLoginAsReferrerForeignOverTest != null)
+        { sb.append(dm).append("memberLoginAsReferrerForeignOverTest"); }
+        if (_memberLoginAsLatest != null)
+        { sb.append(dm).append("memberLoginAsLatest"); }
+        if (_memberLoginAsOldest != null)
+        { sb.append(dm).append("memberLoginAsOldest"); }
+        if (_memberAddressAsFormattedBasic != null)
+        { sb.append(dm).append("memberAddressAsFormattedBasic"); }
+        if (_memberAddressAsFormattedLong != null)
+        { sb.append(dm).append("memberAddressAsFormattedLong"); }
+        if (_memberLoginAsFormattedMany != null)
+        { sb.append(dm).append("memberLoginAsFormattedMany"); }
+        if (_memberLoginAsEmbeddedCommentClassificationTest != null)
+        { sb.append(dm).append("memberLoginAsEmbeddedCommentClassificationTest"); }
+        if (_memberSecurityAsOne != null)
+        { sb.append(dm).append("memberSecurityAsOne"); }
+        if (_memberServiceAsOne != null)
+        { sb.append(dm).append("memberServiceAsOne"); }
+        if (_memberWithdrawalAsOne != null)
+        { sb.append(dm).append("memberWithdrawalAsOne"); }
         if (_memberAddressList != null && !_memberAddressList.isEmpty())
         { sb.append(dm).append("memberAddressList"); }
         if (_memberLoginList != null && !_memberLoginList.isEmpty())
