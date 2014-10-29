@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.dbflute.cbean.ordering.ManualOrderBean;
+import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.allcommon.CDef.MemberStatus;
@@ -35,7 +35,7 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         cb.setupSelect_MemberServiceAsOne();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
         cb.query().addOrderBy_MemberStatusCode_Asc();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.when_Equal(CDef.MemberStatus.Formalized).then(dreamCruiseCB.specify().columnMemberId());
         mob.when_Equal(CDef.MemberStatus.Provisional).then(
                 dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
@@ -113,7 +113,7 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         adjustMemberStatusCount();
         MemberCB cb = new MemberCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.when_Equal(CDef.MemberStatus.Formalized).then(3);
         mob.when_Equal(CDef.MemberStatus.Provisional).then(4);
         mob.elseEnd(2);
@@ -141,7 +141,7 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         adjustMemberStatusCount();
         MemberCB cb = new MemberCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.when_Equal(CDef.MemberStatus.Formalized).then(toDate("2012/10/31"));
         mob.when_Equal(CDef.MemberStatus.Provisional).then(toDate("2001/10/31"));
         mob.elseEnd(toDate("2007/10/31"));
@@ -169,7 +169,7 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         adjustMemberStatusCount();
         MemberCB cb = new MemberCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.when_Equal(CDef.MemberStatus.Formalized).then(CDef.MemberStatus.Withdrawal);
         mob.when_Equal(CDef.MemberStatus.Provisional).then(CDef.MemberStatus.Formalized);
         mob.elseEnd(CDef.MemberStatus.Provisional);

@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.cbean.coption.RangeOfOption;
-import org.dbflute.cbean.ordering.ManualOrderBean;
+import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -661,7 +661,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         cb.query().setPurchaseId_Equal(3L);
         RangeOfOption option = new RangeOfOption();
         cb.query().setPurchasePrice_RangeOf(999999999, 999999999, option);
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.acceptOrderValueList(newArrayList("cipher", "wipher"));
         cb.query().addOrderBy_PurchasePrice_Asc().withManualOrder(mob);
         cb.query().queryMember().addOrderBy_UpdateUser_Asc();
@@ -688,7 +688,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         RangeOfOption option = new RangeOfOption();
         cb.query().setPurchasePrice_RangeOf(999999999, 999999999, option);
         PurchaseCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.plus(dreamCruiseCB.specify().columnPurchasePrice());
         mob.minus(dreamCruiseCB.specify().columnPurchasePrice());
         cb.query().addOrderBy_PurchaseCount_Asc().withManualOrder(mob);

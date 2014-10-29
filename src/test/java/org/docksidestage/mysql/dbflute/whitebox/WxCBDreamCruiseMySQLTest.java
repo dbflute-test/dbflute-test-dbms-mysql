@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.cbean.dream.SpecifiedColumn;
-import org.dbflute.cbean.ordering.ManualOrderBean;
+import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -390,7 +390,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         }
         MemberCB cb = new MemberCB();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
         cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
 
@@ -426,7 +426,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }, Member.ALIAS_highestPurchasePrice);
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
         cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
 
@@ -460,7 +460,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }, Member.ALIAS_loginCount);
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
         mob.plus(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_loginCount));
         cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
@@ -490,7 +490,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         });
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.multiply(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount());
         cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
 

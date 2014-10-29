@@ -117,10 +117,12 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
     public void test_queryUpdate_ExistsReferrer() {
         // ## Arrange ##
         Member member = new Member();
+        member.setMemberName("queryUpdate()");
         member.setMemberStatusCode_Provisional();
         member.setFormalizedDatetime(null);
 
         MemberCB cb = new MemberCB();
+        cb.query().setMemberStatusCode_Equal_Formalized();
         cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().setPurchasePrice_GreaterEqual(2000);
@@ -132,8 +134,10 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
 
         // ## Assert ##
         MemberCB actualCB = new MemberCB();
+        actualCB.query().setMemberName_Equal("queryUpdate()");
         actualCB.query().setMemberStatusCode_Equal_Provisional();
         actualCB.query().setFormalizedDatetime_IsNull();
+        actualCB.query().setUpdateUser_Equal(getAccessContext().getAccessUser());
         actualCB.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().setPurchasePrice_GreaterEqual(2000);

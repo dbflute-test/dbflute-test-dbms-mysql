@@ -16,10 +16,10 @@
 #
 map:{
     ; driver   = com.mysql.jdbc.Driver
-    ; url      = jdbc:mysql://localhost:43306/nextmaihamadb
+    ; url      = jdbc:mysql://localhost:43306/newurayasudb
     ; schema   = 
-    ; user     = nextmaihamadb
-    ; password = nextmaihamadb
+    ; user     = newurayasudb
+    ; password = newurayasudb
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o propertiesMap: (NotRequired - Default 'map:{}')

@@ -8,7 +8,7 @@
 
 <body>
 <h1>Schema for maihamadb (mysql)</h1>
-<p class="mainschema">generated from <strong>maihamadb</strong></p>
+<p class="mainschema">generated from <strong>maihamadb_slave</strong></p>
 <div class="navilinkarea">
 <p class="sublink"><a href="#cdef">Classification Definition</a></p>
 <p class="sublink"><a href="#outsidesql">OutsideSql List</a></p>
@@ -41,7 +41,7 @@
 		<td class="aliascell">会員</td>
 		<td><a href="#member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=11">MEMBER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#member_status" title="FK_MEMBER_MEMBER_STATUS">MEMBER_STATUS</a>, <a href="#member_address" class="additionalfk" title="FK_MEMBER_MEMBER_ADDRESS_VALID: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE &gt;= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null&quot;">MEMBER_ADDRESS(AsValid)</a>, <a href="#member_address" class="additionalfk" title="FK_MEMBER_MEMBER_ADDRESS_VALID_BEFORE: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapMemberAddressAsValidBefore.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE &gt;= /*$$locationBase$$.parameterMapMemberAddressAsValidBefore.targetDate*/null&quot;">MEMBER_ADDRESS(AsValidBefore)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_STATUS: fixedCondition=&quot;$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = /*$$locationBase$$.parameterMapMemberLoginAsLoginStatus.statusCode*/null&quot;">MEMBER_LOGIN(AsLoginStatus)</a>, <a href="#member_address" class="additionalfk" title="FK_MEMBER_MEMBER_ADDRESS_IF_COMMENT: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapMemberAddressAsIfComment.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE &gt;= /*$$locationBase$$.parameterMapMemberAddressAsIfComment.targetDate*/null\n     /*IF $$locationBase$$.parameterMapMemberAddressAsIfComment.region != null*/and $$foreignAlias$$.REGION_ID = /*$$locationBase$$.parameterMapMemberAddressAsIfComment.region*/null/*END*/&quot;">MEMBER_ADDRESS(AsIfComment)</a>, <a href="#member_address" class="additionalfk" title="FK_MEMBER_MEMBER_ADDRESS_ONLY_ONE_DATE: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE = ($$sqbegin$$\nselect max(address.VALID_BEGIN_DATE)\n  from MEMBER_ADDRESS address\n where address.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n   and address.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapMemberAddressAsOnlyOneDate.targetDate*/null\n)$$sqend$$&quot;">MEMBER_ADDRESS(AsOnlyOneDate)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_LOCAL_BIND_OVER_TEST: fixedCondition=&quot;$$over($localTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsLocalBindOverTest.displayOrder*/&quot;">MEMBER_LOGIN(AsLocalBindOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_LOCAL_FOREIGN_OVER_TEST: fixedCondition=&quot;$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over($localTable.memberStatus)$$.MEMBER_STATUS_NAME&quot;">MEMBER_LOGIN(AsLocalForeignOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_BIND_OVER_TEST: fixedCondition=&quot;$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignBindOverTest.displayOrder*/&quot;">MEMBER_LOGIN(AsForeignForeignBindOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_EACH_OVER_TEST: fixedCondition=&quot;$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER&quot;">MEMBER_LOGIN(AsForeignForeignEachOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_BASIC_OVER_TEST: fixedCondition=&quot;$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = 3&quot;">MEMBER_LOGIN(AsForeignForeignOptimizedBasicOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_MARK_OVER_TEST: fixedCondition=&quot;$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = 3\n$$inline$$\n     and $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n     and $$foreignAlias$$.MEMBER_ID &gt;= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER&quot;">MEMBER_LOGIN(AsForeignForeignOptimizedMarkOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_PART_OVER_TEST: fixedCondition=&quot;$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest.displayOrder*/\n     and $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\n     and $$localAlias$$.BIRTHDATE is not null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n     and $$localAlias$$.MEMBER_NAME like /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest.memberName*/null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = (\n             select 'Y'\n         )\n     and $$foreignAlias$$.LOGIN_DATETIME &gt;= now()\n       or $$foreignAlias$$.LOGIN_DATETIME &lt;= now()\n     and $$foreignAlias$$.MEMBER_ID &gt;= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER&quot;">MEMBER_LOGIN(AsForeignForeignOptimizedPartOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_WHOLE_OVER_TEST: fixedCondition=&quot;$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest.displayOrder*/\nand $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\nand $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\nand $$foreignAlias$$.MEMBER_ID &gt;= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER\nand $$foreignAlias$$.LOGIN_DATETIME &lt; ($$sqbegin$$\nselect max(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$\nand $$foreignAlias$$.LOGIN_DATETIME &gt; ($$sqbegin$$\nselect min(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$&quot;">MEMBER_LOGIN(AsForeignForeignOptimizedWholeOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_PARAMETER_OVER_TEST: fixedCondition=&quot;$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus, MEMBER_STATUS_CODE)$$.MEMBER_STATUS_CODE is not null\n     and $$over($foreignTable.memberStatus, MEMBER_STATUS_NAME)$$.MEMBER_STATUS_NAME is not null\n     and $$localAlias$$.BIRTHDATE &gt; /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignParameterOverTest.targetDate*/null&quot;">MEMBER_LOGIN(AsForeignForeignParameterOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_VARIOUS_OVER_TEST: fixedCondition=&quot;$$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null\n     and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne.withdrawalReason, DISPLAY_ORDER)$$.REASON_ORDER is not null\n     and $$over($foreignTable.memberStatus)$$.MEMBER_STATUS_NAME is not null\n     and $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME is not null\n     $$inline$$&quot;">MEMBER_LOGIN(AsForeignForeignVariousOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_REFERRER_OVER_TEST: fixedCondition=&quot;$$foreignAlias$$.LOGIN_DATETIME &gt; $$over(PURCHASE)$$.PURCHASE_DATETIME&quot;">MEMBER_LOGIN(AsReferrerOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_REFERRER_FOREIGN_OVER_TEST: fixedCondition=&quot;$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME&quot;">MEMBER_LOGIN(AsReferrerForeignOverTest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_LATEST: fixedCondition=&quot;$$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$\nselect max(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$&quot;">MEMBER_LOGIN(AsLatest)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_OLDEST: fixedCondition=&quot;$$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$\nselect min(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$&quot;">MEMBER_LOGIN(AsOldest)</a>, <a href="#member_address" class="additionalfk" title="FK_MEMBER_MEMBER_ADDRESS_FORMATTED_BASIC: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapMemberAddressAsFormattedBasic.targetDate*/\n     and $$foreignAlias$$.VALID_END_DATE &gt;= /*$$locationBase$$.parameterMapMemberAddressAsFormattedBasic.targetDate*/&quot;">MEMBER_ADDRESS(AsFormattedBasic)</a>, <a href="#member_address" class="additionalfk" title="FK_MEMBER_MEMBER_ADDRESS_FORMATTED_LONG: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapMemberAddressAsFormattedLong.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE\n &gt;= /*$$locationBase$$.parameterMapMemberAddressAsFormattedLong.targetDate*/null&quot;">MEMBER_ADDRESS(AsFormattedLong)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_FORMATTED_MANY: fixedCondition=&quot;$$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null\n     and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne.withdrawalReason, DISPLAY_ORDER)$$.REASON_ORDER is not null\n     and $$over($foreignTable.memberStatus)$$.MEMBER_STATUS_NAME is not null\n     and $$over($localTable.memberSecurityAsOne)$$.REMINDER_QUESTION is not null\n     and $$over($localTable.memberServiceAsOne)$$.SERVICE_POINT_COUNT is not null&quot;">MEMBER_LOGIN(AsFormattedMany)</a>, <a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_EMBEDDED_COMMENT_CLASSIFICATION: fixedCondition=&quot;$$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n      or $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('FML', 'PRV')\n      or $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('WDL')&quot;">MEMBER_LOGIN(AsEmbeddedCommentClassificationTest)</a></td>
 		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER_ADDRESS</a>, <a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER">MEMBER_LOGIN</a>, <a href="#member_security" title="FK_MEMBER_SECURITY_MEMBER">MEMBER_SECURITY</a>, <a href="#member_service" title="FK_MEMBER_SERVICE_MEMBER">MEMBER_SERVICE</a>, <a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER_WITHDRAWAL</a>, <a href="#purchase" title="FK_PURCHASE_MEMBER">PURCHASE</a></td>
 		<td class="commentcell"> 会員のプロフィールやアカウントなどの基本情報を保持する。<br />基本的に物理削除はなく、退会したらステータスが退会会員になる。<br />ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</td>
@@ -52,7 +52,7 @@
 		<td class="aliascell">会員住所情報</td>
 		<td><a href="#member_address" title="type=TABLE, primaryKey={MEMBER_ADDRESS_ID}, nameLength=14, columnCount=11">MEMBER_ADDRESS</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER</a>, <a href="#region" title="FK_MEMBER_ADDRESS_REGION">REGION</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> 会員の住所に関する情報。<br />同時に有効期間ごとに履歴管理されている。</td>
@@ -63,7 +63,7 @@
 		<td class="aliascell">会員ログイン情報</td>
 		<td><a href="#member_login" title="type=TABLE, primaryKey={MEMBER_LOGIN_ID}, nameLength=12, columnCount=5">MEMBER_LOGIN</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_STATUS</a>, <a href="#member" title="FK_MEMBER_LOGIN_MEMBER">MEMBER</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> ログインするたびに登録されるログイン履歴。</td>
@@ -74,7 +74,7 @@
 		<td class="aliascell">会員セキュリティ情報</td>
 		<td><a href="#member_security" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=15, columnCount=10">MEMBER_SECURITY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_SECURITY_MEMBER">MEMBER</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> 会員とは&nbsp;one-to-one&nbsp;で、会員一人につき必ず一つのセキュリティ情報がある</td>
@@ -85,7 +85,7 @@
 		<td class="aliascell">会員サービス</td>
 		<td><a href="#member_service" title="type=TABLE, primaryKey={MEMBER_SERVICE_ID}, nameLength=14, columnCount=9">MEMBER_SERVICE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_SERVICE_MEMBER">MEMBER</a>, <a href="#service_rank" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">SERVICE_RANK</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> 会員のサービス情報（ポイントサービスなど）。</td>
@@ -96,7 +96,7 @@
 		<td class="aliascell">会員ステータス</td>
 		<td><a href="#member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=13, columnCount=4">MEMBER_STATUS</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_MEMBER_STATUS">MEMBER</a>, <a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -107,7 +107,7 @@
 		<td class="aliascell">会員退会情報</td>
 		<td><a href="#member_withdrawal" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=17, columnCount=8">MEMBER_WITHDRAWAL</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER</a>, <a href="#withdrawal_reason" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">WITHDRAWAL_REASON</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> 退会会員の退会に関する詳細な情報。<br />退会会員のみデータが存在する。</td>
@@ -118,7 +118,7 @@
 		<td class="aliascell">商品</td>
 		<td><a href="#product" title="type=TABLE, primaryKey={PRODUCT_ID}, nameLength=7, columnCount=11">PRODUCT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#product_category" title="FK_PRODUCT_PRODUCT_CATEGORY">PRODUCT_CATEGORY</a>, <a href="#product_status" title="FK_PRODUCT_PRODUCT_STATUS">PRODUCT_STATUS</a></td>
 		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PRODUCT">PURCHASE</a></td>
 		<td class="commentcell"> 会員へ販売する商品のマスタ。<br />販売可能なものだけでなく、生産中止や販売中止などの商品も含まれる。</td>
@@ -129,7 +129,7 @@
 		<td class="aliascell">商品カテゴリ</td>
 		<td><a href="#product_category" title="type=TABLE, primaryKey={PRODUCT_CATEGORY_CODE}, nameLength=16, columnCount=3">PRODUCT_CATEGORY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#product_category" title="FK_PRODUCT_CATEGORY_PARENT">PRODUCT_CATEGORY</a></td>
 		<td class="relcell"><a href="#product" title="FK_PRODUCT_PRODUCT_CATEGORY">PRODUCT</a>, <a href="#product_category" title="FK_PRODUCT_CATEGORY_PARENT">PRODUCT_CATEGORY</a></td>
 		<td class="commentcell"> 商品のカテゴリを表現するマスタ。<br />自己参照の階層になっている。</td>
@@ -140,7 +140,7 @@
 		<td class="aliascell">商品ステータス</td>
 		<td><a href="#product_status" title="type=TABLE, primaryKey={PRODUCT_STATUS_CODE}, nameLength=14, columnCount=3">PRODUCT_STATUS</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#product" title="FK_PRODUCT_PRODUCT_STATUS">PRODUCT</a>, <a href="#summary_product" class="additionalfk" title="FK_SUMMARY_PRODUCT_PRODUCT_STATUS">SUMMARY_PRODUCT</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -151,7 +151,7 @@
 		<td class="aliascell">購入</td>
 		<td><a href="#purchase" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=8, columnCount=12">PURCHASE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#member" title="FK_PURCHASE_MEMBER">MEMBER</a>, <a href="#product" title="FK_PURCHASE_PRODUCT">PRODUCT</a>, <a href="#summary_product" class="additionalfk" title="FK_PURCHASE_SUMMARY_PRODUCT">SUMMARY_PRODUCT</a>, <a href="#summary_withdrawal" class="additionalfk" title="FK_PURCHASE_SUMMARY_WITHDRAWAL">SUMMARY_WITHDRAWAL</a>, <a href="#white_no_pk_relation" class="additionalfk" title="FK_PURCHASE_NO_PK_RELATION">WHITE_NO_PK_RELATION</a>, <a href="#purchase" class="additionalfk" title="FK_PURCHASE_PURCHASE_SELF">PURCHASE</a>, <a href="#member_address" class="additionalfk" title="FK_PURCHASE_MEMBER_ADDRESS_VALID: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapMemberAddressAsSkipRelation.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE &gt;= /*$$locationBase$$.parameterMapMemberAddressAsSkipRelation.targetDate*/null&quot;">MEMBER_ADDRESS(AsSkipRelation)</a></td>
 		<td class="relcell"><a href="#purchase_payment" title="FK_PURCHASE_PAYMENT_PURCHASE">PURCHASE_PAYMENT</a>, <a href="#white_purchase_referrer" title="FK_WHITE_PURCHASE_REFERRER">WHITE_PURCHASE_REFERRER</a>, <a href="#purchase" class="additionalfk" title="FK_PURCHASE_PURCHASE_SELF">PURCHASE</a></td>
 		<td class="commentcell"> 一つの商品に対する一回の購入を表現する。<br />一回の購入で一つの商品を複数個買うこともある。</td>
@@ -162,7 +162,7 @@
 		<td class="aliascell">購入支払</td>
 		<td><a href="#purchase_payment" title="type=TABLE, primaryKey={PURCHASE_PAYMENT_ID}, nameLength=16, columnCount=9">PURCHASE_PAYMENT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PAYMENT_PURCHASE">PURCHASE</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> 購入に対する支払。<br />分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。</td>
@@ -173,7 +173,7 @@
 		<td class="aliascell">地域</td>
 		<td><a href="#region" title="type=TABLE, primaryKey={REGION_ID}, nameLength=6, columnCount=2">REGION</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_REGION">MEMBER_ADDRESS</a></td>
 		<td class="commentcell"> 主に会員の住所に対応する地域。<br />かなりざっくりした感じではある。</td>
@@ -184,7 +184,7 @@
 		<td class="aliascell">サービスランク</td>
 		<td><a href="#service_rank" title="type=TABLE, primaryKey={SERVICE_RANK_CODE}, nameLength=12, columnCount=6">SERVICE_RANK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#member_service" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">MEMBER_SERVICE</a></td>
 		<td class="commentcell"> 会員のサービスレベルを表現するランク。<br />（ゴールドとかプラチナとか）</td>
@@ -195,7 +195,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_check" title="type=TABLE, primaryKey={VENDOR_CHECK_ID}, nameLength=12, columnCount=31">VENDOR_CHECK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -206,7 +206,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_constraint_name_auto_bar" title="type=TABLE, primaryKey={CONSTRAINT_NAME_AUTO_BAR_ID}, nameLength=31, columnCount=2">VENDOR_CONSTRAINT_NAME_AUTO_BAR</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#vendor_constraint_name_auto_ref" title="vendor_constraint_name_auto_ref_ibfk_2">VENDOR_CONSTRAINT_NAME_AUTO_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -217,7 +217,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_constraint_name_auto_foo" title="type=TABLE, primaryKey={CONSTRAINT_NAME_AUTO_FOO_ID}, nameLength=31, columnCount=2">VENDOR_CONSTRAINT_NAME_AUTO_FOO</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#vendor_constraint_name_auto_ref" title="vendor_constraint_name_auto_ref_ibfk_1">VENDOR_CONSTRAINT_NAME_AUTO_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -228,7 +228,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_constraint_name_auto_qux" title="type=TABLE, primaryKey={CONSTRAINT_NAME_AUTO_QUX_ID}, nameLength=31, columnCount=2">VENDOR_CONSTRAINT_NAME_AUTO_QUX</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#vendor_constraint_name_auto_ref" title="vendor_constraint_name_auto_ref_ibfk_3">VENDOR_CONSTRAINT_NAME_AUTO_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -239,7 +239,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_constraint_name_auto_ref" title="type=TABLE, primaryKey={CONSTRAINT_NAME_AUTO_REF_ID}, nameLength=31, columnCount=6">VENDOR_CONSTRAINT_NAME_AUTO_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#vendor_constraint_name_auto_bar" title="vendor_constraint_name_auto_ref_ibfk_2">VENDOR_CONSTRAINT_NAME_AUTO_BAR</a>, <a href="#vendor_constraint_name_auto_foo" title="vendor_constraint_name_auto_ref_ibfk_1">VENDOR_CONSTRAINT_NAME_AUTO_FOO</a>, <a href="#vendor_constraint_name_auto_qux" title="vendor_constraint_name_auto_ref_ibfk_3">VENDOR_CONSTRAINT_NAME_AUTO_QUX</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -250,7 +250,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_large_data" title="type=TABLE, primaryKey={LARGE_DATA_ID}, nameLength=17, columnCount=7">VENDOR_LARGE_DATA</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#vendor_large_data_ref" title="FK_VENDOR_LARGE_DATA_REF_DATA">VENDOR_LARGE_DATA_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -261,7 +261,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_large_data_ref" title="type=TABLE, primaryKey={LARGE_DATA_REF_ID}, nameLength=21, columnCount=9">VENDOR_LARGE_DATA_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#vendor_large_data" title="FK_VENDOR_LARGE_DATA_REF_DATA">VENDOR_LARGE_DATA</a>, <a href="#vendor_large_data_ref" title="FK_VENDOR_LARGE_DATA_REF_SELF">VENDOR_LARGE_DATA_REF</a></td>
 		<td class="relcell"><a href="#vendor_large_data_ref" title="FK_VENDOR_LARGE_DATA_REF_SELF">VENDOR_LARGE_DATA_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -272,7 +272,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_the_long_and_winding_table_and_column" title="type=TABLE, primaryKey={THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID}, nameLength=44, columnCount=4">VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#vendor_the_long_and_winding_table_and_column_ref" title="FK_VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF">VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -283,7 +283,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#vendor_the_long_and_winding_table_and_column_ref" title="type=TABLE, primaryKey={THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_ID}, nameLength=48, columnCount=4">VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#vendor_the_long_and_winding_table_and_column" title="FK_VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF">VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -294,7 +294,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_all_in_one_cls_category" title="type=TABLE, primaryKey={CLS_CATEGORY_CODE}, nameLength=29, columnCount=3">WHITE_ALL_IN_ONE_CLS_CATEGORY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_all_in_one_cls_element" title="FK_WHITE_ALL_IN_ONE_CLS_ELEMENT_CATEGORY">WHITE_ALL_IN_ONE_CLS_ELEMENT</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -305,7 +305,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_all_in_one_cls_compound_pk_ref" title="type=TABLE, primaryKey={FOO_CODE, BAR_CODE, QUX_CODE}, nameLength=36, columnCount=3">WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_all_in_one_cls_element" class="additionalfk" title="FK_WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF_FOO_TEST: fixedCondition=&quot;$$foreignAlias$$.CLS_CATEGORY_CODE = 'FOO'&quot;">WHITE_ALL_IN_ONE_CLS_ELEMENT(AsFoo)</a>, <a href="#white_all_in_one_cls_element" class="additionalfk" title="FK_WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF_BAR_TEST: fixedCondition=&quot;$$foreignAlias$$.CLS_CATEGORY_CODE = 'BAR'&quot;">WHITE_ALL_IN_ONE_CLS_ELEMENT(AsBar)</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -316,7 +316,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_all_in_one_cls_element" title="type=TABLE, primaryKey={CLS_CATEGORY_CODE, CLS_ELEMENT_CODE}, nameLength=28, columnCount=4">WHITE_ALL_IN_ONE_CLS_ELEMENT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_all_in_one_cls_category" title="FK_WHITE_ALL_IN_ONE_CLS_ELEMENT_CATEGORY">WHITE_ALL_IN_ONE_CLS_CATEGORY</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -327,7 +327,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_all_in_one_cls_normal_col_ref" title="type=TABLE, primaryKey={FOO_CODE, BAR_CODE, QUX_CODE}, nameLength=35, columnCount=4">WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_all_in_one_cls_element" class="additionalfk" title="FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_FOO_TEST: fixedCondition=&quot;$$foreignAlias$$.CLS_CATEGORY_CODE = 'FOO'&quot;">WHITE_ALL_IN_ONE_CLS_ELEMENT(AsFoo)</a>, <a href="#white_all_in_one_cls_element" class="additionalfk" title="FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_BAR_TEST: fixedCondition=&quot;$$foreignAlias$$.CLS_CATEGORY_CODE = 'BAR'&quot;">WHITE_ALL_IN_ONE_CLS_ELEMENT(AsBar)</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -338,7 +338,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_binary" title="type=TABLE, primaryKey={BINARY_ID}, nameLength=12, columnCount=3">WHITE_BINARY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -349,7 +349,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_column_except" title="type=TABLE, primaryKey={EXCEPT_COLUMN_ID}, nameLength=19, columnCount=2">WHITE_COLUMN_EXCEPT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -360,7 +360,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_column_except_gen_only" title="type=TABLE, primaryKey={GEN_ONLY_ID}, nameLength=28, columnCount=3">WHITE_COLUMN_EXCEPT_GEN_ONLY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -371,7 +371,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_compound_pk" title="type=TABLE, primaryKey={PK_FIRST_ID, PK_SECOND_ID}, nameLength=17, columnCount=4">WHITE_COMPOUND_PK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_compound_referred_normally" class="additionalfk" title="FK_WHITE_COMPOUND_PK_REFERRED_NORMALLY_TEST">WHITE_COMPOUND_REFERRED_NORMALLY</a>, <a href="#white_compound_referred_primary" class="additionalfk" title="FK_WHITE_COMPOUND_PK_REFERRED_PRIMARY_TEST">WHITE_COMPOUND_REFERRED_PRIMARY</a>, <a href="#white_compound_pk_ref_many" class="additionalfk" title="FK_WHITE_COMPOUND_PK_REF_MANY_DERIVED_ONE_MAX_TEST: fixedCondition=&quot;$$foreignAlias$$.REF_MANY_DATETIME = ($$sqbegin$$\nselect max(many.REF_MANY_DATETIME)\n  from WHITE_COMPOUND_PK_REF_MANY many\n where many.REF_MANY_FIRST_ID = $$foreignAlias$$.REF_MANY_FIRST_ID\n   and many.REF_MANY_SECOND_ID = $$foreignAlias$$.REF_MANY_SECOND_ID\n   and many.REF_MANY_CODE = 'TPK'\n)$$sqend$$&quot;">WHITE_COMPOUND_PK_REF_MANY(AsMax)</a>, <a href="#white_compound_pk_ref_many" class="additionalfk" title="FK_WHITE_COMPOUND_PK_REF_MANY_DERIVED_ONE_MIN_TEST: fixedCondition=&quot;$$foreignAlias$$.REF_MANY_DATETIME = ($$sqbegin$$\nselect min(many.REF_MANY_DATETIME)\n  from WHITE_COMPOUND_PK_REF_MANY many\n where many.REF_MANY_FIRST_ID = $$foreignAlias$$.REF_MANY_FIRST_ID\n   and many.REF_MANY_SECOND_ID = $$foreignAlias$$.REF_MANY_SECOND_ID\n   and many.REF_MANY_CODE = 'TPK'\n)$$sqend$$&quot;">WHITE_COMPOUND_PK_REF_MANY(AsMin)</a></td>
 		<td class="relcell"><a href="#white_compound_pk_ref" title="FK_WHITE_COMPOUND_PK_REF">WHITE_COMPOUND_PK_REF</a>, <a href="#white_compound_pk_ref_many" class="additionalfk" title="FK_WHITE_COMPOUND_PK_REF_MANY_TO_ONE_TEST: fixedCondition=&quot;$$localAlias$$.REF_MANY_CODE = 'TPK'&quot;">WHITE_COMPOUND_PK_REF_MANY(ToPK)</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -382,7 +382,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_compound_pk_ref" title="type=TABLE, primaryKey={MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID}, nameLength=21, columnCount=5">WHITE_COMPOUND_PK_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_compound_pk" title="FK_WHITE_COMPOUND_PK_REF">WHITE_COMPOUND_PK</a></td>
 		<td class="relcell"><a href="#white_compound_pk_ref_nest" title="FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX">WHITE_COMPOUND_PK_REF_NEST</a>, <a href="#white_compound_pk_ref_nest" title="FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR">WHITE_COMPOUND_PK_REF_NEST</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -393,7 +393,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_compound_pk_ref_many" title="type=TABLE, primaryKey={MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID}, nameLength=26, columnCount=7">WHITE_COMPOUND_PK_REF_MANY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_compound_pk" class="additionalfk" title="FK_WHITE_COMPOUND_PK_REF_MANY_TO_ONE_TEST: fixedCondition=&quot;$$localAlias$$.REF_MANY_CODE = 'TPK'&quot;">WHITE_COMPOUND_PK(ToPK)</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -404,7 +404,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_compound_pk_ref_nest" title="type=TABLE, primaryKey={COMPOUND_PK_REF_NEST_ID}, nameLength=26, columnCount=5">WHITE_COMPOUND_PK_REF_NEST</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_compound_pk_ref" title="FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX">WHITE_COMPOUND_PK_REF</a>, <a href="#white_compound_pk_ref" title="FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR">WHITE_COMPOUND_PK_REF</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -415,7 +415,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_compound_referred_normally" title="type=TABLE, primaryKey={REFERRED_ID}, nameLength=32, columnCount=2">WHITE_COMPOUND_REFERRED_NORMALLY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_compound_pk" class="additionalfk" title="FK_WHITE_COMPOUND_PK_REFERRED_NORMALLY_TEST">WHITE_COMPOUND_PK</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -426,7 +426,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_compound_referred_primary" title="type=TABLE, primaryKey={REFERRED_ID}, nameLength=31, columnCount=2">WHITE_COMPOUND_REFERRED_PRIMARY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_compound_pk" class="additionalfk" title="FK_WHITE_COMPOUND_PK_REFERRED_PRIMARY_TEST">WHITE_COMPOUND_PK</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -437,7 +437,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_date_adjustment" title="type=TABLE, primaryKey={DATE_ADJUSTMENT_ID}, nameLength=21, columnCount=11">WHITE_DATE_ADJUSTMENT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -448,7 +448,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_db_comment" title="type=TABLE, primaryKey={DB_COMMENT_CODE}, nameLength=16, columnCount=2">WHITE_DB_COMMENT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -459,7 +459,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_delimiter" title="type=TABLE, primaryKey={DELIMITER_ID}, nameLength=15, columnCount=5">WHITE_DELIMITER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -470,7 +470,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_deprecated_cls_element" title="type=TABLE, primaryKey={DEPRECATED_CLS_ELEMENT_CODE}, nameLength=28, columnCount=2">WHITE_DEPRECATED_CLS_ELEMENT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -481,7 +481,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_escaped_dfprop" title="type=TABLE, primaryKey={ESCAPED_DFPROP_CODE}, nameLength=20, columnCount=2">WHITE_ESCAPED_DFPROP</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -492,7 +492,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_escaped_java_doc" title="type=TABLE, primaryKey={ESCAPED_JAVA_DOC_CODE}, nameLength=22, columnCount=2">WHITE_ESCAPED_JAVA_DOC</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -503,7 +503,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_escaped_number_initial" title="type=TABLE, primaryKey={NUMBER_INITIAL_CODE}, nameLength=28, columnCount=2">WHITE_ESCAPED_NUMBER_INITIAL</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -514,7 +514,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_geared_cipher" title="type=TABLE, primaryKey={CIPHER_ID}, nameLength=19, columnCount=5">WHITE_GEARED_CIPHER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -525,7 +525,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_grouping_reference" title="type=TABLE, primaryKey={GROUPING_REFERENCE_ID}, nameLength=24, columnCount=2">WHITE_GROUPING_REFERENCE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -536,7 +536,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_implicit_conv_integer" title="type=TABLE, primaryKey={IMPLICIT_CONV_INTEGER_ID}, nameLength=27, columnCount=4">WHITE_IMPLICIT_CONV_INTEGER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_implicit_conv_numeric" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_INTEGER_NUMERIC">WHITE_IMPLICIT_CONV_NUMERIC</a>, <a href="#white_implicit_conv_string" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_INTEGER_STRING">WHITE_IMPLICIT_CONV_STRING</a></td>
 		<td class="relcell"><a href="#white_implicit_conv_numeric" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_NUMERIC_INTEGER">WHITE_IMPLICIT_CONV_NUMERIC</a>, <a href="#white_implicit_conv_string" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_STRING_INTEGER">WHITE_IMPLICIT_CONV_STRING</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -547,7 +547,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_implicit_conv_numeric" title="type=TABLE, primaryKey={IMPLICIT_CONV_NUMERIC_ID}, nameLength=27, columnCount=4">WHITE_IMPLICIT_CONV_NUMERIC</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_implicit_conv_integer" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_NUMERIC_INTEGER">WHITE_IMPLICIT_CONV_INTEGER</a>, <a href="#white_implicit_conv_string" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_NUMERIC_STRING">WHITE_IMPLICIT_CONV_STRING</a></td>
 		<td class="relcell"><a href="#white_implicit_conv_integer" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_INTEGER_NUMERIC">WHITE_IMPLICIT_CONV_INTEGER</a>, <a href="#white_implicit_conv_string" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_STRING_NUMERIC">WHITE_IMPLICIT_CONV_STRING</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -558,7 +558,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_implicit_conv_string" title="type=TABLE, primaryKey={IMPLICIT_CONV_STRING_ID}, nameLength=26, columnCount=4">WHITE_IMPLICIT_CONV_STRING</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_implicit_conv_integer" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_STRING_INTEGER">WHITE_IMPLICIT_CONV_INTEGER</a>, <a href="#white_implicit_conv_numeric" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_STRING_NUMERIC">WHITE_IMPLICIT_CONV_NUMERIC</a></td>
 		<td class="relcell"><a href="#white_implicit_conv_integer" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_INTEGER_STRING">WHITE_IMPLICIT_CONV_INTEGER</a>, <a href="#white_implicit_conv_numeric" class="additionalfk" title="FK_WHITE_IMPLICIT_CONV_NUMERIC_STRING">WHITE_IMPLICIT_CONV_NUMERIC</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -569,7 +569,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_implicit_reverse_fk" title="type=TABLE, primaryKey={WHITE_IMPLICIT_REVERSE_FK_ID}, nameLength=25, columnCount=2">WHITE_IMPLICIT_REVERSE_FK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_implicit_reverse_fk_ref" class="additionalfk" title="FK_WHITE_IMPLICIT_REVERSE_FK_REF_WITH: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE &gt;= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK.targetDate*/null&quot;">WHITE_IMPLICIT_REVERSE_FK_REF(WithImplicitReverseFK)</a>, <a href="#white_implicit_reverse_fk_suppress" class="additionalfk" title="FK_WHITE_IMPLICIT_REVERSE_FK_REF_SUPPRESS: fixedCondition=&quot;$$foreignAlias$$.VALID_BEGIN_DATE &lt;= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE &gt;= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK.targetDate*/null&quot;">WHITE_IMPLICIT_REVERSE_FK_SUPPRESS(SuppressImplicitReverseFK)</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -580,7 +580,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_implicit_reverse_fk_ref" title="type=TABLE, primaryKey={WHITE_IMPLICIT_REVERSE_FK_REF_ID}, nameLength=29, columnCount=4">WHITE_IMPLICIT_REVERSE_FK_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -591,7 +591,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_implicit_reverse_fk_suppress" title="type=TABLE, primaryKey={WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID}, nameLength=34, columnCount=4">WHITE_IMPLICIT_REVERSE_FK_SUPPRESS</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -602,7 +602,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_include_query" title="type=TABLE, primaryKey={INCLUDE_QUERY_ID}, nameLength=19, columnCount=5">WHITE_INCLUDE_QUERY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -613,7 +613,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_line_sep_comment" title="type=TABLE, primaryKey={LINE_SEP_COMMENT_CODE}, nameLength=22, columnCount=2">WHITE_LINE_SEP_COMMENT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -624,7 +624,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_load_data" title="type=TABLE, primaryKey={LOAD_DATA_ID}, nameLength=15, columnCount=2">WHITE_LOAD_DATA</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -635,7 +635,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_myself" title="type=TABLE, primaryKey={MYSELF_ID}, nameLength=12, columnCount=2">WHITE_MYSELF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_myself_check" title="FK_WHITE_MYSELF_CHECK_SELF">WHITE_MYSELF_CHECK</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -646,7 +646,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_myself_check" title="type=TABLE, primaryKey={MYSELF_CHECK_ID}, nameLength=18, columnCount=3">WHITE_MYSELF_CHECK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_myself" title="FK_WHITE_MYSELF_CHECK_SELF">WHITE_MYSELF</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -657,7 +657,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_no_pk" title="type=TABLE, primaryKey={}, nameLength=11, columnCount=3">WHITE_NO_PK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -668,7 +668,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_only_one_to_one_from" title="type=TABLE, primaryKey={FROM_ID}, nameLength=26, columnCount=2">WHITE_ONLY_ONE_TO_ONE_FROM</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_only_one_to_one_to" title="FK_WHITE_ONLY_ONE_TO_ONE_TO_FROM">WHITE_ONLY_ONE_TO_ONE_TO</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -679,7 +679,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_only_one_to_one_to" title="type=TABLE, primaryKey={TO_ID}, nameLength=24, columnCount=3">WHITE_ONLY_ONE_TO_ONE_TO</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_only_one_to_one_from" title="FK_WHITE_ONLY_ONE_TO_ONE_TO_FROM">WHITE_ONLY_ONE_TO_ONE_FROM</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -690,7 +690,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_perrotta_over_member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=26, columnCount=5">WHITE_PERROTTA_OVER_MEMBER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_perrotta_over_member_macho" title="FK_WHITE_PERROTTA_OVER_MEMBER_MACHO">WHITE_PERROTTA_OVER_MEMBER_MACHO</a>, <a href="#white_perrotta_over_product" title="FK_WHITE_PERROTTA_OVER_MEMBER_PRODUCT">WHITE_PERROTTA_OVER_PRODUCT</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -701,7 +701,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_perrotta_over_member_macho" title="type=TABLE, primaryKey={MACHO_CODE}, nameLength=32, columnCount=2">WHITE_PERROTTA_OVER_MEMBER_MACHO</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_perrotta_over_member" title="FK_WHITE_PERROTTA_OVER_MEMBER_MACHO">WHITE_PERROTTA_OVER_MEMBER</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -712,7 +712,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_perrotta_over_product" title="type=TABLE, primaryKey={PRODUCT_ID}, nameLength=27, columnCount=3">WHITE_PERROTTA_OVER_PRODUCT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_perrotta_over_product_nested" title="FK_WHITE_PERROTTA_OVER_PRODUCT_NESTED">WHITE_PERROTTA_OVER_PRODUCT_NESTED</a>, <a href="#white_perrotta_over_trace" class="additionalfk" title="FK_OVER_RELATION_CACHE_TEST: fixedCondition=&quot;$$foreignAlias$$.TRACE_TYPE_CODE = $$over(WHITE_PERROTTA_OVER_MEMBER)$$.TRACE_TYPE_CODE&quot;">WHITE_PERROTTA_OVER_TRACE(AsPerrotta)</a></td>
 		<td class="relcell"><a href="#white_perrotta_over_member" title="FK_WHITE_PERROTTA_OVER_MEMBER_PRODUCT">WHITE_PERROTTA_OVER_MEMBER</a>, <a href="#white_perrotta_over_trace" title="FK_WHITE_PERROTTA_OVER_TRACE_NEXT">WHITE_PERROTTA_OVER_TRACE</a>, <a href="#white_perrotta_over_trace" title="FK_WHITE_PERROTTA_OVER_TRACE_PREVIOUS">WHITE_PERROTTA_OVER_TRACE</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -723,7 +723,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_perrotta_over_product_nested" title="type=TABLE, primaryKey={PRODUCT_NESTED_CODE}, nameLength=34, columnCount=2">WHITE_PERROTTA_OVER_PRODUCT_NESTED</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_perrotta_over_product" title="FK_WHITE_PERROTTA_OVER_PRODUCT_NESTED">WHITE_PERROTTA_OVER_PRODUCT</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -734,7 +734,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_perrotta_over_trace" title="type=TABLE, primaryKey={TRACE_ID}, nameLength=25, columnCount=4">WHITE_PERROTTA_OVER_TRACE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_perrotta_over_product" title="FK_WHITE_PERROTTA_OVER_TRACE_NEXT">WHITE_PERROTTA_OVER_PRODUCT</a>, <a href="#white_perrotta_over_product" title="FK_WHITE_PERROTTA_OVER_TRACE_PREVIOUS">WHITE_PERROTTA_OVER_PRODUCT</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -745,7 +745,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_pg_reserv" title="type=TABLE, primaryKey={CLASS}, nameLength=15, columnCount=20">WHITE_PG_RESERV</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_pg_reserv_ref" title="FK_WHITE_PG_RESERV_REF_CLASS">WHITE_PG_RESERV_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -756,7 +756,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_pg_reserv_ref" title="type=TABLE, primaryKey={REF_ID}, nameLength=19, columnCount=2">WHITE_PG_RESERV_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_pg_reserv" title="FK_WHITE_PG_RESERV_REF_CLASS">WHITE_PG_RESERV</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -767,7 +767,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_point_type_mapping" title="type=TABLE, primaryKey={POINT_TYPE_MAPPING_ID}, nameLength=24, columnCount=5">WHITE_POINT_TYPE_MAPPING</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -778,7 +778,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_purchase_referrer" title="type=TABLE, primaryKey={PURCHASE_REFERRER_ID}, nameLength=23, columnCount=2">WHITE_PURCHASE_REFERRER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#purchase" title="FK_WHITE_PURCHASE_REFERRER">PURCHASE</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -789,7 +789,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_quoted" title="type=TABLE, primaryKey={SELECT}, nameLength=12, columnCount=2">WHITE_QUOTED</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_quoted_ref" title="FK_WHITE_QUOTED_REF">WHITE_QUOTED_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -800,7 +800,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_quoted_ref" title="type=TABLE, primaryKey={WHERE}, nameLength=16, columnCount=2">WHITE_QUOTED_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_quoted" title="FK_WHITE_QUOTED_REF">WHITE_QUOTED</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -811,7 +811,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_self_reference" title="type=TABLE, primaryKey={SELF_REFERENCE_ID}, nameLength=20, columnCount=3">WHITE_SELF_REFERENCE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_self_reference" title="FK_WHITE_SELF_REFERENCE_PARENT">WHITE_SELF_REFERENCE</a></td>
 		<td class="relcell"><a href="#white_self_reference" title="FK_WHITE_SELF_REFERENCE_PARENT">WHITE_SELF_REFERENCE</a>, <a href="#white_self_reference_ref_one" title="FK_WHITE_SELF_REFERENCE_REF_ONE">WHITE_SELF_REFERENCE_REF_ONE</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -822,7 +822,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_self_reference_ref_one" title="type=TABLE, primaryKey={SELF_REFERENCE_ID}, nameLength=28, columnCount=2">WHITE_SELF_REFERENCE_REF_ONE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_self_reference" title="FK_WHITE_SELF_REFERENCE_REF_ONE">WHITE_SELF_REFERENCE</a>, <a href="#white_self_reference" class="additionalfk" title="FK_WHITE_SELF_REFERENCE_REF_ONE_DIRECT_PARENT: fixedCondition=&quot;1=1&quot;">WHITE_SELF_REFERENCE(AsDirectParent)</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -833,7 +833,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_split_multiple_fk_base" title="type=TABLE, primaryKey={BASE_ID}, nameLength=28, columnCount=4">WHITE_SPLIT_MULTIPLE_FK_BASE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_split_multiple_fk_next" title="FK_WHITE_SPLIT_MULTIPLE_FK_NEXT">WHITE_SPLIT_MULTIPLE_FK_NEXT</a>, <a href="#white_split_multiple_fk_ref" class="additionalfk" title="FK_WHITE_SPLIT_MULTIPLE_FK: fixedCondition=&quot;$$over($localTable.whiteSplitMultipleFkNext)$$.SECOND_CODE = $$foreignAlias$$.SECOND_CODE&quot;">WHITE_SPLIT_MULTIPLE_FK_REF(AsSplitMultipleFkTest)</a></td>
 		<td class="relcell"><a href="#white_split_multiple_fk_child" title="FK_WHITE_SPLIT_MULTIPLE_FK_BASE">WHITE_SPLIT_MULTIPLE_FK_CHILD</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -844,7 +844,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_split_multiple_fk_child" title="type=TABLE, primaryKey={CHILD_ID}, nameLength=29, columnCount=3">WHITE_SPLIT_MULTIPLE_FK_CHILD</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_split_multiple_fk_base" title="FK_WHITE_SPLIT_MULTIPLE_FK_BASE">WHITE_SPLIT_MULTIPLE_FK_BASE</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -855,7 +855,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_split_multiple_fk_next" title="type=TABLE, primaryKey={NEXT_ID}, nameLength=28, columnCount=2">WHITE_SPLIT_MULTIPLE_FK_NEXT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_split_multiple_fk_base" title="FK_WHITE_SPLIT_MULTIPLE_FK_NEXT">WHITE_SPLIT_MULTIPLE_FK_BASE</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -866,7 +866,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_split_multiple_fk_ref" title="type=TABLE, primaryKey={FIRST_ID, SECOND_CODE}, nameLength=27, columnCount=3">WHITE_SPLIT_MULTIPLE_FK_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -877,7 +877,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_stiletto_alias" title="type=TABLE, primaryKey={STILETTO_ALIAS_ID}, nameLength=20, columnCount=9">WHITE_STILETTO_ALIAS</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_stiletto_alias_ref" title="FK_WHITE_STILETTO_ALIAS_REF">WHITE_STILETTO_ALIAS_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -888,7 +888,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_stiletto_alias_ref" title="type=TABLE, primaryKey={REF_ID}, nameLength=24, columnCount=12">WHITE_STILETTO_ALIAS_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_stiletto_alias" title="FK_WHITE_STILETTO_ALIAS_REF">WHITE_STILETTO_ALIAS</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -899,7 +899,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_suppress_def_check" title="type=TABLE, primaryKey={DEF_CHECK_ID}, nameLength=24, columnCount=2">WHITE_SUPPRESS_DEF_CHECK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -910,7 +910,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_suppress_join_sq" title="type=TABLE, primaryKey={SUPPRESS_JOIN_SQ_ID}, nameLength=22, columnCount=2">WHITE_SUPPRESS_JOIN_SQ</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_suppress_join_sq_many" title="FK_WHITE_SUPPRESS_JOIN_SQ_MANY">WHITE_SUPPRESS_JOIN_SQ_MANY</a>, <a href="#white_suppress_join_sq_one" title="FK_WHITE_SUPPRESS_JOIN_SQ_ONE">WHITE_SUPPRESS_JOIN_SQ_ONE</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -921,7 +921,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_suppress_join_sq_many" title="type=TABLE, primaryKey={MANY_ID}, nameLength=27, columnCount=4">WHITE_SUPPRESS_JOIN_SQ_MANY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_suppress_join_sq_many_one" title="FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE">WHITE_SUPPRESS_JOIN_SQ_MANY_ONE</a>, <a href="#white_suppress_join_sq" title="FK_WHITE_SUPPRESS_JOIN_SQ_MANY">WHITE_SUPPRESS_JOIN_SQ</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -932,7 +932,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_suppress_join_sq_many_one" title="type=TABLE, primaryKey={MANY_ONE_ID}, nameLength=31, columnCount=3">WHITE_SUPPRESS_JOIN_SQ_MANY_ONE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_suppress_join_sq_many_one_one" title="FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE">WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE</a></td>
 		<td class="relcell"><a href="#white_suppress_join_sq_many" title="FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE">WHITE_SUPPRESS_JOIN_SQ_MANY</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -943,7 +943,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_suppress_join_sq_many_one_one" title="type=TABLE, primaryKey={MANY_ONE_ONE_ID}, nameLength=35, columnCount=2">WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_suppress_join_sq_many_one" title="FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE">WHITE_SUPPRESS_JOIN_SQ_MANY_ONE</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -954,7 +954,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_suppress_join_sq_one" title="type=TABLE, primaryKey={ONE_ID}, nameLength=26, columnCount=4">WHITE_SUPPRESS_JOIN_SQ_ONE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_suppress_join_sq" title="FK_WHITE_SUPPRESS_JOIN_SQ_ONE">WHITE_SUPPRESS_JOIN_SQ</a>, <a href="#white_suppress_join_sq_one_addi" class="additionalfk" title="FK_WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI_TEST">WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -965,7 +965,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_suppress_join_sq_one_addi" title="type=TABLE, primaryKey={ONE_ADDI_ID}, nameLength=31, columnCount=2">WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_suppress_join_sq_one" class="additionalfk" title="FK_WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI_TEST">WHITE_SUPPRESS_JOIN_SQ_ONE</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -976,7 +976,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_table_except_gen_head" title="type=TABLE, primaryKey={GEN_HEAD_ID}, nameLength=27, columnCount=3">WHITE_TABLE_EXCEPT_GEN_HEAD</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_table_except_gen_only" title="FK_WHITE_TABLE_EXCEPT_GEN_ONLY_HEAD">WHITE_TABLE_EXCEPT_GEN_ONLY</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -987,7 +987,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_table_except_gen_only" title="type=TABLE, primaryKey={GEN_ONLY_ID}, nameLength=27, columnCount=4">WHITE_TABLE_EXCEPT_GEN_ONLY</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_table_except_gen_head" title="FK_WHITE_TABLE_EXCEPT_GEN_ONLY_HEAD">WHITE_TABLE_EXCEPT_GEN_HEAD</a></td>
 		<td class="relcell"><a href="#white_table_except_gen_ref" title="FK_WHITE_TABLE_EXCEPT_GEN_REF_ONLY">WHITE_TABLE_EXCEPT_GEN_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -998,7 +998,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_table_except_gen_ref" title="type=TABLE, primaryKey={GEN_REF_ID}, nameLength=26, columnCount=3">WHITE_TABLE_EXCEPT_GEN_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_table_except_gen_only" title="FK_WHITE_TABLE_EXCEPT_GEN_REF_ONLY">WHITE_TABLE_EXCEPT_GEN_ONLY</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1009,7 +1009,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_uq_classification" title="type=TABLE, primaryKey={UQ_CLS_ID}, nameLength=23, columnCount=2">WHITE_UQ_CLASSIFICATION</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1020,7 +1020,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_uq_fk" title="type=TABLE, primaryKey={UQ_FK_ID}, nameLength=11, columnCount=2">WHITE_UQ_FK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_uq_fk_ref" title="FK_WHITE_UQ_FK_REF_PK">WHITE_UQ_FK_REF</a>, <a href="#white_uq_fk_ref" title="FK_WHITE_UQ_FK_REF_UQ">WHITE_UQ_FK_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1031,7 +1031,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_uq_fk_ref" title="type=TABLE, primaryKey={UQ_FK_REF_ID}, nameLength=15, columnCount=5">WHITE_UQ_FK_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_uq_fk" title="FK_WHITE_UQ_FK_REF_PK">WHITE_UQ_FK</a>, <a href="#white_uq_fk" title="FK_WHITE_UQ_FK_REF_UQ">WHITE_UQ_FK</a></td>
 		<td class="relcell"><a href="#white_uq_fk_ref_nest" title="FK_WHITE_UQ_FK_REF_NEST_UQ">WHITE_UQ_FK_REF_NEST</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1042,7 +1042,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_uq_fk_ref_nest" title="type=TABLE, primaryKey={UQ_FK_REF_NEST_ID}, nameLength=20, columnCount=3">WHITE_UQ_FK_REF_NEST</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_uq_fk_ref" title="FK_WHITE_UQ_FK_REF_NEST_UQ">WHITE_UQ_FK_REF</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1053,7 +1053,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_uq_fk_without_pk" title="type=TABLE, primaryKey={}, nameLength=22, columnCount=2">WHITE_UQ_FK_WITHOUT_PK</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_uq_fk_without_pk_ref" title="FK_WHITE_UQ_FK_WITHOUT_PK_REF">WHITE_UQ_FK_WITHOUT_PK_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1064,7 +1064,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_uq_fk_without_pk_ref" title="type=TABLE, primaryKey={}, nameLength=26, columnCount=2">WHITE_UQ_FK_WITHOUT_PK_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_uq_fk_without_pk" title="FK_WHITE_UQ_FK_WITHOUT_PK_REF">WHITE_UQ_FK_WITHOUT_PK</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1075,7 +1075,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_variant_relation_local_pk_referrer" title="type=TABLE, primaryKey={REVERSEFK_SUPPRESSED_ID}, nameLength=40, columnCount=2">WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_variant_relation_master_foo" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER: fixedCondition=&quot;$$localAlias$$.MASTER_TYPE_CODE = 'FOO'&quot;">WHITE_VARIANT_RELATION_MASTER_FOO(AsBizManyToOneLikeBizOneToOne)</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1086,7 +1086,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_variant_relation_master_bar" title="type=TABLE, primaryKey={MASTER_BAR_ID}, nameLength=33, columnCount=2">WHITE_VARIANT_RELATION_MASTER_BAR</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#white_variant_relation_referrer" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_BAR: fixedCondition=&quot;$$localAlias$$.MASTER_TYPE_CODE = 'BAR'&quot;">WHITE_VARIANT_RELATION_REFERRER(AsVariant)</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1097,7 +1097,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_variant_relation_master_corge" title="type=TABLE, primaryKey={MASTER_CORGE_ID}, nameLength=35, columnCount=3">WHITE_VARIANT_RELATION_MASTER_CORGE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1108,7 +1108,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_variant_relation_master_foo" title="type=TABLE, primaryKey={MASTER_FOO_ID}, nameLength=33, columnCount=2">WHITE_VARIANT_RELATION_MASTER_FOO</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_variant_relation_referrer" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_BIZ_ONE_TO_ONE_FOR_BIZ_MANY_TO_ONE: fixedCondition=&quot;$$foreignAlias$$.MASTER_TYPE_CODE = 'FOO'&quot;">WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne)</a></td>
 		<td class="relcell"><a href="#white_variant_relation_referrer" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_FOO: fixedCondition=&quot;$$localAlias$$.MASTER_TYPE_CODE = 'FOO'&quot;">WHITE_VARIANT_RELATION_REFERRER(AsVariant)</a>, <a href="#white_variant_relation_local_pk_referrer" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER: fixedCondition=&quot;$$localAlias$$.MASTER_TYPE_CODE = 'FOO'&quot;">WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER(AsBizManyToOneLikeBizOneToOne)</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1119,7 +1119,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_variant_relation_master_qux" title="type=TABLE, primaryKey={MASTER_QUX_ID}, nameLength=33, columnCount=3">WHITE_VARIANT_RELATION_MASTER_QUX</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1130,7 +1130,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_variant_relation_referrer" title="type=TABLE, primaryKey={REFERRER_ID}, nameLength=31, columnCount=3">WHITE_VARIANT_RELATION_REFERRER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_variant_relation_master_foo" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_FOO: fixedCondition=&quot;$$localAlias$$.MASTER_TYPE_CODE = 'FOO'&quot;">WHITE_VARIANT_RELATION_MASTER_FOO(AsVariant)</a>, <a href="#white_variant_relation_master_bar" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_BAR: fixedCondition=&quot;$$localAlias$$.MASTER_TYPE_CODE = 'BAR'&quot;">WHITE_VARIANT_RELATION_MASTER_BAR(AsVariant)</a>, <a href="#white_variant_relation_master_qux" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_QUX: fixedCondition=&quot;$$localAlias$$.MASTER_TYPE_CODE = 'QUX'\n     and $$foreignAlias$$.QUX_TYPE_CODE = 'Que'&quot;">WHITE_VARIANT_RELATION_MASTER_QUX(AsVariantByQue)</a>, <a href="#white_variant_relation_master_corge" class="additionalfk" title="FK_WHITE_VARIANT_RELATION_CORGE: fixedCondition=&quot;$$localAlias$$.MASTER_TYPE_CODE = 'CORGE'\n     and $$foreignAlias$$.CORGE_TYPE_CODE = /*$$locationBase$$.parameterMapWhiteVariantRelationMasterCorgeAsVariantByQuxType.quxType*/null&quot;">WHITE_VARIANT_RELATION_MASTER_CORGE(AsVariantByQuxType)</a></td>
 		<td class="relcell"><a href="#white_variant_relation_referrer_ref" title="FK_WHITE_VARIANT_RELATION_REFERRER_REF">WHITE_VARIANT_RELATION_REFERRER_REF</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1141,7 +1141,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_variant_relation_referrer_ref" title="type=TABLE, primaryKey={REF_ID}, nameLength=35, columnCount=2">WHITE_VARIANT_RELATION_REFERRER_REF</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#white_variant_relation_referrer" title="FK_WHITE_VARIANT_RELATION_REFERRER_REF">WHITE_VARIANT_RELATION_REFERRER</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1152,7 +1152,7 @@
 		<td class="aliascell"></td>
 		<td><a href="#white_xls_man" title="type=TABLE, primaryKey={XLS_MAN_ID}, nameLength=13, columnCount=3">WHITE_XLS_MAN</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1163,7 +1163,7 @@
 		<td class="aliascell">退会理由</td>
 		<td><a href="#withdrawal_reason" title="type=TABLE, primaryKey={WITHDRAWAL_REASON_CODE}, nameLength=17, columnCount=3">WITHDRAWAL_REASON</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a></td>
 		<td class="commentcell"> 会員に選ばせる定型的な退会理由のマスタ。</td>
@@ -1174,7 +1174,7 @@
 		<td class="aliascell">VIEW</td>
 		<td><a href="#summary_product" title="type=VIEW, primaryKey={PRODUCT_ID}, nameLength=15, columnCount=5">SUMMARY_PRODUCT</a></td>
 		<td class="typecell">VIEW</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell"><a href="#product_status" class="additionalfk" title="FK_SUMMARY_PRODUCT_PRODUCT_STATUS">PRODUCT_STATUS</a></td>
 		<td class="relcell"><a href="#purchase" class="additionalfk" title="FK_PURCHASE_SUMMARY_PRODUCT">PURCHASE</a></td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1185,7 +1185,7 @@
 		<td class="aliascell">VIEW</td>
 		<td><a href="#summary_withdrawal" title="type=VIEW, primaryKey={}, nameLength=18, columnCount=9">SUMMARY_WITHDRAWAL</a></td>
 		<td class="typecell">VIEW</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1196,7 +1196,7 @@
 		<td class="aliascell">VIEW</td>
 		<td><a href="#white_no_pk_relation" title="type=VIEW, primaryKey={}, nameLength=20, columnCount=5">WHITE_NO_PK_RELATION</a></td>
 		<td class="typecell">VIEW</td>
-		<td class="schemacell"> maihamadb</td>
+		<td class="schemacell"> maihamadb_slave</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
@@ -1229,7 +1229,7 @@
 
   <h2 id="member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=11">
 (会員)MEMBER
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 &nbsp;<span class="bqpcount"><a href="#member_sql">(outsideSql=19)</a></span>
 </h2>
 <p class="tablecomment">会員のプロフィールやアカウントなどの基本情報を保持する。<br />基本的に物理削除はなく、退会したらステータスが退会会員になる。<br />ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</p>
@@ -1455,7 +1455,7 @@
 </table>
   <h2 id="member_address" title="type=TABLE, primaryKey={MEMBER_ADDRESS_ID}, nameLength=14, columnCount=11">
 (会員住所情報)MEMBER_ADDRESS
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">会員の住所に関する情報。<br />同時に有効期間ごとに履歴管理されている。</p>
 <table summary="Columns in MEMBER_ADDRESS">
@@ -1680,7 +1680,7 @@
 </table>
   <h2 id="member_login" title="type=TABLE, primaryKey={MEMBER_LOGIN_ID}, nameLength=12, columnCount=5">
 (会員ログイン情報)MEMBER_LOGIN
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">ログインするたびに登録されるログイン履歴。</p>
 <table summary="Columns in MEMBER_LOGIN">
@@ -1797,7 +1797,7 @@
 </table>
   <h2 id="member_security" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=15, columnCount=10">
 (会員セキュリティ情報)MEMBER_SECURITY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">会員とは&nbsp;one-to-one&nbsp;で、会員一人につき必ず一つのセキュリティ情報がある</p>
 <table summary="Columns in MEMBER_SECURITY">
@@ -2004,7 +2004,7 @@
 </table>
   <h2 id="member_service" title="type=TABLE, primaryKey={MEMBER_SERVICE_ID}, nameLength=14, columnCount=9">
 (会員サービス)MEMBER_SERVICE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">会員のサービス情報（ポイントサービスなど）。</p>
 <table summary="Columns in MEMBER_SERVICE">
@@ -2193,7 +2193,7 @@
 </table>
   <h2 id="member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=13, columnCount=4">
 (会員ステータス)MEMBER_STATUS
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 &nbsp;<span class="bqpcount"><a href="#member_status_sql">(outsideSql=2)</a></span>
 </h2>
 <table summary="Columns in MEMBER_STATUS">
@@ -2292,7 +2292,7 @@
 </table>
   <h2 id="member_withdrawal" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=17, columnCount=8">
 (会員退会情報)MEMBER_WITHDRAWAL
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">退会会員の退会に関する詳細な情報。<br />退会会員のみデータが存在する。</p>
 <table summary="Columns in MEMBER_WITHDRAWAL">
@@ -2463,7 +2463,7 @@
 </table>
   <h2 id="product" title="type=TABLE, primaryKey={PRODUCT_ID}, nameLength=7, columnCount=11">
 (商品)PRODUCT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">会員へ販売する商品のマスタ。<br />販売可能なものだけでなく、生産中止や販売中止などの商品も含まれる。</p>
 <table summary="Columns in PRODUCT">
@@ -2688,7 +2688,7 @@
 </table>
   <h2 id="product_category" title="type=TABLE, primaryKey={PRODUCT_CATEGORY_CODE}, nameLength=16, columnCount=3">
 (商品カテゴリ)PRODUCT_CATEGORY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">商品のカテゴリを表現するマスタ。<br />自己参照の階層になっている。</p>
 <table summary="Columns in PRODUCT_CATEGORY">
@@ -2769,7 +2769,7 @@
 </table>
   <h2 id="product_status" title="type=TABLE, primaryKey={PRODUCT_STATUS_CODE}, nameLength=14, columnCount=3">
 (商品ステータス)PRODUCT_STATUS
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in PRODUCT_STATUS">
 	<thead>
@@ -2845,7 +2845,7 @@
 </table>
   <h2 id="purchase" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=8, columnCount=12">
 (購入)PURCHASE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">一つの商品に対する一回の購入を表現する。<br />一回の購入で一つの商品を複数個買うこともある。</p>
 <table summary="Columns in PURCHASE">
@@ -3088,7 +3088,7 @@
 </table>
   <h2 id="purchase_payment" title="type=TABLE, primaryKey={PURCHASE_PAYMENT_ID}, nameLength=16, columnCount=9">
 (購入支払)PURCHASE_PAYMENT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">購入に対する支払。<br />分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。</p>
 <table summary="Columns in PURCHASE_PAYMENT">
@@ -3277,7 +3277,7 @@
 </table>
   <h2 id="region" title="type=TABLE, primaryKey={REGION_ID}, nameLength=6, columnCount=2">
 (地域)REGION
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">主に会員の住所に対応する地域。<br />かなりざっくりした感じではある。</p>
 <table summary="Columns in REGION">
@@ -3337,7 +3337,7 @@
 </table>
   <h2 id="service_rank" title="type=TABLE, primaryKey={SERVICE_RANK_CODE}, nameLength=12, columnCount=6">
 (サービスランク)SERVICE_RANK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">会員のサービスレベルを表現するランク。<br />（ゴールドとかプラチナとか）</p>
 <table summary="Columns in SERVICE_RANK">
@@ -3472,7 +3472,7 @@
 </table>
   <h2 id="vendor_check" title="type=TABLE, primaryKey={VENDOR_CHECK_ID}, nameLength=12, columnCount=31">
 VENDOR_CHECK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 &nbsp;<span class="bqpcount"><a href="#vendor_check_sql">(outsideSql=5)</a></span>
 </h2>
 <table summary="Columns in VENDOR_CHECK">
@@ -4057,7 +4057,7 @@ VENDOR_CHECK
 </table>
   <h2 id="vendor_constraint_name_auto_bar" title="type=TABLE, primaryKey={CONSTRAINT_NAME_AUTO_BAR_ID}, nameLength=31, columnCount=2">
 VENDOR_CONSTRAINT_NAME_AUTO_BAR
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in VENDOR_CONSTRAINT_NAME_AUTO_BAR">
 	<thead>
@@ -4116,7 +4116,7 @@ VENDOR_CONSTRAINT_NAME_AUTO_BAR
 </table>
   <h2 id="vendor_constraint_name_auto_foo" title="type=TABLE, primaryKey={CONSTRAINT_NAME_AUTO_FOO_ID}, nameLength=31, columnCount=2">
 VENDOR_CONSTRAINT_NAME_AUTO_FOO
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in VENDOR_CONSTRAINT_NAME_AUTO_FOO">
 	<thead>
@@ -4175,7 +4175,7 @@ VENDOR_CONSTRAINT_NAME_AUTO_FOO
 </table>
   <h2 id="vendor_constraint_name_auto_qux" title="type=TABLE, primaryKey={CONSTRAINT_NAME_AUTO_QUX_ID}, nameLength=31, columnCount=2">
 VENDOR_CONSTRAINT_NAME_AUTO_QUX
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in VENDOR_CONSTRAINT_NAME_AUTO_QUX">
 	<thead>
@@ -4234,7 +4234,7 @@ VENDOR_CONSTRAINT_NAME_AUTO_QUX
 </table>
   <h2 id="vendor_constraint_name_auto_ref" title="type=TABLE, primaryKey={CONSTRAINT_NAME_AUTO_REF_ID}, nameLength=31, columnCount=6">
 VENDOR_CONSTRAINT_NAME_AUTO_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in VENDOR_CONSTRAINT_NAME_AUTO_REF">
 	<thead>
@@ -4361,7 +4361,7 @@ VENDOR_CONSTRAINT_NAME_AUTO_REF
 </table>
   <h2 id="vendor_large_data" title="type=TABLE, primaryKey={LARGE_DATA_ID}, nameLength=17, columnCount=7">
 VENDOR_LARGE_DATA
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in VENDOR_LARGE_DATA">
 	<thead>
@@ -4505,7 +4505,7 @@ VENDOR_LARGE_DATA
 </table>
   <h2 id="vendor_large_data_ref" title="type=TABLE, primaryKey={LARGE_DATA_REF_ID}, nameLength=21, columnCount=9">
 VENDOR_LARGE_DATA_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in VENDOR_LARGE_DATA_REF">
 	<thead>
@@ -4683,7 +4683,7 @@ VENDOR_LARGE_DATA_REF
 </table>
   <h2 id="vendor_the_long_and_winding_table_and_column" title="type=TABLE, primaryKey={THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID}, nameLength=44, columnCount=4">
 VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN">
 	<thead>
@@ -4776,7 +4776,7 @@ VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN
 </table>
   <h2 id="vendor_the_long_and_winding_table_and_column_ref" title="type=TABLE, primaryKey={THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_ID}, nameLength=48, columnCount=4">
 VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF">
 	<thead>
@@ -4869,7 +4869,7 @@ VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF
 </table>
   <h2 id="white_all_in_one_cls_category" title="type=TABLE, primaryKey={CLS_CATEGORY_CODE}, nameLength=29, columnCount=3">
 WHITE_ALL_IN_ONE_CLS_CATEGORY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ALL_IN_ONE_CLS_CATEGORY">
 	<thead>
@@ -4945,7 +4945,7 @@ WHITE_ALL_IN_ONE_CLS_CATEGORY
 </table>
   <h2 id="white_all_in_one_cls_compound_pk_ref" title="type=TABLE, primaryKey={FOO_CODE, BAR_CODE, QUX_CODE}, nameLength=36, columnCount=3">
 WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF">
 	<thead>
@@ -5021,7 +5021,7 @@ WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF
 </table>
   <h2 id="white_all_in_one_cls_element" title="type=TABLE, primaryKey={CLS_CATEGORY_CODE, CLS_ELEMENT_CODE}, nameLength=28, columnCount=4">
 WHITE_ALL_IN_ONE_CLS_ELEMENT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ALL_IN_ONE_CLS_ELEMENT">
 	<thead>
@@ -5114,7 +5114,7 @@ WHITE_ALL_IN_ONE_CLS_ELEMENT
 </table>
   <h2 id="white_all_in_one_cls_normal_col_ref" title="type=TABLE, primaryKey={FOO_CODE, BAR_CODE, QUX_CODE}, nameLength=35, columnCount=4">
 WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF">
 	<thead>
@@ -5207,7 +5207,7 @@ WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF
 </table>
   <h2 id="white_binary" title="type=TABLE, primaryKey={BINARY_ID}, nameLength=12, columnCount=3">
 WHITE_BINARY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_BINARY">
 	<thead>
@@ -5283,7 +5283,7 @@ WHITE_BINARY
 </table>
   <h2 id="white_column_except" title="type=TABLE, primaryKey={EXCEPT_COLUMN_ID}, nameLength=19, columnCount=2">
 WHITE_COLUMN_EXCEPT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_COLUMN_EXCEPT">
 	<thead>
@@ -5342,7 +5342,7 @@ WHITE_COLUMN_EXCEPT
 </table>
   <h2 id="white_column_except_gen_only" title="type=TABLE, primaryKey={GEN_ONLY_ID}, nameLength=28, columnCount=3">
 WHITE_COLUMN_EXCEPT_GEN_ONLY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_COLUMN_EXCEPT_GEN_ONLY">
 	<thead>
@@ -5418,7 +5418,7 @@ WHITE_COLUMN_EXCEPT_GEN_ONLY
 </table>
   <h2 id="white_compound_pk" title="type=TABLE, primaryKey={PK_FIRST_ID, PK_SECOND_ID}, nameLength=17, columnCount=4">
 WHITE_COMPOUND_PK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_COMPOUND_PK">
 	<thead>
@@ -5511,7 +5511,7 @@ WHITE_COMPOUND_PK
 </table>
   <h2 id="white_compound_pk_ref" title="type=TABLE, primaryKey={MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID}, nameLength=21, columnCount=5">
 WHITE_COMPOUND_PK_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_COMPOUND_PK_REF">
 	<thead>
@@ -5621,7 +5621,7 @@ WHITE_COMPOUND_PK_REF
 </table>
   <h2 id="white_compound_pk_ref_many" title="type=TABLE, primaryKey={MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID}, nameLength=26, columnCount=7">
 WHITE_COMPOUND_PK_REF_MANY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_COMPOUND_PK_REF_MANY">
 	<thead>
@@ -5765,7 +5765,7 @@ WHITE_COMPOUND_PK_REF_MANY
 </table>
   <h2 id="white_compound_pk_ref_nest" title="type=TABLE, primaryKey={COMPOUND_PK_REF_NEST_ID}, nameLength=26, columnCount=5">
 WHITE_COMPOUND_PK_REF_NEST
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_COMPOUND_PK_REF_NEST">
 	<thead>
@@ -5875,7 +5875,7 @@ WHITE_COMPOUND_PK_REF_NEST
 </table>
   <h2 id="white_compound_referred_normally" title="type=TABLE, primaryKey={REFERRED_ID}, nameLength=32, columnCount=2">
 WHITE_COMPOUND_REFERRED_NORMALLY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_COMPOUND_REFERRED_NORMALLY">
 	<thead>
@@ -5934,7 +5934,7 @@ WHITE_COMPOUND_REFERRED_NORMALLY
 </table>
   <h2 id="white_compound_referred_primary" title="type=TABLE, primaryKey={REFERRED_ID}, nameLength=31, columnCount=2">
 WHITE_COMPOUND_REFERRED_PRIMARY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_COMPOUND_REFERRED_PRIMARY">
 	<thead>
@@ -5993,7 +5993,7 @@ WHITE_COMPOUND_REFERRED_PRIMARY
 </table>
   <h2 id="white_date_adjustment" title="type=TABLE, primaryKey={DATE_ADJUSTMENT_ID}, nameLength=21, columnCount=11">
 WHITE_DATE_ADJUSTMENT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_DATE_ADJUSTMENT">
 	<thead>
@@ -6205,7 +6205,7 @@ WHITE_DATE_ADJUSTMENT
 </table>
   <h2 id="white_db_comment" title="type=TABLE, primaryKey={DB_COMMENT_CODE}, nameLength=16, columnCount=2">
 WHITE_DB_COMMENT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_DB_COMMENT">
 	<thead>
@@ -6267,7 +6267,7 @@ WHITE_DB_COMMENT
 </table>
   <h2 id="white_delimiter" title="type=TABLE, primaryKey={DELIMITER_ID}, nameLength=15, columnCount=5">
 WHITE_DELIMITER
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_DELIMITER">
 	<thead>
@@ -6377,7 +6377,7 @@ WHITE_DELIMITER
 </table>
   <h2 id="white_deprecated_cls_element" title="type=TABLE, primaryKey={DEPRECATED_CLS_ELEMENT_CODE}, nameLength=28, columnCount=2">
 WHITE_DEPRECATED_CLS_ELEMENT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_DEPRECATED_CLS_ELEMENT">
 	<thead>
@@ -6436,7 +6436,7 @@ WHITE_DEPRECATED_CLS_ELEMENT
 </table>
   <h2 id="white_escaped_dfprop" title="type=TABLE, primaryKey={ESCAPED_DFPROP_CODE}, nameLength=20, columnCount=2">
 WHITE_ESCAPED_DFPROP
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ESCAPED_DFPROP">
 	<thead>
@@ -6495,7 +6495,7 @@ WHITE_ESCAPED_DFPROP
 </table>
   <h2 id="white_escaped_java_doc" title="type=TABLE, primaryKey={ESCAPED_JAVA_DOC_CODE}, nameLength=22, columnCount=2">
 WHITE_ESCAPED_JAVA_DOC
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ESCAPED_JAVA_DOC">
 	<thead>
@@ -6554,7 +6554,7 @@ WHITE_ESCAPED_JAVA_DOC
 </table>
   <h2 id="white_escaped_number_initial" title="type=TABLE, primaryKey={NUMBER_INITIAL_CODE}, nameLength=28, columnCount=2">
 WHITE_ESCAPED_NUMBER_INITIAL
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ESCAPED_NUMBER_INITIAL">
 	<thead>
@@ -6613,7 +6613,7 @@ WHITE_ESCAPED_NUMBER_INITIAL
 </table>
   <h2 id="white_geared_cipher" title="type=TABLE, primaryKey={CIPHER_ID}, nameLength=19, columnCount=5">
 WHITE_GEARED_CIPHER
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_GEARED_CIPHER">
 	<thead>
@@ -6723,7 +6723,7 @@ WHITE_GEARED_CIPHER
 </table>
   <h2 id="white_grouping_reference" title="type=TABLE, primaryKey={GROUPING_REFERENCE_ID}, nameLength=24, columnCount=2">
 WHITE_GROUPING_REFERENCE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_GROUPING_REFERENCE">
 	<thead>
@@ -6782,7 +6782,7 @@ WHITE_GROUPING_REFERENCE
 </table>
   <h2 id="white_implicit_conv_integer" title="type=TABLE, primaryKey={IMPLICIT_CONV_INTEGER_ID}, nameLength=27, columnCount=4">
 WHITE_IMPLICIT_CONV_INTEGER
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_IMPLICIT_CONV_INTEGER">
 	<thead>
@@ -6875,7 +6875,7 @@ WHITE_IMPLICIT_CONV_INTEGER
 </table>
   <h2 id="white_implicit_conv_numeric" title="type=TABLE, primaryKey={IMPLICIT_CONV_NUMERIC_ID}, nameLength=27, columnCount=4">
 WHITE_IMPLICIT_CONV_NUMERIC
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_IMPLICIT_CONV_NUMERIC">
 	<thead>
@@ -6968,7 +6968,7 @@ WHITE_IMPLICIT_CONV_NUMERIC
 </table>
   <h2 id="white_implicit_conv_string" title="type=TABLE, primaryKey={IMPLICIT_CONV_STRING_ID}, nameLength=26, columnCount=4">
 WHITE_IMPLICIT_CONV_STRING
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_IMPLICIT_CONV_STRING">
 	<thead>
@@ -7061,7 +7061,7 @@ WHITE_IMPLICIT_CONV_STRING
 </table>
   <h2 id="white_implicit_reverse_fk" title="type=TABLE, primaryKey={WHITE_IMPLICIT_REVERSE_FK_ID}, nameLength=25, columnCount=2">
 WHITE_IMPLICIT_REVERSE_FK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_IMPLICIT_REVERSE_FK">
 	<thead>
@@ -7120,7 +7120,7 @@ WHITE_IMPLICIT_REVERSE_FK
 </table>
   <h2 id="white_implicit_reverse_fk_ref" title="type=TABLE, primaryKey={WHITE_IMPLICIT_REVERSE_FK_REF_ID}, nameLength=29, columnCount=4">
 WHITE_IMPLICIT_REVERSE_FK_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_IMPLICIT_REVERSE_FK_REF">
 	<thead>
@@ -7213,7 +7213,7 @@ WHITE_IMPLICIT_REVERSE_FK_REF
 </table>
   <h2 id="white_implicit_reverse_fk_suppress" title="type=TABLE, primaryKey={WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID}, nameLength=34, columnCount=4">
 WHITE_IMPLICIT_REVERSE_FK_SUPPRESS
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_IMPLICIT_REVERSE_FK_SUPPRESS">
 	<thead>
@@ -7306,7 +7306,7 @@ WHITE_IMPLICIT_REVERSE_FK_SUPPRESS
 </table>
   <h2 id="white_include_query" title="type=TABLE, primaryKey={INCLUDE_QUERY_ID}, nameLength=19, columnCount=5">
 WHITE_INCLUDE_QUERY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_INCLUDE_QUERY">
 	<thead>
@@ -7416,7 +7416,7 @@ WHITE_INCLUDE_QUERY
 </table>
   <h2 id="white_line_sep_comment" title="type=TABLE, primaryKey={LINE_SEP_COMMENT_CODE}, nameLength=22, columnCount=2">
 WHITE_LINE_SEP_COMMENT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_LINE_SEP_COMMENT">
 	<thead>
@@ -7475,7 +7475,7 @@ WHITE_LINE_SEP_COMMENT
 </table>
   <h2 id="white_load_data" title="type=TABLE, primaryKey={LOAD_DATA_ID}, nameLength=15, columnCount=2">
 WHITE_LOAD_DATA
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_LOAD_DATA">
 	<thead>
@@ -7534,7 +7534,7 @@ WHITE_LOAD_DATA
 </table>
   <h2 id="white_myself" title="type=TABLE, primaryKey={MYSELF_ID}, nameLength=12, columnCount=2">
 WHITE_MYSELF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_MYSELF">
 	<thead>
@@ -7593,7 +7593,7 @@ WHITE_MYSELF
 </table>
   <h2 id="white_myself_check" title="type=TABLE, primaryKey={MYSELF_CHECK_ID}, nameLength=18, columnCount=3">
 WHITE_MYSELF_CHECK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_MYSELF_CHECK">
 	<thead>
@@ -7669,7 +7669,7 @@ WHITE_MYSELF_CHECK
 </table>
   <h2 id="white_no_pk" title="type=TABLE, primaryKey={}, nameLength=11, columnCount=3">
 WHITE_NO_PK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_NO_PK">
 	<thead>
@@ -7745,7 +7745,7 @@ WHITE_NO_PK
 </table>
   <h2 id="white_only_one_to_one_from" title="type=TABLE, primaryKey={FROM_ID}, nameLength=26, columnCount=2">
 WHITE_ONLY_ONE_TO_ONE_FROM
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ONLY_ONE_TO_ONE_FROM">
 	<thead>
@@ -7804,7 +7804,7 @@ WHITE_ONLY_ONE_TO_ONE_FROM
 </table>
   <h2 id="white_only_one_to_one_to" title="type=TABLE, primaryKey={TO_ID}, nameLength=24, columnCount=3">
 WHITE_ONLY_ONE_TO_ONE_TO
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_ONLY_ONE_TO_ONE_TO">
 	<thead>
@@ -7880,7 +7880,7 @@ WHITE_ONLY_ONE_TO_ONE_TO
 </table>
   <h2 id="white_perrotta_over_member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=26, columnCount=5">
 WHITE_PERROTTA_OVER_MEMBER
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_PERROTTA_OVER_MEMBER">
 	<thead>
@@ -7990,7 +7990,7 @@ WHITE_PERROTTA_OVER_MEMBER
 </table>
   <h2 id="white_perrotta_over_member_macho" title="type=TABLE, primaryKey={MACHO_CODE}, nameLength=32, columnCount=2">
 WHITE_PERROTTA_OVER_MEMBER_MACHO
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_PERROTTA_OVER_MEMBER_MACHO">
 	<thead>
@@ -8049,7 +8049,7 @@ WHITE_PERROTTA_OVER_MEMBER_MACHO
 </table>
   <h2 id="white_perrotta_over_product" title="type=TABLE, primaryKey={PRODUCT_ID}, nameLength=27, columnCount=3">
 WHITE_PERROTTA_OVER_PRODUCT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_PERROTTA_OVER_PRODUCT">
 	<thead>
@@ -8125,7 +8125,7 @@ WHITE_PERROTTA_OVER_PRODUCT
 </table>
   <h2 id="white_perrotta_over_product_nested" title="type=TABLE, primaryKey={PRODUCT_NESTED_CODE}, nameLength=34, columnCount=2">
 WHITE_PERROTTA_OVER_PRODUCT_NESTED
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_PERROTTA_OVER_PRODUCT_NESTED">
 	<thead>
@@ -8184,7 +8184,7 @@ WHITE_PERROTTA_OVER_PRODUCT_NESTED
 </table>
   <h2 id="white_perrotta_over_trace" title="type=TABLE, primaryKey={TRACE_ID}, nameLength=25, columnCount=4">
 WHITE_PERROTTA_OVER_TRACE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_PERROTTA_OVER_TRACE">
 	<thead>
@@ -8277,7 +8277,7 @@ WHITE_PERROTTA_OVER_TRACE
 </table>
   <h2 id="white_pg_reserv" title="type=TABLE, primaryKey={CLASS}, nameLength=15, columnCount=20">
 WHITE_PG_RESERV
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_PG_RESERV">
 	<thead>
@@ -8642,7 +8642,7 @@ WHITE_PG_RESERV
 </table>
   <h2 id="white_pg_reserv_ref" title="type=TABLE, primaryKey={REF_ID}, nameLength=19, columnCount=2">
 WHITE_PG_RESERV_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_PG_RESERV_REF">
 	<thead>
@@ -8701,7 +8701,7 @@ WHITE_PG_RESERV_REF
 </table>
   <h2 id="white_point_type_mapping" title="type=TABLE, primaryKey={POINT_TYPE_MAPPING_ID}, nameLength=24, columnCount=5">
 WHITE_POINT_TYPE_MAPPING
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_POINT_TYPE_MAPPING">
 	<thead>
@@ -8811,7 +8811,7 @@ WHITE_POINT_TYPE_MAPPING
 </table>
   <h2 id="white_purchase_referrer" title="type=TABLE, primaryKey={PURCHASE_REFERRER_ID}, nameLength=23, columnCount=2">
 WHITE_PURCHASE_REFERRER
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_PURCHASE_REFERRER">
 	<thead>
@@ -8870,7 +8870,7 @@ WHITE_PURCHASE_REFERRER
 </table>
   <h2 id="white_quoted" title="type=TABLE, primaryKey={SELECT}, nameLength=12, columnCount=2">
 WHITE_QUOTED
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_QUOTED">
 	<thead>
@@ -8929,7 +8929,7 @@ WHITE_QUOTED
 </table>
   <h2 id="white_quoted_ref" title="type=TABLE, primaryKey={WHERE}, nameLength=16, columnCount=2">
 WHITE_QUOTED_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_QUOTED_REF">
 	<thead>
@@ -8988,7 +8988,7 @@ WHITE_QUOTED_REF
 </table>
   <h2 id="white_self_reference" title="type=TABLE, primaryKey={SELF_REFERENCE_ID}, nameLength=20, columnCount=3">
 WHITE_SELF_REFERENCE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SELF_REFERENCE">
 	<thead>
@@ -9064,7 +9064,7 @@ WHITE_SELF_REFERENCE
 </table>
   <h2 id="white_self_reference_ref_one" title="type=TABLE, primaryKey={SELF_REFERENCE_ID}, nameLength=28, columnCount=2">
 WHITE_SELF_REFERENCE_REF_ONE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SELF_REFERENCE_REF_ONE">
 	<thead>
@@ -9123,7 +9123,7 @@ WHITE_SELF_REFERENCE_REF_ONE
 </table>
   <h2 id="white_split_multiple_fk_base" title="type=TABLE, primaryKey={BASE_ID}, nameLength=28, columnCount=4">
 WHITE_SPLIT_MULTIPLE_FK_BASE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SPLIT_MULTIPLE_FK_BASE">
 	<thead>
@@ -9216,7 +9216,7 @@ WHITE_SPLIT_MULTIPLE_FK_BASE
 </table>
   <h2 id="white_split_multiple_fk_child" title="type=TABLE, primaryKey={CHILD_ID}, nameLength=29, columnCount=3">
 WHITE_SPLIT_MULTIPLE_FK_CHILD
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SPLIT_MULTIPLE_FK_CHILD">
 	<thead>
@@ -9292,7 +9292,7 @@ WHITE_SPLIT_MULTIPLE_FK_CHILD
 </table>
   <h2 id="white_split_multiple_fk_next" title="type=TABLE, primaryKey={NEXT_ID}, nameLength=28, columnCount=2">
 WHITE_SPLIT_MULTIPLE_FK_NEXT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SPLIT_MULTIPLE_FK_NEXT">
 	<thead>
@@ -9351,7 +9351,7 @@ WHITE_SPLIT_MULTIPLE_FK_NEXT
 </table>
   <h2 id="white_split_multiple_fk_ref" title="type=TABLE, primaryKey={FIRST_ID, SECOND_CODE}, nameLength=27, columnCount=3">
 WHITE_SPLIT_MULTIPLE_FK_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SPLIT_MULTIPLE_FK_REF">
 	<thead>
@@ -9427,7 +9427,7 @@ WHITE_SPLIT_MULTIPLE_FK_REF
 </table>
   <h2 id="white_stiletto_alias" title="type=TABLE, primaryKey={STILETTO_ALIAS_ID}, nameLength=20, columnCount=9">
 WHITE_STILETTO_ALIAS
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_STILETTO_ALIAS">
 	<thead>
@@ -9605,7 +9605,7 @@ WHITE_STILETTO_ALIAS
 </table>
   <h2 id="white_stiletto_alias_ref" title="type=TABLE, primaryKey={REF_ID}, nameLength=24, columnCount=12">
 WHITE_STILETTO_ALIAS_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_STILETTO_ALIAS_REF">
 	<thead>
@@ -9834,7 +9834,7 @@ WHITE_STILETTO_ALIAS_REF
 </table>
   <h2 id="white_suppress_def_check" title="type=TABLE, primaryKey={DEF_CHECK_ID}, nameLength=24, columnCount=2">
 WHITE_SUPPRESS_DEF_CHECK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SUPPRESS_DEF_CHECK">
 	<thead>
@@ -9893,7 +9893,7 @@ WHITE_SUPPRESS_DEF_CHECK
 </table>
   <h2 id="white_suppress_join_sq" title="type=TABLE, primaryKey={SUPPRESS_JOIN_SQ_ID}, nameLength=22, columnCount=2">
 WHITE_SUPPRESS_JOIN_SQ
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SUPPRESS_JOIN_SQ">
 	<thead>
@@ -9952,7 +9952,7 @@ WHITE_SUPPRESS_JOIN_SQ
 </table>
   <h2 id="white_suppress_join_sq_many" title="type=TABLE, primaryKey={MANY_ID}, nameLength=27, columnCount=4">
 WHITE_SUPPRESS_JOIN_SQ_MANY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SUPPRESS_JOIN_SQ_MANY">
 	<thead>
@@ -10045,7 +10045,7 @@ WHITE_SUPPRESS_JOIN_SQ_MANY
 </table>
   <h2 id="white_suppress_join_sq_many_one" title="type=TABLE, primaryKey={MANY_ONE_ID}, nameLength=31, columnCount=3">
 WHITE_SUPPRESS_JOIN_SQ_MANY_ONE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SUPPRESS_JOIN_SQ_MANY_ONE">
 	<thead>
@@ -10121,7 +10121,7 @@ WHITE_SUPPRESS_JOIN_SQ_MANY_ONE
 </table>
   <h2 id="white_suppress_join_sq_many_one_one" title="type=TABLE, primaryKey={MANY_ONE_ONE_ID}, nameLength=35, columnCount=2">
 WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE">
 	<thead>
@@ -10180,7 +10180,7 @@ WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE
 </table>
   <h2 id="white_suppress_join_sq_one" title="type=TABLE, primaryKey={ONE_ID}, nameLength=26, columnCount=4">
 WHITE_SUPPRESS_JOIN_SQ_ONE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SUPPRESS_JOIN_SQ_ONE">
 	<thead>
@@ -10273,7 +10273,7 @@ WHITE_SUPPRESS_JOIN_SQ_ONE
 </table>
   <h2 id="white_suppress_join_sq_one_addi" title="type=TABLE, primaryKey={ONE_ADDI_ID}, nameLength=31, columnCount=2">
 WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI">
 	<thead>
@@ -10332,7 +10332,7 @@ WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI
 </table>
   <h2 id="white_table_except_gen_head" title="type=TABLE, primaryKey={GEN_HEAD_ID}, nameLength=27, columnCount=3">
 WHITE_TABLE_EXCEPT_GEN_HEAD
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_TABLE_EXCEPT_GEN_HEAD">
 	<thead>
@@ -10408,7 +10408,7 @@ WHITE_TABLE_EXCEPT_GEN_HEAD
 </table>
   <h2 id="white_table_except_gen_only" title="type=TABLE, primaryKey={GEN_ONLY_ID}, nameLength=27, columnCount=4">
 WHITE_TABLE_EXCEPT_GEN_ONLY
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_TABLE_EXCEPT_GEN_ONLY">
 	<thead>
@@ -10501,7 +10501,7 @@ WHITE_TABLE_EXCEPT_GEN_ONLY
 </table>
   <h2 id="white_table_except_gen_ref" title="type=TABLE, primaryKey={GEN_REF_ID}, nameLength=26, columnCount=3">
 WHITE_TABLE_EXCEPT_GEN_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_TABLE_EXCEPT_GEN_REF">
 	<thead>
@@ -10577,7 +10577,7 @@ WHITE_TABLE_EXCEPT_GEN_REF
 </table>
   <h2 id="white_uq_classification" title="type=TABLE, primaryKey={UQ_CLS_ID}, nameLength=23, columnCount=2">
 WHITE_UQ_CLASSIFICATION
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_UQ_CLASSIFICATION">
 	<thead>
@@ -10636,7 +10636,7 @@ WHITE_UQ_CLASSIFICATION
 </table>
   <h2 id="white_uq_fk" title="type=TABLE, primaryKey={UQ_FK_ID}, nameLength=11, columnCount=2">
 WHITE_UQ_FK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_UQ_FK">
 	<thead>
@@ -10695,7 +10695,7 @@ WHITE_UQ_FK
 </table>
   <h2 id="white_uq_fk_ref" title="type=TABLE, primaryKey={UQ_FK_REF_ID}, nameLength=15, columnCount=5">
 WHITE_UQ_FK_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_UQ_FK_REF">
 	<thead>
@@ -10805,7 +10805,7 @@ WHITE_UQ_FK_REF
 </table>
   <h2 id="white_uq_fk_ref_nest" title="type=TABLE, primaryKey={UQ_FK_REF_NEST_ID}, nameLength=20, columnCount=3">
 WHITE_UQ_FK_REF_NEST
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_UQ_FK_REF_NEST">
 	<thead>
@@ -10881,7 +10881,7 @@ WHITE_UQ_FK_REF_NEST
 </table>
   <h2 id="white_uq_fk_without_pk" title="type=TABLE, primaryKey={}, nameLength=22, columnCount=2">
 WHITE_UQ_FK_WITHOUT_PK
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_UQ_FK_WITHOUT_PK">
 	<thead>
@@ -10940,7 +10940,7 @@ WHITE_UQ_FK_WITHOUT_PK
 </table>
   <h2 id="white_uq_fk_without_pk_ref" title="type=TABLE, primaryKey={}, nameLength=26, columnCount=2">
 WHITE_UQ_FK_WITHOUT_PK_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_UQ_FK_WITHOUT_PK_REF">
 	<thead>
@@ -10999,7 +10999,7 @@ WHITE_UQ_FK_WITHOUT_PK_REF
 </table>
   <h2 id="white_variant_relation_local_pk_referrer" title="type=TABLE, primaryKey={REVERSEFK_SUPPRESSED_ID}, nameLength=40, columnCount=2">
 WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER">
 	<thead>
@@ -11058,7 +11058,7 @@ WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER
 </table>
   <h2 id="white_variant_relation_master_bar" title="type=TABLE, primaryKey={MASTER_BAR_ID}, nameLength=33, columnCount=2">
 WHITE_VARIANT_RELATION_MASTER_BAR
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_VARIANT_RELATION_MASTER_BAR">
 	<thead>
@@ -11117,7 +11117,7 @@ WHITE_VARIANT_RELATION_MASTER_BAR
 </table>
   <h2 id="white_variant_relation_master_corge" title="type=TABLE, primaryKey={MASTER_CORGE_ID}, nameLength=35, columnCount=3">
 WHITE_VARIANT_RELATION_MASTER_CORGE
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_VARIANT_RELATION_MASTER_CORGE">
 	<thead>
@@ -11193,7 +11193,7 @@ WHITE_VARIANT_RELATION_MASTER_CORGE
 </table>
   <h2 id="white_variant_relation_master_foo" title="type=TABLE, primaryKey={MASTER_FOO_ID}, nameLength=33, columnCount=2">
 WHITE_VARIANT_RELATION_MASTER_FOO
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_VARIANT_RELATION_MASTER_FOO">
 	<thead>
@@ -11252,7 +11252,7 @@ WHITE_VARIANT_RELATION_MASTER_FOO
 </table>
   <h2 id="white_variant_relation_master_qux" title="type=TABLE, primaryKey={MASTER_QUX_ID}, nameLength=33, columnCount=3">
 WHITE_VARIANT_RELATION_MASTER_QUX
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_VARIANT_RELATION_MASTER_QUX">
 	<thead>
@@ -11328,7 +11328,7 @@ WHITE_VARIANT_RELATION_MASTER_QUX
 </table>
   <h2 id="white_variant_relation_referrer" title="type=TABLE, primaryKey={REFERRER_ID}, nameLength=31, columnCount=3">
 WHITE_VARIANT_RELATION_REFERRER
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_VARIANT_RELATION_REFERRER">
 	<thead>
@@ -11404,7 +11404,7 @@ WHITE_VARIANT_RELATION_REFERRER
 </table>
   <h2 id="white_variant_relation_referrer_ref" title="type=TABLE, primaryKey={REF_ID}, nameLength=35, columnCount=2">
 WHITE_VARIANT_RELATION_REFERRER_REF
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_VARIANT_RELATION_REFERRER_REF">
 	<thead>
@@ -11463,7 +11463,7 @@ WHITE_VARIANT_RELATION_REFERRER_REF
 </table>
   <h2 id="white_xls_man" title="type=TABLE, primaryKey={XLS_MAN_ID}, nameLength=13, columnCount=3">
 WHITE_XLS_MAN
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_XLS_MAN">
 	<thead>
@@ -11539,7 +11539,7 @@ WHITE_XLS_MAN
 </table>
   <h2 id="withdrawal_reason" title="type=TABLE, primaryKey={WITHDRAWAL_REASON_CODE}, nameLength=17, columnCount=3">
 (退会理由)WITHDRAWAL_REASON
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <p class="tablecomment">会員に選ばせる定型的な退会理由のマスタ。</p>
 <table summary="Columns in WITHDRAWAL_REASON">
@@ -11620,7 +11620,7 @@ WHITE_XLS_MAN
 </table>
   <h2 id="summary_product" title="type=VIEW, primaryKey={PRODUCT_ID}, nameLength=15, columnCount=5">
 (VIEW)SUMMARY_PRODUCT
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in SUMMARY_PRODUCT">
 	<thead>
@@ -11742,7 +11742,7 @@ WHITE_XLS_MAN
 </table>
   <h2 id="summary_withdrawal" title="type=VIEW, primaryKey={}, nameLength=18, columnCount=9">
 (VIEW)SUMMARY_WITHDRAWAL
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in SUMMARY_WITHDRAWAL">
 	<thead>
@@ -11930,7 +11930,7 @@ WHITE_XLS_MAN
 </table>
   <h2 id="white_no_pk_relation" title="type=VIEW, primaryKey={}, nameLength=20, columnCount=5">
 (VIEW)WHITE_NO_PK_RELATION
-&nbsp;<span class="tableschema">on maihamadb</span>
+&nbsp;<span class="tableschema">on maihamadb_slave</span>
 </h2>
 <table summary="Columns in WHITE_NO_PK_RELATION">
 	<thead>

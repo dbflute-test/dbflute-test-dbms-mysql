@@ -105,7 +105,7 @@ map:{
     #  You can specify the filter variables for DDL.
     # 
     ; filterVariablesMap = map:{
-        ; nextCatalog = nextexampledb
+        ; nextCatalog = newurayasudb
     }
     # - - - - - - - - - -/
 

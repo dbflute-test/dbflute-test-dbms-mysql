@@ -10,7 +10,7 @@ import java.util.Set;
 
 import org.dbflute.bhv.writable.QueryInsertSetupper;
 import org.dbflute.cbean.ConditionBean;
-import org.dbflute.cbean.ordering.ManualOrderBean;
+import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SubQuery;
 import org.dbflute.helper.HandyDate;
@@ -279,7 +279,7 @@ public class VendorGrammerTest extends UnitContainerTestCase {
     public void test_SwitchOrder_binding() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.when_Equal(CDef.MemberStatus.Formalized).then(3);
         mob.when_Equal(CDef.MemberStatus.Provisional).then(4);
         mob.elseEnd(2);

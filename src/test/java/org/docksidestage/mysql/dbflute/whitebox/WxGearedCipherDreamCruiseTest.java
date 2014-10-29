@@ -3,7 +3,7 @@ package org.docksidestage.mysql.dbflute.whitebox;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.dbflute.cbean.ordering.ManualOrderBean;
+import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.UnionQuery;
 import org.dbflute.util.Srl;
@@ -39,7 +39,7 @@ public class WxGearedCipherDreamCruiseTest extends UnitContainerTestCase {
         }
         PurchaseCB cb = new PurchaseCB();
         PurchaseCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.multiply(dreamCruiseCB.specify().columnMemberId());
         cb.query().addOrderBy_PurchasePrice_Asc().withManualOrder(mob);
 
@@ -81,7 +81,7 @@ public class WxGearedCipherDreamCruiseTest extends UnitContainerTestCase {
             }
         });
         PurchaseCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.multiply(dreamCruiseCB.specify().columnMemberId());
         cb.query().addOrderBy_PurchasePrice_Asc().withManualOrder(mob);
 

@@ -4,7 +4,7 @@
 <database name="">
     <table
         comment="会員: 会員のプロフィールやアカウントなどの基本情報を保持する。&#xa;基本的に物理削除はなく、退会したらステータスが退会会員になる。&#xa;ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。"
-        name="member" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="member" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true"
             comment="会員ID: 会員を識別するID。連番として基本的に自動採番される。&#xa;（会員IDだけに限らず）採番方法はDBMSによって変わる。"
             dbType="INT" javaType="Integer" name="MEMBER_ID"
@@ -39,7 +39,7 @@
             comment="バージョンNO: レコードのバージョンを示すNO。&#xa;更新回数と等しく、主に排他制御のために利用される。"
             dbType="BIGINT" javaType="Long" name="VERSION_NO"
             required="true" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="member_status" name="FK_MEMBER_MEMBER_STATUS">
             <reference foreign="MEMBER_STATUS_CODE" local="MEMBER_STATUS_CODE"/>
         </foreign-key>
@@ -57,7 +57,7 @@
         </index>
     </table>
     <table comment="会員住所情報: 会員の住所に関する情報。&#xa;同時に有効期間ごとに履歴管理されている。"
-        name="member_address" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="member_address" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true"
             comment="会員住所ID: 会員住所を識別するID。&#xa;履歴分も含むテーブルなので、これ自体はFKではない。"
             dbType="INT" javaType="Integer" name="MEMBER_ADDRESS_ID"
@@ -91,11 +91,11 @@
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="VERSION_NO" required="true" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="member" name="FK_MEMBER_ADDRESS_MEMBER">
             <reference foreign="MEMBER_ID" local="MEMBER_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="region" name="FK_MEMBER_ADDRESS_REGION">
             <reference foreign="REGION_ID" local="REGION_ID"/>
         </foreign-key>
@@ -108,7 +108,7 @@
         </index>
     </table>
     <table comment="会員ログイン情報: ログインするたびに登録されるログイン履歴。" name="member_login"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="会員ログインID" dbType="BIGINT"
             javaType="Long" name="MEMBER_LOGIN_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -123,11 +123,11 @@
         <column comment="ログイン会員ステータスコード: ログイン時の会員ステータス" dbType="CHAR"
             javaType="String" name="LOGIN_MEMBER_STATUS_CODE"
             required="true" size="3" type="CHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="member_status" name="FK_MEMBER_LOGIN_MEMBER_STATUS">
             <reference foreign="MEMBER_STATUS_CODE" local="LOGIN_MEMBER_STATUS_CODE"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="member" name="FK_MEMBER_LOGIN_MEMBER">
             <reference foreign="MEMBER_ID" local="MEMBER_ID"/>
         </foreign-key>
@@ -144,7 +144,7 @@
     </table>
     <table
         comment="会員セキュリティ情報: 会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある"
-        name="member_security" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="member_security" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="会員ID: そのまま one-to-one を構成するためのFKとなる。"
             dbType="INT" javaType="Integer" name="MEMBER_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
@@ -174,13 +174,13 @@
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="VERSION_NO" required="true" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="member" name="FK_MEMBER_SECURITY_MEMBER">
             <reference foreign="MEMBER_ID" local="MEMBER_ID"/>
         </foreign-key>
     </table>
     <table comment="会員サービス: 会員のサービス情報（ポイントサービスなど）。"
-        name="member_service" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="member_service" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true"
             comment="会員サービスID: 独立した主キーとなるが、実質的に会員IDとは one-to-one である。"
             dbType="INT" javaType="Integer" name="MEMBER_SERVICE_ID"
@@ -208,11 +208,11 @@
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="VERSION_NO" required="true" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="member" name="FK_MEMBER_SERVICE_MEMBER">
             <reference foreign="MEMBER_ID" local="MEMBER_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="service_rank" name="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">
             <reference foreign="SERVICE_RANK_CODE" local="SERVICE_RANK_CODE"/>
         </foreign-key>
@@ -227,7 +227,7 @@
         </index>
     </table>
     <table comment="会員ステータス" name="member_status"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="会員ステータスコード: 会員ステータスを識別するコード。" dbType="CHAR"
             javaType="String" name="MEMBER_STATUS_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -246,7 +246,8 @@
         </unique>
     </table>
     <table comment="会員退会情報: 退会会員の退会に関する詳細な情報。&#xa;退会会員のみデータが存在する。"
-        name="member_withdrawal" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="member_withdrawal"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="MEMBER_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -272,11 +273,11 @@
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="member" name="FK_MEMBER_WITHDRAWAL_MEMBER">
             <reference foreign="MEMBER_ID" local="MEMBER_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="withdrawal_reason" name="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">
             <reference foreign="WITHDRAWAL_REASON_CODE" local="WITHDRAWAL_REASON_CODE"/>
         </foreign-key>
@@ -286,7 +287,7 @@
     </table>
     <table
         comment="商品: 会員へ販売する商品のマスタ。&#xa;販売可能なものだけでなく、生産中止や販売中止などの商品も含まれる。"
-        name="product" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="product" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="商品ID" dbType="INT"
             javaType="Integer" name="PRODUCT_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="10" type="INTEGER"/>
@@ -314,11 +315,11 @@
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="VERSION_NO" required="true" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="product_category" name="FK_PRODUCT_PRODUCT_CATEGORY">
             <reference foreign="PRODUCT_CATEGORY_CODE" local="PRODUCT_CATEGORY_CODE"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="product_status" name="FK_PRODUCT_PRODUCT_STATUS">
             <reference foreign="PRODUCT_STATUS_CODE" local="PRODUCT_STATUS_CODE"/>
         </foreign-key>
@@ -336,7 +337,8 @@
         </index>
     </table>
     <table comment="商品カテゴリ: 商品のカテゴリを表現するマスタ。&#xa;自己参照の階層になっている。"
-        name="product_category" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="product_category"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="商品カテゴリコード" dbType="CHAR" javaType="String"
             name="PRODUCT_CATEGORY_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -344,7 +346,7 @@
             name="PRODUCT_CATEGORY_NAME" required="true" size="50" type="VARCHAR"/>
         <column comment="親カテゴリコード: 最上位の場合はデータなし。" dbType="CHAR"
             javaType="String" name="PARENT_CATEGORY_CODE" size="3" type="CHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="product_category" name="FK_PRODUCT_CATEGORY_PARENT">
             <reference foreign="PRODUCT_CATEGORY_CODE" local="PARENT_CATEGORY_CODE"/>
         </foreign-key>
@@ -353,7 +355,7 @@
         </index>
     </table>
     <table comment="商品ステータス" name="product_status"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="商品ステータスコード" dbType="CHAR" javaType="String"
             name="PRODUCT_STATUS_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -367,7 +369,7 @@
     </table>
     <table
         comment="購入: 一つの商品に対する一回の購入を表現する。&#xa;一回の購入で一つの商品を複数個買うこともある。"
-        name="purchase" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="purchase" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="購入ID: 連番" dbType="BIGINT"
             javaType="Long" name="PURCHASE_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -403,11 +405,11 @@
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="VERSION_NO" required="true" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="member" name="FK_PURCHASE_MEMBER">
             <reference foreign="MEMBER_ID" local="MEMBER_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="product" name="FK_PURCHASE_PRODUCT">
             <reference foreign="PRODUCT_ID" local="PRODUCT_ID"/>
         </foreign-key>
@@ -436,7 +438,8 @@
     </table>
     <table
         comment="購入支払: 購入に対する支払。&#xa;分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。"
-        name="purchase_payment" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="purchase_payment"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="購入支払ID: 連番"
             dbType="BIGINT" javaType="Long" name="PURCHASE_PAYMENT_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -461,7 +464,7 @@
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="purchase" name="FK_PURCHASE_PAYMENT_PURCHASE">
             <reference foreign="PURCHASE_ID" local="PURCHASE_ID"/>
         </foreign-key>
@@ -474,7 +477,7 @@
         </index>
     </table>
     <table comment="地域: 主に会員の住所に対応する地域。&#xa;かなりざっくりした感じではある。"
-        name="region" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="region" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="地域ID" dbType="INT" javaType="Integer"
             name="REGION_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -482,7 +485,7 @@
             name="REGION_NAME" required="true" size="50" type="VARCHAR"/>
     </table>
     <table comment="サービスランク: 会員のサービスレベルを表現するランク。&#xa;（ゴールドとかプラチナとか）"
-        name="service_rank" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        name="service_rank" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="サービスランクコード: サービスランクを識別するコード。" dbType="CHAR"
             javaType="String" name="SERVICE_RANK_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -506,7 +509,7 @@
         </unique>
     </table>
     <table comment="VIEW" name="summary_product"
-        schema="maihamadb.$$NoNameSchema$$" type="VIEW">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="VIEW">
         <column comment="商品ID" dbType="INT" default="0"
             javaType="Integer" name="PRODUCT_ID" required="true"
             size="10" type="INTEGER"/>
@@ -522,7 +525,7 @@
             name="LATEST_PURCHASE_DATETIME" size="19" type="TIMESTAMP"/>
     </table>
     <table comment="VIEW" name="summary_withdrawal"
-        schema="maihamadb.$$NoNameSchema$$" type="VIEW">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="VIEW">
         <column comment="" dbType="INT" javaType="Integer"
             name="MEMBER_ID" required="true" size="10" type="INTEGER"/>
         <column comment="会員名称: 会員のフルネームの名称。" dbType="VARCHAR"
@@ -550,7 +553,7 @@
         <column comment="" dbType="BIGINT" javaType="Long"
             name="MAX_PURCHASE_PRICE" size="19" type="BIGINT"/>
     </table>
-    <table name="vendor_check" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="vendor_check" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="VENDOR_CHECK_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -622,7 +625,7 @@
             name="TYPE_OF_SET" size="15" type="CHAR"/>
     </table>
     <table name="vendor_constraint_name_auto_bar"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="CONSTRAINT_NAME_AUTO_BAR_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
@@ -634,7 +637,7 @@
         </unique>
     </table>
     <table name="vendor_constraint_name_auto_foo"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="CONSTRAINT_NAME_AUTO_FOO_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
@@ -646,7 +649,7 @@
         </unique>
     </table>
     <table name="vendor_constraint_name_auto_qux"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="CONSTRAINT_NAME_AUTO_QUX_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
@@ -658,7 +661,7 @@
         </unique>
     </table>
     <table name="vendor_constraint_name_auto_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="CONSTRAINT_NAME_AUTO_REF_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
@@ -673,15 +676,15 @@
             size="16" type="DECIMAL"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="CONSTRAINT_NAME_AUTO_UNIQUE" required="true" size="50" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="vendor_constraint_name_auto_bar" name="vendor_constraint_name_auto_ref_ibfk_2">
             <reference foreign="CONSTRAINT_NAME_AUTO_BAR_ID" local="CONSTRAINT_NAME_AUTO_BAR_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="vendor_constraint_name_auto_foo" name="vendor_constraint_name_auto_ref_ibfk_1">
             <reference foreign="CONSTRAINT_NAME_AUTO_FOO_ID" local="CONSTRAINT_NAME_AUTO_FOO_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="vendor_constraint_name_auto_qux" name="vendor_constraint_name_auto_ref_ibfk_3">
             <reference foreign="CONSTRAINT_NAME_AUTO_QUX_ID" local="CONSTRAINT_NAME_AUTO_QUX_ID"/>
         </foreign-key>
@@ -698,7 +701,8 @@
             <index-column name="CONSTRAINT_NAME_AUTO_QUX_ID" position="1"/>
         </index>
     </table>
-    <table name="vendor_large_data" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="vendor_large_data"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="LARGE_DATA_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -725,7 +729,7 @@
         </index>
     </table>
     <table name="vendor_large_data_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="LARGE_DATA_REF_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -749,11 +753,11 @@
             name="NULLABLE_DECIMAL_NO_INDEX" size="12, 3" type="DECIMAL"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="SELF_PARENT_ID" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="vendor_large_data" name="FK_VENDOR_LARGE_DATA_REF_DATA">
             <reference foreign="LARGE_DATA_ID" local="LARGE_DATA_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="vendor_large_data_ref" name="FK_VENDOR_LARGE_DATA_REF_SELF">
             <reference foreign="LARGE_DATA_REF_ID" local="SELF_PARENT_ID"/>
         </foreign-key>
@@ -774,7 +778,7 @@
         </index>
     </table>
     <table name="vendor_the_long_and_winding_table_and_column"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -791,7 +795,7 @@
         </unique>
     </table>
     <table name="vendor_the_long_and_winding_table_and_column_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -803,7 +807,7 @@
             required="true" size="10" type="DATE"/>
         <column comment="" dbType="DATE" javaType="java.util.Date"
             name="SHORT_DATE" required="true" size="10" type="DATE"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="vendor_the_long_and_winding_table_and_column" name="FK_VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF">
             <reference
                 foreign="THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID" local="THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID"/>
@@ -814,7 +818,7 @@
         </index>
     </table>
     <table name="white_all_in_one_cls_category"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="CLS_CATEGORY_CODE" pkName="PRIMARY" primaryKey="true"
             required="true" size="3" type="CHAR"/>
@@ -824,7 +828,7 @@
             name="DESCRIPTION" required="true" size="50" type="VARCHAR"/>
     </table>
     <table name="white_all_in_one_cls_compound_pk_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="FOO_CODE" pkName="PRIMARY" primaryKey="true"
             required="true" size="3" type="CHAR"/>
@@ -836,7 +840,7 @@
             required="true" size="3" type="CHAR"/>
     </table>
     <table name="white_all_in_one_cls_element"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="CLS_CATEGORY_CODE" pkName="PRIMARY" primaryKey="true"
             required="true" size="3" type="CHAR"/>
@@ -847,13 +851,13 @@
             name="CLS_ELEMENT_NAME" required="true" size="20" type="VARCHAR"/>
         <column comment="" dbType="TEXT" javaType="String"
             name="ATTRIBUTE_EXP" required="true" size="65535" type="LONGVARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_all_in_one_cls_category" name="FK_WHITE_ALL_IN_ONE_CLS_ELEMENT_CATEGORY">
             <reference foreign="CLS_CATEGORY_CODE" local="CLS_CATEGORY_CODE"/>
         </foreign-key>
     </table>
     <table name="white_all_in_one_cls_normal_col_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="CLS_REF_ID" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="CHAR" javaType="String"
@@ -866,7 +870,7 @@
             name="QUX_CODE" pkName="PRIMARY" primaryKey="true"
             required="true" size="3" type="CHAR"/>
     </table>
-    <table name="white_binary" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_binary" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="BINARY_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -876,7 +880,7 @@
             name="BLOB_DATA" size="65535" type="LONGVARBINARY"/>
     </table>
     <table name="white_column_except"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="EXCEPT_COLUMN_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -884,7 +888,7 @@
             name="COLUMN_EXCEPT_TEST" size="10" type="INTEGER"/>
     </table>
     <table name="white_column_except_gen_only"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="GEN_ONLY_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -893,7 +897,8 @@
         <column comment="" dbType="VARCHAR" javaType="String"
             name="THIS_IS_GEN_ONLY" size="200" type="VARCHAR"/>
     </table>
-    <table name="white_compound_pk" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_compound_pk"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="PK_FIRST_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -914,7 +919,7 @@
         </unique>
     </table>
     <table name="white_compound_pk_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="MULTIPLE_FIRST_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -927,7 +932,7 @@
             name="REF_SECOND_ID" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REF_NAME" required="true" size="50" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_compound_pk" name="FK_WHITE_COMPOUND_PK_REF">
             <reference foreign="PK_FIRST_ID" local="REF_FIRST_ID"/>
             <reference foreign="PK_SECOND_ID" local="REF_SECOND_ID"/>
@@ -938,7 +943,7 @@
         </index>
     </table>
     <table name="white_compound_pk_ref_many"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="MULTIPLE_FIRST_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -958,7 +963,7 @@
             required="true" size="19" type="TIMESTAMP"/>
     </table>
     <table name="white_compound_pk_ref_nest"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="COMPOUND_PK_REF_NEST_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="10" type="INTEGER"/>
@@ -970,12 +975,12 @@
             name="QUX_MULTIPLE_ID" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="NEST_NAME" required="true" size="50" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_compound_pk_ref" name="FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX">
             <reference foreign="MULTIPLE_FIRST_ID" local="BAR_MULTIPLE_ID"/>
             <reference foreign="MULTIPLE_SECOND_ID" local="QUX_MULTIPLE_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_compound_pk_ref" name="FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR">
             <reference foreign="MULTIPLE_FIRST_ID" local="FOO_MULTIPLE_ID"/>
             <reference foreign="MULTIPLE_SECOND_ID" local="BAR_MULTIPLE_ID"/>
@@ -990,7 +995,7 @@
         </index>
     </table>
     <table name="white_compound_referred_normally"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="REFERRED_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -998,7 +1003,7 @@
             name="REFERRED_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_compound_referred_primary"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="REFERRED_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -1006,7 +1011,7 @@
             name="REFERRED_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_date_adjustment"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="DATE_ADJUSTMENT_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1032,7 +1037,8 @@
         <column comment="" dbType="VARCHAR" javaType="String"
             name="ADJUSTED_STRING" size="32" type="VARCHAR"/>
     </table>
-    <table name="white_db_comment" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_db_comment"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="Normal: this is normal comment." dbType="CHAR"
             javaType="String" name="DB_COMMENT_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -1041,7 +1047,8 @@
             dbType="VARCHAR" javaType="String" name="DB_COMMENT_NAME"
             size="20" type="VARCHAR"/>
     </table>
-    <table name="white_delimiter" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_delimiter"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="DELIMITER_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -1055,7 +1062,7 @@
             name="DATE_DEFAULT" required="true" size="10" type="DATE"/>
     </table>
     <table name="white_deprecated_cls_element"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="DEPRECATED_CLS_ELEMENT_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -1063,7 +1070,7 @@
             name="DEPRECATED_CLS_ELEMENT_NAME" size="20" type="VARCHAR"/>
     </table>
     <table name="white_escaped_dfprop"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="ESCAPED_DFPROP_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -1071,7 +1078,7 @@
             name="ESCAPED_DFPROP_NAME" size="20" type="VARCHAR"/>
     </table>
     <table name="white_escaped_java_doc"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="ESCAPED_JAVA_DOC_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -1079,7 +1086,7 @@
             name="ESCAPED_JAVA_DOC_NAME" size="20" type="VARCHAR"/>
     </table>
     <table name="white_escaped_number_initial"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="NUMBER_INITIAL_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -1087,7 +1094,7 @@
             name="NUMBER_INITIAL_NAME" size="20" type="VARCHAR"/>
     </table>
     <table name="white_geared_cipher"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="CIPHER_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -1102,7 +1109,7 @@
             size="100" type="TIMESTAMP"/>
     </table>
     <table name="white_grouping_reference"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="GROUPING_REFERENCE_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -1110,7 +1117,7 @@
             name="GROUPING_REFERENCE_CODE" required="true" size="3" type="CHAR"/>
     </table>
     <table name="white_implicit_conv_integer"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="IMPLICIT_CONV_INTEGER_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="10" type="INTEGER"/>
@@ -1122,7 +1129,7 @@
             name="IMPLICIT_CONV_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_implicit_conv_numeric"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL"
             javaType="java.math.BigDecimal"
             name="IMPLICIT_CONV_NUMERIC_ID" pkName="PRIMARY"
@@ -1137,7 +1144,7 @@
             name="IMPLICIT_CONV_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_implicit_conv_string"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="VARCHAR" javaType="String"
             name="IMPLICIT_CONV_STRING_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="10" type="VARCHAR"/>
@@ -1149,7 +1156,7 @@
             name="IMPLICIT_CONV_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_implicit_reverse_fk"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="INT"
             javaType="Integer" name="WHITE_IMPLICIT_REVERSE_FK_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
@@ -1158,7 +1165,7 @@
             size="200" type="VARCHAR"/>
     </table>
     <table name="white_implicit_reverse_fk_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="INT"
             javaType="Integer" name="WHITE_IMPLICIT_REVERSE_FK_REF_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
@@ -1175,7 +1182,7 @@
         </unique>
     </table>
     <table name="white_implicit_reverse_fk_suppress"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="INT"
             javaType="Integer"
             name="WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID"
@@ -1193,7 +1200,7 @@
         </unique>
     </table>
     <table name="white_include_query"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="INCLUDE_QUERY_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -1208,28 +1215,30 @@
             size="19" type="TIMESTAMP"/>
     </table>
     <table name="white_line_sep_comment"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="LINE_SEP_COMMENT_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="LINE_SEP_COMMENT_NAME" size="20" type="VARCHAR"/>
     </table>
-    <table name="white_load_data" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_load_data"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="LOAD_DATA_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="LOAD_DATA_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
-    <table name="white_myself" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_myself" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="MYSELF_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="MYSELF_NAME" required="true" size="80" type="VARCHAR"/>
     </table>
-    <table name="white_myself_check" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_myself_check"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="MYSELF_CHECK_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -1237,7 +1246,7 @@
             name="MYSELF_CHECK_NAME" required="true" size="80" type="VARCHAR"/>
         <column comment="" dbType="INT" javaType="Integer"
             name="MYSELF_ID" size="10" type="INTEGER"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_myself" name="FK_WHITE_MYSELF_CHECK_SELF">
             <reference foreign="MYSELF_ID" local="MYSELF_ID"/>
         </foreign-key>
@@ -1245,7 +1254,7 @@
             <index-column name="MYSELF_ID" position="1"/>
         </index>
     </table>
-    <table name="white_no_pk" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_no_pk" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="NO_PK_ID" required="true" size="16" type="DECIMAL"/>
         <column comment="" dbType="VARCHAR" javaType="String"
@@ -1254,7 +1263,7 @@
             name="NO_PK_INTEGER" size="10" type="INTEGER"/>
     </table>
     <table comment="VIEW" name="white_no_pk_relation"
-        schema="maihamadb.$$NoNameSchema$$" type="VIEW">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="VIEW">
         <column comment="商品ID" dbType="INT" default="0"
             javaType="Integer" name="PRODUCT_ID" required="true"
             size="10" type="INTEGER"/>
@@ -1270,7 +1279,7 @@
             name="LATEST_PURCHASE_DATETIME" size="19" type="TIMESTAMP"/>
     </table>
     <table name="white_only_one_to_one_from"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="FROM_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -1278,7 +1287,7 @@
             name="FROM_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_only_one_to_one_to"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="TO_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -1286,7 +1295,7 @@
             name="TO_NAME" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="FROM_ID" required="true" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_only_one_to_one_from" name="FK_WHITE_ONLY_ONE_TO_ONE_TO_FROM">
             <reference foreign="FROM_ID" local="FROM_ID"/>
         </foreign-key>
@@ -1295,7 +1304,7 @@
         </unique>
     </table>
     <table name="white_perrotta_over_member"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="MEMBER_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1307,11 +1316,11 @@
             name="TRACE_TYPE_CODE" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="CHAR" javaType="String"
             name="MACHO_CODE" required="true" size="3" type="CHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_perrotta_over_member_macho" name="FK_WHITE_PERROTTA_OVER_MEMBER_MACHO">
             <reference foreign="MACHO_CODE" local="MACHO_CODE"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_perrotta_over_product" name="FK_WHITE_PERROTTA_OVER_MEMBER_PRODUCT">
             <reference foreign="PRODUCT_ID" local="PRODUCT_ID"/>
         </foreign-key>
@@ -1323,7 +1332,7 @@
         </index>
     </table>
     <table name="white_perrotta_over_member_macho"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="MACHO_CODE" pkName="PRIMARY" primaryKey="true"
             required="true" size="3" type="CHAR"/>
@@ -1331,7 +1340,7 @@
             name="MACHO_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_perrotta_over_product"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="PRODUCT_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1339,7 +1348,7 @@
             name="PRODUCT_NAME" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="CHAR" javaType="String"
             name="PRODUCT_NESTED_CODE" required="true" size="3" type="CHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_perrotta_over_product_nested" name="FK_WHITE_PERROTTA_OVER_PRODUCT_NESTED">
             <reference foreign="PRODUCT_NESTED_CODE" local="PRODUCT_NESTED_CODE"/>
         </foreign-key>
@@ -1348,7 +1357,7 @@
         </index>
     </table>
     <table name="white_perrotta_over_product_nested"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="PRODUCT_NESTED_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -1356,7 +1365,7 @@
             name="PRODUCT_NESTED_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_perrotta_over_trace"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="TRACE_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1366,11 +1375,11 @@
             name="NEXT_PRODUCT_ID" required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="CHAR" javaType="String"
             name="TRACE_TYPE_CODE" required="true" size="3" type="CHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_perrotta_over_product" name="FK_WHITE_PERROTTA_OVER_TRACE_NEXT">
             <reference foreign="PRODUCT_ID" local="NEXT_PRODUCT_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_perrotta_over_product" name="FK_WHITE_PERROTTA_OVER_TRACE_PREVIOUS">
             <reference foreign="PRODUCT_ID" local="PREVIOUS_PRODUCT_ID"/>
         </foreign-key>
@@ -1382,7 +1391,8 @@
             <index-column name="NEXT_PRODUCT_ID" position="1"/>
         </index>
     </table>
-    <table name="white_pg_reserv" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_pg_reserv"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer" name="CLASS"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="INT" javaType="Integer" name="CASE"
@@ -1425,12 +1435,12 @@
             name="RESERV_NAME" required="true" size="32" type="VARCHAR"/>
     </table>
     <table name="white_pg_reserv_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer" name="REF_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="INT" javaType="Integer" name="CLASS"
             size="10" type="INTEGER"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_pg_reserv" name="FK_WHITE_PG_RESERV_REF_CLASS">
             <reference foreign="CLASS" local="CLASS"/>
         </foreign-key>
@@ -1439,7 +1449,7 @@
         </index>
     </table>
     <table name="white_point_type_mapping"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="POINT_TYPE_MAPPING_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
@@ -1456,29 +1466,30 @@
             name="POINT_TYPE_MAPPING_WANTED_DATETIME" size="19" type="DATE"/>
     </table>
     <table name="white_purchase_referrer"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="PURCHASE_REFERRER_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="PURCHASE_REFERRER_NAME" required="true" size="200" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="purchase" name="FK_WHITE_PURCHASE_REFERRER">
             <reference foreign="PURCHASE_ID" local="PURCHASE_REFERRER_ID"/>
         </foreign-key>
     </table>
-    <table name="white_quoted" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_quoted" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer" name="SELECT"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="FROM" size="200" type="VARCHAR"/>
     </table>
-    <table name="white_quoted_ref" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_quoted_ref"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer" name="WHERE"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="INT" javaType="Integer" name="ORDER"
             size="10" type="INTEGER"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_quoted" name="FK_WHITE_QUOTED_REF">
             <reference foreign="SELECT" local="ORDER"/>
         </foreign-key>
@@ -1487,7 +1498,7 @@
         </index>
     </table>
     <table name="white_self_reference"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="SELF_REFERENCE_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -1495,7 +1506,7 @@
             name="SELF_REFERENCE_NAME" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="PARENT_ID" size="16" type="DECIMAL"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_self_reference" name="FK_WHITE_SELF_REFERENCE_PARENT">
             <reference foreign="SELF_REFERENCE_ID" local="PARENT_ID"/>
         </foreign-key>
@@ -1504,20 +1515,20 @@
         </index>
     </table>
     <table name="white_self_reference_ref_one"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="SELF_REFERENCE_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="SELF_REFERENCE_REF_ONE_NAME" required="true"
             size="200" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_self_reference" name="FK_WHITE_SELF_REFERENCE_REF_ONE">
             <reference foreign="SELF_REFERENCE_ID" local="SELF_REFERENCE_ID"/>
         </foreign-key>
     </table>
     <table name="white_split_multiple_fk_base"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="BASE_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1527,7 +1538,7 @@
             name="NEXT_ID" required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="SPLIT_NAME" required="true" size="200" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_split_multiple_fk_next" name="FK_WHITE_SPLIT_MULTIPLE_FK_NEXT">
             <reference foreign="NEXT_ID" local="NEXT_ID"/>
         </foreign-key>
@@ -1536,7 +1547,7 @@
         </index>
     </table>
     <table name="white_split_multiple_fk_child"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="CHILD_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1544,7 +1555,7 @@
             name="BASE_ID" required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="CHILD_NAME" required="true" size="200" type="VARCHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_split_multiple_fk_base" name="FK_WHITE_SPLIT_MULTIPLE_FK_BASE">
             <reference foreign="BASE_ID" local="BASE_ID"/>
         </foreign-key>
@@ -1553,7 +1564,7 @@
         </index>
     </table>
     <table name="white_split_multiple_fk_next"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="NEXT_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1561,7 +1572,7 @@
             name="SECOND_CODE" required="true" size="3" type="CHAR"/>
     </table>
     <table name="white_split_multiple_fk_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="FIRST_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -1572,7 +1583,7 @@
             name="REF_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_stiletto_alias"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="STILETTO_ALIAS_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -1594,7 +1605,7 @@
             size="200" type="VARCHAR"/>
     </table>
     <table name="white_stiletto_alias_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer" name="REF_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
@@ -1619,7 +1630,7 @@
             size="200" type="VARCHAR"/>
         <column comment="" dbType="INT" javaType="Integer"
             name="STILETTO_ALIAS_ID" size="10" type="INTEGER"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_stiletto_alias" name="FK_WHITE_STILETTO_ALIAS_REF">
             <reference foreign="STILETTO_ALIAS_ID" local="STILETTO_ALIAS_ID"/>
         </foreign-key>
@@ -1628,7 +1639,7 @@
         </index>
     </table>
     <table name="white_suppress_def_check"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="DEF_CHECK_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1636,7 +1647,7 @@
             name="DEF_CHECK_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_suppress_join_sq"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="SUPPRESS_JOIN_SQ_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="10" type="INTEGER"/>
@@ -1644,7 +1655,7 @@
             name="SUPPRESS_JOIN_SQ_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_suppress_join_sq_many"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="MANY_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -1654,11 +1665,11 @@
             name="SUPPRESS_JOIN_SQ_ID" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="INT" javaType="Integer"
             name="MANY_ONE_ID" required="true" size="10" type="INTEGER"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_suppress_join_sq_many_one" name="FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE">
             <reference foreign="MANY_ONE_ID" local="MANY_ONE_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_suppress_join_sq" name="FK_WHITE_SUPPRESS_JOIN_SQ_MANY">
             <reference foreign="SUPPRESS_JOIN_SQ_ID" local="SUPPRESS_JOIN_SQ_ID"/>
         </foreign-key>
@@ -1670,7 +1681,7 @@
         </index>
     </table>
     <table name="white_suppress_join_sq_many_one"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="MANY_ONE_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -1678,7 +1689,7 @@
             name="MANY_ONE_NAME" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="INT" javaType="Integer"
             name="MANY_ONE_ONE_ID" required="true" size="10" type="INTEGER"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_suppress_join_sq_many_one_one" name="FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE">
             <reference foreign="MANY_ONE_ONE_ID" local="MANY_ONE_ONE_ID"/>
         </foreign-key>
@@ -1687,7 +1698,7 @@
         </index>
     </table>
     <table name="white_suppress_join_sq_many_one_one"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="MANY_ONE_ONE_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -1695,7 +1706,7 @@
             name="MANY_ONE_ONE_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_suppress_join_sq_one"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer" name="ONE_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
@@ -1704,7 +1715,7 @@
             name="SUPPRESS_JOIN_SQ_ID" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="INT" javaType="Integer"
             name="ONE_ADDI_ID" required="true" size="10" type="INTEGER"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_suppress_join_sq" name="FK_WHITE_SUPPRESS_JOIN_SQ_ONE">
             <reference foreign="SUPPRESS_JOIN_SQ_ID" local="SUPPRESS_JOIN_SQ_ID"/>
         </foreign-key>
@@ -1713,7 +1724,7 @@
         </unique>
     </table>
     <table name="white_suppress_join_sq_one_addi"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="Integer"
             name="ONE_ADDI_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
@@ -1721,7 +1732,7 @@
             name="ONE_ADDI_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_table_except_gen_head"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="GEN_HEAD_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -1734,7 +1745,7 @@
         </index>
     </table>
     <table name="white_table_except_gen_only"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="GEN_ONLY_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -1744,7 +1755,7 @@
             name="GEN_HEAD_ID" size="16" type="DECIMAL"/>
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="NOMETA_ID" size="16" type="DECIMAL"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_table_except_gen_head" name="FK_WHITE_TABLE_EXCEPT_GEN_ONLY_HEAD">
             <reference foreign="GEN_HEAD_ID" local="GEN_HEAD_ID"/>
         </foreign-key>
@@ -1756,7 +1767,7 @@
         </index>
     </table>
     <table name="white_table_except_gen_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="GEN_REF_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -1764,7 +1775,7 @@
             name="GEN_REF_NAME" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="GEN_ONLY_ID" size="16" type="DECIMAL"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_table_except_gen_only" name="FK_WHITE_TABLE_EXCEPT_GEN_REF_ONLY">
             <reference foreign="GEN_ONLY_ID" local="GEN_ONLY_ID"/>
         </foreign-key>
@@ -1773,7 +1784,7 @@
         </index>
     </table>
     <table name="white_uq_classification"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="UQ_CLS_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -1783,7 +1794,7 @@
             <unique-column name="UQ_CLS_CODE" position="1"/>
         </unique>
     </table>
-    <table name="white_uq_fk" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_uq_fk" schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="UQ_FK_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -1793,7 +1804,8 @@
             <unique-column name="UQ_FK_CODE" position="1"/>
         </unique>
     </table>
-    <table name="white_uq_fk_ref" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_uq_fk_ref"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="UQ_FK_REF_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -1805,11 +1817,11 @@
             name="COMPOUND_UQ_FIRST_CODE" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="CHAR" javaType="String"
             name="COMPOUND_UQ_SECOND_CODE" required="true" size="3" type="CHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_uq_fk" name="FK_WHITE_UQ_FK_REF_PK">
             <reference foreign="UQ_FK_ID" local="FK_TO_PK_ID"/>
         </foreign-key>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_uq_fk" name="FK_WHITE_UQ_FK_REF_UQ">
             <reference foreign="UQ_FK_CODE" local="FK_TO_UQ_CODE"/>
         </foreign-key>
@@ -1825,7 +1837,7 @@
         </index>
     </table>
     <table name="white_uq_fk_ref_nest"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="UQ_FK_REF_NEST_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
@@ -1833,7 +1845,7 @@
             name="COMPOUND_UQ_FIRST_CODE" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="CHAR" javaType="String"
             name="COMPOUND_UQ_SECOND_CODE" required="true" size="3" type="CHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_uq_fk_ref" name="FK_WHITE_UQ_FK_REF_NEST_UQ">
             <reference foreign="COMPOUND_UQ_FIRST_CODE" local="COMPOUND_UQ_FIRST_CODE"/>
             <reference foreign="COMPOUND_UQ_SECOND_CODE" local="COMPOUND_UQ_SECOND_CODE"/>
@@ -1844,7 +1856,7 @@
         </index>
     </table>
     <table name="white_uq_fk_without_pk"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="UQ_FK_CODE" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="VARCHAR" javaType="String"
@@ -1854,12 +1866,12 @@
         </unique>
     </table>
     <table name="white_uq_fk_without_pk_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
             name="UQ_FK_REF_ID" required="true" size="16" type="DECIMAL"/>
         <column comment="" dbType="CHAR" javaType="String"
             name="FK_TO_UQ_CODE" required="true" size="3" type="CHAR"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_uq_fk_without_pk" name="FK_WHITE_UQ_FK_WITHOUT_PK_REF">
             <reference foreign="UQ_FK_CODE" local="FK_TO_UQ_CODE"/>
         </foreign-key>
@@ -1868,7 +1880,7 @@
         </index>
     </table>
     <table name="white_variant_relation_local_pk_referrer"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="REVERSEFK_SUPPRESSED_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -1876,7 +1888,7 @@
             name="MASTER_TYPE_CODE" required="true" size="3" type="CHAR"/>
     </table>
     <table name="white_variant_relation_master_bar"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="MASTER_BAR_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1884,7 +1896,7 @@
             name="MASTER_BAR_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_variant_relation_master_corge"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="MASTER_CORGE_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1894,7 +1906,7 @@
             name="CORGE_TYPE_CODE" required="true" size="3" type="CHAR"/>
     </table>
     <table name="white_variant_relation_master_foo"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="MASTER_FOO_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1902,7 +1914,7 @@
             name="MASTER_FOO_NAME" required="true" size="200" type="VARCHAR"/>
     </table>
     <table name="white_variant_relation_master_qux"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="MASTER_QUX_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1912,7 +1924,7 @@
             name="QUX_TYPE_CODE" required="true" size="3" type="CHAR"/>
     </table>
     <table name="white_variant_relation_referrer"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long"
             name="REFERRER_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
@@ -1922,12 +1934,12 @@
             name="MASTER_TYPE_CODE" required="true" size="3" type="CHAR"/>
     </table>
     <table name="white_variant_relation_referrer_ref"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="BIGINT" javaType="Long" name="REF_ID"
             pkName="PRIMARY" primaryKey="true" required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="REFERRER_ID" required="true" size="19" type="BIGINT"/>
-        <foreign-key foreignSchema="maihamadb.$$NoNameSchema$$"
+        <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="white_variant_relation_referrer" name="FK_WHITE_VARIANT_RELATION_REFERRER_REF">
             <reference foreign="REFERRER_ID" local="REFERRER_ID"/>
         </foreign-key>
@@ -1935,7 +1947,8 @@
             <index-column name="REFERRER_ID" position="1"/>
         </index>
     </table>
-    <table name="white_xls_man" schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+    <table name="white_xls_man"
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
             javaType="Long" name="XLS_MAN_ID" pkName="PRIMARY"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
@@ -1946,7 +1959,7 @@
             size="19" type="TIMESTAMP"/>
     </table>
     <table comment="退会理由: 会員に選ばせる定型的な退会理由のマスタ。" name="withdrawal_reason"
-        schema="maihamadb.$$NoNameSchema$$" type="TABLE">
+        schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
         <column comment="退会理由コード" dbType="CHAR" javaType="String"
             name="WITHDRAWAL_REASON_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
@@ -2000,25 +2013,25 @@
     </table>
     <procedureGroup>
         <procedure name="SP_IN_OUT_PARAMETER"
-            schema="maihamadb.$$NoNameSchema$$" sourceHash="cf957bfd"
-            sourceLine="4" sourceSize="86"/>
+            schema="maihamadb_slave.$$NoNameSchema$$"
+            sourceHash="cf957bfd" sourceLine="4" sourceSize="86"/>
         <procedure name="SP_NO_PARAMETER"
-            schema="maihamadb.$$NoNameSchema$$" sourceHash="3d960690"
-            sourceLine="2" sourceSize="9"/>
+            schema="maihamadb_slave.$$NoNameSchema$$"
+            sourceHash="3d960690" sourceLine="2" sourceSize="9"/>
         <procedure name="SP_RETURN_RESULT_SET"
-            schema="maihamadb.$$NoNameSchema$$" sourceHash="f52bd87a"
-            sourceLine="4" sourceSize="110"/>
+            schema="maihamadb_slave.$$NoNameSchema$$"
+            sourceHash="f52bd87a" sourceLine="4" sourceSize="110"/>
         <procedure name="SP_RETURN_RESULT_SET_MORE"
-            schema="maihamadb.$$NoNameSchema$$" sourceHash="de7c724e"
-            sourceLine="5" sourceSize="141"/>
+            schema="maihamadb_slave.$$NoNameSchema$$"
+            sourceHash="de7c724e" sourceLine="5" sourceSize="141"/>
         <procedure name="SP_RETURN_RESULT_SET_WITH"
-            schema="maihamadb.$$NoNameSchema$$" sourceHash="ddbbd3c4"
-            sourceLine="9" sourceSize="282"/>
+            schema="maihamadb_slave.$$NoNameSchema$$"
+            sourceHash="ddbbd3c4" sourceLine="9" sourceSize="282"/>
         <procedure name="SP_TRANSACTION_INHERIT"
-            schema="maihamadb.$$NoNameSchema$$" sourceHash="292c15e4"
-            sourceLine="3" sourceSize="37"/>
+            schema="maihamadb_slave.$$NoNameSchema$$"
+            sourceHash="292c15e4" sourceLine="3" sourceSize="37"/>
         <procedure name="SP_VARIOUS_TYPE_PARAMETER"
-            schema="maihamadb.$$NoNameSchema$$" sourceHash="49890c55"
-            sourceLine="11" sourceSize="328"/>
+            schema="maihamadb_slave.$$NoNameSchema$$"
+            sourceHash="49890c55" sourceLine="11" sourceSize="328"/>
     </procedureGroup>
 </database>

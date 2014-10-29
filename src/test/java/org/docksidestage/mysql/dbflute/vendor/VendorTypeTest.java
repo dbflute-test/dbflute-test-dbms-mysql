@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.dbflute.cbean.ordering.ManualOrderBean;
+import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.UnionQuery;
 import org.dbflute.exception.UndefinedClassificationCodeException;
@@ -93,7 +93,7 @@ public class VendorTypeTest extends UnitContainerTestCase {
         registerTrueAndFalse();
         VendorCheckCB cb = new VendorCheckCB();
         List<BooleanFlg> orderValueList = Arrays.asList(CDef.BooleanFlg.True);
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.acceptOrderValueList(orderValueList);
         cb.query().addOrderBy_TypeOfBoolean_Asc().withManualOrder(mob);
 
@@ -115,7 +115,7 @@ public class VendorTypeTest extends UnitContainerTestCase {
         registerTrueAndFalse();
         VendorCheckCB cb = new VendorCheckCB();
         List<BooleanFlg> orderValueList = Arrays.asList(CDef.BooleanFlg.False);
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.acceptOrderValueList(orderValueList);
         cb.query().addOrderBy_TypeOfBoolean_Asc().withManualOrder(mob);
 

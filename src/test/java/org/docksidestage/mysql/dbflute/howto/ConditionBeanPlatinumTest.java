@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.dbflute.bhv.referrer.ConditionBeanSetupper;
 import org.dbflute.cbean.coption.LikeSearchOption;
-import org.dbflute.cbean.ordering.ManualOrderBean;
+import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.result.PagingResultBean;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -250,7 +250,7 @@ public class ConditionBeanPlatinumTest extends UnitContainerTestCase {
         manualValueList.add(CDef.MemberStatus.Withdrawal.code());
         manualValueList.add(CDef.MemberStatus.Formalized.code());
         manualValueList.add(CDef.MemberStatus.Provisional.code());
-        ManualOrderBean mob = new ManualOrderBean();
+        ManualOrderOption mob = new ManualOrderOption();
         mob.acceptOrderValueList(manualValueList);
         cb.query().addOrderBy_MemberStatusCode_Asc().withManualOrder(mob);
         cb.query().addOrderBy_Birthdate_Desc().withNullsLast();

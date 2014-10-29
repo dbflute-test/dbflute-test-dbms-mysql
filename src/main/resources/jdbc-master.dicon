@@ -12,10 +12,10 @@
 			"com.mysql.jdbc.Driver"
 		</property>
 		<property name="URL">
-			"jdbc:mysql://localhost:43306/exampledb"
+			"jdbc:mysql://localhost:43306/maihamadb"
 		</property>
-		<property name="user">"exampledb"</property>
-		<property name="password">"exampledb"</property>
+		<property name="user">"maihamadb"</property>
+		<property name="password">"maihamadb"</property>
 		<!-- if you use this
 		<initMethod name="addProperty">
 			<arg>"rewriteBatchedStatements"</arg>

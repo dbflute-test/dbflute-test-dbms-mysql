@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.dbflute.bhv.referrer.ConditionBeanSetupper;
-import org.dbflute.cbean.coption.FromToOption;
 import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -137,7 +136,8 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
-        }).fromTo(fromDate, toDate, new FromToOption());
+        }).fromTo(fromDate, toDate, op -> {
+        });
 
         // ## Act ##
         // Expect no exception
