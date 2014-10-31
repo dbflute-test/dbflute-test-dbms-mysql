@@ -93,7 +93,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * int count = <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -108,9 +108,9 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().setFoo...(value);
-     * int count = <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of VendorConstraintNameAutoRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -162,7 +162,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
@@ -220,7 +220,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().set...;
      * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorConstraintNameAutoRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
@@ -299,8 +299,8 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * for (VendorConstraintNameAutoRef <span style="color: #553000">vendorConstraintNameAutoRef</span> : <span style="color: #553000">vendorConstraintNameAutoRefList</span>) {
-     *     ... = <span style="color: #553000">vendorConstraintNameAutoRef</span>.get...();
+     * <span style="color: #70226C">for</span> (VendorConstraintNameAutoRef <span style="color: #553000">vendorConstraintNameAutoRef</span> : <span style="color: #553000">vendorConstraintNameAutoRefList</span>) {
+     *     ... = <span style="color: #553000">vendorConstraintNameAutoRef</span>.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoRef. (NotNull)
@@ -314,12 +314,12 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
     /**
      * Select the list as result bean.
      * <pre>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().set...;
-     * cb.query().addOrderBy...();
+     * cb.query().addOrderBy...;
      * ListResultBean&lt;VendorConstraintNameAutoRef&gt; <span style="color: #553000">vendorConstraintNameAutoRefList</span> = <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
-     * for (VendorConstraintNameAutoRef vendorConstraintNameAutoRef : <span style="color: #553000">vendorConstraintNameAutoRefList</span>) {
-     *     ... = vendorConstraintNameAutoRef.get...();
+     * <span style="color: #70226C">for</span> (VendorConstraintNameAutoRef vendorConstraintNameAutoRef : <span style="color: #553000">vendorConstraintNameAutoRefList</span>) {
+     *     ... = vendorConstraintNameAutoRef.get...;
      * }
      * </pre>
      * @param cb The condition-bean of VendorConstraintNameAutoRef. (NotNull)
@@ -345,13 +345,13 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * });
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (VendorConstraintNameAutoRef vendorConstraintNameAutoRef : <span style="color: #553000">page</span>) {
-     *     ... = vendorConstraintNameAutoRef.get...();
+     * <span style="color: #70226C">for</span> (VendorConstraintNameAutoRef vendorConstraintNameAutoRef : <span style="color: #553000">page</span>) {
+     *     ... = vendorConstraintNameAutoRef.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorConstraintNameAutoRef. (NotNull)
@@ -366,17 +366,17 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * PagingResultBean&lt;VendorConstraintNameAutoRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (VendorConstraintNameAutoRef vendorConstraintNameAutoRef : <span style="color: #553000">page</span>) {
+     * <span style="color: #70226C">for</span> (VendorConstraintNameAutoRef vendorConstraintNameAutoRef : <span style="color: #553000">page</span>) {
      *     ... = vendorConstraintNameAutoRef.get...();
      * }
      * </pre>
@@ -410,12 +410,10 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().set...
-     * <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorConstraintNameAutoRef&gt;() {
-     *     public void handle(VendorConstraintNameAutoRef entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cb The condition-bean of VendorConstraintNameAutoRef. (NotNull)
@@ -433,7 +431,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * You should call a function method after this method called like as follows:
      * <pre>
      * <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -477,9 +475,9 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
-     * for (Member member : <span style="color: #553000">memberList</span>) {
+     * <span style="color: #70226C">for</span> (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
+     *     <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *         ...
      *     }
      * }
@@ -513,7 +511,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
      * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
-     * for (Purchase purchase : purchaseList) {
+     * <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *     ...
      * }
      * </pre>
@@ -579,7 +577,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
     /**
      * Insert the entity modified-only. (DefaultConstraintsEnabled)
      * <pre>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * vendorConstraintNameAutoRef.setFoo...(value);
      * vendorConstraintNameAutoRef.setBar...(value);
@@ -600,7 +598,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
     /**
      * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * vendorConstraintNameAutoRef.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * vendorConstraintNameAutoRef.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
@@ -639,13 +637,13 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
     /**
      * Delete the entity. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * vendorConstraintNameAutoRef.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorConstraintNameAutoRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">delete</span>(vendorConstraintNameAutoRef);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -665,10 +663,10 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
-     * for (... : ...) {
-     *     VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * <span style="color: #70226C">for</span> (... : ...) {
+     *     VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      *     vendorConstraintNameAutoRef.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         vendorConstraintNameAutoRef.setFooPrice(123);
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
@@ -694,11 +692,11 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
-     *     VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     *     VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      *     vendorConstraintNameAutoRef.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         vendorConstraintNameAutoRef.setFooPrice(123);
-     *     } else {
+     *     } <span style="color: #70226C">else</span> {
      *         vendorConstraintNameAutoRef.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
      *         <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setFooDate(...); // *not allowed, fragmented</span>
      *     }
@@ -763,7 +761,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setPK...(value);</span>
      * vendorConstraintNameAutoRef.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -773,7 +771,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setVersionNo(value);</span>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorConstraintNameAutoRef, cb);
      * </pre>
@@ -789,7 +787,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setPK...(value);</span>
      * vendorConstraintNameAutoRef.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -799,7 +797,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setVersionNo(value);</span>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorConstraintNameAutoRef, cb);
      * </pre>
@@ -853,7 +851,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * vendorConstraintNameAutoRef.setFoo...(value);
      * vendorConstraintNameAutoRef.setBar...(value);
@@ -876,12 +874,12 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * vendorConstraintNameAutoRef.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * vendorConstraintNameAutoRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorConstraintNameAutoRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;VendorConstraintNameAutoRefCB&gt; option = new UpdateOption&lt;VendorConstraintNameAutoRefCB&gt;();
      *     option.self(new SpecifyQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
@@ -890,7 +888,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      *     <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendorConstraintNameAutoRef, option);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -994,7 +992,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setPK...(value);</span>
      * vendorConstraintNameAutoRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -1003,7 +1001,7 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setVersionNo(value);</span>
      * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;VendorConstraintNameAutoRefCB&gt; option = new UpdateOption&lt;VendorConstraintNameAutoRefCB&gt;();
+     * UpdateOption&lt;VendorConstraintNameAutoRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;VendorConstraintNameAutoRefCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *     public void specify(VendorConstraintNameAutoRefCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
@@ -1028,16 +1026,16 @@ public abstract class BsVendorConstraintNameAutoRefBhv extends AbstractBehaviorW
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = new VendorConstraintNameAutoRef();
+     * VendorConstraintNameAutoRef vendorConstraintNameAutoRef = <span style="color: #70226C">new</span> VendorConstraintNameAutoRef();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setPK...(value);</span>
      * vendorConstraintNameAutoRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorConstraintNameAutoRef.setVersionNo(value);</span>
-     * VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+     * VendorConstraintNameAutoRefCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoRefCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;VendorConstraintNameAutoRefCB&gt; option = new UpdateOption&lt;VendorConstraintNameAutoRefCB&gt;();
+     * UpdateOption&lt;VendorConstraintNameAutoRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;VendorConstraintNameAutoRefCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorConstraintNameAutoRefCB&gt;() {
      *     public void specify(VendorConstraintNameAutoRefCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;

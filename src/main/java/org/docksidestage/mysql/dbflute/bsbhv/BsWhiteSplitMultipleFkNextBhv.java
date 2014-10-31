@@ -93,7 +93,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * int count = <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -108,9 +108,9 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().setFoo...(value);
-     * int count = <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkNext. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -162,7 +162,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
@@ -220,7 +220,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().set...;
      * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteSplitMultipleFkNext.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
@@ -274,8 +274,8 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * for (WhiteSplitMultipleFkNext <span style="color: #553000">whiteSplitMultipleFkNext</span> : <span style="color: #553000">whiteSplitMultipleFkNextList</span>) {
-     *     ... = <span style="color: #553000">whiteSplitMultipleFkNext</span>.get...();
+     * <span style="color: #70226C">for</span> (WhiteSplitMultipleFkNext <span style="color: #553000">whiteSplitMultipleFkNext</span> : <span style="color: #553000">whiteSplitMultipleFkNextList</span>) {
+     *     ... = <span style="color: #553000">whiteSplitMultipleFkNext</span>.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkNext. (NotNull)
@@ -289,12 +289,12 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().set...;
-     * cb.query().addOrderBy...();
+     * cb.query().addOrderBy...;
      * ListResultBean&lt;WhiteSplitMultipleFkNext&gt; <span style="color: #553000">whiteSplitMultipleFkNextList</span> = <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteSplitMultipleFkNext whiteSplitMultipleFkNext : <span style="color: #553000">whiteSplitMultipleFkNextList</span>) {
-     *     ... = whiteSplitMultipleFkNext.get...();
+     * <span style="color: #70226C">for</span> (WhiteSplitMultipleFkNext whiteSplitMultipleFkNext : <span style="color: #553000">whiteSplitMultipleFkNextList</span>) {
+     *     ... = whiteSplitMultipleFkNext.get...;
      * }
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkNext. (NotNull)
@@ -320,13 +320,13 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * });
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteSplitMultipleFkNext whiteSplitMultipleFkNext : <span style="color: #553000">page</span>) {
-     *     ... = whiteSplitMultipleFkNext.get...();
+     * <span style="color: #70226C">for</span> (WhiteSplitMultipleFkNext whiteSplitMultipleFkNext : <span style="color: #553000">page</span>) {
+     *     ... = whiteSplitMultipleFkNext.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkNext. (NotNull)
@@ -341,17 +341,17 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * PagingResultBean&lt;WhiteSplitMultipleFkNext&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteSplitMultipleFkNext whiteSplitMultipleFkNext : <span style="color: #553000">page</span>) {
+     * <span style="color: #70226C">for</span> (WhiteSplitMultipleFkNext whiteSplitMultipleFkNext : <span style="color: #553000">page</span>) {
      *     ... = whiteSplitMultipleFkNext.get...();
      * }
      * </pre>
@@ -385,12 +385,10 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().set...
-     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSplitMultipleFkNext&gt;() {
-     *     public void handle(WhiteSplitMultipleFkNext entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cb The condition-bean of WhiteSplitMultipleFkNext. (NotNull)
@@ -408,7 +406,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * You should call a function method after this method called like as follows:
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -452,9 +450,9 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
-     * for (Member member : <span style="color: #553000">memberList</span>) {
+     * <span style="color: #70226C">for</span> (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
+     *     <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *         ...
      *     }
      * }
@@ -488,7 +486,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
      * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
-     * for (Purchase purchase : purchaseList) {
+     * <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *     ...
      * }
      * </pre>
@@ -514,7 +512,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * for (WhiteSplitMultipleFkNext whiteSplitMultipleFkNext : <span style="color: #553000">whiteSplitMultipleFkNextList</span>) {
+     * <span style="color: #70226C">for</span> (WhiteSplitMultipleFkNext whiteSplitMultipleFkNext : <span style="color: #553000">whiteSplitMultipleFkNextList</span>) {
      *     ... = whiteSplitMultipleFkNext.<span style="color: #CC4747">getWhiteSplitMultipleFkBaseList()</span>;
      * }
      * </pre>
@@ -610,7 +608,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /**
      * Insert the entity modified-only. (DefaultConstraintsEnabled)
      * <pre>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteSplitMultipleFkNext.setFoo...(value);
      * whiteSplitMultipleFkNext.setBar...(value);
@@ -631,7 +629,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /**
      * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * whiteSplitMultipleFkNext.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteSplitMultipleFkNext.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
@@ -670,13 +668,13 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /**
      * Delete the entity. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * whiteSplitMultipleFkNext.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSplitMultipleFkNext.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">delete</span>(whiteSplitMultipleFkNext);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -696,10 +694,10 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
-     * for (... : ...) {
-     *     WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * <span style="color: #70226C">for</span> (... : ...) {
+     *     WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      *     whiteSplitMultipleFkNext.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         whiteSplitMultipleFkNext.setFooPrice(123);
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
@@ -725,11 +723,11 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
-     *     WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     *     WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      *     whiteSplitMultipleFkNext.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         whiteSplitMultipleFkNext.setFooPrice(123);
-     *     } else {
+     *     } <span style="color: #70226C">else</span> {
      *         whiteSplitMultipleFkNext.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
      *         <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setFooDate(...); // *not allowed, fragmented</span>
      *     }
@@ -794,7 +792,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setPK...(value);</span>
      * whiteSplitMultipleFkNext.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -804,7 +802,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setVersionNo(value);</span>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkNext, cb);
      * </pre>
@@ -820,7 +818,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setPK...(value);</span>
      * whiteSplitMultipleFkNext.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -830,7 +828,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setVersionNo(value);</span>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkNext, cb);
      * </pre>
@@ -884,7 +882,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteSplitMultipleFkNext.setFoo...(value);
      * whiteSplitMultipleFkNext.setBar...(value);
@@ -907,12 +905,12 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * whiteSplitMultipleFkNext.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteSplitMultipleFkNext.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSplitMultipleFkNext.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt; option = new UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkNextCB&gt;() {
@@ -921,7 +919,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      *     <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSplitMultipleFkNext, option);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -1025,7 +1023,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setPK...(value);</span>
      * whiteSplitMultipleFkNext.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -1034,7 +1032,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setVersionNo(value);</span>
      * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt; option = new UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt;();
+     * UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkNextCB&gt;() {
      *     public void specify(WhiteSplitMultipleFkNextCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
@@ -1059,16 +1057,16 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = new WhiteSplitMultipleFkNext();
+     * WhiteSplitMultipleFkNext whiteSplitMultipleFkNext = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNext();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setPK...(value);</span>
      * whiteSplitMultipleFkNext.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkNext.setVersionNo(value);</span>
-     * WhiteSplitMultipleFkNextCB cb = new WhiteSplitMultipleFkNextCB();
+     * WhiteSplitMultipleFkNextCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkNextCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt; option = new UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt;();
+     * UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSplitMultipleFkNextCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkNextCB&gt;() {
      *     public void specify(WhiteSplitMultipleFkNextCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;

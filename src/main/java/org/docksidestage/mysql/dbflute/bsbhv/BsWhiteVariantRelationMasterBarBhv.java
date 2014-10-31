@@ -93,7 +93,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * int count = <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -108,9 +108,9 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * int count = <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -162,7 +162,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
@@ -220,7 +220,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().set...;
      * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteVariantRelationMasterBar.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
@@ -274,8 +274,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * for (WhiteVariantRelationMasterBar <span style="color: #553000">whiteVariantRelationMasterBar</span> : <span style="color: #553000">whiteVariantRelationMasterBarList</span>) {
-     *     ... = <span style="color: #553000">whiteVariantRelationMasterBar</span>.get...();
+     * <span style="color: #70226C">for</span> (WhiteVariantRelationMasterBar <span style="color: #553000">whiteVariantRelationMasterBar</span> : <span style="color: #553000">whiteVariantRelationMasterBarList</span>) {
+     *     ... = <span style="color: #553000">whiteVariantRelationMasterBar</span>.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -289,12 +289,12 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().set...;
-     * cb.query().addOrderBy...();
+     * cb.query().addOrderBy...;
      * ListResultBean&lt;WhiteVariantRelationMasterBar&gt; <span style="color: #553000">whiteVariantRelationMasterBarList</span> = <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : <span style="color: #553000">whiteVariantRelationMasterBarList</span>) {
-     *     ... = whiteVariantRelationMasterBar.get...();
+     * <span style="color: #70226C">for</span> (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : <span style="color: #553000">whiteVariantRelationMasterBarList</span>) {
+     *     ... = whiteVariantRelationMasterBar.get...;
      * }
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -320,13 +320,13 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * });
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : <span style="color: #553000">page</span>) {
-     *     ... = whiteVariantRelationMasterBar.get...();
+     * <span style="color: #70226C">for</span> (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : <span style="color: #553000">page</span>) {
+     *     ... = whiteVariantRelationMasterBar.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -341,17 +341,17 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * PagingResultBean&lt;WhiteVariantRelationMasterBar&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : <span style="color: #553000">page</span>) {
+     * <span style="color: #70226C">for</span> (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : <span style="color: #553000">page</span>) {
      *     ... = whiteVariantRelationMasterBar.get...();
      * }
      * </pre>
@@ -385,12 +385,10 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().set...
-     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteVariantRelationMasterBar&gt;() {
-     *     public void handle(WhiteVariantRelationMasterBar entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cb The condition-bean of WhiteVariantRelationMasterBar. (NotNull)
@@ -408,7 +406,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * You should call a function method after this method called like as follows:
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -452,9 +450,9 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
-     * for (Member member : <span style="color: #553000">memberList</span>) {
+     * <span style="color: #70226C">for</span> (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
+     *     <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *         ...
      *     }
      * }
@@ -488,7 +486,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
      * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
-     * for (Purchase purchase : purchaseList) {
+     * <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *     ...
      * }
      * </pre>
@@ -514,7 +512,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * for (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : <span style="color: #553000">whiteVariantRelationMasterBarList</span>) {
+     * <span style="color: #70226C">for</span> (WhiteVariantRelationMasterBar whiteVariantRelationMasterBar : <span style="color: #553000">whiteVariantRelationMasterBarList</span>) {
      *     ... = whiteVariantRelationMasterBar.<span style="color: #CC4747">getWhiteVariantRelationReferrerAsVariantList()</span>;
      * }
      * </pre>
@@ -610,7 +608,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Insert the entity modified-only. (DefaultConstraintsEnabled)
      * <pre>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteVariantRelationMasterBar.setFoo...(value);
      * whiteVariantRelationMasterBar.setBar...(value);
@@ -631,7 +629,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * whiteVariantRelationMasterBar.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteVariantRelationMasterBar.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
@@ -670,13 +668,13 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Delete the entity. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * whiteVariantRelationMasterBar.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteVariantRelationMasterBar.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">delete</span>(whiteVariantRelationMasterBar);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -696,10 +694,10 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
-     * for (... : ...) {
-     *     WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * <span style="color: #70226C">for</span> (... : ...) {
+     *     WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      *     whiteVariantRelationMasterBar.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         whiteVariantRelationMasterBar.setFooPrice(123);
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
@@ -725,11 +723,11 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
-     *     WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     *     WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      *     whiteVariantRelationMasterBar.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         whiteVariantRelationMasterBar.setFooPrice(123);
-     *     } else {
+     *     } <span style="color: #70226C">else</span> {
      *         whiteVariantRelationMasterBar.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
      *         <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setFooDate(...); // *not allowed, fragmented</span>
      *     }
@@ -794,7 +792,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setPK...(value);</span>
      * whiteVariantRelationMasterBar.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -804,7 +802,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setVersionNo(value);</span>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationMasterBar, cb);
      * </pre>
@@ -820,7 +818,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setPK...(value);</span>
      * whiteVariantRelationMasterBar.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -830,7 +828,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setVersionNo(value);</span>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteVariantRelationMasterBar, cb);
      * </pre>
@@ -884,7 +882,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteVariantRelationMasterBar.setFoo...(value);
      * whiteVariantRelationMasterBar.setBar...(value);
@@ -907,12 +905,12 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * whiteVariantRelationMasterBar.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteVariantRelationMasterBar.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteVariantRelationMasterBar.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt; option = new UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
@@ -921,7 +919,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      *     <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteVariantRelationMasterBar, option);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -1025,7 +1023,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setPK...(value);</span>
      * whiteVariantRelationMasterBar.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -1034,7 +1032,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setVersionNo(value);</span>
      * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt; option = new UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt;();
+     * UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
      *     public void specify(WhiteVariantRelationMasterBarCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
@@ -1059,16 +1057,16 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = new WhiteVariantRelationMasterBar();
+     * WhiteVariantRelationMasterBar whiteVariantRelationMasterBar = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBar();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setPK...(value);</span>
      * whiteVariantRelationMasterBar.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteVariantRelationMasterBar.setVersionNo(value);</span>
-     * WhiteVariantRelationMasterBarCB cb = new WhiteVariantRelationMasterBarCB();
+     * WhiteVariantRelationMasterBarCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterBarCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt; option = new UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt;();
+     * UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteVariantRelationMasterBarCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
      *     public void specify(WhiteVariantRelationMasterBarCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
