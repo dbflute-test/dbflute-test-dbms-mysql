@@ -49,7 +49,7 @@ public class BsWhiteVariantRelationLocalPkReferrerCQ extends AbstractBsWhiteVari
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_variant_relation_local_pk_referrer) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteVariantRelationLocalPkReferrerCQ extends AbstractBsWhiteVari
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_variant_relation_local_pk_referrer on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteVariantRelationLocalPkReferrerCQ extends AbstractBsWhiteVari
     protected ConditionValue xgetCValueReversefkSuppressedId() { return xdfgetReversefkSuppressedId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationLocalPkReferrerCQ addOrderBy_ReversefkSuppressedId_Asc() { regOBA("REVERSEFK_SUPPRESSED_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteVariantRelationLocalPkReferrerCQ extends AbstractBsWhiteVari
     protected ConditionValue xgetCValueMasterTypeCode() { return xdfgetMasterTypeCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationLocalPkReferrerCQ addOrderBy_MasterTypeCode_Asc() { regOBA("MASTER_TYPE_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -178,7 +178,7 @@ public class BsWhiteVariantRelationLocalPkReferrerCQ extends AbstractBsWhiteVari
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
      * @return The instance of condition-query. (NotNull)
      */

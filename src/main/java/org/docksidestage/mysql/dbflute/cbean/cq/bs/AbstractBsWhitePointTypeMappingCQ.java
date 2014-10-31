@@ -62,7 +62,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param pointTypeMappingId The value of pointTypeMappingId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param pointTypeMappingId The value of pointTypeMappingId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param pointTypeMappingId The value of pointTypeMappingId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param pointTypeMappingId The value of pointTypeMappingId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param pointTypeMappingId The value of pointTypeMappingId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param minNumber The min number of pointTypeMappingId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of pointTypeMappingId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param minNumber The min number of pointTypeMappingId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of pointTypeMappingId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param pointTypeMappingIdList The collection of pointTypeMappingId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param pointTypeMappingIdList The collection of pointTypeMappingId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      */
     public void setPointTypeMappingId_IsNull() { regPointTypeMappingId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      */
     public void setPointTypeMappingId_IsNotNull() { regPointTypeMappingId(CK_ISNN, DOBJ); }
@@ -179,13 +179,13 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
 
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)}
      */
     public void setPointTypeMappingMemberName_IsNull() { regPointTypeMappingMemberName(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)}
      */
     public void setPointTypeMappingMemberName_IsNotNull() { regPointTypeMappingMemberName(CK_ISNN, DOBJ); }
@@ -195,13 +195,13 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
 
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)}
      */
     public void setPointTypeMappingPriceCount_IsNull() { regPointTypeMappingPriceCount(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)}
      */
     public void setPointTypeMappingPriceCount_IsNotNull() { regPointTypeMappingPriceCount(CK_ISNN, DOBJ); }
@@ -210,7 +210,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     protected abstract ConditionValue xgetCValuePointTypeMappingPriceCount();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as equal. (NullAllowed: if null, no condition)
      */
@@ -219,7 +219,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -228,7 +228,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -237,7 +237,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -246,7 +246,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -255,8 +255,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * <pre>e.g. setPointTypeMappingSaleDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (NullAllowed: if null, no from-condition)
@@ -268,8 +268,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * <pre>e.g. setPointTypeMappingSaleDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (NullAllowed: if null, no from-condition)
@@ -281,8 +281,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -296,13 +296,13 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      */
     public void setPointTypeMappingSaleDate_IsNull() { regPointTypeMappingSaleDate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      */
     public void setPointTypeMappingSaleDate_IsNotNull() { regPointTypeMappingSaleDate(CK_ISNN, DOBJ); }
@@ -311,7 +311,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     protected abstract ConditionValue xgetCValuePointTypeMappingSaleDate();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as equal. (NullAllowed: if null, no condition)
      */
@@ -320,7 +320,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -329,7 +329,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as lessThan. (NullAllowed: if null, no condition)
      */
@@ -338,7 +338,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -347,7 +347,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -356,8 +356,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * <pre>e.g. setPointTypeMappingWantedDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no from-condition)
@@ -369,8 +369,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * <pre>e.g. setPointTypeMappingWantedDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no from-condition)
@@ -382,8 +382,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -397,13 +397,13 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      */
     public void setPointTypeMappingWantedDatetime_IsNull() { regPointTypeMappingWantedDatetime(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      */
     public void setPointTypeMappingWantedDatetime_IsNotNull() { regPointTypeMappingWantedDatetime(CK_ISNN, DOBJ); }
@@ -415,7 +415,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePointTypeMappingCB&gt;() {
@@ -432,7 +432,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePointTypeMappingCB&gt;() {
@@ -449,7 +449,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePointTypeMappingCB&gt;() {
@@ -466,7 +466,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePointTypeMappingCB&gt;() {
@@ -483,7 +483,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePointTypeMappingCB&gt;() {
@@ -500,7 +500,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePointTypeMappingCB&gt;() {
@@ -583,7 +583,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -597,7 +597,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param pkFirstId The value of pkFirstId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param pkFirstId The value of pkFirstId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param pkFirstId The value of pkFirstId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param pkFirstId The value of pkFirstId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param pkFirstId The value of pkFirstId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param minNumber The min number of pkFirstId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of pkFirstId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param minNumber The min number of pkFirstId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of pkFirstId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param pkFirstIdList The collection of pkFirstId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param pkFirstIdList The collection of pkFirstId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      */
     public void setPkFirstId_IsNull() { regPkFirstId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      */
     public void setPkFirstId_IsNotNull() { regPkFirstId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     protected abstract ConditionValue xgetCValuePkFirstId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param pkSecondId The value of pkSecondId as equal. (NullAllowed: if null, no condition)
      */
@@ -191,7 +191,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param pkSecondId The value of pkSecondId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -200,7 +200,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param pkSecondId The value of pkSecondId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -209,7 +209,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param pkSecondId The value of pkSecondId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -218,7 +218,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param pkSecondId The value of pkSecondId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -227,9 +227,9 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param minNumber The min number of pkSecondId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of pkSecondId. (NullAllowed: if null, no to-condition)
@@ -240,9 +240,9 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param minNumber The min number of pkSecondId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of pkSecondId. (NullAllowed: if null, no to-condition)
@@ -253,7 +253,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param pkSecondIdList The collection of pkSecondId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -266,7 +266,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      * @param pkSecondIdList The collection of pkSecondId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -279,13 +279,13 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      */
     public void setPkSecondId_IsNull() { regPkSecondId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
      */
     public void setPkSecondId_IsNotNull() { regPkSecondId(CK_ISNN, DOBJ); }
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     protected abstract ConditionValue xgetCValuePkSecondId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
      * @param pkName The value of pkName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
      * @param pkName The value of pkName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -320,7 +320,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
      * @param pkNameList The collection of pkName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -333,7 +333,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
      * @param pkNameList The collection of pkName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -346,8 +346,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * PK_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PK_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setPkName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param pkName The value of pkName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -357,8 +357,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * PK_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PK_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setPkName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param pkName The value of pkName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -368,8 +368,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
      * @param pkName The value of pkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -379,8 +379,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
      * @param pkName The value of pkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
      * @param pkName The value of pkName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -402,7 +402,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     protected abstract ConditionValue xgetCValuePkName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param referredId The value of referredId as equal. (NullAllowed: if null, no condition)
      */
@@ -415,7 +415,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param referredId The value of referredId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -424,7 +424,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param referredId The value of referredId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -433,7 +433,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param referredId The value of referredId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -442,7 +442,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param referredId The value of referredId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -451,9 +451,9 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param minNumber The min number of referredId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of referredId. (NullAllowed: if null, no to-condition)
@@ -464,9 +464,9 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param minNumber The min number of referredId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of referredId. (NullAllowed: if null, no to-condition)
@@ -477,7 +477,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param referredIdList The collection of referredId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -490,7 +490,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @param referredIdList The collection of referredId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -509,7 +509,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteCompoundPkCB&gt;() {
@@ -526,7 +526,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteCompoundPkCB&gt;() {
@@ -543,7 +543,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteCompoundPkCB&gt;() {
@@ -560,7 +560,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteCompoundPkCB&gt;() {
@@ -577,7 +577,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteCompoundPkCB&gt;() {
@@ -594,7 +594,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteCompoundPkCB&gt;() {
@@ -632,7 +632,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -646,7 +646,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

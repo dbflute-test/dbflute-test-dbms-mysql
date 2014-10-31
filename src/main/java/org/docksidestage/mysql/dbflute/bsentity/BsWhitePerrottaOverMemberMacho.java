@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_MEMBER_MACHO as TABLE. <br />
+ * The entity of WHITE_PERROTTA_OVER_MEMBER_MACHO as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MACHO_CODE
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity {
+public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -202,7 +203,7 @@ public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MACHO_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [get] MACHO_CODE: {PK, NotNull, CHAR(3)} <br>
      * @return The value of the column 'MACHO_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMachoCode() {
@@ -211,7 +212,7 @@ public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity {
     }
 
     /**
-     * [set] MACHO_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [set] MACHO_CODE: {PK, NotNull, CHAR(3)} <br>
      * @param machoCode The value of the column 'MACHO_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setMachoCode(String machoCode) {
@@ -220,7 +221,7 @@ public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity {
     }
 
     /**
-     * [get] MACHO_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] MACHO_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'MACHO_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMachoName() {
@@ -229,7 +230,7 @@ public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity {
     }
 
     /**
-     * [set] MACHO_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] MACHO_NAME: {NotNull, VARCHAR(200)} <br>
      * @param machoName The value of the column 'MACHO_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMachoName(String machoName) {

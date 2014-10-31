@@ -49,7 +49,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_xls_man) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_xls_man on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     protected ConditionValue xgetCValueXlsManId() { return xdfgetXlsManId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteXlsManCQ addOrderBy_XlsManId_Asc() { regOBA("XLS_MAN_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * STRING_CONVERTED: {VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteXlsManCQ addOrderBy_StringConverted_Asc() { regOBA("STRING_CONVERTED"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * STRING_CONVERTED: {VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     protected ConditionValue xgetCValueTimestampConverted() { return xdfgetTimestampConverted(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsWhiteXlsManCQ addOrderBy_TimestampConverted_Asc() { regOBA("TIMESTAMP_CONVERTED"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
      * @return this. (NotNull)
      */

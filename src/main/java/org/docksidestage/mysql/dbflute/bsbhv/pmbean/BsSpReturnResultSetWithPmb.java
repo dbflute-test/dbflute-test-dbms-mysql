@@ -25,7 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.*;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpReturnResultSetWith. <br />
+ * The base class for procedure parameter-bean of SpReturnResultSetWith. <br>
  * This is related to "<span style="color: #AD4747">SP_RETURN_RESULT_SET_WITH</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -71,7 +71,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpReturnResultSetWith. <br />
+     * Constructor for the procedure parameter-bean of SpReturnResultSetWith. <br>
      * This is related to "<span style="color: #AD4747">SP_RETURN_RESULT_SET_WITH</span>".
      */
     public BsSpReturnResultSetWithPmb() {
@@ -166,7 +166,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] VInChar: {CHAR(3) as In} <br />
+     * [get] VInChar: {CHAR(3) as In} <br>
      * @return The value of VInChar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVInChar() {
@@ -174,7 +174,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VInChar: {CHAR(3) as In} <br />
+     * [set] VInChar: {CHAR(3) as In} <br>
      * @param vInChar The value of VInChar. (NullAllowed)
      */
     public void setVInChar(String vInChar) {
@@ -182,7 +182,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] VOutVarchar: {VARCHAR(32) as Out} <br />
+     * [get] VOutVarchar: {VARCHAR(32) as Out} <br>
      * @return The value of VOutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVOutVarchar() {
@@ -190,7 +190,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VOutVarchar: {VARCHAR(32) as Out} <br />
+     * [set] VOutVarchar: {VARCHAR(32) as Out} <br>
      * @param vOutVarchar The value of VOutVarchar. (NullAllowed)
      */
     public void setVOutVarchar(String vOutVarchar) {
@@ -198,7 +198,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] VInoutVarchar: {VARCHAR(32) as InOut} <br />
+     * [get] VInoutVarchar: {VARCHAR(32) as InOut} <br>
      * @return The value of VInoutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVInoutVarchar() {
@@ -206,7 +206,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VInoutVarchar: {VARCHAR(32) as InOut} <br />
+     * [set] VInoutVarchar: {VARCHAR(32) as InOut} <br>
      * @param vInoutVarchar The value of VInoutVarchar. (NullAllowed)
      */
     public void setVInoutVarchar(String vInoutVarchar) {
@@ -214,7 +214,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] notParamResult1 <br />
+     * [get] notParamResult1 <br>
      * @return The value of notParamResult1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpReturnResultSetWithNotParamResult1> getNotParamResult1() {
@@ -222,7 +222,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] notParamResult1 <br />
+     * [set] notParamResult1 <br>
      * @param notParamResult1 The value of notParamResult1. (NullAllowed)
      */
     public void setNotParamResult1(List<SpReturnResultSetWithNotParamResult1> notParamResult1) {
@@ -230,7 +230,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] notParamResult2 <br />
+     * [get] notParamResult2 <br>
      * @return The value of notParamResult2. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpReturnResultSetWithNotParamResult2> getNotParamResult2() {
@@ -238,7 +238,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] notParamResult2 <br />
+     * [set] notParamResult2 <br>
      * @param notParamResult2 The value of notParamResult2. (NullAllowed)
      */
     public void setNotParamResult2(List<SpReturnResultSetWithNotParamResult2> notParamResult2) {

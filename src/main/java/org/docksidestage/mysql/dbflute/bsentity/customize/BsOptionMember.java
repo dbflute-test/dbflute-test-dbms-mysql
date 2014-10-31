@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of OptionMember. <br />
+ * The entity of OptionMember. <br>
  * <pre>
  * [primary-key]
  *     
@@ -77,7 +78,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsOptionMember extends AbstractEntity {
+public abstract class BsOptionMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -148,8 +149,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} <br />
+     * Get the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -159,8 +160,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} <br />
+     * Set the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -169,8 +170,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Get the value of dummyFlg as the classification of Flg. <br />
-     * DUMMY_FLG: {BIGINT(1), classification=Flg} <br />
+     * Get the value of dummyFlg as the classification of Flg. <br>
+     * DUMMY_FLG: {BIGINT(1), classification=Flg} <br>
      * フラグを示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -180,8 +181,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Set the value of dummyFlg as the classification of Flg. <br />
-     * DUMMY_FLG: {BIGINT(1), classification=Flg} <br />
+     * Set the value of dummyFlg as the classification of Flg. <br>
+     * DUMMY_FLG: {BIGINT(1), classification=Flg} <br>
      * フラグを示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -193,7 +194,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of memberStatusCode as Formalized (FML). <br />
+     * Set the value of memberStatusCode as Formalized (FML). <br>
      * 正式会員: 正式な会員を示す
      */
     public void setMemberStatusCode_Formalized() {
@@ -201,7 +202,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as Provisional (PRV). <br />
+     * Set the value of memberStatusCode as Provisional (PRV). <br>
      * 仮会員: 仮の会員を示す
      */
     public void setMemberStatusCode_Provisional() {
@@ -209,7 +210,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of memberStatusCode as Withdrawal (WDL). <br>
      * 退会会員: 退会した会員を示す
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -217,7 +218,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Set the value of dummyFlg as True (1). <br />
+     * Set the value of dummyFlg as True (1). <br>
      * はい: 有効を示す
      */
     public void setDummyFlg_True() {
@@ -225,7 +226,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Set the value of dummyFlg as False (0). <br />
+     * Set the value of dummyFlg as False (0). <br>
      * いいえ: 無効を示す
      */
     public void setDummyFlg_False() {
@@ -236,7 +237,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of memberStatusCode Formalized? <br />
+     * Is the value of memberStatusCode Formalized? <br>
      * 正式会員: 正式な会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -247,7 +248,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Is the value of memberStatusCode Provisional? <br />
+     * Is the value of memberStatusCode Provisional? <br>
      * 仮会員: 仮の会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -258,7 +259,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Is the value of memberStatusCode Withdrawal? <br />
+     * Is the value of memberStatusCode Withdrawal? <br>
      * 退会会員: 退会した会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -269,7 +270,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Is the value of dummyFlg True? <br />
+     * Is the value of dummyFlg True? <br>
      * はい: 有効を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -280,7 +281,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * Is the value of dummyFlg False? <br />
+     * Is the value of dummyFlg False? <br>
      * いいえ: 無効を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -415,8 +416,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
@@ -426,8 +427,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
@@ -437,7 +438,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
@@ -447,7 +448,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -457,7 +458,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br />
+     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
@@ -467,7 +468,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br />
+     * [set] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
@@ -477,8 +478,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [get] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br />
-     * 会員が正式に確定した日時。一度確定したら更新されない。<br />
+     * [get] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br>
+     * 会員が正式に確定した日時。一度確定したら更新されない。<br>
      * 仮会員のときはnull。
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
@@ -488,8 +489,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br />
-     * 会員が正式に確定した日時。一度確定したら更新されない。<br />
+     * [set] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br>
+     * 会員が正式に確定した日時。一度確定したら更新されない。<br>
      * 仮会員のときはnull。
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -499,7 +500,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} <br />
+     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * @return The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusCode() {
@@ -508,7 +509,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} <br />
+     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setMemberStatusCode(String memberStatusCode) {
@@ -518,8 +519,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [get] (表示順)STATUS_DISPLAY_ORDER: {INT(11), refers to member_status.DISPLAY_ORDER} <br />
-     * UI上のステータスの表示順を示すNO。<br />
+     * [get] (表示順)STATUS_DISPLAY_ORDER: {INT(11), refers to member_status.DISPLAY_ORDER} <br>
+     * UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @return The value of the column 'STATUS_DISPLAY_ORDER'. (NullAllowed even if selected: for no constraint)
      */
@@ -529,8 +530,8 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] (表示順)STATUS_DISPLAY_ORDER: {INT(11), refers to member_status.DISPLAY_ORDER} <br />
-     * UI上のステータスの表示順を示すNO。<br />
+     * [set] (表示順)STATUS_DISPLAY_ORDER: {INT(11), refers to member_status.DISPLAY_ORDER} <br>
+     * UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @param statusDisplayOrder The value of the column 'STATUS_DISPLAY_ORDER'. (NullAllowed: null update allowed for no constraint)
      */
@@ -540,7 +541,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @return The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -549,7 +550,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
@@ -558,7 +559,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [get] DUMMY_FLG: {BIGINT(1), classification=Flg} <br />
+     * [get] DUMMY_FLG: {BIGINT(1), classification=Flg} <br>
      * @return The value of the column 'DUMMY_FLG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getDummyFlg() {
@@ -567,7 +568,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] DUMMY_FLG: {BIGINT(1), classification=Flg} <br />
+     * [set] DUMMY_FLG: {BIGINT(1), classification=Flg} <br>
      * @param dummyFlg The value of the column 'DUMMY_FLG'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setDummyFlg(Long dummyFlg) {
@@ -577,7 +578,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [get] DUMMY_NOFLG: {BIGINT(1)} <br />
+     * [get] DUMMY_NOFLG: {BIGINT(1)} <br>
      * @return The value of the column 'DUMMY_NOFLG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getDummyNoflg() {
@@ -586,7 +587,7 @@ public abstract class BsOptionMember extends AbstractEntity {
     }
 
     /**
-     * [set] DUMMY_NOFLG: {BIGINT(1)} <br />
+     * [set] DUMMY_NOFLG: {BIGINT(1)} <br>
      * @param dummyNoflg The value of the column 'DUMMY_NOFLG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDummyNoflg(Long dummyNoflg) {

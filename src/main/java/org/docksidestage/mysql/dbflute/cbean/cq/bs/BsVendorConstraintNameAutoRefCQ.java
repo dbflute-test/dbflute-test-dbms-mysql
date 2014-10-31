@@ -49,7 +49,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from vendor_constraint_name_auto_ref) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join vendor_constraint_name_auto_ref on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     protected ConditionValue xgetCValueConstraintNameAutoRefId() { return xdfgetConstraintNameAutoRefId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoRefId_Asc() { regOBA("CONSTRAINT_NAME_AUTO_REF_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     protected ConditionValue xgetCValueConstraintNameAutoFooId() { return xdfgetConstraintNameAutoFooId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
      * @return this. (NotNull)
      */
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoFooId_Asc() { regOBA("CONSTRAINT_NAME_AUTO_FOO_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     protected ConditionValue xgetCValueConstraintNameAutoBarId() { return xdfgetConstraintNameAutoBarId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
      * @return this. (NotNull)
      */
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoBarId_Asc() { regOBA("CONSTRAINT_NAME_AUTO_BAR_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     protected ConditionValue xgetCValueConstraintNameAutoQuxId() { return xdfgetConstraintNameAutoQuxId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
      * @return this. (NotNull)
      */
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoQuxId_Asc() { regOBA("CONSTRAINT_NAME_AUTO_QUX_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
      * @return this. (NotNull)
      */
@@ -175,14 +175,14 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     protected ConditionValue xgetCValueConstraintNameAutoCorgeId() { return xdfgetConstraintNameAutoCorgeId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoCorgeId_Asc() { regOBA("CONSTRAINT_NAME_AUTO_CORGE_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -195,14 +195,14 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     protected ConditionValue xgetCValueConstraintNameAutoUnique() { return xdfgetConstraintNameAutoUnique(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsVendorConstraintNameAutoRefCQ addOrderBy_ConstraintNameAutoUnique_Asc() { regOBA("CONSTRAINT_NAME_AUTO_UNIQUE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
@@ -264,7 +264,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -284,7 +284,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     public boolean hasConditionQueryVendorConstraintNameAutoBar() { return xhasQueRlMap("vendorConstraintNameAutoBar"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -304,7 +304,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     public boolean hasConditionQueryVendorConstraintNameAutoFoo() { return xhasQueRlMap("vendorConstraintNameAutoFoo"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      * @return The instance of condition-query. (NotNull)
      */

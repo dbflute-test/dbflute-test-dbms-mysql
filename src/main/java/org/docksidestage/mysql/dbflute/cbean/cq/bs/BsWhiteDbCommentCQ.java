@@ -49,7 +49,7 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_db_comment) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_db_comment on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
     protected ConditionValue xgetCValueDbCommentCode() { return xdfgetDbCommentCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteDbCommentCQ addOrderBy_DbCommentCode_Asc() { regOBA("DB_COMMENT_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
     protected ConditionValue xgetCValueDbCommentName() { return xdfgetDbCommentName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */
     public BsWhiteDbCommentCQ addOrderBy_DbCommentName_Asc() { regOBA("DB_COMMENT_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */

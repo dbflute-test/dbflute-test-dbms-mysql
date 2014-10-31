@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE. <br />
+ * The referrer loader of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE. <br>
  * <pre>
  * [primary key]
  *     REVERSEFK_SUPPRESSED_ID

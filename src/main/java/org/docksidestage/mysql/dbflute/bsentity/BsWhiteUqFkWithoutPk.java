@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_FK_WITHOUT_PK as TABLE. <br />
+ * The entity of WHITE_UQ_FK_WITHOUT_PK as TABLE. <br>
  * <pre>
  * [primary-key]
  *     
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
+public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -110,7 +111,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param uqFkCode : UQ, NotNull, CHAR(3). (NotNull)
      */
@@ -214,7 +215,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] UQ_FK_CODE: {UQ, NotNull, CHAR(3)} <br />
+     * [get] UQ_FK_CODE: {UQ, NotNull, CHAR(3)} <br>
      * @return The value of the column 'UQ_FK_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getUqFkCode() {
@@ -223,7 +224,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
     }
 
     /**
-     * [set] UQ_FK_CODE: {UQ, NotNull, CHAR(3)} <br />
+     * [set] UQ_FK_CODE: {UQ, NotNull, CHAR(3)} <br>
      * @param uqFkCode The value of the column 'UQ_FK_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkCode(String uqFkCode) {
@@ -232,7 +233,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
     }
 
     /**
-     * [get] UQ_FK_NAME: {NotNull, VARCHAR(64)} <br />
+     * [get] UQ_FK_NAME: {NotNull, VARCHAR(64)} <br>
      * @return The value of the column 'UQ_FK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getUqFkName() {
@@ -241,7 +242,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity {
     }
 
     /**
-     * [set] UQ_FK_NAME: {NotNull, VARCHAR(64)} <br />
+     * [set] UQ_FK_NAME: {NotNull, VARCHAR(64)} <br>
      * @param uqFkName The value of the column 'UQ_FK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkName(String uqFkName) {

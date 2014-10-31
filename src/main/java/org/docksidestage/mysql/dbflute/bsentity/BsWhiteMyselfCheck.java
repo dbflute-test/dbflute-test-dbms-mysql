@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_MYSELF_CHECK as TABLE. <br />
+ * The entity of WHITE_MYSELF_CHECK as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MYSELF_CHECK_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteMyselfCheck extends AbstractEntity {
+public abstract class BsWhiteMyselfCheck extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -122,7 +123,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     protected WhiteMyself _whiteMyself;
 
     /**
-     * [get] white_myself by my MYSELF_ID, named 'whiteMyself'. <br />
+     * [get] white_myself by my MYSELF_ID, named 'whiteMyself'. <br>
      * @return The entity of foreign property 'whiteMyself'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteMyself getWhiteMyself() {
@@ -207,7 +208,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MYSELF_CHECK_ID: {PK, NotNull, INT(10)} <br />
+     * [get] MYSELF_CHECK_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'MYSELF_CHECK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMyselfCheckId() {
@@ -216,7 +217,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     }
 
     /**
-     * [set] MYSELF_CHECK_ID: {PK, NotNull, INT(10)} <br />
+     * [set] MYSELF_CHECK_ID: {PK, NotNull, INT(10)} <br>
      * @param myselfCheckId The value of the column 'MYSELF_CHECK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMyselfCheckId(Integer myselfCheckId) {
@@ -225,7 +226,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     }
 
     /**
-     * [get] MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)} <br />
+     * [get] MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)} <br>
      * @return The value of the column 'MYSELF_CHECK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMyselfCheckName() {
@@ -234,7 +235,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     }
 
     /**
-     * [set] MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)} <br />
+     * [set] MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)} <br>
      * @param myselfCheckName The value of the column 'MYSELF_CHECK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMyselfCheckName(String myselfCheckName) {
@@ -243,7 +244,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     }
 
     /**
-     * [get] MYSELF_ID: {IX, INT(10), FK to white_myself} <br />
+     * [get] MYSELF_ID: {IX, INT(10), FK to white_myself} <br>
      * @return The value of the column 'MYSELF_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMyselfId() {
@@ -252,7 +253,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity {
     }
 
     /**
-     * [set] MYSELF_ID: {IX, INT(10), FK to white_myself} <br />
+     * [set] MYSELF_ID: {IX, INT(10), FK to white_myself} <br>
      * @param myselfId The value of the column 'MYSELF_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMyselfId(Integer myselfId) {

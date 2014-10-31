@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_REFERRER as TABLE. <br />
+ * The entity of WHITE_VARIANT_RELATION_REFERRER as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REFERRER_ID
@@ -66,7 +67,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
+public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -120,8 +121,8 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of masterTypeCode as the classification of VariantRelationMasterType. <br />
-     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br />
+     * Get the value of masterTypeCode as the classification of VariantRelationMasterType. <br>
+     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * master type of variant relation (biz-many-to-one)
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -131,8 +132,8 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * Set the value of masterTypeCode as the classification of VariantRelationMasterType. <br />
-     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br />
+     * Set the value of masterTypeCode as the classification of VariantRelationMasterType. <br>
+     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * master type of variant relation (biz-many-to-one)
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -144,7 +145,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of masterTypeCode as FooCls (FOO). <br />
+     * Set the value of masterTypeCode as FooCls (FOO). <br>
      * FooCls
      */
     public void setMasterTypeCode_FooCls() {
@@ -152,7 +153,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * Set the value of masterTypeCode as BarCls (BAR). <br />
+     * Set the value of masterTypeCode as BarCls (BAR). <br>
      * BarCls
      */
     public void setMasterTypeCode_BarCls() {
@@ -160,7 +161,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * Set the value of masterTypeCode as QuxCls (QUX). <br />
+     * Set the value of masterTypeCode as QuxCls (QUX). <br>
      * QuxCls
      */
     public void setMasterTypeCode_QuxCls() {
@@ -168,7 +169,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * Set the value of masterTypeCode as CorgeCls (CORGE). <br />
+     * Set the value of masterTypeCode as CorgeCls (CORGE). <br>
      * CorgeCls
      */
     public void setMasterTypeCode_CorgeCls() {
@@ -179,7 +180,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of masterTypeCode FooCls? <br />
+     * Is the value of masterTypeCode FooCls? <br>
      * FooCls
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -190,7 +191,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * Is the value of masterTypeCode BarCls? <br />
+     * Is the value of masterTypeCode BarCls? <br>
      * BarCls
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -201,7 +202,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * Is the value of masterTypeCode QuxCls? <br />
+     * Is the value of masterTypeCode QuxCls? <br>
      * QuxCls
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -212,7 +213,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * Is the value of masterTypeCode CorgeCls? <br />
+     * Is the value of masterTypeCode CorgeCls? <br>
      * CorgeCls
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -223,7 +224,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * Foo or Bar or Qux <br />
+     * Foo or Bar or Qux <br>
      * The group elements:[FooCls, BarCls, QuxCls]
      * @return The determination, true or false.
      */
@@ -251,7 +252,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     protected WhiteVariantRelationMasterFoo _whiteVariantRelationMasterFooAsVariant;
 
     /**
-     * [get] white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'. <br />
+     * [get] white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'. <br>
      * @return The entity of foreign property 'whiteVariantRelationMasterFooAsVariant'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteVariantRelationMasterFoo getWhiteVariantRelationMasterFooAsVariant() {
@@ -270,7 +271,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     protected WhiteVariantRelationMasterBar _whiteVariantRelationMasterBarAsVariant;
 
     /**
-     * [get] white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'. <br />
+     * [get] white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'. <br>
      * @return The entity of foreign property 'whiteVariantRelationMasterBarAsVariant'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteVariantRelationMasterBar getWhiteVariantRelationMasterBarAsVariant() {
@@ -289,7 +290,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     protected WhiteVariantRelationMasterQux _whiteVariantRelationMasterQuxAsVariantByQue;
 
     /**
-     * [get] white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'. <br />
+     * [get] white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'. <br>
      * @return The entity of foreign property 'whiteVariantRelationMasterQuxAsVariantByQue'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteVariantRelationMasterQux getWhiteVariantRelationMasterQuxAsVariantByQue() {
@@ -308,7 +309,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     protected WhiteVariantRelationMasterCorge _whiteVariantRelationMasterCorgeAsVariantByQuxType;
 
     /**
-     * [get] white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. <br />
+     * [get] white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. <br>
      * @return The entity of foreign property 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteVariantRelationMasterCorge getWhiteVariantRelationMasterCorgeAsVariantByQuxType() {
@@ -429,7 +430,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] REFERRER_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] REFERRER_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'REFERRER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getReferrerId() {
@@ -438,7 +439,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * [set] REFERRER_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] REFERRER_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param referrerId The value of the column 'REFERRER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReferrerId(Long referrerId) {
@@ -447,7 +448,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * [get] VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO} <br />
+     * [get] VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO} <br>
      * @return The value of the column 'VARIANT_MASTER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getVariantMasterId() {
@@ -456,7 +457,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * [set] VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO} <br />
+     * [set] VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO} <br>
      * @param variantMasterId The value of the column 'VARIANT_MASTER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setVariantMasterId(Long variantMasterId) {
@@ -465,7 +466,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * [get] MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br />
+     * [get] MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * @return The value of the column 'MASTER_TYPE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMasterTypeCode() {
@@ -474,7 +475,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br />
+     * [set] MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * @param masterTypeCode The value of the column 'MASTER_TYPE_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setMasterTypeCode(String masterTypeCode) {

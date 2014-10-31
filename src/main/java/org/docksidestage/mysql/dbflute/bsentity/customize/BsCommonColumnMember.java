@@ -20,10 +20,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of CommonColumnMember. <br />
+ * The entity of CommonColumnMember. <br>
  * <pre>
  * [primary-key]
  *     
@@ -70,7 +71,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsCommonColumnMember extends AbstractEntity {
+public abstract class BsCommonColumnMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -205,8 +206,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
@@ -216,8 +217,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
@@ -227,7 +228,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
@@ -237,7 +238,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -247,7 +248,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (登録日時)REGISTER_DATETIME: {DATETIME(19), refers to member.REGISTER_DATETIME} <br />
+     * [get] (登録日時)REGISTER_DATETIME: {DATETIME(19), refers to member.REGISTER_DATETIME} <br>
      * レコードが登録された日時。共通カラムの一つ。
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
@@ -257,7 +258,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (登録日時)REGISTER_DATETIME: {DATETIME(19), refers to member.REGISTER_DATETIME} <br />
+     * [set] (登録日時)REGISTER_DATETIME: {DATETIME(19), refers to member.REGISTER_DATETIME} <br>
      * レコードが登録された日時。共通カラムの一つ。
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -267,7 +268,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to member.REGISTER_USER} <br />
+     * [get] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to member.REGISTER_USER} <br>
      * レコードを登録したユーザ。共通カラムの一つ。
      * @return The value of the column 'REGISTER_USER'. (NullAllowed even if selected: for no constraint)
      */
@@ -277,7 +278,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to member.REGISTER_USER} <br />
+     * [set] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to member.REGISTER_USER} <br>
      * レコードを登録したユーザ。共通カラムの一つ。
      * @param registerUser The value of the column 'REGISTER_USER'. (NullAllowed: null update allowed for no constraint)
      */
@@ -287,7 +288,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (更新日時)UPDATE_DATETIME: {DATETIME(19), refers to member.UPDATE_DATETIME} <br />
+     * [get] (更新日時)UPDATE_DATETIME: {DATETIME(19), refers to member.UPDATE_DATETIME} <br>
      * レコードが（最後に）更新された日時。共通カラムの一つ。
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
@@ -297,7 +298,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (更新日時)UPDATE_DATETIME: {DATETIME(19), refers to member.UPDATE_DATETIME} <br />
+     * [set] (更新日時)UPDATE_DATETIME: {DATETIME(19), refers to member.UPDATE_DATETIME} <br>
      * レコードが（最後に）更新された日時。共通カラムの一つ。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -307,7 +308,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to member.UPDATE_USER} <br />
+     * [get] (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to member.UPDATE_USER} <br>
      * レコードを更新したユーザ。
      * @return The value of the column 'UPDATE_USER'. (NullAllowed even if selected: for no constraint)
      */
@@ -317,7 +318,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to member.UPDATE_USER} <br />
+     * [set] (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to member.UPDATE_USER} <br>
      * レコードを更新したユーザ。
      * @param updateUser The value of the column 'UPDATE_USER'. (NullAllowed: null update allowed for no constraint)
      */

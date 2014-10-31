@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_COMPOUND_PK_REF as TABLE. <br />
+ * The referrer loader of WHITE_COMPOUND_PK_REF as TABLE. <br>
  * <pre>
  * [primary key]
  *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID
@@ -79,7 +79,7 @@ public class LoaderOfWhiteCompoundPkRef {
     protected List<WhiteCompoundPkRefNest> _referrerWhiteCompoundPkRefNestByQuxMultipleIdList;
 
     /**
-     * Load referrer of whiteCompoundPkRefNestByQuxMultipleIdList by the set-upper of referrer. <br />
+     * Load referrer of whiteCompoundPkRefNestByQuxMultipleIdList by the set-upper of referrer. <br>
      * white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteCompoundPkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhiteCompoundPkRef {
      *         <span style="color: #553000">nestCB</span>.query().set...
      *         <span style="color: #553000">nestCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">nestLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">nestLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    nestLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhiteCompoundPkRef {
      *     ... = whiteCompoundPkRef.<span style="color: #CC4747">getWhiteCompoundPkRefNestByQuxMultipleIdList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().set[ForeignKey]_InScope(pkList);
@@ -113,7 +113,7 @@ public class LoaderOfWhiteCompoundPkRef {
     protected List<WhiteCompoundPkRefNest> _referrerWhiteCompoundPkRefNestByFooMultipleIdList;
 
     /**
-     * Load referrer of whiteCompoundPkRefNestByFooMultipleIdList by the set-upper of referrer. <br />
+     * Load referrer of whiteCompoundPkRefNestByFooMultipleIdList by the set-upper of referrer. <br>
      * white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteCompoundPkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -122,7 +122,7 @@ public class LoaderOfWhiteCompoundPkRef {
      *         <span style="color: #553000">nestCB</span>.query().set...
      *         <span style="color: #553000">nestCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">nestLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">nestLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    nestLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -130,7 +130,7 @@ public class LoaderOfWhiteCompoundPkRef {
      *     ... = whiteCompoundPkRef.<span style="color: #CC4747">getWhiteCompoundPkRefNestByFooMultipleIdList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().set[ForeignKey]_InScope(pkList);

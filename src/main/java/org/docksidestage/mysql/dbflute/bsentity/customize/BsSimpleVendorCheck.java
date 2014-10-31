@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SimpleVendorCheck. <br />
+ * The entity of SimpleVendorCheck. <br>
  * <pre>
  * [primary-key]
  *     
@@ -73,7 +74,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSimpleVendorCheck extends AbstractEntity {
+public abstract class BsSimpleVendorCheck extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -138,8 +139,8 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of typeOfBoolean as the classification of BooleanFlg. <br />
-     * TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br />
+     * Get the value of typeOfBoolean as the classification of BooleanFlg. <br>
+     * TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br>
      * boolean classification for boolean column
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -149,8 +150,8 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Set the value of typeOfBoolean as the classification of BooleanFlg. <br />
-     * TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br />
+     * Set the value of typeOfBoolean as the classification of BooleanFlg. <br>
+     * TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br>
      * boolean classification for boolean column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -162,7 +163,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of typeOfBoolean as True (true). <br />
+     * Set the value of typeOfBoolean as True (true). <br>
      * Checked: means yes
      */
     public void setTypeOfBoolean_True() {
@@ -170,7 +171,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Set the value of typeOfBoolean as False (false). <br />
+     * Set the value of typeOfBoolean as False (false). <br>
      * Unchecked: means no
      */
     public void setTypeOfBoolean_False() {
@@ -181,7 +182,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of typeOfBoolean True? <br />
+     * Is the value of typeOfBoolean True? <br>
      * Checked: means yes
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -192,7 +193,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Is the value of typeOfBoolean False? <br />
+     * Is the value of typeOfBoolean False? <br>
      * Unchecked: means no
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -294,7 +295,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] VENDOR_CHECK_ID: {DECIMAL(16), refers to vendor_check.VENDOR_CHECK_ID} <br />
+     * [get] VENDOR_CHECK_ID: {DECIMAL(16), refers to vendor_check.VENDOR_CHECK_ID} <br>
      * @return The value of the column 'VENDOR_CHECK_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Long getVendorCheckId() {
@@ -303,7 +304,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] VENDOR_CHECK_ID: {DECIMAL(16), refers to vendor_check.VENDOR_CHECK_ID} <br />
+     * [set] VENDOR_CHECK_ID: {DECIMAL(16), refers to vendor_check.VENDOR_CHECK_ID} <br>
      * @param vendorCheckId The value of the column 'VENDOR_CHECK_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setVendorCheckId(Long vendorCheckId) {
@@ -312,7 +313,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_TEXT: {VARCHAR(16383), refers to vendor_check.TYPE_OF_TEXT} <br />
+     * [get] TYPE_OF_TEXT: {VARCHAR(16383), refers to vendor_check.TYPE_OF_TEXT} <br>
      * @return The value of the column 'TYPE_OF_TEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfText() {
@@ -321,7 +322,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_TEXT: {VARCHAR(16383), refers to vendor_check.TYPE_OF_TEXT} <br />
+     * [set] TYPE_OF_TEXT: {VARCHAR(16383), refers to vendor_check.TYPE_OF_TEXT} <br>
      * @param typeOfText The value of the column 'TYPE_OF_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfText(String typeOfText) {
@@ -330,7 +331,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3), refers to vendor_check.TYPE_OF_NUMERIC_DECIMAL} <br />
+     * [get] TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3), refers to vendor_check.TYPE_OF_NUMERIC_DECIMAL} <br>
      * @return The value of the column 'TYPE_OF_NUMERIC_DECIMAL'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getTypeOfNumericDecimal() {
@@ -339,7 +340,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3), refers to vendor_check.TYPE_OF_NUMERIC_DECIMAL} <br />
+     * [set] TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3), refers to vendor_check.TYPE_OF_NUMERIC_DECIMAL} <br>
      * @param typeOfNumericDecimal The value of the column 'TYPE_OF_NUMERIC_DECIMAL'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericDecimal(java.math.BigDecimal typeOfNumericDecimal) {
@@ -348,7 +349,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5), refers to vendor_check.TYPE_OF_NUMERIC_INTEGER} <br />
+     * [get] TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5), refers to vendor_check.TYPE_OF_NUMERIC_INTEGER} <br>
      * @return The value of the column 'TYPE_OF_NUMERIC_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getTypeOfNumericInteger() {
@@ -357,7 +358,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5), refers to vendor_check.TYPE_OF_NUMERIC_INTEGER} <br />
+     * [set] TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5), refers to vendor_check.TYPE_OF_NUMERIC_INTEGER} <br>
      * @param typeOfNumericInteger The value of the column 'TYPE_OF_NUMERIC_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericInteger(Integer typeOfNumericInteger) {
@@ -366,7 +367,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12), refers to vendor_check.TYPE_OF_NUMERIC_BIGINT} <br />
+     * [get] TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12), refers to vendor_check.TYPE_OF_NUMERIC_BIGINT} <br>
      * @return The value of the column 'TYPE_OF_NUMERIC_BIGINT'. (NullAllowed even if selected: for no constraint)
      */
     public Long getTypeOfNumericBigint() {
@@ -375,7 +376,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12), refers to vendor_check.TYPE_OF_NUMERIC_BIGINT} <br />
+     * [set] TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12), refers to vendor_check.TYPE_OF_NUMERIC_BIGINT} <br>
      * @param typeOfNumericBigint The value of the column 'TYPE_OF_NUMERIC_BIGINT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericBigint(Long typeOfNumericBigint) {
@@ -384,7 +385,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br />
+     * [get] TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br>
      * @return The value of the column 'TYPE_OF_BOOLEAN'. (NullAllowed even if selected: for no constraint)
      */
     public Boolean getTypeOfBoolean() {
@@ -393,7 +394,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br />
+     * [set] TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br>
      * @param typeOfBoolean The value of the column 'TYPE_OF_BOOLEAN'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setTypeOfBoolean(Boolean typeOfBoolean) {
@@ -402,7 +403,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_BLOB: {BLOB(65535), refers to vendor_check.TYPE_OF_BLOB} <br />
+     * [get] TYPE_OF_BLOB: {BLOB(65535), refers to vendor_check.TYPE_OF_BLOB} <br>
      * @return The value of the column 'TYPE_OF_BLOB'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getTypeOfBlob() {
@@ -411,7 +412,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_BLOB: {BLOB(65535), refers to vendor_check.TYPE_OF_BLOB} <br />
+     * [set] TYPE_OF_BLOB: {BLOB(65535), refers to vendor_check.TYPE_OF_BLOB} <br>
      * @param typeOfBlob The value of the column 'TYPE_OF_BLOB'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfBlob(byte[] typeOfBlob) {

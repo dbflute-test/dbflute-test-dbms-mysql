@@ -49,7 +49,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_perrotta_over_member) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_perrotta_over_member on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     protected ConditionValue xgetCValueMemberName() { return xdfgetMemberName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_MemberName_Asc() { regOBA("MEMBER_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     protected ConditionValue xgetCValueTraceTypeCode() { return xdfgetTraceTypeCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_TraceTypeCode_Asc() { regOBA("TRACE_TYPE_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -175,14 +175,14 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     protected ConditionValue xgetCValueMachoCode() { return xdfgetMachoCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_MachoCode_Asc() { regOBA("MACHO_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @return this. (NotNull)
      */
@@ -241,7 +241,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -261,7 +261,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     public boolean hasConditionQueryWhitePerrottaOverMemberMacho() { return xhasQueRlMap("whitePerrottaOverMemberMacho"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
      * @return The instance of condition-query. (NotNull)
      */

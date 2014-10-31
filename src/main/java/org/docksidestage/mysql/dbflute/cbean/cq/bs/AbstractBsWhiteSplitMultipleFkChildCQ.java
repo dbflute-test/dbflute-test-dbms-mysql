@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param childId The value of childId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param childId The value of childId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param childId The value of childId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param childId The value of childId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param childId The value of childId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of childId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of childId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of childId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of childId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param childIdList The collection of childId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param childIdList The collection of childId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setChildId_IsNull() { regChildId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setChildId_IsNotNull() { regChildId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     protected abstract ConditionValue xgetCValueChildId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param baseId The value of baseId as equal. (NullAllowed: if null, no condition)
      */
@@ -191,7 +191,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param baseId The value of baseId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -200,7 +200,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param baseId The value of baseId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -209,7 +209,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param baseId The value of baseId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -218,7 +218,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param baseId The value of baseId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -227,9 +227,9 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param minNumber The min number of baseId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of baseId. (NullAllowed: if null, no to-condition)
@@ -240,9 +240,9 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param minNumber The min number of baseId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of baseId. (NullAllowed: if null, no to-condition)
@@ -253,7 +253,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param baseIdList The collection of baseId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -266,7 +266,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @param baseIdList The collection of baseId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -282,7 +282,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     protected abstract ConditionValue xgetCValueBaseId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @param childName The value of childName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -295,7 +295,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @param childName The value of childName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -308,7 +308,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @param childNameList The collection of childName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -321,7 +321,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @param childNameList The collection of childName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -334,8 +334,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * CHILD_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * CHILD_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setChildName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param childName The value of childName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -345,8 +345,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * CHILD_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * CHILD_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setChildName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param childName The value of childName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -356,8 +356,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @param childName The value of childName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -367,8 +367,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @param childName The value of childName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -378,7 +378,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @param childName The value of childName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -393,7 +393,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
@@ -410,7 +410,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
@@ -427,7 +427,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
@@ -444,7 +444,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
@@ -461,7 +461,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
@@ -478,7 +478,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
@@ -561,7 +561,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -575,7 +575,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

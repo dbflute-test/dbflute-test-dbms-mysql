@@ -49,7 +49,7 @@ public class BsWhiteVariantRelationMasterQuxCQ extends AbstractBsWhiteVariantRel
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_variant_relation_master_qux) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteVariantRelationMasterQuxCQ extends AbstractBsWhiteVariantRel
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_variant_relation_master_qux on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteVariantRelationMasterQuxCQ extends AbstractBsWhiteVariantRel
     protected ConditionValue xgetCValueMasterQuxId() { return xdfgetMasterQuxId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationMasterQuxCQ addOrderBy_MasterQuxId_Asc() { regOBA("MASTER_QUX_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteVariantRelationMasterQuxCQ extends AbstractBsWhiteVariantRel
     protected ConditionValue xgetCValueMasterQuxName() { return xdfgetMasterQuxName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationMasterQuxCQ addOrderBy_MasterQuxName_Asc() { regOBA("MASTER_QUX_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteVariantRelationMasterQuxCQ extends AbstractBsWhiteVariantRel
     protected ConditionValue xgetCValueQuxTypeCode() { return xdfgetQuxTypeCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationMasterQuxCQ addOrderBy_QuxTypeCode_Asc() { regOBA("QUX_TYPE_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @return this. (NotNull)
      */

@@ -49,7 +49,7 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_suppress_def_check) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_suppress_def_check on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
     protected ConditionValue xgetCValueDefCheckId() { return xdfgetDefCheckId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteSuppressDefCheckCQ addOrderBy_DefCheckId_Asc() { regOBA("DEF_CHECK_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
     protected ConditionValue xgetCValueDefCheckName() { return xdfgetDefCheckName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteSuppressDefCheckCQ addOrderBy_DefCheckName_Asc() { regOBA("DEF_CHECK_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */

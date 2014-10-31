@@ -49,7 +49,7 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_only_one_to_one_to) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_only_one_to_one_to on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
     protected ConditionValue xgetCValueToId() { return xdfgetToId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteOnlyOneToOneToCQ addOrderBy_ToId_Asc() { regOBA("TO_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
     protected ConditionValue xgetCValueToName() { return xdfgetToName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteOnlyOneToOneToCQ addOrderBy_ToName_Asc() { regOBA("TO_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
     protected ConditionValue xgetCValueFromId() { return xdfgetFromId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
      * @return this. (NotNull)
      */
     public BsWhiteOnlyOneToOneToCQ addOrderBy_FromId_Asc() { regOBA("FROM_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
      * @return this. (NotNull)
      */
@@ -198,7 +198,7 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
      * @return The instance of condition-query. (NotNull)
      */

@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param fooId The value of fooId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param fooId The value of fooId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param fooId The value of fooId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param fooId The value of fooId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param fooId The value of fooId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param minNumber The min number of fooId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of fooId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param minNumber The min number of fooId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of fooId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param fooIdList The collection of fooId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param fooIdList The collection of fooId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      */
     public void setFooId_IsNull() { regFooId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      */
     public void setFooId_IsNotNull() { regFooId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     protected abstract ConditionValue xgetCValueFooId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @param fooName The value of fooName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -191,7 +191,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @param fooName The value of fooName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -204,7 +204,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @param fooNameList The collection of fooName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @param fooNameList The collection of fooName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -230,8 +230,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br>
      * <pre>e.g. setFooName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param fooName The value of fooName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br>
      * <pre>e.g. setFooName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param fooName The value of fooName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -252,8 +252,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @param fooName The value of fooName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @param fooName The value of fooName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @param fooName The value of fooName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -286,7 +286,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     protected abstract ConditionValue xgetCValueFooName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as equal. (NullAllowed: if null, no condition)
      */
@@ -295,7 +295,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -304,7 +304,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -313,7 +313,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -322,7 +322,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -331,8 +331,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      * <pre>e.g. setFooDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of fooDate. (NullAllowed: if null, no from-condition)
@@ -344,8 +344,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      * <pre>e.g. setFooDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of fooDate. (NullAllowed: if null, no from-condition)
@@ -357,8 +357,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -372,13 +372,13 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      */
     public void setFooDate_IsNull() { regFooDate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
      */
     public void setFooDate_IsNotNull() { regFooDate(CK_ISNN, DOBJ); }
@@ -387,7 +387,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     protected abstract ConditionValue xgetCValueFooDate();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
@@ -396,7 +396,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -405,7 +405,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as lessThan. (NullAllowed: if null, no condition)
      */
@@ -414,7 +414,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -423,8 +423,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no from-condition)
@@ -436,8 +436,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no from-condition)
@@ -449,8 +449,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -464,13 +464,13 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      */
     public void setRegisterDatetime_IsNull() { regRegisterDatetime(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      */
     public void setRegisterDatetime_IsNotNull() { regRegisterDatetime(CK_ISNN, DOBJ); }
@@ -482,7 +482,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteAdditionalCB&gt;() {
@@ -499,7 +499,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteAdditionalCB&gt;() {
@@ -516,7 +516,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteAdditionalCB&gt;() {
@@ -533,7 +533,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteAdditionalCB&gt;() {
@@ -550,7 +550,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteAdditionalCB&gt;() {
@@ -567,7 +567,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteAdditionalCB&gt;() {
@@ -650,7 +650,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -664,7 +664,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

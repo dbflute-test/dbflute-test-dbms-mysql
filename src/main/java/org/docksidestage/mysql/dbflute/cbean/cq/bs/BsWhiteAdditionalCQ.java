@@ -49,7 +49,7 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_additional) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_additional on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     protected ConditionValue xgetCValueFooId() { return xdfgetFooId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @return this. (NotNull)
      */
     public BsWhiteAdditionalCQ addOrderBy_FooId_Asc() { regOBA("foo_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @return this. (NotNull)
      */
     public BsWhiteAdditionalCQ addOrderBy_FooName_Asc() { regOBA("foo_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     protected ConditionValue xgetCValueFooDate() { return xdfgetFooDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * foo_date: {UnknownType}
      * @return this. (NotNull)
      */
     public BsWhiteAdditionalCQ addOrderBy_FooDate_Asc() { regOBA("foo_date"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * foo_date: {UnknownType}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @return this. (NotNull)
      */
     public BsWhiteAdditionalCQ addOrderBy_RegisterDatetime_Asc() { regOBA("register_datetime"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @return this. (NotNull)
      */

@@ -20,10 +20,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of WrongPackageBqp. <br />
+ * The entity of WrongPackageBqp. <br>
  * <pre>
  * [primary-key]
  *     
@@ -66,7 +67,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWrongPackageBqp extends AbstractEntity {
+public abstract class BsWrongPackageBqp extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -189,8 +190,8 @@ public abstract class BsWrongPackageBqp extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
@@ -200,8 +201,8 @@ public abstract class BsWrongPackageBqp extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
@@ -211,7 +212,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
@@ -221,7 +222,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -231,7 +232,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity {
     }
 
     /**
-     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br />
+     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
@@ -241,7 +242,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity {
     }
 
     /**
-     * [set] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br />
+     * [set] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
@@ -251,7 +252,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @return The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -260,7 +261,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {

@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DEPRECATED_CLS_ELEMENT as TABLE. <br />
+ * The entity of WHITE_DEPRECATED_CLS_ELEMENT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     DEPRECATED_CLS_ELEMENT_CODE
@@ -64,7 +65,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
+public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -115,8 +116,8 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of deprecatedClsElementCode as the classification of DeprecatedMapCollaborationType. <br />
-     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br />
+     * Get the value of deprecatedClsElementCode as the classification of DeprecatedMapCollaborationType. <br>
+     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -126,8 +127,8 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * Set the value of deprecatedClsElementCode as the classification of DeprecatedMapCollaborationType. <br />
-     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br />
+     * Set the value of deprecatedClsElementCode as the classification of DeprecatedMapCollaborationType. <br>
+     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -139,7 +140,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of deprecatedClsElementCode as FooName (FOO). <br />
+     * Set the value of deprecatedClsElementCode as FooName (FOO). <br>
      * FooName
      */
     public void setDeprecatedClsElementCode_FooName() {
@@ -147,7 +148,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * Set the value of deprecatedClsElementCode as BarName (BAR). <br />
+     * Set the value of deprecatedClsElementCode as BarName (BAR). <br>
      * BarBar: here (deprecated: test of deprecated)
      */
     @Deprecated
@@ -156,7 +157,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * Set the value of deprecatedClsElementCode as QuxName (QUX). <br />
+     * Set the value of deprecatedClsElementCode as QuxName (QUX). <br>
      * QuxQux: (deprecated: no original comment)
      */
     @Deprecated
@@ -168,7 +169,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of deprecatedClsElementCode FooName? <br />
+     * Is the value of deprecatedClsElementCode FooName? <br>
      * FooName
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -179,7 +180,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * Is the value of deprecatedClsElementCode BarName? <br />
+     * Is the value of deprecatedClsElementCode BarName? <br>
      * BarBar: here (deprecated: test of deprecated)
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -191,7 +192,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * Is the value of deprecatedClsElementCode QuxName? <br />
+     * Is the value of deprecatedClsElementCode QuxName? <br>
      * QuxQux: (deprecated: no original comment)
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -203,7 +204,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * contains deprecated element here <br />
+     * contains deprecated element here <br>
      * The group elements:[FooName, BarName]
      * @return The determination, true or false.
      */
@@ -296,7 +297,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br />
+     * [get] DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * @return The value of the column 'DEPRECATED_CLS_ELEMENT_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getDeprecatedClsElementCode() {
@@ -305,7 +306,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * [set] DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br />
+     * [set] DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * @param deprecatedClsElementCode The value of the column 'DEPRECATED_CLS_ELEMENT_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setDeprecatedClsElementCode(String deprecatedClsElementCode) {
@@ -315,7 +316,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * [get] DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br />
+     * [get] DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br>
      * @return The value of the column 'DEPRECATED_CLS_ELEMENT_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getDeprecatedClsElementName() {
@@ -324,7 +325,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity {
     }
 
     /**
-     * [set] DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br />
+     * [set] DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br>
      * @param deprecatedClsElementName The value of the column 'DEPRECATED_CLS_ELEMENT_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDeprecatedClsElementName(String deprecatedClsElementName) {

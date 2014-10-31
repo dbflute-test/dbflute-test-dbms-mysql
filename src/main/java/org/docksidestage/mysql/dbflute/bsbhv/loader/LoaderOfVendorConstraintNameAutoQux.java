@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of VENDOR_CONSTRAINT_NAME_AUTO_QUX as TABLE. <br />
+ * The referrer loader of VENDOR_CONSTRAINT_NAME_AUTO_QUX as TABLE. <br>
  * <pre>
  * [primary key]
  *     CONSTRAINT_NAME_AUTO_QUX_ID
@@ -79,7 +79,7 @@ public class LoaderOfVendorConstraintNameAutoQux {
     protected List<VendorConstraintNameAutoRef> _referrerVendorConstraintNameAutoRefList;
 
     /**
-     * Load referrer of vendorConstraintNameAutoRefList by the set-upper of referrer. <br />
+     * Load referrer of vendorConstraintNameAutoRefList by the set-upper of referrer. <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefList'.
      * <pre>
      * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorConstraintNameAutoQuxList</span>, <span style="color: #553000">quxLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfVendorConstraintNameAutoQux {
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    refLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfVendorConstraintNameAutoQux {
      *     ... = vendorConstraintNameAutoQux.<span style="color: #CC4747">getVendorConstraintNameAutoRefList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setConstraintNameAutoQuxId_InScope(pkList);

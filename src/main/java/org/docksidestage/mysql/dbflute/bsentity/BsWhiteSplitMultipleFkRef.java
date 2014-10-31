@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SPLIT_MULTIPLE_FK_REF as TABLE. <br />
+ * The entity of WHITE_SPLIT_MULTIPLE_FK_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     FIRST_ID, SECOND_CODE
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
+public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -182,7 +183,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] FIRST_ID: {PK, NotNull, INT(10)} <br />
+     * [get] FIRST_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'FIRST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getFirstId() {
@@ -191,7 +192,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] FIRST_ID: {PK, NotNull, INT(10)} <br />
+     * [set] FIRST_ID: {PK, NotNull, INT(10)} <br>
      * @param firstId The value of the column 'FIRST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFirstId(Integer firstId) {
@@ -200,7 +201,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] SECOND_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [get] SECOND_CODE: {PK, NotNull, CHAR(3)} <br>
      * @return The value of the column 'SECOND_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getSecondCode() {
@@ -209,7 +210,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] SECOND_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [set] SECOND_CODE: {PK, NotNull, CHAR(3)} <br>
      * @param secondCode The value of the column 'SECOND_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setSecondCode(String secondCode) {
@@ -218,7 +219,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] REF_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] REF_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'REF_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getRefName() {
@@ -227,7 +228,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] REF_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] REF_NAME: {NotNull, VARCHAR(200)} <br>
      * @param refName The value of the column 'REF_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setRefName(String refName) {

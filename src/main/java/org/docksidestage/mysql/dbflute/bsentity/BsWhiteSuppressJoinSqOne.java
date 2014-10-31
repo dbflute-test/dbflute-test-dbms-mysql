@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SUPPRESS_JOIN_SQ_ONE as TABLE. <br />
+ * The entity of WHITE_SUPPRESS_JOIN_SQ_ONE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     ONE_ID
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
+public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -121,7 +122,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param suppressJoinSqId : UQ, NotNull, INT(10), FK to white_suppress_join_sq. (NotNull)
      */
@@ -138,7 +139,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     protected WhiteSuppressJoinSq _whiteSuppressJoinSq;
 
     /**
-     * [get] white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'. <br />
+     * [get] white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'. <br>
      * @return The entity of foreign property 'whiteSuppressJoinSq'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSuppressJoinSq getWhiteSuppressJoinSq() {
@@ -157,7 +158,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     protected WhiteSuppressJoinSqOneAddi _whiteSuppressJoinSqOneAddi;
 
     /**
-     * [get] white_suppress_join_sq_one_addi by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'. <br />
+     * [get] white_suppress_join_sq_one_addi by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'. <br>
      * @return The entity of foreign property 'whiteSuppressJoinSqOneAddi'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSuppressJoinSqOneAddi getWhiteSuppressJoinSqOneAddi() {
@@ -247,7 +248,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] ONE_ID: {PK, NotNull, INT(10)} <br />
+     * [get] ONE_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'ONE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getOneId() {
@@ -256,7 +257,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     }
 
     /**
-     * [set] ONE_ID: {PK, NotNull, INT(10)} <br />
+     * [set] ONE_ID: {PK, NotNull, INT(10)} <br>
      * @param oneId The value of the column 'ONE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setOneId(Integer oneId) {
@@ -265,7 +266,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     }
 
     /**
-     * [get] ONE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'ONE_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getOneName() {
@@ -274,7 +275,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     }
 
     /**
-     * [set] ONE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * @param oneName The value of the column 'ONE_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setOneName(String oneName) {
@@ -283,7 +284,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     }
 
     /**
-     * [get] SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq} <br />
+     * [get] SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq} <br>
      * @return The value of the column 'SUPPRESS_JOIN_SQ_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSuppressJoinSqId() {
@@ -292,7 +293,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     }
 
     /**
-     * [set] SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq} <br />
+     * [set] SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq} <br>
      * @param suppressJoinSqId The value of the column 'SUPPRESS_JOIN_SQ_ID'. (basically NotNull if update: for the constraint)
      */
     public void setSuppressJoinSqId(Integer suppressJoinSqId) {
@@ -301,7 +302,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     }
 
     /**
-     * [get] ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI} <br />
+     * [get] ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI} <br>
      * @return The value of the column 'ONE_ADDI_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getOneAddiId() {
@@ -310,7 +311,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity {
     }
 
     /**
-     * [set] ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI} <br />
+     * [set] ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI} <br>
      * @param oneAddiId The value of the column 'ONE_ADDI_ID'. (basically NotNull if update: for the constraint)
      */
     public void setOneAddiId(Integer oneAddiId) {

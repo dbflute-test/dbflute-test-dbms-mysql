@@ -49,7 +49,7 @@ public class BsWhiteUqFkCQ extends AbstractBsWhiteUqFkCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_uq_fk) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteUqFkCQ extends AbstractBsWhiteUqFkCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_uq_fk on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhiteUqFkCQ extends AbstractBsWhiteUqFkCQ {
     public String keepUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdListParameter(Object pm) { return xkeepSQuePm("uqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * UQ_FK_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhiteUqFkCQ addOrderBy_UqFkId_Asc() { regOBA("UQ_FK_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * UQ_FK_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -143,14 +143,14 @@ public class BsWhiteUqFkCQ extends AbstractBsWhiteUqFkCQ {
     public String keepUqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeListParameter(Object pm) { return xkeepSQuePm("uqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteUqFkCQ addOrderBy_UqFkCode_Asc() { regOBA("UQ_FK_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_XLS_MAN as TABLE. <br />
+ * The entity of WHITE_XLS_MAN as TABLE. <br>
  * <pre>
  * [primary-key]
  *     XLS_MAN_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteXlsMan extends AbstractEntity {
+public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -179,7 +180,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'XLS_MAN_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getXlsManId() {
@@ -188,7 +189,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [set] XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param xlsManId The value of the column 'XLS_MAN_ID'. (basically NotNull if update: for the constraint)
      */
     public void setXlsManId(Long xlsManId) {
@@ -197,7 +198,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [get] STRING_CONVERTED: {VARCHAR(200)} <br />
+     * [get] STRING_CONVERTED: {VARCHAR(200)} <br>
      * @return The value of the column 'STRING_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
     public String getStringConverted() {
@@ -206,7 +207,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [set] STRING_CONVERTED: {VARCHAR(200)} <br />
+     * [set] STRING_CONVERTED: {VARCHAR(200)} <br>
      * @param stringConverted The value of the column 'STRING_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStringConverted(String stringConverted) {
@@ -215,7 +216,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [get] TIMESTAMP_CONVERTED: {DATETIME(19)} <br />
+     * [get] TIMESTAMP_CONVERTED: {DATETIME(19)} <br>
      * @return The value of the column 'TIMESTAMP_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTimestampConverted() {
@@ -224,7 +225,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [set] TIMESTAMP_CONVERTED: {DATETIME(19)} <br />
+     * [set] TIMESTAMP_CONVERTED: {DATETIME(19)} <br>
      * @param timestampConverted The value of the column 'TIMESTAMP_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTimestampConverted(java.sql.Timestamp timestampConverted) {

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_STILETTO_ALIAS_REF as TABLE. <br />
+ * The entity of WHITE_STILETTO_ALIAS_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REF_ID
@@ -83,7 +84,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
+public abstract class BsWhiteStilettoAliasRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -167,7 +168,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     protected WhiteStilettoAlias _whiteStilettoAlias;
 
     /**
-     * [get] white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'. <br />
+     * [get] white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'. <br>
      * @return The entity of foreign property 'whiteStilettoAlias'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteStilettoAlias getWhiteStilettoAlias() {
@@ -261,7 +262,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] REF_ID: {PK, NotNull, INT(10)} <br />
+     * [get] REF_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRefId() {
@@ -270,7 +271,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] REF_ID: {PK, NotNull, INT(10)} <br />
+     * [set] REF_ID: {PK, NotNull, INT(10)} <br>
      * @param refId The value of the column 'REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRefId(Integer refId) {
@@ -279,7 +280,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] FOO0: {VARCHAR(200)} <br />
+     * [get] FOO0: {VARCHAR(200)} <br>
      * @return The value of the column 'FOO0'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo0() {
@@ -288,7 +289,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] FOO0: {VARCHAR(200)} <br />
+     * [set] FOO0: {VARCHAR(200)} <br>
      * @param foo0 The value of the column 'FOO0'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo0(String foo0) {
@@ -297,7 +298,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] FOO_1: {VARCHAR(200)} <br />
+     * [get] FOO_1: {VARCHAR(200)} <br>
      * @return The value of the column 'FOO_1'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo1() {
@@ -306,7 +307,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] FOO_1: {VARCHAR(200)} <br />
+     * [set] FOO_1: {VARCHAR(200)} <br>
      * @param foo1 The value of the column 'FOO_1'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo1(String foo1) {
@@ -315,7 +316,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] FOO2: {VARCHAR(200)} <br />
+     * [get] FOO2: {VARCHAR(200)} <br>
      * @return The value of the column 'FOO2'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo2() {
@@ -324,7 +325,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] FOO2: {VARCHAR(200)} <br />
+     * [set] FOO2: {VARCHAR(200)} <br>
      * @param foo2 The value of the column 'FOO2'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo2(String foo2) {
@@ -333,7 +334,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] FOO3: {VARCHAR(200)} <br />
+     * [get] FOO3: {VARCHAR(200)} <br>
      * @return The value of the column 'FOO3'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo3() {
@@ -342,7 +343,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] FOO3: {VARCHAR(200)} <br />
+     * [set] FOO3: {VARCHAR(200)} <br>
      * @param foo3 The value of the column 'FOO3'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo3(String foo3) {
@@ -351,7 +352,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] FOO_4: {VARCHAR(200)} <br />
+     * [get] FOO_4: {VARCHAR(200)} <br>
      * @return The value of the column 'FOO_4'. (NullAllowed even if selected: for no constraint)
      */
     public String getFoo4() {
@@ -360,7 +361,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] FOO_4: {VARCHAR(200)} <br />
+     * [set] FOO_4: {VARCHAR(200)} <br>
      * @param foo4 The value of the column 'FOO_4'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFoo4(String foo4) {
@@ -369,7 +370,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] BAR_0: {VARCHAR(200)} <br />
+     * [get] BAR_0: {VARCHAR(200)} <br>
      * @return The value of the column 'BAR_0'. (NullAllowed even if selected: for no constraint)
      */
     public String getBar0() {
@@ -378,7 +379,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] BAR_0: {VARCHAR(200)} <br />
+     * [set] BAR_0: {VARCHAR(200)} <br>
      * @param bar0 The value of the column 'BAR_0'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBar0(String bar0) {
@@ -387,7 +388,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] QUX_0: {VARCHAR(200)} <br />
+     * [get] QUX_0: {VARCHAR(200)} <br>
      * @return The value of the column 'QUX_0'. (NullAllowed even if selected: for no constraint)
      */
     public String getQux0() {
@@ -396,7 +397,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] QUX_0: {VARCHAR(200)} <br />
+     * [set] QUX_0: {VARCHAR(200)} <br>
      * @param qux0 The value of the column 'QUX_0'. (NullAllowed: null update allowed for no constraint)
      */
     public void setQux0(String qux0) {
@@ -405,7 +406,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] c21: {VARCHAR(200)} <br />
+     * [get] c21: {VARCHAR(200)} <br>
      * @return The value of the column 'c21'. (NullAllowed even if selected: for no constraint)
      */
     public String getC21() {
@@ -414,7 +415,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] c21: {VARCHAR(200)} <br />
+     * [set] c21: {VARCHAR(200)} <br>
      * @param c21 The value of the column 'c21'. (NullAllowed: null update allowed for no constraint)
      */
     public void setC21(String c21) {
@@ -423,7 +424,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] c22: {VARCHAR(200)} <br />
+     * [get] c22: {VARCHAR(200)} <br>
      * @return The value of the column 'c22'. (NullAllowed even if selected: for no constraint)
      */
     public String getC22() {
@@ -432,7 +433,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] c22: {VARCHAR(200)} <br />
+     * [set] c22: {VARCHAR(200)} <br>
      * @param c22 The value of the column 'c22'. (NullAllowed: null update allowed for no constraint)
      */
     public void setC22(String c22) {
@@ -441,7 +442,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] c23: {VARCHAR(200)} <br />
+     * [get] c23: {VARCHAR(200)} <br>
      * @return The value of the column 'c23'. (NullAllowed even if selected: for no constraint)
      */
     public String getC23() {
@@ -450,7 +451,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] c23: {VARCHAR(200)} <br />
+     * [set] c23: {VARCHAR(200)} <br>
      * @param c23 The value of the column 'c23'. (NullAllowed: null update allowed for no constraint)
      */
     public void setC23(String c23) {
@@ -459,7 +460,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [get] STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias} <br />
+     * [get] STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias} <br>
      * @return The value of the column 'STILETTO_ALIAS_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getStilettoAliasId() {
@@ -468,7 +469,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity {
     }
 
     /**
-     * [set] STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias} <br />
+     * [set] STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias} <br>
      * @param stilettoAliasId The value of the column 'STILETTO_ALIAS_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStilettoAliasId(Integer stilettoAliasId) {

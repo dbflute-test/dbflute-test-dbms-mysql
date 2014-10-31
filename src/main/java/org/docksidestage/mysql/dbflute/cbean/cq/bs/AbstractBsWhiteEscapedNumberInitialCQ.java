@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @param numberInitialCode The value of numberInitialCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -71,8 +71,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As EscapedNumberInitialCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br />
+     * Equal(=). As EscapedNumberInitialCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -81,7 +81,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As N1Foo (1FO). And OnlyOnceRegistered. <br />
+     * Equal(=). As N1Foo (1FO). And OnlyOnceRegistered. <br>
      * 1Foo
      */
     public void setNumberInitialCode_Equal_N1Foo() {
@@ -89,7 +89,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As N3Bar (3BA). And OnlyOnceRegistered. <br />
+     * Equal(=). As N3Bar (3BA). And OnlyOnceRegistered. <br>
      * 3Bar
      */
     public void setNumberInitialCode_Equal_N3Bar() {
@@ -97,7 +97,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As N7Qux (7QU). And OnlyOnceRegistered. <br />
+     * Equal(=). As N7Qux (7QU). And OnlyOnceRegistered. <br>
      * 7Qux
      */
     public void setNumberInitialCode_Equal_N7Qux() {
@@ -105,7 +105,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As Corge9 (CO9). And OnlyOnceRegistered. <br />
+     * Equal(=). As Corge9 (CO9). And OnlyOnceRegistered. <br>
      * Corge9
      */
     public void setNumberInitialCode_Equal_Corge9() {
@@ -117,7 +117,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @param numberInitialCode The value of numberInitialCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -126,8 +126,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As EscapedNumberInitialCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br />
+     * NotEqual(&lt;&gt;). As EscapedNumberInitialCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As N1Foo (1FO). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As N1Foo (1FO). And OnlyOnceRegistered. <br>
      * 1Foo
      */
     public void setNumberInitialCode_NotEqual_N1Foo() {
@@ -144,7 +144,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As N3Bar (3BA). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As N3Bar (3BA). And OnlyOnceRegistered. <br>
      * 3Bar
      */
     public void setNumberInitialCode_NotEqual_N3Bar() {
@@ -152,7 +152,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As N7Qux (7QU). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As N7Qux (7QU). And OnlyOnceRegistered. <br>
      * 7Qux
      */
     public void setNumberInitialCode_NotEqual_N7Qux() {
@@ -160,7 +160,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As Corge9 (CO9). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As Corge9 (CO9). And OnlyOnceRegistered. <br>
      * Corge9
      */
     public void setNumberInitialCode_NotEqual_Corge9() {
@@ -172,7 +172,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @param numberInitialCodeList The collection of numberInitialCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -181,8 +181,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * InScope {in ('a', 'b')}. As EscapedNumberInitialCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br />
+     * InScope {in ('a', 'b')}. As EscapedNumberInitialCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -195,7 +195,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @param numberInitialCodeList The collection of numberInitialCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -204,8 +204,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. As EscapedNumberInitialCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br />
+     * NotInScope {not in ('a', 'b')}. As EscapedNumberInitialCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -218,13 +218,13 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      */
     public void setNumberInitialCode_IsNull() { regNumberInitialCode(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      */
     public void setNumberInitialCode_IsNotNull() { regNumberInitialCode(CK_ISNN, DOBJ); }
@@ -233,7 +233,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     protected abstract ConditionValue xgetCValueNumberInitialCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @param numberInitialName The value of numberInitialName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -246,7 +246,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @param numberInitialName The value of numberInitialName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -259,7 +259,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @param numberInitialNameList The collection of numberInitialName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -272,7 +272,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @param numberInitialNameList The collection of numberInitialName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -285,8 +285,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * NUMBER_INITIAL_NAME: {VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * NUMBER_INITIAL_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setNumberInitialName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param numberInitialName The value of numberInitialName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -296,8 +296,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * NUMBER_INITIAL_NAME: {VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * NUMBER_INITIAL_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setNumberInitialName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param numberInitialName The value of numberInitialName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -307,8 +307,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @param numberInitialName The value of numberInitialName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -318,8 +318,8 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @param numberInitialName The value of numberInitialName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -329,7 +329,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @param numberInitialName The value of numberInitialName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -338,19 +338,19 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      */
     public void setNumberInitialName_IsNull() { regNumberInitialName(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      */
     public void setNumberInitialName_IsNullOrEmpty() { regNumberInitialName(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      */
     public void setNumberInitialName_IsNotNull() { regNumberInitialName(CK_ISNN, DOBJ); }
@@ -362,7 +362,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteEscapedNumberInitialCB&gt;() {
@@ -379,7 +379,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteEscapedNumberInitialCB&gt;() {
@@ -396,7 +396,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteEscapedNumberInitialCB&gt;() {
@@ -413,7 +413,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteEscapedNumberInitialCB&gt;() {
@@ -430,7 +430,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteEscapedNumberInitialCB&gt;() {
@@ -447,7 +447,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteEscapedNumberInitialCB&gt;() {
@@ -530,7 +530,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -544,7 +544,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

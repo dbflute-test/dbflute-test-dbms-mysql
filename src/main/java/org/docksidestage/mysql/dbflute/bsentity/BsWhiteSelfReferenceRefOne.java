@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SELF_REFERENCE_REF_ONE as TABLE. <br />
+ * The entity of WHITE_SELF_REFERENCE_REF_ONE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     SELF_REFERENCE_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity {
+public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -117,7 +118,7 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity {
     protected WhiteSelfReference _whiteSelfReference;
 
     /**
-     * [get] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'. <br />
+     * [get] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'. <br>
      * @return The entity of foreign property 'whiteSelfReference'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSelfReference getWhiteSelfReference() {
@@ -136,7 +137,7 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity {
     protected WhiteSelfReference _whiteSelfReferenceAsDirectParent;
 
     /**
-     * [get] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'. <br />
+     * [get] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'. <br>
      * @return The entity of foreign property 'whiteSelfReferenceAsDirectParent'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSelfReference getWhiteSelfReferenceAsDirectParent() {
@@ -224,7 +225,7 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference} <br />
+     * [get] SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference} <br>
      * @return The value of the column 'SELF_REFERENCE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getSelfReferenceId() {
@@ -233,7 +234,7 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity {
     }
 
     /**
-     * [set] SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference} <br />
+     * [set] SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference} <br>
      * @param selfReferenceId The value of the column 'SELF_REFERENCE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setSelfReferenceId(Long selfReferenceId) {
@@ -242,7 +243,7 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity {
     }
 
     /**
-     * [get] SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'SELF_REFERENCE_REF_ONE_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getSelfReferenceRefOneName() {
@@ -251,7 +252,7 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity {
     }
 
     /**
-     * [set] SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * @param selfReferenceRefOneName The value of the column 'SELF_REFERENCE_REF_ONE_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setSelfReferenceRefOneName(String selfReferenceRefOneName) {

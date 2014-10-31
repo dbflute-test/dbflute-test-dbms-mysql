@@ -26,7 +26,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The base class for typed parameter-bean of SimpleVendorCheck. <br />
+ * The base class for typed parameter-bean of SimpleVendorCheck. <br>
  * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectSimpleVendorCheck</span>" on VendorCheckBhv.
  * @author DBFlute(AutoGenerator)
  */
@@ -45,7 +45,7 @@ public class BsSimpleVendorCheckPmb implements ListHandlingPmb<VendorCheckBhv, S
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of SimpleVendorCheck. <br />
+     * Constructor for the typed parameter-bean of SimpleVendorCheck. <br>
      * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectSimpleVendorCheck</span>" on VendorCheckBhv.
      */
     public BsSimpleVendorCheckPmb() {

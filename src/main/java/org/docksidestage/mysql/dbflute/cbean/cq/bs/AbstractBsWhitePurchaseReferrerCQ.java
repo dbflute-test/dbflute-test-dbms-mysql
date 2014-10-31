@@ -62,7 +62,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseReferrerId The value of purchaseReferrerId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseReferrerId The value of purchaseReferrerId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseReferrerId The value of purchaseReferrerId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseReferrerId The value of purchaseReferrerId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseReferrerId The value of purchaseReferrerId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param minNumber The min number of purchaseReferrerId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of purchaseReferrerId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param minNumber The min number of purchaseReferrerId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of purchaseReferrerId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseReferrerIdList The collection of purchaseReferrerId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseReferrerIdList The collection of purchaseReferrerId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      */
     public void setPurchaseReferrerId_IsNull() { regPurchaseReferrerId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      */
     public void setPurchaseReferrerId_IsNotNull() { regPurchaseReferrerId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     protected abstract ConditionValue xgetCValuePurchaseReferrerId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @param purchaseReferrerName The value of purchaseReferrerName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -191,7 +191,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @param purchaseReferrerName The value of purchaseReferrerName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -204,7 +204,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @param purchaseReferrerNameList The collection of purchaseReferrerName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @param purchaseReferrerNameList The collection of purchaseReferrerName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -230,8 +230,8 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setPurchaseReferrerName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param purchaseReferrerName The value of purchaseReferrerName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setPurchaseReferrerName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param purchaseReferrerName The value of purchaseReferrerName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -252,8 +252,8 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @param purchaseReferrerName The value of purchaseReferrerName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @param purchaseReferrerName The value of purchaseReferrerName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @param purchaseReferrerName The value of purchaseReferrerName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePurchaseReferrerCB&gt;() {
@@ -306,7 +306,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePurchaseReferrerCB&gt;() {
@@ -323,7 +323,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePurchaseReferrerCB&gt;() {
@@ -340,7 +340,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePurchaseReferrerCB&gt;() {
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePurchaseReferrerCB&gt;() {
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePurchaseReferrerCB&gt;() {
@@ -457,7 +457,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -471,7 +471,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

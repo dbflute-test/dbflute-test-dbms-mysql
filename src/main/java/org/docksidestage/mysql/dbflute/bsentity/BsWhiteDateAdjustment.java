@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DATE_ADJUSTMENT as TABLE. <br />
+ * The entity of WHITE_DATE_ADJUSTMENT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     DATE_ADJUSTMENT_ID
@@ -81,7 +82,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteDateAdjustment extends AbstractEntity {
+public abstract class BsWhiteDateAdjustment extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -227,7 +228,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'DATE_ADJUSTMENT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getDateAdjustmentId() {
@@ -236,7 +237,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param dateAdjustmentId The value of the column 'DATE_ADJUSTMENT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setDateAdjustmentId(Long dateAdjustmentId) {
@@ -245,7 +246,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] (adjusted)ADJUSTED_DATE: {DATE(10)} <br />
+     * [get] (adjusted)ADJUSTED_DATE: {DATE(10)} <br>
      * @return The value of the column 'ADJUSTED_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getAdjustedDate() {
@@ -254,7 +255,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] (adjusted)ADJUSTED_DATE: {DATE(10)} <br />
+     * [set] (adjusted)ADJUSTED_DATE: {DATE(10)} <br>
      * @param adjustedDate The value of the column 'ADJUSTED_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedDate(java.util.Date adjustedDate) {
@@ -263,7 +264,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] ADJUSTED_DATETIME: {DATETIME(19)} <br />
+     * [get] ADJUSTED_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'ADJUSTED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getAdjustedDatetime() {
@@ -272,7 +273,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] ADJUSTED_DATETIME: {DATETIME(19)} <br />
+     * [set] ADJUSTED_DATETIME: {DATETIME(19)} <br>
      * @param adjustedDatetime The value of the column 'ADJUSTED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedDatetime(java.sql.Timestamp adjustedDatetime) {
@@ -281,7 +282,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] ADJUSTED_TIME: {TIME(8)} <br />
+     * [get] ADJUSTED_TIME: {TIME(8)} <br>
      * @return The value of the column 'ADJUSTED_TIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Time getAdjustedTime() {
@@ -290,7 +291,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] ADJUSTED_TIME: {TIME(8)} <br />
+     * [set] ADJUSTED_TIME: {TIME(8)} <br>
      * @param adjustedTime The value of the column 'ADJUSTED_TIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedTime(java.sql.Time adjustedTime) {
@@ -299,7 +300,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] ADJUSTED_INTEGER: {INT(10)} <br />
+     * [get] ADJUSTED_INTEGER: {INT(10)} <br>
      * @return The value of the column 'ADJUSTED_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getAdjustedInteger() {
@@ -308,7 +309,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] ADJUSTED_INTEGER: {INT(10)} <br />
+     * [set] ADJUSTED_INTEGER: {INT(10)} <br>
      * @param adjustedInteger The value of the column 'ADJUSTED_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedInteger(Integer adjustedInteger) {
@@ -317,7 +318,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)} <br />
+     * [get] (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)} <br>
      * @return The value of the column 'ADJUSTED_NAMED_STRING_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedNamedStringLong() {
@@ -326,7 +327,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)} <br />
+     * [set] (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)} <br>
      * @param adjustedNamedStringLong The value of the column 'ADJUSTED_NAMED_STRING_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedNamedStringLong(Long adjustedNamedStringLong) {
@@ -335,7 +336,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)} <br />
+     * [get] (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)} <br>
      * @return The value of the column 'ADJUSTED_NAMED_TYPED_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedNamedTypedLong() {
@@ -344,7 +345,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)} <br />
+     * [set] (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)} <br>
      * @param adjustedNamedTypedLong The value of the column 'ADJUSTED_NAMED_TYPED_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedNamedTypedLong(Long adjustedNamedTypedLong) {
@@ -353,7 +354,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)} <br />
+     * [get] (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)} <br>
      * @return The value of the column 'ADJUSTED_PINPOINT_STRING_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedPinpointStringLong() {
@@ -362,7 +363,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)} <br />
+     * [set] (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)} <br>
      * @param adjustedPinpointStringLong The value of the column 'ADJUSTED_PINPOINT_STRING_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedPinpointStringLong(Long adjustedPinpointStringLong) {
@@ -371,7 +372,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)} <br />
+     * [get] (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)} <br>
      * @return The value of the column 'ADJUSTED_PINPOINT_TYPED_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedPinpointTypedLong() {
@@ -380,7 +381,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)} <br />
+     * [set] (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)} <br>
      * @param adjustedPinpointTypedLong The value of the column 'ADJUSTED_PINPOINT_TYPED_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedPinpointTypedLong(Long adjustedPinpointTypedLong) {
@@ -389,7 +390,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] ADJUSTED_PLAIN_LONG: {BIGINT(19)} <br />
+     * [get] ADJUSTED_PLAIN_LONG: {BIGINT(19)} <br>
      * @return The value of the column 'ADJUSTED_PLAIN_LONG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getAdjustedPlainLong() {
@@ -398,7 +399,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] ADJUSTED_PLAIN_LONG: {BIGINT(19)} <br />
+     * [set] ADJUSTED_PLAIN_LONG: {BIGINT(19)} <br>
      * @param adjustedPlainLong The value of the column 'ADJUSTED_PLAIN_LONG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedPlainLong(Long adjustedPlainLong) {
@@ -407,7 +408,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [get] ADJUSTED_STRING: {VARCHAR(32)} <br />
+     * [get] ADJUSTED_STRING: {VARCHAR(32)} <br>
      * @return The value of the column 'ADJUSTED_STRING'. (NullAllowed even if selected: for no constraint)
      */
     public String getAdjustedString() {
@@ -416,7 +417,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity {
     }
 
     /**
-     * [set] ADJUSTED_STRING: {VARCHAR(32)} <br />
+     * [set] ADJUSTED_STRING: {VARCHAR(32)} <br>
      * @param adjustedString The value of the column 'ADJUSTED_STRING'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedString(String adjustedString) {

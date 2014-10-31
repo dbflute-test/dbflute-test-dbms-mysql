@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_NO_PK as TABLE. <br />
+ * The entity of WHITE_NO_PK as TABLE. <br>
  * <pre>
  * [primary-key]
  *     
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteNoPk extends AbstractEntity {
+public abstract class BsWhiteNoPk extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -182,7 +183,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] NO_PK_ID: {NotNull, DECIMAL(16)} <br />
+     * [get] NO_PK_ID: {NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'NO_PK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getNoPkId() {
@@ -191,7 +192,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
     }
 
     /**
-     * [set] NO_PK_ID: {NotNull, DECIMAL(16)} <br />
+     * [set] NO_PK_ID: {NotNull, DECIMAL(16)} <br>
      * @param noPkId The value of the column 'NO_PK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setNoPkId(Long noPkId) {
@@ -200,7 +201,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
     }
 
     /**
-     * [get] NO_PK_NAME: {VARCHAR(32)} <br />
+     * [get] NO_PK_NAME: {VARCHAR(32)} <br>
      * @return The value of the column 'NO_PK_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getNoPkName() {
@@ -209,7 +210,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
     }
 
     /**
-     * [set] NO_PK_NAME: {VARCHAR(32)} <br />
+     * [set] NO_PK_NAME: {VARCHAR(32)} <br>
      * @param noPkName The value of the column 'NO_PK_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNoPkName(String noPkName) {
@@ -218,7 +219,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
     }
 
     /**
-     * [get] NO_PK_INTEGER: {INT(10)} <br />
+     * [get] NO_PK_INTEGER: {INT(10)} <br>
      * @return The value of the column 'NO_PK_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNoPkInteger() {
@@ -227,7 +228,7 @@ public abstract class BsWhiteNoPk extends AbstractEntity {
     }
 
     /**
-     * [set] NO_PK_INTEGER: {INT(10)} <br />
+     * [set] NO_PK_INTEGER: {INT(10)} <br>
      * @param noPkInteger The value of the column 'NO_PK_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNoPkInteger(Integer noPkInteger) {

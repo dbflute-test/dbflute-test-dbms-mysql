@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_IMPLICIT_REVERSE_FK_REF as TABLE. <br />
+ * The entity of WHITE_IMPLICIT_REVERSE_FK_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     WHITE_IMPLICIT_REVERSE_FK_REF_ID
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
+public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -121,7 +122,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param whiteImplicitReverseFkId : UQ+, NotNull, INT(10). (NotNull)
      * @param validBeginDate : +UQ, NotNull, DATE(10). (NotNull)
@@ -198,7 +199,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] WHITE_IMPLICIT_REVERSE_FK_REF_ID: {PK, ID, NotNull, INT(10)} <br />
+     * [get] WHITE_IMPLICIT_REVERSE_FK_REF_ID: {PK, ID, NotNull, INT(10)} <br>
      * @return The value of the column 'WHITE_IMPLICIT_REVERSE_FK_REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getWhiteImplicitReverseFkRefId() {
@@ -207,7 +208,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] WHITE_IMPLICIT_REVERSE_FK_REF_ID: {PK, ID, NotNull, INT(10)} <br />
+     * [set] WHITE_IMPLICIT_REVERSE_FK_REF_ID: {PK, ID, NotNull, INT(10)} <br>
      * @param whiteImplicitReverseFkRefId The value of the column 'WHITE_IMPLICIT_REVERSE_FK_REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setWhiteImplicitReverseFkRefId(Integer whiteImplicitReverseFkRefId) {
@@ -216,7 +217,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)} <br />
+     * [get] WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)} <br>
      * @return The value of the column 'WHITE_IMPLICIT_REVERSE_FK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getWhiteImplicitReverseFkId() {
@@ -225,7 +226,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)} <br />
+     * [set] WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)} <br>
      * @param whiteImplicitReverseFkId The value of the column 'WHITE_IMPLICIT_REVERSE_FK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setWhiteImplicitReverseFkId(Integer whiteImplicitReverseFkId) {
@@ -234,7 +235,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br />
+     * [get] VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br>
      * @return The value of the column 'VALID_BEGIN_DATE'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getValidBeginDate() {
@@ -243,7 +244,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br />
+     * [set] VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br>
      * @param validBeginDate The value of the column 'VALID_BEGIN_DATE'. (basically NotNull if update: for the constraint)
      */
     public void setValidBeginDate(java.util.Date validBeginDate) {
@@ -252,7 +253,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] VALID_END_DATE: {NotNull, DATE(10)} <br />
+     * [get] VALID_END_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'VALID_END_DATE'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getValidEndDate() {
@@ -261,7 +262,7 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] VALID_END_DATE: {NotNull, DATE(10)} <br />
+     * [set] VALID_END_DATE: {NotNull, DATE(10)} <br>
      * @param validEndDate The value of the column 'VALID_END_DATE'. (basically NotNull if update: for the constraint)
      */
     public void setValidEndDate(java.util.Date validEndDate) {

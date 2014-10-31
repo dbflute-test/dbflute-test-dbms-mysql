@@ -26,7 +26,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The base class for typed parameter-bean of UnionVendorCheck. <br />
+ * The base class for typed parameter-bean of UnionVendorCheck. <br>
  * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectUnionVendorCheck</span>" on VendorCheckBhv.
  * @author DBFlute(AutoGenerator)
  */
@@ -45,7 +45,7 @@ public class BsUnionVendorCheckPmb implements ListHandlingPmb<VendorCheckBhv, Un
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of UnionVendorCheck. <br />
+     * Constructor for the typed parameter-bean of UnionVendorCheck. <br>
      * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectUnionVendorCheck</span>" on VendorCheckBhv.
      */
     public BsUnionVendorCheckPmb() {

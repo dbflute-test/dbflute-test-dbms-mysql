@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SPLIT_MULTIPLE_FK_BASE as TABLE. <br />
+ * The entity of WHITE_SPLIT_MULTIPLE_FK_BASE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     BASE_ID
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
+public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -127,7 +128,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     protected WhiteSplitMultipleFkNext _whiteSplitMultipleFkNext;
 
     /**
-     * [get] white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'. <br />
+     * [get] white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'. <br>
      * @return The entity of foreign property 'whiteSplitMultipleFkNext'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSplitMultipleFkNext getWhiteSplitMultipleFkNext() {
@@ -146,7 +147,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     protected WhiteSplitMultipleFkRef _whiteSplitMultipleFkRefAsSplitMultipleFkTest;
 
     /**
-     * [get] white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. <br />
+     * [get] white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. <br>
      * @return The entity of foreign property 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSplitMultipleFkRef getWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
@@ -260,7 +261,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] BASE_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] BASE_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'BASE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getBaseId() {
@@ -269,7 +270,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     }
 
     /**
-     * [set] BASE_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] BASE_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param baseId The value of the column 'BASE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setBaseId(Long baseId) {
@@ -278,7 +279,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     }
 
     /**
-     * [get] FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF} <br />
+     * [get] FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF} <br>
      * @return The value of the column 'FIRST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getFirstId() {
@@ -287,7 +288,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     }
 
     /**
-     * [set] FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF} <br />
+     * [set] FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF} <br>
      * @param firstId The value of the column 'FIRST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFirstId(Integer firstId) {
@@ -296,7 +297,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     }
 
     /**
-     * [get] NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next} <br />
+     * [get] NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next} <br>
      * @return The value of the column 'NEXT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getNextId() {
@@ -305,7 +306,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     }
 
     /**
-     * [set] NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next} <br />
+     * [set] NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next} <br>
      * @param nextId The value of the column 'NEXT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setNextId(Long nextId) {
@@ -314,7 +315,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     }
 
     /**
-     * [get] SPLIT_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] SPLIT_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'SPLIT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getSplitName() {
@@ -323,7 +324,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity {
     }
 
     /**
-     * [set] SPLIT_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] SPLIT_NAME: {NotNull, VARCHAR(200)} <br>
      * @param splitName The value of the column 'SPLIT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setSplitName(String splitName) {

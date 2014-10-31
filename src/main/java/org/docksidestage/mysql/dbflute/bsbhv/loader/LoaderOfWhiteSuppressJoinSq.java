@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_SUPPRESS_JOIN_SQ as TABLE. <br />
+ * The referrer loader of WHITE_SUPPRESS_JOIN_SQ as TABLE. <br>
  * <pre>
  * [primary key]
  *     SUPPRESS_JOIN_SQ_ID
@@ -79,7 +79,7 @@ public class LoaderOfWhiteSuppressJoinSq {
     protected List<WhiteSuppressJoinSqMany> _referrerWhiteSuppressJoinSqManyList;
 
     /**
-     * Load referrer of whiteSuppressJoinSqManyList by the set-upper of referrer. <br />
+     * Load referrer of whiteSuppressJoinSqManyList by the set-upper of referrer. <br>
      * white_suppress_join_sq_many by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSuppressJoinSqList</span>, <span style="color: #553000">sqLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhiteSuppressJoinSq {
      *         <span style="color: #553000">manyCB</span>.query().set...
      *         <span style="color: #553000">manyCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">manyLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">manyLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    manyLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhiteSuppressJoinSq {
      *     ... = whiteSuppressJoinSq.<span style="color: #CC4747">getWhiteSuppressJoinSqManyList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setSuppressJoinSqId_InScope(pkList);

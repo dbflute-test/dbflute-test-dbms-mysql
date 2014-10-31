@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ALL_IN_ONE_CLS_CATEGORY as TABLE. <br />
+ * The entity of WHITE_ALL_IN_ONE_CLS_CATEGORY as TABLE. <br>
  * <pre>
  * [primary-key]
  *     CLS_CATEGORY_CODE
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
+public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -208,7 +209,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [get] CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
      * @return The value of the column 'CLS_CATEGORY_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getClsCategoryCode() {
@@ -217,7 +218,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
     }
 
     /**
-     * [set] CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [set] CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
      * @param clsCategoryCode The value of the column 'CLS_CATEGORY_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setClsCategoryCode(String clsCategoryCode) {
@@ -226,7 +227,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
     }
 
     /**
-     * [get] CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)} <br />
+     * [get] CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)} <br>
      * @return The value of the column 'CLS_CATEGORY_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getClsCategoryName() {
@@ -235,7 +236,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
     }
 
     /**
-     * [set] CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)} <br />
+     * [set] CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)} <br>
      * @param clsCategoryName The value of the column 'CLS_CATEGORY_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setClsCategoryName(String clsCategoryName) {
@@ -244,7 +245,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
     }
 
     /**
-     * [get] DESCRIPTION: {NotNull, VARCHAR(50)} <br />
+     * [get] DESCRIPTION: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'DESCRIPTION'. (basically NotNull if selected: for the constraint)
      */
     public String getDescription() {
@@ -253,7 +254,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity {
     }
 
     /**
-     * [set] DESCRIPTION: {NotNull, VARCHAR(50)} <br />
+     * [set] DESCRIPTION: {NotNull, VARCHAR(50)} <br>
      * @param description The value of the column 'DESCRIPTION'. (basically NotNull if update: for the constraint)
      */
     public void setDescription(String description) {

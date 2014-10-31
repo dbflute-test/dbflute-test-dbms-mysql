@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PG_RESERV_REF as TABLE. <br />
+ * The entity of WHITE_PG_RESERV_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REF_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhitePgReservRef extends AbstractEntity {
+public abstract class BsWhitePgReservRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -117,7 +118,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
     protected WhitePgReserv _whitePgReserv;
 
     /**
-     * [get] white_pg_reserv by my CLASS, named 'whitePgReserv'. <br />
+     * [get] white_pg_reserv by my CLASS, named 'whitePgReserv'. <br>
      * @return The entity of foreign property 'whitePgReserv'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhitePgReserv getWhitePgReserv() {
@@ -201,7 +202,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] REF_ID: {PK, NotNull, INT(10)} <br />
+     * [get] REF_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRefId() {
@@ -210,7 +211,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
     }
 
     /**
-     * [set] REF_ID: {PK, NotNull, INT(10)} <br />
+     * [set] REF_ID: {PK, NotNull, INT(10)} <br>
      * @param refId The value of the column 'REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRefId(Integer refId) {
@@ -219,7 +220,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv} <br />
+     * [get] ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv} <br>
      * @return The value of the column 'CLASS'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getClassSynonym() {
@@ -228,7 +229,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv} <br />
+     * [set] ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv} <br>
      * @param classSynonym The value of the column 'CLASS'. (NullAllowed: null update allowed for no constraint)
      */
     public void setClassSynonym(Integer classSynonym) {

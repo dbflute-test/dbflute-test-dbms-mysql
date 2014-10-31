@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SELF_REFERENCE_REF_ONE as TABLE. <br />
+ * The referrer loader of WHITE_SELF_REFERENCE_REF_ONE as TABLE. <br>
  * <pre>
  * [primary key]
  *     SELF_REFERENCE_ID

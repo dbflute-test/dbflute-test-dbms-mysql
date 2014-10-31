@@ -25,7 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.*;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpReturnResultSetMore. <br />
+ * The base class for procedure parameter-bean of SpReturnResultSetMore. <br>
  * This is related to "<span style="color: #AD4747">SP_RETURN_RESULT_SET_MORE</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -59,7 +59,7 @@ public class BsSpReturnResultSetMorePmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpReturnResultSetMore. <br />
+     * Constructor for the procedure parameter-bean of SpReturnResultSetMore. <br>
      * This is related to "<span style="color: #AD4747">SP_RETURN_RESULT_SET_MORE</span>".
      */
     public BsSpReturnResultSetMorePmb() {
@@ -151,7 +151,7 @@ public class BsSpReturnResultSetMorePmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] notParamResult1 <br />
+     * [get] notParamResult1 <br>
      * @return The value of notParamResult1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpReturnResultSetMoreNotParamResult1> getNotParamResult1() {
@@ -159,7 +159,7 @@ public class BsSpReturnResultSetMorePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] notParamResult1 <br />
+     * [set] notParamResult1 <br>
      * @param notParamResult1 The value of notParamResult1. (NullAllowed)
      */
     public void setNotParamResult1(List<SpReturnResultSetMoreNotParamResult1> notParamResult1) {
@@ -167,7 +167,7 @@ public class BsSpReturnResultSetMorePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] notParamResult2 <br />
+     * [get] notParamResult2 <br>
      * @return The value of notParamResult2. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpReturnResultSetMoreNotParamResult2> getNotParamResult2() {
@@ -175,7 +175,7 @@ public class BsSpReturnResultSetMorePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] notParamResult2 <br />
+     * [set] notParamResult2 <br>
      * @param notParamResult2 The value of notParamResult2. (NullAllowed)
      */
     public void setNotParamResult2(List<SpReturnResultSetMoreNotParamResult2> notParamResult2) {

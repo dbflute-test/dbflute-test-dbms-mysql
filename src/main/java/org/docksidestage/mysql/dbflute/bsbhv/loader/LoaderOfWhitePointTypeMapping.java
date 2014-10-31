@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_POINT_TYPE_MAPPING as TABLE. <br />
+ * The referrer loader of WHITE_POINT_TYPE_MAPPING as TABLE. <br>
  * <pre>
  * [primary key]
  *     POINT_TYPE_MAPPING_ID

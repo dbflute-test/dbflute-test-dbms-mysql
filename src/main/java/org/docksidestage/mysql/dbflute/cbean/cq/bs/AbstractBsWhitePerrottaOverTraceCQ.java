@@ -62,7 +62,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param traceId The value of traceId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param traceId The value of traceId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param traceId The value of traceId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param traceId The value of traceId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param traceId The value of traceId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of traceId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of traceId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of traceId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of traceId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param traceIdList The collection of traceId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param traceIdList The collection of traceId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setTraceId_IsNull() { regTraceId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setTraceId_IsNotNull() { regTraceId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     protected abstract ConditionValue xgetCValueTraceId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as equal. (NullAllowed: if null, no condition)
      */
@@ -191,7 +191,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -200,7 +200,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -209,7 +209,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -218,7 +218,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -227,9 +227,9 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param minNumber The min number of previousProductId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of previousProductId. (NullAllowed: if null, no to-condition)
@@ -240,9 +240,9 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param minNumber The min number of previousProductId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of previousProductId. (NullAllowed: if null, no to-condition)
@@ -253,7 +253,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param previousProductIdList The collection of previousProductId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -266,7 +266,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param previousProductIdList The collection of previousProductId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -282,7 +282,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     protected abstract ConditionValue xgetCValuePreviousProductId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as equal. (NullAllowed: if null, no condition)
      */
@@ -295,7 +295,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -304,7 +304,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -313,7 +313,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -322,7 +322,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -331,9 +331,9 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param minNumber The min number of nextProductId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nextProductId. (NullAllowed: if null, no to-condition)
@@ -344,9 +344,9 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param minNumber The min number of nextProductId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nextProductId. (NullAllowed: if null, no to-condition)
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param nextProductIdList The collection of nextProductId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param nextProductIdList The collection of nextProductId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -386,7 +386,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     protected abstract ConditionValue xgetCValueNextProductId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -399,7 +399,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -412,7 +412,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCodeList The collection of traceTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -425,7 +425,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCodeList The collection of traceTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -438,8 +438,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setTraceTypeCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param traceTypeCode The value of traceTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -449,8 +449,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setTraceTypeCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param traceTypeCode The value of traceTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -460,8 +460,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -471,8 +471,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -482,7 +482,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -497,7 +497,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
@@ -514,7 +514,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
@@ -531,7 +531,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
@@ -548,7 +548,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
@@ -565,7 +565,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
@@ -582,7 +582,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverTraceCB&gt;() {
@@ -665,7 +665,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -679,7 +679,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

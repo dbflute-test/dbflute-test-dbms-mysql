@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_MEMBER as TABLE. <br />
+ * The entity of WHITE_PERROTTA_OVER_MEMBER as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MEMBER_ID
@@ -69,7 +70,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
+public abstract class BsWhitePerrottaOverMember extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -132,7 +133,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     protected WhitePerrottaOverMemberMacho _whitePerrottaOverMemberMacho;
 
     /**
-     * [get] white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'. <br />
+     * [get] white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'. <br>
      * @return The entity of foreign property 'whitePerrottaOverMemberMacho'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhitePerrottaOverMemberMacho getWhitePerrottaOverMemberMacho() {
@@ -151,7 +152,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     protected WhitePerrottaOverProduct _whitePerrottaOverProduct;
 
     /**
-     * [get] white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'. <br />
+     * [get] white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'. <br>
      * @return The entity of foreign property 'whitePerrottaOverProduct'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhitePerrottaOverProduct getWhitePerrottaOverProduct() {
@@ -242,7 +243,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] MEMBER_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMemberId() {
@@ -251,7 +252,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [set] MEMBER_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] MEMBER_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Long memberId) {
@@ -260,7 +261,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [get] MEMBER_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'MEMBER_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberName() {
@@ -269,7 +270,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [set] MEMBER_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
      * @param memberName The value of the column 'MEMBER_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMemberName(String memberName) {
@@ -278,7 +279,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [get] PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br />
+     * [get] PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getProductId() {
@@ -287,7 +288,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [set] PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br />
+     * [set] PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Long productId) {
@@ -296,7 +297,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [get] TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * [get] TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * @return The value of the column 'TRACE_TYPE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getTraceTypeCode() {
@@ -305,7 +306,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [set] TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * [set] TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * @param traceTypeCode The value of the column 'TRACE_TYPE_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setTraceTypeCode(String traceTypeCode) {
@@ -314,7 +315,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [get] MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br />
+     * [get] MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br>
      * @return The value of the column 'MACHO_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMachoCode() {
@@ -323,7 +324,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity {
     }
 
     /**
-     * [set] MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br />
+     * [set] MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br>
      * @param machoCode The value of the column 'MACHO_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setMachoCode(String machoCode) {

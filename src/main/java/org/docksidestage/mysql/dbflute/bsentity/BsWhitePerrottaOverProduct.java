@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_PRODUCT as TABLE. <br />
+ * The entity of WHITE_PERROTTA_OVER_PRODUCT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     PRODUCT_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
+public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -122,7 +123,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     protected WhitePerrottaOverProductNested _whitePerrottaOverProductNested;
 
     /**
-     * [get] white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'. <br />
+     * [get] white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'. <br>
      * @return The entity of foreign property 'whitePerrottaOverProductNested'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhitePerrottaOverProductNested getWhitePerrottaOverProductNested() {
@@ -141,7 +142,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     protected WhitePerrottaOverTrace _whitePerrottaOverTraceAsPerrotta;
 
     /**
-     * [get] white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'. <br />
+     * [get] white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'. <br>
      * @return The entity of foreign property 'whitePerrottaOverTraceAsPerrotta'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhitePerrottaOverTrace getWhitePerrottaOverTraceAsPerrotta() {
@@ -302,7 +303,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE} <br />
+     * [get] PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE} <br>
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getProductId() {
@@ -311,7 +312,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     }
 
     /**
-     * [set] PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE} <br />
+     * [set] PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE} <br>
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Long productId) {
@@ -320,7 +321,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     }
 
     /**
-     * [get] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
@@ -329,7 +330,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     }
 
     /**
-     * [set] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br>
      * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
@@ -338,7 +339,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     }
 
     /**
-     * [get] PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested} <br />
+     * [get] PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested} <br>
      * @return The value of the column 'PRODUCT_NESTED_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductNestedCode() {
@@ -347,7 +348,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity {
     }
 
     /**
-     * [set] PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested} <br />
+     * [set] PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested} <br>
      * @param productNestedCode The value of the column 'PRODUCT_NESTED_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductNestedCode(String productNestedCode) {

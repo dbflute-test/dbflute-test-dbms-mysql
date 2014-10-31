@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SELF_REFERENCE as TABLE. <br />
+ * The entity of WHITE_SELF_REFERENCE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     SELF_REFERENCE_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSelfReference extends AbstractEntity {
+public abstract class BsWhiteSelfReference extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -122,7 +123,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity {
     protected WhiteSelfReference _whiteSelfReferenceSelf;
 
     /**
-     * [get] white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'. <br />
+     * [get] white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'. <br>
      * @return The entity of foreign property 'whiteSelfReferenceSelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSelfReference getWhiteSelfReferenceSelf() {
@@ -254,7 +255,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'SELF_REFERENCE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getSelfReferenceId() {
@@ -263,7 +264,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity {
     }
 
     /**
-     * [set] SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param selfReferenceId The value of the column 'SELF_REFERENCE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setSelfReferenceId(Long selfReferenceId) {
@@ -272,7 +273,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity {
     }
 
     /**
-     * [get] SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'SELF_REFERENCE_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getSelfReferenceName() {
@@ -281,7 +282,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity {
     }
 
     /**
-     * [set] SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br>
      * @param selfReferenceName The value of the column 'SELF_REFERENCE_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setSelfReferenceName(String selfReferenceName) {
@@ -290,7 +291,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity {
     }
 
     /**
-     * [get] PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference} <br />
+     * [get] PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference} <br>
      * @return The value of the column 'PARENT_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Long getParentId() {
@@ -299,7 +300,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity {
     }
 
     /**
-     * [set] PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference} <br />
+     * [set] PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference} <br>
      * @param parentId The value of the column 'PARENT_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setParentId(Long parentId) {

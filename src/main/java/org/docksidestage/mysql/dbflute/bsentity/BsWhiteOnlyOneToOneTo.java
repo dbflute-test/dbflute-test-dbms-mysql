@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ONLY_ONE_TO_ONE_TO as TABLE. <br />
+ * The entity of WHITE_ONLY_ONE_TO_ONE_TO as TABLE. <br>
  * <pre>
  * [primary-key]
  *     TO_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
+public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -116,7 +117,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param fromId : UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from. (NotNull)
      */
@@ -133,7 +134,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     protected WhiteOnlyOneToOneFrom _whiteOnlyOneToOneFrom;
 
     /**
-     * [get] white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'. <br />
+     * [get] white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'. <br>
      * @return The entity of foreign property 'whiteOnlyOneToOneFrom'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteOnlyOneToOneFrom getWhiteOnlyOneToOneFrom() {
@@ -218,7 +219,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] TO_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] TO_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'TO_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getToId() {
@@ -227,7 +228,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     }
 
     /**
-     * [set] TO_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] TO_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param toId The value of the column 'TO_ID'. (basically NotNull if update: for the constraint)
      */
     public void setToId(Long toId) {
@@ -236,7 +237,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     }
 
     /**
-     * [get] TO_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] TO_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'TO_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getToName() {
@@ -245,7 +246,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     }
 
     /**
-     * [set] TO_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] TO_NAME: {NotNull, VARCHAR(200)} <br>
      * @param toName The value of the column 'TO_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setToName(String toName) {
@@ -254,7 +255,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     }
 
     /**
-     * [get] FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from} <br />
+     * [get] FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from} <br>
      * @return The value of the column 'FROM_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getFromId() {
@@ -263,7 +264,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity {
     }
 
     /**
-     * [set] FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from} <br />
+     * [set] FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from} <br>
      * @param fromId The value of the column 'FROM_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFromId(Long fromId) {

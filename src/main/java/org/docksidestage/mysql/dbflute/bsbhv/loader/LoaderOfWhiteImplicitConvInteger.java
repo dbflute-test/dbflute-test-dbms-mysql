@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_IMPLICIT_CONV_INTEGER as TABLE. <br />
+ * The referrer loader of WHITE_IMPLICIT_CONV_INTEGER as TABLE. <br>
  * <pre>
  * [primary key]
  *     IMPLICIT_CONV_INTEGER_ID
@@ -79,7 +79,7 @@ public class LoaderOfWhiteImplicitConvInteger {
     protected List<WhiteImplicitConvNumeric> _referrerWhiteImplicitConvNumericList;
 
     /**
-     * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br />
+     * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">integerLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhiteImplicitConvInteger {
      *         <span style="color: #553000">numericCB</span>.query().set...
      *         <span style="color: #553000">numericCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">numericLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">numericLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    numericLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhiteImplicitConvInteger {
      *     ... = whiteImplicitConvInteger.<span style="color: #CC4747">getWhiteImplicitConvNumericList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setImplicitConvIntegerId_InScope(pkList);
@@ -113,7 +113,7 @@ public class LoaderOfWhiteImplicitConvInteger {
     protected List<WhiteImplicitConvString> _referrerWhiteImplicitConvStringList;
 
     /**
-     * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br />
+     * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br>
      * white_implicit_conv_string by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">integerLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -122,7 +122,7 @@ public class LoaderOfWhiteImplicitConvInteger {
      *         <span style="color: #553000">stringCB</span>.query().set...
      *         <span style="color: #553000">stringCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">stringLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">stringLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    stringLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -130,7 +130,7 @@ public class LoaderOfWhiteImplicitConvInteger {
      *     ... = whiteImplicitConvInteger.<span style="color: #CC4747">getWhiteImplicitConvStringList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setImplicitConvIntegerId_InScope(pkList);

@@ -49,7 +49,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_date_adjustment) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_date_adjustment on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueDateAdjustmentId() { return xdfgetDateAdjustmentId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_DateAdjustmentId_Asc() { regOBA("DATE_ADJUSTMENT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedDate() { return xdfgetAdjustedDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedDate_Asc() { regOBA("ADJUSTED_DATE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedDatetime() { return xdfgetAdjustedDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedDatetime_Asc() { regOBA("ADJUSTED_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedTime() { return xdfgetAdjustedTime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ADJUSTED_TIME: {TIME(8)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedTime_Asc() { regOBA("ADJUSTED_TIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ADJUSTED_TIME: {TIME(8)}
      * @return this. (NotNull)
      */
@@ -175,14 +175,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedInteger() { return xdfgetAdjustedInteger(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedInteger_Asc() { regOBA("ADJUSTED_INTEGER"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @return this. (NotNull)
      */
@@ -195,14 +195,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedNamedStringLong() { return xdfgetAdjustedNamedStringLong(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedNamedStringLong_Asc() { regOBA("ADJUSTED_NAMED_STRING_LONG"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -215,14 +215,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedNamedTypedLong() { return xdfgetAdjustedNamedTypedLong(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedNamedTypedLong_Asc() { regOBA("ADJUSTED_NAMED_TYPED_LONG"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -235,14 +235,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedPinpointStringLong() { return xdfgetAdjustedPinpointStringLong(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedPinpointStringLong_Asc() { regOBA("ADJUSTED_PINPOINT_STRING_LONG"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -255,14 +255,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedPinpointTypedLong() { return xdfgetAdjustedPinpointTypedLong(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedPinpointTypedLong_Asc() { regOBA("ADJUSTED_PINPOINT_TYPED_LONG"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -275,14 +275,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedPlainLong() { return xdfgetAdjustedPlainLong(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedPlainLong_Asc() { regOBA("ADJUSTED_PLAIN_LONG"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -295,14 +295,14 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
     protected ConditionValue xgetCValueAdjustedString() { return xdfgetAdjustedString(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @return this. (NotNull)
      */
     public BsWhiteDateAdjustmentCQ addOrderBy_AdjustedString_Asc() { regOBA("ADJUSTED_STRING"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @return this. (NotNull)
      */

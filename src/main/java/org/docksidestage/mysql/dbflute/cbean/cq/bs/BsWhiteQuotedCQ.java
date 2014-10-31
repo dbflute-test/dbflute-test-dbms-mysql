@@ -49,7 +49,7 @@ public class BsWhiteQuotedCQ extends AbstractBsWhiteQuotedCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_quoted) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteQuotedCQ extends AbstractBsWhiteQuotedCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_quoted on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhiteQuotedCQ extends AbstractBsWhiteQuotedCQ {
     public String keepSelect_QueryDerivedReferrer_WhiteQuotedRefListParameter(Object pm) { return xkeepSQuePm("select_QueryDerivedReferrer_WhiteQuotedRefList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * SELECT: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteQuotedCQ addOrderBy_Select_Asc() { regOBA("SELECT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * SELECT: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhiteQuotedCQ extends AbstractBsWhiteQuotedCQ {
     protected ConditionValue xgetCValueFrom() { return xdfgetFrom(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * FROM: {VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteQuotedCQ addOrderBy_From_Asc() { regOBA("FROM"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * FROM: {VARCHAR(200)}
      * @return this. (NotNull)
      */

@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_LOAD_DATA as TABLE. <br />
+ * The referrer loader of WHITE_LOAD_DATA as TABLE. <br>
  * <pre>
  * [primary key]
  *     LOAD_DATA_ID

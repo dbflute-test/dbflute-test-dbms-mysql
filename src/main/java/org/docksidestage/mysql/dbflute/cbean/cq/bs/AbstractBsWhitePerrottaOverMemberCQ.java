@@ -62,7 +62,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param memberId The value of memberId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param memberId The value of memberId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param memberId The value of memberId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param memberId The value of memberId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param memberId The value of memberId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param memberIdList The collection of memberId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @param memberIdList The collection of memberId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setMemberId_IsNull() { regMemberId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setMemberId_IsNotNull() { regMemberId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueMemberId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @param memberName The value of memberName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -191,7 +191,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @param memberName The value of memberName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -204,7 +204,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @param memberNameList The collection of memberName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @param memberNameList The collection of memberName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -230,8 +230,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MEMBER_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMemberName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param memberName The value of memberName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MEMBER_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMemberName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param memberName The value of memberName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -252,8 +252,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @param memberName The value of memberName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @param memberName The value of memberName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @param memberName The value of memberName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -286,7 +286,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueMemberName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param productId The value of productId as equal. (NullAllowed: if null, no condition)
      */
@@ -299,7 +299,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param productId The value of productId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -308,7 +308,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param productId The value of productId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -317,7 +317,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param productId The value of productId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -326,7 +326,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param productId The value of productId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -335,9 +335,9 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
@@ -348,9 +348,9 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
@@ -361,7 +361,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param productIdList The collection of productId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @param productIdList The collection of productId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueProductId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -403,7 +403,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -416,7 +416,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCodeList The collection of traceTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -429,7 +429,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCodeList The collection of traceTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -442,8 +442,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setTraceTypeCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param traceTypeCode The value of traceTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -453,8 +453,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setTraceTypeCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param traceTypeCode The value of traceTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -464,8 +464,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -475,8 +475,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -486,7 +486,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @param traceTypeCode The value of traceTypeCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -498,7 +498,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueTraceTypeCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @param machoCode The value of machoCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -511,7 +511,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @param machoCode The value of machoCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -524,7 +524,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @param machoCodeList The collection of machoCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -537,7 +537,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @param machoCodeList The collection of machoCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -550,8 +550,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br>
      * <pre>e.g. setMachoCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -561,8 +561,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br>
      * <pre>e.g. setMachoCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -572,8 +572,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @param machoCode The value of machoCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -583,8 +583,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @param machoCode The value of machoCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -594,7 +594,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @param machoCode The value of machoCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -609,7 +609,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
@@ -626,7 +626,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
@@ -643,7 +643,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
@@ -660,7 +660,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
@@ -677,7 +677,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
@@ -694,7 +694,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberCB&gt;() {
@@ -777,7 +777,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -791,7 +791,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

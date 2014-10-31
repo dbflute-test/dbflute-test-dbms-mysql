@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_CHECK as TABLE. <br />
+ * The entity of VENDOR_CHECK as TABLE. <br>
  * <pre>
  * [primary-key]
  *     VENDOR_CHECK_ID
@@ -122,7 +123,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorCheck extends AbstractEntity {
+public abstract class BsVendorCheck extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -260,8 +261,8 @@ public abstract class BsVendorCheck extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of typeOfBoolean as the classification of BooleanFlg. <br />
-     * TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br />
+     * Get the value of typeOfBoolean as the classification of BooleanFlg. <br>
+     * TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br>
      * boolean classification for boolean column
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -271,8 +272,8 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Set the value of typeOfBoolean as the classification of BooleanFlg. <br />
-     * TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br />
+     * Set the value of typeOfBoolean as the classification of BooleanFlg. <br>
+     * TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br>
      * boolean classification for boolean column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -284,7 +285,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of typeOfBoolean as True (true). <br />
+     * Set the value of typeOfBoolean as True (true). <br>
      * Checked: means yes
      */
     public void setTypeOfBoolean_True() {
@@ -292,7 +293,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Set the value of typeOfBoolean as False (false). <br />
+     * Set the value of typeOfBoolean as False (false). <br>
      * Unchecked: means no
      */
     public void setTypeOfBoolean_False() {
@@ -303,7 +304,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of typeOfBoolean True? <br />
+     * Is the value of typeOfBoolean True? <br>
      * Checked: means yes
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -314,7 +315,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Is the value of typeOfBoolean False? <br />
+     * Is the value of typeOfBoolean False? <br>
      * Unchecked: means no
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -428,7 +429,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] VENDOR_CHECK_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] VENDOR_CHECK_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'VENDOR_CHECK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getVendorCheckId() {
@@ -437,7 +438,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] VENDOR_CHECK_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] VENDOR_CHECK_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param vendorCheckId The value of the column 'VENDOR_CHECK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setVendorCheckId(Long vendorCheckId) {
@@ -446,7 +447,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_CHAR: {CHAR(3)} <br />
+     * [get] TYPE_OF_CHAR: {CHAR(3)} <br>
      * @return The value of the column 'TYPE_OF_CHAR'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfChar() {
@@ -455,7 +456,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_CHAR: {CHAR(3)} <br />
+     * [set] TYPE_OF_CHAR: {CHAR(3)} <br>
      * @param typeOfChar The value of the column 'TYPE_OF_CHAR'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfChar(String typeOfChar) {
@@ -464,7 +465,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_VARCHAR: {VARCHAR(200)} <br />
+     * [get] TYPE_OF_VARCHAR: {VARCHAR(200)} <br>
      * @return The value of the column 'TYPE_OF_VARCHAR'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfVarchar() {
@@ -473,7 +474,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_VARCHAR: {VARCHAR(200)} <br />
+     * [set] TYPE_OF_VARCHAR: {VARCHAR(200)} <br>
      * @param typeOfVarchar The value of the column 'TYPE_OF_VARCHAR'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfVarchar(String typeOfVarchar) {
@@ -482,7 +483,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_TEXT: {TEXT(65535)} <br />
+     * [get] TYPE_OF_TEXT: {TEXT(65535)} <br>
      * @return The value of the column 'TYPE_OF_TEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfText() {
@@ -491,7 +492,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_TEXT: {TEXT(65535)} <br />
+     * [set] TYPE_OF_TEXT: {TEXT(65535)} <br>
      * @param typeOfText The value of the column 'TYPE_OF_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfText(String typeOfText) {
@@ -500,7 +501,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_TINYTEXT: {TINYTEXT(255)} <br />
+     * [get] TYPE_OF_TINYTEXT: {TINYTEXT(255)} <br>
      * @return The value of the column 'TYPE_OF_TINYTEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfTinytext() {
@@ -509,7 +510,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_TINYTEXT: {TINYTEXT(255)} <br />
+     * [set] TYPE_OF_TINYTEXT: {TINYTEXT(255)} <br>
      * @param typeOfTinytext The value of the column 'TYPE_OF_TINYTEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTinytext(String typeOfTinytext) {
@@ -518,7 +519,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_MEDIUMTEXT: {MEDIUMTEXT(16777215)} <br />
+     * [get] TYPE_OF_MEDIUMTEXT: {MEDIUMTEXT(16777215)} <br>
      * @return The value of the column 'TYPE_OF_MEDIUMTEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfMediumtext() {
@@ -527,7 +528,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_MEDIUMTEXT: {MEDIUMTEXT(16777215)} <br />
+     * [set] TYPE_OF_MEDIUMTEXT: {MEDIUMTEXT(16777215)} <br>
      * @param typeOfMediumtext The value of the column 'TYPE_OF_MEDIUMTEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfMediumtext(String typeOfMediumtext) {
@@ -536,7 +537,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_LONGTEXT: {LONGTEXT(2147483647)} <br />
+     * [get] TYPE_OF_LONGTEXT: {LONGTEXT(2147483647)} <br>
      * @return The value of the column 'TYPE_OF_LONGTEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfLongtext() {
@@ -545,7 +546,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_LONGTEXT: {LONGTEXT(2147483647)} <br />
+     * [set] TYPE_OF_LONGTEXT: {LONGTEXT(2147483647)} <br>
      * @param typeOfLongtext The value of the column 'TYPE_OF_LONGTEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfLongtext(String typeOfLongtext) {
@@ -554,7 +555,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3)} <br />
+     * [get] TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3)} <br>
      * @return The value of the column 'TYPE_OF_NUMERIC_DECIMAL'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getTypeOfNumericDecimal() {
@@ -563,7 +564,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3)} <br />
+     * [set] TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3)} <br>
      * @param typeOfNumericDecimal The value of the column 'TYPE_OF_NUMERIC_DECIMAL'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericDecimal(java.math.BigDecimal typeOfNumericDecimal) {
@@ -572,7 +573,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5)} <br />
+     * [get] TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5)} <br>
      * @return The value of the column 'TYPE_OF_NUMERIC_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getTypeOfNumericInteger() {
@@ -581,7 +582,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5)} <br />
+     * [set] TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5)} <br>
      * @param typeOfNumericInteger The value of the column 'TYPE_OF_NUMERIC_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericInteger(Integer typeOfNumericInteger) {
@@ -590,7 +591,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12)} <br />
+     * [get] TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12)} <br>
      * @return The value of the column 'TYPE_OF_NUMERIC_BIGINT'. (NullAllowed even if selected: for no constraint)
      */
     public Long getTypeOfNumericBigint() {
@@ -599,7 +600,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12)} <br />
+     * [set] TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12)} <br>
      * @param typeOfNumericBigint The value of the column 'TYPE_OF_NUMERIC_BIGINT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericBigint(Long typeOfNumericBigint) {
@@ -608,7 +609,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_DECIMAL_DECIMAL: {DECIMAL(5, 3)} <br />
+     * [get] TYPE_OF_DECIMAL_DECIMAL: {DECIMAL(5, 3)} <br>
      * @return The value of the column 'TYPE_OF_DECIMAL_DECIMAL'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getTypeOfDecimalDecimal() {
@@ -617,7 +618,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_DECIMAL_DECIMAL: {DECIMAL(5, 3)} <br />
+     * [set] TYPE_OF_DECIMAL_DECIMAL: {DECIMAL(5, 3)} <br>
      * @param typeOfDecimalDecimal The value of the column 'TYPE_OF_DECIMAL_DECIMAL'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDecimalDecimal(java.math.BigDecimal typeOfDecimalDecimal) {
@@ -626,7 +627,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_DECIMAL_INTEGER: {DECIMAL(5)} <br />
+     * [get] TYPE_OF_DECIMAL_INTEGER: {DECIMAL(5)} <br>
      * @return The value of the column 'TYPE_OF_DECIMAL_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getTypeOfDecimalInteger() {
@@ -635,7 +636,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_DECIMAL_INTEGER: {DECIMAL(5)} <br />
+     * [set] TYPE_OF_DECIMAL_INTEGER: {DECIMAL(5)} <br>
      * @param typeOfDecimalInteger The value of the column 'TYPE_OF_DECIMAL_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDecimalInteger(Integer typeOfDecimalInteger) {
@@ -644,7 +645,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_DECIMAL_BIGINT: {DECIMAL(12)} <br />
+     * [get] TYPE_OF_DECIMAL_BIGINT: {DECIMAL(12)} <br>
      * @return The value of the column 'TYPE_OF_DECIMAL_BIGINT'. (NullAllowed even if selected: for no constraint)
      */
     public Long getTypeOfDecimalBigint() {
@@ -653,7 +654,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_DECIMAL_BIGINT: {DECIMAL(12)} <br />
+     * [set] TYPE_OF_DECIMAL_BIGINT: {DECIMAL(12)} <br>
      * @param typeOfDecimalBigint The value of the column 'TYPE_OF_DECIMAL_BIGINT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDecimalBigint(Long typeOfDecimalBigint) {
@@ -662,7 +663,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_INTEGER: {INT(10)} <br />
+     * [get] TYPE_OF_INTEGER: {INT(10)} <br>
      * @return The value of the column 'TYPE_OF_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getTypeOfInteger() {
@@ -671,7 +672,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_INTEGER: {INT(10)} <br />
+     * [set] TYPE_OF_INTEGER: {INT(10)} <br>
      * @param typeOfInteger The value of the column 'TYPE_OF_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfInteger(Integer typeOfInteger) {
@@ -680,7 +681,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_BIGINT: {BIGINT(19)} <br />
+     * [get] TYPE_OF_BIGINT: {BIGINT(19)} <br>
      * @return The value of the column 'TYPE_OF_BIGINT'. (NullAllowed even if selected: for no constraint)
      */
     public Long getTypeOfBigint() {
@@ -689,7 +690,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_BIGINT: {BIGINT(19)} <br />
+     * [set] TYPE_OF_BIGINT: {BIGINT(19)} <br>
      * @param typeOfBigint The value of the column 'TYPE_OF_BIGINT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfBigint(Long typeOfBigint) {
@@ -698,7 +699,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_FLOAT: {FLOAT(12)} <br />
+     * [get] TYPE_OF_FLOAT: {FLOAT(12)} <br>
      * @return The value of the column 'TYPE_OF_FLOAT'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getTypeOfFloat() {
@@ -707,7 +708,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_FLOAT: {FLOAT(12)} <br />
+     * [set] TYPE_OF_FLOAT: {FLOAT(12)} <br>
      * @param typeOfFloat The value of the column 'TYPE_OF_FLOAT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfFloat(java.math.BigDecimal typeOfFloat) {
@@ -716,7 +717,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_DOUBLE: {DOUBLE(22)} <br />
+     * [get] TYPE_OF_DOUBLE: {DOUBLE(22)} <br>
      * @return The value of the column 'TYPE_OF_DOUBLE'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getTypeOfDouble() {
@@ -725,7 +726,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_DOUBLE: {DOUBLE(22)} <br />
+     * [set] TYPE_OF_DOUBLE: {DOUBLE(22)} <br>
      * @param typeOfDouble The value of the column 'TYPE_OF_DOUBLE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDouble(java.math.BigDecimal typeOfDouble) {
@@ -734,7 +735,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_DATE: {DATE(10)} <br />
+     * [get] TYPE_OF_DATE: {DATE(10)} <br>
      * @return The value of the column 'TYPE_OF_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getTypeOfDate() {
@@ -743,7 +744,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_DATE: {DATE(10)} <br />
+     * [set] TYPE_OF_DATE: {DATE(10)} <br>
      * @param typeOfDate The value of the column 'TYPE_OF_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDate(java.util.Date typeOfDate) {
@@ -752,7 +753,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_DATETIME: {DATETIME(19)} <br />
+     * [get] TYPE_OF_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'TYPE_OF_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTypeOfDatetime() {
@@ -761,7 +762,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_DATETIME: {DATETIME(19)} <br />
+     * [set] TYPE_OF_DATETIME: {DATETIME(19)} <br>
      * @param typeOfDatetime The value of the column 'TYPE_OF_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDatetime(java.sql.Timestamp typeOfDatetime) {
@@ -770,7 +771,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} <br />
+     * [get] TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} <br>
      * @return The value of the column 'TYPE_OF_TIMESTAMP'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getTypeOfTimestamp() {
@@ -779,7 +780,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} <br />
+     * [set] TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} <br>
      * @param typeOfTimestamp The value of the column 'TYPE_OF_TIMESTAMP'. (basically NotNull if update: for the constraint)
      */
     public void setTypeOfTimestamp(java.sql.Timestamp typeOfTimestamp) {
@@ -788,7 +789,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_TIME: {TIME(8)} <br />
+     * [get] TYPE_OF_TIME: {TIME(8)} <br>
      * @return The value of the column 'TYPE_OF_TIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Time getTypeOfTime() {
@@ -797,7 +798,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_TIME: {TIME(8)} <br />
+     * [set] TYPE_OF_TIME: {TIME(8)} <br>
      * @param typeOfTime The value of the column 'TYPE_OF_TIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTime(java.sql.Time typeOfTime) {
@@ -806,7 +807,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_YEAR: {YEAR} <br />
+     * [get] TYPE_OF_YEAR: {YEAR} <br>
      * @return The value of the column 'TYPE_OF_YEAR'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getTypeOfYear() {
@@ -815,7 +816,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_YEAR: {YEAR} <br />
+     * [set] TYPE_OF_YEAR: {YEAR} <br>
      * @param typeOfYear The value of the column 'TYPE_OF_YEAR'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfYear(java.util.Date typeOfYear) {
@@ -824,7 +825,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br />
+     * [get] TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br>
      * @return The value of the column 'TYPE_OF_BOOLEAN'. (NullAllowed even if selected: for no constraint)
      */
     public Boolean getTypeOfBoolean() {
@@ -833,7 +834,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br />
+     * [set] TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br>
      * @param typeOfBoolean The value of the column 'TYPE_OF_BOOLEAN'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setTypeOfBoolean(Boolean typeOfBoolean) {
@@ -842,7 +843,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_BLOB: {BLOB(65535)} <br />
+     * [get] TYPE_OF_BLOB: {BLOB(65535)} <br>
      * @return The value of the column 'TYPE_OF_BLOB'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getTypeOfBlob() {
@@ -851,7 +852,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_BLOB: {BLOB(65535)} <br />
+     * [set] TYPE_OF_BLOB: {BLOB(65535)} <br>
      * @param typeOfBlob The value of the column 'TYPE_OF_BLOB'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfBlob(byte[] typeOfBlob) {
@@ -860,7 +861,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_TINYBLOB: {TINYBLOB(255)} <br />
+     * [get] TYPE_OF_TINYBLOB: {TINYBLOB(255)} <br>
      * @return The value of the column 'TYPE_OF_TINYBLOB'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getTypeOfTinyblob() {
@@ -869,7 +870,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_TINYBLOB: {TINYBLOB(255)} <br />
+     * [set] TYPE_OF_TINYBLOB: {TINYBLOB(255)} <br>
      * @param typeOfTinyblob The value of the column 'TYPE_OF_TINYBLOB'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTinyblob(byte[] typeOfTinyblob) {
@@ -878,7 +879,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_MEDIUMBLOB: {MEDIUMBLOB(16777215)} <br />
+     * [get] TYPE_OF_MEDIUMBLOB: {MEDIUMBLOB(16777215)} <br>
      * @return The value of the column 'TYPE_OF_MEDIUMBLOB'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getTypeOfMediumblob() {
@@ -887,7 +888,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_MEDIUMBLOB: {MEDIUMBLOB(16777215)} <br />
+     * [set] TYPE_OF_MEDIUMBLOB: {MEDIUMBLOB(16777215)} <br>
      * @param typeOfMediumblob The value of the column 'TYPE_OF_MEDIUMBLOB'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfMediumblob(byte[] typeOfMediumblob) {
@@ -896,7 +897,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_LONGBLOB: {LONGBLOB(2147483647)} <br />
+     * [get] TYPE_OF_LONGBLOB: {LONGBLOB(2147483647)} <br>
      * @return The value of the column 'TYPE_OF_LONGBLOB'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getTypeOfLongblob() {
@@ -905,7 +906,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_LONGBLOB: {LONGBLOB(2147483647)} <br />
+     * [set] TYPE_OF_LONGBLOB: {LONGBLOB(2147483647)} <br>
      * @param typeOfLongblob The value of the column 'TYPE_OF_LONGBLOB'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfLongblob(byte[] typeOfLongblob) {
@@ -914,7 +915,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_BINARY: {BINARY(1)} <br />
+     * [get] TYPE_OF_BINARY: {BINARY(1)} <br>
      * @return The value of the column 'TYPE_OF_BINARY'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getTypeOfBinary() {
@@ -923,7 +924,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_BINARY: {BINARY(1)} <br />
+     * [set] TYPE_OF_BINARY: {BINARY(1)} <br>
      * @param typeOfBinary The value of the column 'TYPE_OF_BINARY'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfBinary(byte[] typeOfBinary) {
@@ -932,7 +933,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_VARBINARY: {VARBINARY(1000)} <br />
+     * [get] TYPE_OF_VARBINARY: {VARBINARY(1000)} <br>
      * @return The value of the column 'TYPE_OF_VARBINARY'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getTypeOfVarbinary() {
@@ -941,7 +942,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_VARBINARY: {VARBINARY(1000)} <br />
+     * [set] TYPE_OF_VARBINARY: {VARBINARY(1000)} <br>
      * @param typeOfVarbinary The value of the column 'TYPE_OF_VARBINARY'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfVarbinary(byte[] typeOfVarbinary) {
@@ -950,7 +951,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_ENUM: {ENUM(6)} <br />
+     * [get] TYPE_OF_ENUM: {ENUM(6)} <br>
      * @return The value of the column 'TYPE_OF_ENUM'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfEnum() {
@@ -959,7 +960,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_ENUM: {ENUM(6)} <br />
+     * [set] TYPE_OF_ENUM: {ENUM(6)} <br>
      * @param typeOfEnum The value of the column 'TYPE_OF_ENUM'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfEnum(String typeOfEnum) {
@@ -968,7 +969,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE_OF_SET: {SET(15)} <br />
+     * [get] TYPE_OF_SET: {SET(15)} <br>
      * @return The value of the column 'TYPE_OF_SET'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfSet() {
@@ -977,7 +978,7 @@ public abstract class BsVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE_OF_SET: {SET(15)} <br />
+     * [set] TYPE_OF_SET: {SET(15)} <br>
      * @param typeOfSet The value of the column 'TYPE_OF_SET'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfSet(String typeOfSet) {

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI as TABLE. <br />
+ * The entity of WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI as TABLE. <br>
  * <pre>
  * [primary-key]
  *     ONE_ADDI_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
+public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -202,7 +203,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] ONE_ADDI_ID: {PK, NotNull, INT(10)} <br />
+     * [get] ONE_ADDI_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'ONE_ADDI_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getOneAddiId() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
     }
 
     /**
-     * [set] ONE_ADDI_ID: {PK, NotNull, INT(10)} <br />
+     * [set] ONE_ADDI_ID: {PK, NotNull, INT(10)} <br>
      * @param oneAddiId The value of the column 'ONE_ADDI_ID'. (basically NotNull if update: for the constraint)
      */
     public void setOneAddiId(Integer oneAddiId) {
@@ -220,7 +221,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
     }
 
     /**
-     * [get] ONE_ADDI_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] ONE_ADDI_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'ONE_ADDI_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getOneAddiName() {
@@ -229,7 +230,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity {
     }
 
     /**
-     * [set] ONE_ADDI_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] ONE_ADDI_NAME: {NotNull, VARCHAR(200)} <br>
      * @param oneAddiName The value of the column 'ONE_ADDI_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setOneAddiName(String oneAddiName) {

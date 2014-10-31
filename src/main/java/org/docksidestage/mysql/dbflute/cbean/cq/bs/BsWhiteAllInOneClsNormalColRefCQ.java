@@ -49,7 +49,7 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_all_in_one_cls_normal_col_ref) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_all_in_one_cls_normal_col_ref on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
     protected ConditionValue xgetCValueClsRefId() { return xdfgetClsRefId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsNormalColRefCQ addOrderBy_ClsRefId_Asc() { regOBA("CLS_REF_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
     protected ConditionValue xgetCValueFooCode() { return xdfgetFooCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsNormalColRefCQ addOrderBy_FooCode_Asc() { regOBA("FOO_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
     protected ConditionValue xgetCValueBarCode() { return xdfgetBarCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsNormalColRefCQ addOrderBy_BarCode_Asc() { regOBA("BAR_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
     protected ConditionValue xgetCValueQuxCode() { return xdfgetQuxCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * QUX_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsNormalColRefCQ addOrderBy_QuxCode_Asc() { regOBA("QUX_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * QUX_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -221,7 +221,7 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -241,7 +241,7 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
     public boolean hasConditionQueryWhiteAllInOneClsElementAsFoo() { return xhasQueRlMap("whiteAllInOneClsElementAsFoo"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
      * @return The instance of condition-query. (NotNull)
      */

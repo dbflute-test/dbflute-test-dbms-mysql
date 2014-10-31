@@ -49,7 +49,7 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_uq_classification) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_uq_classification on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
     protected ConditionValue xgetCValueUqClsId() { return xdfgetUqClsId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhiteUqClassificationCQ addOrderBy_UqClsId_Asc() { regOBA("UQ_CLS_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
     protected ConditionValue xgetCValueUqClsCode() { return xdfgetUqClsCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
      * @return this. (NotNull)
      */
     public BsWhiteUqClassificationCQ addOrderBy_UqClsCode_Asc() { regOBA("UQ_CLS_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
      * @return this. (NotNull)
      */

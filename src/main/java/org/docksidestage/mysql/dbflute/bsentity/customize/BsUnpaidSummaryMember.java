@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of UnpaidSummaryMember. <br />
+ * The entity of UnpaidSummaryMember. <br>
  * <pre>
  * [primary-key]
  *     UNPAID_MAN_ID
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsUnpaidSummaryMember extends AbstractEntity {
+public abstract class BsUnpaidSummaryMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -239,8 +240,8 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)UNPAID_MAN_ID: {PK, INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [get] (会員ID)UNPAID_MAN_ID: {PK, INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @return The value of the column 'UNPAID_MAN_ID'. (NullAllowed even if selected: for no constraint)
      */
@@ -250,8 +251,8 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)UNPAID_MAN_ID: {PK, INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [set] (会員ID)UNPAID_MAN_ID: {PK, INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @param unpaidManId The value of the column 'UNPAID_MAN_ID'. (NullAllowed: null update allowed for no constraint)
      */
@@ -261,7 +262,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)UNPAID_MAN_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [get] (会員名称)UNPAID_MAN_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @return The value of the column 'UNPAID_MAN_NAME'. (NullAllowed even if selected: for no constraint)
      */
@@ -271,7 +272,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)UNPAID_MAN_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [set] (会員名称)UNPAID_MAN_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @param unpaidManName The value of the column 'UNPAID_MAN_NAME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -281,7 +282,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] UNPAID_PRICE_SUMMARY: {DECIMAL(32)} <br />
+     * [get] UNPAID_PRICE_SUMMARY: {DECIMAL(32)} <br>
      * @return The value of the column 'UNPAID_PRICE_SUMMARY'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getUnpaidPriceSummary() {
@@ -290,7 +291,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] UNPAID_PRICE_SUMMARY: {DECIMAL(32)} <br />
+     * [set] UNPAID_PRICE_SUMMARY: {DECIMAL(32)} <br>
      * @param unpaidPriceSummary The value of the column 'UNPAID_PRICE_SUMMARY'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUnpaidPriceSummary(java.math.BigDecimal unpaidPriceSummary) {
@@ -299,7 +300,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータス名称)STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [get] (会員ステータス名称)STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @return The value of the column 'STATUS_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getStatusName() {
@@ -308,7 +309,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータス名称)STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [set] (会員ステータス名称)STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @param statusName The value of the column 'STATUS_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStatusName(String statusName) {

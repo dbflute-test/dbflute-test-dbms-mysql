@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_QUOTED_REF as TABLE. <br />
+ * The entity of WHITE_QUOTED_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     WHERE
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteQuotedRef extends AbstractEntity {
+public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -117,7 +118,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
     protected WhiteQuoted _whiteQuoted;
 
     /**
-     * [get] white_quoted by my ORDER, named 'whiteQuoted'. <br />
+     * [get] white_quoted by my ORDER, named 'whiteQuoted'. <br>
      * @return The entity of foreign property 'whiteQuoted'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteQuoted getWhiteQuoted() {
@@ -201,7 +202,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] WHERE: {PK, NotNull, INT(10)} <br />
+     * [get] WHERE: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'WHERE'. (basically NotNull if selected: for the constraint)
      */
     public Integer getWhere() {
@@ -210,7 +211,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
     }
 
     /**
-     * [set] WHERE: {PK, NotNull, INT(10)} <br />
+     * [set] WHERE: {PK, NotNull, INT(10)} <br>
      * @param where The value of the column 'WHERE'. (basically NotNull if update: for the constraint)
      */
     public void setWhere(Integer where) {
@@ -219,7 +220,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
     }
 
     /**
-     * [get] ORDER: {IX, INT(10), FK to white_quoted} <br />
+     * [get] ORDER: {IX, INT(10), FK to white_quoted} <br>
      * @return The value of the column 'ORDER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getOrder() {
@@ -228,7 +229,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity {
     }
 
     /**
-     * [set] ORDER: {IX, INT(10), FK to white_quoted} <br />
+     * [set] ORDER: {IX, INT(10), FK to white_quoted} <br>
      * @param order The value of the column 'ORDER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setOrder(Integer order) {

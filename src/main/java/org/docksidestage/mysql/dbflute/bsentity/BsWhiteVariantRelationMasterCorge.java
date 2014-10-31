@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_MASTER_CORGE as TABLE. <br />
+ * The entity of WHITE_VARIANT_RELATION_MASTER_CORGE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MASTER_CORGE_ID
@@ -66,7 +67,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
+public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -120,8 +121,8 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of corgeTypeCode as the classification of VariantRelationQuxType. <br />
-     * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * Get the value of corgeTypeCode as the classification of VariantRelationQuxType. <br>
+     * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -131,8 +132,8 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * Set the value of corgeTypeCode as the classification of VariantRelationQuxType. <br />
-     * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * Set the value of corgeTypeCode as the classification of VariantRelationQuxType. <br>
+     * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -144,7 +145,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of corgeTypeCode as Qua (Qua). <br />
+     * Set the value of corgeTypeCode as Qua (Qua). <br>
      * Qua
      */
     public void setCorgeTypeCode_Qua() {
@@ -152,7 +153,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * Set the value of corgeTypeCode as Que (Que). <br />
+     * Set the value of corgeTypeCode as Que (Que). <br>
      * Que
      */
     public void setCorgeTypeCode_Que() {
@@ -160,7 +161,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * Set the value of corgeTypeCode as Quo (Quo). <br />
+     * Set the value of corgeTypeCode as Quo (Quo). <br>
      * Quo
      */
     public void setCorgeTypeCode_Quo() {
@@ -171,7 +172,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of corgeTypeCode Qua? <br />
+     * Is the value of corgeTypeCode Qua? <br>
      * Qua
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -182,7 +183,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * Is the value of corgeTypeCode Que? <br />
+     * Is the value of corgeTypeCode Que? <br>
      * Que
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -193,7 +194,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * Is the value of corgeTypeCode Quo? <br />
+     * Is the value of corgeTypeCode Quo? <br>
      * Quo
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -270,7 +271,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'MASTER_CORGE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMasterCorgeId() {
@@ -279,7 +280,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param masterCorgeId The value of the column 'MASTER_CORGE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMasterCorgeId(Long masterCorgeId) {
@@ -288,7 +289,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * [get] MASTER_CORGE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] MASTER_CORGE_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'MASTER_CORGE_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMasterCorgeName() {
@@ -297,7 +298,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_CORGE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] MASTER_CORGE_NAME: {NotNull, VARCHAR(200)} <br>
      * @param masterCorgeName The value of the column 'MASTER_CORGE_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMasterCorgeName(String masterCorgeName) {
@@ -306,7 +307,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * [get] CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * [get] CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * @return The value of the column 'CORGE_TYPE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getCorgeTypeCode() {
@@ -315,7 +316,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity {
     }
 
     /**
-     * [set] CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * [set] CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * @param corgeTypeCode The value of the column 'CORGE_TYPE_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setCorgeTypeCode(String corgeTypeCode) {

@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      * @param escapedJavaDocCode The value of escapedJavaDocCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -71,8 +71,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Equal(=). As EscapedJavaDocCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br />
+     * Equal(=). As EscapedJavaDocCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -81,7 +81,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Equal(=). As First (FOO). And OnlyOnceRegistered. <br />
+     * Equal(=). As First (FOO). And OnlyOnceRegistered. <br>
      * First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&
      */
     public void setEscapedJavaDocCode_Equal_First() {
@@ -89,7 +89,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Equal(=). As Second (BAR). And OnlyOnceRegistered. <br />
+     * Equal(=). As Second (BAR). And OnlyOnceRegistered. <br>
      * Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&
      */
     public void setEscapedJavaDocCode_Equal_Second() {
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      * @param escapedJavaDocCode The value of escapedJavaDocCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -110,8 +110,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotEqual(&lt;&gt;). As EscapedJavaDocCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br />
+     * NotEqual(&lt;&gt;). As EscapedJavaDocCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -120,7 +120,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotEqual(&lt;&gt;). As First (FOO). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As First (FOO). And OnlyOnceRegistered. <br>
      * First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&
      */
     public void setEscapedJavaDocCode_NotEqual_First() {
@@ -128,7 +128,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotEqual(&lt;&gt;). As Second (BAR). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As Second (BAR). And OnlyOnceRegistered. <br>
      * Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&
      */
     public void setEscapedJavaDocCode_NotEqual_Second() {
@@ -140,7 +140,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      * @param escapedJavaDocCodeList The collection of escapedJavaDocCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -149,8 +149,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in ('a', 'b')}. As EscapedJavaDocCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br />
+     * InScope {in ('a', 'b')}. As EscapedJavaDocCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -159,9 +159,9 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in ('a', 'b')}. As EscapedJavaDocCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * /*IF pmb.yourTop&#42;/&gt;&lt;& <br />
-     * /*IF pmb.yourGroup&#42;/&gt;&lt;& <br />
+     * InScope {in ('a', 'b')}. As EscapedJavaDocCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * /*IF pmb.yourTop&#42;/&gt;&lt;& <br>
+     * /*IF pmb.yourGroup&#42;/&gt;&lt;& <br>
      * The group elements:[First, Second]
      */
     public void setEscapedJavaDocCode_InScope_LineGroup() {
@@ -173,7 +173,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      * @param escapedJavaDocCodeList The collection of escapedJavaDocCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -182,8 +182,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. As EscapedJavaDocCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br />
+     * NotInScope {not in ('a', 'b')}. As EscapedJavaDocCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -196,13 +196,13 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      */
     public void setEscapedJavaDocCode_IsNull() { regEscapedJavaDocCode(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      */
     public void setEscapedJavaDocCode_IsNotNull() { regEscapedJavaDocCode(CK_ISNN, DOBJ); }
@@ -211,7 +211,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueEscapedJavaDocCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @param escapedJavaDocName The value of escapedJavaDocName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -224,7 +224,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @param escapedJavaDocName The value of escapedJavaDocName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -237,7 +237,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @param escapedJavaDocNameList The collection of escapedJavaDocName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @param escapedJavaDocNameList The collection of escapedJavaDocName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setEscapedJavaDocName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param escapedJavaDocName The value of escapedJavaDocName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -274,8 +274,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setEscapedJavaDocName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param escapedJavaDocName The value of escapedJavaDocName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -285,8 +285,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @param escapedJavaDocName The value of escapedJavaDocName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -296,8 +296,8 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @param escapedJavaDocName The value of escapedJavaDocName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @param escapedJavaDocName The value of escapedJavaDocName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -316,19 +316,19 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      */
     public void setEscapedJavaDocName_IsNull() { regEscapedJavaDocName(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      */
     public void setEscapedJavaDocName_IsNullOrEmpty() { regEscapedJavaDocName(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      */
     public void setEscapedJavaDocName_IsNotNull() { regEscapedJavaDocName(CK_ISNN, DOBJ); }
@@ -340,7 +340,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteEscapedJavaDocCB&gt;() {
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteEscapedJavaDocCB&gt;() {
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteEscapedJavaDocCB&gt;() {
@@ -391,7 +391,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteEscapedJavaDocCB&gt;() {
@@ -408,7 +408,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteEscapedJavaDocCB&gt;() {
@@ -425,7 +425,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteEscapedJavaDocCB&gt;() {
@@ -508,7 +508,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -522,7 +522,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

@@ -49,7 +49,7 @@ public class BsWhiteCompoundReferredPrimaryCQ extends AbstractBsWhiteCompoundRef
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_compound_referred_primary) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteCompoundReferredPrimaryCQ extends AbstractBsWhiteCompoundRef
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_compound_referred_primary on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhiteCompoundReferredPrimaryCQ extends AbstractBsWhiteCompoundRef
     public String keepReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter(Object pm) { return xkeepSQuePm("referredId_QueryDerivedReferrer_WhiteCompoundPkList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundReferredPrimaryCQ addOrderBy_ReferredId_Asc() { regOBA("REFERRED_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhiteCompoundReferredPrimaryCQ extends AbstractBsWhiteCompoundRef
     protected ConditionValue xgetCValueReferredName() { return xdfgetReferredName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundReferredPrimaryCQ addOrderBy_ReferredName_Asc() { regOBA("REFERRED_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */

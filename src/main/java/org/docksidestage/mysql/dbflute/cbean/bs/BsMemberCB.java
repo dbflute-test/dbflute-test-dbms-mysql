@@ -132,7 +132,7 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                               Query
     //                                                                               =====
     /**
-     * Prepare for various queries. <br />
+     * Prepare for various queries. <br>
      * Examples of main functions are following:
      * <pre>
      * <span style="color: #3F7E5E">// Basic Queries</span>
@@ -229,7 +229,7 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                               Union
     //                                                                               =====
     /**
-     * Set up 'union' for base-point table. <br />
+     * Set up 'union' for base-point table. <br>
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
@@ -246,7 +246,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
 
     /**
-     * Set up 'union all' for base-point table. <br />
+     * Set up 'union all' for base-point table. <br>
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
@@ -266,7 +266,7 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -291,7 +291,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberAddressAsValid;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -318,7 +318,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberAddressAsValidBefore;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -345,7 +345,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsLoginStatus;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -372,7 +372,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberAddressAsIfComment;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -400,7 +400,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberAddressAsOnlyOneDate;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -427,7 +427,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsLocalBindOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -455,7 +455,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsLocalForeignOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -481,7 +481,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsForeignForeignBindOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -508,7 +508,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsForeignForeignEachOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -534,7 +534,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsForeignForeignOptimizedBasicOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -560,7 +560,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsForeignForeignOptimizedMarkOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -586,7 +586,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsForeignForeignOptimizedPartOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -614,7 +614,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsForeignForeignOptimizedWholeOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -641,7 +641,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsForeignForeignParameterOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -668,7 +668,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsForeignForeignVariousOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -694,7 +694,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsReferrerOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -720,7 +720,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsReferrerForeignOverTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -746,7 +746,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsLatest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -772,7 +772,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsOldest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -798,7 +798,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberAddressAsFormattedBasic;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -825,7 +825,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberAddressAsFormattedLong;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -852,7 +852,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsFormattedMany;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -878,7 +878,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberLoginAsEmbeddedCommentClassificationTest;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -904,7 +904,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberSecurityAsOne;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -929,7 +929,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberServiceAsOne;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -954,7 +954,7 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberWithdrawalAsOne;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員退会情報)member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -980,7 +980,7 @@ public class BsMemberCB extends AbstractConditionBean {
     protected HpSpecification _specification;
 
     /**
-     * Prepare for SpecifyColumn, (Specify)DerivedReferrer. <br />
+     * Prepare for SpecifyColumn, (Specify)DerivedReferrer. <br>
      * This method should be called after SetupSelect.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -1113,7 +1113,7 @@ public class BsMemberCB extends AbstractConditionBean {
         @Override
         protected String getTableDbName() { return "member"; }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1133,7 +1133,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberStatus;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1155,7 +1155,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsValid;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1175,7 +1175,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsValid;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1197,7 +1197,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsValidBefore;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1217,7 +1217,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsValidBefore;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
          * @param statusCode The bind parameter of fixed condition for statusCode. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1239,7 +1239,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsLoginStatus;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1259,7 +1259,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsLoginStatus;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
          * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
@@ -1282,7 +1282,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsIfComment;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1302,7 +1302,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsIfComment;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1324,7 +1324,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsOnlyOneDate;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1344,7 +1344,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsOnlyOneDate;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
          * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1367,7 +1367,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsLocalBindOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1387,7 +1387,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsLocalBindOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1407,7 +1407,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsLocalForeignOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
          * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1429,7 +1429,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignBindOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1449,7 +1449,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignBindOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1469,7 +1469,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignEachOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1489,7 +1489,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignOptimizedBasicOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1509,7 +1509,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignOptimizedMarkOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
          * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
          * @param memberName The bind parameter of fixed condition for memberName. (NotNull)
@@ -1532,7 +1532,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignOptimizedPartOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1552,7 +1552,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignOptimizedPartOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
          * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1574,7 +1574,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignOptimizedWholeOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1594,7 +1594,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignOptimizedWholeOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1616,7 +1616,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignParameterOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1636,7 +1636,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignParameterOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1656,7 +1656,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsForeignForeignVariousOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1676,7 +1676,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsReferrerOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1696,7 +1696,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsReferrerForeignOverTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1716,7 +1716,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsLatest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1736,7 +1736,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsOldest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1758,7 +1758,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsFormattedBasic;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1778,7 +1778,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsFormattedBasic;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1800,7 +1800,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsFormattedLong;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1820,7 +1820,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberAddressAsFormattedLong;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1840,7 +1840,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsFormattedMany;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1860,7 +1860,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberLoginAsEmbeddedCommentClassificationTest;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1880,7 +1880,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberSecurityAsOne;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1900,7 +1900,7 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberServiceAsOne;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員退会情報)member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1920,8 +1920,8 @@ public class BsMemberCB extends AbstractConditionBean {
             return _memberWithdrawalAsOne;
         }
         /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
-         * {select max(FOO) from member_address where ...) as FOO_MAX} <br />
+         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
+         * {select max(FOO) from member_address where ...) as FOO_MAX} <br>
          * (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -1936,8 +1936,8 @@ public class BsMemberCB extends AbstractConditionBean {
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberAddressList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
-         * {select max(FOO) from member_login where ...) as FOO_MAX} <br />
+         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
+         * {select max(FOO) from member_login where ...) as FOO_MAX} <br>
          * (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -1952,8 +1952,8 @@ public class BsMemberCB extends AbstractConditionBean {
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberLoginList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
-         * {select max(FOO) from purchase where ...) as FOO_MAX} <br />
+         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
+         * {select max(FOO) from purchase where ...) as FOO_MAX} <br>
          * (購入)purchase by MEMBER_ID, named 'purchaseList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -2022,7 +2022,7 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                        Dream Cruise
     //                                                                        ============
     /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br />
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
@@ -2041,7 +2041,7 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                       OrScope Query
     //                                                                       =============
     /**
-     * Set up the query for or-scope. <br />
+     * Set up the query for or-scope. <br>
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
@@ -2059,7 +2059,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
 
     /**
-     * Set up the and-part of or-scope. <br />
+     * Set up the and-part of or-scope. <br>
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>

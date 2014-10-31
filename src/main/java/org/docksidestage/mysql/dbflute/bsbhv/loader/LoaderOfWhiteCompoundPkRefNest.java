@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_COMPOUND_PK_REF_NEST as TABLE. <br />
+ * The referrer loader of WHITE_COMPOUND_PK_REF_NEST as TABLE. <br>
  * <pre>
  * [primary key]
  *     COMPOUND_PK_REF_NEST_ID

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PG_RESERV as TABLE. <br />
+ * The entity of WHITE_PG_RESERV as TABLE. <br>
  * <pre>
  * [primary-key]
  *     CLASS
@@ -99,7 +100,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhitePgReserv extends AbstractEntity {
+public abstract class BsWhitePgReserv extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -310,7 +311,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)} <br />
+     * [get] ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'CLASS'. (basically NotNull if selected: for the constraint)
      */
     public Integer getClassSynonym() {
@@ -319,7 +320,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)} <br />
+     * [set] ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)} <br>
      * @param classSynonym The value of the column 'CLASS'. (basically NotNull if update: for the constraint)
      */
     public void setClassSynonym(Integer classSynonym) {
@@ -328,7 +329,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))CASE: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))CASE: {INT(10)} <br>
      * @return The value of the column 'CASE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getCaseSynonym() {
@@ -337,7 +338,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))CASE: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))CASE: {INT(10)} <br>
      * @param caseSynonym The value of the column 'CASE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCaseSynonym(Integer caseSynonym) {
@@ -346,7 +347,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))PACKAGE: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))PACKAGE: {INT(10)} <br>
      * @return The value of the column 'PACKAGE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getPackageSynonym() {
@@ -355,7 +356,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))PACKAGE: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))PACKAGE: {INT(10)} <br>
      * @param packageSynonym The value of the column 'PACKAGE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPackageSynonym(Integer packageSynonym) {
@@ -364,7 +365,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))DEFAULT: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))DEFAULT: {INT(10)} <br>
      * @return The value of the column 'DEFAULT'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getDefaultSynonym() {
@@ -373,7 +374,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))DEFAULT: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))DEFAULT: {INT(10)} <br>
      * @param defaultSynonym The value of the column 'DEFAULT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDefaultSynonym(Integer defaultSynonym) {
@@ -382,7 +383,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))NEW: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))NEW: {INT(10)} <br>
      * @return The value of the column 'NEW'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNewSynonym() {
@@ -391,7 +392,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))NEW: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))NEW: {INT(10)} <br>
      * @param newSynonym The value of the column 'NEW'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNewSynonym(Integer newSynonym) {
@@ -400,7 +401,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))NATIVE: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))NATIVE: {INT(10)} <br>
      * @return The value of the column 'NATIVE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNativeSynonym() {
@@ -409,7 +410,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))NATIVE: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))NATIVE: {INT(10)} <br>
      * @param nativeSynonym The value of the column 'NATIVE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNativeSynonym(Integer nativeSynonym) {
@@ -418,7 +419,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))VOID: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))VOID: {INT(10)} <br>
      * @return The value of the column 'VOID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getVoidSynonym() {
@@ -427,7 +428,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))VOID: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))VOID: {INT(10)} <br>
      * @param voidSynonym The value of the column 'VOID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setVoidSynonym(Integer voidSynonym) {
@@ -436,7 +437,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))PUBLIC: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))PUBLIC: {INT(10)} <br>
      * @return The value of the column 'PUBLIC'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getPublicSynonym() {
@@ -445,7 +446,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))PUBLIC: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))PUBLIC: {INT(10)} <br>
      * @param publicSynonym The value of the column 'PUBLIC'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPublicSynonym(Integer publicSynonym) {
@@ -454,7 +455,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))PROTECTED: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))PROTECTED: {INT(10)} <br>
      * @return The value of the column 'PROTECTED'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getProtectedSynonym() {
@@ -463,7 +464,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))PROTECTED: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))PROTECTED: {INT(10)} <br>
      * @param protectedSynonym The value of the column 'PROTECTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProtectedSynonym(Integer protectedSynonym) {
@@ -472,7 +473,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))PRIVATE: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))PRIVATE: {INT(10)} <br>
      * @return The value of the column 'PRIVATE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getPrivateSynonym() {
@@ -481,7 +482,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))PRIVATE: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))PRIVATE: {INT(10)} <br>
      * @param privateSynonym The value of the column 'PRIVATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPrivateSynonym(Integer privateSynonym) {
@@ -490,7 +491,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))INTERFACE: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))INTERFACE: {INT(10)} <br>
      * @return The value of the column 'INTERFACE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getInterfaceSynonym() {
@@ -499,7 +500,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))INTERFACE: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))INTERFACE: {INT(10)} <br>
      * @param interfaceSynonym The value of the column 'INTERFACE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setInterfaceSynonym(Integer interfaceSynonym) {
@@ -508,7 +509,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))ABSTRACT: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))ABSTRACT: {INT(10)} <br>
      * @return The value of the column 'ABSTRACT'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getAbstractSynonym() {
@@ -517,7 +518,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))ABSTRACT: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))ABSTRACT: {INT(10)} <br>
      * @param abstractSynonym The value of the column 'ABSTRACT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAbstractSynonym(Integer abstractSynonym) {
@@ -526,7 +527,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))FINAL: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))FINAL: {INT(10)} <br>
      * @return The value of the column 'FINAL'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getFinalSynonym() {
@@ -535,7 +536,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))FINAL: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))FINAL: {INT(10)} <br>
      * @param finalSynonym The value of the column 'FINAL'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFinalSynonym(Integer finalSynonym) {
@@ -544,7 +545,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))FINALLY: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))FINALLY: {INT(10)} <br>
      * @return The value of the column 'FINALLY'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getFinallySynonym() {
@@ -553,7 +554,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))FINALLY: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))FINALLY: {INT(10)} <br>
      * @param finallySynonym The value of the column 'FINALLY'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFinallySynonym(Integer finallySynonym) {
@@ -562,7 +563,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))RETURN: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))RETURN: {INT(10)} <br>
      * @return The value of the column 'RETURN'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getReturnSynonym() {
@@ -571,7 +572,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))RETURN: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))RETURN: {INT(10)} <br>
      * @param returnSynonym The value of the column 'RETURN'. (NullAllowed: null update allowed for no constraint)
      */
     public void setReturnSynonym(Integer returnSynonym) {
@@ -580,7 +581,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))DOUBLE: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))DOUBLE: {INT(10)} <br>
      * @return The value of the column 'DOUBLE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getDoubleSynonym() {
@@ -589,7 +590,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))DOUBLE: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))DOUBLE: {INT(10)} <br>
      * @param doubleSynonym The value of the column 'DOUBLE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDoubleSynonym(Integer doubleSynonym) {
@@ -598,7 +599,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))FLOAT: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))FLOAT: {INT(10)} <br>
      * @return The value of the column 'FLOAT'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getFloatSynonym() {
@@ -607,7 +608,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))FLOAT: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))FLOAT: {INT(10)} <br>
      * @param floatSynonym The value of the column 'FLOAT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFloatSynonym(Integer floatSynonym) {
@@ -616,7 +617,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] ((using DBFlute synonym))SHORT: {INT(10)} <br />
+     * [get] ((using DBFlute synonym))SHORT: {INT(10)} <br>
      * @return The value of the column 'SHORT'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getShortSynonym() {
@@ -625,7 +626,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] ((using DBFlute synonym))SHORT: {INT(10)} <br />
+     * [set] ((using DBFlute synonym))SHORT: {INT(10)} <br>
      * @param shortSynonym The value of the column 'SHORT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setShortSynonym(Integer shortSynonym) {
@@ -634,7 +635,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] TYPE: {CHAR(3)} <br />
+     * [get] TYPE: {CHAR(3)} <br>
      * @return The value of the column 'TYPE'. (NullAllowed even if selected: for no constraint)
      */
     public String getType() {
@@ -643,7 +644,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] TYPE: {CHAR(3)} <br />
+     * [set] TYPE: {CHAR(3)} <br>
      * @param type The value of the column 'TYPE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setType(String type) {
@@ -652,7 +653,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [get] RESERV_NAME: {NotNull, VARCHAR(32)} <br />
+     * [get] RESERV_NAME: {NotNull, VARCHAR(32)} <br>
      * @return The value of the column 'RESERV_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getReservName() {
@@ -661,7 +662,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity {
     }
 
     /**
-     * [set] RESERV_NAME: {NotNull, VARCHAR(32)} <br />
+     * [set] RESERV_NAME: {NotNull, VARCHAR(32)} <br>
      * @param reservName The value of the column 'RESERV_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setReservName(String reservName) {

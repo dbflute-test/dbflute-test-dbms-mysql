@@ -49,7 +49,7 @@ public class BsWhiteColumnExceptCQ extends AbstractBsWhiteColumnExceptCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_column_except) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteColumnExceptCQ extends AbstractBsWhiteColumnExceptCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_column_except on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteColumnExceptCQ extends AbstractBsWhiteColumnExceptCQ {
     protected ConditionValue xgetCValueExceptColumnId() { return xdfgetExceptColumnId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhiteColumnExceptCQ addOrderBy_ExceptColumnId_Asc() { regOBA("EXCEPT_COLUMN_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteColumnExceptCQ extends AbstractBsWhiteColumnExceptCQ {
     protected ConditionValue xgetCValueColumnExceptTest() { return xdfgetColumnExceptTest(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * COLUMN_EXCEPT_TEST: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteColumnExceptCQ addOrderBy_ColumnExceptTest_Asc() { regOBA("COLUMN_EXCEPT_TEST"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * COLUMN_EXCEPT_TEST: {INT(10)}
      * @return this. (NotNull)
      */

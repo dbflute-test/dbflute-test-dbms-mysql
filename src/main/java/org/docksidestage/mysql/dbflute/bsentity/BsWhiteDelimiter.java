@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DELIMITER as TABLE. <br />
+ * The entity of WHITE_DELIMITER as TABLE. <br>
  * <pre>
  * [primary-key]
  *     DELIMITER_ID
@@ -69,7 +70,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteDelimiter extends AbstractEntity {
+public abstract class BsWhiteDelimiter extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -191,7 +192,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'DELIMITER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getDelimiterId() {
@@ -200,7 +201,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [set] DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param delimiterId The value of the column 'DELIMITER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setDelimiterId(Long delimiterId) {
@@ -209,7 +210,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [get] NUMBER_NULLABLE: {INT(10)} <br />
+     * [get] NUMBER_NULLABLE: {INT(10)} <br>
      * @return The value of the column 'NUMBER_NULLABLE'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNumberNullable() {
@@ -218,7 +219,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [set] NUMBER_NULLABLE: {INT(10)} <br />
+     * [set] NUMBER_NULLABLE: {INT(10)} <br>
      * @param numberNullable The value of the column 'NUMBER_NULLABLE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNumberNullable(Integer numberNullable) {
@@ -227,7 +228,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [get] STRING_CONVERTED: {VARCHAR(200)} <br />
+     * [get] STRING_CONVERTED: {VARCHAR(200)} <br>
      * @return The value of the column 'STRING_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
     public String getStringConverted() {
@@ -236,7 +237,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [set] STRING_CONVERTED: {VARCHAR(200)} <br />
+     * [set] STRING_CONVERTED: {VARCHAR(200)} <br>
      * @param stringConverted The value of the column 'STRING_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStringConverted(String stringConverted) {
@@ -245,7 +246,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [get] STRING_NON_CONVERTED: {VARCHAR(200)} <br />
+     * [get] STRING_NON_CONVERTED: {VARCHAR(200)} <br>
      * @return The value of the column 'STRING_NON_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
     public String getStringNonConverted() {
@@ -254,7 +255,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [set] STRING_NON_CONVERTED: {VARCHAR(200)} <br />
+     * [set] STRING_NON_CONVERTED: {VARCHAR(200)} <br>
      * @param stringNonConverted The value of the column 'STRING_NON_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStringNonConverted(String stringNonConverted) {
@@ -263,7 +264,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [get] DATE_DEFAULT: {NotNull, DATE(10)} <br />
+     * [get] DATE_DEFAULT: {NotNull, DATE(10)} <br>
      * @return The value of the column 'DATE_DEFAULT'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getDateDefault() {
@@ -272,7 +273,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity {
     }
 
     /**
-     * [set] DATE_DEFAULT: {NotNull, DATE(10)} <br />
+     * [set] DATE_DEFAULT: {NotNull, DATE(10)} <br>
      * @param dateDefault The value of the column 'DATE_DEFAULT'. (basically NotNull if update: for the constraint)
      */
     public void setDateDefault(java.util.Date dateDefault) {

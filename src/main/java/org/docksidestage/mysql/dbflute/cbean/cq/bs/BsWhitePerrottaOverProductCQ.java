@@ -49,7 +49,7 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_perrotta_over_product) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_perrotta_over_product on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -137,14 +137,14 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     public String keepProductId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_WhitePerrottaOverTraceByPreviousProductIdList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
      * @return this. (NotNull)
      */
@@ -157,14 +157,14 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PRODUCT_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PRODUCT_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -177,14 +177,14 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     protected ConditionValue xgetCValueProductNestedCode() { return xdfgetProductNestedCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductNestedCode_Asc() { regOBA("PRODUCT_NESTED_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested}
      * @return this. (NotNull)
      */
@@ -243,7 +243,7 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -263,7 +263,7 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
     public boolean hasConditionQueryWhitePerrottaOverProductNested() { return xhasQueRlMap("whitePerrottaOverProductNested"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
      * @return The instance of condition-query. (NotNull)
      */

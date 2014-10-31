@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
@@ -27,9 +28,9 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.nogen.cache.*;
 
 /**
- * The entity of (会員)MEMBER as TABLE. <br />
- * 会員のプロフィールやアカウントなどの基本情報を保持する。<br />
- * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br />
+ * The entity of (会員)MEMBER as TABLE. <br>
+ * 会員のプロフィールやアカウントなどの基本情報を保持する。<br>
+ * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>
  * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。
  * <pre>
  * [primary-key]
@@ -87,7 +88,7 @@ import org.docksidestage.mysql.dbflute.nogen.cache.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsMember extends AbstractEntity implements EntityDefinedCommonColumn {
+public abstract class BsMember extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -162,7 +163,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param memberAccount (会員アカウント): UQ, NotNull, VARCHAR(50). (NotNull)
      */
@@ -176,8 +177,8 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br />
+     * Get the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -187,8 +188,8 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * Set the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br />
+     * Set the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -200,7 +201,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of memberStatusCode as Formalized (FML). <br />
+     * Set the value of memberStatusCode as Formalized (FML). <br>
      * 正式会員: 正式な会員を示す
      */
     public void setMemberStatusCode_Formalized() {
@@ -208,7 +209,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * Set the value of memberStatusCode as Provisional (PRV). <br />
+     * Set the value of memberStatusCode as Provisional (PRV). <br>
      * 仮会員: 仮の会員を示す
      */
     public void setMemberStatusCode_Provisional() {
@@ -216,7 +217,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * Set the value of memberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of memberStatusCode as Withdrawal (WDL). <br>
      * 退会会員: 退会した会員を示す
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -227,7 +228,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of memberStatusCode Formalized? <br />
+     * Is the value of memberStatusCode Formalized? <br>
      * 正式会員: 正式な会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -238,7 +239,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * Is the value of memberStatusCode Provisional? <br />
+     * Is the value of memberStatusCode Provisional? <br>
      * 仮会員: 仮の会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -249,7 +250,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * Is the value of memberStatusCode Withdrawal? <br />
+     * Is the value of memberStatusCode Withdrawal? <br>
      * 退会会員: 退会した会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -287,7 +288,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberStatus _memberStatus;
 
     /**
-     * [get] (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'. <br />
+     * [get] (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'. <br>
      * @return The entity of foreign property 'memberStatus'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberStatus getMemberStatus() {
@@ -307,7 +308,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberAddress _memberAddressAsValid;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'. <br />
+     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'. <br>
      * @return The entity of foreign property 'memberAddressAsValid'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberAddress getMemberAddressAsValid() {
@@ -326,7 +327,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberAddress _memberAddressAsValidBefore;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'. <br />
+     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'. <br>
      * @return The entity of foreign property 'memberAddressAsValidBefore'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberAddress getMemberAddressAsValidBefore() {
@@ -345,7 +346,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsLoginStatus;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'. <br>
      * @return The entity of foreign property 'memberLoginAsLoginStatus'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsLoginStatus() {
@@ -364,7 +365,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberAddress _memberAddressAsIfComment;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'. <br />
+     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'. <br>
      * @return The entity of foreign property 'memberAddressAsIfComment'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberAddress getMemberAddressAsIfComment() {
@@ -383,7 +384,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberAddress _memberAddressAsOnlyOneDate;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'. <br />
+     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'. <br>
      * @return The entity of foreign property 'memberAddressAsOnlyOneDate'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberAddress getMemberAddressAsOnlyOneDate() {
@@ -402,7 +403,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsLocalBindOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsLocalBindOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsLocalBindOverTest() {
@@ -421,7 +422,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsLocalForeignOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsLocalForeignOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsLocalForeignOverTest() {
@@ -440,7 +441,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsForeignForeignBindOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsForeignForeignBindOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsForeignForeignBindOverTest() {
@@ -459,7 +460,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsForeignForeignEachOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsForeignForeignEachOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsForeignForeignEachOverTest() {
@@ -478,7 +479,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsForeignForeignOptimizedBasicOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsForeignForeignOptimizedBasicOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsForeignForeignOptimizedBasicOverTest() {
@@ -497,7 +498,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsForeignForeignOptimizedMarkOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsForeignForeignOptimizedMarkOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsForeignForeignOptimizedMarkOverTest() {
@@ -516,7 +517,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsForeignForeignOptimizedPartOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsForeignForeignOptimizedPartOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsForeignForeignOptimizedPartOverTest() {
@@ -535,7 +536,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsForeignForeignOptimizedWholeOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsForeignForeignOptimizedWholeOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsForeignForeignOptimizedWholeOverTest() {
@@ -554,7 +555,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsForeignForeignParameterOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsForeignForeignParameterOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsForeignForeignParameterOverTest() {
@@ -573,7 +574,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsForeignForeignVariousOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsForeignForeignVariousOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsForeignForeignVariousOverTest() {
@@ -592,7 +593,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsReferrerOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsReferrerOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsReferrerOverTest() {
@@ -611,7 +612,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsReferrerForeignOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'. <br>
      * @return The entity of foreign property 'memberLoginAsReferrerForeignOverTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsReferrerForeignOverTest() {
@@ -630,7 +631,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsLatest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'. <br>
      * @return The entity of foreign property 'memberLoginAsLatest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsLatest() {
@@ -649,7 +650,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsOldest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'. <br>
      * @return The entity of foreign property 'memberLoginAsOldest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsOldest() {
@@ -668,7 +669,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberAddress _memberAddressAsFormattedBasic;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'. <br />
+     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'. <br>
      * @return The entity of foreign property 'memberAddressAsFormattedBasic'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberAddress getMemberAddressAsFormattedBasic() {
@@ -687,7 +688,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberAddress _memberAddressAsFormattedLong;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'. <br />
+     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'. <br>
      * @return The entity of foreign property 'memberAddressAsFormattedLong'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberAddress getMemberAddressAsFormattedLong() {
@@ -706,7 +707,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsFormattedMany;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'. <br>
      * @return The entity of foreign property 'memberLoginAsFormattedMany'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsFormattedMany() {
@@ -725,7 +726,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     protected MemberLogin _memberLoginAsEmbeddedCommentClassificationTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'. <br />
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'. <br>
      * @return The entity of foreign property 'memberLoginAsEmbeddedCommentClassificationTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberLogin getMemberLoginAsEmbeddedCommentClassificationTest() {
@@ -1052,8 +1053,8 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [get] (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
@@ -1063,8 +1064,8 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
+     * [set] (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMSによって変わる。
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
@@ -1074,7 +1075,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(180)} <br />
+     * [get] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(180)} <br>
      * 会員のフルネームの名称。
      * @return The value of the column 'MEMBER_NAME'. (basically NotNull if selected: for the constraint)
      */
@@ -1084,7 +1085,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(180)} <br />
+     * [set] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(180)} <br>
      * 会員のフルネームの名称。
      * @param memberName The value of the column 'MEMBER_NAME'. (basically NotNull if update: for the constraint)
      */
@@ -1094,7 +1095,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} <br />
+     * [get] (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} <br>
      * 会員がログイン時に利用するアカウントNO。
      * @return The value of the column 'MEMBER_ACCOUNT'. (basically NotNull if selected: for the constraint)
      */
@@ -1104,7 +1105,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} <br />
+     * [set] (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} <br>
      * 会員がログイン時に利用するアカウントNO。
      * @param memberAccount The value of the column 'MEMBER_ACCOUNT'. (basically NotNull if update: for the constraint)
      */
@@ -1114,7 +1115,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br />
+     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
      * @return The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusCode() {
@@ -1123,7 +1124,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br />
+     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setMemberStatusCode(String memberStatusCode) {
@@ -1133,8 +1134,8 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (正式会員日時)FORMALIZED_DATETIME: {IX, DATETIME(19)} <br />
-     * 会員が正式に確定した日時。一度確定したら更新されない。<br />
+     * [get] (正式会員日時)FORMALIZED_DATETIME: {IX, DATETIME(19)} <br>
+     * 会員が正式に確定した日時。一度確定したら更新されない。<br>
      * 仮会員のときはnull。
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
@@ -1144,8 +1145,8 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (正式会員日時)FORMALIZED_DATETIME: {IX, DATETIME(19)} <br />
-     * 会員が正式に確定した日時。一度確定したら更新されない。<br />
+     * [set] (正式会員日時)FORMALIZED_DATETIME: {IX, DATETIME(19)} <br>
+     * 会員が正式に確定した日時。一度確定したら更新されない。<br>
      * 仮会員のときはnull。
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -1155,7 +1156,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (生年月日)BIRTHDATE: {DATE(10)} <br />
+     * [get] (生年月日)BIRTHDATE: {DATE(10)} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
@@ -1165,7 +1166,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (生年月日)BIRTHDATE: {DATE(10)} <br />
+     * [set] (生年月日)BIRTHDATE: {DATE(10)} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
@@ -1175,7 +1176,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br />
+     * [get] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * レコードが登録された日時。共通カラムの一つ。
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
@@ -1185,7 +1186,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br />
+     * [set] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * レコードが登録された日時。共通カラムの一つ。
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
@@ -1195,7 +1196,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br />
+     * [get] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
      * レコードを登録したユーザ。共通カラムの一つ。
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
@@ -1205,7 +1206,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br />
+     * [set] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
      * レコードを登録したユーザ。共通カラムの一つ。
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
@@ -1215,7 +1216,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br />
+     * [get] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * レコードが（最後に）更新された日時。共通カラムの一つ。
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
@@ -1225,7 +1226,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br />
+     * [set] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * レコードが（最後に）更新された日時。共通カラムの一つ。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
@@ -1235,7 +1236,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br />
+     * [get] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * レコードを更新したユーザ。
      * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
@@ -1245,7 +1246,7 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br />
+     * [set] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * レコードを更新したユーザ。
      * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
@@ -1255,8 +1256,8 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [get] (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)} <br />
-     * レコードのバージョンを示すNO。<br />
+     * [get] (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * レコードのバージョンを示すNO。<br>
      * 更新回数と等しく、主に排他制御のために利用される。
      * @return The value of the column 'VERSION_NO'. (basically NotNull if selected: for the constraint)
      */
@@ -1266,8 +1267,8 @@ public abstract class BsMember extends AbstractEntity implements EntityDefinedCo
     }
 
     /**
-     * [set] (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)} <br />
-     * レコードのバージョンを示すNO。<br />
+     * [set] (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * レコードのバージョンを示すNO。<br>
      * 更新回数と等しく、主に排他制御のために利用される。
      * @param versionNo The value of the column 'VERSION_NO'. (basically NotNull if update: for the constraint)
      */

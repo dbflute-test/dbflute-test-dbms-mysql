@@ -49,7 +49,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from member) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join member on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -137,14 +137,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public String keepMemberId_QueryDerivedReferrer_PurchaseListParameter(Object pm) { return xkeepSQuePm("memberId_QueryDerivedReferrer_PurchaseList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS}
      * @return this. (NotNull)
      */
@@ -157,14 +157,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueMemberName() { return xdfgetMemberName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(180)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_MemberName_Asc() { regOBA("MEMBER_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(180)}
      * @return this. (NotNull)
      */
@@ -177,14 +177,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueMemberAccount() { return xdfgetMemberAccount(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_MemberAccount_Asc() { regOBA("MEMBER_ACCOUNT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
@@ -197,14 +197,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueMemberStatusCode() { return xdfgetMemberStatusCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_MemberStatusCode_Asc() { regOBA("MEMBER_STATUS_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus}
      * @return this. (NotNull)
      */
@@ -217,14 +217,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueFormalizedDatetime() { return xdfgetFormalizedDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (正式会員日時)FORMALIZED_DATETIME: {IX, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_FormalizedDatetime_Asc() { regOBA("FORMALIZED_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (正式会員日時)FORMALIZED_DATETIME: {IX, DATETIME(19)}
      * @return this. (NotNull)
      */
@@ -237,14 +237,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueBirthdate() { return xdfgetBirthdate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (生年月日)BIRTHDATE: {DATE(10)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_Birthdate_Asc() { regOBA("BIRTHDATE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (生年月日)BIRTHDATE: {DATE(10)}
      * @return this. (NotNull)
      */
@@ -257,14 +257,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
@@ -277,14 +277,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -297,14 +297,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
@@ -317,14 +317,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -337,14 +337,14 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsMemberCQ addOrderBy_VersionNo_Asc() { regOBA("VERSION_NO"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -490,7 +490,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -510,7 +510,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberStatus() { return xhasQueRlMap("memberStatus"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -540,7 +540,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberAddressAsValid() { return xhasQueRlMap("memberAddressAsValid"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -570,7 +570,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberAddressAsValidBefore() { return xhasQueRlMap("memberAddressAsValidBefore"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
      * @param statusCode The bind parameter of fixed condition for statusCode. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -600,7 +600,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsLoginStatus() { return xhasQueRlMap("memberLoginAsLoginStatus"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
      * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
@@ -631,7 +631,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberAddressAsIfComment() { return xhasQueRlMap("memberAddressAsIfComment"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -661,7 +661,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberAddressAsOnlyOneDate() { return xhasQueRlMap("memberAddressAsOnlyOneDate"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -692,7 +692,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsLocalBindOverTest() { return xhasQueRlMap("memberLoginAsLocalBindOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -712,7 +712,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsLocalForeignOverTest() { return xhasQueRlMap("memberLoginAsLocalForeignOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -742,7 +742,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsForeignForeignBindOverTest() { return xhasQueRlMap("memberLoginAsForeignForeignBindOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -762,7 +762,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsForeignForeignEachOverTest() { return xhasQueRlMap("memberLoginAsForeignForeignEachOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -782,7 +782,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsForeignForeignOptimizedBasicOverTest() { return xhasQueRlMap("memberLoginAsForeignForeignOptimizedBasicOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -802,7 +802,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsForeignForeignOptimizedMarkOverTest() { return xhasQueRlMap("memberLoginAsForeignForeignOptimizedMarkOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @param memberName The bind parameter of fixed condition for memberName. (NotNull)
@@ -833,7 +833,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsForeignForeignOptimizedPartOverTest() { return xhasQueRlMap("memberLoginAsForeignForeignOptimizedPartOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -863,7 +863,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsForeignForeignOptimizedWholeOverTest() { return xhasQueRlMap("memberLoginAsForeignForeignOptimizedWholeOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -893,7 +893,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsForeignForeignParameterOverTest() { return xhasQueRlMap("memberLoginAsForeignForeignParameterOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -913,7 +913,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsForeignForeignVariousOverTest() { return xhasQueRlMap("memberLoginAsForeignForeignVariousOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -933,7 +933,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsReferrerOverTest() { return xhasQueRlMap("memberLoginAsReferrerOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -953,7 +953,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsReferrerForeignOverTest() { return xhasQueRlMap("memberLoginAsReferrerForeignOverTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -973,7 +973,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsLatest() { return xhasQueRlMap("memberLoginAsLatest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -993,7 +993,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsOldest() { return xhasQueRlMap("memberLoginAsOldest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -1023,7 +1023,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberAddressAsFormattedBasic() { return xhasQueRlMap("memberAddressAsFormattedBasic"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -1053,7 +1053,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberAddressAsFormattedLong() { return xhasQueRlMap("memberAddressAsFormattedLong"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -1073,7 +1073,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsFormattedMany() { return xhasQueRlMap("memberLoginAsFormattedMany"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -1093,7 +1093,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberLoginAsEmbeddedCommentClassificationTest() { return xhasQueRlMap("memberLoginAsEmbeddedCommentClassificationTest"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -1111,7 +1111,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberSecurityAsOne() { return xhasQueRlMap("memberSecurityAsOne"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -1129,7 +1129,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public boolean hasConditionQueryMemberServiceAsOne() { return xhasQueRlMap("memberServiceAsOne"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員退会情報)member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
      * @return The instance of condition-query. (NotNull)
      */

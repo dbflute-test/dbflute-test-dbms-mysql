@@ -49,7 +49,7 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_include_query) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_include_query on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     protected ConditionValue xgetCValueIncludeQueryId() { return xdfgetIncludeQueryId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteIncludeQueryCQ addOrderBy_IncludeQueryId_Asc() { regOBA("INCLUDE_QUERY_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     protected ConditionValue xgetCValueIncludeQueryVarchar() { return xdfgetIncludeQueryVarchar(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * INCLUDE_QUERY_VARCHAR: {VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsWhiteIncludeQueryCQ addOrderBy_IncludeQueryVarchar_Asc() { regOBA("INCLUDE_QUERY_VARCHAR"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * INCLUDE_QUERY_VARCHAR: {VARCHAR(100)}
      * @return this. (NotNull)
      */
@@ -141,14 +141,14 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     protected ConditionValue xgetCValueIncludeQueryDate() { return xdfgetIncludeQueryDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * INCLUDE_QUERY_DATE: {DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteIncludeQueryCQ addOrderBy_IncludeQueryDate_Asc() { regOBA("INCLUDE_QUERY_DATE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * INCLUDE_QUERY_DATE: {DATE(10)}
      * @return this. (NotNull)
      */
@@ -161,14 +161,14 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
     protected ConditionValue xgetCValueIncludeQueryDatetime() { return xdfgetIncludeQueryDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * INCLUDE_QUERY_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsWhiteIncludeQueryCQ addOrderBy_IncludeQueryDatetime_Asc() { regOBA("INCLUDE_QUERY_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * INCLUDE_QUERY_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */

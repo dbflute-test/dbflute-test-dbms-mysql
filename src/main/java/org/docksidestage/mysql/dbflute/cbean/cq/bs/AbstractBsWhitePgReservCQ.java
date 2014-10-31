@@ -62,7 +62,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param classSynonym The value of classSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param classSynonym The value of classSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param classSynonym The value of classSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param classSynonym The value of classSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param classSynonym The value of classSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param minNumber The min number of classSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of classSynonym. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param minNumber The min number of classSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of classSynonym. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param classSynonymList The collection of classSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param classSynonymList The collection of classSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,8 +163,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select CLASS from white_pg_reserv_ref where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select CLASS from white_pg_reserv_ref where ...)} <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsWhitePgReservRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -182,8 +182,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     public abstract String keepClassSynonym_ExistsReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select CLASS from white_pg_reserv_ref where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select CLASS from white_pg_reserv_ref where ...)} <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsWhitePgReservRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -209,8 +209,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     public abstract String keepClassSynonym_SpecifyDerivedReferrer_WhitePgReservRefList(WhitePgReservRefCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from white_pg_reserv_ref where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from white_pg_reserv_ref where ...)} <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhitePgReservRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -236,13 +236,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     public abstract String keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      */
     public void setClassSynonym_IsNull() { regClassSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      */
     public void setClassSynonym_IsNotNull() { regClassSynonym(CK_ISNN, DOBJ); }
@@ -251,7 +251,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueClassSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param caseSynonym The value of caseSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -264,7 +264,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param caseSynonym The value of caseSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -273,7 +273,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param caseSynonym The value of caseSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -282,7 +282,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param caseSynonym The value of caseSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -291,7 +291,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param caseSynonym The value of caseSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -300,9 +300,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param minNumber The min number of caseSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of caseSynonym. (NullAllowed: if null, no to-condition)
@@ -313,9 +313,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param minNumber The min number of caseSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of caseSynonym. (NullAllowed: if null, no to-condition)
@@ -326,7 +326,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param caseSynonymList The collection of caseSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -339,7 +339,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param caseSynonymList The collection of caseSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -352,13 +352,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      */
     public void setCaseSynonym_IsNull() { regCaseSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      */
     public void setCaseSynonym_IsNotNull() { regCaseSynonym(CK_ISNN, DOBJ); }
@@ -367,7 +367,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueCaseSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param packageSynonym The value of packageSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param packageSynonym The value of packageSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -389,7 +389,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param packageSynonym The value of packageSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -398,7 +398,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param packageSynonym The value of packageSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -407,7 +407,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param packageSynonym The value of packageSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -416,9 +416,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param minNumber The min number of packageSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of packageSynonym. (NullAllowed: if null, no to-condition)
@@ -429,9 +429,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param minNumber The min number of packageSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of packageSynonym. (NullAllowed: if null, no to-condition)
@@ -442,7 +442,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param packageSynonymList The collection of packageSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -455,7 +455,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @param packageSynonymList The collection of packageSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -468,13 +468,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      */
     public void setPackageSynonym_IsNull() { regPackageSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      */
     public void setPackageSynonym_IsNotNull() { regPackageSynonym(CK_ISNN, DOBJ); }
@@ -483,7 +483,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValuePackageSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param defaultSynonym The value of defaultSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -496,7 +496,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param defaultSynonym The value of defaultSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -505,7 +505,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param defaultSynonym The value of defaultSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -514,7 +514,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param defaultSynonym The value of defaultSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -523,7 +523,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param defaultSynonym The value of defaultSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -532,9 +532,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param minNumber The min number of defaultSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of defaultSynonym. (NullAllowed: if null, no to-condition)
@@ -545,9 +545,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param minNumber The min number of defaultSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of defaultSynonym. (NullAllowed: if null, no to-condition)
@@ -558,7 +558,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param defaultSynonymList The collection of defaultSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -571,7 +571,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param defaultSynonymList The collection of defaultSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -584,13 +584,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      */
     public void setDefaultSynonym_IsNull() { regDefaultSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      */
     public void setDefaultSynonym_IsNotNull() { regDefaultSynonym(CK_ISNN, DOBJ); }
@@ -599,7 +599,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueDefaultSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param newSynonym The value of newSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -612,7 +612,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param newSynonym The value of newSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -621,7 +621,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param newSynonym The value of newSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -630,7 +630,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param newSynonym The value of newSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -639,7 +639,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param newSynonym The value of newSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -648,9 +648,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param minNumber The min number of newSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of newSynonym. (NullAllowed: if null, no to-condition)
@@ -661,9 +661,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param minNumber The min number of newSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of newSynonym. (NullAllowed: if null, no to-condition)
@@ -674,7 +674,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param newSynonymList The collection of newSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -687,7 +687,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @param newSynonymList The collection of newSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -700,13 +700,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      */
     public void setNewSynonym_IsNull() { regNewSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      */
     public void setNewSynonym_IsNotNull() { regNewSynonym(CK_ISNN, DOBJ); }
@@ -715,7 +715,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueNewSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param nativeSynonym The value of nativeSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -728,7 +728,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param nativeSynonym The value of nativeSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -737,7 +737,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param nativeSynonym The value of nativeSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -746,7 +746,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param nativeSynonym The value of nativeSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -755,7 +755,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param nativeSynonym The value of nativeSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -764,9 +764,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param minNumber The min number of nativeSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nativeSynonym. (NullAllowed: if null, no to-condition)
@@ -777,9 +777,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param minNumber The min number of nativeSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nativeSynonym. (NullAllowed: if null, no to-condition)
@@ -790,7 +790,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param nativeSynonymList The collection of nativeSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -803,7 +803,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param nativeSynonymList The collection of nativeSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -816,13 +816,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      */
     public void setNativeSynonym_IsNull() { regNativeSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      */
     public void setNativeSynonym_IsNotNull() { regNativeSynonym(CK_ISNN, DOBJ); }
@@ -831,7 +831,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueNativeSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param voidSynonym The value of voidSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -844,7 +844,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param voidSynonym The value of voidSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -853,7 +853,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param voidSynonym The value of voidSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -862,7 +862,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param voidSynonym The value of voidSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -871,7 +871,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param voidSynonym The value of voidSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -880,9 +880,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param minNumber The min number of voidSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of voidSynonym. (NullAllowed: if null, no to-condition)
@@ -893,9 +893,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param minNumber The min number of voidSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of voidSynonym. (NullAllowed: if null, no to-condition)
@@ -906,7 +906,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param voidSynonymList The collection of voidSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -919,7 +919,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @param voidSynonymList The collection of voidSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -932,13 +932,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      */
     public void setVoidSynonym_IsNull() { regVoidSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      */
     public void setVoidSynonym_IsNotNull() { regVoidSynonym(CK_ISNN, DOBJ); }
@@ -947,7 +947,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueVoidSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param publicSynonym The value of publicSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -960,7 +960,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param publicSynonym The value of publicSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -969,7 +969,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param publicSynonym The value of publicSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -978,7 +978,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param publicSynonym The value of publicSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -987,7 +987,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param publicSynonym The value of publicSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -996,9 +996,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param minNumber The min number of publicSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of publicSynonym. (NullAllowed: if null, no to-condition)
@@ -1009,9 +1009,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param minNumber The min number of publicSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of publicSynonym. (NullAllowed: if null, no to-condition)
@@ -1022,7 +1022,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param publicSynonymList The collection of publicSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1035,7 +1035,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param publicSynonymList The collection of publicSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1048,13 +1048,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      */
     public void setPublicSynonym_IsNull() { regPublicSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      */
     public void setPublicSynonym_IsNotNull() { regPublicSynonym(CK_ISNN, DOBJ); }
@@ -1063,7 +1063,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValuePublicSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param protectedSynonym The value of protectedSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -1076,7 +1076,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param protectedSynonym The value of protectedSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1085,7 +1085,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param protectedSynonym The value of protectedSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1094,7 +1094,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param protectedSynonym The value of protectedSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1103,7 +1103,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param protectedSynonym The value of protectedSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1112,9 +1112,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param minNumber The min number of protectedSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of protectedSynonym. (NullAllowed: if null, no to-condition)
@@ -1125,9 +1125,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param minNumber The min number of protectedSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of protectedSynonym. (NullAllowed: if null, no to-condition)
@@ -1138,7 +1138,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param protectedSynonymList The collection of protectedSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1151,7 +1151,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @param protectedSynonymList The collection of protectedSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1164,13 +1164,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      */
     public void setProtectedSynonym_IsNull() { regProtectedSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      */
     public void setProtectedSynonym_IsNotNull() { regProtectedSynonym(CK_ISNN, DOBJ); }
@@ -1179,7 +1179,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueProtectedSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param privateSynonym The value of privateSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -1192,7 +1192,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param privateSynonym The value of privateSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1201,7 +1201,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param privateSynonym The value of privateSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1210,7 +1210,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param privateSynonym The value of privateSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1219,7 +1219,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param privateSynonym The value of privateSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1228,9 +1228,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param minNumber The min number of privateSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of privateSynonym. (NullAllowed: if null, no to-condition)
@@ -1241,9 +1241,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param minNumber The min number of privateSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of privateSynonym. (NullAllowed: if null, no to-condition)
@@ -1254,7 +1254,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param privateSynonymList The collection of privateSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1267,7 +1267,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param privateSynonymList The collection of privateSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1280,13 +1280,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      */
     public void setPrivateSynonym_IsNull() { regPrivateSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      */
     public void setPrivateSynonym_IsNotNull() { regPrivateSynonym(CK_ISNN, DOBJ); }
@@ -1295,7 +1295,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValuePrivateSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param interfaceSynonym The value of interfaceSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -1308,7 +1308,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param interfaceSynonym The value of interfaceSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1317,7 +1317,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param interfaceSynonym The value of interfaceSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1326,7 +1326,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param interfaceSynonym The value of interfaceSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1335,7 +1335,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param interfaceSynonym The value of interfaceSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1344,9 +1344,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param minNumber The min number of interfaceSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of interfaceSynonym. (NullAllowed: if null, no to-condition)
@@ -1357,9 +1357,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param minNumber The min number of interfaceSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of interfaceSynonym. (NullAllowed: if null, no to-condition)
@@ -1370,7 +1370,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param interfaceSynonymList The collection of interfaceSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1383,7 +1383,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @param interfaceSynonymList The collection of interfaceSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1396,13 +1396,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      */
     public void setInterfaceSynonym_IsNull() { regInterfaceSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      */
     public void setInterfaceSynonym_IsNotNull() { regInterfaceSynonym(CK_ISNN, DOBJ); }
@@ -1411,7 +1411,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueInterfaceSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param abstractSynonym The value of abstractSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -1424,7 +1424,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param abstractSynonym The value of abstractSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1433,7 +1433,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param abstractSynonym The value of abstractSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1442,7 +1442,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param abstractSynonym The value of abstractSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1451,7 +1451,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param abstractSynonym The value of abstractSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1460,9 +1460,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param minNumber The min number of abstractSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of abstractSynonym. (NullAllowed: if null, no to-condition)
@@ -1473,9 +1473,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param minNumber The min number of abstractSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of abstractSynonym. (NullAllowed: if null, no to-condition)
@@ -1486,7 +1486,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param abstractSynonymList The collection of abstractSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1499,7 +1499,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param abstractSynonymList The collection of abstractSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1512,13 +1512,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      */
     public void setAbstractSynonym_IsNull() { regAbstractSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      */
     public void setAbstractSynonym_IsNotNull() { regAbstractSynonym(CK_ISNN, DOBJ); }
@@ -1527,7 +1527,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueAbstractSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param finalSynonym The value of finalSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -1540,7 +1540,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param finalSynonym The value of finalSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1549,7 +1549,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param finalSynonym The value of finalSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1558,7 +1558,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param finalSynonym The value of finalSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1567,7 +1567,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param finalSynonym The value of finalSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1576,9 +1576,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param minNumber The min number of finalSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of finalSynonym. (NullAllowed: if null, no to-condition)
@@ -1589,9 +1589,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param minNumber The min number of finalSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of finalSynonym. (NullAllowed: if null, no to-condition)
@@ -1602,7 +1602,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param finalSynonymList The collection of finalSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1615,7 +1615,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @param finalSynonymList The collection of finalSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1628,13 +1628,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      */
     public void setFinalSynonym_IsNull() { regFinalSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      */
     public void setFinalSynonym_IsNotNull() { regFinalSynonym(CK_ISNN, DOBJ); }
@@ -1643,7 +1643,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueFinalSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param finallySynonym The value of finallySynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -1656,7 +1656,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param finallySynonym The value of finallySynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1665,7 +1665,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param finallySynonym The value of finallySynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1674,7 +1674,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param finallySynonym The value of finallySynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1683,7 +1683,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param finallySynonym The value of finallySynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1692,9 +1692,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param minNumber The min number of finallySynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of finallySynonym. (NullAllowed: if null, no to-condition)
@@ -1705,9 +1705,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param minNumber The min number of finallySynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of finallySynonym. (NullAllowed: if null, no to-condition)
@@ -1718,7 +1718,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param finallySynonymList The collection of finallySynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1731,7 +1731,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param finallySynonymList The collection of finallySynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1744,13 +1744,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      */
     public void setFinallySynonym_IsNull() { regFinallySynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      */
     public void setFinallySynonym_IsNotNull() { regFinallySynonym(CK_ISNN, DOBJ); }
@@ -1759,7 +1759,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueFinallySynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param returnSynonym The value of returnSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -1772,7 +1772,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param returnSynonym The value of returnSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1781,7 +1781,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param returnSynonym The value of returnSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1790,7 +1790,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param returnSynonym The value of returnSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1799,7 +1799,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param returnSynonym The value of returnSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1808,9 +1808,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param minNumber The min number of returnSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of returnSynonym. (NullAllowed: if null, no to-condition)
@@ -1821,9 +1821,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param minNumber The min number of returnSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of returnSynonym. (NullAllowed: if null, no to-condition)
@@ -1834,7 +1834,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param returnSynonymList The collection of returnSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1847,7 +1847,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @param returnSynonymList The collection of returnSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1860,13 +1860,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      */
     public void setReturnSynonym_IsNull() { regReturnSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      */
     public void setReturnSynonym_IsNotNull() { regReturnSynonym(CK_ISNN, DOBJ); }
@@ -1875,7 +1875,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueReturnSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param doubleSynonym The value of doubleSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -1888,7 +1888,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param doubleSynonym The value of doubleSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1897,7 +1897,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param doubleSynonym The value of doubleSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1906,7 +1906,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param doubleSynonym The value of doubleSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1915,7 +1915,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param doubleSynonym The value of doubleSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1924,9 +1924,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param minNumber The min number of doubleSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of doubleSynonym. (NullAllowed: if null, no to-condition)
@@ -1937,9 +1937,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param minNumber The min number of doubleSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of doubleSynonym. (NullAllowed: if null, no to-condition)
@@ -1950,7 +1950,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param doubleSynonymList The collection of doubleSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1963,7 +1963,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param doubleSynonymList The collection of doubleSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1976,13 +1976,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      */
     public void setDoubleSynonym_IsNull() { regDoubleSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      */
     public void setDoubleSynonym_IsNotNull() { regDoubleSynonym(CK_ISNN, DOBJ); }
@@ -1991,7 +1991,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueDoubleSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param floatSynonym The value of floatSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -2004,7 +2004,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param floatSynonym The value of floatSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -2013,7 +2013,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param floatSynonym The value of floatSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -2022,7 +2022,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param floatSynonym The value of floatSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -2031,7 +2031,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param floatSynonym The value of floatSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -2040,9 +2040,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param minNumber The min number of floatSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of floatSynonym. (NullAllowed: if null, no to-condition)
@@ -2053,9 +2053,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param minNumber The min number of floatSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of floatSynonym. (NullAllowed: if null, no to-condition)
@@ -2066,7 +2066,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param floatSynonymList The collection of floatSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2079,7 +2079,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param floatSynonymList The collection of floatSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2092,13 +2092,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      */
     public void setFloatSynonym_IsNull() { regFloatSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      */
     public void setFloatSynonym_IsNotNull() { regFloatSynonym(CK_ISNN, DOBJ); }
@@ -2107,7 +2107,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueFloatSynonym();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param shortSynonym The value of shortSynonym as equal. (NullAllowed: if null, no condition)
      */
@@ -2120,7 +2120,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param shortSynonym The value of shortSynonym as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -2129,7 +2129,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param shortSynonym The value of shortSynonym as lessThan. (NullAllowed: if null, no condition)
      */
@@ -2138,7 +2138,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param shortSynonym The value of shortSynonym as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -2147,7 +2147,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param shortSynonym The value of shortSynonym as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -2156,9 +2156,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param minNumber The min number of shortSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of shortSynonym. (NullAllowed: if null, no to-condition)
@@ -2169,9 +2169,9 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param minNumber The min number of shortSynonym. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of shortSynonym. (NullAllowed: if null, no to-condition)
@@ -2182,7 +2182,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param shortSynonymList The collection of shortSynonym as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2195,7 +2195,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @param shortSynonymList The collection of shortSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2208,13 +2208,13 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      */
     public void setShortSynonym_IsNull() { regShortSynonym(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      */
     public void setShortSynonym_IsNotNull() { regShortSynonym(CK_ISNN, DOBJ); }
@@ -2223,7 +2223,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueShortSynonym();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE: {CHAR(3)}
      * @param type The value of type as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -2236,7 +2236,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE: {CHAR(3)}
      * @param type The value of type as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -2249,7 +2249,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
      * @param typeList The collection of type as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2262,7 +2262,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
      * @param typeList The collection of type as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2275,8 +2275,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * TYPE: {CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE: {CHAR(3)} <br>
      * <pre>e.g. setType_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param type The value of type as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -2286,8 +2286,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * TYPE: {CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE: {CHAR(3)} <br>
      * <pre>e.g. setType_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param type The value of type as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -2297,8 +2297,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
      * @param type The value of type as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -2308,8 +2308,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
      * @param type The value of type as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -2319,7 +2319,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
      * @param type The value of type as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -2328,19 +2328,19 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * TYPE: {CHAR(3)}
      */
     public void setType_IsNull() { regType(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * TYPE: {CHAR(3)}
      */
     public void setType_IsNullOrEmpty() { regType(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * TYPE: {CHAR(3)}
      */
     public void setType_IsNotNull() { regType(CK_ISNN, DOBJ); }
@@ -2349,7 +2349,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueType();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @param reservName The value of reservName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -2362,7 +2362,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @param reservName The value of reservName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -2375,7 +2375,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @param reservNameList The collection of reservName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2388,7 +2388,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @param reservNameList The collection of reservName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2401,8 +2401,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * RESERV_NAME: {NotNull, VARCHAR(32)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * RESERV_NAME: {NotNull, VARCHAR(32)} <br>
      * <pre>e.g. setReservName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param reservName The value of reservName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -2412,8 +2412,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * RESERV_NAME: {NotNull, VARCHAR(32)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * RESERV_NAME: {NotNull, VARCHAR(32)} <br>
      * <pre>e.g. setReservName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param reservName The value of reservName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -2423,8 +2423,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @param reservName The value of reservName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -2434,8 +2434,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @param reservName The value of reservName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -2445,7 +2445,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @param reservName The value of reservName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -2460,7 +2460,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
@@ -2477,7 +2477,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
@@ -2494,7 +2494,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
@@ -2511,7 +2511,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
@@ -2528,7 +2528,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
@@ -2545,7 +2545,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePgReservCB&gt;() {
@@ -2628,7 +2628,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -2642,7 +2642,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

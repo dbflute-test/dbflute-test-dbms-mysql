@@ -34,21 +34,21 @@ public class VendorConstraintNameAutoRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      */
     public void withVendorConstraintNameAutoBar() {
         _query.xdoNss(() -> _query.queryVendorConstraintNameAutoBar());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      */
     public void withVendorConstraintNameAutoFoo() {
         _query.xdoNss(() -> _query.queryVendorConstraintNameAutoFoo());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      */
     public void withVendorConstraintNameAutoQux() {

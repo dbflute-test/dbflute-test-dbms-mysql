@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ONLY_ONE_TO_ONE_FROM as TABLE. <br />
+ * The referrer loader of WHITE_ONLY_ONE_TO_ONE_FROM as TABLE. <br>
  * <pre>
  * [primary key]
  *     FROM_ID

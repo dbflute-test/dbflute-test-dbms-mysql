@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of UndetectableClassificationHint. <br />
+ * The entity of UndetectableClassificationHint. <br>
  * <pre>
  * [primary-key]
  *     
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsUndetectableClassificationHint extends AbstractEntity {
+public abstract class BsUndetectableClassificationHint extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -113,8 +114,8 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of memberStatusCode as the classification of MemberStatus. <br />
-     * MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br />
+     * Get the value of memberStatusCode as the classification of MemberStatus. <br>
+     * MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -124,8 +125,8 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as the classification of MemberStatus. <br />
-     * MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br />
+     * Set the value of memberStatusCode as the classification of MemberStatus. <br>
+     * MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -137,7 +138,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of memberStatusCode as Formalized (FML). <br />
+     * Set the value of memberStatusCode as Formalized (FML). <br>
      * 正式会員: 正式な会員を示す
      */
     public void setMemberStatusCode_Formalized() {
@@ -145,7 +146,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as Provisional (PRV). <br />
+     * Set the value of memberStatusCode as Provisional (PRV). <br>
      * 仮会員: 仮の会員を示す
      */
     public void setMemberStatusCode_Provisional() {
@@ -153,7 +154,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of memberStatusCode as Withdrawal (WDL). <br>
      * 退会会員: 退会した会員を示す
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -164,7 +165,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of memberStatusCode Formalized? <br />
+     * Is the value of memberStatusCode Formalized? <br>
      * 正式会員: 正式な会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -175,7 +176,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     }
 
     /**
-     * Is the value of memberStatusCode Provisional? <br />
+     * Is the value of memberStatusCode Provisional? <br>
      * 仮会員: 仮の会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -186,7 +187,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     }
 
     /**
-     * Is the value of memberStatusCode Withdrawal? <br />
+     * Is the value of memberStatusCode Withdrawal? <br>
      * 退会会員: 退会した会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -282,7 +283,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_ID: {INT(11)} <br />
+     * [get] MEMBER_ID: {INT(11)} <br>
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
@@ -291,7 +292,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     }
 
     /**
-     * [set] MEMBER_ID: {INT(11)} <br />
+     * [set] MEMBER_ID: {INT(11)} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -300,7 +301,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     }
 
     /**
-     * [get] MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br />
+     * [get] MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br>
      * @return The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusCode() {
@@ -309,7 +310,7 @@ public abstract class BsUndetectableClassificationHint extends AbstractEntity {
     }
 
     /**
-     * [set] MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br />
+     * [set] MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br>
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setMemberStatusCode(String memberStatusCode) {

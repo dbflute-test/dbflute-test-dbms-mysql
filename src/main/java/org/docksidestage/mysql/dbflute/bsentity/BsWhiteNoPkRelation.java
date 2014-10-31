@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (VIEW)WHITE_NO_PK_RELATION as VIEW. <br />
+ * The entity of (VIEW)WHITE_NO_PK_RELATION as VIEW. <br>
  * <pre>
  * [primary-key]
  *     
@@ -70,7 +71,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteNoPkRelation extends AbstractEntity {
+public abstract class BsWhiteNoPkRelation extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -129,8 +130,8 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of productStatusCode as the classification of ProductStatus. <br />
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br />
+     * Get the value of productStatusCode as the classification of ProductStatus. <br>
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -140,8 +141,8 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * Set the value of productStatusCode as the classification of ProductStatus. <br />
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br />
+     * Set the value of productStatusCode as the classification of ProductStatus. <br>
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -153,7 +154,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of productStatusCode as OnSale (ONS). <br />
+     * Set the value of productStatusCode as OnSale (ONS). <br>
      * 生産販売可能
      */
     public void setProductStatusCode_OnSale() {
@@ -161,7 +162,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * Set the value of productStatusCode as ProductStop (PST). <br />
+     * Set the value of productStatusCode as ProductStop (PST). <br>
      * 生産中止
      */
     public void setProductStatusCode_ProductStop() {
@@ -169,7 +170,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * Set the value of productStatusCode as SaleStop (SST). <br />
+     * Set the value of productStatusCode as SaleStop (SST). <br>
      * 販売中止
      */
     public void setProductStatusCode_SaleStop() {
@@ -180,7 +181,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of productStatusCode OnSale? <br />
+     * Is the value of productStatusCode OnSale? <br>
      * 生産販売可能
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -191,7 +192,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * Is the value of productStatusCode ProductStop? <br />
+     * Is the value of productStatusCode ProductStop? <br>
      * 生産中止
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -202,7 +203,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * Is the value of productStatusCode SaleStop? <br />
+     * Is the value of productStatusCode SaleStop? <br>
      * 販売中止
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -307,7 +308,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]} <br />
+     * [get] (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]} <br>
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
@@ -316,7 +317,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [set] (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]} <br />
+     * [set] (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]} <br>
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
@@ -325,7 +326,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [get] (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br />
+     * [get] (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
@@ -334,7 +335,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [set] (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br />
+     * [set] (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
      * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
@@ -343,7 +344,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [get] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br />
+     * [get] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
      * 商品を識別する業務上のコード。
      * @return The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if selected: for the constraint)
      */
@@ -353,7 +354,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [set] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br />
+     * [set] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
      * 商品を識別する業務上のコード。
      * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if update: for the constraint)
      */
@@ -363,7 +364,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [get] PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br />
+     * [get] PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
      * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
@@ -372,7 +373,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [set] PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br />
+     * [set] PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
      * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setProductStatusCode(String productStatusCode) {
@@ -382,7 +383,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [get] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br />
+     * [get] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getLatestPurchaseDatetime() {
@@ -391,7 +392,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity {
     }
 
     /**
-     * [set] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br />
+     * [set] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br>
      * @param latestPurchaseDatetime The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setLatestPurchaseDatetime(java.sql.Timestamp latestPurchaseDatetime) {

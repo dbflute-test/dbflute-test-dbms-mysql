@@ -7,9 +7,9 @@ import org.docksidestage.mysql.dbflute.bsbhv.pmbean.BsUnpaidSummaryMemberPmb;
 
 /**
  * <!-- df:beginClassDescription -->
- * The typed parameter-bean of UnpaidSummaryMember. <span style="color: #AD4747">(typed to entity, auto-paging)</span><br />
- * This is related to "<span style="color: #AD4747">selectUnpaidSummaryMember</span>" on MemberBhv, <br />
- * described as "Unpaid Summary Member Select". <br />
+ * The typed parameter-bean of UnpaidSummaryMember. <span style="color: #AD4747">(typed to entity, auto-paging)</span><br>
+ * This is related to "<span style="color: #AD4747">selectUnpaidSummaryMember</span>" on MemberBhv, <br>
+ * described as "Unpaid Summary Member Select". <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SPLIT_MULTIPLE_FK_CHILD as TABLE. <br />
+ * The entity of WHITE_SPLIT_MULTIPLE_FK_CHILD as TABLE. <br>
  * <pre>
  * [primary-key]
  *     CHILD_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
+public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -122,7 +123,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     protected WhiteSplitMultipleFkBase _whiteSplitMultipleFkBase;
 
     /**
-     * [get] white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'. <br />
+     * [get] white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'. <br>
      * @return The entity of foreign property 'whiteSplitMultipleFkBase'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSplitMultipleFkBase getWhiteSplitMultipleFkBase() {
@@ -207,7 +208,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] CHILD_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] CHILD_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'CHILD_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getChildId() {
@@ -216,7 +217,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     }
 
     /**
-     * [set] CHILD_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] CHILD_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param childId The value of the column 'CHILD_ID'. (basically NotNull if update: for the constraint)
      */
     public void setChildId(Long childId) {
@@ -225,7 +226,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     }
 
     /**
-     * [get] BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base} <br />
+     * [get] BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base} <br>
      * @return The value of the column 'BASE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getBaseId() {
@@ -234,7 +235,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     }
 
     /**
-     * [set] BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base} <br />
+     * [set] BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base} <br>
      * @param baseId The value of the column 'BASE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setBaseId(Long baseId) {
@@ -243,7 +244,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     }
 
     /**
-     * [get] CHILD_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] CHILD_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'CHILD_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getChildName() {
@@ -252,7 +253,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity {
     }
 
     /**
-     * [set] CHILD_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] CHILD_NAME: {NotNull, VARCHAR(200)} <br>
      * @param childName The value of the column 'CHILD_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setChildName(String childName) {

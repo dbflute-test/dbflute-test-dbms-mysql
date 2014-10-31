@@ -49,7 +49,7 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_load_data) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_load_data on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
     protected ConditionValue xgetCValueLoadDataId() { return xdfgetLoadDataId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteLoadDataCQ addOrderBy_LoadDataId_Asc() { regOBA("LOAD_DATA_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
     protected ConditionValue xgetCValueLoadDataName() { return xdfgetLoadDataName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteLoadDataCQ addOrderBy_LoadDataName_Asc() { regOBA("LOAD_DATA_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */

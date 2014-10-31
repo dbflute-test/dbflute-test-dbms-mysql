@@ -34,7 +34,7 @@ public class WhiteUqFkWithoutPkRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
      */
     public void withWhiteUqFkWithoutPk() {

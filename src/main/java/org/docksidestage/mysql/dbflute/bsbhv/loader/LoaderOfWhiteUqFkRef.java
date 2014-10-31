@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_UQ_FK_REF as TABLE. <br />
+ * The referrer loader of WHITE_UQ_FK_REF as TABLE. <br>
  * <pre>
  * [primary key]
  *     UQ_FK_REF_ID
@@ -79,7 +79,7 @@ public class LoaderOfWhiteUqFkRef {
     protected List<WhiteUqFkRefNest> _referrerWhiteUqFkRefNestList;
 
     /**
-     * Load referrer of whiteUqFkRefNestList by the set-upper of referrer. <br />
+     * Load referrer of whiteUqFkRefNestList by the set-upper of referrer. <br>
      * white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteUqFkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhiteUqFkRef {
      *         <span style="color: #553000">nestCB</span>.query().set...
      *         <span style="color: #553000">nestCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">nestLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">nestLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    nestLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhiteUqFkRef {
      *     ... = whiteUqFkRef.<span style="color: #CC4747">getWhiteUqFkRefNestList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().set[ForeignKey]_InScope(pkList);

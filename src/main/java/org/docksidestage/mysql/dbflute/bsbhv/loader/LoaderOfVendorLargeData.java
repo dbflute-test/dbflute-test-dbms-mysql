@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of VENDOR_LARGE_DATA as TABLE. <br />
+ * The referrer loader of VENDOR_LARGE_DATA as TABLE. <br>
  * <pre>
  * [primary key]
  *     LARGE_DATA_ID
@@ -79,7 +79,7 @@ public class LoaderOfVendorLargeData {
     protected List<VendorLargeDataRef> _referrerVendorLargeDataRefList;
 
     /**
-     * Load referrer of vendorLargeDataRefList by the set-upper of referrer. <br />
+     * Load referrer of vendorLargeDataRefList by the set-upper of referrer. <br>
      * vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
      * <pre>
      * <span style="color: #0000C0">vendorLargeDataBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorLargeDataList</span>, <span style="color: #553000">dataLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfVendorLargeData {
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    refLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfVendorLargeData {
      *     ... = vendorLargeData.<span style="color: #CC4747">getVendorLargeDataRefList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setLargeDataId_InScope(pkList);

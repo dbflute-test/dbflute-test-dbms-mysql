@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF as TABLE. <br />
+ * The entity of WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     FOO_CODE, BAR_CODE, QUX_CODE
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
+public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -124,7 +125,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     protected WhiteAllInOneClsElement _whiteAllInOneClsElementAsFoo;
 
     /**
-     * [get] white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'. <br />
+     * [get] white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'. <br>
      * @return The entity of foreign property 'whiteAllInOneClsElementAsFoo'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteAllInOneClsElement getWhiteAllInOneClsElementAsFoo() {
@@ -143,7 +144,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     protected WhiteAllInOneClsElement _whiteAllInOneClsElementAsBar;
 
     /**
-     * [get] white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'. <br />
+     * [get] white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'. <br>
      * @return The entity of foreign property 'whiteAllInOneClsElementAsBar'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteAllInOneClsElement getWhiteAllInOneClsElementAsBar() {
@@ -236,7 +237,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT} <br />
+     * [get] FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT} <br>
      * @return The value of the column 'FOO_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getFooCode() {
@@ -245,7 +246,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT} <br />
+     * [set] FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT} <br>
      * @param fooCode The value of the column 'FOO_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setFooCode(String fooCode) {
@@ -254,7 +255,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [get] BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT} <br />
+     * [get] BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT} <br>
      * @return The value of the column 'BAR_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getBarCode() {
@@ -263,7 +264,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT} <br />
+     * [set] BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT} <br>
      * @param barCode The value of the column 'BAR_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setBarCode(String barCode) {
@@ -272,7 +273,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [get] QUX_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [get] QUX_CODE: {PK, NotNull, CHAR(3)} <br>
      * @return The value of the column 'QUX_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getQuxCode() {
@@ -281,7 +282,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] QUX_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [set] QUX_CODE: {PK, NotNull, CHAR(3)} <br>
      * @param quxCode The value of the column 'QUX_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setQuxCode(String quxCode) {

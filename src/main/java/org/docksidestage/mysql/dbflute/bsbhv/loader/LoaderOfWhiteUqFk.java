@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_UQ_FK as TABLE. <br />
+ * The referrer loader of WHITE_UQ_FK as TABLE. <br>
  * <pre>
  * [primary key]
  *     UQ_FK_ID
@@ -79,7 +79,7 @@ public class LoaderOfWhiteUqFk {
     protected List<WhiteUqFkRef> _referrerWhiteUqFkRefByFkToPkIdList;
 
     /**
-     * Load referrer of whiteUqFkRefByFkToPkIdList by the set-upper of referrer. <br />
+     * Load referrer of whiteUqFkRefByFkToPkIdList by the set-upper of referrer. <br>
      * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">fkLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhiteUqFk {
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    refLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhiteUqFk {
      *     ... = whiteUqFk.<span style="color: #CC4747">getWhiteUqFkRefByFkToPkIdList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setFkToPkId_InScope(pkList);
@@ -113,7 +113,7 @@ public class LoaderOfWhiteUqFk {
     protected List<WhiteUqFkRef> _referrerWhiteUqFkRefByFkToUqCodeList;
 
     /**
-     * Load referrer of whiteUqFkRefByFkToUqCodeList by the set-upper of referrer. <br />
+     * Load referrer of whiteUqFkRefByFkToUqCodeList by the set-upper of referrer. <br>
      * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">fkLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -122,7 +122,7 @@ public class LoaderOfWhiteUqFk {
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    refLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -130,7 +130,7 @@ public class LoaderOfWhiteUqFk {
      *     ... = whiteUqFk.<span style="color: #CC4747">getWhiteUqFkRefByFkToUqCodeList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setFkToUqCode_InScope(pkList);

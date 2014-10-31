@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PURCHASE_REFERRER as TABLE. <br />
+ * The entity of WHITE_PURCHASE_REFERRER as TABLE. <br>
  * <pre>
  * [primary-key]
  *     PURCHASE_REFERRER_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhitePurchaseReferrer extends AbstractEntity {
+public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -117,7 +118,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity {
     protected Purchase _purchase;
 
     /**
-     * [get] (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'. <br />
+     * [get] (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'. <br>
      * @return The entity of foreign property 'purchase'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Purchase getPurchase() {
@@ -201,7 +202,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase} <br />
+     * [get] PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase} <br>
      * @return The value of the column 'PURCHASE_REFERRER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getPurchaseReferrerId() {
@@ -210,7 +211,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity {
     }
 
     /**
-     * [set] PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase} <br />
+     * [set] PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase} <br>
      * @param purchaseReferrerId The value of the column 'PURCHASE_REFERRER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPurchaseReferrerId(Long purchaseReferrerId) {
@@ -219,7 +220,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity {
     }
 
     /**
-     * [get] PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'PURCHASE_REFERRER_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getPurchaseReferrerName() {
@@ -228,7 +229,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity {
     }
 
     /**
-     * [set] PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br>
      * @param purchaseReferrerName The value of the column 'PURCHASE_REFERRER_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setPurchaseReferrerName(String purchaseReferrerName) {

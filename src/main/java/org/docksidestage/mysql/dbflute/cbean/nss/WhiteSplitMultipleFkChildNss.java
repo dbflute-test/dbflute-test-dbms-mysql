@@ -34,7 +34,7 @@ public class WhiteSplitMultipleFkChildNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

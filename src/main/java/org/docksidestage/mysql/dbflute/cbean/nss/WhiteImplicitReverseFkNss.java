@@ -34,7 +34,7 @@ public class WhiteImplicitReverseFkNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
@@ -42,7 +42,7 @@ public class WhiteImplicitReverseFkNss {
         _query.xdoNss(() -> _query.queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate));
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */

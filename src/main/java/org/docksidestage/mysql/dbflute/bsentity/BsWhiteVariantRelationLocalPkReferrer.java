@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE. <br />
+ * The entity of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REVERSEFK_SUPPRESSED_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEntity {
+public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -117,7 +118,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     protected WhiteVariantRelationMasterFoo _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne;
 
     /**
-     * [get] white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. <br />
+     * [get] white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. <br>
      * @return The entity of foreign property 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteVariantRelationMasterFoo getWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {
@@ -201,7 +202,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO} <br />
+     * [get] REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO} <br>
      * @return The value of the column 'REVERSEFK_SUPPRESSED_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getReversefkSuppressedId() {
@@ -210,7 +211,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     }
 
     /**
-     * [set] REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO} <br />
+     * [set] REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO} <br>
      * @param reversefkSuppressedId The value of the column 'REVERSEFK_SUPPRESSED_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReversefkSuppressedId(Long reversefkSuppressedId) {
@@ -219,7 +220,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     }
 
     /**
-     * [get] MASTER_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * [get] MASTER_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * @return The value of the column 'MASTER_TYPE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMasterTypeCode() {
@@ -228,7 +229,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     }
 
     /**
-     * [set] MASTER_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * [set] MASTER_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * @param masterTypeCode The value of the column 'MASTER_TYPE_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setMasterTypeCode(String masterTypeCode) {

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_REFERRED_NORMALLY as TABLE. <br />
+ * The entity of WHITE_COMPOUND_REFERRED_NORMALLY as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REFERRED_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
+public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -202,7 +203,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] REFERRED_ID: {PK, NotNull, INT(10)} <br />
+     * [get] REFERRED_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'REFERRED_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getReferredId() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
     }
 
     /**
-     * [set] REFERRED_ID: {PK, NotNull, INT(10)} <br />
+     * [set] REFERRED_ID: {PK, NotNull, INT(10)} <br>
      * @param referredId The value of the column 'REFERRED_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReferredId(Integer referredId) {
@@ -220,7 +221,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
     }
 
     /**
-     * [get] REFERRED_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] REFERRED_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'REFERRED_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getReferredName() {
@@ -229,7 +230,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity {
     }
 
     /**
-     * [set] REFERRED_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] REFERRED_NAME: {NotNull, VARCHAR(200)} <br>
      * @param referredName The value of the column 'REFERRED_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setReferredName(String referredName) {

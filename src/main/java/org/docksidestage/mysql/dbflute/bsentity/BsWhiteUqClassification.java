@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_CLASSIFICATION as TABLE. <br />
+ * The entity of WHITE_UQ_CLASSIFICATION as TABLE. <br>
  * <pre>
  * [primary-key]
  *     UQ_CLS_ID
@@ -64,7 +65,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteUqClassification extends AbstractEntity {
+public abstract class BsWhiteUqClassification extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -112,7 +113,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param uqClsCode : UQ, NotNull, CHAR(3), classification=UQClassificationType. (NotNull)
      */
@@ -126,8 +127,8 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of uqClsCode as the classification of UQClassificationType. <br />
-     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br />
+     * Get the value of uqClsCode as the classification of UQClassificationType. <br>
+     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * unique key as classification
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -137,8 +138,8 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     }
 
     /**
-     * Set the value of uqClsCode as the classification of UQClassificationType. <br />
-     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br />
+     * Set the value of uqClsCode as the classification of UQClassificationType. <br>
+     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * unique key as classification
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -215,7 +216,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] UQ_CLS_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] UQ_CLS_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'UQ_CLS_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getUqClsId() {
@@ -224,7 +225,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     }
 
     /**
-     * [set] UQ_CLS_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] UQ_CLS_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param uqClsId The value of the column 'UQ_CLS_ID'. (basically NotNull if update: for the constraint)
      */
     public void setUqClsId(Long uqClsId) {
@@ -233,7 +234,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     }
 
     /**
-     * [get] UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br />
+     * [get] UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * @return The value of the column 'UQ_CLS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getUqClsCode() {
@@ -242,7 +243,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity {
     }
 
     /**
-     * [set] UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br />
+     * [set] UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * @param uqClsCode The value of the column 'UQ_CLS_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setUqClsCode(String uqClsCode) {

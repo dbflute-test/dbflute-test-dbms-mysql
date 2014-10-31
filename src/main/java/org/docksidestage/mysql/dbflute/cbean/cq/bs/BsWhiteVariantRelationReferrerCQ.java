@@ -49,7 +49,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_variant_relation_referrer) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_variant_relation_referrer on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     public String keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefListParameter(Object pm) { return xkeepSQuePm("referrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationReferrerCQ addOrderBy_ReferrerId_Asc() { regOBA("REFERRER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     protected ConditionValue xgetCValueVariantMasterId() { return xdfgetVariantMasterId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationReferrerCQ addOrderBy_VariantMasterId_Asc() { regOBA("VARIANT_MASTER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @return this. (NotNull)
      */
@@ -149,14 +149,14 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     protected ConditionValue xgetCValueMasterTypeCode() { return xdfgetMasterTypeCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationReferrerCQ addOrderBy_MasterTypeCode_Asc() { regOBA("MASTER_TYPE_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
      * @return this. (NotNull)
      */
@@ -222,7 +222,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -242,7 +242,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     public boolean hasConditionQueryWhiteVariantRelationMasterFooAsVariant() { return xhasQueRlMap("whiteVariantRelationMasterFooAsVariant"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -262,7 +262,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     public boolean hasConditionQueryWhiteVariantRelationMasterBarAsVariant() { return xhasQueRlMap("whiteVariantRelationMasterBarAsVariant"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -282,7 +282,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     public boolean hasConditionQueryWhiteVariantRelationMasterQuxAsVariantByQue() { return xhasQueRlMap("whiteVariantRelationMasterQuxAsVariantByQue"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
      * @param quxType The bind parameter of fixed condition for quxType. (NotNull)
      * @return The instance of condition-query. (NotNull)

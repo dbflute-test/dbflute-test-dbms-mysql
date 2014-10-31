@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @param clsCategoryCode The value of clsCategoryCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @param clsCategoryCode The value of clsCategoryCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -88,7 +88,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @param clsCategoryCodeList The collection of clsCategoryCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @param clsCategoryCodeList The collection of clsCategoryCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -114,8 +114,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category} <br>
      * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category} <br>
      * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -136,8 +136,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @param clsCategoryCode The value of clsCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -147,8 +147,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @param clsCategoryCode The value of clsCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -158,7 +158,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @param clsCategoryCode The value of clsCategoryCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      */
     public void setClsCategoryCode_IsNull() { regClsCategoryCode(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      */
     public void setClsCategoryCode_IsNotNull() { regClsCategoryCode(CK_ISNN, DOBJ); }
@@ -182,7 +182,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueClsCategoryCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param clsElementCode The value of clsElementCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -195,7 +195,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param clsElementCode The value of clsElementCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param clsElementCodeList The collection of clsElementCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -221,7 +221,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param clsElementCodeList The collection of clsElementCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -234,8 +234,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setClsElementCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param clsElementCode The value of clsElementCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -245,8 +245,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setClsElementCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param clsElementCode The value of clsElementCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -256,8 +256,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param clsElementCode The value of clsElementCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -267,8 +267,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param clsElementCode The value of clsElementCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -278,7 +278,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param clsElementCode The value of clsElementCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -287,13 +287,13 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setClsElementCode_IsNull() { regClsElementCode(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setClsElementCode_IsNotNull() { regClsElementCode(CK_ISNN, DOBJ); }
@@ -302,7 +302,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueClsElementCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @param clsElementName The value of clsElementName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @param clsElementName The value of clsElementName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -328,7 +328,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @param clsElementNameList The collection of clsElementName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -341,7 +341,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @param clsElementNameList The collection of clsElementName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -354,8 +354,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)} <br>
      * <pre>e.g. setClsElementName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param clsElementName The value of clsElementName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -365,8 +365,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)} <br>
      * <pre>e.g. setClsElementName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param clsElementName The value of clsElementName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -376,8 +376,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @param clsElementName The value of clsElementName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -387,8 +387,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @param clsElementName The value of clsElementName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -398,7 +398,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @param clsElementName The value of clsElementName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -410,7 +410,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueClsElementName();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @param attributeExp The value of attributeExp as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -423,7 +423,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @param attributeExp The value of attributeExp as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -436,7 +436,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @param attributeExpList The collection of attributeExp as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -449,7 +449,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @param attributeExpList The collection of attributeExp as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -462,8 +462,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * ATTRIBUTE_EXP: {NotNull, TEXT(65535)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * ATTRIBUTE_EXP: {NotNull, TEXT(65535)} <br>
      * <pre>e.g. setAttributeExp_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param attributeExp The value of attributeExp as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -473,8 +473,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * ATTRIBUTE_EXP: {NotNull, TEXT(65535)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * ATTRIBUTE_EXP: {NotNull, TEXT(65535)} <br>
      * <pre>e.g. setAttributeExp_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param attributeExp The value of attributeExp as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -484,8 +484,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @param attributeExp The value of attributeExp as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -495,8 +495,8 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @param attributeExp The value of attributeExp as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -506,7 +506,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @param attributeExp The value of attributeExp as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -521,7 +521,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
@@ -538,7 +538,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
@@ -555,7 +555,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
@@ -572,7 +572,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
@@ -589,7 +589,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
@@ -606,7 +606,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteAllInOneClsElementCB&gt;() {
@@ -644,7 +644,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -658,7 +658,7 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

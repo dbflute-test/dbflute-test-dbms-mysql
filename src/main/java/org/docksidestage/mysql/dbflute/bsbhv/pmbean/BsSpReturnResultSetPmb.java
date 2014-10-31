@@ -25,7 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.*;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpReturnResultSet. <br />
+ * The base class for procedure parameter-bean of SpReturnResultSet. <br>
  * This is related to "<span style="color: #AD4747">SP_RETURN_RESULT_SET</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -55,7 +55,7 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpReturnResultSet. <br />
+     * Constructor for the procedure parameter-bean of SpReturnResultSet. <br>
      * This is related to "<span style="color: #AD4747">SP_RETURN_RESULT_SET</span>".
      */
     public BsSpReturnResultSetPmb() {
@@ -146,7 +146,7 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] notParamResult1 <br />
+     * [get] notParamResult1 <br>
      * @return The value of notParamResult1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpReturnResultSetNotParamResult1> getNotParamResult1() {
@@ -154,7 +154,7 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] notParamResult1 <br />
+     * [set] notParamResult1 <br>
      * @param notParamResult1 The value of notParamResult1. (NullAllowed)
      */
     public void setNotParamResult1(List<SpReturnResultSetNotParamResult1> notParamResult1) {

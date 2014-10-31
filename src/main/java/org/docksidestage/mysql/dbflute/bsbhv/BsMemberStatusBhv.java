@@ -36,7 +36,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of (会員ステータス)MEMBER_STATUS as TABLE. <br />
+ * The behavior of (会員ステータス)MEMBER_STATUS as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_STATUS_CODE
@@ -94,7 +94,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     //                                                                        Count Select
     //                                                                        ============
     /**
-     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
+     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
      * int count = <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -109,7 +109,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
+     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
      * MemberStatusCB cb = new MemberStatusCB();
@@ -127,9 +127,9 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. <br />
-     * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br />
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
@@ -161,9 +161,9 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Select the entity by the condition-bean. <br />
-     * It returns not-null optional entity, so you should ... <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br />
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * MemberStatusCB cb = new MemberStatusCB();
@@ -204,7 +204,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
 
     /**
-     * Select the entity by the condition-bean with deleted check. <br />
+     * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * MemberStatus <span style="color: #553000">memberStatus</span> = <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
@@ -221,7 +221,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Select the entity by the condition-bean with deleted check. <br />
+     * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * MemberStatusCB cb = new MemberStatusCB();
@@ -305,7 +305,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      * });
      * for (MemberStatus <span style="color: #553000">memberStatus</span> : <span style="color: #553000">memberStatusList</span>) {
      *     ... = <span style="color: #553000">memberStatus</span>.get...();
-     * });
+     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberStatus. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
@@ -341,7 +341,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     //                                                                         Page Select
     //                                                                         ===========
     /**
-     * Select the page as result bean. <br />
+     * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
      * PagingResultBean&lt;MemberStatus&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -367,7 +367,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Select the page as result bean. <br />
+     * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
      * MemberStatusCB cb = new MemberStatusCB();
@@ -433,7 +433,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     //                                                                       Scalar Select
     //                                                                       =============
     /**
-     * Select the scalar value derived by a function from uniquely-selected records. <br />
+     * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -473,7 +473,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      *         <span style="color: #553000">purchaseCB</span>.query().set...
      *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt; {</span>
      *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
@@ -488,7 +488,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      *     }
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
      * @param memberStatusList The entity list of memberStatus. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
@@ -508,7 +508,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      *         <span style="color: #553000">purchaseCB</span>.query().set...
      *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt; {</span>
      *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
@@ -521,7 +521,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      *     ...
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
      * @param memberStatus The entity of memberStatus. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
@@ -532,7 +532,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Load referrer of memberList by the set-upper of referrer. <br />
+     * Load referrer of memberList by the set-upper of referrer. <br>
      * (会員)member by MEMBER_STATUS_CODE, named 'memberList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMemberList</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -540,14 +540,14 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      *     <span style="color: #553000">memberCB</span>.query().set...
      *     <span style="color: #553000">memberCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (MemberStatus memberStatus : <span style="color: #553000">memberStatusList</span>) {
      *     ... = memberStatus.<span style="color: #CC4747">getMemberList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setMemberStatusCode_InScope(pkList);
@@ -563,7 +563,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Load referrer of memberList by the set-upper of referrer. <br />
+     * Load referrer of memberList by the set-upper of referrer. <br>
      * (会員)member by MEMBER_STATUS_CODE, named 'memberList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMemberList</span>(<span style="color: #553000">memberStatus</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -571,12 +571,12 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      *     <span style="color: #553000">memberCB</span>.query().set...
      *     <span style="color: #553000">memberCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * ... = <span style="color: #553000">memberStatus</span>.<span style="color: #CC4747">getMemberList()</span>;
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setMemberStatusCode_InScope(pkList);
@@ -620,7 +620,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Load referrer of memberLoginList by the set-upper of referrer. <br />
+     * Load referrer of memberLoginList by the set-upper of referrer. <br>
      * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMemberLoginList</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -628,14 +628,14 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      *     <span style="color: #553000">loginCB</span>.query().set...
      *     <span style="color: #553000">loginCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (MemberStatus memberStatus : <span style="color: #553000">memberStatusList</span>) {
      *     ... = memberStatus.<span style="color: #CC4747">getMemberLoginList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setLoginMemberStatusCode_InScope(pkList);
@@ -651,7 +651,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Load referrer of memberLoginList by the set-upper of referrer. <br />
+     * Load referrer of memberLoginList by the set-upper of referrer. <br>
      * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMemberLoginList</span>(<span style="color: #553000">memberStatus</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -659,12 +659,12 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
      *     <span style="color: #553000">loginCB</span>.query().set...
      *     <span style="color: #553000">loginCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt {</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * ... = <span style="color: #553000">memberStatus</span>.<span style="color: #CC4747">getMemberLoginList()</span>;
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setLoginMemberStatusCode_InScope(pkList);
@@ -780,8 +780,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
-     * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
+     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
+     * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param memberStatus The entity of insert or update. (NotNull, ...depends on insert or update)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -817,8 +817,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     //                                                                        Batch Update
     //                                                                        ============
     /**
-     * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br />
+     * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
@@ -845,8 +845,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br />
+     * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
@@ -873,7 +873,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Batch-delete the entity list. (NonExclusiveControl) <br />
+     * Batch-delete the entity list. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param memberStatusList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
@@ -1005,15 +1005,15 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     //                                         Entity Update
     //                                         -------------
     /**
-     * Insert the entity with varying requests. <br />
-     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br />
+     * Insert the entity with varying requests. <br>
+     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
      * MemberStatus memberStatus = new MemberStatus();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * memberStatus.setFoo...(value);
      * memberStatus.setBar...(value);
-     * InsertOption<MemberStatusCB> option = new InsertOption<MemberStatusCB>();
+     * InsertOption&lt;MemberStatusCB&gt; option = new InsertOption&lt;MemberStatusCB&gt;();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">varyingInsert</span>(memberStatus, option);
@@ -1028,8 +1028,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Update the entity with varying requests modified-only. (ZeroUpdateException, NonExclusiveControl) <br />
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br />
+     * Update the entity with varying requests modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
      * MemberStatus memberStatus = new MemberStatus();
@@ -1061,7 +1061,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br />
+     * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
      * @param memberStatus The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
@@ -1075,8 +1075,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br />
-     * Now a valid option does not exist. <br />
+     * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
+     * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
      * @param memberStatus The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
@@ -1091,9 +1091,9 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     //                                          Batch Update
     //                                          ------------
     /**
-     * Batch-insert the list with varying requests. <br />
+     * Batch-insert the list with varying requests. <br>
      * For example, disableCommonColumnAutoSetup()
-     * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br />
+     * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br>
      * Other specifications are same as batchInsert(entityList).
      * @param memberStatusList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
@@ -1104,9 +1104,9 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Batch-update the list with varying requests. <br />
+     * Batch-update the list with varying requests. <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br />
+     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
      * Other specifications are same as batchUpdate(entityList).
      * @param memberStatusList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1117,8 +1117,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Batch-delete the list with varying requests. <br />
-     * For example, limitBatchDeleteLogging(). <br />
+     * Batch-delete the list with varying requests. <br>
+     * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
      * @param memberStatusList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
@@ -1132,8 +1132,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     //                                          Query Update
     //                                          ------------
     /**
-     * Insert the several entities by query with varying requests (modified-only for fixed value). <br />
-     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br />
+     * Insert the several entities by query with varying requests (modified-only for fixed value). <br>
+     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as queryInsert(entity, setupper).
      * @param manyArgLambda The set-upper of query-insert. (NotNull)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
@@ -1144,9 +1144,9 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br />
+     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br />
+     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br>
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
@@ -1178,9 +1178,9 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br />
+     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br />
+     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br>
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
@@ -1212,8 +1212,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Delete the several entities by query with varying requests non-strictly. <br />
-     * For example, allowNonQueryDelete(). <br />
+     * Delete the several entities by query with varying requests non-strictly. <br>
+     * For example, allowNonQueryDelete(). <br>
      * Other specifications are same as batchUpdateNonstrict(entityList).
      * @param cbLambda The callback for condition-bean of MemberStatus. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
@@ -1225,8 +1225,8 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     }
 
     /**
-     * Delete the several entities by query with varying requests non-strictly. <br />
-     * For example, allowNonQueryDelete(). <br />
+     * Delete the several entities by query with varying requests non-strictly. <br>
+     * For example, allowNonQueryDelete(). <br>
      * Other specifications are same as batchUpdateNonstrict(entityList).
      * @param cb The condition-bean of MemberStatus. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)

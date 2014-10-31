@@ -49,7 +49,7 @@ public class BsWhiteTableExceptGenHeadCQ extends AbstractBsWhiteTableExceptGenHe
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_table_except_gen_head) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteTableExceptGenHeadCQ extends AbstractBsWhiteTableExceptGenHe
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_table_except_gen_head on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteTableExceptGenHeadCQ extends AbstractBsWhiteTableExceptGenHe
     protected ConditionValue xgetCValueGenHeadId() { return xdfgetGenHeadId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhiteTableExceptGenHeadCQ addOrderBy_GenHeadId_Asc() { regOBA("GEN_HEAD_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteTableExceptGenHeadCQ extends AbstractBsWhiteTableExceptGenHe
     protected ConditionValue xgetCValueGenHeadName() { return xdfgetGenHeadName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteTableExceptGenHeadCQ addOrderBy_GenHeadName_Asc() { regOBA("GEN_HEAD_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteTableExceptGenHeadCQ extends AbstractBsWhiteTableExceptGenHe
     protected ConditionValue xgetCValueNometaId() { return xdfgetNometaId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhiteTableExceptGenHeadCQ addOrderBy_NometaId_Asc() { regOBA("NOMETA_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @return this. (NotNull)
      */

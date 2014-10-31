@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SPLIT_MULTIPLE_FK_REF as TABLE. <br />
+ * The referrer loader of WHITE_SPLIT_MULTIPLE_FK_REF as TABLE. <br>
  * <pre>
  * [primary key]
  *     FIRST_ID, SECOND_CODE

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (隣の商品)NEXT_SCHEMA_PRODUCT as TABLE. <br />
+ * The entity of (隣の商品)NEXT_SCHEMA_PRODUCT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     PRODUCT_ID
@@ -75,7 +76,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsNextSchemaProduct extends AbstractEntity {
+public abstract class BsNextSchemaProduct extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -209,7 +210,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] PRODUCT_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] PRODUCT_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getProductId() {
@@ -218,7 +219,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] PRODUCT_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] PRODUCT_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Long productId) {
@@ -227,7 +228,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [get] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
@@ -236,7 +237,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br>
      * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
@@ -245,7 +246,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br />
+     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
@@ -254,7 +255,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br />
+     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
@@ -263,7 +264,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br />
+     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -272,7 +273,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br />
+     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -281,7 +282,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [get] REGISTER_PROCESS: {NotNull, VARCHAR(200)} <br />
+     * [get] REGISTER_PROCESS: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'REGISTER_PROCESS'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterProcess() {
@@ -290,7 +291,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] REGISTER_PROCESS: {NotNull, VARCHAR(200)} <br />
+     * [set] REGISTER_PROCESS: {NotNull, VARCHAR(200)} <br>
      * @param registerProcess The value of the column 'REGISTER_PROCESS'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterProcess(String registerProcess) {
@@ -299,7 +300,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br />
+     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
@@ -308,7 +309,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br />
+     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
@@ -317,7 +318,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br />
+     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -326,7 +327,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br />
+     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -335,7 +336,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [get] UPDATE_PROCESS: {NotNull, VARCHAR(200)} <br />
+     * [get] UPDATE_PROCESS: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'UPDATE_PROCESS'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateProcess() {
@@ -344,7 +345,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] UPDATE_PROCESS: {NotNull, VARCHAR(200)} <br />
+     * [set] UPDATE_PROCESS: {NotNull, VARCHAR(200)} <br>
      * @param updateProcess The value of the column 'UPDATE_PROCESS'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateProcess(String updateProcess) {

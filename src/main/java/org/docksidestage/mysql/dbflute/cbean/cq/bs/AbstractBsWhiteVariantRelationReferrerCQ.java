@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param referrerId The value of referrerId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param referrerId The value of referrerId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param referrerId The value of referrerId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param referrerId The value of referrerId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param referrerId The value of referrerId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of referrerId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of referrerId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of referrerId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of referrerId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param referrerIdList The collection of referrerId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param referrerIdList The collection of referrerId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,8 +163,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select REFERRER_ID from white_variant_relation_referrer_ref where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select REFERRER_ID from white_variant_relation_referrer_ref where ...)} <br>
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -182,8 +182,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     public abstract String keepReferrerId_ExistsReferrer_WhiteVariantRelationReferrerRefList(WhiteVariantRelationReferrerRefCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select REFERRER_ID from white_variant_relation_referrer_ref where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select REFERRER_ID from white_variant_relation_referrer_ref where ...)} <br>
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -209,8 +209,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     public abstract String keepReferrerId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerRefList(WhiteVariantRelationReferrerRefCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer_ref where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer_ref where ...)} <br>
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -236,13 +236,13 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     public abstract String keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setReferrerId_IsNull() { regReferrerId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setReferrerId_IsNotNull() { regReferrerId(CK_ISNN, DOBJ); }
@@ -251,7 +251,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     protected abstract ConditionValue xgetCValueReferrerId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param variantMasterId The value of variantMasterId as equal. (NullAllowed: if null, no condition)
      */
@@ -264,7 +264,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param variantMasterId The value of variantMasterId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -273,7 +273,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param variantMasterId The value of variantMasterId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -282,7 +282,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param variantMasterId The value of variantMasterId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -291,7 +291,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param variantMasterId The value of variantMasterId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -300,9 +300,9 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param minNumber The min number of variantMasterId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of variantMasterId. (NullAllowed: if null, no to-condition)
@@ -313,9 +313,9 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param minNumber The min number of variantMasterId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of variantMasterId. (NullAllowed: if null, no to-condition)
@@ -326,7 +326,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param variantMasterIdList The collection of variantMasterId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -339,7 +339,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param variantMasterIdList The collection of variantMasterId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -355,7 +355,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     protected abstract ConditionValue xgetCValueVariantMasterId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
      * @param masterTypeCode The value of masterTypeCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -364,8 +364,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Equal(=). As VariantRelationMasterType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br />
+     * Equal(=). As VariantRelationMasterType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * master type of variant relation (biz-many-to-one)
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Equal(=). As FooCls (FOO). And OnlyOnceRegistered. <br />
+     * Equal(=). As FooCls (FOO). And OnlyOnceRegistered. <br>
      * FooCls
      */
     public void setMasterTypeCode_Equal_FooCls() {
@@ -382,7 +382,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Equal(=). As BarCls (BAR). And OnlyOnceRegistered. <br />
+     * Equal(=). As BarCls (BAR). And OnlyOnceRegistered. <br>
      * BarCls
      */
     public void setMasterTypeCode_Equal_BarCls() {
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Equal(=). As QuxCls (QUX). And OnlyOnceRegistered. <br />
+     * Equal(=). As QuxCls (QUX). And OnlyOnceRegistered. <br>
      * QuxCls
      */
     public void setMasterTypeCode_Equal_QuxCls() {
@@ -398,7 +398,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Equal(=). As CorgeCls (CORGE). And OnlyOnceRegistered. <br />
+     * Equal(=). As CorgeCls (CORGE). And OnlyOnceRegistered. <br>
      * CorgeCls
      */
     public void setMasterTypeCode_Equal_CorgeCls() {
@@ -410,7 +410,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
      * @param masterTypeCode The value of masterTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -419,8 +419,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). As VariantRelationMasterType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br />
+     * NotEqual(&lt;&gt;). As VariantRelationMasterType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * master type of variant relation (biz-many-to-one)
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -429,7 +429,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). As FooCls (FOO). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As FooCls (FOO). And OnlyOnceRegistered. <br>
      * FooCls
      */
     public void setMasterTypeCode_NotEqual_FooCls() {
@@ -437,7 +437,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). As BarCls (BAR). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As BarCls (BAR). And OnlyOnceRegistered. <br>
      * BarCls
      */
     public void setMasterTypeCode_NotEqual_BarCls() {
@@ -445,7 +445,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). As QuxCls (QUX). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As QuxCls (QUX). And OnlyOnceRegistered. <br>
      * QuxCls
      */
     public void setMasterTypeCode_NotEqual_QuxCls() {
@@ -453,7 +453,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). As CorgeCls (CORGE). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As CorgeCls (CORGE). And OnlyOnceRegistered. <br>
      * CorgeCls
      */
     public void setMasterTypeCode_NotEqual_CorgeCls() {
@@ -465,7 +465,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
      * @param masterTypeCodeList The collection of masterTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -474,8 +474,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * InScope {in ('a', 'b')}. As VariantRelationMasterType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br />
+     * InScope {in ('a', 'b')}. As VariantRelationMasterType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * master type of variant relation (biz-many-to-one)
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -484,9 +484,9 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * InScope {in ('a', 'b')}. As VariantRelationMasterType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * master type of variant relation (biz-many-to-one) <br />
-     * Foo or Bar or Qux <br />
+     * InScope {in ('a', 'b')}. As VariantRelationMasterType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * master type of variant relation (biz-many-to-one) <br>
+     * Foo or Bar or Qux <br>
      * The group elements:[FooCls, BarCls, QuxCls]
      */
     public void setMasterTypeCode_InScope_FooBarQux() {
@@ -498,7 +498,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
      * @param masterTypeCodeList The collection of masterTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -507,8 +507,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. As VariantRelationMasterType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br />
+     * NotInScope {not in ('a', 'b')}. As VariantRelationMasterType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * master type of variant relation (biz-many-to-one)
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -527,7 +527,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
@@ -544,7 +544,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
@@ -561,7 +561,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
@@ -578,7 +578,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
@@ -595,7 +595,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
@@ -612,7 +612,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationReferrerCB&gt;() {
@@ -695,7 +695,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -709,7 +709,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

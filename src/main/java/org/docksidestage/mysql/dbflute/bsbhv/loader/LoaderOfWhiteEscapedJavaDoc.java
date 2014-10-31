@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ESCAPED_JAVA_DOC as TABLE. <br />
+ * The referrer loader of WHITE_ESCAPED_JAVA_DOC as TABLE. <br>
  * <pre>
  * [primary key]
  *     ESCAPED_JAVA_DOC_CODE

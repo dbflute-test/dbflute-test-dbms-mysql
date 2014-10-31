@@ -49,7 +49,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_all_in_one_cls_element) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_all_in_one_cls_element on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     protected ConditionValue xgetCValueClsCategoryCode() { return xdfgetClsCategoryCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsElementCQ addOrderBy_ClsCategoryCode_Asc() { regOBA("CLS_CATEGORY_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     protected ConditionValue xgetCValueClsElementCode() { return xdfgetClsElementCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsElementCQ addOrderBy_ClsElementCode_Asc() { regOBA("CLS_ELEMENT_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     protected ConditionValue xgetCValueClsElementName() { return xdfgetClsElementName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsElementCQ addOrderBy_ClsElementName_Asc() { regOBA("CLS_ELEMENT_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     protected ConditionValue xgetCValueAttributeExp() { return xdfgetAttributeExp(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsElementCQ addOrderBy_AttributeExp_Asc() { regOBA("ATTRIBUTE_EXP"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @return this. (NotNull)
      */
@@ -218,7 +218,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
      * @return The instance of condition-query. (NotNull)
      */

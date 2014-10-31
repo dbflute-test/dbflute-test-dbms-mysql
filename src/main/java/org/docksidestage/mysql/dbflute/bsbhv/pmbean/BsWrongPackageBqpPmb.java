@@ -131,7 +131,7 @@ public class BsWrongPackageBqpPmb implements ParameterBean, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] memberId <br />
+     * [get] memberId <br>
      * @return The value of memberId. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Integer getMemberId() {
@@ -139,7 +139,7 @@ public class BsWrongPackageBqpPmb implements ParameterBean, FetchBean {
     }
 
     /**
-     * [set] memberId <br />
+     * [set] memberId <br>
      * @param memberId The value of memberId. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -147,7 +147,7 @@ public class BsWrongPackageBqpPmb implements ParameterBean, FetchBean {
     }
 
     /**
-     * [get] memberName:likePrefix <br />
+     * [get] memberName:likePrefix <br>
      * @return The value of memberName. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getMemberName() {
@@ -155,7 +155,7 @@ public class BsWrongPackageBqpPmb implements ParameterBean, FetchBean {
     }
 
     /**
-     * [set as prefixSearch] memberName:likePrefix <br />
+     * [set as prefixSearch] memberName:likePrefix <br>
      * @param memberName The value of memberName. (NullAllowed)
      */
     public void setMemberName_PrefixSearch(String memberName) {
@@ -172,7 +172,7 @@ public class BsWrongPackageBqpPmb implements ParameterBean, FetchBean {
     }
 
     /**
-     * [get] birthdate <br />
+     * [get] birthdate <br>
      * @return The value of birthdate. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Date getBirthdate() {
@@ -180,7 +180,7 @@ public class BsWrongPackageBqpPmb implements ParameterBean, FetchBean {
     }
 
     /**
-     * [set] birthdate <br />
+     * [set] birthdate <br>
      * @param birthdate The value of birthdate. (NullAllowed)
      */
     public void setBirthdate(Date birthdate) {

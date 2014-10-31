@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SUPPRESS_JOIN_SQ_MANY_ONE as TABLE. <br />
+ * The entity of WHITE_SUPPRESS_JOIN_SQ_MANY_ONE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MANY_ONE_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
+public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -122,7 +123,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
     protected WhiteSuppressJoinSqManyOneOne _whiteSuppressJoinSqManyOneOne;
 
     /**
-     * [get] white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. <br />
+     * [get] white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. <br>
      * @return The entity of foreign property 'whiteSuppressJoinSqManyOneOne'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteSuppressJoinSqManyOneOne getWhiteSuppressJoinSqManyOneOne() {
@@ -231,7 +232,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MANY_ONE_ID: {PK, NotNull, INT(10)} <br />
+     * [get] MANY_ONE_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'MANY_ONE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getManyOneId() {
@@ -240,7 +241,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
     }
 
     /**
-     * [set] MANY_ONE_ID: {PK, NotNull, INT(10)} <br />
+     * [set] MANY_ONE_ID: {PK, NotNull, INT(10)} <br>
      * @param manyOneId The value of the column 'MANY_ONE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setManyOneId(Integer manyOneId) {
@@ -249,7 +250,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
     }
 
     /**
-     * [get] MANY_ONE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] MANY_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'MANY_ONE_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getManyOneName() {
@@ -258,7 +259,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
     }
 
     /**
-     * [set] MANY_ONE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] MANY_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * @param manyOneName The value of the column 'MANY_ONE_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setManyOneName(String manyOneName) {
@@ -267,7 +268,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
     }
 
     /**
-     * [get] MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one} <br />
+     * [get] MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one} <br>
      * @return The value of the column 'MANY_ONE_ONE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getManyOneOneId() {
@@ -276,7 +277,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity {
     }
 
     /**
-     * [set] MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one} <br />
+     * [set] MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one} <br>
      * @param manyOneOneId The value of the column 'MANY_ONE_ONE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setManyOneOneId(Integer manyOneOneId) {

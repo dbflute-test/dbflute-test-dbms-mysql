@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param genHeadId The value of genHeadId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param genHeadId The value of genHeadId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param genHeadId The value of genHeadId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param genHeadId The value of genHeadId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param genHeadId The value of genHeadId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param minNumber The min number of genHeadId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of genHeadId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param minNumber The min number of genHeadId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of genHeadId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param genHeadIdList The collection of genHeadId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @param genHeadIdList The collection of genHeadId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      */
     public void setGenHeadId_IsNull() { regGenHeadId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      */
     public void setGenHeadId_IsNotNull() { regGenHeadId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueGenHeadId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @param genHeadName The value of genHeadName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -191,7 +191,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @param genHeadName The value of genHeadName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -204,7 +204,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @param genHeadNameList The collection of genHeadName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @param genHeadNameList The collection of genHeadName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -230,8 +230,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * GEN_HEAD_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * GEN_HEAD_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setGenHeadName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param genHeadName The value of genHeadName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * GEN_HEAD_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * GEN_HEAD_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setGenHeadName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param genHeadName The value of genHeadName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -252,8 +252,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @param genHeadName The value of genHeadName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @param genHeadName The value of genHeadName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @param genHeadName The value of genHeadName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -286,7 +286,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueGenHeadName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param nometaId The value of nometaId as equal. (NullAllowed: if null, no condition)
      */
@@ -299,7 +299,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param nometaId The value of nometaId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -308,7 +308,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param nometaId The value of nometaId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -317,7 +317,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param nometaId The value of nometaId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -326,7 +326,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param nometaId The value of nometaId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -335,9 +335,9 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param minNumber The min number of nometaId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nometaId. (NullAllowed: if null, no to-condition)
@@ -348,9 +348,9 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param minNumber The min number of nometaId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nometaId. (NullAllowed: if null, no to-condition)
@@ -361,7 +361,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param nometaIdList The collection of nometaId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @param nometaIdList The collection of nometaId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -387,13 +387,13 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      */
     public void setNometaId_IsNull() { regNometaId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      */
     public void setNometaId_IsNotNull() { regNometaId(CK_ISNN, DOBJ); }
@@ -405,7 +405,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteTableExceptGenHeadCB&gt;() {
@@ -422,7 +422,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteTableExceptGenHeadCB&gt;() {
@@ -439,7 +439,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteTableExceptGenHeadCB&gt;() {
@@ -456,7 +456,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteTableExceptGenHeadCB&gt;() {
@@ -473,7 +473,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteTableExceptGenHeadCB&gt;() {
@@ -490,7 +490,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteTableExceptGenHeadCB&gt;() {
@@ -573,7 +573,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -587,7 +587,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

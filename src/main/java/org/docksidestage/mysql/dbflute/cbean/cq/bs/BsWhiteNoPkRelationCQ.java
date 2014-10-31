@@ -49,7 +49,7 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_no_pk_relation) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_no_pk_relation on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @return this. (NotNull)
      */
     public BsWhiteNoPkRelationCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsWhiteNoPkRelationCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     protected ConditionValue xgetCValueProductHandleCode() { return xdfgetProductHandleCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsWhiteNoPkRelationCQ addOrderBy_ProductHandleCode_Asc() { regOBA("PRODUCT_HANDLE_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
      * @return this. (NotNull)
      */
     public BsWhiteNoPkRelationCQ addOrderBy_ProductStatusCode_Asc() { regOBA("PRODUCT_STATUS_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
      * @return this. (NotNull)
      */
@@ -175,14 +175,14 @@ public class BsWhiteNoPkRelationCQ extends AbstractBsWhiteNoPkRelationCQ {
     protected ConditionValue xgetCValueLatestPurchaseDatetime() { return xdfgetLatestPurchaseDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsWhiteNoPkRelationCQ addOrderBy_LatestPurchaseDatetime_Asc() { regOBA("LATEST_PURCHASE_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */

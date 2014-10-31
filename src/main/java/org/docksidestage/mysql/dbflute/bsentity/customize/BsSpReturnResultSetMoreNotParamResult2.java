@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SpReturnResultSetMoreNotParamResult2. <br />
+ * The entity of SpReturnResultSetMoreNotParamResult2. <br>
  * <pre>
  * [primary-key]
  *     
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEntity {
+public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -123,8 +124,8 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member_status.MEMBER_STATUS_CODE, classification=MemberStatus} <br />
+     * Get the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member_status.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -134,8 +135,8 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * Set the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member_status.MEMBER_STATUS_CODE, classification=MemberStatus} <br />
+     * Set the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member_status.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -147,7 +148,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of memberStatusCode as Formalized (FML). <br />
+     * Set the value of memberStatusCode as Formalized (FML). <br>
      * 正式会員: 正式な会員を示す
      */
     public void setMemberStatusCode_Formalized() {
@@ -155,7 +156,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * Set the value of memberStatusCode as Provisional (PRV). <br />
+     * Set the value of memberStatusCode as Provisional (PRV). <br>
      * 仮会員: 仮の会員を示す
      */
     public void setMemberStatusCode_Provisional() {
@@ -163,7 +164,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * Set the value of memberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of memberStatusCode as Withdrawal (WDL). <br>
      * 退会会員: 退会した会員を示す
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -174,7 +175,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of memberStatusCode Formalized? <br />
+     * Is the value of memberStatusCode Formalized? <br>
      * 正式会員: 正式な会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -185,7 +186,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * Is the value of memberStatusCode Provisional? <br />
+     * Is the value of memberStatusCode Provisional? <br>
      * 仮会員: 仮の会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -196,7 +197,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * Is the value of memberStatusCode Withdrawal? <br />
+     * Is the value of memberStatusCode Withdrawal? <br>
      * 退会会員: 退会した会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -298,7 +299,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member_status.MEMBER_STATUS_CODE, classification=MemberStatus} <br />
+     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member_status.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * 会員ステータスを識別するコード。
      * @return The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed even if selected: for no constraint)
      */
@@ -308,7 +309,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member_status.MEMBER_STATUS_CODE, classification=MemberStatus} <br />
+     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member_status.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * 会員ステータスを識別するコード。
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
@@ -319,7 +320,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @return The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -328,7 +329,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
@@ -337,8 +338,8 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * [get] (説明)DESCRIPTION: {VARCHAR(200), refers to member_status.DESCRIPTION} <br />
-     * 会員ステータスそれぞれの説明。<br />
+     * [get] (説明)DESCRIPTION: {VARCHAR(200), refers to member_status.DESCRIPTION} <br>
+     * 会員ステータスそれぞれの説明。<br>
      * 気の利いた説明があるとディベロッパーがとても助かる。
      * @return The value of the column 'DESCRIPTION'. (NullAllowed even if selected: for no constraint)
      */
@@ -348,8 +349,8 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * [set] (説明)DESCRIPTION: {VARCHAR(200), refers to member_status.DESCRIPTION} <br />
-     * 会員ステータスそれぞれの説明。<br />
+     * [set] (説明)DESCRIPTION: {VARCHAR(200), refers to member_status.DESCRIPTION} <br>
+     * 会員ステータスそれぞれの説明。<br>
      * 気の利いた説明があるとディベロッパーがとても助かる。
      * @param description The value of the column 'DESCRIPTION'. (NullAllowed: null update allowed for no constraint)
      */
@@ -359,8 +360,8 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * [get] (表示順)DISPLAY_ORDER: {INT(11), refers to member_status.DISPLAY_ORDER} <br />
-     * UI上のステータスの表示順を示すNO。<br />
+     * [get] (表示順)DISPLAY_ORDER: {INT(11), refers to member_status.DISPLAY_ORDER} <br>
+     * UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @return The value of the column 'DISPLAY_ORDER'. (NullAllowed even if selected: for no constraint)
      */
@@ -370,8 +371,8 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     }
 
     /**
-     * [set] (表示順)DISPLAY_ORDER: {INT(11), refers to member_status.DISPLAY_ORDER} <br />
-     * UI上のステータスの表示順を示すNO。<br />
+     * [set] (表示順)DISPLAY_ORDER: {INT(11), refers to member_status.DISPLAY_ORDER} <br>
+     * UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @param displayOrder The value of the column 'DISPLAY_ORDER'. (NullAllowed: null update allowed for no constraint)
      */

@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param masterBarId The value of masterBarId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param masterBarId The value of masterBarId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param masterBarId The value of masterBarId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param masterBarId The value of masterBarId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param masterBarId The value of masterBarId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of masterBarId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of masterBarId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of masterBarId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of masterBarId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param masterBarIdList The collection of masterBarId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param masterBarIdList The collection of masterBarId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,8 +163,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -182,8 +182,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     public abstract String keepMasterBarId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList(WhiteVariantRelationReferrerCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -209,8 +209,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     public abstract String keepMasterBarId_SpecifyDerivedReferrer_WhiteVariantRelationReferrerAsVariantList(WhiteVariantRelationReferrerCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerAsVariantList()</span>.<span style="color: #CC4747">max</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -236,13 +236,13 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     public abstract String keepMasterBarId_QueryDerivedReferrer_WhiteVariantRelationReferrerAsVariantListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setMasterBarId_IsNull() { regMasterBarId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setMasterBarId_IsNotNull() { regMasterBarId(CK_ISNN, DOBJ); }
@@ -251,7 +251,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     protected abstract ConditionValue xgetCValueMasterBarId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
      * @param masterBarName The value of masterBarName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -264,7 +264,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
      * @param masterBarName The value of masterBarName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -277,7 +277,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
      * @param masterBarNameList The collection of masterBarName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -290,7 +290,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
      * @param masterBarNameList The collection of masterBarName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -303,8 +303,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterBarName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param masterBarName The value of masterBarName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -314,8 +314,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterBarName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param masterBarName The value of masterBarName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -325,8 +325,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
      * @param masterBarName The value of masterBarName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -336,8 +336,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
      * @param masterBarName The value of masterBarName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -347,7 +347,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
      * @param masterBarName The value of masterBarName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -362,7 +362,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
@@ -379,7 +379,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
@@ -396,7 +396,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
@@ -413,7 +413,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
@@ -430,7 +430,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
@@ -447,7 +447,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterBarCB&gt;() {
@@ -530,7 +530,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -544,7 +544,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

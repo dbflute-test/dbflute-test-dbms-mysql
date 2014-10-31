@@ -22,7 +22,7 @@ import org.dbflute.jdbc.ValueType;
 import org.dbflute.s2dao.valuetype.TnValueTypes;
 
 /**
- * The cursor of PurchaseSummaryMember. <br />
+ * The cursor of PurchaseSummaryMember. <br>
  * @author DBFlute(AutoGenerator)
  */
 public class BsPurchaseSummaryMemberCursor {
@@ -103,7 +103,7 @@ public class BsPurchaseSummaryMemberCursor {
     /**
      * Move to next result.
      * @return Is exist next result.
-     * @throws SQLException
+     * @throws SQLException When it fails to move the cursor to next point.
      */
     public boolean next() throws SQLException {
         return _rs.next();
@@ -113,53 +113,53 @@ public class BsPurchaseSummaryMemberCursor {
     //                                                                  Type Safe Accessor
     //                                                                  ==================
     /**
-     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br />
+     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
+     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br>
      * // unique key of this result
      * @return The value of memberId. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Integer getMemberId() throws SQLException {
         return (Integer)_vtMemberId.getValue(_rs, DB_NAME_MEMBER_ID);
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @return The value of memberName. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public String getMemberName() throws SQLException {
         return (String)_vtMemberName.getValue(_rs, DB_NAME_MEMBER_NAME);
     }
 
     /**
-     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br />
+     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of birthdate. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.util.Date getBirthdate() throws SQLException {
         return (java.util.Date)_vtBirthdate.getValue(_rs, DB_NAME_BIRTHDATE);
     }
 
     /**
-     * [get] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br />
-     * 会員が正式に確定した日時。一度確定したら更新されない。<br />
+     * [get] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br>
+     * 会員が正式に確定した日時。一度確定したら更新されない。<br>
      * 仮会員のときはnull。
      * @return The value of formalizedDatetime. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.sql.Timestamp getFormalizedDatetime() throws SQLException {
         return (java.sql.Timestamp)_vtFormalizedDatetime.getValue(_rs, DB_NAME_FORMALIZED_DATETIME);
     }
 
     /**
-     * [get] PURCHASE_SUMMARY: {DECIMAL(32)} <br />
+     * [get] PURCHASE_SUMMARY: {DECIMAL(32)} <br>
      * // sum of purchase count
      * @return The value of purchaseSummary. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.math.BigDecimal getPurchaseSummary() throws SQLException {
         return (java.math.BigDecimal)_vtPurchaseSummary.getValue(_rs, DB_NAME_PURCHASE_SUMMARY);

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_LARGE_DATA as TABLE. <br />
+ * The entity of VENDOR_LARGE_DATA as TABLE. <br>
  * <pre>
  * [primary-key]
  *     LARGE_DATA_ID
@@ -73,7 +74,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorLargeData extends AbstractEntity {
+public abstract class BsVendorLargeData extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -136,7 +137,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param stringUniqueIndex : UQ, NotNull, VARCHAR(180). (NotNull)
      */
@@ -243,7 +244,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] LARGE_DATA_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] LARGE_DATA_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'LARGE_DATA_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getLargeDataId() {
@@ -252,7 +253,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [set] LARGE_DATA_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] LARGE_DATA_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param largeDataId The value of the column 'LARGE_DATA_ID'. (basically NotNull if update: for the constraint)
      */
     public void setLargeDataId(Long largeDataId) {
@@ -261,7 +262,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [get] STRING_INDEX: {IX, NotNull, VARCHAR(180)} <br />
+     * [get] STRING_INDEX: {IX, NotNull, VARCHAR(180)} <br>
      * @return The value of the column 'STRING_INDEX'. (basically NotNull if selected: for the constraint)
      */
     public String getStringIndex() {
@@ -270,7 +271,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [set] STRING_INDEX: {IX, NotNull, VARCHAR(180)} <br />
+     * [set] STRING_INDEX: {IX, NotNull, VARCHAR(180)} <br>
      * @param stringIndex The value of the column 'STRING_INDEX'. (basically NotNull if update: for the constraint)
      */
     public void setStringIndex(String stringIndex) {
@@ -279,7 +280,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [get] STRING_NO_INDEX: {NotNull, VARCHAR(180)} <br />
+     * [get] STRING_NO_INDEX: {NotNull, VARCHAR(180)} <br>
      * @return The value of the column 'STRING_NO_INDEX'. (basically NotNull if selected: for the constraint)
      */
     public String getStringNoIndex() {
@@ -288,7 +289,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [set] STRING_NO_INDEX: {NotNull, VARCHAR(180)} <br />
+     * [set] STRING_NO_INDEX: {NotNull, VARCHAR(180)} <br>
      * @param stringNoIndex The value of the column 'STRING_NO_INDEX'. (basically NotNull if update: for the constraint)
      */
     public void setStringNoIndex(String stringNoIndex) {
@@ -297,7 +298,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [get] STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)} <br />
+     * [get] STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)} <br>
      * @return The value of the column 'STRING_UNIQUE_INDEX'. (basically NotNull if selected: for the constraint)
      */
     public String getStringUniqueIndex() {
@@ -306,7 +307,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [set] STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)} <br />
+     * [set] STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)} <br>
      * @param stringUniqueIndex The value of the column 'STRING_UNIQUE_INDEX'. (basically NotNull if update: for the constraint)
      */
     public void setStringUniqueIndex(String stringUniqueIndex) {
@@ -315,7 +316,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [get] INTFLG_INDEX: {NotNull, INT(10)} <br />
+     * [get] INTFLG_INDEX: {NotNull, INT(10)} <br>
      * @return The value of the column 'INTFLG_INDEX'. (basically NotNull if selected: for the constraint)
      */
     public Integer getIntflgIndex() {
@@ -324,7 +325,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [set] INTFLG_INDEX: {NotNull, INT(10)} <br />
+     * [set] INTFLG_INDEX: {NotNull, INT(10)} <br>
      * @param intflgIndex The value of the column 'INTFLG_INDEX'. (basically NotNull if update: for the constraint)
      */
     public void setIntflgIndex(Integer intflgIndex) {
@@ -333,7 +334,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [get] NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)} <br />
+     * [get] NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)} <br>
      * @return The value of the column 'NUMERIC_INTEGER_INDEX'. (basically NotNull if selected: for the constraint)
      */
     public Integer getNumericIntegerIndex() {
@@ -342,7 +343,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [set] NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)} <br />
+     * [set] NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)} <br>
      * @param numericIntegerIndex The value of the column 'NUMERIC_INTEGER_INDEX'. (basically NotNull if update: for the constraint)
      */
     public void setNumericIntegerIndex(Integer numericIntegerIndex) {
@@ -351,7 +352,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [get] NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)} <br />
+     * [get] NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)} <br>
      * @return The value of the column 'NUMERIC_INTEGER_NO_INDEX'. (basically NotNull if selected: for the constraint)
      */
     public Integer getNumericIntegerNoIndex() {
@@ -360,7 +361,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     }
 
     /**
-     * [set] NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)} <br />
+     * [set] NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)} <br>
      * @param numericIntegerNoIndex The value of the column 'NUMERIC_INTEGER_NO_INDEX'. (basically NotNull if update: for the constraint)
      */
     public void setNumericIntegerNoIndex(Integer numericIntegerNoIndex) {

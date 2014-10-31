@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_TRACE as TABLE. <br />
+ * The entity of WHITE_PERROTTA_OVER_TRACE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     TRACE_ID
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
+public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -121,7 +122,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param previousProductId : UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product. (NotNull)
      * @param nextProductId : +UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product. (NotNull)
@@ -140,7 +141,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     protected WhitePerrottaOverProduct _whitePerrottaOverProductByNextProductId;
 
     /**
-     * [get] white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'. <br />
+     * [get] white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'. <br>
      * @return The entity of foreign property 'whitePerrottaOverProductByNextProductId'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhitePerrottaOverProduct getWhitePerrottaOverProductByNextProductId() {
@@ -159,7 +160,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     protected WhitePerrottaOverProduct _whitePerrottaOverProductByPreviousProductId;
 
     /**
-     * [get] white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'. <br />
+     * [get] white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'. <br>
      * @return The entity of foreign property 'whitePerrottaOverProductByPreviousProductId'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhitePerrottaOverProduct getWhitePerrottaOverProductByPreviousProductId() {
@@ -249,7 +250,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] TRACE_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] TRACE_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'TRACE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getTraceId() {
@@ -258,7 +259,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     }
 
     /**
-     * [set] TRACE_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] TRACE_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param traceId The value of the column 'TRACE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setTraceId(Long traceId) {
@@ -267,7 +268,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     }
 
     /**
-     * [get] PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br />
+     * [get] PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
      * @return The value of the column 'PREVIOUS_PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getPreviousProductId() {
@@ -276,7 +277,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     }
 
     /**
-     * [set] PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br />
+     * [set] PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
      * @param previousProductId The value of the column 'PREVIOUS_PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPreviousProductId(Long previousProductId) {
@@ -285,7 +286,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     }
 
     /**
-     * [get] NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br />
+     * [get] NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
      * @return The value of the column 'NEXT_PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getNextProductId() {
@@ -294,7 +295,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     }
 
     /**
-     * [set] NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br />
+     * [set] NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
      * @param nextProductId The value of the column 'NEXT_PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setNextProductId(Long nextProductId) {
@@ -303,7 +304,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     }
 
     /**
-     * [get] TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * [get] TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * @return The value of the column 'TRACE_TYPE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getTraceTypeCode() {
@@ -312,7 +313,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity {
     }
 
     /**
-     * [set] TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br />
+     * [set] TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * @param traceTypeCode The value of the column 'TRACE_TYPE_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setTraceTypeCode(String traceTypeCode) {

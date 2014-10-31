@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_ALL_IN_ONE_CLS_CATEGORY as TABLE. <br />
+ * The referrer loader of WHITE_ALL_IN_ONE_CLS_CATEGORY as TABLE. <br>
  * <pre>
  * [primary key]
  *     CLS_CATEGORY_CODE
@@ -79,7 +79,7 @@ public class LoaderOfWhiteAllInOneClsCategory {
     protected List<WhiteAllInOneClsElement> _referrerWhiteAllInOneClsElementList;
 
     /**
-     * Load referrer of whiteAllInOneClsElementList by the set-upper of referrer. <br />
+     * Load referrer of whiteAllInOneClsElementList by the set-upper of referrer. <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * <pre>
      * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteAllInOneClsCategoryList</span>, <span style="color: #553000">categoryLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhiteAllInOneClsCategory {
      *         <span style="color: #553000">elementCB</span>.query().set...
      *         <span style="color: #553000">elementCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">elementLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">elementLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    elementLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhiteAllInOneClsCategory {
      *     ... = whiteAllInOneClsCategory.<span style="color: #CC4747">getWhiteAllInOneClsElementList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setClsCategoryCode_InScope(pkList);

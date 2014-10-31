@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_LINE_SEP_COMMENT as TABLE. <br />
+ * The referrer loader of WHITE_LINE_SEP_COMMENT as TABLE. <br>
  * <pre>
  * [primary key]
  *     LINE_SEP_COMMENT_CODE

@@ -49,7 +49,7 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_grouping_reference) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_grouping_reference on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
     protected ConditionValue xgetCValueGroupingReferenceId() { return xdfgetGroupingReferenceId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteGroupingReferenceCQ addOrderBy_GroupingReferenceId_Asc() { regOBA("GROUPING_REFERENCE_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
     protected ConditionValue xgetCValueGroupingReferenceCode() { return xdfgetGroupingReferenceCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
      * @return this. (NotNull)
      */
     public BsWhiteGroupingReferenceCQ addOrderBy_GroupingReferenceCode_Asc() { regOBA("GROUPING_REFERENCE_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
      * @return this. (NotNull)
      */

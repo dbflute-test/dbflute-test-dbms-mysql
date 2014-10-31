@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_GROUPING_REFERENCE as TABLE. <br />
+ * The entity of WHITE_GROUPING_REFERENCE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     GROUPING_REFERENCE_ID
@@ -64,7 +65,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteGroupingReference extends AbstractEntity {
+public abstract class BsWhiteGroupingReference extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -115,8 +116,8 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of groupingReferenceCode as the classification of GroupingReference. <br />
-     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br />
+     * Get the value of groupingReferenceCode as the classification of GroupingReference. <br>
+     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -126,8 +127,8 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * Set the value of groupingReferenceCode as the classification of GroupingReference. <br />
-     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br />
+     * Set the value of groupingReferenceCode as the classification of GroupingReference. <br>
+     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -139,7 +140,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of groupingReferenceCode as LAND_NAME (LND). <br />
+     * Set the value of groupingReferenceCode as LAND_NAME (LND). <br>
      * LAND_NAME
      */
     public void setGroupingReferenceCode_LAND_NAME() {
@@ -147,7 +148,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * Set the value of groupingReferenceCode as SEA_NAME (SEA). <br />
+     * Set the value of groupingReferenceCode as SEA_NAME (SEA). <br>
      * SEA_NAME
      */
     public void setGroupingReferenceCode_SEA_NAME() {
@@ -155,7 +156,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * Set the value of groupingReferenceCode as IKSPIARY_NAME (IKS). <br />
+     * Set the value of groupingReferenceCode as IKSPIARY_NAME (IKS). <br>
      * IKSPIARY_NAME
      */
     public void setGroupingReferenceCode_IKSPIARY_NAME() {
@@ -163,7 +164,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * Set the value of groupingReferenceCode as AMPHI_NAME (AMP). <br />
+     * Set the value of groupingReferenceCode as AMPHI_NAME (AMP). <br>
      * AMPHI_NAME
      */
     public void setGroupingReferenceCode_AMPHI_NAME() {
@@ -174,7 +175,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of groupingReferenceCode LAND_NAME? <br />
+     * Is the value of groupingReferenceCode LAND_NAME? <br>
      * LAND_NAME
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -185,7 +186,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * Is the value of groupingReferenceCode SEA_NAME? <br />
+     * Is the value of groupingReferenceCode SEA_NAME? <br>
      * SEA_NAME
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -196,7 +197,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * Is the value of groupingReferenceCode IKSPIARY_NAME? <br />
+     * Is the value of groupingReferenceCode IKSPIARY_NAME? <br>
      * IKSPIARY_NAME
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -207,7 +208,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * Is the value of groupingReferenceCode AMPHI_NAME? <br />
+     * Is the value of groupingReferenceCode AMPHI_NAME? <br>
      * AMPHI_NAME
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -218,7 +219,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * サービスが利用できる会員 <br />
+     * サービスが利用できる会員 <br>
      * The group elements:[LAND_NAME, SEA_NAME]
      * @return The determination, true or false.
      */
@@ -322,7 +323,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'GROUPING_REFERENCE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getGroupingReferenceId() {
@@ -331,7 +332,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * [set] GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param groupingReferenceId The value of the column 'GROUPING_REFERENCE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setGroupingReferenceId(Long groupingReferenceId) {
@@ -340,7 +341,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * [get] GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br />
+     * [get] GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * @return The value of the column 'GROUPING_REFERENCE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getGroupingReferenceCode() {
@@ -349,7 +350,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity {
     }
 
     /**
-     * [set] GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br />
+     * [set] GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * @param groupingReferenceCode The value of the column 'GROUPING_REFERENCE_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setGroupingReferenceCode(String groupingReferenceCode) {

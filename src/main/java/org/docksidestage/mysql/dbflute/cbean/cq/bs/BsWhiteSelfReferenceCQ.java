@@ -49,7 +49,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_self_reference) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_self_reference on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     public String keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter(Object pm) { return xkeepSQuePm("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhiteSelfReferenceCQ addOrderBy_SelfReferenceId_Asc() { regOBA("SELF_REFERENCE_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     protected ConditionValue xgetCValueSelfReferenceName() { return xdfgetSelfReferenceName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteSelfReferenceCQ addOrderBy_SelfReferenceName_Asc() { regOBA("SELF_REFERENCE_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -149,14 +149,14 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     protected ConditionValue xgetCValueParentId() { return xdfgetParentId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @return this. (NotNull)
      */
     public BsWhiteSelfReferenceCQ addOrderBy_ParentId_Asc() { regOBA("PARENT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @return this. (NotNull)
      */
@@ -215,7 +215,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -235,7 +235,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     public boolean hasConditionQueryWhiteSelfReferenceSelf() { return xhasQueRlMap("whiteSelfReferenceSelf"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_self_reference_ref_one by SELF_REFERENCE_ID, named 'whiteSelfReferenceRefOneAsOne'.
      * @return The instance of condition-query. (NotNull)
      */

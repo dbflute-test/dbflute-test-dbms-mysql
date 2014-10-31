@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ESCAPED_JAVA_DOC as TABLE. <br />
+ * The entity of WHITE_ESCAPED_JAVA_DOC as TABLE. <br>
  * <pre>
  * [primary-key]
  *     ESCAPED_JAVA_DOC_CODE
@@ -64,7 +65,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
+public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -115,8 +116,8 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of escapedJavaDocCode as the classification of EscapedJavaDocCls. <br />
-     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br />
+     * Get the value of escapedJavaDocCode as the classification of EscapedJavaDocCls. <br>
+     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -126,8 +127,8 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     }
 
     /**
-     * Set the value of escapedJavaDocCode as the classification of EscapedJavaDocCls. <br />
-     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br />
+     * Set the value of escapedJavaDocCode as the classification of EscapedJavaDocCls. <br>
+     * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -139,7 +140,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of escapedJavaDocCode as First (FOO). <br />
+     * Set the value of escapedJavaDocCode as First (FOO). <br>
      * First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&
      */
     public void setEscapedJavaDocCode_First() {
@@ -147,7 +148,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     }
 
     /**
-     * Set the value of escapedJavaDocCode as Second (BAR). <br />
+     * Set the value of escapedJavaDocCode as Second (BAR). <br>
      * Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&
      */
     public void setEscapedJavaDocCode_Second() {
@@ -158,7 +159,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of escapedJavaDocCode First? <br />
+     * Is the value of escapedJavaDocCode First? <br>
      * First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -169,7 +170,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     }
 
     /**
-     * Is the value of escapedJavaDocCode Second? <br />
+     * Is the value of escapedJavaDocCode Second? <br>
      * Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -180,7 +181,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     }
 
     /**
-     * /*IF pmb.yourGroup&#42;/&gt;&lt;& <br />
+     * /*IF pmb.yourGroup&#42;/&gt;&lt;& <br>
      * The group elements:[First, Second]
      * @return The determination, true or false.
      */
@@ -264,7 +265,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br />
+     * [get] ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * @return The value of the column 'ESCAPED_JAVA_DOC_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getEscapedJavaDocCode() {
@@ -273,7 +274,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     }
 
     /**
-     * [set] ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br />
+     * [set] ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * @param escapedJavaDocCode The value of the column 'ESCAPED_JAVA_DOC_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setEscapedJavaDocCode(String escapedJavaDocCode) {
@@ -283,7 +284,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     }
 
     /**
-     * [get] ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br />
+     * [get] ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br>
      * @return The value of the column 'ESCAPED_JAVA_DOC_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getEscapedJavaDocName() {
@@ -292,7 +293,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity {
     }
 
     /**
-     * [set] ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br />
+     * [set] ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br>
      * @param escapedJavaDocName The value of the column 'ESCAPED_JAVA_DOC_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setEscapedJavaDocName(String escapedJavaDocName) {

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_FK_REF as TABLE. <br />
+ * The entity of WHITE_UQ_FK_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     UQ_FK_REF_ID
@@ -69,7 +70,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteUqFkRef extends AbstractEntity {
+public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -126,7 +127,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param compoundUqFirstCode : UQ+, NotNull, CHAR(3). (NotNull)
      * @param compoundUqSecondCode : +UQ, NotNull, CHAR(3). (NotNull)
@@ -145,7 +146,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     protected WhiteUqFk _whiteUqFkByFkToPkId;
 
     /**
-     * [get] white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. <br />
+     * [get] white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. <br>
      * @return The entity of foreign property 'whiteUqFkByFkToPkId'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteUqFk getWhiteUqFkByFkToPkId() {
@@ -164,7 +165,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     protected WhiteUqFk _whiteUqFkByFkToUqCode;
 
     /**
-     * [get] white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. <br />
+     * [get] white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. <br>
      * @return The entity of foreign property 'whiteUqFkByFkToUqCode'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteUqFk getWhiteUqFkByFkToUqCode() {
@@ -279,7 +280,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'UQ_FK_REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getUqFkRefId() {
@@ -288,7 +289,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param uqFkRefId The value of the column 'UQ_FK_REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkRefId(Long uqFkRefId) {
@@ -297,7 +298,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] FK_TO_PK_ID: {IX, NotNull, DECIMAL(16), FK to white_uq_fk} <br />
+     * [get] FK_TO_PK_ID: {IX, NotNull, DECIMAL(16), FK to white_uq_fk} <br>
      * @return The value of the column 'FK_TO_PK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getFkToPkId() {
@@ -306,7 +307,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] FK_TO_PK_ID: {IX, NotNull, DECIMAL(16), FK to white_uq_fk} <br />
+     * [set] FK_TO_PK_ID: {IX, NotNull, DECIMAL(16), FK to white_uq_fk} <br>
      * @param fkToPkId The value of the column 'FK_TO_PK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFkToPkId(Long fkToPkId) {
@@ -315,7 +316,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk} <br />
+     * [get] FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk} <br>
      * @return The value of the column 'FK_TO_UQ_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getFkToUqCode() {
@@ -324,7 +325,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk} <br />
+     * [set] FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk} <br>
      * @param fkToUqCode The value of the column 'FK_TO_UQ_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setFkToUqCode(String fkToUqCode) {
@@ -333,7 +334,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] COMPOUND_UQ_FIRST_CODE: {UQ+, NotNull, CHAR(3)} <br />
+     * [get] COMPOUND_UQ_FIRST_CODE: {UQ+, NotNull, CHAR(3)} <br>
      * @return The value of the column 'COMPOUND_UQ_FIRST_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getCompoundUqFirstCode() {
@@ -342,7 +343,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] COMPOUND_UQ_FIRST_CODE: {UQ+, NotNull, CHAR(3)} <br />
+     * [set] COMPOUND_UQ_FIRST_CODE: {UQ+, NotNull, CHAR(3)} <br>
      * @param compoundUqFirstCode The value of the column 'COMPOUND_UQ_FIRST_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setCompoundUqFirstCode(String compoundUqFirstCode) {
@@ -351,7 +352,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [get] COMPOUND_UQ_SECOND_CODE: {+UQ, NotNull, CHAR(3)} <br />
+     * [get] COMPOUND_UQ_SECOND_CODE: {+UQ, NotNull, CHAR(3)} <br>
      * @return The value of the column 'COMPOUND_UQ_SECOND_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getCompoundUqSecondCode() {
@@ -360,7 +361,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity {
     }
 
     /**
-     * [set] COMPOUND_UQ_SECOND_CODE: {+UQ, NotNull, CHAR(3)} <br />
+     * [set] COMPOUND_UQ_SECOND_CODE: {+UQ, NotNull, CHAR(3)} <br>
      * @param compoundUqSecondCode The value of the column 'COMPOUND_UQ_SECOND_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setCompoundUqSecondCode(String compoundUqSecondCode) {

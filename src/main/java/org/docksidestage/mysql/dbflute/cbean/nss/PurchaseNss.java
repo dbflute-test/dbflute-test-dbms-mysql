@@ -34,7 +34,7 @@ public class PurchaseNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (会員)member by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -43,7 +43,7 @@ public class PurchaseNss {
         return new MemberNss(_query.queryMember());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (商品)product by my PRODUCT_ID, named 'product'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -52,7 +52,7 @@ public class PurchaseNss {
         return new ProductNss(_query.queryProduct());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -61,21 +61,21 @@ public class PurchaseNss {
         return new SummaryProductNss(_query.querySummaryProduct());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
      */
     public void withSummaryWithdrawal() {
         _query.xdoNss(() -> _query.querySummaryWithdrawal());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
      */
     public void withWhiteNoPkRelation() {
         _query.xdoNss(() -> _query.queryWhiteNoPkRelation());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -84,7 +84,7 @@ public class PurchaseNss {
         return new PurchaseNss(_query.queryPurchaseSelf());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
@@ -94,7 +94,7 @@ public class PurchaseNss {
         return new MemberAddressNss(_query.queryMemberAddressAsSkipRelation(targetDate));
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_purchase_referrer by PURCHASE_REFERRER_ID, named 'whitePurchaseReferrerAsOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -103,7 +103,7 @@ public class PurchaseNss {
         return new WhitePurchaseReferrerNss(_query.queryWhitePurchaseReferrerAsOne());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (購入)purchase by PURCHASE_ID, named 'purchaseSelfAsOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

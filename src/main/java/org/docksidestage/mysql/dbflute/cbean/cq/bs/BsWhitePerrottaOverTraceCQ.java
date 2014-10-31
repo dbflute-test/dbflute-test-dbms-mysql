@@ -49,7 +49,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_perrotta_over_trace) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_perrotta_over_trace on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     protected ConditionValue xgetCValueTraceId() { return xdfgetTraceId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverTraceCQ addOrderBy_TraceId_Asc() { regOBA("TRACE_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     protected ConditionValue xgetCValuePreviousProductId() { return xdfgetPreviousProductId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverTraceCQ addOrderBy_PreviousProductId_Asc() { regOBA("PREVIOUS_PRODUCT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     protected ConditionValue xgetCValueNextProductId() { return xdfgetNextProductId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverTraceCQ addOrderBy_NextProductId_Asc() { regOBA("NEXT_PRODUCT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     protected ConditionValue xgetCValueTraceTypeCode() { return xdfgetTraceTypeCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverTraceCQ addOrderBy_TraceTypeCode_Asc() { regOBA("TRACE_TYPE_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -221,7 +221,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -241,7 +241,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     public boolean hasConditionQueryWhitePerrottaOverProductByNextProductId() { return xhasQueRlMap("whitePerrottaOverProductByNextProductId"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
      * @return The instance of condition-query. (NotNull)
      */

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_MASTER_BAR as TABLE. <br />
+ * The entity of WHITE_VARIANT_RELATION_MASTER_BAR as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MASTER_BAR_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity {
+public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -202,7 +203,7 @@ public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MASTER_BAR_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] MASTER_BAR_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'MASTER_BAR_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMasterBarId() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_BAR_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] MASTER_BAR_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param masterBarId The value of the column 'MASTER_BAR_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMasterBarId(Long masterBarId) {
@@ -220,7 +221,7 @@ public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity {
     }
 
     /**
-     * [get] MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'MASTER_BAR_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMasterBarName() {
@@ -229,7 +230,7 @@ public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br>
      * @param masterBarName The value of the column 'MASTER_BAR_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMasterBarName(String masterBarName) {

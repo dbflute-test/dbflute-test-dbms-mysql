@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_IMPLICIT_CONV_STRING as TABLE. <br />
+ * The entity of WHITE_IMPLICIT_CONV_STRING as TABLE. <br>
  * <pre>
  * [primary-key]
  *     IMPLICIT_CONV_STRING_ID
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteImplicitConvString extends AbstractEntity {
+public abstract class BsWhiteImplicitConvString extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -127,7 +128,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     protected WhiteImplicitConvInteger _whiteImplicitConvInteger;
 
     /**
-     * [get] white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'. <br />
+     * [get] white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'. <br>
      * @return The entity of foreign property 'whiteImplicitConvInteger'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteImplicitConvInteger getWhiteImplicitConvInteger() {
@@ -146,7 +147,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     protected WhiteImplicitConvNumeric _whiteImplicitConvNumeric;
 
     /**
-     * [get] white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'. <br />
+     * [get] white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'. <br>
      * @return The entity of foreign property 'whiteImplicitConvNumeric'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteImplicitConvNumeric getWhiteImplicitConvNumeric() {
@@ -284,7 +285,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)} <br />
+     * [get] IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)} <br>
      * @return The value of the column 'IMPLICIT_CONV_STRING_ID'. (basically NotNull if selected: for the constraint)
      */
     public String getImplicitConvStringId() {
@@ -293,7 +294,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     }
 
     /**
-     * [set] IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)} <br />
+     * [set] IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)} <br>
      * @param implicitConvStringId The value of the column 'IMPLICIT_CONV_STRING_ID'. (basically NotNull if update: for the constraint)
      */
     public void setImplicitConvStringId(String implicitConvStringId) {
@@ -302,7 +303,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     }
 
     /**
-     * [get] IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER} <br />
+     * [get] IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER} <br>
      * @return The value of the column 'IMPLICIT_CONV_INTEGER_ID'. (basically NotNull if selected: for the constraint)
      */
     public String getImplicitConvIntegerId() {
@@ -311,7 +312,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     }
 
     /**
-     * [set] IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER} <br />
+     * [set] IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER} <br>
      * @param implicitConvIntegerId The value of the column 'IMPLICIT_CONV_INTEGER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setImplicitConvIntegerId(String implicitConvIntegerId) {
@@ -320,7 +321,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     }
 
     /**
-     * [get] IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br />
+     * [get] IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br>
      * @return The value of the column 'IMPLICIT_CONV_NUMERIC_ID'. (basically NotNull if selected: for the constraint)
      */
     public String getImplicitConvNumericId() {
@@ -329,7 +330,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     }
 
     /**
-     * [set] IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br />
+     * [set] IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br>
      * @param implicitConvNumericId The value of the column 'IMPLICIT_CONV_NUMERIC_ID'. (basically NotNull if update: for the constraint)
      */
     public void setImplicitConvNumericId(String implicitConvNumericId) {
@@ -338,7 +339,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     }
 
     /**
-     * [get] IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'IMPLICIT_CONV_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getImplicitConvName() {
@@ -347,7 +348,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity {
     }
 
     /**
-     * [set] IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br>
      * @param implicitConvName The value of the column 'IMPLICIT_CONV_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setImplicitConvName(String implicitConvName) {

@@ -49,7 +49,7 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_myself_check) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_myself_check on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
     protected ConditionValue xgetCValueMyselfCheckId() { return xdfgetMyselfCheckId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteMyselfCheckCQ addOrderBy_MyselfCheckId_Asc() { regOBA("MYSELF_CHECK_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
     protected ConditionValue xgetCValueMyselfCheckName() { return xdfgetMyselfCheckName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
      * @return this. (NotNull)
      */
     public BsWhiteMyselfCheckCQ addOrderBy_MyselfCheckName_Asc() { regOBA("MYSELF_CHECK_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
     protected ConditionValue xgetCValueMyselfId() { return xdfgetMyselfId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MYSELF_ID: {IX, INT(10), FK to white_myself}
      * @return this. (NotNull)
      */
     public BsWhiteMyselfCheckCQ addOrderBy_MyselfId_Asc() { regOBA("MYSELF_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MYSELF_ID: {IX, INT(10), FK to white_myself}
      * @return this. (NotNull)
      */
@@ -198,7 +198,7 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_myself by my MYSELF_ID, named 'whiteMyself'.
      * @return The instance of condition-query. (NotNull)
      */

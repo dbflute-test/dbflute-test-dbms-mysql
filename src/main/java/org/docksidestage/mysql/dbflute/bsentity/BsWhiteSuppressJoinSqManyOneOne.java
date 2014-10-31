@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE as TABLE. <br />
+ * The entity of WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MANY_ONE_ONE_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSuppressJoinSqManyOneOne extends AbstractEntity {
+public abstract class BsWhiteSuppressJoinSqManyOneOne extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -202,7 +203,7 @@ public abstract class BsWhiteSuppressJoinSqManyOneOne extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MANY_ONE_ONE_ID: {PK, NotNull, INT(10)} <br />
+     * [get] MANY_ONE_ONE_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'MANY_ONE_ONE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getManyOneOneId() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteSuppressJoinSqManyOneOne extends AbstractEntity {
     }
 
     /**
-     * [set] MANY_ONE_ONE_ID: {PK, NotNull, INT(10)} <br />
+     * [set] MANY_ONE_ONE_ID: {PK, NotNull, INT(10)} <br>
      * @param manyOneOneId The value of the column 'MANY_ONE_ONE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setManyOneOneId(Integer manyOneOneId) {
@@ -220,7 +221,7 @@ public abstract class BsWhiteSuppressJoinSqManyOneOne extends AbstractEntity {
     }
 
     /**
-     * [get] MANY_ONE_ONE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] MANY_ONE_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'MANY_ONE_ONE_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getManyOneOneName() {
@@ -229,7 +230,7 @@ public abstract class BsWhiteSuppressJoinSqManyOneOne extends AbstractEntity {
     }
 
     /**
-     * [set] MANY_ONE_ONE_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] MANY_ONE_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * @param manyOneOneName The value of the column 'MANY_ONE_ONE_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setManyOneOneName(String manyOneOneName) {

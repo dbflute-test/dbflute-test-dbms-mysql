@@ -62,7 +62,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @param machoCode The value of machoCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @param machoCode The value of machoCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -88,7 +88,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @param machoCodeList The collection of machoCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @param machoCodeList The collection of machoCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -114,8 +114,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MACHO_CODE: {PK, NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MACHO_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setMachoCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MACHO_CODE: {PK, NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MACHO_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setMachoCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -136,8 +136,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @param machoCode The value of machoCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -147,8 +147,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @param machoCode The value of machoCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -158,7 +158,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @param machoCode The value of machoCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -167,8 +167,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select MACHO_CODE from white_perrotta_over_member where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select MACHO_CODE from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -186,8 +186,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     public abstract String keepMachoCode_ExistsReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select MACHO_CODE from white_perrotta_over_member where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select MACHO_CODE from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -213,8 +213,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     public abstract String keepMachoCode_SpecifyDerivedReferrer_WhitePerrottaOverMemberList(WhitePerrottaOverMemberCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from white_perrotta_over_member where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -240,13 +240,13 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     public abstract String keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setMachoCode_IsNull() { regMachoCode(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setMachoCode_IsNotNull() { regMachoCode(CK_ISNN, DOBJ); }
@@ -255,7 +255,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     protected abstract ConditionValue xgetCValueMachoCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @param machoName The value of machoName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -268,7 +268,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @param machoName The value of machoName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @param machoNameList The collection of machoName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @param machoNameList The collection of machoName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -307,8 +307,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MACHO_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MACHO_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMachoName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param machoName The value of machoName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -318,8 +318,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MACHO_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MACHO_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMachoName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param machoName The value of machoName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -329,8 +329,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @param machoName The value of machoName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @param machoName The value of machoName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @param machoName The value of machoName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -366,7 +366,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
@@ -383,7 +383,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
@@ -400,7 +400,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
@@ -417,7 +417,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
@@ -434,7 +434,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
@@ -451,7 +451,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
@@ -534,7 +534,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -548,7 +548,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

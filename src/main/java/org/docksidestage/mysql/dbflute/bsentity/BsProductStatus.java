@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (商品ステータス)PRODUCT_STATUS as TABLE. <br />
+ * The entity of (商品ステータス)PRODUCT_STATUS as TABLE. <br>
  * <pre>
  * [primary-key]
  *     PRODUCT_STATUS_CODE
@@ -66,7 +67,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsProductStatus extends AbstractEntity {
+public abstract class BsProductStatus extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -117,7 +118,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param displayOrder (表示順): UQ, NotNull, INT(10). (NotNull)
      */
@@ -131,8 +132,8 @@ public abstract class BsProductStatus extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of productStatusCode as the classification of ProductStatus. <br />
-     * (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br />
+     * Get the value of productStatusCode as the classification of ProductStatus. <br>
+     * (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -142,8 +143,8 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * Set the value of productStatusCode as the classification of ProductStatus. <br />
-     * (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br />
+     * Set the value of productStatusCode as the classification of ProductStatus. <br>
+     * (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -155,7 +156,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of productStatusCode as OnSale (ONS). <br />
+     * Set the value of productStatusCode as OnSale (ONS). <br>
      * 生産販売可能
      */
     public void setProductStatusCode_OnSale() {
@@ -163,7 +164,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * Set the value of productStatusCode as ProductStop (PST). <br />
+     * Set the value of productStatusCode as ProductStop (PST). <br>
      * 生産中止
      */
     public void setProductStatusCode_ProductStop() {
@@ -171,7 +172,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * Set the value of productStatusCode as SaleStop (SST). <br />
+     * Set the value of productStatusCode as SaleStop (SST). <br>
      * 販売中止
      */
     public void setProductStatusCode_SaleStop() {
@@ -182,7 +183,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of productStatusCode OnSale? <br />
+     * Is the value of productStatusCode OnSale? <br>
      * 生産販売可能
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -193,7 +194,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * Is the value of productStatusCode ProductStop? <br />
+     * Is the value of productStatusCode ProductStop? <br>
      * 生産中止
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -204,7 +205,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * Is the value of productStatusCode SaleStop? <br />
+     * Is the value of productStatusCode SaleStop? <br>
      * 販売中止
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -352,7 +353,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br />
+     * [get] (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br>
      * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
@@ -361,7 +362,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [set] (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br />
+     * [set] (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br>
      * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setProductStatusCode(String productStatusCode) {
@@ -371,7 +372,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [get] (商品ステータス名称)PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} <br />
+     * [get] (商品ステータス名称)PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'PRODUCT_STATUS_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusName() {
@@ -380,7 +381,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [set] (商品ステータス名称)PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} <br />
+     * [set] (商品ステータス名称)PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
      * @param productStatusName The value of the column 'PRODUCT_STATUS_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusName(String productStatusName) {
@@ -389,7 +390,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [get] (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br />
+     * [get] (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br>
      * @return The value of the column 'DISPLAY_ORDER'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
@@ -398,7 +399,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [set] (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br />
+     * [set] (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br>
      * @param displayOrder The value of the column 'DISPLAY_ORDER'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {

@@ -49,7 +49,7 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_binary) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_binary on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     protected ConditionValue xgetCValueBinaryId() { return xdfgetBinaryId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteBinaryCQ addOrderBy_BinaryId_Asc() { regOBA("BINARY_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     protected ConditionValue xgetCValueBinaryData() { return xdfgetBinaryData(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * BINARY_DATA: {BINARY(1)}
      * @return this. (NotNull)
      */
     public BsWhiteBinaryCQ addOrderBy_BinaryData_Asc() { regOBA("BINARY_DATA"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * BINARY_DATA: {BINARY(1)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
     protected ConditionValue xgetCValueBlobData() { return xdfgetBlobData(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * BLOB_DATA: {BLOB(65535)}
      * @return this. (NotNull)
      */
     public BsWhiteBinaryCQ addOrderBy_BlobData_Asc() { regOBA("BLOB_DATA"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * BLOB_DATA: {BLOB(65535)}
      * @return this. (NotNull)
      */

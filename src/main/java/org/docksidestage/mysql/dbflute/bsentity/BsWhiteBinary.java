@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_BINARY as TABLE. <br />
+ * The entity of WHITE_BINARY as TABLE. <br>
  * <pre>
  * [primary-key]
  *     BINARY_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteBinary extends AbstractEntity {
+public abstract class BsWhiteBinary extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -179,7 +180,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] BINARY_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] BINARY_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'BINARY_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getBinaryId() {
@@ -188,7 +189,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
     }
 
     /**
-     * [set] BINARY_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] BINARY_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param binaryId The value of the column 'BINARY_ID'. (basically NotNull if update: for the constraint)
      */
     public void setBinaryId(Long binaryId) {
@@ -197,7 +198,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
     }
 
     /**
-     * [get] BINARY_DATA: {BINARY(1)} <br />
+     * [get] BINARY_DATA: {BINARY(1)} <br>
      * @return The value of the column 'BINARY_DATA'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getBinaryData() {
@@ -206,7 +207,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
     }
 
     /**
-     * [set] BINARY_DATA: {BINARY(1)} <br />
+     * [set] BINARY_DATA: {BINARY(1)} <br>
      * @param binaryData The value of the column 'BINARY_DATA'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBinaryData(byte[] binaryData) {
@@ -215,7 +216,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
     }
 
     /**
-     * [get] BLOB_DATA: {BLOB(65535)} <br />
+     * [get] BLOB_DATA: {BLOB(65535)} <br>
      * @return The value of the column 'BLOB_DATA'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getBlobData() {
@@ -224,7 +225,7 @@ public abstract class BsWhiteBinary extends AbstractEntity {
     }
 
     /**
-     * [set] BLOB_DATA: {BLOB(65535)} <br />
+     * [set] BLOB_DATA: {BLOB(65535)} <br>
      * @param blobData The value of the column 'BLOB_DATA'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBlobData(byte[] blobData) {

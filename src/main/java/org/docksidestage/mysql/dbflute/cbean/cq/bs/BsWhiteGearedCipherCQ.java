@@ -49,7 +49,7 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_geared_cipher) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_geared_cipher on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     protected ConditionValue xgetCValueCipherId() { return xdfgetCipherId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteGearedCipherCQ addOrderBy_CipherId_Asc() { regOBA("CIPHER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     protected ConditionValue xgetCValueCipherInteger() { return xdfgetCipherInteger(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsWhiteGearedCipherCQ addOrderBy_CipherInteger_Asc() { regOBA("CIPHER_INTEGER"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     protected ConditionValue xgetCValueCipherVarchar() { return xdfgetCipherVarchar(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsWhiteGearedCipherCQ addOrderBy_CipherVarchar_Asc() { regOBA("CIPHER_VARCHAR"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     protected ConditionValue xgetCValueCipherDate() { return xdfgetCipherDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CIPHER_DATE: {VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsWhiteGearedCipherCQ addOrderBy_CipherDate_Asc() { regOBA("CIPHER_DATE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CIPHER_DATE: {VARCHAR(100)}
      * @return this. (NotNull)
      */
@@ -175,14 +175,14 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
     protected ConditionValue xgetCValueCipherDatetime() { return xdfgetCipherDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CIPHER_DATETIME: {VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsWhiteGearedCipherCQ addOrderBy_CipherDatetime_Asc() { regOBA("CIPHER_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CIPHER_DATETIME: {VARCHAR(100)}
      * @return this. (NotNull)
      */

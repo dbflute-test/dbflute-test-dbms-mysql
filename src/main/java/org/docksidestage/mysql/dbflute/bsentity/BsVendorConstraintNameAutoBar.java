@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_CONSTRAINT_NAME_AUTO_BAR as TABLE. <br />
+ * The entity of VENDOR_CONSTRAINT_NAME_AUTO_BAR as TABLE. <br>
  * <pre>
  * [primary-key]
  *     CONSTRAINT_NAME_AUTO_BAR_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
+public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -111,7 +112,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param constraintNameAutoBarName : UQ, NotNull, VARCHAR(50). (NotNull)
      */
@@ -213,7 +214,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] CONSTRAINT_NAME_AUTO_BAR_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] CONSTRAINT_NAME_AUTO_BAR_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'CONSTRAINT_NAME_AUTO_BAR_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getConstraintNameAutoBarId() {
@@ -222,7 +223,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
     }
 
     /**
-     * [set] CONSTRAINT_NAME_AUTO_BAR_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] CONSTRAINT_NAME_AUTO_BAR_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param constraintNameAutoBarId The value of the column 'CONSTRAINT_NAME_AUTO_BAR_ID'. (basically NotNull if update: for the constraint)
      */
     public void setConstraintNameAutoBarId(Long constraintNameAutoBarId) {
@@ -231,7 +232,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
     }
 
     /**
-     * [get] CONSTRAINT_NAME_AUTO_BAR_NAME: {UQ, NotNull, VARCHAR(50)} <br />
+     * [get] CONSTRAINT_NAME_AUTO_BAR_NAME: {UQ, NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'CONSTRAINT_NAME_AUTO_BAR_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getConstraintNameAutoBarName() {
@@ -240,7 +241,7 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity {
     }
 
     /**
-     * [set] CONSTRAINT_NAME_AUTO_BAR_NAME: {UQ, NotNull, VARCHAR(50)} <br />
+     * [set] CONSTRAINT_NAME_AUTO_BAR_NAME: {UQ, NotNull, VARCHAR(50)} <br>
      * @param constraintNameAutoBarName The value of the column 'CONSTRAINT_NAME_AUTO_BAR_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setConstraintNameAutoBarName(String constraintNameAutoBarName) {

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_LOAD_DATA as TABLE. <br />
+ * The entity of WHITE_LOAD_DATA as TABLE. <br>
  * <pre>
  * [primary-key]
  *     LOAD_DATA_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteLoadData extends AbstractEntity {
+public abstract class BsWhiteLoadData extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -173,7 +174,7 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] LOAD_DATA_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] LOAD_DATA_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'LOAD_DATA_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getLoadDataId() {
@@ -182,7 +183,7 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
     }
 
     /**
-     * [set] LOAD_DATA_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] LOAD_DATA_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param loadDataId The value of the column 'LOAD_DATA_ID'. (basically NotNull if update: for the constraint)
      */
     public void setLoadDataId(Long loadDataId) {
@@ -191,7 +192,7 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
     }
 
     /**
-     * [get] LOAD_DATA_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] LOAD_DATA_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'LOAD_DATA_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getLoadDataName() {
@@ -200,7 +201,7 @@ public abstract class BsWhiteLoadData extends AbstractEntity {
     }
 
     /**
-     * [set] LOAD_DATA_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] LOAD_DATA_NAME: {NotNull, VARCHAR(200)} <br>
      * @param loadDataName The value of the column 'LOAD_DATA_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setLoadDataName(String loadDataName) {

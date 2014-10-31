@@ -34,7 +34,7 @@ public class WhiteQuotedRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_quoted by my ORDER, named 'whiteQuoted'.
      */
     public void withWhiteQuoted() {

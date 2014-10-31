@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COLUMN_EXCEPT as TABLE. <br />
+ * The entity of WHITE_COLUMN_EXCEPT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     EXCEPT_COLUMN_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteColumnExcept extends AbstractEntity {
+public abstract class BsWhiteColumnExcept extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -173,7 +174,7 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'EXCEPT_COLUMN_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getExceptColumnId() {
@@ -182,7 +183,7 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
     }
 
     /**
-     * [set] EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param exceptColumnId The value of the column 'EXCEPT_COLUMN_ID'. (basically NotNull if update: for the constraint)
      */
     public void setExceptColumnId(Long exceptColumnId) {
@@ -191,7 +192,7 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
     }
 
     /**
-     * [get] COLUMN_EXCEPT_TEST: {INT(10)} <br />
+     * [get] COLUMN_EXCEPT_TEST: {INT(10)} <br>
      * @return The value of the column 'COLUMN_EXCEPT_TEST'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getColumnExceptTest() {
@@ -200,7 +201,7 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity {
     }
 
     /**
-     * [set] COLUMN_EXCEPT_TEST: {INT(10)} <br />
+     * [set] COLUMN_EXCEPT_TEST: {INT(10)} <br>
      * @param columnExceptTest The value of the column 'COLUMN_EXCEPT_TEST'. (NullAllowed: null update allowed for no constraint)
      */
     public void setColumnExceptTest(Integer columnExceptTest) {

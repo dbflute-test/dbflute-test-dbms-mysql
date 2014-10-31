@@ -49,7 +49,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from purchase) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join purchase on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public String keepPurchaseId_QueryDerivedReferrer_PurchasePaymentListParameter(Object pm) { return xkeepSQuePm("purchaseId_QueryDerivedReferrer_PurchasePaymentList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (購入ID)PURCHASE_ID: {PK, ID, NotNull, BIGINT(19), FK to PURCHASE}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_PurchaseId_Asc() { regOBA("PURCHASE_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (購入ID)PURCHASE_ID: {PK, ID, NotNull, BIGINT(19), FK to PURCHASE}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (会員ID)MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (会員ID)MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
@@ -149,14 +149,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
      * @return this. (NotNull)
      */
@@ -169,14 +169,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValuePurchaseDatetime() { return xdfgetPurchaseDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_PurchaseDatetime_Asc() { regOBA("PURCHASE_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
@@ -189,14 +189,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValuePurchaseCount() { return xdfgetPurchaseCount(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (購入数量)PURCHASE_COUNT: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_PurchaseCount_Asc() { regOBA("PURCHASE_COUNT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (購入数量)PURCHASE_COUNT: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -209,14 +209,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValuePurchasePrice() { return xdfgetPurchasePrice(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_PurchasePrice_Asc() { regOBA("PURCHASE_PRICE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -229,14 +229,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValuePaymentCompleteFlg() { return xdfgetPaymentCompleteFlg(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_PaymentCompleteFlg_Asc() { regOBA("PAYMENT_COMPLETE_FLG"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
      * @return this. (NotNull)
      */
@@ -249,14 +249,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
@@ -269,14 +269,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -289,14 +289,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
@@ -309,14 +309,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -329,14 +329,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * VERSION_NO: {NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_VersionNo_Asc() { regOBA("VERSION_NO"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * VERSION_NO: {NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -417,7 +417,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員)member by my MEMBER_ID, named 'member'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -437,7 +437,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public boolean hasConditionQueryMember() { return xhasQueRlMap("member"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (商品)product by my PRODUCT_ID, named 'product'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -457,7 +457,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public boolean hasConditionQueryProduct() { return xhasQueRlMap("product"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -477,7 +477,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public boolean hasConditionQuerySummaryProduct() { return xhasQueRlMap("summaryProduct"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -497,7 +497,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public boolean hasConditionQuerySummaryWithdrawal() { return xhasQueRlMap("summaryWithdrawal"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -517,7 +517,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public boolean hasConditionQueryWhiteNoPkRelation() { return xhasQueRlMap("whiteNoPkRelation"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -537,7 +537,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public boolean hasConditionQueryPurchaseSelf() { return xhasQueRlMap("purchaseSelf"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -567,7 +567,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public boolean hasConditionQueryMemberAddressAsSkipRelation() { return xhasQueRlMap("memberAddressAsSkipRelation"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_purchase_referrer by PURCHASE_REFERRER_ID, named 'whitePurchaseReferrerAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -585,7 +585,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     public boolean hasConditionQueryWhitePurchaseReferrerAsOne() { return xhasQueRlMap("whitePurchaseReferrerAsOne"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (購入)purchase by PURCHASE_ID, named 'purchaseSelfAsOne'.
      * @return The instance of condition-query. (NotNull)
      */

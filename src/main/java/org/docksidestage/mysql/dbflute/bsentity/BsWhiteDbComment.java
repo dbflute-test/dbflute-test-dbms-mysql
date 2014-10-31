@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DB_COMMENT as TABLE. <br />
+ * The entity of WHITE_DB_COMMENT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     DB_COMMENT_CODE
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteDbComment extends AbstractEntity {
+public abstract class BsWhiteDbComment extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -173,7 +174,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [get] (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br>
      * this is normal comment.
      * @return The value of the column 'DB_COMMENT_CODE'. (basically NotNull if selected: for the constraint)
      */
@@ -183,7 +184,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity {
     }
 
     /**
-     * [set] (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br />
+     * [set] (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br>
      * this is normal comment.
      * @param dbCommentCode The value of the column 'DB_COMMENT_CODE'. (basically NotNull if update: for the constraint)
      */
@@ -193,7 +194,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity {
     }
 
     /**
-     * [get] (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br />
+     * [get] (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br>
      * e.g. /*BEGIN&#42;/, @ @foo &lt;br /&gt;
      * @return The value of the column 'DB_COMMENT_NAME'. (NullAllowed even if selected: for no constraint)
      */
@@ -203,7 +204,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity {
     }
 
     /**
-     * [set] (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br />
+     * [set] (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br>
      * e.g. /*BEGIN&#42;/, @ @foo &lt;br /&gt;
      * @param dbCommentName The value of the column 'DB_COMMENT_NAME'. (NullAllowed: null update allowed for no constraint)
      */

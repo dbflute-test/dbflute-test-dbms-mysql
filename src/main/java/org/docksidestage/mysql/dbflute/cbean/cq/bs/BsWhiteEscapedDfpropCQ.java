@@ -49,7 +49,7 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_escaped_dfprop) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_escaped_dfprop on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
     protected ConditionValue xgetCValueEscapedDfpropCode() { return xdfgetEscapedDfpropCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
      * @return this. (NotNull)
      */
     public BsWhiteEscapedDfpropCQ addOrderBy_EscapedDfpropCode_Asc() { regOBA("ESCAPED_DFPROP_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
     protected ConditionValue xgetCValueEscapedDfpropName() { return xdfgetEscapedDfpropName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */
     public BsWhiteEscapedDfpropCQ addOrderBy_EscapedDfpropName_Asc() { regOBA("ESCAPED_DFPROP_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */

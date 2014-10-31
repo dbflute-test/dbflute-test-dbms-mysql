@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_VARIANT_RELATION_MASTER_QUX as TABLE. <br />
+ * The referrer loader of WHITE_VARIANT_RELATION_MASTER_QUX as TABLE. <br>
  * <pre>
  * [primary key]
  *     MASTER_QUX_ID

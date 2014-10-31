@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_IMPLICIT_REVERSE_FK_SUPPRESS as TABLE. <br />
+ * The referrer loader of WHITE_IMPLICIT_REVERSE_FK_SUPPRESS as TABLE. <br>
  * <pre>
  * [primary key]
  *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID

@@ -49,7 +49,7 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_line_sep_comment) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_line_sep_comment on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
     protected ConditionValue xgetCValueLineSepCommentCode() { return xdfgetLineSepCommentCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
      * @return this. (NotNull)
      */
     public BsWhiteLineSepCommentCQ addOrderBy_LineSepCommentCode_Asc() { regOBA("LINE_SEP_COMMENT_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
     protected ConditionValue xgetCValueLineSepCommentName() { return xdfgetLineSepCommentName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */
     public BsWhiteLineSepCommentCQ addOrderBy_LineSepCommentName_Asc() { regOBA("LINE_SEP_COMMENT_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */

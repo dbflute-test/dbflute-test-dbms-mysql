@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      * @param deprecatedClsElementCode The value of deprecatedClsElementCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -71,8 +71,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br />
+     * Equal(=). As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -81,7 +81,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As FooName (FOO). And OnlyOnceRegistered. <br />
+     * Equal(=). As FooName (FOO). And OnlyOnceRegistered. <br>
      * FooName
      */
     public void setDeprecatedClsElementCode_Equal_FooName() {
@@ -89,7 +89,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As BarName (BAR). And OnlyOnceRegistered. <br />
+     * Equal(=). As BarName (BAR). And OnlyOnceRegistered. <br>
      * BarBar: here (deprecated: test of deprecated)
      */
     @Deprecated
@@ -98,7 +98,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Equal(=). As QuxName (QUX). And OnlyOnceRegistered. <br />
+     * Equal(=). As QuxName (QUX). And OnlyOnceRegistered. <br>
      * QuxQux: (deprecated: no original comment)
      */
     @Deprecated
@@ -111,7 +111,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      * @param deprecatedClsElementCode The value of deprecatedClsElementCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -120,8 +120,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br />
+     * NotEqual(&lt;&gt;). As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -130,7 +130,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As FooName (FOO). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As FooName (FOO). And OnlyOnceRegistered. <br>
      * FooName
      */
     public void setDeprecatedClsElementCode_NotEqual_FooName() {
@@ -138,7 +138,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As BarName (BAR). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As BarName (BAR). And OnlyOnceRegistered. <br>
      * BarBar: here (deprecated: test of deprecated)
      */
     @Deprecated
@@ -147,7 +147,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). As QuxName (QUX). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As QuxName (QUX). And OnlyOnceRegistered. <br>
      * QuxQux: (deprecated: no original comment)
      */
     @Deprecated
@@ -160,7 +160,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      * @param deprecatedClsElementCodeList The collection of deprecatedClsElementCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -169,8 +169,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * InScope {in ('a', 'b')}. As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br />
+     * InScope {in ('a', 'b')}. As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -179,9 +179,9 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * InScope {in ('a', 'b')}. As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * has deprecated element <br />
-     * contains deprecated element here <br />
+     * InScope {in ('a', 'b')}. As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * has deprecated element <br>
+     * contains deprecated element here <br>
      * The group elements:[FooName, BarName]
      */
     public void setDeprecatedClsElementCode_InScope_ContainsDeprecated() {
@@ -193,7 +193,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      * @param deprecatedClsElementCodeList The collection of deprecatedClsElementCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -202,8 +202,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br />
+     * NotInScope {not in ('a', 'b')}. As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -216,13 +216,13 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      */
     public void setDeprecatedClsElementCode_IsNull() { regDeprecatedClsElementCode(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      */
     public void setDeprecatedClsElementCode_IsNotNull() { regDeprecatedClsElementCode(CK_ISNN, DOBJ); }
@@ -231,7 +231,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     protected abstract ConditionValue xgetCValueDeprecatedClsElementCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @param deprecatedClsElementName The value of deprecatedClsElementName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -244,7 +244,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @param deprecatedClsElementName The value of deprecatedClsElementName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -257,7 +257,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @param deprecatedClsElementNameList The collection of deprecatedClsElementName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @param deprecatedClsElementNameList The collection of deprecatedClsElementName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -283,8 +283,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setDeprecatedClsElementName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param deprecatedClsElementName The value of deprecatedClsElementName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -294,8 +294,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setDeprecatedClsElementName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param deprecatedClsElementName The value of deprecatedClsElementName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -305,8 +305,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @param deprecatedClsElementName The value of deprecatedClsElementName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -316,8 +316,8 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @param deprecatedClsElementName The value of deprecatedClsElementName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -327,7 +327,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @param deprecatedClsElementName The value of deprecatedClsElementName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -336,19 +336,19 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      */
     public void setDeprecatedClsElementName_IsNull() { regDeprecatedClsElementName(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      */
     public void setDeprecatedClsElementName_IsNullOrEmpty() { regDeprecatedClsElementName(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      */
     public void setDeprecatedClsElementName_IsNotNull() { regDeprecatedClsElementName(CK_ISNN, DOBJ); }
@@ -360,7 +360,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
@@ -377,7 +377,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
@@ -394,7 +394,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
@@ -411,7 +411,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
@@ -428,7 +428,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
@@ -445,7 +445,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteDeprecatedClsElementCB&gt;() {
@@ -528,7 +528,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -542,7 +542,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

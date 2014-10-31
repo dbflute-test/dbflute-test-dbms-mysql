@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SUPPRESS_JOIN_SQ_ONE as TABLE. <br />
+ * The referrer loader of WHITE_SUPPRESS_JOIN_SQ_ONE as TABLE. <br>
  * <pre>
  * [primary key]
  *     ONE_ID

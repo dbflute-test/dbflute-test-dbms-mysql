@@ -49,7 +49,7 @@ public class BsWhiteMyselfCQ extends AbstractBsWhiteMyselfCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_myself) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteMyselfCQ extends AbstractBsWhiteMyselfCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_myself on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhiteMyselfCQ extends AbstractBsWhiteMyselfCQ {
     public String keepMyselfId_QueryDerivedReferrer_WhiteMyselfCheckListParameter(Object pm) { return xkeepSQuePm("myselfId_QueryDerivedReferrer_WhiteMyselfCheckList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteMyselfCQ addOrderBy_MyselfId_Asc() { regOBA("MYSELF_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhiteMyselfCQ extends AbstractBsWhiteMyselfCQ {
     protected ConditionValue xgetCValueMyselfName() { return xdfgetMyselfName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MYSELF_NAME: {NotNull, VARCHAR(80)}
      * @return this. (NotNull)
      */
     public BsWhiteMyselfCQ addOrderBy_MyselfName_Asc() { regOBA("MYSELF_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MYSELF_NAME: {NotNull, VARCHAR(80)}
      * @return this. (NotNull)
      */

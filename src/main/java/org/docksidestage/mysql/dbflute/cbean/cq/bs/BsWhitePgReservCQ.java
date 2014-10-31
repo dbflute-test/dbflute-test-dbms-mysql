@@ -49,7 +49,7 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_pg_reserv) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_pg_reserv on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     public String keepClassSynonym_QueryDerivedReferrer_WhitePgReservRefListParameter(Object pm) { return xkeepSQuePm("classSynonym_QueryDerivedReferrer_WhitePgReservRefList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_ClassSynonym_Asc() { regOBA("CLASS"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueCaseSynonym() { return xdfgetCaseSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_CaseSynonym_Asc() { regOBA("CASE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @return this. (NotNull)
      */
@@ -149,14 +149,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValuePackageSynonym() { return xdfgetPackageSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_PackageSynonym_Asc() { regOBA("PACKAGE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
      * @return this. (NotNull)
      */
@@ -169,14 +169,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueDefaultSynonym() { return xdfgetDefaultSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_DefaultSynonym_Asc() { regOBA("DEFAULT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @return this. (NotNull)
      */
@@ -189,14 +189,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueNewSynonym() { return xdfgetNewSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_NewSynonym_Asc() { regOBA("NEW"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
      * @return this. (NotNull)
      */
@@ -209,14 +209,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueNativeSynonym() { return xdfgetNativeSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_NativeSynonym_Asc() { regOBA("NATIVE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @return this. (NotNull)
      */
@@ -229,14 +229,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueVoidSynonym() { return xdfgetVoidSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_VoidSynonym_Asc() { regOBA("VOID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
      * @return this. (NotNull)
      */
@@ -249,14 +249,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValuePublicSynonym() { return xdfgetPublicSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_PublicSynonym_Asc() { regOBA("PUBLIC"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @return this. (NotNull)
      */
@@ -269,14 +269,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueProtectedSynonym() { return xdfgetProtectedSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_ProtectedSynonym_Asc() { regOBA("PROTECTED"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
      * @return this. (NotNull)
      */
@@ -289,14 +289,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValuePrivateSynonym() { return xdfgetPrivateSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_PrivateSynonym_Asc() { regOBA("PRIVATE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @return this. (NotNull)
      */
@@ -309,14 +309,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueInterfaceSynonym() { return xdfgetInterfaceSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_InterfaceSynonym_Asc() { regOBA("INTERFACE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
      * @return this. (NotNull)
      */
@@ -329,14 +329,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueAbstractSynonym() { return xdfgetAbstractSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_AbstractSynonym_Asc() { regOBA("ABSTRACT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @return this. (NotNull)
      */
@@ -349,14 +349,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueFinalSynonym() { return xdfgetFinalSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_FinalSynonym_Asc() { regOBA("FINAL"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
      * @return this. (NotNull)
      */
@@ -369,14 +369,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueFinallySynonym() { return xdfgetFinallySynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_FinallySynonym_Asc() { regOBA("FINALLY"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @return this. (NotNull)
      */
@@ -389,14 +389,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueReturnSynonym() { return xdfgetReturnSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_ReturnSynonym_Asc() { regOBA("RETURN"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
      * @return this. (NotNull)
      */
@@ -409,14 +409,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueDoubleSynonym() { return xdfgetDoubleSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_DoubleSynonym_Asc() { regOBA("DOUBLE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @return this. (NotNull)
      */
@@ -429,14 +429,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueFloatSynonym() { return xdfgetFloatSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_FloatSynonym_Asc() { regOBA("FLOAT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @return this. (NotNull)
      */
@@ -449,14 +449,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueShortSynonym() { return xdfgetShortSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_ShortSynonym_Asc() { regOBA("SHORT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
      * @return this. (NotNull)
      */
@@ -469,14 +469,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueType() { return xdfgetType(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * TYPE: {CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_Type_Asc() { regOBA("TYPE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * TYPE: {CHAR(3)}
      * @return this. (NotNull)
      */
@@ -489,14 +489,14 @@ public class BsWhitePgReservCQ extends AbstractBsWhitePgReservCQ {
     protected ConditionValue xgetCValueReservName() { return xdfgetReservName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservCQ addOrderBy_ReservName_Asc() { regOBA("RESERV_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
      * @return this. (NotNull)
      */

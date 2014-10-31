@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ESCAPED_DFPROP as TABLE. <br />
+ * The entity of WHITE_ESCAPED_DFPROP as TABLE. <br>
  * <pre>
  * [primary-key]
  *     ESCAPED_DFPROP_CODE
@@ -64,7 +65,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
+public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -115,8 +116,8 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of escapedDfpropCode as the classification of EscapedDfpropCls. <br />
-     * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br />
+     * Get the value of escapedDfpropCode as the classification of EscapedDfpropCls. <br>
+     * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
      * delimiter; & endBrace} & path\foo\bar
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -126,8 +127,8 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     }
 
     /**
-     * Set the value of escapedDfpropCode as the classification of EscapedDfpropCls. <br />
-     * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br />
+     * Set the value of escapedDfpropCode as the classification of EscapedDfpropCls. <br>
+     * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
      * delimiter; & endBrace} & path\foo\bar
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -139,7 +140,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of escapedDfpropCode as First (;@\\). <br />
+     * Set the value of escapedDfpropCode as First (;@\\). <br>
      * First: delimiter & rear escape char
      */
     public void setEscapedDfpropCode_First() {
@@ -147,7 +148,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     }
 
     /**
-     * Set the value of escapedDfpropCode as Second (\\};). <br />
+     * Set the value of escapedDfpropCode as Second (\\};). <br>
      * Second: escape char & endBrace & delimiter
      */
     public void setEscapedDfpropCode_Second() {
@@ -155,7 +156,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     }
 
     /**
-     * Set the value of escapedDfpropCode as Third ({=}). <br />
+     * Set the value of escapedDfpropCode as Third ({=}). <br>
      * Third: startBrace & equal & endBrace
      */
     public void setEscapedDfpropCode_Third() {
@@ -166,7 +167,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of escapedDfpropCode First? <br />
+     * Is the value of escapedDfpropCode First? <br>
      * First: delimiter & rear escape char
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -177,7 +178,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     }
 
     /**
-     * Is the value of escapedDfpropCode Second? <br />
+     * Is the value of escapedDfpropCode Second? <br>
      * Second: escape char & endBrace & delimiter
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -188,7 +189,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     }
 
     /**
-     * Is the value of escapedDfpropCode Third? <br />
+     * Is the value of escapedDfpropCode Third? <br>
      * Third: startBrace & equal & endBrace
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -273,7 +274,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br />
+     * [get] ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
      * @return The value of the column 'ESCAPED_DFPROP_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getEscapedDfpropCode() {
@@ -282,7 +283,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     }
 
     /**
-     * [set] ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br />
+     * [set] ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
      * @param escapedDfpropCode The value of the column 'ESCAPED_DFPROP_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setEscapedDfpropCode(String escapedDfpropCode) {
@@ -292,7 +293,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     }
 
     /**
-     * [get] ESCAPED_DFPROP_NAME: {VARCHAR(20)} <br />
+     * [get] ESCAPED_DFPROP_NAME: {VARCHAR(20)} <br>
      * @return The value of the column 'ESCAPED_DFPROP_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getEscapedDfpropName() {
@@ -301,7 +302,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity {
     }
 
     /**
-     * [set] ESCAPED_DFPROP_NAME: {VARCHAR(20)} <br />
+     * [set] ESCAPED_DFPROP_NAME: {VARCHAR(20)} <br>
      * @param escapedDfpropName The value of the column 'ESCAPED_DFPROP_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setEscapedDfpropName(String escapedDfpropName) {

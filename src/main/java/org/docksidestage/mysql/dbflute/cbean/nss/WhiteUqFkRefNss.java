@@ -34,14 +34,14 @@ public class WhiteUqFkRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      */
     public void withWhiteUqFkByFkToPkId() {
         _query.xdoNss(() -> _query.queryWhiteUqFkByFkToPkId());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      */
     public void withWhiteUqFkByFkToUqCode() {

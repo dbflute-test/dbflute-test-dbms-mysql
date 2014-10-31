@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SPLIT_MULTIPLE_FK_NEXT as TABLE. <br />
+ * The entity of WHITE_SPLIT_MULTIPLE_FK_NEXT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     NEXT_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
+public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -202,7 +203,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] NEXT_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] NEXT_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'NEXT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getNextId() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
     }
 
     /**
-     * [set] NEXT_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] NEXT_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param nextId The value of the column 'NEXT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setNextId(Long nextId) {
@@ -220,7 +221,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
     }
 
     /**
-     * [get] SECOND_CODE: {NotNull, CHAR(3)} <br />
+     * [get] SECOND_CODE: {NotNull, CHAR(3)} <br>
      * @return The value of the column 'SECOND_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getSecondCode() {
@@ -229,7 +230,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity {
     }
 
     /**
-     * [set] SECOND_CODE: {NotNull, CHAR(3)} <br />
+     * [set] SECOND_CODE: {NotNull, CHAR(3)} <br>
      * @param secondCode The value of the column 'SECOND_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setSecondCode(String secondCode) {

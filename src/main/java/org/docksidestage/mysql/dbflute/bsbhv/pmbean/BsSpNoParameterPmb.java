@@ -24,7 +24,7 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.mysql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of SpNoParameter. <br />
+ * The base class for procedure parameter-bean of SpNoParameter. <br>
  * This is related to "<span style="color: #AD4747">SP_NO_PARAMETER</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -50,7 +50,7 @@ public class BsSpNoParameterPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpNoParameter. <br />
+     * Constructor for the procedure parameter-bean of SpNoParameter. <br>
      * This is related to "<span style="color: #AD4747">SP_NO_PARAMETER</span>".
      */
     public BsSpNoParameterPmb() {

@@ -49,7 +49,7 @@ public class BsWhiteImplicitReverseFkSuppressCQ extends AbstractBsWhiteImplicitR
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_implicit_reverse_fk_suppress) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteImplicitReverseFkSuppressCQ extends AbstractBsWhiteImplicitR
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_implicit_reverse_fk_suppress on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteImplicitReverseFkSuppressCQ extends AbstractBsWhiteImplicitR
     protected ConditionValue xgetCValueWhiteImplicitReverseFkSuppressId() { return xdfgetWhiteImplicitReverseFkSuppressId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteImplicitReverseFkSuppressCQ addOrderBy_WhiteImplicitReverseFkSuppressId_Asc() { regOBA("WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteImplicitReverseFkSuppressCQ extends AbstractBsWhiteImplicitR
     protected ConditionValue xgetCValueWhiteImplicitReverseFkId() { return xdfgetWhiteImplicitReverseFkId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteImplicitReverseFkSuppressCQ addOrderBy_WhiteImplicitReverseFkId_Asc() { regOBA("WHITE_IMPLICIT_REVERSE_FK_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteImplicitReverseFkSuppressCQ extends AbstractBsWhiteImplicitR
     protected ConditionValue xgetCValueValidBeginDate() { return xdfgetValidBeginDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteImplicitReverseFkSuppressCQ addOrderBy_ValidBeginDate_Asc() { regOBA("VALID_BEGIN_DATE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteImplicitReverseFkSuppressCQ extends AbstractBsWhiteImplicitR
     protected ConditionValue xgetCValueValidEndDate() { return xdfgetValidEndDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * VALID_END_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteImplicitReverseFkSuppressCQ addOrderBy_ValidEndDate_Asc() { regOBA("VALID_END_DATE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * VALID_END_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */

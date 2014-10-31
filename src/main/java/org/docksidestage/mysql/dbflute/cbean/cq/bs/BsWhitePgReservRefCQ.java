@@ -49,7 +49,7 @@ public class BsWhitePgReservRefCQ extends AbstractBsWhitePgReservRefCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_pg_reserv_ref) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePgReservRefCQ extends AbstractBsWhitePgReservRefCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_pg_reserv_ref on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhitePgReservRefCQ extends AbstractBsWhitePgReservRefCQ {
     protected ConditionValue xgetCValueRefId() { return xdfgetRefId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REF_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePgReservRefCQ addOrderBy_RefId_Asc() { regOBA("REF_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REF_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhitePgReservRefCQ extends AbstractBsWhitePgReservRefCQ {
     protected ConditionValue xgetCValueClassSynonym() { return xdfgetClassSynonym(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
      * @return this. (NotNull)
      */
     public BsWhitePgReservRefCQ addOrderBy_ClassSynonym_Asc() { regOBA("CLASS"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
      * @return this. (NotNull)
      */
@@ -178,7 +178,7 @@ public class BsWhitePgReservRefCQ extends AbstractBsWhitePgReservRefCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_pg_reserv by my CLASS, named 'whitePgReserv'.
      * @return The instance of condition-query. (NotNull)
      */

@@ -49,7 +49,7 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_escaped_java_doc) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_escaped_java_doc on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
     protected ConditionValue xgetCValueEscapedJavaDocCode() { return xdfgetEscapedJavaDocCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      * @return this. (NotNull)
      */
     public BsWhiteEscapedJavaDocCQ addOrderBy_EscapedJavaDocCode_Asc() { regOBA("ESCAPED_JAVA_DOC_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
     protected ConditionValue xgetCValueEscapedJavaDocName() { return xdfgetEscapedJavaDocName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */
     public BsWhiteEscapedJavaDocCQ addOrderBy_EscapedJavaDocName_Asc() { regOBA("ESCAPED_JAVA_DOC_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */

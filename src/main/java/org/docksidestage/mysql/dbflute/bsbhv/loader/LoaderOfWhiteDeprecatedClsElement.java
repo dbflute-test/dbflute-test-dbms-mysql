@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_DEPRECATED_CLS_ELEMENT as TABLE. <br />
+ * The referrer loader of WHITE_DEPRECATED_CLS_ELEMENT as TABLE. <br>
  * <pre>
  * [primary key]
  *     DEPRECATED_CLS_ELEMENT_CODE

@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param selfReferenceId The value of selfReferenceId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param selfReferenceId The value of selfReferenceId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param selfReferenceId The value of selfReferenceId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param selfReferenceId The value of selfReferenceId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param selfReferenceId The value of selfReferenceId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param minNumber The min number of selfReferenceId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of selfReferenceId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param minNumber The min number of selfReferenceId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of selfReferenceId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param selfReferenceIdList The collection of selfReferenceId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param selfReferenceIdList The collection of selfReferenceId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,8 +163,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select PARENT_ID from white_self_reference where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select PARENT_ID from white_self_reference where ...)} <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsWhiteSelfReferenceSelfList</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -182,8 +182,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     public abstract String keepSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select PARENT_ID from white_self_reference where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select PARENT_ID from white_self_reference where ...)} <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsWhiteSelfReferenceSelfList</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -209,8 +209,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     public abstract String keepSelfReferenceId_SpecifyDerivedReferrer_WhiteSelfReferenceSelfList(WhiteSelfReferenceCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from white_self_reference where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from white_self_reference where ...)} <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhiteSelfReferenceSelfList()</span>.<span style="color: #CC4747">max</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -236,13 +236,13 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     public abstract String keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      */
     public void setSelfReferenceId_IsNull() { regSelfReferenceId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      */
     public void setSelfReferenceId_IsNotNull() { regSelfReferenceId(CK_ISNN, DOBJ); }
@@ -251,7 +251,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueSelfReferenceId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @param selfReferenceName The value of selfReferenceName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -264,7 +264,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @param selfReferenceName The value of selfReferenceName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -277,7 +277,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @param selfReferenceNameList The collection of selfReferenceName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -290,7 +290,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @param selfReferenceNameList The collection of selfReferenceName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -303,8 +303,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setSelfReferenceName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param selfReferenceName The value of selfReferenceName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -314,8 +314,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setSelfReferenceName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param selfReferenceName The value of selfReferenceName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -325,8 +325,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @param selfReferenceName The value of selfReferenceName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -336,8 +336,8 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @param selfReferenceName The value of selfReferenceName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -347,7 +347,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @param selfReferenceName The value of selfReferenceName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -359,7 +359,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueSelfReferenceName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param parentId The value of parentId as equal. (NullAllowed: if null, no condition)
      */
@@ -372,7 +372,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param parentId The value of parentId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -381,7 +381,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param parentId The value of parentId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param parentId The value of parentId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -399,7 +399,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param parentId The value of parentId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -408,9 +408,9 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param minNumber The min number of parentId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of parentId. (NullAllowed: if null, no to-condition)
@@ -421,9 +421,9 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param minNumber The min number of parentId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of parentId. (NullAllowed: if null, no to-condition)
@@ -434,7 +434,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param parentIdList The collection of parentId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -447,7 +447,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @param parentIdList The collection of parentId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -460,13 +460,13 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      */
     public void setParentId_IsNull() { regParentId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      */
     public void setParentId_IsNotNull() { regParentId(CK_ISNN, DOBJ); }
@@ -478,7 +478,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteSelfReferenceCB&gt;() {
@@ -495,7 +495,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteSelfReferenceCB&gt;() {
@@ -512,7 +512,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteSelfReferenceCB&gt;() {
@@ -529,7 +529,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteSelfReferenceCB&gt;() {
@@ -546,7 +546,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteSelfReferenceCB&gt;() {
@@ -563,7 +563,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteSelfReferenceCB&gt;() {
@@ -646,7 +646,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -660,7 +660,7 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

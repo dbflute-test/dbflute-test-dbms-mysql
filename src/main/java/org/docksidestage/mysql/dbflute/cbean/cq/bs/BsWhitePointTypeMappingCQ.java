@@ -49,7 +49,7 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_point_type_mapping) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_point_type_mapping on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     protected ConditionValue xgetCValuePointTypeMappingId() { return xdfgetPointTypeMappingId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingId_Asc() { regOBA("POINT_TYPE_MAPPING_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     protected ConditionValue xgetCValuePointTypeMappingMemberName() { return xdfgetPointTypeMappingMemberName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)}
      * @return this. (NotNull)
      */
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingMemberName_Asc() { regOBA("POINT_TYPE_MAPPING_MEMBER_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     protected ConditionValue xgetCValuePointTypeMappingPriceCount() { return xdfgetPointTypeMappingPriceCount(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingPriceCount_Asc() { regOBA("POINT_TYPE_MAPPING_PRICE_COUNT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     protected ConditionValue xgetCValuePointTypeMappingSaleDate() { return xdfgetPointTypeMappingSaleDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingSaleDate_Asc() { regOBA("POINT_TYPE_MAPPING_SALE_DATE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -175,14 +175,14 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
     protected ConditionValue xgetCValuePointTypeMappingWantedDatetime() { return xdfgetPointTypeMappingWantedDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsWhitePointTypeMappingCQ addOrderBy_PointTypeMappingWantedDatetime_Asc() { regOBA("POINT_TYPE_MAPPING_WANTED_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */

@@ -19,7 +19,7 @@ import org.docksidestage.mysql.dbflute.bsbhv.pmbean.BsNonEntitySql2EntityPmb;
 
 /**
  * <!-- df:beginClassDescription -->
- * The simple parameter-bean of NonEntitySql2Entity. <br />
+ * The simple parameter-bean of NonEntitySql2Entity. <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

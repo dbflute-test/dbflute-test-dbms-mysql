@@ -49,7 +49,7 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_split_multiple_fk_next) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_split_multiple_fk_next on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     public String keepNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseListParameter(Object pm) { return xkeepSQuePm("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteSplitMultipleFkNextCQ addOrderBy_NextId_Asc() { regOBA("NEXT_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     protected ConditionValue xgetCValueSecondCode() { return xdfgetSecondCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteSplitMultipleFkNextCQ addOrderBy_SecondCode_Asc() { regOBA("SECOND_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */

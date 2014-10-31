@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SUPPRESS_DEF_CHECK as TABLE. <br />
+ * The entity of WHITE_SUPPRESS_DEF_CHECK as TABLE. <br>
  * <pre>
  * [primary-key]
  *     DEF_CHECK_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSuppressDefCheck extends AbstractEntity {
+public abstract class BsWhiteSuppressDefCheck extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -173,7 +174,7 @@ public abstract class BsWhiteSuppressDefCheck extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] DEF_CHECK_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] DEF_CHECK_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'DEF_CHECK_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getDefCheckId() {
@@ -182,7 +183,7 @@ public abstract class BsWhiteSuppressDefCheck extends AbstractEntity {
     }
 
     /**
-     * [set] DEF_CHECK_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] DEF_CHECK_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param defCheckId The value of the column 'DEF_CHECK_ID'. (basically NotNull if update: for the constraint)
      */
     public void setDefCheckId(Long defCheckId) {
@@ -191,7 +192,7 @@ public abstract class BsWhiteSuppressDefCheck extends AbstractEntity {
     }
 
     /**
-     * [get] DEF_CHECK_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] DEF_CHECK_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'DEF_CHECK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getDefCheckName() {
@@ -200,7 +201,7 @@ public abstract class BsWhiteSuppressDefCheck extends AbstractEntity {
     }
 
     /**
-     * [set] DEF_CHECK_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] DEF_CHECK_NAME: {NotNull, VARCHAR(200)} <br>
      * @param defCheckName The value of the column 'DEF_CHECK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setDefCheckName(String defCheckName) {

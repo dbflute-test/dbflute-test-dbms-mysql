@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_POINT_TYPE_MAPPING as TABLE. <br />
+ * The entity of WHITE_POINT_TYPE_MAPPING as TABLE. <br>
  * <pre>
  * [primary-key]
  *     POINT_TYPE_MAPPING_ID
@@ -69,7 +70,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhitePointTypeMapping extends AbstractEntity {
+public abstract class BsWhitePointTypeMapping extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -191,7 +192,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'POINT_TYPE_MAPPING_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getPointTypeMappingId() {
@@ -200,7 +201,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [set] POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param pointTypeMappingId The value of the column 'POINT_TYPE_MAPPING_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPointTypeMappingId(Long pointTypeMappingId) {
@@ -209,7 +210,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [get] POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)} <br />
+     * [get] POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)} <br>
      * @return The value of the column 'POINT_TYPE_MAPPING_MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.mysql.mytype.MyMemberName getPointTypeMappingMemberName() {
@@ -218,7 +219,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [set] POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)} <br />
+     * [set] POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)} <br>
      * @param pointTypeMappingMemberName The value of the column 'POINT_TYPE_MAPPING_MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPointTypeMappingMemberName(org.docksidestage.mysql.mytype.MyMemberName pointTypeMappingMemberName) {
@@ -227,7 +228,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [get] POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)} <br />
+     * [get] POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)} <br>
      * @return The value of the column 'POINT_TYPE_MAPPING_PRICE_COUNT'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.mysql.mytype.MyPriceCount getPointTypeMappingPriceCount() {
@@ -236,7 +237,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [set] POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)} <br />
+     * [set] POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)} <br>
      * @param pointTypeMappingPriceCount The value of the column 'POINT_TYPE_MAPPING_PRICE_COUNT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPointTypeMappingPriceCount(org.docksidestage.mysql.mytype.MyPriceCount pointTypeMappingPriceCount) {
@@ -245,7 +246,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [get] POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)} <br />
+     * [get] POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)} <br>
      * @return The value of the column 'POINT_TYPE_MAPPING_SALE_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.mysql.mytype.MySaleDate getPointTypeMappingSaleDate() {
@@ -254,7 +255,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [set] POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)} <br />
+     * [set] POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)} <br>
      * @param pointTypeMappingSaleDate The value of the column 'POINT_TYPE_MAPPING_SALE_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPointTypeMappingSaleDate(org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate) {
@@ -263,7 +264,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [get] POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)} <br />
+     * [get] POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'POINT_TYPE_MAPPING_WANTED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getPointTypeMappingWantedDatetime() {
@@ -272,7 +273,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity {
     }
 
     /**
-     * [set] POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)} <br />
+     * [set] POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)} <br>
      * @param pointTypeMappingWantedDatetime The value of the column 'POINT_TYPE_MAPPING_WANTED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPointTypeMappingWantedDatetime(java.util.Date pointTypeMappingWantedDatetime) {

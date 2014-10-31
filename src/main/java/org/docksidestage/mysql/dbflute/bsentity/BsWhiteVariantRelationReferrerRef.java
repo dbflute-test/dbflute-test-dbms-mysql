@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_REFERRER_REF as TABLE. <br />
+ * The entity of WHITE_VARIANT_RELATION_REFERRER_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REF_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
+public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -117,7 +118,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
     protected WhiteVariantRelationReferrer _whiteVariantRelationReferrer;
 
     /**
-     * [get] white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'. <br />
+     * [get] white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'. <br>
      * @return The entity of foreign property 'whiteVariantRelationReferrer'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteVariantRelationReferrer getWhiteVariantRelationReferrer() {
@@ -201,7 +202,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] REF_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] REF_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getRefId() {
@@ -210,7 +211,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
     }
 
     /**
-     * [set] REF_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] REF_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param refId The value of the column 'REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRefId(Long refId) {
@@ -219,7 +220,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
     }
 
     /**
-     * [get] REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer} <br />
+     * [get] REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer} <br>
      * @return The value of the column 'REFERRER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getReferrerId() {
@@ -228,7 +229,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity {
     }
 
     /**
-     * [set] REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer} <br />
+     * [set] REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer} <br>
      * @param referrerId The value of the column 'REFERRER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReferrerId(Long referrerId) {

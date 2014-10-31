@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_MASTER_FOO as TABLE. <br />
+ * The entity of WHITE_VARIANT_RELATION_MASTER_FOO as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MASTER_FOO_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
+public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -117,7 +118,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
     protected WhiteVariantRelationReferrer _whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne;
 
     /**
-     * [get] white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. <br />
+     * [get] white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. <br>
      * @return The entity of foreign property 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteVariantRelationReferrer getWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
@@ -248,7 +249,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER} <br />
+     * [get] MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER} <br>
      * @return The value of the column 'MASTER_FOO_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMasterFooId() {
@@ -257,7 +258,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER} <br />
+     * [set] MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER} <br>
      * @param masterFooId The value of the column 'MASTER_FOO_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMasterFooId(Long masterFooId) {
@@ -266,7 +267,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
     }
 
     /**
-     * [get] MASTER_FOO_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] MASTER_FOO_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'MASTER_FOO_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMasterFooName() {
@@ -275,7 +276,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_FOO_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] MASTER_FOO_NAME: {NotNull, VARCHAR(200)} <br>
      * @param masterFooName The value of the column 'MASTER_FOO_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMasterFooName(String masterFooName) {

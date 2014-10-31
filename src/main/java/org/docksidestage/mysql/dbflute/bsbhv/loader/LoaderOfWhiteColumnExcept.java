@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_COLUMN_EXCEPT as TABLE. <br />
+ * The referrer loader of WHITE_COLUMN_EXCEPT as TABLE. <br>
  * <pre>
  * [primary key]
  *     EXCEPT_COLUMN_ID

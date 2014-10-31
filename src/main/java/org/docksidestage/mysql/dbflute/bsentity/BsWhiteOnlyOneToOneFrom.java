@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ONLY_ONE_TO_ONE_FROM as TABLE. <br />
+ * The entity of WHITE_ONLY_ONE_TO_ONE_FROM as TABLE. <br>
  * <pre>
  * [primary-key]
  *     FROM_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
+public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -201,7 +202,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] FROM_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] FROM_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'FROM_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getFromId() {
@@ -210,7 +211,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
     }
 
     /**
-     * [set] FROM_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] FROM_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param fromId The value of the column 'FROM_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFromId(Long fromId) {
@@ -219,7 +220,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
     }
 
     /**
-     * [get] FROM_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] FROM_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'FROM_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getFromName() {
@@ -228,7 +229,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity {
     }
 
     /**
-     * [set] FROM_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] FROM_NAME: {NotNull, VARCHAR(200)} <br>
      * @param fromName The value of the column 'FROM_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setFromName(String fromName) {

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (WXADD)WHITE_ADDITIONAL as TABLE. <br />
+ * The entity of (WXADD)WHITE_ADDITIONAL as TABLE. <br>
  * test table for additionalTable
  * <pre>
  * [primary-key]
@@ -68,7 +69,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteAdditional extends AbstractEntity {
+public abstract class BsWhiteAdditional extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -186,7 +187,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] foo_id: {PK, ID, NotNull, INTEGER} <br />
+     * [get] foo_id: {PK, ID, NotNull, INTEGER} <br>
      * @return The value of the column 'foo_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getFooId() {
@@ -195,7 +196,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     }
 
     /**
-     * [set] foo_id: {PK, ID, NotNull, INTEGER} <br />
+     * [set] foo_id: {PK, ID, NotNull, INTEGER} <br>
      * @param fooId The value of the column 'foo_id'. (basically NotNull if update: for the constraint)
      */
     public void setFooId(Integer fooId) {
@@ -204,7 +205,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     }
 
     /**
-     * [get] (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br />
+     * [get] (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br>
      * It's joke!
      * @return The value of the column 'foo_name'. (basically NotNull if selected: for the constraint)
      */
@@ -214,7 +215,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     }
 
     /**
-     * [set] (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br />
+     * [set] (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br>
      * It's joke!
      * @param fooName The value of the column 'foo_name'. (basically NotNull if update: for the constraint)
      */
@@ -224,7 +225,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     }
 
     /**
-     * [get] foo_date: {UnknownType} <br />
+     * [get] foo_date: {UnknownType} <br>
      * @return The value of the column 'foo_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getFooDate() {
@@ -233,7 +234,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     }
 
     /**
-     * [set] foo_date: {UnknownType} <br />
+     * [set] foo_date: {UnknownType} <br>
      * @param fooDate The value of the column 'foo_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFooDate(java.util.Date fooDate) {
@@ -242,7 +243,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     }
 
     /**
-     * [get] register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} <br />
+     * [get] register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} <br>
      * @return The value of the column 'register_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
@@ -251,7 +252,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity {
     }
 
     /**
-     * [set] register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} <br />
+     * [set] register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {

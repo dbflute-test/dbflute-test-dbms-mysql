@@ -49,7 +49,7 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_split_multiple_fk_child) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_split_multiple_fk_child on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     protected ConditionValue xgetCValueChildId() { return xdfgetChildId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteSplitMultipleFkChildCQ addOrderBy_ChildId_Asc() { regOBA("CHILD_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     protected ConditionValue xgetCValueBaseId() { return xdfgetBaseId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @return this. (NotNull)
      */
     public BsWhiteSplitMultipleFkChildCQ addOrderBy_BaseId_Asc() { regOBA("BASE_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     protected ConditionValue xgetCValueChildName() { return xdfgetChildName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteSplitMultipleFkChildCQ addOrderBy_ChildName_Asc() { regOBA("CHILD_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -198,7 +198,7 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'.
      * @return The instance of condition-query. (NotNull)
      */

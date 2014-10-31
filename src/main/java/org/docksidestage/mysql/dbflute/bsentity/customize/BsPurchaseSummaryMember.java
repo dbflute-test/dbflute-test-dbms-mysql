@@ -20,10 +20,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of PurchaseSummaryMember. <br />
+ * The entity of PurchaseSummaryMember. <br>
  * <pre>
  * [primary-key]
  *     
@@ -68,7 +69,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsPurchaseSummaryMember extends AbstractEntity {
+public abstract class BsPurchaseSummaryMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -197,9 +198,9 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br />
+     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
+     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br>
      * // unique key of this result
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
@@ -209,9 +210,9 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br />
+     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
+     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br>
      * // unique key of this result
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
@@ -221,7 +222,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
@@ -231,7 +232,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -241,7 +242,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br />
+     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
@@ -251,7 +252,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br />
+     * [set] (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
@@ -261,8 +262,8 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br />
-     * 会員が正式に確定した日時。一度確定したら更新されない。<br />
+     * [get] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br>
+     * 会員が正式に確定した日時。一度確定したら更新されない。<br>
      * 仮会員のときはnull。
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
@@ -272,8 +273,8 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br />
-     * 会員が正式に確定した日時。一度確定したら更新されない。<br />
+     * [set] (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br>
+     * 会員が正式に確定した日時。一度確定したら更新されない。<br>
      * 仮会員のときはnull。
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -283,7 +284,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] PURCHASE_SUMMARY: {DECIMAL(32)} <br />
+     * [get] PURCHASE_SUMMARY: {DECIMAL(32)} <br>
      * // sum of purchase count
      * @return The value of the column 'PURCHASE_SUMMARY'. (NullAllowed even if selected: for no constraint)
      */
@@ -293,7 +294,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] PURCHASE_SUMMARY: {DECIMAL(32)} <br />
+     * [set] PURCHASE_SUMMARY: {DECIMAL(32)} <br>
      * // sum of purchase count
      * @param purchaseSummary The value of the column 'PURCHASE_SUMMARY'. (NullAllowed: null update allowed for no constraint)
      */

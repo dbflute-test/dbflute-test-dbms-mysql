@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_FK_WITHOUT_PK_REF as TABLE. <br />
+ * The entity of WHITE_UQ_FK_WITHOUT_PK_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
+public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -116,7 +117,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
     protected WhiteUqFkWithoutPk _whiteUqFkWithoutPk;
 
     /**
-     * [get] white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'. <br />
+     * [get] white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'. <br>
      * @return The entity of foreign property 'whiteUqFkWithoutPk'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteUqFkWithoutPk getWhiteUqFkWithoutPk() {
@@ -202,7 +203,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] UQ_FK_REF_ID: {NotNull, DECIMAL(16)} <br />
+     * [get] UQ_FK_REF_ID: {NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'UQ_FK_REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getUqFkRefId() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] UQ_FK_REF_ID: {NotNull, DECIMAL(16)} <br />
+     * [set] UQ_FK_REF_ID: {NotNull, DECIMAL(16)} <br>
      * @param uqFkRefId The value of the column 'UQ_FK_REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setUqFkRefId(Long uqFkRefId) {
@@ -220,7 +221,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
     }
 
     /**
-     * [get] FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk_without_pk} <br />
+     * [get] FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk_without_pk} <br>
      * @return The value of the column 'FK_TO_UQ_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getFkToUqCode() {
@@ -229,7 +230,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk_without_pk} <br />
+     * [set] FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk_without_pk} <br>
      * @param fkToUqCode The value of the column 'FK_TO_UQ_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setFkToUqCode(String fkToUqCode) {

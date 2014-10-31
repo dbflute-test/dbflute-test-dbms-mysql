@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SUPPRESS_JOIN_SQ as TABLE. <br />
+ * The entity of WHITE_SUPPRESS_JOIN_SQ as TABLE. <br>
  * <pre>
  * [primary-key]
  *     SUPPRESS_JOIN_SQ_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSuppressJoinSq extends AbstractEntity {
+public abstract class BsWhiteSuppressJoinSq extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -225,7 +226,7 @@ public abstract class BsWhiteSuppressJoinSq extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)} <br />
+     * [get] SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'SUPPRESS_JOIN_SQ_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSuppressJoinSqId() {
@@ -234,7 +235,7 @@ public abstract class BsWhiteSuppressJoinSq extends AbstractEntity {
     }
 
     /**
-     * [set] SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)} <br />
+     * [set] SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)} <br>
      * @param suppressJoinSqId The value of the column 'SUPPRESS_JOIN_SQ_ID'. (basically NotNull if update: for the constraint)
      */
     public void setSuppressJoinSqId(Integer suppressJoinSqId) {
@@ -243,7 +244,7 @@ public abstract class BsWhiteSuppressJoinSq extends AbstractEntity {
     }
 
     /**
-     * [get] SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'SUPPRESS_JOIN_SQ_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getSuppressJoinSqName() {
@@ -252,7 +253,7 @@ public abstract class BsWhiteSuppressJoinSq extends AbstractEntity {
     }
 
     /**
-     * [set] SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)} <br>
      * @param suppressJoinSqName The value of the column 'SUPPRESS_JOIN_SQ_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setSuppressJoinSqName(String suppressJoinSqName) {

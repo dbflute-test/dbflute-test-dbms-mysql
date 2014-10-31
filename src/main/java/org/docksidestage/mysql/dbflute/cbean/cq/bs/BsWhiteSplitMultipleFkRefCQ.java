@@ -49,7 +49,7 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_split_multiple_fk_ref) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_split_multiple_fk_ref on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     protected ConditionValue xgetCValueFirstId() { return xdfgetFirstId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteSplitMultipleFkRefCQ addOrderBy_FirstId_Asc() { regOBA("FIRST_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     protected ConditionValue xgetCValueSecondCode() { return xdfgetSecondCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteSplitMultipleFkRefCQ addOrderBy_SecondCode_Asc() { regOBA("SECOND_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
     protected ConditionValue xgetCValueRefName() { return xdfgetRefName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteSplitMultipleFkRefCQ addOrderBy_RefName_Asc() { regOBA("REF_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */

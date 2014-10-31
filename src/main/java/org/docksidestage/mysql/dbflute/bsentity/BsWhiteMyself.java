@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_MYSELF as TABLE. <br />
+ * The entity of WHITE_MYSELF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MYSELF_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteMyself extends AbstractEntity {
+public abstract class BsWhiteMyself extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -202,7 +203,7 @@ public abstract class BsWhiteMyself extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MYSELF_ID: {PK, NotNull, INT(10)} <br />
+     * [get] MYSELF_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'MYSELF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMyselfId() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteMyself extends AbstractEntity {
     }
 
     /**
-     * [set] MYSELF_ID: {PK, NotNull, INT(10)} <br />
+     * [set] MYSELF_ID: {PK, NotNull, INT(10)} <br>
      * @param myselfId The value of the column 'MYSELF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMyselfId(Integer myselfId) {
@@ -220,7 +221,7 @@ public abstract class BsWhiteMyself extends AbstractEntity {
     }
 
     /**
-     * [get] MYSELF_NAME: {NotNull, VARCHAR(80)} <br />
+     * [get] MYSELF_NAME: {NotNull, VARCHAR(80)} <br>
      * @return The value of the column 'MYSELF_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMyselfName() {
@@ -229,7 +230,7 @@ public abstract class BsWhiteMyself extends AbstractEntity {
     }
 
     /**
-     * [set] MYSELF_NAME: {NotNull, VARCHAR(80)} <br />
+     * [set] MYSELF_NAME: {NotNull, VARCHAR(80)} <br>
      * @param myselfName The value of the column 'MYSELF_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMyselfName(String myselfName) {

@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF as TABLE. <br />
+ * The referrer loader of WHITE_ALL_IN_ONE_CLS_COMPOUND_PK_REF as TABLE. <br>
  * <pre>
  * [primary key]
  *     FOO_CODE, BAR_CODE, QUX_CODE

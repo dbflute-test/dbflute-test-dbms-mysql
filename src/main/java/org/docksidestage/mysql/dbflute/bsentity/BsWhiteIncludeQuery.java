@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_INCLUDE_QUERY as TABLE. <br />
+ * The entity of WHITE_INCLUDE_QUERY as TABLE. <br>
  * <pre>
  * [primary-key]
  *     INCLUDE_QUERY_ID
@@ -69,7 +70,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteIncludeQuery extends AbstractEntity {
+public abstract class BsWhiteIncludeQuery extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -191,7 +192,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'INCLUDE_QUERY_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getIncludeQueryId() {
@@ -200,7 +201,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [set] INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param includeQueryId The value of the column 'INCLUDE_QUERY_ID'. (basically NotNull if update: for the constraint)
      */
     public void setIncludeQueryId(Long includeQueryId) {
@@ -209,7 +210,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [get] INCLUDE_QUERY_VARCHAR: {VARCHAR(100)} <br />
+     * [get] INCLUDE_QUERY_VARCHAR: {VARCHAR(100)} <br>
      * @return The value of the column 'INCLUDE_QUERY_VARCHAR'. (NullAllowed even if selected: for no constraint)
      */
     public String getIncludeQueryVarchar() {
@@ -218,7 +219,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [set] INCLUDE_QUERY_VARCHAR: {VARCHAR(100)} <br />
+     * [set] INCLUDE_QUERY_VARCHAR: {VARCHAR(100)} <br>
      * @param includeQueryVarchar The value of the column 'INCLUDE_QUERY_VARCHAR'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIncludeQueryVarchar(String includeQueryVarchar) {
@@ -227,7 +228,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [get] INCLUDE_QUERY_INTEGER: {INT(10)} <br />
+     * [get] INCLUDE_QUERY_INTEGER: {INT(10)} <br>
      * @return The value of the column 'INCLUDE_QUERY_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getIncludeQueryInteger() {
@@ -236,7 +237,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [set] INCLUDE_QUERY_INTEGER: {INT(10)} <br />
+     * [set] INCLUDE_QUERY_INTEGER: {INT(10)} <br>
      * @param includeQueryInteger The value of the column 'INCLUDE_QUERY_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIncludeQueryInteger(Integer includeQueryInteger) {
@@ -245,7 +246,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [get] INCLUDE_QUERY_DATE: {DATE(10)} <br />
+     * [get] INCLUDE_QUERY_DATE: {DATE(10)} <br>
      * @return The value of the column 'INCLUDE_QUERY_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getIncludeQueryDate() {
@@ -254,7 +255,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [set] INCLUDE_QUERY_DATE: {DATE(10)} <br />
+     * [set] INCLUDE_QUERY_DATE: {DATE(10)} <br>
      * @param includeQueryDate The value of the column 'INCLUDE_QUERY_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIncludeQueryDate(java.util.Date includeQueryDate) {
@@ -263,7 +264,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [get] INCLUDE_QUERY_DATETIME: {DATETIME(19)} <br />
+     * [get] INCLUDE_QUERY_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'INCLUDE_QUERY_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getIncludeQueryDatetime() {
@@ -272,7 +273,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity {
     }
 
     /**
-     * [set] INCLUDE_QUERY_DATETIME: {DATETIME(19)} <br />
+     * [set] INCLUDE_QUERY_DATETIME: {DATETIME(19)} <br>
      * @param includeQueryDatetime The value of the column 'INCLUDE_QUERY_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIncludeQueryDatetime(java.sql.Timestamp includeQueryDatetime) {

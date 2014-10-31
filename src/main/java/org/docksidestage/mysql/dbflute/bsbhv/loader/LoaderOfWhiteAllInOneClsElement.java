@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ALL_IN_ONE_CLS_ELEMENT as TABLE. <br />
+ * The referrer loader of WHITE_ALL_IN_ONE_CLS_ELEMENT as TABLE. <br>
  * <pre>
  * [primary key]
  *     CLS_CATEGORY_CODE, CLS_ELEMENT_CODE

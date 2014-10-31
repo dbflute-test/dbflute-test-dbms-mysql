@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_MASTER_QUX as TABLE. <br />
+ * The entity of WHITE_VARIANT_RELATION_MASTER_QUX as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MASTER_QUX_ID
@@ -66,7 +67,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
+public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -120,8 +121,8 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of quxTypeCode as the classification of VariantRelationQuxType. <br />
-     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * Get the value of quxTypeCode as the classification of VariantRelationQuxType. <br>
+     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -131,8 +132,8 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * Set the value of quxTypeCode as the classification of VariantRelationQuxType. <br />
-     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * Set the value of quxTypeCode as the classification of VariantRelationQuxType. <br>
+     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -144,7 +145,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of quxTypeCode as Qua (Qua). <br />
+     * Set the value of quxTypeCode as Qua (Qua). <br>
      * Qua
      */
     public void setQuxTypeCode_Qua() {
@@ -152,7 +153,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * Set the value of quxTypeCode as Que (Que). <br />
+     * Set the value of quxTypeCode as Que (Que). <br>
      * Que
      */
     public void setQuxTypeCode_Que() {
@@ -160,7 +161,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * Set the value of quxTypeCode as Quo (Quo). <br />
+     * Set the value of quxTypeCode as Quo (Quo). <br>
      * Quo
      */
     public void setQuxTypeCode_Quo() {
@@ -171,7 +172,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of quxTypeCode Qua? <br />
+     * Is the value of quxTypeCode Qua? <br>
      * Qua
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -182,7 +183,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * Is the value of quxTypeCode Que? <br />
+     * Is the value of quxTypeCode Que? <br>
      * Que
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -193,7 +194,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * Is the value of quxTypeCode Quo? <br />
+     * Is the value of quxTypeCode Quo? <br>
      * Quo
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -270,7 +271,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MASTER_QUX_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [get] MASTER_QUX_ID: {PK, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'MASTER_QUX_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMasterQuxId() {
@@ -279,7 +280,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_QUX_ID: {PK, NotNull, BIGINT(19)} <br />
+     * [set] MASTER_QUX_ID: {PK, NotNull, BIGINT(19)} <br>
      * @param masterQuxId The value of the column 'MASTER_QUX_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMasterQuxId(Long masterQuxId) {
@@ -288,7 +289,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * [get] MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'MASTER_QUX_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMasterQuxName() {
@@ -297,7 +298,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * [set] MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br>
      * @param masterQuxName The value of the column 'MASTER_QUX_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMasterQuxName(String masterQuxName) {
@@ -306,7 +307,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * [get] QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * [get] QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * @return The value of the column 'QUX_TYPE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getQuxTypeCode() {
@@ -315,7 +316,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity {
     }
 
     /**
-     * [set] QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * [set] QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * @param quxTypeCode The value of the column 'QUX_TYPE_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setQuxTypeCode(String quxTypeCode) {

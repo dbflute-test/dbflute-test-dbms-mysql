@@ -49,7 +49,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_compound_pk_ref_many) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_compound_pk_ref_many on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     protected ConditionValue xgetCValueMultipleFirstId() { return xdfgetMultipleFirstId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkRefManyCQ addOrderBy_MultipleFirstId_Asc() { regOBA("MULTIPLE_FIRST_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     protected ConditionValue xgetCValueMultipleSecondId() { return xdfgetMultipleSecondId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkRefManyCQ addOrderBy_MultipleSecondId_Asc() { regOBA("MULTIPLE_SECOND_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     protected ConditionValue xgetCValueRefManyFirstId() { return xdfgetRefManyFirstId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REF_MANY_FIRST_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManyFirstId_Asc() { regOBA("REF_MANY_FIRST_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REF_MANY_FIRST_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     protected ConditionValue xgetCValueRefManySecondId() { return xdfgetRefManySecondId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REF_MANY_SECOND_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManySecondId_Asc() { regOBA("REF_MANY_SECOND_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REF_MANY_SECOND_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
      * @return this. (NotNull)
      */
@@ -175,14 +175,14 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     protected ConditionValue xgetCValueRefManyCode() { return xdfgetRefManyCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManyCode_Asc() { regOBA("REF_MANY_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -195,14 +195,14 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     protected ConditionValue xgetCValueRefManyName() { return xdfgetRefManyName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManyName_Asc() { regOBA("REF_MANY_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
@@ -215,14 +215,14 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     protected ConditionValue xgetCValueRefManyDatetime() { return xdfgetRefManyDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkRefManyCQ addOrderBy_RefManyDatetime_Asc() { regOBA("REF_MANY_DATETIME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
@@ -278,7 +278,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
      * @return The instance of condition-query. (NotNull)
      */

@@ -34,7 +34,7 @@ public class WhiteSuppressJoinSqManyOneNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
      */
     public void withWhiteSuppressJoinSqManyOneOne() {

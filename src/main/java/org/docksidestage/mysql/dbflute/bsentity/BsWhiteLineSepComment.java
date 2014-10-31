@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_LINE_SEP_COMMENT as TABLE. <br />
+ * The entity of WHITE_LINE_SEP_COMMENT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     LINE_SEP_COMMENT_CODE
@@ -64,7 +65,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteLineSepComment extends AbstractEntity {
+public abstract class BsWhiteLineSepComment extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -115,8 +116,8 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of lineSepCommentCode as the classification of LineSepCommentCls. <br />
-     * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br />
+     * Get the value of lineSepCommentCode as the classification of LineSepCommentCls. <br>
+     * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
      * top first line            top second line            top third line
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -126,8 +127,8 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     }
 
     /**
-     * Set the value of lineSepCommentCode as the classification of LineSepCommentCls. <br />
-     * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br />
+     * Set the value of lineSepCommentCode as the classification of LineSepCommentCls. <br>
+     * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
      * top first line            top second line            top third line
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -139,7 +140,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of lineSepCommentCode as First (FOO). <br />
+     * Set the value of lineSepCommentCode as First (FOO). <br>
      * First: foo first line            foo second line
      */
     public void setLineSepCommentCode_First() {
@@ -147,7 +148,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     }
 
     /**
-     * Set the value of lineSepCommentCode as Second (BAR). <br />
+     * Set the value of lineSepCommentCode as Second (BAR). <br>
      * Second: bar first line                        bar second line
      */
     public void setLineSepCommentCode_Second() {
@@ -158,7 +159,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of lineSepCommentCode First? <br />
+     * Is the value of lineSepCommentCode First? <br>
      * First: foo first line            foo second line
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -169,7 +170,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     }
 
     /**
-     * Is the value of lineSepCommentCode Second? <br />
+     * Is the value of lineSepCommentCode Second? <br>
      * Second: bar first line                        bar second line
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -180,7 +181,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     }
 
     /**
-     * group first line                    group second line <br />
+     * group first line                    group second line <br>
      * The group elements:[First, Second]
      * @return The determination, true or false.
      */
@@ -264,7 +265,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br />
+     * [get] LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
      * @return The value of the column 'LINE_SEP_COMMENT_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getLineSepCommentCode() {
@@ -273,7 +274,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     }
 
     /**
-     * [set] LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br />
+     * [set] LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
      * @param lineSepCommentCode The value of the column 'LINE_SEP_COMMENT_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setLineSepCommentCode(String lineSepCommentCode) {
@@ -283,7 +284,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     }
 
     /**
-     * [get] LINE_SEP_COMMENT_NAME: {VARCHAR(20)} <br />
+     * [get] LINE_SEP_COMMENT_NAME: {VARCHAR(20)} <br>
      * @return The value of the column 'LINE_SEP_COMMENT_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getLineSepCommentName() {
@@ -292,7 +293,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity {
     }
 
     /**
-     * [set] LINE_SEP_COMMENT_NAME: {VARCHAR(20)} <br />
+     * [set] LINE_SEP_COMMENT_NAME: {VARCHAR(20)} <br>
      * @param lineSepCommentName The value of the column 'LINE_SEP_COMMENT_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setLineSepCommentName(String lineSepCommentName) {

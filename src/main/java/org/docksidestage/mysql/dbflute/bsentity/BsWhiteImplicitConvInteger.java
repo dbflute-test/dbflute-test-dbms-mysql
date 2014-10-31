@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_IMPLICIT_CONV_INTEGER as TABLE. <br />
+ * The entity of WHITE_IMPLICIT_CONV_INTEGER as TABLE. <br>
  * <pre>
  * [primary-key]
  *     IMPLICIT_CONV_INTEGER_ID
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
+public abstract class BsWhiteImplicitConvInteger extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -127,7 +128,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     protected WhiteImplicitConvNumeric _whiteImplicitConvNumeric;
 
     /**
-     * [get] white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'. <br />
+     * [get] white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'. <br>
      * @return The entity of foreign property 'whiteImplicitConvNumeric'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteImplicitConvNumeric getWhiteImplicitConvNumeric() {
@@ -146,7 +147,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     protected WhiteImplicitConvString _whiteImplicitConvString;
 
     /**
-     * [get] white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'. <br />
+     * [get] white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'. <br>
      * @return The entity of foreign property 'whiteImplicitConvString'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteImplicitConvString getWhiteImplicitConvString() {
@@ -284,7 +285,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)} <br />
+     * [get] IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'IMPLICIT_CONV_INTEGER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getImplicitConvIntegerId() {
@@ -293,7 +294,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     }
 
     /**
-     * [set] IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)} <br />
+     * [set] IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)} <br>
      * @param implicitConvIntegerId The value of the column 'IMPLICIT_CONV_INTEGER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setImplicitConvIntegerId(Integer implicitConvIntegerId) {
@@ -302,7 +303,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     }
 
     /**
-     * [get] IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br />
+     * [get] IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br>
      * @return The value of the column 'IMPLICIT_CONV_NUMERIC_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getImplicitConvNumericId() {
@@ -311,7 +312,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     }
 
     /**
-     * [set] IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br />
+     * [set] IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br>
      * @param implicitConvNumericId The value of the column 'IMPLICIT_CONV_NUMERIC_ID'. (basically NotNull if update: for the constraint)
      */
     public void setImplicitConvNumericId(Integer implicitConvNumericId) {
@@ -320,7 +321,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     }
 
     /**
-     * [get] IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING} <br />
+     * [get] IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING} <br>
      * @return The value of the column 'IMPLICIT_CONV_STRING_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getImplicitConvStringId() {
@@ -329,7 +330,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     }
 
     /**
-     * [set] IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING} <br />
+     * [set] IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING} <br>
      * @param implicitConvStringId The value of the column 'IMPLICIT_CONV_STRING_ID'. (basically NotNull if update: for the constraint)
      */
     public void setImplicitConvStringId(Integer implicitConvStringId) {
@@ -338,7 +339,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     }
 
     /**
-     * [get] IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'IMPLICIT_CONV_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getImplicitConvName() {
@@ -347,7 +348,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity {
     }
 
     /**
-     * [set] IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br>
      * @param implicitConvName The value of the column 'IMPLICIT_CONV_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setImplicitConvName(String implicitConvName) {

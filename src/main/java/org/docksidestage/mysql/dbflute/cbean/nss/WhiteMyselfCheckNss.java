@@ -34,7 +34,7 @@ public class WhiteMyselfCheckNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_myself by my MYSELF_ID, named 'whiteMyself'.
      */
     public void withWhiteMyself() {

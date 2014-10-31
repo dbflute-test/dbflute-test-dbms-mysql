@@ -49,7 +49,7 @@ public class BsWhitePerrottaOverProductNestedCQ extends AbstractBsWhitePerrottaO
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_perrotta_over_product_nested) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePerrottaOverProductNestedCQ extends AbstractBsWhitePerrottaO
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_perrotta_over_product_nested on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhitePerrottaOverProductNestedCQ extends AbstractBsWhitePerrottaO
     public String keepProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductListParameter(Object pm) { return xkeepSQuePm("productNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductNestedCQ addOrderBy_ProductNestedCode_Asc() { regOBA("PRODUCT_NESTED_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhitePerrottaOverProductNestedCQ extends AbstractBsWhitePerrottaO
     protected ConditionValue xgetCValueProductNestedName() { return xdfgetProductNestedName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductNestedCQ addOrderBy_ProductNestedName_Asc() { regOBA("PRODUCT_NESTED_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */

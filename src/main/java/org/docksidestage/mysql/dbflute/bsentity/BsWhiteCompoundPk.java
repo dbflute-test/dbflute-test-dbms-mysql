@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK as TABLE. <br />
+ * The entity of WHITE_COMPOUND_PK as TABLE. <br>
  * <pre>
  * [primary-key]
  *     PK_FIRST_ID, PK_SECOND_ID
@@ -67,7 +68,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteCompoundPk extends AbstractEntity {
+public abstract class BsWhiteCompoundPk extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -122,7 +123,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param pkSecondId : PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY. (NotNull)
      * @param referredId : +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY. (NotNull)
@@ -135,7 +136,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param pkSecondId : PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY. (NotNull)
      * @param pkFirstId : PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY. (NotNull)
@@ -154,7 +155,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     protected WhiteCompoundReferredNormally _whiteCompoundReferredNormally;
 
     /**
-     * [get] white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'. <br />
+     * [get] white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'. <br>
      * @return The entity of foreign property 'whiteCompoundReferredNormally'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteCompoundReferredNormally getWhiteCompoundReferredNormally() {
@@ -173,7 +174,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     protected WhiteCompoundReferredPrimary _whiteCompoundReferredPrimary;
 
     /**
-     * [get] white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'. <br />
+     * [get] white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'. <br>
      * @return The entity of foreign property 'whiteCompoundReferredPrimary'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteCompoundReferredPrimary getWhiteCompoundReferredPrimary() {
@@ -192,7 +193,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     protected WhiteCompoundPkRefMany _whiteCompoundPkRefManyAsMax;
 
     /**
-     * [get] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'. <br />
+     * [get] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'. <br>
      * @return The entity of foreign property 'whiteCompoundPkRefManyAsMax'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteCompoundPkRefMany getWhiteCompoundPkRefManyAsMax() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     protected WhiteCompoundPkRefMany _whiteCompoundPkRefManyAsMin;
 
     /**
-     * [get] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'. <br />
+     * [get] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'. <br>
      * @return The entity of foreign property 'whiteCompoundPkRefManyAsMin'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteCompoundPkRefMany getWhiteCompoundPkRefManyAsMin() {
@@ -359,7 +360,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY} <br />
+     * [get] PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY} <br>
      * @return The value of the column 'PK_FIRST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPkFirstId() {
@@ -368,7 +369,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [set] PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY} <br />
+     * [set] PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY} <br>
      * @param pkFirstId The value of the column 'PK_FIRST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPkFirstId(Integer pkFirstId) {
@@ -377,7 +378,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [get] PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY} <br />
+     * [get] PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY} <br>
      * @return The value of the column 'PK_SECOND_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPkSecondId() {
@@ -386,7 +387,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [set] PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY} <br />
+     * [set] PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY} <br>
      * @param pkSecondId The value of the column 'PK_SECOND_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPkSecondId(Integer pkSecondId) {
@@ -395,7 +396,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [get] PK_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] PK_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'PK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getPkName() {
@@ -404,7 +405,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [set] PK_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] PK_NAME: {NotNull, VARCHAR(200)} <br>
      * @param pkName The value of the column 'PK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setPkName(String pkName) {
@@ -413,7 +414,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [get] REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY} <br />
+     * [get] REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY} <br>
      * @return The value of the column 'REFERRED_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getReferredId() {
@@ -422,7 +423,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [set] REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY} <br />
+     * [set] REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY} <br>
      * @param referredId The value of the column 'REFERRED_ID'. (basically NotNull if update: for the constraint)
      */
     public void setReferredId(Integer referredId) {

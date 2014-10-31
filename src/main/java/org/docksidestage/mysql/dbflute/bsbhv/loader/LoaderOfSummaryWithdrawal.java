@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (VIEW)SUMMARY_WITHDRAWAL as VIEW. <br />
+ * The referrer loader of (VIEW)SUMMARY_WITHDRAWAL as VIEW. <br>
  * <pre>
  * [primary key]
  *     

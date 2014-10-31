@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_GEARED_CIPHER as TABLE. <br />
+ * The referrer loader of WHITE_GEARED_CIPHER as TABLE. <br>
  * <pre>
  * [primary key]
  *     CIPHER_ID

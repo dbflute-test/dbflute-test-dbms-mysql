@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_CONSTRAINT_NAME_AUTO_FOO as TABLE. <br />
+ * The entity of VENDOR_CONSTRAINT_NAME_AUTO_FOO as TABLE. <br>
  * <pre>
  * [primary-key]
  *     CONSTRAINT_NAME_AUTO_FOO_ID
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity {
+public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -111,7 +112,7 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param constraintNameAutoFooName : UQ, NotNull, VARCHAR(50). (NotNull)
      */
@@ -213,7 +214,7 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] CONSTRAINT_NAME_AUTO_FOO_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] CONSTRAINT_NAME_AUTO_FOO_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'CONSTRAINT_NAME_AUTO_FOO_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getConstraintNameAutoFooId() {
@@ -222,7 +223,7 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity {
     }
 
     /**
-     * [set] CONSTRAINT_NAME_AUTO_FOO_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] CONSTRAINT_NAME_AUTO_FOO_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param constraintNameAutoFooId The value of the column 'CONSTRAINT_NAME_AUTO_FOO_ID'. (basically NotNull if update: for the constraint)
      */
     public void setConstraintNameAutoFooId(Long constraintNameAutoFooId) {
@@ -231,7 +232,7 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity {
     }
 
     /**
-     * [get] CONSTRAINT_NAME_AUTO_FOO_NAME: {UQ, NotNull, VARCHAR(50)} <br />
+     * [get] CONSTRAINT_NAME_AUTO_FOO_NAME: {UQ, NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'CONSTRAINT_NAME_AUTO_FOO_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getConstraintNameAutoFooName() {
@@ -240,7 +241,7 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity {
     }
 
     /**
-     * [set] CONSTRAINT_NAME_AUTO_FOO_NAME: {UQ, NotNull, VARCHAR(50)} <br />
+     * [set] CONSTRAINT_NAME_AUTO_FOO_NAME: {UQ, NotNull, VARCHAR(50)} <br>
      * @param constraintNameAutoFooName The value of the column 'CONSTRAINT_NAME_AUTO_FOO_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setConstraintNameAutoFooName(String constraintNameAutoFooName) {

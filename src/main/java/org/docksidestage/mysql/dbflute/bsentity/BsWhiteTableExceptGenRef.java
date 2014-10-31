@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_TABLE_EXCEPT_GEN_REF as TABLE. <br />
+ * The entity of WHITE_TABLE_EXCEPT_GEN_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     GEN_REF_ID
@@ -65,7 +66,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteTableExceptGenRef extends AbstractEntity {
+public abstract class BsWhiteTableExceptGenRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -179,7 +180,7 @@ public abstract class BsWhiteTableExceptGenRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] GEN_REF_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [get] GEN_REF_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @return The value of the column 'GEN_REF_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getGenRefId() {
@@ -188,7 +189,7 @@ public abstract class BsWhiteTableExceptGenRef extends AbstractEntity {
     }
 
     /**
-     * [set] GEN_REF_ID: {PK, NotNull, DECIMAL(16)} <br />
+     * [set] GEN_REF_ID: {PK, NotNull, DECIMAL(16)} <br>
      * @param genRefId The value of the column 'GEN_REF_ID'. (basically NotNull if update: for the constraint)
      */
     public void setGenRefId(Long genRefId) {
@@ -197,7 +198,7 @@ public abstract class BsWhiteTableExceptGenRef extends AbstractEntity {
     }
 
     /**
-     * [get] GEN_REF_NAME: {NotNull, VARCHAR(200)} <br />
+     * [get] GEN_REF_NAME: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'GEN_REF_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getGenRefName() {
@@ -206,7 +207,7 @@ public abstract class BsWhiteTableExceptGenRef extends AbstractEntity {
     }
 
     /**
-     * [set] GEN_REF_NAME: {NotNull, VARCHAR(200)} <br />
+     * [set] GEN_REF_NAME: {NotNull, VARCHAR(200)} <br>
      * @param genRefName The value of the column 'GEN_REF_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setGenRefName(String genRefName) {
@@ -215,7 +216,7 @@ public abstract class BsWhiteTableExceptGenRef extends AbstractEntity {
     }
 
     /**
-     * [get] GEN_ONLY_ID: {IX, DECIMAL(16)} <br />
+     * [get] GEN_ONLY_ID: {IX, DECIMAL(16)} <br>
      * @return The value of the column 'GEN_ONLY_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Long getGenOnlyId() {
@@ -224,7 +225,7 @@ public abstract class BsWhiteTableExceptGenRef extends AbstractEntity {
     }
 
     /**
-     * [set] GEN_ONLY_ID: {IX, DECIMAL(16)} <br />
+     * [set] GEN_ONLY_ID: {IX, DECIMAL(16)} <br>
      * @param genOnlyId The value of the column 'GEN_ONLY_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setGenOnlyId(Long genOnlyId) {

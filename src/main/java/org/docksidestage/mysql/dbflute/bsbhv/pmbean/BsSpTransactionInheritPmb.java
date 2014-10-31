@@ -24,7 +24,7 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.mysql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of SpTransactionInherit. <br />
+ * The base class for procedure parameter-bean of SpTransactionInherit. <br>
  * This is related to "<span style="color: #AD4747">SP_TRANSACTION_INHERIT</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -50,7 +50,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br />
+     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br>
      * This is related to "<span style="color: #AD4747">SP_TRANSACTION_INHERIT</span>".
      */
     public BsSpTransactionInheritPmb() {

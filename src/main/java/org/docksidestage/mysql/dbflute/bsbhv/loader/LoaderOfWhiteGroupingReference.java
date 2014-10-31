@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_GROUPING_REFERENCE as TABLE. <br />
+ * The referrer loader of WHITE_GROUPING_REFERENCE as TABLE. <br>
  * <pre>
  * [primary key]
  *     GROUPING_REFERENCE_ID

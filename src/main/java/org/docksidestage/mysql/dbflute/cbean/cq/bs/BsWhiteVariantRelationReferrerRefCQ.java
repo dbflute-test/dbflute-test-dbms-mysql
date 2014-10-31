@@ -49,7 +49,7 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_variant_relation_referrer_ref) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_variant_relation_referrer_ref on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     protected ConditionValue xgetCValueRefId() { return xdfgetRefId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationReferrerRefCQ addOrderBy_RefId_Asc() { regOBA("REF_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     protected ConditionValue xgetCValueReferrerId() { return xdfgetReferrerId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationReferrerRefCQ addOrderBy_ReferrerId_Asc() { regOBA("REFERRER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
      * @return this. (NotNull)
      */
@@ -178,7 +178,7 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
      * @return The instance of condition-query. (NotNull)
      */

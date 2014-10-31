@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK_REF_NEST as TABLE. <br />
+ * The entity of WHITE_COMPOUND_PK_REF_NEST as TABLE. <br>
  * <pre>
  * [primary-key]
  *     COMPOUND_PK_REF_NEST_ID
@@ -69,7 +70,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
+public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -132,7 +133,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     protected WhiteCompoundPkRef _whiteCompoundPkRefByQuxMultipleId;
 
     /**
-     * [get] white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'. <br />
+     * [get] white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'. <br>
      * @return The entity of foreign property 'whiteCompoundPkRefByQuxMultipleId'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteCompoundPkRef getWhiteCompoundPkRefByQuxMultipleId() {
@@ -151,7 +152,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     protected WhiteCompoundPkRef _whiteCompoundPkRefByFooMultipleId;
 
     /**
-     * [get] white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'. <br />
+     * [get] white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'. <br>
      * @return The entity of foreign property 'whiteCompoundPkRefByFooMultipleId'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteCompoundPkRef getWhiteCompoundPkRefByFooMultipleId() {
@@ -242,7 +243,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)} <br />
+     * [get] COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'COMPOUND_PK_REF_NEST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getCompoundPkRefNestId() {
@@ -251,7 +252,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [set] COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)} <br />
+     * [set] COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)} <br>
      * @param compoundPkRefNestId The value of the column 'COMPOUND_PK_REF_NEST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setCompoundPkRefNestId(Integer compoundPkRefNestId) {
@@ -260,7 +261,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [get] FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref} <br />
+     * [get] FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref} <br>
      * @return The value of the column 'FOO_MULTIPLE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getFooMultipleId() {
@@ -269,7 +270,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [set] FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref} <br />
+     * [set] FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref} <br>
      * @param fooMultipleId The value of the column 'FOO_MULTIPLE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setFooMultipleId(Integer fooMultipleId) {
@@ -278,7 +279,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [get] BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref} <br />
+     * [get] BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref} <br>
      * @return The value of the column 'BAR_MULTIPLE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getBarMultipleId() {
@@ -287,7 +288,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [set] BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref} <br />
+     * [set] BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref} <br>
      * @param barMultipleId The value of the column 'BAR_MULTIPLE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setBarMultipleId(Integer barMultipleId) {
@@ -296,7 +297,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [get] QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref} <br />
+     * [get] QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref} <br>
      * @return The value of the column 'QUX_MULTIPLE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getQuxMultipleId() {
@@ -305,7 +306,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [set] QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref} <br />
+     * [set] QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref} <br>
      * @param quxMultipleId The value of the column 'QUX_MULTIPLE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setQuxMultipleId(Integer quxMultipleId) {
@@ -314,7 +315,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [get] NEST_NAME: {NotNull, VARCHAR(50)} <br />
+     * [get] NEST_NAME: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'NEST_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getNestName() {
@@ -323,7 +324,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity {
     }
 
     /**
-     * [set] NEST_NAME: {NotNull, VARCHAR(50)} <br />
+     * [set] NEST_NAME: {NotNull, VARCHAR(50)} <br>
      * @param nestName The value of the column 'NEST_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setNestName(String nestName) {

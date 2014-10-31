@@ -49,7 +49,7 @@ public class BsWhiteSuppressJoinSqOneAddiCQ extends AbstractBsWhiteSuppressJoinS
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_suppress_join_sq_one_addi) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteSuppressJoinSqOneAddiCQ extends AbstractBsWhiteSuppressJoinS
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_suppress_join_sq_one_addi on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteSuppressJoinSqOneAddiCQ extends AbstractBsWhiteSuppressJoinS
     protected ConditionValue xgetCValueOneAddiId() { return xdfgetOneAddiId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ONE_ADDI_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteSuppressJoinSqOneAddiCQ addOrderBy_OneAddiId_Asc() { regOBA("ONE_ADDI_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ONE_ADDI_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteSuppressJoinSqOneAddiCQ extends AbstractBsWhiteSuppressJoinS
     protected ConditionValue xgetCValueOneAddiName() { return xdfgetOneAddiName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteSuppressJoinSqOneAddiCQ addOrderBy_OneAddiName_Asc() { regOBA("ONE_ADDI_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */

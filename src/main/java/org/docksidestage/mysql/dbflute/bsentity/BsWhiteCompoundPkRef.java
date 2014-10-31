@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK_REF as TABLE. <br />
+ * The entity of WHITE_COMPOUND_PK_REF as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID
@@ -69,7 +70,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
+public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -133,7 +134,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     protected WhiteCompoundPk _whiteCompoundPk;
 
     /**
-     * [get] white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'. <br />
+     * [get] white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'. <br>
      * @return The entity of foreign property 'whiteCompoundPk'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WhiteCompoundPk getWhiteCompoundPk() {
@@ -270,7 +271,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)} <br />
+     * [get] MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'MULTIPLE_FIRST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMultipleFirstId() {
@@ -279,7 +280,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)} <br />
+     * [set] MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)} <br>
      * @param multipleFirstId The value of the column 'MULTIPLE_FIRST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMultipleFirstId(Integer multipleFirstId) {
@@ -288,7 +289,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [get] MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)} <br />
+     * [get] MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'MULTIPLE_SECOND_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMultipleSecondId() {
@@ -297,7 +298,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)} <br />
+     * [set] MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)} <br>
      * @param multipleSecondId The value of the column 'MULTIPLE_SECOND_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMultipleSecondId(Integer multipleSecondId) {
@@ -306,7 +307,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [get] REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk} <br />
+     * [get] REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk} <br>
      * @return The value of the column 'REF_FIRST_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRefFirstId() {
@@ -315,7 +316,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk} <br />
+     * [set] REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk} <br>
      * @param refFirstId The value of the column 'REF_FIRST_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRefFirstId(Integer refFirstId) {
@@ -324,7 +325,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [get] REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk} <br />
+     * [get] REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk} <br>
      * @return The value of the column 'REF_SECOND_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRefSecondId() {
@@ -333,7 +334,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk} <br />
+     * [set] REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk} <br>
      * @param refSecondId The value of the column 'REF_SECOND_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRefSecondId(Integer refSecondId) {
@@ -342,7 +343,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [get] REF_NAME: {NotNull, VARCHAR(50)} <br />
+     * [get] REF_NAME: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'REF_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getRefName() {
@@ -351,7 +352,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     }
 
     /**
-     * [set] REF_NAME: {NotNull, VARCHAR(50)} <br />
+     * [set] REF_NAME: {NotNull, VARCHAR(50)} <br>
      * @param refName The value of the column 'REF_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setRefName(String refName) {

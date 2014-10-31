@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of VENDOR_CONSTRAINT_NAME_AUTO_REF as TABLE. <br />
+ * The referrer loader of VENDOR_CONSTRAINT_NAME_AUTO_REF as TABLE. <br>
  * <pre>
  * [primary key]
  *     CONSTRAINT_NAME_AUTO_REF_ID

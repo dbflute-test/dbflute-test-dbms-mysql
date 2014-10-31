@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_GEARED_CIPHER as TABLE. <br />
+ * The entity of WHITE_GEARED_CIPHER as TABLE. <br>
  * <pre>
  * [primary-key]
  *     CIPHER_ID
@@ -69,7 +70,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteGearedCipher extends AbstractEntity {
+public abstract class BsWhiteGearedCipher extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -191,7 +192,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] CIPHER_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [get] CIPHER_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'CIPHER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getCipherId() {
@@ -200,7 +201,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [set] CIPHER_ID: {PK, ID, NotNull, BIGINT(19)} <br />
+     * [set] CIPHER_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param cipherId The value of the column 'CIPHER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setCipherId(Long cipherId) {
@@ -209,7 +210,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [get] CIPHER_INTEGER: {VARCHAR(100)} <br />
+     * [get] CIPHER_INTEGER: {VARCHAR(100)} <br>
      * @return The value of the column 'CIPHER_INTEGER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getCipherInteger() {
@@ -218,7 +219,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [set] CIPHER_INTEGER: {VARCHAR(100)} <br />
+     * [set] CIPHER_INTEGER: {VARCHAR(100)} <br>
      * @param cipherInteger The value of the column 'CIPHER_INTEGER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCipherInteger(Integer cipherInteger) {
@@ -227,7 +228,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [get] CIPHER_VARCHAR: {VARCHAR(100)} <br />
+     * [get] CIPHER_VARCHAR: {VARCHAR(100)} <br>
      * @return The value of the column 'CIPHER_VARCHAR'. (NullAllowed even if selected: for no constraint)
      */
     public String getCipherVarchar() {
@@ -236,7 +237,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [set] CIPHER_VARCHAR: {VARCHAR(100)} <br />
+     * [set] CIPHER_VARCHAR: {VARCHAR(100)} <br>
      * @param cipherVarchar The value of the column 'CIPHER_VARCHAR'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCipherVarchar(String cipherVarchar) {
@@ -245,7 +246,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [get] CIPHER_DATE: {VARCHAR(100)} <br />
+     * [get] CIPHER_DATE: {VARCHAR(100)} <br>
      * @return The value of the column 'CIPHER_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getCipherDate() {
@@ -254,7 +255,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [set] CIPHER_DATE: {VARCHAR(100)} <br />
+     * [set] CIPHER_DATE: {VARCHAR(100)} <br>
      * @param cipherDate The value of the column 'CIPHER_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCipherDate(java.util.Date cipherDate) {
@@ -263,7 +264,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [get] CIPHER_DATETIME: {VARCHAR(100)} <br />
+     * [get] CIPHER_DATETIME: {VARCHAR(100)} <br>
      * @return The value of the column 'CIPHER_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getCipherDatetime() {
@@ -272,7 +273,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity {
     }
 
     /**
-     * [set] CIPHER_DATETIME: {VARCHAR(100)} <br />
+     * [set] CIPHER_DATETIME: {VARCHAR(100)} <br>
      * @param cipherDatetime The value of the column 'CIPHER_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setCipherDatetime(java.sql.Timestamp cipherDatetime) {

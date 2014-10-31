@@ -49,7 +49,7 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_variant_relation_master_corge) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_variant_relation_master_corge on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     protected ConditionValue xgetCValueMasterCorgeId() { return xdfgetMasterCorgeId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationMasterCorgeCQ addOrderBy_MasterCorgeId_Asc() { regOBA("MASTER_CORGE_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     protected ConditionValue xgetCValueMasterCorgeName() { return xdfgetMasterCorgeName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationMasterCorgeCQ addOrderBy_MasterCorgeName_Asc() { regOBA("MASTER_CORGE_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
     protected ConditionValue xgetCValueCorgeTypeCode() { return xdfgetCorgeTypeCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @return this. (NotNull)
      */
     public BsWhiteVariantRelationMasterCorgeCQ addOrderBy_CorgeTypeCode_Asc() { regOBA("CORGE_TYPE_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @return this. (NotNull)
      */

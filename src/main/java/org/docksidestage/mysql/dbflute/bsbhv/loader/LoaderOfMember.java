@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of (会員)MEMBER as TABLE. <br />
+ * The referrer loader of (会員)MEMBER as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_ID
@@ -79,7 +79,7 @@ public class LoaderOfMember {
     protected List<MemberAddress> _referrerMemberAddressList;
 
     /**
-     * Load referrer of memberAddressList by the set-upper of referrer. <br />
+     * Load referrer of memberAddressList by the set-upper of referrer. <br>
      * (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfMember {
      *         <span style="color: #553000">addressCB</span>.query().set...
      *         <span style="color: #553000">addressCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">addressLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">addressLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    addressLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfMember {
      *     ... = member.<span style="color: #CC4747">getMemberAddressList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setMemberId_InScope(pkList);
@@ -113,7 +113,7 @@ public class LoaderOfMember {
     protected List<MemberLogin> _referrerMemberLoginList;
 
     /**
-     * Load referrer of memberLoginList by the set-upper of referrer. <br />
+     * Load referrer of memberLoginList by the set-upper of referrer. <br>
      * (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -122,7 +122,7 @@ public class LoaderOfMember {
      *         <span style="color: #553000">loginCB</span>.query().set...
      *         <span style="color: #553000">loginCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">loginLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">loginLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    loginLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -130,7 +130,7 @@ public class LoaderOfMember {
      *     ... = member.<span style="color: #CC4747">getMemberLoginList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setMemberId_InScope(pkList);
@@ -147,7 +147,7 @@ public class LoaderOfMember {
     protected List<Purchase> _referrerPurchaseList;
 
     /**
-     * Load referrer of purchaseList by the set-upper of referrer. <br />
+     * Load referrer of purchaseList by the set-upper of referrer. <br>
      * (購入)purchase by MEMBER_ID, named 'purchaseList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -156,7 +156,7 @@ public class LoaderOfMember {
      *         <span style="color: #553000">purchaseCB</span>.query().set...
      *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">purchaseLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">purchaseLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    purchaseLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -164,7 +164,7 @@ public class LoaderOfMember {
      *     ... = member.<span style="color: #CC4747">getPurchaseList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setMemberId_InScope(pkList);

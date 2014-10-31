@@ -49,7 +49,7 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_deprecated_cls_element) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_deprecated_cls_element on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
     protected ConditionValue xgetCValueDeprecatedClsElementCode() { return xdfgetDeprecatedClsElementCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      * @return this. (NotNull)
      */
     public BsWhiteDeprecatedClsElementCQ addOrderBy_DeprecatedClsElementCode_Asc() { regOBA("DEPRECATED_CLS_ELEMENT_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
     protected ConditionValue xgetCValueDeprecatedClsElementName() { return xdfgetDeprecatedClsElementName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */
     public BsWhiteDeprecatedClsElementCQ addOrderBy_DeprecatedClsElementName_Asc() { regOBA("DEPRECATED_CLS_ELEMENT_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */

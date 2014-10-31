@@ -121,7 +121,7 @@ public class BsNonEntitySql2EntityPmb implements ParameterBean, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] memberId <br />
+     * [get] memberId <br>
      * @return The value of memberId. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Integer getMemberId() {
@@ -129,7 +129,7 @@ public class BsNonEntitySql2EntityPmb implements ParameterBean, FetchBean {
     }
 
     /**
-     * [set] memberId <br />
+     * [set] memberId <br>
      * @param memberId The value of memberId. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -137,7 +137,7 @@ public class BsNonEntitySql2EntityPmb implements ParameterBean, FetchBean {
     }
 
     /**
-     * [get] memberName <br />
+     * [get] memberName <br>
      * @return The value of memberName. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getMemberName() {
@@ -145,7 +145,7 @@ public class BsNonEntitySql2EntityPmb implements ParameterBean, FetchBean {
     }
 
     /**
-     * [set] memberName <br />
+     * [set] memberName <br>
      * @param memberName The value of memberName. (NullAllowed)
      */
     public void setMemberName(String memberName) {

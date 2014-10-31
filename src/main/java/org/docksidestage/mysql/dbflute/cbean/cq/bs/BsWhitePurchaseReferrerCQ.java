@@ -49,7 +49,7 @@ public class BsWhitePurchaseReferrerCQ extends AbstractBsWhitePurchaseReferrerCQ
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_purchase_referrer) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePurchaseReferrerCQ extends AbstractBsWhitePurchaseReferrerCQ
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_purchase_referrer on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhitePurchaseReferrerCQ extends AbstractBsWhitePurchaseReferrerCQ
     protected ConditionValue xgetCValuePurchaseReferrerId() { return xdfgetPurchaseReferrerId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @return this. (NotNull)
      */
     public BsWhitePurchaseReferrerCQ addOrderBy_PurchaseReferrerId_Asc() { regOBA("PURCHASE_REFERRER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhitePurchaseReferrerCQ extends AbstractBsWhitePurchaseReferrerCQ
     protected ConditionValue xgetCValuePurchaseReferrerName() { return xdfgetPurchaseReferrerName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhitePurchaseReferrerCQ addOrderBy_PurchaseReferrerName_Asc() { regOBA("PURCHASE_REFERRER_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -178,7 +178,7 @@ public class BsWhitePurchaseReferrerCQ extends AbstractBsWhitePurchaseReferrerCQ
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'.
      * @return The instance of condition-query. (NotNull)
      */

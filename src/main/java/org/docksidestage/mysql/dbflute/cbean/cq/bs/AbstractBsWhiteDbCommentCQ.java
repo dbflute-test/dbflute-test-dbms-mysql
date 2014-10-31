@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param dbCommentCode The value of dbCommentCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param dbCommentCode The value of dbCommentCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -88,7 +88,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param dbCommentCodeList The collection of dbCommentCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param dbCommentCodeList The collection of dbCommentCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -114,8 +114,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setDbCommentCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param dbCommentCode The value of dbCommentCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setDbCommentCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param dbCommentCode The value of dbCommentCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -136,8 +136,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param dbCommentCode The value of dbCommentCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -147,8 +147,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param dbCommentCode The value of dbCommentCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -158,7 +158,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @param dbCommentCode The value of dbCommentCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setDbCommentCode_IsNull() { regDbCommentCode(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setDbCommentCode_IsNotNull() { regDbCommentCode(CK_ISNN, DOBJ); }
@@ -182,7 +182,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     protected abstract ConditionValue xgetCValueDbCommentCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @param dbCommentName The value of dbCommentName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -195,7 +195,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @param dbCommentName The value of dbCommentName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @param dbCommentNameList The collection of dbCommentName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -221,7 +221,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @param dbCommentNameList The collection of dbCommentName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -234,8 +234,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setDbCommentName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param dbCommentName The value of dbCommentName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -245,8 +245,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setDbCommentName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param dbCommentName The value of dbCommentName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -256,8 +256,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @param dbCommentName The value of dbCommentName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -267,8 +267,8 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @param dbCommentName The value of dbCommentName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -278,7 +278,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @param dbCommentName The value of dbCommentName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -287,19 +287,19 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      */
     public void setDbCommentName_IsNull() { regDbCommentName(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      */
     public void setDbCommentName_IsNullOrEmpty() { regDbCommentName(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      */
     public void setDbCommentName_IsNotNull() { regDbCommentName(CK_ISNN, DOBJ); }
@@ -311,7 +311,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteDbCommentCB&gt;() {
@@ -328,7 +328,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteDbCommentCB&gt;() {
@@ -345,7 +345,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteDbCommentCB&gt;() {
@@ -362,7 +362,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteDbCommentCB&gt;() {
@@ -379,7 +379,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteDbCommentCB&gt;() {
@@ -396,7 +396,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteDbCommentCB&gt;() {
@@ -479,7 +479,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -493,7 +493,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

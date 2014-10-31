@@ -25,7 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.*;
 import org.docksidestage.mysql.dbflute.exbhv.*;
 
 /**
- * The base class for typed parameter-bean of ResolvedPackageName. <br />
+ * The base class for typed parameter-bean of ResolvedPackageName. <br>
  * This is related to "<span style="color: #AD4747">whitebox:pmbean:selectResolvedPackageName</span>" on MemberBhv.
  * @author DBFlute(AutoGenerator)
  */
@@ -98,7 +98,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of ResolvedPackageName. <br />
+     * Constructor for the typed parameter-bean of ResolvedPackageName. <br>
      * This is related to "<span style="color: #AD4747">whitebox:pmbean:selectResolvedPackageName</span>" on MemberBhv.
      */
     public BsResolvedPackageNamePmb() {
@@ -196,7 +196,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] string1 <br />
+     * [get] string1 <br>
      * @return The value of string1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getString1() {
@@ -204,7 +204,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] string1 <br />
+     * [set] string1 <br>
      * @param string1 The value of string1. (NullAllowed)
      */
     public void setString1(String string1) {
@@ -212,7 +212,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] integer1 <br />
+     * [get] integer1 <br>
      * @return The value of integer1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Integer getInteger1() {
@@ -220,7 +220,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] integer1 <br />
+     * [set] integer1 <br>
      * @param integer1 The value of integer1. (NullAllowed)
      */
     public void setInteger1(Integer integer1) {
@@ -228,7 +228,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] bigDecimal1 <br />
+     * [get] bigDecimal1 <br>
      * @return The value of bigDecimal1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.math.BigDecimal getBigDecimal1() {
@@ -236,7 +236,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] bigDecimal1 <br />
+     * [set] bigDecimal1 <br>
      * @param bigDecimal1 The value of bigDecimal1. (NullAllowed)
      */
     public void setBigDecimal1(java.math.BigDecimal bigDecimal1) {
@@ -244,7 +244,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] bigDecimal2 <br />
+     * [get] bigDecimal2 <br>
      * @return The value of bigDecimal2. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.math.BigDecimal getBigDecimal2() {
@@ -252,7 +252,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] bigDecimal2 <br />
+     * [set] bigDecimal2 <br>
      * @param bigDecimal2 The value of bigDecimal2. (NullAllowed)
      */
     public void setBigDecimal2(java.math.BigDecimal bigDecimal2) {
@@ -260,7 +260,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] date1 <br />
+     * [get] date1 <br>
      * @return The value of date1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Date getDate1() {
@@ -268,7 +268,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] date1 <br />
+     * [set] date1 <br>
      * @param date1 The value of date1. (NullAllowed)
      */
     public void setDate1(Date date1) {
@@ -276,7 +276,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] date2 <br />
+     * [get] date2 <br>
      * @return The value of date2. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.util.Date getDate2() {
@@ -284,7 +284,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] date2 <br />
+     * [set] date2 <br>
      * @param date2 The value of date2. (NullAllowed)
      */
     public void setDate2(java.util.Date date2) {
@@ -292,7 +292,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] date3 <br />
+     * [get] date3 <br>
      * @return The value of date3. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.sql.Date getDate3() {
@@ -300,7 +300,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] date3 <br />
+     * [set] date3 <br>
      * @param date3 The value of date3. (NullAllowed)
      */
     public void setDate3(java.sql.Date date3) {
@@ -308,7 +308,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] time1 <br />
+     * [get] time1 <br>
      * @return The value of time1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.sql.Time getTime1() {
@@ -316,7 +316,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] time1 <br />
+     * [set] time1 <br>
      * @param time1 The value of time1. (NullAllowed)
      */
     public void setTime1(java.sql.Time time1) {
@@ -324,7 +324,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] time2 <br />
+     * [get] time2 <br>
      * @return The value of time2. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.sql.Time getTime2() {
@@ -332,7 +332,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] time2 <br />
+     * [set] time2 <br>
      * @param time2 The value of time2. (NullAllowed)
      */
     public void setTime2(java.sql.Time time2) {
@@ -340,7 +340,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] timestamp1 <br />
+     * [get] timestamp1 <br>
      * @return The value of timestamp1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.sql.Timestamp getTimestamp1() {
@@ -348,7 +348,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] timestamp1 <br />
+     * [set] timestamp1 <br>
      * @param timestamp1 The value of timestamp1. (NullAllowed)
      */
     public void setTimestamp1(java.sql.Timestamp timestamp1) {
@@ -356,7 +356,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] timestamp2 <br />
+     * [get] timestamp2 <br>
      * @return The value of timestamp2. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.sql.Timestamp getTimestamp2() {
@@ -364,7 +364,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] timestamp2 <br />
+     * [set] timestamp2 <br>
      * @param timestamp2 The value of timestamp2. (NullAllowed)
      */
     public void setTimestamp2(java.sql.Timestamp timestamp2) {
@@ -372,7 +372,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] list1 <br />
+     * [get] list1 <br>
      * @return The value of list1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<String> getList1() {
@@ -380,7 +380,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] list1 <br />
+     * [set] list1 <br>
      * @param list1 The value of list1. (NullAllowed)
      */
     public void setList1(List<String> list1) {
@@ -388,7 +388,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] list2 <br />
+     * [get] list2 <br>
      * @return The value of list2. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.util.List<String> getList2() {
@@ -396,7 +396,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] list2 <br />
+     * [set] list2 <br>
      * @param list2 The value of list2. (NullAllowed)
      */
     public void setList2(java.util.List<String> list2) {
@@ -404,7 +404,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] map1 <br />
+     * [get] map1 <br>
      * @return The value of map1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Map<String, String> getMap1() {
@@ -412,7 +412,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] map1 <br />
+     * [set] map1 <br>
      * @param map1 The value of map1. (NullAllowed)
      */
     public void setMap1(Map<String, String> map1) {
@@ -420,7 +420,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] map2 <br />
+     * [get] map2 <br>
      * @return The value of map2. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.util.Map<String, String> getMap2() {
@@ -428,7 +428,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] map2 <br />
+     * [set] map2 <br>
      * @param map2 The value of map2. (NullAllowed)
      */
     public void setMap2(java.util.Map<String, String> map2) {
@@ -436,7 +436,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] cdef <br />
+     * [get] cdef <br>
      * @return The value of cdef. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public org.docksidestage.mysql.dbflute.allcommon.CDef getCdef() {
@@ -444,7 +444,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] cdef <br />
+     * [set] cdef <br>
      * @param cdef The value of cdef. (NullAllowed)
      */
     public void setCdef(org.docksidestage.mysql.dbflute.allcommon.CDef cdef) {
@@ -452,7 +452,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] cdefFlg <br />
+     * [get] cdefFlg <br>
      * @return The value of cdefFlg. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public org.docksidestage.mysql.dbflute.allcommon.CDef.Flg getCdefFlg() {
@@ -460,7 +460,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] cdefFlg <br />
+     * [set] cdefFlg <br>
      * @param cdefFlg The value of cdefFlg. (NullAllowed)
      */
     public void setCdefFlg(org.docksidestage.mysql.dbflute.allcommon.CDef.Flg cdefFlg) {
@@ -468,7 +468,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [get] bytes <br />
+     * [get] bytes <br>
      * @return The value of bytes. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public byte[] getBytes() {
@@ -476,7 +476,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     }
 
     /**
-     * [set] bytes <br />
+     * [set] bytes <br>
      * @param bytes The value of bytes. (NullAllowed)
      */
     public void setBytes(byte[] bytes) {

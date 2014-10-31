@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_SPLIT_MULTIPLE_FK_BASE as TABLE. <br />
+ * The referrer loader of WHITE_SPLIT_MULTIPLE_FK_BASE as TABLE. <br>
  * <pre>
  * [primary key]
  *     BASE_ID
@@ -79,7 +79,7 @@ public class LoaderOfWhiteSplitMultipleFkBase {
     protected List<WhiteSplitMultipleFkChild> _referrerWhiteSplitMultipleFkChildList;
 
     /**
-     * Load referrer of whiteSplitMultipleFkChildList by the set-upper of referrer. <br />
+     * Load referrer of whiteSplitMultipleFkChildList by the set-upper of referrer. <br>
      * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkBaseBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSplitMultipleFkBaseList</span>, <span style="color: #553000">baseLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhiteSplitMultipleFkBase {
      *         <span style="color: #553000">childCB</span>.query().set...
      *         <span style="color: #553000">childCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">childLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">childLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    childLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhiteSplitMultipleFkBase {
      *     ... = whiteSplitMultipleFkBase.<span style="color: #CC4747">getWhiteSplitMultipleFkChildList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setBaseId_InScope(pkList);

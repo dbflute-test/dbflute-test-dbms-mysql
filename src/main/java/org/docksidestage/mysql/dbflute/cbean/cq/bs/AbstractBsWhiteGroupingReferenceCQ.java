@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param groupingReferenceId The value of groupingReferenceId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param groupingReferenceId The value of groupingReferenceId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param groupingReferenceId The value of groupingReferenceId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param groupingReferenceId The value of groupingReferenceId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param groupingReferenceId The value of groupingReferenceId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param minNumber The min number of groupingReferenceId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of groupingReferenceId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param minNumber The min number of groupingReferenceId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of groupingReferenceId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param groupingReferenceIdList The collection of groupingReferenceId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param groupingReferenceIdList The collection of groupingReferenceId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      */
     public void setGroupingReferenceId_IsNull() { regGroupingReferenceId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      */
     public void setGroupingReferenceId_IsNotNull() { regGroupingReferenceId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     protected abstract ConditionValue xgetCValueGroupingReferenceId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
      * @param groupingReferenceCode The value of groupingReferenceCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -187,8 +187,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Equal(=). As GroupingReference. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br />
+     * Equal(=). As GroupingReference. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -197,7 +197,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Equal(=). As LAND_NAME (LND). And OnlyOnceRegistered. <br />
+     * Equal(=). As LAND_NAME (LND). And OnlyOnceRegistered. <br>
      * LAND_NAME
      */
     public void setGroupingReferenceCode_Equal_LAND_NAME() {
@@ -205,7 +205,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Equal(=). As SEA_NAME (SEA). And OnlyOnceRegistered. <br />
+     * Equal(=). As SEA_NAME (SEA). And OnlyOnceRegistered. <br>
      * SEA_NAME
      */
     public void setGroupingReferenceCode_Equal_SEA_NAME() {
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Equal(=). As IKSPIARY_NAME (IKS). And OnlyOnceRegistered. <br />
+     * Equal(=). As IKSPIARY_NAME (IKS). And OnlyOnceRegistered. <br>
      * IKSPIARY_NAME
      */
     public void setGroupingReferenceCode_Equal_IKSPIARY_NAME() {
@@ -221,7 +221,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Equal(=). As AMPHI_NAME (AMP). And OnlyOnceRegistered. <br />
+     * Equal(=). As AMPHI_NAME (AMP). And OnlyOnceRegistered. <br>
      * AMPHI_NAME
      */
     public void setGroupingReferenceCode_Equal_AMPHI_NAME() {
@@ -233,7 +233,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
      * @param groupingReferenceCode The value of groupingReferenceCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -242,8 +242,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). As GroupingReference. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br />
+     * NotEqual(&lt;&gt;). As GroupingReference. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). As LAND_NAME (LND). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As LAND_NAME (LND). And OnlyOnceRegistered. <br>
      * LAND_NAME
      */
     public void setGroupingReferenceCode_NotEqual_LAND_NAME() {
@@ -260,7 +260,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). As SEA_NAME (SEA). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As SEA_NAME (SEA). And OnlyOnceRegistered. <br>
      * SEA_NAME
      */
     public void setGroupingReferenceCode_NotEqual_SEA_NAME() {
@@ -268,7 +268,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). As IKSPIARY_NAME (IKS). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As IKSPIARY_NAME (IKS). And OnlyOnceRegistered. <br>
      * IKSPIARY_NAME
      */
     public void setGroupingReferenceCode_NotEqual_IKSPIARY_NAME() {
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). As AMPHI_NAME (AMP). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As AMPHI_NAME (AMP). And OnlyOnceRegistered. <br>
      * AMPHI_NAME
      */
     public void setGroupingReferenceCode_NotEqual_AMPHI_NAME() {
@@ -288,7 +288,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
      * @param groupingReferenceCodeList The collection of groupingReferenceCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -297,8 +297,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br />
+     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -307,9 +307,9 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * the test of reference variable in grouping map <br />
-     * サービスが利用できる会員 <br />
+     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * the test of reference variable in grouping map <br>
+     * サービスが利用できる会員 <br>
      * The group elements:[LAND_NAME, SEA_NAME]
      */
     public void setGroupingReferenceCode_InScope_ServiceAvailable() {
@@ -317,8 +317,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * the test of reference variable in grouping map <br />
+     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * the test of reference variable in grouping map <br>
      * The group elements:[LAND_NAME, SEA_NAME, IKSPIARY_NAME]
      */
     public void setGroupingReferenceCode_InScope_ServicePlus() {
@@ -326,8 +326,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * the test of reference variable in grouping map <br />
+     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * the test of reference variable in grouping map <br>
      * The group elements:[AMPHI_NAME, LAND_NAME, SEA_NAME, IKSPIARY_NAME]
      */
     public void setGroupingReferenceCode_InScope_NestedPlus() {
@@ -335,8 +335,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * the test of reference variable in grouping map <br />
+     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * the test of reference variable in grouping map <br>
      * The group elements:[IKSPIARY_NAME]
      */
     public void setGroupingReferenceCode_InScope_OneDef() {
@@ -344,8 +344,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * the test of reference variable in grouping map <br />
+     * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * the test of reference variable in grouping map <br>
      * The group elements:[LAND_NAME, SEA_NAME, IKSPIARY_NAME]
      */
     public void setGroupingReferenceCode_InScope_DupRef() {
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
      * @param groupingReferenceCodeList The collection of groupingReferenceCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -366,8 +366,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br />
+     * NotInScope {not in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -386,7 +386,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteGroupingReferenceCB&gt;() {
@@ -403,7 +403,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteGroupingReferenceCB&gt;() {
@@ -420,7 +420,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteGroupingReferenceCB&gt;() {
@@ -437,7 +437,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteGroupingReferenceCB&gt;() {
@@ -454,7 +454,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteGroupingReferenceCB&gt;() {
@@ -471,7 +471,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteGroupingReferenceCB&gt;() {
@@ -554,7 +554,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -568,7 +568,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

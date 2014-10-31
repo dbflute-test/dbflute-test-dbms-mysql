@@ -20,11 +20,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_QUOTED as TABLE. <br />
+ * The entity of WHITE_QUOTED as TABLE. <br>
  * <pre>
  * [primary-key]
  *     SELECT
@@ -63,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteQuoted extends AbstractEntity {
+public abstract class BsWhiteQuoted extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -202,7 +203,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] SELECT: {PK, NotNull, INT(10)} <br />
+     * [get] SELECT: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'SELECT'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSelect() {
@@ -211,7 +212,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
     }
 
     /**
-     * [set] SELECT: {PK, NotNull, INT(10)} <br />
+     * [set] SELECT: {PK, NotNull, INT(10)} <br>
      * @param select The value of the column 'SELECT'. (basically NotNull if update: for the constraint)
      */
     public void setSelect(Integer select) {
@@ -220,7 +221,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
     }
 
     /**
-     * [get] FROM: {VARCHAR(200)} <br />
+     * [get] FROM: {VARCHAR(200)} <br>
      * @return The value of the column 'FROM'. (NullAllowed even if selected: for no constraint)
      */
     public String getFrom() {
@@ -229,7 +230,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity {
     }
 
     /**
-     * [set] FROM: {VARCHAR(200)} <br />
+     * [set] FROM: {VARCHAR(200)} <br>
      * @param from The value of the column 'FROM'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFrom(String from) {

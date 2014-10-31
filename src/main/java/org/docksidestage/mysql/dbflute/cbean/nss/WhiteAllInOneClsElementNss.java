@@ -34,7 +34,7 @@ public class WhiteAllInOneClsElementNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
      */
     public void withWhiteAllInOneClsCategory() {

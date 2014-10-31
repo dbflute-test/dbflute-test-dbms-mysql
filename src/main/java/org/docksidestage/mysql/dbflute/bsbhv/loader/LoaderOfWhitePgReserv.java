@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_PG_RESERV as TABLE. <br />
+ * The referrer loader of WHITE_PG_RESERV as TABLE. <br>
  * <pre>
  * [primary key]
  *     CLASS
@@ -79,7 +79,7 @@ public class LoaderOfWhitePgReserv {
     protected List<WhitePgReservRef> _referrerWhitePgReservRefList;
 
     /**
-     * Load referrer of whitePgReservRefList by the set-upper of referrer. <br />
+     * Load referrer of whitePgReservRefList by the set-upper of referrer. <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
      * <pre>
      * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whitePgReservList</span>, <span style="color: #553000">reservLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhitePgReserv {
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    refLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhitePgReserv {
      *     ... = whitePgReserv.<span style="color: #CC4747">getWhitePgReservRefList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setClassSynonym_InScope(pkList);

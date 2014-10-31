@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ESCAPED_NUMBER_INITIAL as TABLE. <br />
+ * The referrer loader of WHITE_ESCAPED_NUMBER_INITIAL as TABLE. <br>
  * <pre>
  * [primary key]
  *     NUMBER_INITIAL_CODE

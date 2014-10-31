@@ -49,7 +49,7 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_delimiter) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_delimiter on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     protected ConditionValue xgetCValueDelimiterId() { return xdfgetDelimiterId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsWhiteDelimiterCQ addOrderBy_DelimiterId_Asc() { regOBA("DELIMITER_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     protected ConditionValue xgetCValueNumberNullable() { return xdfgetNumberNullable(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * NUMBER_NULLABLE: {INT(10)}
      * @return this. (NotNull)
      */
     public BsWhiteDelimiterCQ addOrderBy_NumberNullable_Asc() { regOBA("NUMBER_NULLABLE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * NUMBER_NULLABLE: {INT(10)}
      * @return this. (NotNull)
      */
@@ -135,14 +135,14 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * STRING_CONVERTED: {VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteDelimiterCQ addOrderBy_StringConverted_Asc() { regOBA("STRING_CONVERTED"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * STRING_CONVERTED: {VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -155,14 +155,14 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     protected ConditionValue xgetCValueStringNonConverted() { return xdfgetStringNonConverted(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * STRING_NON_CONVERTED: {VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteDelimiterCQ addOrderBy_StringNonConverted_Asc() { regOBA("STRING_NON_CONVERTED"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * STRING_NON_CONVERTED: {VARCHAR(200)}
      * @return this. (NotNull)
      */
@@ -175,14 +175,14 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
     protected ConditionValue xgetCValueDateDefault() { return xdfgetDateDefault(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * DATE_DEFAULT: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteDelimiterCQ addOrderBy_DateDefault_Asc() { regOBA("DATE_DEFAULT"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * DATE_DEFAULT: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */

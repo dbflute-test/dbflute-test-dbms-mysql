@@ -24,7 +24,7 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.mysql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of SpInOutParameter. <br />
+ * The base class for procedure parameter-bean of SpInOutParameter. <br>
  * This is related to "<span style="color: #AD4747">SP_IN_OUT_PARAMETER</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -62,7 +62,7 @@ public class BsSpInOutParameterPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpInOutParameter. <br />
+     * Constructor for the procedure parameter-bean of SpInOutParameter. <br>
      * This is related to "<span style="color: #AD4747">SP_IN_OUT_PARAMETER</span>".
      */
     public BsSpInOutParameterPmb() {
@@ -155,7 +155,7 @@ public class BsSpInOutParameterPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] VInVarchar: {VARCHAR(32) as In} <br />
+     * [get] VInVarchar: {VARCHAR(32) as In} <br>
      * @return The value of VInVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVInVarchar() {
@@ -163,7 +163,7 @@ public class BsSpInOutParameterPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VInVarchar: {VARCHAR(32) as In} <br />
+     * [set] VInVarchar: {VARCHAR(32) as In} <br>
      * @param vInVarchar The value of VInVarchar. (NullAllowed)
      */
     public void setVInVarchar(String vInVarchar) {
@@ -171,7 +171,7 @@ public class BsSpInOutParameterPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] VOutVarchar: {VARCHAR(32) as Out} <br />
+     * [get] VOutVarchar: {VARCHAR(32) as Out} <br>
      * @return The value of VOutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVOutVarchar() {
@@ -179,7 +179,7 @@ public class BsSpInOutParameterPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VOutVarchar: {VARCHAR(32) as Out} <br />
+     * [set] VOutVarchar: {VARCHAR(32) as Out} <br>
      * @param vOutVarchar The value of VOutVarchar. (NullAllowed)
      */
     public void setVOutVarchar(String vOutVarchar) {
@@ -187,7 +187,7 @@ public class BsSpInOutParameterPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] VInoutVarchar: {VARCHAR(32) as InOut} <br />
+     * [get] VInoutVarchar: {VARCHAR(32) as InOut} <br>
      * @return The value of VInoutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVInoutVarchar() {
@@ -195,7 +195,7 @@ public class BsSpInOutParameterPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VInoutVarchar: {VARCHAR(32) as InOut} <br />
+     * [set] VInoutVarchar: {VARCHAR(32) as InOut} <br>
      * @param vInoutVarchar The value of VInoutVarchar. (NullAllowed)
      */
     public void setVInoutVarchar(String vInoutVarchar) {

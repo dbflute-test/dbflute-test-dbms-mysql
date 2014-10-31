@@ -50,7 +50,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_uq_fk_ref) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -73,7 +73,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_uq_fk_ref on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -96,14 +96,14 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     protected ConditionValue xgetCValueUqFkRefId() { return xdfgetUqFkRefId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhiteUqFkRefCQ addOrderBy_UqFkRefId_Asc() { regOBA("UQ_FK_REF_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -116,14 +116,14 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     protected ConditionValue xgetCValueFkToPkId() { return xdfgetFkToPkId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * FK_TO_PK_ID: {IX, NotNull, DECIMAL(16), FK to white_uq_fk}
      * @return this. (NotNull)
      */
     public BsWhiteUqFkRefCQ addOrderBy_FkToPkId_Asc() { regOBA("FK_TO_PK_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * FK_TO_PK_ID: {IX, NotNull, DECIMAL(16), FK to white_uq_fk}
      * @return this. (NotNull)
      */
@@ -136,14 +136,14 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     protected ConditionValue xgetCValueFkToUqCode() { return xdfgetFkToUqCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk}
      * @return this. (NotNull)
      */
     public BsWhiteUqFkRefCQ addOrderBy_FkToUqCode_Asc() { regOBA("FK_TO_UQ_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk}
      * @return this. (NotNull)
      */
@@ -156,14 +156,14 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     protected ConditionValue xgetCValueCompoundUqFirstCode() { return xdfgetCompoundUqFirstCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * COMPOUND_UQ_FIRST_CODE: {UQ+, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteUqFkRefCQ addOrderBy_CompoundUqFirstCode_Asc() { regOBA("COMPOUND_UQ_FIRST_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * COMPOUND_UQ_FIRST_CODE: {UQ+, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -176,14 +176,14 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     protected ConditionValue xgetCValueCompoundUqSecondCode() { return xdfgetCompoundUqSecondCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * COMPOUND_UQ_SECOND_CODE: {+UQ, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteUqFkRefCQ addOrderBy_CompoundUqSecondCode_Asc() { regOBA("COMPOUND_UQ_SECOND_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * COMPOUND_UQ_SECOND_CODE: {+UQ, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -242,7 +242,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -262,7 +262,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     public boolean hasConditionQueryWhiteUqFkByFkToPkId() { return xhasQueRlMap("whiteUqFkByFkToPkId"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -319,7 +319,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     //                                                      ExistsReferrer for Compound PK
     //                                                      ==============================
     /**
-     * Set up ExistsReferrer (correlated sub-query by compound key). <br />
+     * Set up ExistsReferrer (correlated sub-query by compound key). <br>
      * {exists (select ... from white_uq_fk_ref_nest where ...)}
      * @param subQuery The sub-query of WhiteUqFkRefNestList for 'exists'. (NotNull)
      */
@@ -334,7 +334,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     public String keepTwoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList(WhiteUqFkRefNestCQ sq) { return xkeepSQue("twoOrMorePk_ExistsReferrer_WhiteUqFkRefNestList", sq); }
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query by compound key). <br />
+     * Set up NotExistsReferrer (correlated sub-query by compound key). <br>
      * {not exists (select ... from white_uq_fk_ref_nest where ...)}
      * @param subQuery The sub-query of WhiteUqFkRefNestList for 'not exists'. (NotNull)
      */
@@ -365,8 +365,8 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     //                                              (Query)DerivedReferrer for Compound PK
     //                                              ======================================
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from white_uq_fk_ref_nest where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from white_uq_fk_ref_nest where ...)} <br>
      * white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhiteUqFkRefNestList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteUqFkRefNestCB&gt;() {

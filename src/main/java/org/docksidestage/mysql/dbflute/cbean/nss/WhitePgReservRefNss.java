@@ -34,7 +34,7 @@ public class WhitePgReservRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_pg_reserv by my CLASS, named 'whitePgReserv'.
      */
     public void withWhitePgReserv() {

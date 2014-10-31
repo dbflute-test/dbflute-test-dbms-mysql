@@ -49,7 +49,7 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_all_in_one_cls_category) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_all_in_one_cls_category on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     public String keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter(Object pm) { return xkeepSQuePm("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsCategoryCQ addOrderBy_ClsCategoryCode_Asc() { regOBA("CLS_CATEGORY_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     protected ConditionValue xgetCValueClsCategoryName() { return xdfgetClsCategoryName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsCategoryCQ addOrderBy_ClsCategoryName_Asc() { regOBA("CLS_CATEGORY_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
      * @return this. (NotNull)
      */
@@ -149,14 +149,14 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     protected ConditionValue xgetCValueDescription() { return xdfgetDescription(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsCategoryCQ addOrderBy_Description_Asc() { regOBA("DESCRIPTION"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */

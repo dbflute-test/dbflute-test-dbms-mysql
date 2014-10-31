@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (VIEW)SUMMARY_WITHDRAWAL as VIEW. <br />
+ * The entity of (VIEW)SUMMARY_WITHDRAWAL as VIEW. <br>
  * <pre>
  * [primary-key]
  *     
@@ -78,7 +79,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSummaryWithdrawal extends AbstractEntity {
+public abstract class BsSummaryWithdrawal extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -149,8 +150,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br />
+     * Get the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -160,8 +161,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br />
+     * Set the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br>
      * 会員ステータス: 会員の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -173,7 +174,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of memberStatusCode as Formalized (FML). <br />
+     * Set the value of memberStatusCode as Formalized (FML). <br>
      * 正式会員: 正式な会員を示す
      */
     public void setMemberStatusCode_Formalized() {
@@ -181,7 +182,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as Provisional (PRV). <br />
+     * Set the value of memberStatusCode as Provisional (PRV). <br>
      * 仮会員: 仮の会員を示す
      */
     public void setMemberStatusCode_Provisional() {
@@ -189,7 +190,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of memberStatusCode as Withdrawal (WDL). <br>
      * 退会会員: 退会した会員を示す
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -200,7 +201,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of memberStatusCode Formalized? <br />
+     * Is the value of memberStatusCode Formalized? <br>
      * 正式会員: 正式な会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -211,7 +212,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * Is the value of memberStatusCode Provisional? <br />
+     * Is the value of memberStatusCode Provisional? <br>
      * 仮会員: 仮の会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -222,7 +223,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * Is the value of memberStatusCode Withdrawal? <br />
+     * Is the value of memberStatusCode Withdrawal? <br>
      * 退会会員: 退会した会員を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -339,7 +340,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_ID: {NotNull, INT(10)} <br />
+     * [get] MEMBER_ID: {NotNull, INT(10)} <br>
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -348,7 +349,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] MEMBER_ID: {NotNull, INT(10)} <br />
+     * [set] MEMBER_ID: {NotNull, INT(10)} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -357,7 +358,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180)} <br />
+     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180)} <br>
      * 会員のフルネームの名称。
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
@@ -367,7 +368,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180)} <br />
+     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180)} <br>
      * 会員のフルネームの名称。
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -377,8 +378,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [get] (退会理由コード)WITHDRAWAL_REASON_CODE: {CHAR(3)} <br />
-     * 退会した定型理由を参照するコード。<br />
+     * [get] (退会理由コード)WITHDRAWAL_REASON_CODE: {CHAR(3)} <br>
+     * 退会した定型理由を参照するコード。<br>
      * 何も言わずに退会する会員もいるので必須項目ではない。
      * @return The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed even if selected: for no constraint)
      */
@@ -388,8 +389,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] (退会理由コード)WITHDRAWAL_REASON_CODE: {CHAR(3)} <br />
-     * 退会した定型理由を参照するコード。<br />
+     * [set] (退会理由コード)WITHDRAWAL_REASON_CODE: {CHAR(3)} <br>
+     * 退会した定型理由を参照するコード。<br>
      * 何も言わずに退会する会員もいるので必須項目ではない。
      * @param withdrawalReasonCode The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed: null update allowed for no constraint)
      */
@@ -399,8 +400,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [get] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {TEXT(65535)} <br />
-     * 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br />
+     * [get] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {TEXT(65535)} <br>
+     * 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br>
      * そうするとUI側できれいに見せるのが大変でしょうね。
      * @return The value of the column 'WITHDRAWAL_REASON_TEXT'. (NullAllowed even if selected: for no constraint)
      */
@@ -410,8 +411,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {TEXT(65535)} <br />
-     * 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br />
+     * [set] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {TEXT(65535)} <br>
+     * 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br>
      * そうするとUI側できれいに見せるのが大変でしょうね。
      * @param withdrawalReasonText The value of the column 'WITHDRAWAL_REASON_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
@@ -421,8 +422,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [get] (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br />
-     * 会員がフリーテキストで入力できる退会理由。<br />
+     * [get] (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br>
+     * 会員がフリーテキストで入力できる退会理由。<br>
      * もう言いたいこと言ってもらう感じ。
      * @return The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed even if selected: for no constraint)
      */
@@ -432,8 +433,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br />
-     * 会員がフリーテキストで入力できる退会理由。<br />
+     * [set] (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br>
+     * 会員がフリーテキストで入力できる退会理由。<br>
      * もう言いたいこと言ってもらう感じ。
      * @param withdrawalReasonInputText The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
@@ -443,8 +444,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [get] (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br />
-     * 退会した瞬間の日時。<br />
+     * [get] (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br>
+     * 退会した瞬間の日時。<br>
      * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
      * @return The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if selected: for the constraint)
      */
@@ -454,8 +455,8 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br />
-     * 退会した瞬間の日時。<br />
+     * [set] (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br>
+     * 退会した瞬間の日時。<br>
      * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
      * @param withdrawalDatetime The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if update: for the constraint)
      */
@@ -465,7 +466,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br />
+     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br>
      * @return The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusCode() {
@@ -474,7 +475,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br />
+     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} <br>
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setMemberStatusCode(String memberStatusCode) {
@@ -484,7 +485,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50)} <br />
+     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50)} <br>
      * @return The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -493,7 +494,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50)} <br />
+     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50)} <br>
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
@@ -502,7 +503,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [get] MAX_PURCHASE_PRICE: {BIGINT(19)} <br />
+     * [get] MAX_PURCHASE_PRICE: {BIGINT(19)} <br>
      * @return The value of the column 'MAX_PURCHASE_PRICE'. (NullAllowed even if selected: for no constraint)
      */
     public Long getMaxPurchasePrice() {
@@ -511,7 +512,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity {
     }
 
     /**
-     * [set] MAX_PURCHASE_PRICE: {BIGINT(19)} <br />
+     * [set] MAX_PURCHASE_PRICE: {BIGINT(19)} <br>
      * @param maxPurchasePrice The value of the column 'MAX_PURCHASE_PRICE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMaxPurchasePrice(Long maxPurchasePrice) {

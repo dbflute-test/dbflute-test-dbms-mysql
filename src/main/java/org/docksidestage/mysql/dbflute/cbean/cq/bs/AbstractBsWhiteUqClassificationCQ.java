@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsId The value of uqClsId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsId The value of uqClsId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsId The value of uqClsId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsId The value of uqClsId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsId The value of uqClsId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param minNumber The min number of uqClsId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of uqClsId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param minNumber The min number of uqClsId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of uqClsId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsIdList The collection of uqClsId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsIdList The collection of uqClsId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      */
     public void setUqClsId_IsNull() { regUqClsId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      */
     public void setUqClsId_IsNotNull() { regUqClsId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     protected abstract ConditionValue xgetCValueUqClsId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
      * @param uqClsCode The value of uqClsCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -187,8 +187,8 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * Equal(=). As UQClassificationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br />
+     * Equal(=). As UQClassificationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * unique key as classification
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -201,7 +201,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
      * @param uqClsCode The value of uqClsCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -210,8 +210,8 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * NotEqual(&lt;&gt;). As UQClassificationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br />
+     * NotEqual(&lt;&gt;). As UQClassificationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * unique key as classification
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -224,7 +224,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
      * @param uqClsCodeList The collection of uqClsCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -233,8 +233,8 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in ('a', 'b')}. As UQClassificationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br />
+     * InScope {in ('a', 'b')}. As UQClassificationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * unique key as classification
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -247,7 +247,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
      * @param uqClsCodeList The collection of uqClsCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -256,8 +256,8 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. As UQClassificationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br />
+     * NotInScope {not in ('a', 'b')}. As UQClassificationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * unique key as classification
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteUqClassificationCB&gt;() {
@@ -293,7 +293,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteUqClassificationCB&gt;() {
@@ -310,7 +310,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteUqClassificationCB&gt;() {
@@ -327,7 +327,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteUqClassificationCB&gt;() {
@@ -344,7 +344,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteUqClassificationCB&gt;() {
@@ -361,7 +361,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteUqClassificationCB&gt;() {
@@ -444,7 +444,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -458,7 +458,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

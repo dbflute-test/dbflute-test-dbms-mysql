@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param dateAdjustmentId The value of dateAdjustmentId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param dateAdjustmentId The value of dateAdjustmentId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param dateAdjustmentId The value of dateAdjustmentId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param dateAdjustmentId The value of dateAdjustmentId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param dateAdjustmentId The value of dateAdjustmentId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of dateAdjustmentId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of dateAdjustmentId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of dateAdjustmentId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of dateAdjustmentId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param dateAdjustmentIdList The collection of dateAdjustmentId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param dateAdjustmentIdList The collection of dateAdjustmentId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setDateAdjustmentId_IsNull() { regDateAdjustmentId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setDateAdjustmentId_IsNotNull() { regDateAdjustmentId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueDateAdjustmentId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as equal. (NullAllowed: if null, no condition)
      */
@@ -187,7 +187,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -196,7 +196,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -205,7 +205,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -214,7 +214,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -223,8 +223,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * <pre>e.g. setAdjustedDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDate. (NullAllowed: if null, no from-condition)
@@ -236,8 +236,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * <pre>e.g. setAdjustedDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDate. (NullAllowed: if null, no from-condition)
@@ -249,8 +249,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -264,13 +264,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      */
     public void setAdjustedDate_IsNull() { regAdjustedDate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      */
     public void setAdjustedDate_IsNotNull() { regAdjustedDate(CK_ISNN, DOBJ); }
@@ -279,7 +279,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedDate();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as equal. (NullAllowed: if null, no condition)
      */
@@ -288,7 +288,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -297,7 +297,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as lessThan. (NullAllowed: if null, no condition)
      */
@@ -306,7 +306,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -324,8 +324,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * <pre>e.g. setAdjustedDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetime. (NullAllowed: if null, no from-condition)
@@ -337,8 +337,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * <pre>e.g. setAdjustedDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetime. (NullAllowed: if null, no from-condition)
@@ -350,8 +350,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -365,13 +365,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      */
     public void setAdjustedDatetime_IsNull() { regAdjustedDatetime(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      */
     public void setAdjustedDatetime_IsNotNull() { regAdjustedDatetime(CK_ISNN, DOBJ); }
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedDatetime();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as equal. (NullAllowed: if null, no condition)
      */
@@ -389,7 +389,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -398,7 +398,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as lessThan. (NullAllowed: if null, no condition)
      */
@@ -407,7 +407,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -416,7 +416,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -425,13 +425,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
      */
     public void setAdjustedTime_IsNull() { regAdjustedTime(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
      */
     public void setAdjustedTime_IsNotNull() { regAdjustedTime(CK_ISNN, DOBJ); }
@@ -440,7 +440,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedTime();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param adjustedInteger The value of adjustedInteger as equal. (NullAllowed: if null, no condition)
      */
@@ -453,7 +453,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param adjustedInteger The value of adjustedInteger as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -462,7 +462,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param adjustedInteger The value of adjustedInteger as lessThan. (NullAllowed: if null, no condition)
      */
@@ -471,7 +471,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param adjustedInteger The value of adjustedInteger as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -480,7 +480,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param adjustedInteger The value of adjustedInteger as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -489,9 +489,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param minNumber The min number of adjustedInteger. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedInteger. (NullAllowed: if null, no to-condition)
@@ -502,9 +502,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param minNumber The min number of adjustedInteger. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedInteger. (NullAllowed: if null, no to-condition)
@@ -515,7 +515,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param adjustedIntegerList The collection of adjustedInteger as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -528,7 +528,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param adjustedIntegerList The collection of adjustedInteger as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -541,13 +541,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      */
     public void setAdjustedInteger_IsNull() { regAdjustedInteger(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      */
     public void setAdjustedInteger_IsNotNull() { regAdjustedInteger(CK_ISNN, DOBJ); }
@@ -556,7 +556,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedInteger();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param adjustedNamedStringLong The value of adjustedNamedStringLong as equal. (NullAllowed: if null, no condition)
      */
@@ -569,7 +569,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param adjustedNamedStringLong The value of adjustedNamedStringLong as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -578,7 +578,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param adjustedNamedStringLong The value of adjustedNamedStringLong as lessThan. (NullAllowed: if null, no condition)
      */
@@ -587,7 +587,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param adjustedNamedStringLong The value of adjustedNamedStringLong as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -596,7 +596,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param adjustedNamedStringLong The value of adjustedNamedStringLong as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -605,9 +605,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedNamedStringLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedNamedStringLong. (NullAllowed: if null, no to-condition)
@@ -618,9 +618,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedNamedStringLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedNamedStringLong. (NullAllowed: if null, no to-condition)
@@ -631,7 +631,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param adjustedNamedStringLongList The collection of adjustedNamedStringLong as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -644,7 +644,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @param adjustedNamedStringLongList The collection of adjustedNamedStringLong as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -657,13 +657,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      */
     public void setAdjustedNamedStringLong_IsNull() { regAdjustedNamedStringLong(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      */
     public void setAdjustedNamedStringLong_IsNotNull() { regAdjustedNamedStringLong(CK_ISNN, DOBJ); }
@@ -672,7 +672,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedNamedStringLong();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as equal. (NullAllowed: if null, no condition)
      */
@@ -685,7 +685,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -694,7 +694,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as lessThan. (NullAllowed: if null, no condition)
      */
@@ -703,7 +703,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -712,7 +712,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -721,9 +721,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedNamedTypedLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedNamedTypedLong. (NullAllowed: if null, no to-condition)
@@ -734,9 +734,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedNamedTypedLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedNamedTypedLong. (NullAllowed: if null, no to-condition)
@@ -747,7 +747,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param adjustedNamedTypedLongList The collection of adjustedNamedTypedLong as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -760,7 +760,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param adjustedNamedTypedLongList The collection of adjustedNamedTypedLong as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -773,13 +773,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      */
     public void setAdjustedNamedTypedLong_IsNull() { regAdjustedNamedTypedLong(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      */
     public void setAdjustedNamedTypedLong_IsNotNull() { regAdjustedNamedTypedLong(CK_ISNN, DOBJ); }
@@ -788,7 +788,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedNamedTypedLong();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as equal. (NullAllowed: if null, no condition)
      */
@@ -801,7 +801,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -810,7 +810,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as lessThan. (NullAllowed: if null, no condition)
      */
@@ -819,7 +819,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -828,7 +828,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -837,9 +837,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedPinpointStringLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedPinpointStringLong. (NullAllowed: if null, no to-condition)
@@ -850,9 +850,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedPinpointStringLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedPinpointStringLong. (NullAllowed: if null, no to-condition)
@@ -863,7 +863,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param adjustedPinpointStringLongList The collection of adjustedPinpointStringLong as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -876,7 +876,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @param adjustedPinpointStringLongList The collection of adjustedPinpointStringLong as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -889,13 +889,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      */
     public void setAdjustedPinpointStringLong_IsNull() { regAdjustedPinpointStringLong(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      */
     public void setAdjustedPinpointStringLong_IsNotNull() { regAdjustedPinpointStringLong(CK_ISNN, DOBJ); }
@@ -904,7 +904,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedPinpointStringLong();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as equal. (NullAllowed: if null, no condition)
      */
@@ -917,7 +917,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -926,7 +926,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as lessThan. (NullAllowed: if null, no condition)
      */
@@ -935,7 +935,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -944,7 +944,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -953,9 +953,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedPinpointTypedLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedPinpointTypedLong. (NullAllowed: if null, no to-condition)
@@ -966,9 +966,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedPinpointTypedLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedPinpointTypedLong. (NullAllowed: if null, no to-condition)
@@ -979,7 +979,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param adjustedPinpointTypedLongList The collection of adjustedPinpointTypedLong as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -992,7 +992,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param adjustedPinpointTypedLongList The collection of adjustedPinpointTypedLong as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1005,13 +1005,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      */
     public void setAdjustedPinpointTypedLong_IsNull() { regAdjustedPinpointTypedLong(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      */
     public void setAdjustedPinpointTypedLong_IsNotNull() { regAdjustedPinpointTypedLong(CK_ISNN, DOBJ); }
@@ -1020,7 +1020,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedPinpointTypedLong();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param adjustedPlainLong The value of adjustedPlainLong as equal. (NullAllowed: if null, no condition)
      */
@@ -1033,7 +1033,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param adjustedPlainLong The value of adjustedPlainLong as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1042,7 +1042,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param adjustedPlainLong The value of adjustedPlainLong as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1051,7 +1051,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param adjustedPlainLong The value of adjustedPlainLong as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1060,7 +1060,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param adjustedPlainLong The value of adjustedPlainLong as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1069,9 +1069,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedPlainLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedPlainLong. (NullAllowed: if null, no to-condition)
@@ -1082,9 +1082,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param minNumber The min number of adjustedPlainLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of adjustedPlainLong. (NullAllowed: if null, no to-condition)
@@ -1095,7 +1095,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param adjustedPlainLongList The collection of adjustedPlainLong as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1108,7 +1108,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @param adjustedPlainLongList The collection of adjustedPlainLong as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1121,13 +1121,13 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      */
     public void setAdjustedPlainLong_IsNull() { regAdjustedPlainLong(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      */
     public void setAdjustedPlainLong_IsNotNull() { regAdjustedPlainLong(CK_ISNN, DOBJ); }
@@ -1136,7 +1136,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     protected abstract ConditionValue xgetCValueAdjustedPlainLong();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @param adjustedString The value of adjustedString as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -1149,7 +1149,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @param adjustedString The value of adjustedString as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -1162,7 +1162,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @param adjustedStringList The collection of adjustedString as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1175,7 +1175,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @param adjustedStringList The collection of adjustedString as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1188,8 +1188,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * ADJUSTED_STRING: {VARCHAR(32)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * ADJUSTED_STRING: {VARCHAR(32)} <br>
      * <pre>e.g. setAdjustedString_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param adjustedString The value of adjustedString as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -1199,8 +1199,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * ADJUSTED_STRING: {VARCHAR(32)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * ADJUSTED_STRING: {VARCHAR(32)} <br>
      * <pre>e.g. setAdjustedString_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param adjustedString The value of adjustedString as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -1210,8 +1210,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @param adjustedString The value of adjustedString as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -1221,8 +1221,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @param adjustedString The value of adjustedString as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -1232,7 +1232,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @param adjustedString The value of adjustedString as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -1241,19 +1241,19 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      */
     public void setAdjustedString_IsNull() { regAdjustedString(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      */
     public void setAdjustedString_IsNullOrEmpty() { regAdjustedString(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      */
     public void setAdjustedString_IsNotNull() { regAdjustedString(CK_ISNN, DOBJ); }
@@ -1265,7 +1265,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteDateAdjustmentCB&gt;() {
@@ -1282,7 +1282,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteDateAdjustmentCB&gt;() {
@@ -1299,7 +1299,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteDateAdjustmentCB&gt;() {
@@ -1316,7 +1316,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteDateAdjustmentCB&gt;() {
@@ -1333,7 +1333,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteDateAdjustmentCB&gt;() {
@@ -1350,7 +1350,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteDateAdjustmentCB&gt;() {
@@ -1433,7 +1433,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -1447,7 +1447,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

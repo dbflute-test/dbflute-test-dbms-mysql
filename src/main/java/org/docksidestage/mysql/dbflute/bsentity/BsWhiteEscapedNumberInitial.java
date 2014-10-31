@@ -20,12 +20,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ESCAPED_NUMBER_INITIAL as TABLE. <br />
+ * The entity of WHITE_ESCAPED_NUMBER_INITIAL as TABLE. <br>
  * <pre>
  * [primary-key]
  *     NUMBER_INITIAL_CODE
@@ -64,7 +65,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
+public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -115,8 +116,8 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of numberInitialCode as the classification of EscapedNumberInitialCls. <br />
-     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br />
+     * Get the value of numberInitialCode as the classification of EscapedNumberInitialCls. <br>
+     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -126,8 +127,8 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * Set the value of numberInitialCode as the classification of EscapedNumberInitialCls. <br />
-     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br />
+     * Set the value of numberInitialCode as the classification of EscapedNumberInitialCls. <br>
+     * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -139,7 +140,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of numberInitialCode as N1Foo (1FO). <br />
+     * Set the value of numberInitialCode as N1Foo (1FO). <br>
      * 1Foo
      */
     public void setNumberInitialCode_N1Foo() {
@@ -147,7 +148,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * Set the value of numberInitialCode as N3Bar (3BA). <br />
+     * Set the value of numberInitialCode as N3Bar (3BA). <br>
      * 3Bar
      */
     public void setNumberInitialCode_N3Bar() {
@@ -155,7 +156,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * Set the value of numberInitialCode as N7Qux (7QU). <br />
+     * Set the value of numberInitialCode as N7Qux (7QU). <br>
      * 7Qux
      */
     public void setNumberInitialCode_N7Qux() {
@@ -163,7 +164,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * Set the value of numberInitialCode as Corge9 (CO9). <br />
+     * Set the value of numberInitialCode as Corge9 (CO9). <br>
      * Corge9
      */
     public void setNumberInitialCode_Corge9() {
@@ -174,7 +175,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of numberInitialCode N1Foo? <br />
+     * Is the value of numberInitialCode N1Foo? <br>
      * 1Foo
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -185,7 +186,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * Is the value of numberInitialCode N3Bar? <br />
+     * Is the value of numberInitialCode N3Bar? <br>
      * 3Bar
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -196,7 +197,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * Is the value of numberInitialCode N7Qux? <br />
+     * Is the value of numberInitialCode N7Qux? <br>
      * 7Qux
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -207,7 +208,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * Is the value of numberInitialCode Corge9? <br />
+     * Is the value of numberInitialCode Corge9? <br>
      * Corge9
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -280,7 +281,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br />
+     * [get] NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * @return The value of the column 'NUMBER_INITIAL_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getNumberInitialCode() {
@@ -289,7 +290,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * [set] NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br />
+     * [set] NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * @param numberInitialCode The value of the column 'NUMBER_INITIAL_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setNumberInitialCode(String numberInitialCode) {
@@ -299,7 +300,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * [get] NUMBER_INITIAL_NAME: {VARCHAR(20)} <br />
+     * [get] NUMBER_INITIAL_NAME: {VARCHAR(20)} <br>
      * @return The value of the column 'NUMBER_INITIAL_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getNumberInitialName() {
@@ -308,7 +309,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity {
     }
 
     /**
-     * [set] NUMBER_INITIAL_NAME: {VARCHAR(20)} <br />
+     * [set] NUMBER_INITIAL_NAME: {VARCHAR(20)} <br>
      * @param numberInitialName The value of the column 'NUMBER_INITIAL_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNumberInitialName(String numberInitialName) {

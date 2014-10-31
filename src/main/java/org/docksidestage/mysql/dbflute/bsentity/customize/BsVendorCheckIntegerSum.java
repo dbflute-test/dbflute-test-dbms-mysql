@@ -20,10 +20,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of VendorCheckIntegerSum. <br />
+ * The entity of VendorCheckIntegerSum. <br>
  * <pre>
  * [primary-key]
  *     
@@ -60,7 +61,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorCheckIntegerSum extends AbstractEntity {
+public abstract class BsVendorCheckIntegerSum extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -165,7 +166,7 @@ public abstract class BsVendorCheckIntegerSum extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] INTEGER_NON_DIGIT_SUM: {DECIMAL(27)} <br />
+     * [get] INTEGER_NON_DIGIT_SUM: {DECIMAL(27)} <br>
      * @return The value of the column 'INTEGER_NON_DIGIT_SUM'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getIntegerNonDigitSum() {
@@ -174,7 +175,7 @@ public abstract class BsVendorCheckIntegerSum extends AbstractEntity {
     }
 
     /**
-     * [set] INTEGER_NON_DIGIT_SUM: {DECIMAL(27)} <br />
+     * [set] INTEGER_NON_DIGIT_SUM: {DECIMAL(27)} <br>
      * @param integerNonDigitSum The value of the column 'INTEGER_NON_DIGIT_SUM'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIntegerNonDigitSum(java.math.BigDecimal integerNonDigitSum) {

@@ -7,9 +7,9 @@ import org.docksidestage.mysql.dbflute.bsbhv.pmbean.BsUnionVendorCheckPmb;
 
 /**
  * <!-- df:beginClassDescription -->
- * The typed parameter-bean of UnionVendorCheck. <span style="color: #AD4747">(typed to list, entity)</span><br />
- * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectUnionVendorCheck</span>" on VendorCheckBhv, <br />
- * described as "Union Vendor Check Select". <br />
+ * The typed parameter-bean of UnionVendorCheck. <span style="color: #AD4747">(typed to list, entity)</span><br>
+ * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectUnionVendorCheck</span>" on VendorCheckBhv, <br>
+ * described as "Union Vendor Check Select". <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

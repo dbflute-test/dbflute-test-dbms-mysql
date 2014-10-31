@@ -24,7 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI as TABLE. <br />
+ * The referrer loader of WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI as TABLE. <br>
  * <pre>
  * [primary key]
  *     ONE_ADDI_ID
@@ -79,7 +79,7 @@ public class LoaderOfWhiteSuppressJoinSqOneAddi {
     protected List<WhiteSuppressJoinSqOne> _referrerWhiteSuppressJoinSqOneList;
 
     /**
-     * Load referrer of whiteSuppressJoinSqOneList by the set-upper of referrer. <br />
+     * Load referrer of whiteSuppressJoinSqOneList by the set-upper of referrer. <br>
      * white_suppress_join_sq_one by ONE_ADDI_ID, named 'whiteSuppressJoinSqOneList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSuppressJoinSqOneAddiList</span>, <span style="color: #553000">addiLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -88,7 +88,7 @@ public class LoaderOfWhiteSuppressJoinSqOneAddi {
      *         <span style="color: #553000">oneCB</span>.query().set...
      *         <span style="color: #553000">oneCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">oneLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">oneLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    oneLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -96,7 +96,7 @@ public class LoaderOfWhiteSuppressJoinSqOneAddi {
      *     ... = whiteSuppressJoinSqOneAddi.<span style="color: #CC4747">getWhiteSuppressJoinSqOneList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setOneAddiId_InScope(pkList);

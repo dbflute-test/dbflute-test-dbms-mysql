@@ -62,7 +62,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @param productNestedCode The value of productNestedCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @param productNestedCode The value of productNestedCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -88,7 +88,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @param productNestedCodeList The collection of productNestedCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @param productNestedCodeList The collection of productNestedCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -114,8 +114,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setProductNestedCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productNestedCode The value of productNestedCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setProductNestedCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productNestedCode The value of productNestedCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -136,8 +136,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @param productNestedCode The value of productNestedCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -147,8 +147,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @param productNestedCode The value of productNestedCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -158,7 +158,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @param productNestedCode The value of productNestedCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -167,8 +167,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select PRODUCT_NESTED_CODE from white_perrotta_over_product where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select PRODUCT_NESTED_CODE from white_perrotta_over_product where ...)} <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -186,8 +186,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     public abstract String keepProductNestedCode_ExistsReferrer_WhitePerrottaOverProductList(WhitePerrottaOverProductCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select PRODUCT_NESTED_CODE from white_perrotta_over_product where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select PRODUCT_NESTED_CODE from white_perrotta_over_product where ...)} <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -213,8 +213,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     public abstract String keepProductNestedCode_SpecifyDerivedReferrer_WhitePerrottaOverProductList(WhitePerrottaOverProductCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from white_perrotta_over_product where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from white_perrotta_over_product where ...)} <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverProductList()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -240,13 +240,13 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     public abstract String keepProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setProductNestedCode_IsNull() { regProductNestedCode(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setProductNestedCode_IsNotNull() { regProductNestedCode(CK_ISNN, DOBJ); }
@@ -255,7 +255,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     protected abstract ConditionValue xgetCValueProductNestedCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @param productNestedName The value of productNestedName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -268,7 +268,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @param productNestedName The value of productNestedName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @param productNestedNameList The collection of productNestedName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @param productNestedNameList The collection of productNestedName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -307,8 +307,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setProductNestedName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productNestedName The value of productNestedName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -318,8 +318,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setProductNestedName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productNestedName The value of productNestedName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -329,8 +329,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @param productNestedName The value of productNestedName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @param productNestedName The value of productNestedName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @param productNestedName The value of productNestedName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -366,7 +366,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
@@ -383,7 +383,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
@@ -400,7 +400,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
@@ -417,7 +417,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
@@ -434,7 +434,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
@@ -451,7 +451,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
@@ -534,7 +534,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -548,7 +548,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

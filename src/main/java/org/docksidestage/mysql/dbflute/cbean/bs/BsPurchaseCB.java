@@ -134,7 +134,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     //                                                                               Query
     //                                                                               =====
     /**
-     * Prepare for various queries. <br />
+     * Prepare for various queries. <br>
      * Examples of main functions are following:
      * <pre>
      * <span style="color: #3F7E5E">// Basic Queries</span>
@@ -231,7 +231,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     //                                                                               Union
     //                                                                               =====
     /**
-     * Set up 'union' for base-point table. <br />
+     * Set up 'union' for base-point table. <br>
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
@@ -248,7 +248,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     /**
-     * Set up 'union all' for base-point table. <br />
+     * Set up 'union all' for base-point table. <br>
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
@@ -273,7 +273,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return _nssMember;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員)member by my MEMBER_ID, named 'member'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -302,7 +302,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return _nssProduct;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (商品)product by my PRODUCT_ID, named 'product'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -331,7 +331,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return _nssSummaryProduct;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -355,7 +355,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -375,7 +375,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -400,7 +400,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return _nssPurchaseSelf;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -426,7 +426,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return _nssMemberAddressAsSkipRelation;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -456,7 +456,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return _nssWhitePurchaseReferrerAsOne;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * white_purchase_referrer by PURCHASE_REFERRER_ID, named 'whitePurchaseReferrerAsOne'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -481,7 +481,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return _nssPurchaseSelfAsOne;
     }
     /**
-     * Set up relation columns to select clause. <br />
+     * Set up relation columns to select clause. <br>
      * (購入)purchase by PURCHASE_ID, named 'purchaseSelfAsOne'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -507,7 +507,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     protected HpSpecification _specification;
 
     /**
-     * Prepare for SpecifyColumn, (Specify)DerivedReferrer. <br />
+     * Prepare for SpecifyColumn, (Specify)DerivedReferrer. <br>
      * This method should be called after SetupSelect.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -647,7 +647,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         @Override
         protected String getTableDbName() { return "purchase"; }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員)member by my MEMBER_ID, named 'member'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -667,7 +667,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _member;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (商品)product by my PRODUCT_ID, named 'product'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -687,7 +687,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _product;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -707,7 +707,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _summaryProduct;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -727,7 +727,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _summaryWithdrawal;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -747,7 +747,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _whiteNoPkRelation;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -767,7 +767,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _purchaseSelf;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -789,7 +789,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _memberAddressAsSkipRelation;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -809,7 +809,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _memberAddressAsSkipRelation;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * white_purchase_referrer by PURCHASE_REFERRER_ID, named 'whitePurchaseReferrerAsOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -829,7 +829,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _whitePurchaseReferrerAsOne;
         }
         /**
-         * Prepare to specify functions about relation table. <br />
+         * Prepare to specify functions about relation table. <br>
          * (購入)purchase by PURCHASE_ID, named 'purchaseSelfAsOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -849,8 +849,8 @@ public class BsPurchaseCB extends AbstractConditionBean {
             return _purchaseSelfAsOne;
         }
         /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br />
-         * {select max(FOO) from purchase_payment where ...) as FOO_MAX} <br />
+         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
+         * {select max(FOO) from purchase_payment where ...) as FOO_MAX} <br>
          * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -919,7 +919,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     //                                                                        Dream Cruise
     //                                                                        ============
     /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br />
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
@@ -938,7 +938,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     //                                                                       OrScope Query
     //                                                                       =============
     /**
-     * Set up the query for or-scope. <br />
+     * Set up the query for or-scope. <br>
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
@@ -956,7 +956,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     /**
-     * Set up the and-part of or-scope. <br />
+     * Set up the and-part of or-scope. <br>
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>

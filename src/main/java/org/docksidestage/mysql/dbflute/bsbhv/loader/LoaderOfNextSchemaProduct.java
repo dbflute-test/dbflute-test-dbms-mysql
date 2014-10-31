@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (隣の商品)NEXT_SCHEMA_PRODUCT as TABLE. <br />
+ * The referrer loader of (隣の商品)NEXT_SCHEMA_PRODUCT as TABLE. <br>
  * <pre>
  * [primary key]
  *     PRODUCT_ID

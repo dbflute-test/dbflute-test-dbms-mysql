@@ -34,7 +34,7 @@ public class WhiteStilettoAliasRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
      */
     public void withWhiteStilettoAlias() {

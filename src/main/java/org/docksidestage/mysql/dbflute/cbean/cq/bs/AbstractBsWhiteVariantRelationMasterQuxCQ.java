@@ -62,7 +62,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param masterQuxId The value of masterQuxId as equal. (NullAllowed: if null, no condition)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param masterQuxId The value of masterQuxId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -84,7 +84,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param masterQuxId The value of masterQuxId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -93,7 +93,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param masterQuxId The value of masterQuxId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -102,7 +102,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param masterQuxId The value of masterQuxId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -111,9 +111,9 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of masterQuxId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of masterQuxId. (NullAllowed: if null, no to-condition)
@@ -124,9 +124,9 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param minNumber The min number of masterQuxId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of masterQuxId. (NullAllowed: if null, no to-condition)
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param masterQuxIdList The collection of masterQuxId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param masterQuxIdList The collection of masterQuxId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -163,13 +163,13 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setMasterQuxId_IsNull() { regMasterQuxId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      */
     public void setMasterQuxId_IsNotNull() { regMasterQuxId(CK_ISNN, DOBJ); }
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     protected abstract ConditionValue xgetCValueMasterQuxId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @param masterQuxName The value of masterQuxName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -191,7 +191,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @param masterQuxName The value of masterQuxName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -204,7 +204,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @param masterQuxNameList The collection of masterQuxName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @param masterQuxNameList The collection of masterQuxName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -230,8 +230,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterQuxName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param masterQuxName The value of masterQuxName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterQuxName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param masterQuxName The value of masterQuxName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -252,8 +252,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @param masterQuxName The value of masterQuxName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -263,8 +263,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @param masterQuxName The value of masterQuxName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @param masterQuxName The value of masterQuxName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -286,7 +286,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     protected abstract ConditionValue xgetCValueMasterQuxName();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @param quxTypeCode The value of quxTypeCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -295,8 +295,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Equal(=). As VariantRelationQuxType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * Equal(=). As VariantRelationQuxType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -305,7 +305,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Equal(=). As Qua (Qua). And OnlyOnceRegistered. <br />
+     * Equal(=). As Qua (Qua). And OnlyOnceRegistered. <br>
      * Qua
      */
     public void setQuxTypeCode_Equal_Qua() {
@@ -313,7 +313,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Equal(=). As Que (Que). And OnlyOnceRegistered. <br />
+     * Equal(=). As Que (Que). And OnlyOnceRegistered. <br>
      * Que
      */
     public void setQuxTypeCode_Equal_Que() {
@@ -321,7 +321,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Equal(=). As Quo (Quo). And OnlyOnceRegistered. <br />
+     * Equal(=). As Quo (Quo). And OnlyOnceRegistered. <br>
      * Quo
      */
     public void setQuxTypeCode_Equal_Quo() {
@@ -333,7 +333,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @param quxTypeCode The value of quxTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -342,8 +342,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). As VariantRelationQuxType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * NotEqual(&lt;&gt;). As VariantRelationQuxType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
@@ -352,7 +352,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). As Qua (Qua). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As Qua (Qua). And OnlyOnceRegistered. <br>
      * Qua
      */
     public void setQuxTypeCode_NotEqual_Qua() {
@@ -360,7 +360,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). As Que (Que). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As Que (Que). And OnlyOnceRegistered. <br>
      * Que
      */
     public void setQuxTypeCode_NotEqual_Que() {
@@ -368,7 +368,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). As Quo (Quo). And OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). As Quo (Quo). And OnlyOnceRegistered. <br>
      * Quo
      */
     public void setQuxTypeCode_NotEqual_Quo() {
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @param quxTypeCodeList The collection of quxTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -389,8 +389,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * InScope {in ('a', 'b')}. As VariantRelationQuxType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * InScope {in ('a', 'b')}. As VariantRelationQuxType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -403,7 +403,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @param quxTypeCodeList The collection of quxTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -412,8 +412,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. As VariantRelationQuxType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br />
+     * NotInScope {not in ('a', 'b')}. As VariantRelationQuxType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
@@ -432,7 +432,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterQuxCB&gt;() {
@@ -449,7 +449,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterQuxCB&gt;() {
@@ -466,7 +466,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterQuxCB&gt;() {
@@ -483,7 +483,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterQuxCB&gt;() {
@@ -500,7 +500,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterQuxCB&gt;() {
@@ -517,7 +517,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteVariantRelationMasterQuxCB&gt;() {
@@ -600,7 +600,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)
@@ -614,7 +614,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * Bind variable is unused because the condition value should be literal in MySQL.
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value embedded without binding (by MySQL restriction) but escaped. (NullAllowed: if null or empty, no condition)

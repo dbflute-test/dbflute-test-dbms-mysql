@@ -49,7 +49,7 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_escaped_number_initial) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_escaped_number_initial on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
     protected ConditionValue xgetCValueNumberInitialCode() { return xdfgetNumberInitialCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @return this. (NotNull)
      */
     public BsWhiteEscapedNumberInitialCQ addOrderBy_NumberInitialCode_Asc() { regOBA("NUMBER_INITIAL_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
     protected ConditionValue xgetCValueNumberInitialName() { return xdfgetNumberInitialName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */
     public BsWhiteEscapedNumberInitialCQ addOrderBy_NumberInitialName_Asc() { regOBA("NUMBER_INITIAL_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @return this. (NotNull)
      */

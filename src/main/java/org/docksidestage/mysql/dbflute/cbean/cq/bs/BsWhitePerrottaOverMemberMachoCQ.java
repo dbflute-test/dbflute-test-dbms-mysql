@@ -49,7 +49,7 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_perrotta_over_member_macho) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_perrotta_over_member_macho on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -109,14 +109,14 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     public String keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(Object pm) { return xkeepSQuePm("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberMachoCQ addOrderBy_MachoCode_Asc() { regOBA("MACHO_CODE"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
@@ -129,14 +129,14 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     protected ConditionValue xgetCValueMachoName() { return xdfgetMachoName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberMachoCQ addOrderBy_MachoName_Asc() { regOBA("MACHO_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */

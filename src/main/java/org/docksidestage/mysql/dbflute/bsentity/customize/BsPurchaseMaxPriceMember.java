@@ -20,10 +20,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of PurchaseMaxPriceMember. <br />
+ * The entity of PurchaseMaxPriceMember. <br>
  * <pre>
  * [primary-key]
  *     
@@ -66,7 +67,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
+public abstract class BsPurchaseMaxPriceMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -189,9 +190,9 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br />
+     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
+     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br>
      * // unique key of this result
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
@@ -201,9 +202,9 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br />
-     * 会員を識別するID。連番として基本的に自動採番される。<br />
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br />
+     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
+     * 会員を識別するID。連番として基本的に自動採番される。<br>
+     * （会員IDだけに限らず）採番方法はDBMSによって変わる。<br>
      * // unique key of this result
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
@@ -213,7 +214,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
@@ -223,7 +224,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br />
+     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
      * 会員のフルネームの名称。
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -233,7 +234,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     }
 
     /**
-     * [get] PURCHASE_MAX_PRICE: {INT(11)} <br />
+     * [get] PURCHASE_MAX_PRICE: {INT(11)} <br>
      * // max of purchase price
      * @return The value of the column 'PURCHASE_MAX_PRICE'. (NullAllowed even if selected: for no constraint)
      */
@@ -243,7 +244,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     }
 
     /**
-     * [set] PURCHASE_MAX_PRICE: {INT(11)} <br />
+     * [set] PURCHASE_MAX_PRICE: {INT(11)} <br>
      * // max of purchase price
      * @param purchaseMaxPrice The value of the column 'PURCHASE_MAX_PRICE'. (NullAllowed: null update allowed for no constraint)
      */
@@ -253,7 +254,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @return The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -262,7 +263,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br />
+     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {

@@ -49,7 +49,7 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_column_except_gen_only) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -72,7 +72,7 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_column_except_gen_only on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -95,14 +95,14 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
     protected ConditionValue xgetCValueGenOnlyId() { return xdfgetGenOnlyId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
     public BsWhiteColumnExceptGenOnlyCQ addOrderBy_GenOnlyId_Asc() { regOBA("GEN_ONLY_ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
      */
@@ -115,14 +115,14 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
     protected ConditionValue xgetCValueGenOnlyName() { return xdfgetGenOnlyName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteColumnExceptGenOnlyCQ addOrderBy_GenOnlyName_Asc() { regOBA("GEN_ONLY_NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
