@@ -94,7 +94,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * int count = <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -109,9 +109,9 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().setFoo...(value);
-     * int count = <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteUqClassification. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -163,7 +163,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
@@ -221,7 +221,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().set...;
      * WhiteUqClassification whiteUqClassification = <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteUqClassification.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
@@ -300,8 +300,8 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * for (WhiteUqClassification <span style="color: #553000">whiteUqClassification</span> : <span style="color: #553000">whiteUqClassificationList</span>) {
-     *     ... = <span style="color: #553000">whiteUqClassification</span>.get...();
+     * <span style="color: #70226C">for</span> (WhiteUqClassification <span style="color: #553000">whiteUqClassification</span> : <span style="color: #553000">whiteUqClassificationList</span>) {
+     *     ... = <span style="color: #553000">whiteUqClassification</span>.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqClassification. (NotNull)
@@ -315,12 +315,12 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().set...;
-     * cb.query().addOrderBy...();
+     * cb.query().addOrderBy...;
      * ListResultBean&lt;WhiteUqClassification&gt; <span style="color: #553000">whiteUqClassificationList</span> = <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteUqClassification whiteUqClassification : <span style="color: #553000">whiteUqClassificationList</span>) {
-     *     ... = whiteUqClassification.get...();
+     * <span style="color: #70226C">for</span> (WhiteUqClassification whiteUqClassification : <span style="color: #553000">whiteUqClassificationList</span>) {
+     *     ... = whiteUqClassification.get...;
      * }
      * </pre>
      * @param cb The condition-bean of WhiteUqClassification. (NotNull)
@@ -346,13 +346,13 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * });
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteUqClassification whiteUqClassification : <span style="color: #553000">page</span>) {
-     *     ... = whiteUqClassification.get...();
+     * <span style="color: #70226C">for</span> (WhiteUqClassification whiteUqClassification : <span style="color: #553000">page</span>) {
+     *     ... = whiteUqClassification.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqClassification. (NotNull)
@@ -367,17 +367,17 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * PagingResultBean&lt;WhiteUqClassification&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteUqClassification whiteUqClassification : <span style="color: #553000">page</span>) {
+     * <span style="color: #70226C">for</span> (WhiteUqClassification whiteUqClassification : <span style="color: #553000">page</span>) {
      *     ... = whiteUqClassification.get...();
      * }
      * </pre>
@@ -411,12 +411,10 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().set...
-     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteUqClassification&gt;() {
-     *     public void handle(WhiteUqClassification entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cb The condition-bean of WhiteUqClassification. (NotNull)
@@ -434,7 +432,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * You should call a function method after this method called like as follows:
      * <pre>
      * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -478,9 +476,9 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
-     * for (Member member : <span style="color: #553000">memberList</span>) {
+     * <span style="color: #70226C">for</span> (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
+     *     <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *         ...
      *     }
      * }
@@ -514,7 +512,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
      * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
-     * for (Purchase purchase : purchaseList) {
+     * <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *     ...
      * }
      * </pre>
@@ -556,7 +554,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Insert the entity modified-only. (DefaultConstraintsEnabled)
      * <pre>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteUqClassification.setFoo...(value);
      * whiteUqClassification.setBar...(value);
@@ -577,7 +575,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * whiteUqClassification.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteUqClassification.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
@@ -616,13 +614,13 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Delete the entity. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * whiteUqClassification.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteUqClassification.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">delete</span>(whiteUqClassification);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -642,10 +640,10 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
-     * for (... : ...) {
-     *     WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * <span style="color: #70226C">for</span> (... : ...) {
+     *     WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      *     whiteUqClassification.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         whiteUqClassification.setFooPrice(123);
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
@@ -671,11 +669,11 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
-     *     WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     *     WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      *     whiteUqClassification.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         whiteUqClassification.setFooPrice(123);
-     *     } else {
+     *     } <span style="color: #70226C">else</span> {
      *         whiteUqClassification.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
      *         <span style="color: #3F7E5E">//whiteUqClassification.setFooDate(...); // *not allowed, fragmented</span>
      *     }
@@ -740,7 +738,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setPK...(value);</span>
      * whiteUqClassification.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -750,7 +748,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setVersionNo(value);</span>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteUqClassification, cb);
      * </pre>
@@ -766,7 +764,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setPK...(value);</span>
      * whiteUqClassification.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -776,7 +774,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setVersionNo(value);</span>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteUqClassification, cb);
      * </pre>
@@ -830,7 +828,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteUqClassification.setFoo...(value);
      * whiteUqClassification.setBar...(value);
@@ -853,12 +851,12 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * whiteUqClassification.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteUqClassification.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteUqClassification.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteUqClassificationCB&gt; option = new UpdateOption&lt;WhiteUqClassificationCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteUqClassificationCB&gt;() {
@@ -867,7 +865,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      *     <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteUqClassification, option);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -971,7 +969,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setPK...(value);</span>
      * whiteUqClassification.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -980,7 +978,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whiteUqClassification.setVersionNo(value);</span>
      * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteUqClassificationCB&gt; option = new UpdateOption&lt;WhiteUqClassificationCB&gt;();
+     * UpdateOption&lt;WhiteUqClassificationCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteUqClassificationCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteUqClassificationCB&gt;() {
      *     public void specify(WhiteUqClassificationCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
@@ -1005,16 +1003,16 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * WhiteUqClassification whiteUqClassification = new WhiteUqClassification();
+     * WhiteUqClassification whiteUqClassification = <span style="color: #70226C">new</span> WhiteUqClassification();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setPK...(value);</span>
      * whiteUqClassification.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setVersionNo(value);</span>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
+     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteUqClassificationCB&gt; option = new UpdateOption&lt;WhiteUqClassificationCB&gt;();
+     * UpdateOption&lt;WhiteUqClassificationCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteUqClassificationCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteUqClassificationCB&gt;() {
      *     public void specify(WhiteUqClassificationCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;

@@ -93,7 +93,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * int count = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -108,9 +108,9 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
-     * int count = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -162,7 +162,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
@@ -220,7 +220,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().set...;
      * VendorLargeDataRef vendorLargeDataRef = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorLargeDataRef.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
@@ -274,8 +274,8 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * for (VendorLargeDataRef <span style="color: #553000">vendorLargeDataRef</span> : <span style="color: #553000">vendorLargeDataRefList</span>) {
-     *     ... = <span style="color: #553000">vendorLargeDataRef</span>.get...();
+     * <span style="color: #70226C">for</span> (VendorLargeDataRef <span style="color: #553000">vendorLargeDataRef</span> : <span style="color: #553000">vendorLargeDataRefList</span>) {
+     *     ... = <span style="color: #553000">vendorLargeDataRef</span>.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
@@ -289,12 +289,12 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Select the list as result bean.
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().set...;
-     * cb.query().addOrderBy...();
+     * cb.query().addOrderBy...;
      * ListResultBean&lt;VendorLargeDataRef&gt; <span style="color: #553000">vendorLargeDataRefList</span> = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
-     * for (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">vendorLargeDataRefList</span>) {
-     *     ... = vendorLargeDataRef.get...();
+     * <span style="color: #70226C">for</span> (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">vendorLargeDataRefList</span>) {
+     *     ... = vendorLargeDataRef.get...;
      * }
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
@@ -320,13 +320,13 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * });
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">page</span>) {
-     *     ... = vendorLargeDataRef.get...();
+     * <span style="color: #70226C">for</span> (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">page</span>) {
+     *     ... = vendorLargeDataRef.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorLargeDataRef. (NotNull)
@@ -341,17 +341,17 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * PagingResultBean&lt;VendorLargeDataRef&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">page</span>) {
+     * <span style="color: #70226C">for</span> (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">page</span>) {
      *     ... = vendorLargeDataRef.get...();
      * }
      * </pre>
@@ -385,12 +385,10 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().set...
-     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorLargeDataRef&gt;() {
-     *     public void handle(VendorLargeDataRef entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cb The condition-bean of VendorLargeDataRef. (NotNull)
@@ -408,7 +406,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * You should call a function method after this method called like as follows:
      * <pre>
      * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -452,9 +450,9 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
-     * for (Member member : <span style="color: #553000">memberList</span>) {
+     * <span style="color: #70226C">for</span> (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
+     *     <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *         ...
      *     }
      * }
@@ -488,7 +486,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
      * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
-     * for (Purchase purchase : purchaseList) {
+     * <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *     ...
      * }
      * </pre>
@@ -514,7 +512,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * for (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">vendorLargeDataRefList</span>) {
+     * <span style="color: #70226C">for</span> (VendorLargeDataRef vendorLargeDataRef : <span style="color: #553000">vendorLargeDataRefList</span>) {
      *     ... = vendorLargeDataRef.<span style="color: #CC4747">getVendorLargeDataRefSelfList()</span>;
      * }
      * </pre>
@@ -626,7 +624,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Insert the entity modified-only. (DefaultConstraintsEnabled)
      * <pre>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * vendorLargeDataRef.setFoo...(value);
      * vendorLargeDataRef.setBar...(value);
@@ -647,7 +645,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * vendorLargeDataRef.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * vendorLargeDataRef.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
@@ -686,13 +684,13 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Delete the entity. (ZeroUpdateException, NonExclusiveControl)
      * <pre>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * vendorLargeDataRef.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorLargeDataRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">delete</span>(vendorLargeDataRef);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -712,10 +710,10 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
-     * for (... : ...) {
-     *     VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * <span style="color: #70226C">for</span> (... : ...) {
+     *     VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      *     vendorLargeDataRef.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         vendorLargeDataRef.setFooPrice(123);
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
@@ -741,11 +739,11 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
-     *     VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     *     VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      *     vendorLargeDataRef.setFooName("foo");
-     *     if (...) {
+     *     <span style="color: #70226C">if</span> (...) {
      *         vendorLargeDataRef.setFooPrice(123);
-     *     } else {
+     *     } <span style="color: #70226C">else</span> {
      *         vendorLargeDataRef.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
      *         <span style="color: #3F7E5E">//vendorLargeDataRef.setFooDate(...); // *not allowed, fragmented</span>
      *     }
@@ -810,7 +808,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setPK...(value);</span>
      * vendorLargeDataRef.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -820,7 +818,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setVersionNo(value);</span>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorLargeDataRef, cb);
      * </pre>
@@ -836,7 +834,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setPK...(value);</span>
      * vendorLargeDataRef.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -846,7 +844,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setVersionNo(value);</span>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
      * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorLargeDataRef, cb);
      * </pre>
@@ -900,7 +898,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * vendorLargeDataRef.setFoo...(value);
      * vendorLargeDataRef.setBar...(value);
@@ -923,12 +921,12 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * vendorLargeDataRef.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * vendorLargeDataRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorLargeDataRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
+     * <span style="color: #70226C">try</span> {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;VendorLargeDataRefCB&gt; option = new UpdateOption&lt;VendorLargeDataRefCB&gt;();
      *     option.self(new SpecifyQuery&lt;VendorLargeDataRefCB&gt;() {
@@ -937,7 +935,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      *     <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendorLargeDataRef, option);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
@@ -1041,7 +1039,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setPK...(value);</span>
      * vendorLargeDataRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
@@ -1050,7 +1048,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setVersionNo(value);</span>
      * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;VendorLargeDataRefCB&gt; option = new UpdateOption&lt;VendorLargeDataRefCB&gt;();
+     * UpdateOption&lt;VendorLargeDataRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;VendorLargeDataRefCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorLargeDataRefCB&gt;() {
      *     public void specify(VendorLargeDataRefCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
@@ -1075,16 +1073,16 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * VendorLargeDataRef vendorLargeDataRef = new VendorLargeDataRef();
+     * VendorLargeDataRef vendorLargeDataRef = <span style="color: #70226C">new</span> VendorLargeDataRef();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setPK...(value);</span>
      * vendorLargeDataRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorLargeDataRef.setVersionNo(value);</span>
-     * VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+     * VendorLargeDataRefCB cb = <span style="color: #70226C">new</span> VendorLargeDataRefCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;VendorLargeDataRefCB&gt; option = new UpdateOption&lt;VendorLargeDataRefCB&gt;();
+     * UpdateOption&lt;VendorLargeDataRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;VendorLargeDataRefCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorLargeDataRefCB&gt;() {
      *     public void specify(VendorLargeDataRefCB cb) {
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;

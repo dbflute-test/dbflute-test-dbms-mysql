@@ -92,7 +92,7 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * int count = <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -107,9 +107,9 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * WhiteNoPkCB cb = new WhiteNoPkCB();
+     * WhiteNoPkCB cb = <span style="color: #70226C">new</span> WhiteNoPkCB();
      * cb.query().setFoo...(value);
-     * int count = <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteNoPk. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -161,7 +161,7 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
-     * WhiteNoPkCB cb = new WhiteNoPkCB();
+     * WhiteNoPkCB cb = <span style="color: #70226C">new</span> WhiteNoPkCB();
      * cb.query().set...
      * 
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
@@ -219,7 +219,7 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteNoPkCB cb = new WhiteNoPkCB();
+     * WhiteNoPkCB cb = <span style="color: #70226C">new</span> WhiteNoPkCB();
      * cb.query().set...;
      * WhiteNoPk whiteNoPk = <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteNoPk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
@@ -244,8 +244,8 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * for (WhiteNoPk <span style="color: #553000">whiteNoPk</span> : <span style="color: #553000">whiteNoPkList</span>) {
-     *     ... = <span style="color: #553000">whiteNoPk</span>.get...();
+     * <span style="color: #70226C">for</span> (WhiteNoPk <span style="color: #553000">whiteNoPk</span> : <span style="color: #553000">whiteNoPkList</span>) {
+     *     ... = <span style="color: #553000">whiteNoPk</span>.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteNoPk. (NotNull)
@@ -259,12 +259,12 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteNoPkCB cb = new WhiteNoPkCB();
+     * WhiteNoPkCB cb = <span style="color: #70226C">new</span> WhiteNoPkCB();
      * cb.query().set...;
-     * cb.query().addOrderBy...();
+     * cb.query().addOrderBy...;
      * ListResultBean&lt;WhiteNoPk&gt; <span style="color: #553000">whiteNoPkList</span> = <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
-     * for (WhiteNoPk whiteNoPk : <span style="color: #553000">whiteNoPkList</span>) {
-     *     ... = whiteNoPk.get...();
+     * <span style="color: #70226C">for</span> (WhiteNoPk whiteNoPk : <span style="color: #553000">whiteNoPkList</span>) {
+     *     ... = whiteNoPk.get...;
      * }
      * </pre>
      * @param cb The condition-bean of WhiteNoPk. (NotNull)
@@ -290,13 +290,13 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * });
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteNoPk whiteNoPk : <span style="color: #553000">page</span>) {
-     *     ... = whiteNoPk.get...();
+     * <span style="color: #70226C">for</span> (WhiteNoPk whiteNoPk : <span style="color: #553000">page</span>) {
+     *     ... = whiteNoPk.get...;
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteNoPk. (NotNull)
@@ -311,17 +311,17 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * WhiteNoPkCB cb = new WhiteNoPkCB();
+     * WhiteNoPkCB cb = <span style="color: #70226C">new</span> WhiteNoPkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
      * PagingResultBean&lt;WhiteNoPk&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (WhiteNoPk whiteNoPk : <span style="color: #553000">page</span>) {
+     * <span style="color: #70226C">for</span> (WhiteNoPk whiteNoPk : <span style="color: #553000">page</span>) {
      *     ... = whiteNoPk.get...();
      * }
      * </pre>
@@ -355,12 +355,10 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * WhiteNoPkCB cb = new WhiteNoPkCB();
+     * WhiteNoPkCB cb = <span style="color: #70226C">new</span> WhiteNoPkCB();
      * cb.query().set...
-     * <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteNoPk&gt;() {
-     *     public void handle(WhiteNoPk entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cb The condition-bean of WhiteNoPk. (NotNull)
@@ -378,7 +376,7 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * You should call a function method after this method called like as follows:
      * <pre>
      * <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
@@ -422,9 +420,9 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
-     * for (Member member : <span style="color: #553000">memberList</span>) {
+     * <span style="color: #70226C">for</span> (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
+     *     <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *         ...
      *     }
      * }
@@ -458,7 +456,7 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
      * });
      * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
-     * for (Purchase purchase : purchaseList) {
+     * <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
      *     ...
      * }
      * </pre>
