@@ -188,9 +188,9 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public WhiteImplicitReverseFkRefCQ queryWhiteImplicitReverseFkRefWithImplicitReverseFK(java.util.Date targetDate) {
+    public WhiteImplicitReverseFkRefCQ queryWhiteImplicitReverseFkRefWithImplicitReverseFK(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("whiteImplicitReverseFkRefWithImplicitReverseFK", parameterMap);
         return xdfgetConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK();
     }
@@ -218,9 +218,9 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public WhiteImplicitReverseFkSuppressCQ queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(java.util.Date targetDate) {
+    public WhiteImplicitReverseFkSuppressCQ queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK", parameterMap);
         return xdfgetConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK();
     }

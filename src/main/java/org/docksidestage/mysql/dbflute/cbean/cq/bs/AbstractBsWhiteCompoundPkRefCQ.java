@@ -597,15 +597,6 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
         regLSQ(CK_NLS, fRES(refName), xgetCValueRefName(), "REF_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REF_NAME: {NotNull, VARCHAR(50)}
-     * @param refName The value of refName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setRefName_PrefixSearch(String refName) {
-        setRefName_LikeSearch(refName, xcLSOPPre());
-    }
-
     protected void regRefName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefName(), "REF_NAME"); }
     protected abstract ConditionValue xgetCValueRefName();
 

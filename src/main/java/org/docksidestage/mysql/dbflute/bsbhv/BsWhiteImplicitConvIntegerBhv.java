@@ -197,7 +197,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteImplicitConvIntegerCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteImplicitConvIntegerCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumeric</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">numericCB</span>.setupSelect...
      *     <span style="color: #553000">numericCB</span>.query().set...
      *     <span style="color: #553000">numericCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
         xassLRArg(whiteImplicitConvIntegerList, refCBLambda);
-        return doLoadWhiteImplicitConvNumericList(whiteImplicitConvIntegerList, new LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric>().xinit(refCBLambda));
+        return doLoadWhiteImplicitConvNumeric(whiteImplicitConvIntegerList, new LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(<span style="color: #553000">whiteImplicitConvInteger</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumeric</span>(<span style="color: #553000">whiteImplicitConvInteger</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">numericCB</span>.setupSelect...
      *     <span style="color: #553000">numericCB</span>.query().set...
      *     <span style="color: #553000">numericCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(WhiteImplicitConvInteger whiteImplicitConvInteger, ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(WhiteImplicitConvInteger whiteImplicitConvInteger, ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
         xassLRArg(whiteImplicitConvInteger, refCBLambda);
-        return doLoadWhiteImplicitConvNumericList(xnewLRLs(whiteImplicitConvInteger), new LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric>().xinit(refCBLambda));
+        return doLoadWhiteImplicitConvNumeric(xnewLRLs(whiteImplicitConvInteger), new LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(WhiteImplicitConvInteger whiteImplicitConvInteger, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(WhiteImplicitConvInteger whiteImplicitConvInteger, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> loadReferrerOption) {
         xassLRArg(whiteImplicitConvInteger, loadReferrerOption);
-        return loadWhiteImplicitConvNumericList(xnewLRLs(whiteImplicitConvInteger), loadReferrerOption);
+        return loadWhiteImplicitConvNumeric(xnewLRLs(whiteImplicitConvInteger), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> loadReferrerOption) {
         xassLRArg(whiteImplicitConvIntegerList, loadReferrerOption);
         if (whiteImplicitConvIntegerList.isEmpty()) { return (NestedReferrerListGateway<WhiteImplicitConvNumeric>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteImplicitConvNumericList(whiteImplicitConvIntegerList, loadReferrerOption);
+        return doLoadWhiteImplicitConvNumeric(whiteImplicitConvIntegerList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteImplicitConvNumeric> doLoadWhiteImplicitConvNumericList(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> option) {
+    protected NestedReferrerListGateway<WhiteImplicitConvNumeric> doLoadWhiteImplicitConvNumeric(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> option) {
         return helpLoadReferrerInternally(whiteImplicitConvIntegerList, option, "whiteImplicitConvNumericList");
     }
 
@@ -592,7 +592,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br>
      * white_implicit_conv_string by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvStringList</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvString</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">stringCB</span>.setupSelect...
      *     <span style="color: #553000">stringCB</span>.query().set...
      *     <span style="color: #553000">stringCB</span>.query().addOrderBy...
@@ -614,16 +614,16 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvString> loadWhiteImplicitConvStringList(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, ConditionBeanSetupper<WhiteImplicitConvStringCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteImplicitConvString> loadWhiteImplicitConvString(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, ConditionBeanSetupper<WhiteImplicitConvStringCB> refCBLambda) {
         xassLRArg(whiteImplicitConvIntegerList, refCBLambda);
-        return doLoadWhiteImplicitConvStringList(whiteImplicitConvIntegerList, new LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString>().xinit(refCBLambda));
+        return doLoadWhiteImplicitConvString(whiteImplicitConvIntegerList, new LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br>
      * white_implicit_conv_string by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvStringList</span>(<span style="color: #553000">whiteImplicitConvInteger</span>, <span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvString</span>(<span style="color: #553000">whiteImplicitConvInteger</span>, <span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">stringCB</span>.setupSelect...
      *     <span style="color: #553000">stringCB</span>.query().set...
      *     <span style="color: #553000">stringCB</span>.query().addOrderBy...
@@ -643,9 +643,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvString> loadWhiteImplicitConvStringList(WhiteImplicitConvInteger whiteImplicitConvInteger, ConditionBeanSetupper<WhiteImplicitConvStringCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteImplicitConvString> loadWhiteImplicitConvString(WhiteImplicitConvInteger whiteImplicitConvInteger, ConditionBeanSetupper<WhiteImplicitConvStringCB> refCBLambda) {
         xassLRArg(whiteImplicitConvInteger, refCBLambda);
-        return doLoadWhiteImplicitConvStringList(xnewLRLs(whiteImplicitConvInteger), new LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString>().xinit(refCBLambda));
+        return doLoadWhiteImplicitConvString(xnewLRLs(whiteImplicitConvInteger), new LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString>().xinit(refCBLambda));
     }
 
     /**
@@ -654,9 +654,9 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvString> loadWhiteImplicitConvStringList(WhiteImplicitConvInteger whiteImplicitConvInteger, LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteImplicitConvString> loadWhiteImplicitConvString(WhiteImplicitConvInteger whiteImplicitConvInteger, LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString> loadReferrerOption) {
         xassLRArg(whiteImplicitConvInteger, loadReferrerOption);
-        return loadWhiteImplicitConvStringList(xnewLRLs(whiteImplicitConvInteger), loadReferrerOption);
+        return loadWhiteImplicitConvString(xnewLRLs(whiteImplicitConvInteger), loadReferrerOption);
     }
 
     /**
@@ -666,13 +666,13 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteImplicitConvString> loadWhiteImplicitConvStringList(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteImplicitConvString> loadWhiteImplicitConvString(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString> loadReferrerOption) {
         xassLRArg(whiteImplicitConvIntegerList, loadReferrerOption);
         if (whiteImplicitConvIntegerList.isEmpty()) { return (NestedReferrerListGateway<WhiteImplicitConvString>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteImplicitConvStringList(whiteImplicitConvIntegerList, loadReferrerOption);
+        return doLoadWhiteImplicitConvString(whiteImplicitConvIntegerList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteImplicitConvString> doLoadWhiteImplicitConvStringList(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString> option) {
+    protected NestedReferrerListGateway<WhiteImplicitConvString> doLoadWhiteImplicitConvString(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList, LoadReferrerOption<WhiteImplicitConvStringCB, WhiteImplicitConvString> option) {
         return helpLoadReferrerInternally(whiteImplicitConvIntegerList, option, "whiteImplicitConvStringList");
     }
 
@@ -1245,9 +1245,8 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteImplicitConvIntegerBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteImplicitConvIntegerBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteImplicitConvIntegerBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

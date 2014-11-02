@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteOnlyOneToOneTo)et).getToId(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setToId(ctl(vl)), "toId");
         setupEpg(_epgMap, et -> ((WhiteOnlyOneToOneTo)et).getToName(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setToName((String)vl), "toName");
         setupEpg(_epgMap, et -> ((WhiteOnlyOneToOneTo)et).getFromId(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setFromId(ctl(vl)), "fromId");
@@ -65,8 +67,9 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteOnlyOneToOneTo)et).getWhiteOnlyOneToOneFrom(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setWhiteOnlyOneToOneFrom((WhiteOnlyOneToOneFrom)vl), "whiteOnlyOneToOneFrom");
+        setupEfpg(_efpgMap, et -> ((WhiteOnlyOneToOneTo)et).getWhiteOnlyOneToOneFrom(), (et, vl) -> ((WhiteOnlyOneToOneTo)et).setWhiteOnlyOneToOneFrom((OptionalEntity<WhiteOnlyOneToOneFrom>)vl), "whiteOnlyOneToOneFrom");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -139,7 +142,7 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteOnlyOneToOneFrom() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnFromId(), WhiteOnlyOneToOneFromDbm.getInstance().columnFromId());
-        return cfi("FK_WHITE_ONLY_ONE_TO_ONE_TO_FROM", "whiteOnlyOneToOneFrom", this, WhiteOnlyOneToOneFromDbm.getInstance(), mp, 0, null, true, false, false, false, null, null, false, "whiteOnlyOneToOneToAsOne");
+        return cfi("FK_WHITE_ONLY_ONE_TO_ONE_TO_FROM", "whiteOnlyOneToOneFrom", this, WhiteOnlyOneToOneFromDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, false, null, null, false, "whiteOnlyOneToOneToAsOne");
     }
 
     // -----------------------------------------------------

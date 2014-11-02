@@ -197,7 +197,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhitePgReservCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhitePgReservCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
      * <pre>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRefList</span>(<span style="color: #553000">whitePgReservList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRef</span>(<span style="color: #553000">whitePgReservList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRefList(List<WhitePgReserv> whitePgReservList, ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRef(List<WhitePgReserv> whitePgReservList, ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
         xassLRArg(whitePgReservList, refCBLambda);
-        return doLoadWhitePgReservRefList(whitePgReservList, new LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef>().xinit(refCBLambda));
+        return doLoadWhitePgReservRef(whitePgReservList, new LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
      * <pre>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRefList</span>(<span style="color: #553000">whitePgReserv</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRef</span>(<span style="color: #553000">whitePgReserv</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRefList(WhitePgReserv whitePgReserv, ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRef(WhitePgReserv whitePgReserv, ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
         xassLRArg(whitePgReserv, refCBLambda);
-        return doLoadWhitePgReservRefList(xnewLRLs(whitePgReserv), new LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef>().xinit(refCBLambda));
+        return doLoadWhitePgReservRef(xnewLRLs(whitePgReserv), new LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRefList(WhitePgReserv whitePgReserv, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRef(WhitePgReserv whitePgReserv, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> loadReferrerOption) {
         xassLRArg(whitePgReserv, loadReferrerOption);
-        return loadWhitePgReservRefList(xnewLRLs(whitePgReserv), loadReferrerOption);
+        return loadWhitePgReservRef(xnewLRLs(whitePgReserv), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRefList(List<WhitePgReserv> whitePgReservList, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRef(List<WhitePgReserv> whitePgReservList, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> loadReferrerOption) {
         xassLRArg(whitePgReservList, loadReferrerOption);
         if (whitePgReservList.isEmpty()) { return (NestedReferrerListGateway<WhitePgReservRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhitePgReservRefList(whitePgReservList, loadReferrerOption);
+        return doLoadWhitePgReservRef(whitePgReservList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhitePgReservRef> doLoadWhitePgReservRefList(List<WhitePgReserv> whitePgReservList, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> option) {
+    protected NestedReferrerListGateway<WhitePgReservRef> doLoadWhitePgReservRef(List<WhitePgReserv> whitePgReservList, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> option) {
         return helpLoadReferrerInternally(whitePgReservList, option, "whitePgReservRefList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhitePgReservBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhitePgReservBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhitePgReservBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -130,13 +132,15 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'. */
-    protected WhiteCompoundPkRef _whiteCompoundPkRefByQuxMultipleId;
+    protected OptionalEntity<WhiteCompoundPkRef> _whiteCompoundPkRefByQuxMultipleId;
 
     /**
      * [get] white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'. <br>
-     * @return The entity of foreign property 'whiteCompoundPkRefByQuxMultipleId'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundPkRefByQuxMultipleId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundPkRef getWhiteCompoundPkRefByQuxMultipleId() {
+    public OptionalEntity<WhiteCompoundPkRef> getWhiteCompoundPkRefByQuxMultipleId() {
+        if (_whiteCompoundPkRefByQuxMultipleId == null) { _whiteCompoundPkRefByQuxMultipleId = OptionalEntity.relationEmpty(this, "whiteCompoundPkRefByQuxMultipleId"); }
         return _whiteCompoundPkRefByQuxMultipleId;
     }
 
@@ -144,18 +148,20 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
      * [set] white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
      * @param whiteCompoundPkRefByQuxMultipleId The entity of foreign property 'whiteCompoundPkRefByQuxMultipleId'. (NullAllowed)
      */
-    public void setWhiteCompoundPkRefByQuxMultipleId(WhiteCompoundPkRef whiteCompoundPkRefByQuxMultipleId) {
+    public void setWhiteCompoundPkRefByQuxMultipleId(OptionalEntity<WhiteCompoundPkRef> whiteCompoundPkRefByQuxMultipleId) {
         _whiteCompoundPkRefByQuxMultipleId = whiteCompoundPkRefByQuxMultipleId;
     }
 
     /** white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'. */
-    protected WhiteCompoundPkRef _whiteCompoundPkRefByFooMultipleId;
+    protected OptionalEntity<WhiteCompoundPkRef> _whiteCompoundPkRefByFooMultipleId;
 
     /**
      * [get] white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'. <br>
-     * @return The entity of foreign property 'whiteCompoundPkRefByFooMultipleId'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundPkRefByFooMultipleId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundPkRef getWhiteCompoundPkRefByFooMultipleId() {
+    public OptionalEntity<WhiteCompoundPkRef> getWhiteCompoundPkRefByFooMultipleId() {
+        if (_whiteCompoundPkRefByFooMultipleId == null) { _whiteCompoundPkRefByFooMultipleId = OptionalEntity.relationEmpty(this, "whiteCompoundPkRefByFooMultipleId"); }
         return _whiteCompoundPkRefByFooMultipleId;
     }
 
@@ -163,7 +169,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
      * [set] white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
      * @param whiteCompoundPkRefByFooMultipleId The entity of foreign property 'whiteCompoundPkRefByFooMultipleId'. (NullAllowed)
      */
-    public void setWhiteCompoundPkRefByFooMultipleId(WhiteCompoundPkRef whiteCompoundPkRefByFooMultipleId) {
+    public void setWhiteCompoundPkRefByFooMultipleId(OptionalEntity<WhiteCompoundPkRef> whiteCompoundPkRefByFooMultipleId) {
         _whiteCompoundPkRefByFooMultipleId = whiteCompoundPkRefByFooMultipleId;
     }
 
@@ -199,11 +205,14 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPkRefByQuxMultipleId != null)
+        if (_whiteCompoundPkRefByQuxMultipleId != null && _whiteCompoundPkRefByQuxMultipleId.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundPkRefByQuxMultipleId, "whiteCompoundPkRefByQuxMultipleId")); }
-        if (_whiteCompoundPkRefByFooMultipleId != null)
+        if (_whiteCompoundPkRefByFooMultipleId != null && _whiteCompoundPkRefByFooMultipleId.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundPkRefByFooMultipleId, "whiteCompoundPkRefByFooMultipleId")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -224,9 +233,9 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPkRefByQuxMultipleId != null)
+        if (_whiteCompoundPkRefByQuxMultipleId != null && _whiteCompoundPkRefByQuxMultipleId.isPresent())
         { sb.append(dm).append("whiteCompoundPkRefByQuxMultipleId"); }
-        if (_whiteCompoundPkRefByFooMultipleId != null)
+        if (_whiteCompoundPkRefByFooMultipleId != null && _whiteCompoundPkRefByFooMultipleId.isPresent())
         { sb.append(dm).append("whiteCompoundPkRefByFooMultipleId"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

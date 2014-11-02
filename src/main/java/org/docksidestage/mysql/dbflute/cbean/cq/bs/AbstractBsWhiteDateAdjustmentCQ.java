@@ -182,8 +182,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDate_Equal(java.util.Date adjustedDate) {
-        regAdjustedDate(CK_EQ,  fCTPD(adjustedDate));
+    public void setAdjustedDate_Equal(java.time.LocalDate adjustedDate) {
+        regAdjustedDate(CK_EQ,  adjustedDate);
     }
 
     /**
@@ -191,8 +191,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDate_GreaterThan(java.util.Date adjustedDate) {
-        regAdjustedDate(CK_GT,  fCTPD(adjustedDate));
+    public void setAdjustedDate_GreaterThan(java.time.LocalDate adjustedDate) {
+        regAdjustedDate(CK_GT,  adjustedDate);
     }
 
     /**
@@ -200,8 +200,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDate_LessThan(java.util.Date adjustedDate) {
-        regAdjustedDate(CK_LT,  fCTPD(adjustedDate));
+    public void setAdjustedDate_LessThan(java.time.LocalDate adjustedDate) {
+        regAdjustedDate(CK_LT,  adjustedDate);
     }
 
     /**
@@ -209,8 +209,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDate_GreaterEqual(java.util.Date adjustedDate) {
-        regAdjustedDate(CK_GE,  fCTPD(adjustedDate));
+    public void setAdjustedDate_GreaterEqual(java.time.LocalDate adjustedDate) {
+        regAdjustedDate(CK_GE,  adjustedDate);
     }
 
     /**
@@ -218,8 +218,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDate_LessEqual(java.util.Date adjustedDate) {
-        regAdjustedDate(CK_LE, fCTPD(adjustedDate));
+    public void setAdjustedDate_LessEqual(java.time.LocalDate adjustedDate) {
+        regAdjustedDate(CK_LE, adjustedDate);
     }
 
     /**
@@ -231,7 +231,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setAdjustedDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setAdjustedDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setAdjustedDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -244,23 +244,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setAdjustedDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueAdjustedDate(), "ADJUSTED_DATE", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of adjustedDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of adjustedDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setAdjustedDate_DateFromTo(Date fromDate, Date toDate) {
-        setAdjustedDate_FromTo(fromDate, toDate, xcDFTOP());
+    public void setAdjustedDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "ADJUSTED_DATE"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueAdjustedDate(), nm, op);
     }
 
     /**
@@ -283,7 +269,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDatetime_Equal(java.sql.Timestamp adjustedDatetime) {
+    public void setAdjustedDatetime_Equal(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_EQ,  adjustedDatetime);
     }
 
@@ -292,7 +278,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDatetime_GreaterThan(java.sql.Timestamp adjustedDatetime) {
+    public void setAdjustedDatetime_GreaterThan(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_GT,  adjustedDatetime);
     }
 
@@ -301,7 +287,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDatetime_LessThan(java.sql.Timestamp adjustedDatetime) {
+    public void setAdjustedDatetime_LessThan(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_LT,  adjustedDatetime);
     }
 
@@ -310,7 +296,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDatetime_GreaterEqual(java.sql.Timestamp adjustedDatetime) {
+    public void setAdjustedDatetime_GreaterEqual(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_GE,  adjustedDatetime);
     }
 
@@ -319,7 +305,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @param adjustedDatetime The value of adjustedDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedDatetime_LessEqual(java.sql.Timestamp adjustedDatetime) {
+    public void setAdjustedDatetime_LessEqual(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_LE, adjustedDatetime);
     }
 
@@ -332,7 +318,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setAdjustedDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setAdjustedDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setAdjustedDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -345,23 +331,9 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setAdjustedDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueAdjustedDatetime(), "ADJUSTED_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * ADJUSTED_DATETIME: {DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of adjustedDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of adjustedDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setAdjustedDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setAdjustedDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setAdjustedDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "ADJUSTED_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueAdjustedDatetime(), nm, op);
     }
 
     /**
@@ -384,7 +356,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as equal. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedTime_Equal(java.sql.Time adjustedTime) {
+    public void setAdjustedTime_Equal(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_EQ,  adjustedTime);
     }
 
@@ -393,7 +365,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedTime_GreaterThan(java.sql.Time adjustedTime) {
+    public void setAdjustedTime_GreaterThan(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_GT,  adjustedTime);
     }
 
@@ -402,7 +374,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedTime_LessThan(java.sql.Time adjustedTime) {
+    public void setAdjustedTime_LessThan(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_LT,  adjustedTime);
     }
 
@@ -411,7 +383,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedTime_GreaterEqual(java.sql.Time adjustedTime) {
+    public void setAdjustedTime_GreaterEqual(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_GE,  adjustedTime);
     }
 
@@ -420,7 +392,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * ADJUSTED_TIME: {TIME(8)}
      * @param adjustedTime The value of adjustedTime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setAdjustedTime_LessEqual(java.sql.Time adjustedTime) {
+    public void setAdjustedTime_LessEqual(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_LE, adjustedTime);
     }
 
@@ -1229,15 +1201,6 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      */
     public void setAdjustedString_NotLikeSearch(String adjustedString, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(adjustedString), xgetCValueAdjustedString(), "ADJUSTED_STRING", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * ADJUSTED_STRING: {VARCHAR(32)}
-     * @param adjustedString The value of adjustedString as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setAdjustedString_PrefixSearch(String adjustedString) {
-        setAdjustedString_LikeSearch(adjustedString, xcLSOPPre());
     }
 
     /**

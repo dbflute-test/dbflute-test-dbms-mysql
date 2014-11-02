@@ -197,7 +197,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -430,7 +430,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -439,7 +439,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteUqFkCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteUqFkCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -529,7 +529,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * Load referrer of whiteUqFkRefByFkToPkIdList by the set-upper of referrer. <br>
      * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
      * <pre>
-     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToPkIdList</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToPkId</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -551,16 +551,16 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToPkIdList(List<WhiteUqFk> whiteUqFkList, ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToPkId(List<WhiteUqFk> whiteUqFkList, ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
         xassLRArg(whiteUqFkList, refCBLambda);
-        return doLoadWhiteUqFkRefByFkToPkIdList(whiteUqFkList, new LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef>().xinit(refCBLambda));
+        return doLoadWhiteUqFkRefByFkToPkId(whiteUqFkList, new LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteUqFkRefByFkToPkIdList by the set-upper of referrer. <br>
      * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
      * <pre>
-     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToPkIdList</span>(<span style="color: #553000">whiteUqFk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToPkId</span>(<span style="color: #553000">whiteUqFk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -580,9 +580,9 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToPkIdList(WhiteUqFk whiteUqFk, ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToPkId(WhiteUqFk whiteUqFk, ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
         xassLRArg(whiteUqFk, refCBLambda);
-        return doLoadWhiteUqFkRefByFkToPkIdList(xnewLRLs(whiteUqFk), new LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef>().xinit(refCBLambda));
+        return doLoadWhiteUqFkRefByFkToPkId(xnewLRLs(whiteUqFk), new LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef>().xinit(refCBLambda));
     }
 
     /**
@@ -591,9 +591,9 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToPkIdList(WhiteUqFk whiteUqFk, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToPkId(WhiteUqFk whiteUqFk, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> loadReferrerOption) {
         xassLRArg(whiteUqFk, loadReferrerOption);
-        return loadWhiteUqFkRefByFkToPkIdList(xnewLRLs(whiteUqFk), loadReferrerOption);
+        return loadWhiteUqFkRefByFkToPkId(xnewLRLs(whiteUqFk), loadReferrerOption);
     }
 
     /**
@@ -603,13 +603,13 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToPkIdList(List<WhiteUqFk> whiteUqFkList, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToPkId(List<WhiteUqFk> whiteUqFkList, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> loadReferrerOption) {
         xassLRArg(whiteUqFkList, loadReferrerOption);
         if (whiteUqFkList.isEmpty()) { return (NestedReferrerListGateway<WhiteUqFkRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteUqFkRefByFkToPkIdList(whiteUqFkList, loadReferrerOption);
+        return doLoadWhiteUqFkRefByFkToPkId(whiteUqFkList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteUqFkRef> doLoadWhiteUqFkRefByFkToPkIdList(List<WhiteUqFk> whiteUqFkList, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> option) {
+    protected NestedReferrerListGateway<WhiteUqFkRef> doLoadWhiteUqFkRefByFkToPkId(List<WhiteUqFk> whiteUqFkList, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> option) {
         return helpLoadReferrerInternally(whiteUqFkList, option, "whiteUqFkRefByFkToPkIdList");
     }
 
@@ -617,7 +617,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * Load referrer of whiteUqFkRefByFkToUqCodeList by the set-upper of referrer. <br>
      * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
      * <pre>
-     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToUqCodeList</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToUqCode</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -639,16 +639,16 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToUqCodeList(List<WhiteUqFk> whiteUqFkList, ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToUqCode(List<WhiteUqFk> whiteUqFkList, ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
         xassLRArg(whiteUqFkList, refCBLambda);
-        return doLoadWhiteUqFkRefByFkToUqCodeList(whiteUqFkList, new LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef>().xinit(refCBLambda));
+        return doLoadWhiteUqFkRefByFkToUqCode(whiteUqFkList, new LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteUqFkRefByFkToUqCodeList by the set-upper of referrer. <br>
      * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
      * <pre>
-     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToUqCodeList</span>(<span style="color: #553000">whiteUqFk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToUqCode</span>(<span style="color: #553000">whiteUqFk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -668,9 +668,9 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToUqCodeList(WhiteUqFk whiteUqFk, ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToUqCode(WhiteUqFk whiteUqFk, ConditionBeanSetupper<WhiteUqFkRefCB> refCBLambda) {
         xassLRArg(whiteUqFk, refCBLambda);
-        return doLoadWhiteUqFkRefByFkToUqCodeList(xnewLRLs(whiteUqFk), new LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef>().xinit(refCBLambda));
+        return doLoadWhiteUqFkRefByFkToUqCode(xnewLRLs(whiteUqFk), new LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef>().xinit(refCBLambda));
     }
 
     /**
@@ -679,9 +679,9 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToUqCodeList(WhiteUqFk whiteUqFk, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToUqCode(WhiteUqFk whiteUqFk, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> loadReferrerOption) {
         xassLRArg(whiteUqFk, loadReferrerOption);
-        return loadWhiteUqFkRefByFkToUqCodeList(xnewLRLs(whiteUqFk), loadReferrerOption);
+        return loadWhiteUqFkRefByFkToUqCode(xnewLRLs(whiteUqFk), loadReferrerOption);
     }
 
     /**
@@ -691,13 +691,13 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToUqCodeList(List<WhiteUqFk> whiteUqFkList, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteUqFkRef> loadWhiteUqFkRefByFkToUqCode(List<WhiteUqFk> whiteUqFkList, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> loadReferrerOption) {
         xassLRArg(whiteUqFkList, loadReferrerOption);
         if (whiteUqFkList.isEmpty()) { return (NestedReferrerListGateway<WhiteUqFkRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteUqFkRefByFkToUqCodeList(whiteUqFkList, loadReferrerOption);
+        return doLoadWhiteUqFkRefByFkToUqCode(whiteUqFkList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteUqFkRef> doLoadWhiteUqFkRefByFkToUqCodeList(List<WhiteUqFk> whiteUqFkList, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> option) {
+    protected NestedReferrerListGateway<WhiteUqFkRef> doLoadWhiteUqFkRefByFkToUqCode(List<WhiteUqFk> whiteUqFkList, LoadReferrerOption<WhiteUqFkRefCB, WhiteUqFkRef> option) {
         return helpLoadReferrerInternally(whiteUqFkList, option, "whiteUqFkRefByFkToUqCodeList");
     }
 
@@ -1262,9 +1262,8 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteUqFkBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteUqFkBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteUqFkBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

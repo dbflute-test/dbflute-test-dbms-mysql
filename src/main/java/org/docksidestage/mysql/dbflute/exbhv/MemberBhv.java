@@ -4,13 +4,12 @@
 package org.docksidestage.mysql.dbflute.exbhv;
 
 import java.lang.reflect.Field;
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -37,9 +36,9 @@ import org.docksidestage.mysql.dbflute.exentity.Member;
 import com.mysql.jdbc.RowData;
 
 /**
- * The behavior of member. <br />
- * You can implement your original methods here. <br />
- * This class is NOT overrided when re-generating. <br />
+ * The behavior of member. <br>
+ * You can implement your original methods here. <br>
+ * This class is NOT overridden when re-generating. <br>
  * @author DBFlute(AutoGenerator)
  */
 public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv {
@@ -54,9 +53,9 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
     //                                                                          CSV Output
     //                                                                          ==========
     /**
-     * 会員の購入数の集計CSVを作成する。<br />
-     * 大量件数になる可能性があるため、カーソルフェッチで実現している。<br />
-     * 「現場ソリューション DBFlute」における「大量件数」の例題。<br />
+     * 会員の購入数の集計CSVを作成する。<br>
+     * 大量件数になる可能性があるため、カーソルフェッチで実現している。<br>
+     * 「現場ソリューション DBFlute」における「大量件数」の例題。<br>
      * @param pmb The parameter bean of Purchase Summary Member. (NotNull)
      */
     public void makeCsvPurchaseSummaryMember(PurchaseSummaryMemberPmb pmb) {
@@ -65,9 +64,9 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                 while (cursor.next()) {
                     final Integer memberId = cursor.getMemberId();
                     final String memberName = cursor.getMemberName();
-                    final Date birthdate = cursor.getBirthdate();
-                    final Timestamp formalizedDatetime = cursor.getFormalizedDatetime();
-                    final BigDecimal purchaseSummary = cursor.getPurchaseSummary();
+                    final LocalDate birthdate = cursor.getBirthdate();
+                    final LocalDateTime formalizedDatetime = cursor.getFormalizedDatetime();
+                    final Long purchaseSummary = cursor.getPurchaseSummary();
 
                     // ここではただログに出力するだけ
                     // (本当はCSVファイルへの出力)
@@ -78,7 +77,7 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                 return null;// ここで処理が完結してるので戻り値は不要
             }
         };
-        outsideSql().cursorHandling().selectCursor(PATH_selectPurchaseSummaryMember, pmb, handler);
+        outsideSql().selectCursor(pmb, handler);
     }
 
     // ===================================================================================
@@ -119,19 +118,16 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
     protected <RESULT extends Member> SelectListCBCommand<RESULT> newSelectListCBCommand() {
         return new SelectListCBCommand<RESULT>() {
             @Override
-            protected SelectCBExecution newSelectCBExecution(Map<String, Class<?>> argNameTypeMap,
-                    TnResultSetHandler handler) {
+            protected SelectCBExecution newSelectCBExecution(Map<String, Class<?>> argNameTypeMap, TnResultSetHandler handler) {
                 return new SelectCBExecution(_dataSource, _statementFactory, argNameTypeMap, handler) {
                     @Override
                     protected TnBasicParameterHandler newBasicParameterHandler(String executedSql) {
                         return new TnBasicSelectHandler(_dataSource, executedSql, _resultSetHandler, _statementFactory) {
                             @Override
-                            protected void doLogSql(Object[] args, Class<?>[] argTypes, boolean logEnabled,
-                                    boolean sqlFireHook, boolean hasSqlLog, boolean hasSqlResult, Object sqlLogRegistry) {
-                                _loggingMarkMap.put("doLogSql", logEnabled + ", " + sqlFireHook + ", " + hasSqlLog
-                                        + ", " + hasSqlResult);
-                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult,
-                                        sqlLogRegistry);
+                            protected void doLogSql(Object[] args, Class<?>[] argTypes, boolean logEnabled, boolean sqlFireHook,
+                                    boolean hasSqlLog, boolean hasSqlResult, Object sqlLogRegistry) {
+                                _loggingMarkMap.put("doLogSql", logEnabled + ", " + sqlFireHook + ", " + hasSqlLog + ", " + hasSqlResult);
+                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult, sqlLogRegistry);
                             };
 
                             @Override
@@ -141,8 +137,7 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                             }
 
                             @Override
-                            protected SqlLogDisplaySqlBuilder createSqlLogDisplaySqlBuilder(
-                                    String alreadyBuiltDisplaySql) {
+                            protected SqlLogDisplaySqlBuilder createSqlLogDisplaySqlBuilder(String alreadyBuiltDisplaySql) {
                                 _loggingMarkMap.put("createSqlLogDisplaySqlBuilder", new Object());
                                 return super.createSqlLogDisplaySqlBuilder(alreadyBuiltDisplaySql);
                             }
@@ -180,15 +175,12 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                 return new TnBatchUpdateDynamicCommand(_dataSource, _statementFactory) {
                     @Override
                     protected TnBatchUpdateHandler newBatchUpdateHandler(TnPropertyType[] boundPropTypes, String sql) {
-                        return new TnBatchUpdateHandler(_dataSource, _statementFactory, sql, _beanMetaData,
-                                boundPropTypes) {
+                        return new TnBatchUpdateHandler(_dataSource, _statementFactory, sql, _beanMetaData, boundPropTypes) {
                             @Override
-                            protected void doLogSql(Object[] args, Class<?>[] argTypes, boolean logEnabled,
-                                    boolean sqlFireHook, boolean hasSqlLog, boolean hasSqlResult, Object sqlLogRegistry) {
-                                _loggingMarkMap.put("doLogSql", logEnabled + ", " + sqlFireHook + ", " + hasSqlLog
-                                        + ", " + hasSqlResult);
-                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult,
-                                        sqlLogRegistry);
+                            protected void doLogSql(Object[] args, Class<?>[] argTypes, boolean logEnabled, boolean sqlFireHook,
+                                    boolean hasSqlLog, boolean hasSqlResult, Object sqlLogRegistry) {
+                                _loggingMarkMap.put("doLogSql", logEnabled + ", " + sqlFireHook + ", " + hasSqlLog + ", " + hasSqlResult);
+                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult, sqlLogRegistry);
                             };
 
                             @Override
@@ -198,8 +190,7 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                             }
 
                             @Override
-                            protected SqlLogDisplaySqlBuilder createSqlLogDisplaySqlBuilder(
-                                    String alreadyBuiltDisplaySql) {
+                            protected SqlLogDisplaySqlBuilder createSqlLogDisplaySqlBuilder(String alreadyBuiltDisplaySql) {
                                 _loggingMarkMap.put("createSqlLogDisplaySqlBuilder", new Object());
                                 return super.createSqlLogDisplaySqlBuilder(alreadyBuiltDisplaySql);
                             }

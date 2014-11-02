@@ -1,6 +1,6 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.exception.DBMetaNotFoundException;
@@ -48,7 +48,7 @@ public class WxBizOneToOneImplicitReverseFKTest extends UnitContainerTestCase {
 
     public void test_BizOneToOne_implicitReverseFK_specify() {
         // ## Arrange ##
-        Date targetDate = currentDate();
+        LocalDate targetDate = currentLocalDate();
         WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
         cb.setupSelect_WhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate);
         cb.setupSelect_WhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate);

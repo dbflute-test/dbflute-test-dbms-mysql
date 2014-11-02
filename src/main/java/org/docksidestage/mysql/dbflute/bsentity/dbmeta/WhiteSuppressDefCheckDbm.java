@@ -52,7 +52,8 @@ public class WhiteSuppressDefCheckDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSuppressDefCheck)et).getDefCheckId(), (et, vl) -> ((WhiteSuppressDefCheck)et).setDefCheckId(ctl(vl)), "defCheckId");
         setupEpg(_epgMap, et -> ((WhiteSuppressDefCheck)et).getDefCheckName(), (et, vl) -> ((WhiteSuppressDefCheck)et).setDefCheckName((String)vl), "defCheckName");
     }

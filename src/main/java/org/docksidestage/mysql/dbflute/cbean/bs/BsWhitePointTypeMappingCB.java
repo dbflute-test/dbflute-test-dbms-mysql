@@ -348,6 +348,24 @@ public class BsWhitePointTypeMappingCB extends AbstractConditionBean {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhitePointTypeMappingCB dreamCruiseCB() {
+        WhitePointTypeMappingCB cb = new WhitePointTypeMappingCB();
+        cb.xsetupForDreamCruise((WhitePointTypeMappingCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -379,24 +397,6 @@ public class BsWhitePointTypeMappingCB extends AbstractConditionBean {
         WhitePointTypeMappingCB cb = new WhitePointTypeMappingCB();
         cb.xsetupForColumnQuery((WhitePointTypeMappingCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhitePointTypeMappingCB dreamCruiseCB() {
-        WhitePointTypeMappingCB cb = new WhitePointTypeMappingCB();
-        cb.xsetupForDreamCruise((WhitePointTypeMappingCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

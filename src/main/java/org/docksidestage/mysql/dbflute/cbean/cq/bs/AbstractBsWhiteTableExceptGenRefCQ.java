@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
         regLSQ(CK_NLS, fRES(genRefName), xgetCValueGenRefName(), "GEN_REF_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * GEN_REF_NAME: {NotNull, VARCHAR(200)}
-     * @param genRefName The value of genRefName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setGenRefName_PrefixSearch(String genRefName) {
-        setGenRefName_LikeSearch(genRefName, xcLSOPPre());
-    }
-
     protected void regGenRefName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenRefName(), "GEN_REF_NAME"); }
     protected abstract ConditionValue xgetCValueGenRefName();
 

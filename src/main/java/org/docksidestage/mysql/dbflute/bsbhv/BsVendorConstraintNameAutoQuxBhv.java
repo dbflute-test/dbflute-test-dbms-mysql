@@ -197,7 +197,7 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -430,7 +430,7 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -439,7 +439,7 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<VendorConstraintNameAutoQuxCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<VendorConstraintNameAutoQuxCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -529,7 +529,7 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
      * Load referrer of vendorConstraintNameAutoRefList by the set-upper of referrer. <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefList'.
      * <pre>
-     * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #CC4747">loadVendorConstraintNameAutoRefList</span>(<span style="color: #553000">vendorConstraintNameAutoQuxList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #CC4747">loadVendorConstraintNameAutoRef</span>(<span style="color: #553000">vendorConstraintNameAutoQuxList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -551,16 +551,16 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<VendorConstraintNameAutoRef> loadVendorConstraintNameAutoRefList(List<VendorConstraintNameAutoQux> vendorConstraintNameAutoQuxList, ConditionBeanSetupper<VendorConstraintNameAutoRefCB> refCBLambda) {
+    public NestedReferrerListGateway<VendorConstraintNameAutoRef> loadVendorConstraintNameAutoRef(List<VendorConstraintNameAutoQux> vendorConstraintNameAutoQuxList, ConditionBeanSetupper<VendorConstraintNameAutoRefCB> refCBLambda) {
         xassLRArg(vendorConstraintNameAutoQuxList, refCBLambda);
-        return doLoadVendorConstraintNameAutoRefList(vendorConstraintNameAutoQuxList, new LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef>().xinit(refCBLambda));
+        return doLoadVendorConstraintNameAutoRef(vendorConstraintNameAutoQuxList, new LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of vendorConstraintNameAutoRefList by the set-upper of referrer. <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefList'.
      * <pre>
-     * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #CC4747">loadVendorConstraintNameAutoRefList</span>(<span style="color: #553000">vendorConstraintNameAutoQux</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #CC4747">loadVendorConstraintNameAutoRef</span>(<span style="color: #553000">vendorConstraintNameAutoQux</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -580,9 +580,9 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<VendorConstraintNameAutoRef> loadVendorConstraintNameAutoRefList(VendorConstraintNameAutoQux vendorConstraintNameAutoQux, ConditionBeanSetupper<VendorConstraintNameAutoRefCB> refCBLambda) {
+    public NestedReferrerListGateway<VendorConstraintNameAutoRef> loadVendorConstraintNameAutoRef(VendorConstraintNameAutoQux vendorConstraintNameAutoQux, ConditionBeanSetupper<VendorConstraintNameAutoRefCB> refCBLambda) {
         xassLRArg(vendorConstraintNameAutoQux, refCBLambda);
-        return doLoadVendorConstraintNameAutoRefList(xnewLRLs(vendorConstraintNameAutoQux), new LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef>().xinit(refCBLambda));
+        return doLoadVendorConstraintNameAutoRef(xnewLRLs(vendorConstraintNameAutoQux), new LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef>().xinit(refCBLambda));
     }
 
     /**
@@ -591,9 +591,9 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<VendorConstraintNameAutoRef> loadVendorConstraintNameAutoRefList(VendorConstraintNameAutoQux vendorConstraintNameAutoQux, LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef> loadReferrerOption) {
+    public NestedReferrerListGateway<VendorConstraintNameAutoRef> loadVendorConstraintNameAutoRef(VendorConstraintNameAutoQux vendorConstraintNameAutoQux, LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef> loadReferrerOption) {
         xassLRArg(vendorConstraintNameAutoQux, loadReferrerOption);
-        return loadVendorConstraintNameAutoRefList(xnewLRLs(vendorConstraintNameAutoQux), loadReferrerOption);
+        return loadVendorConstraintNameAutoRef(xnewLRLs(vendorConstraintNameAutoQux), loadReferrerOption);
     }
 
     /**
@@ -603,13 +603,13 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<VendorConstraintNameAutoRef> loadVendorConstraintNameAutoRefList(List<VendorConstraintNameAutoQux> vendorConstraintNameAutoQuxList, LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef> loadReferrerOption) {
+    public NestedReferrerListGateway<VendorConstraintNameAutoRef> loadVendorConstraintNameAutoRef(List<VendorConstraintNameAutoQux> vendorConstraintNameAutoQuxList, LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef> loadReferrerOption) {
         xassLRArg(vendorConstraintNameAutoQuxList, loadReferrerOption);
         if (vendorConstraintNameAutoQuxList.isEmpty()) { return (NestedReferrerListGateway<VendorConstraintNameAutoRef>)EMPTY_NREF_LGWAY; }
-        return doLoadVendorConstraintNameAutoRefList(vendorConstraintNameAutoQuxList, loadReferrerOption);
+        return doLoadVendorConstraintNameAutoRef(vendorConstraintNameAutoQuxList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<VendorConstraintNameAutoRef> doLoadVendorConstraintNameAutoRefList(List<VendorConstraintNameAutoQux> vendorConstraintNameAutoQuxList, LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef> option) {
+    protected NestedReferrerListGateway<VendorConstraintNameAutoRef> doLoadVendorConstraintNameAutoRef(List<VendorConstraintNameAutoQux> vendorConstraintNameAutoQuxList, LoadReferrerOption<VendorConstraintNameAutoRefCB, VendorConstraintNameAutoRef> option) {
         return helpLoadReferrerInternally(vendorConstraintNameAutoQuxList, option, "vendorConstraintNameAutoRefList");
     }
 
@@ -1174,9 +1174,8 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<VendorConstraintNameAutoQuxBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<VendorConstraintNameAutoQuxBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<VendorConstraintNameAutoQuxBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

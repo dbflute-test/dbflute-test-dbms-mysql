@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteSplitMultipleFkChildDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkChild)et).getChildId(), (et, vl) -> ((WhiteSplitMultipleFkChild)et).setChildId(ctl(vl)), "childId");
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkChild)et).getBaseId(), (et, vl) -> ((WhiteSplitMultipleFkChild)et).setBaseId(ctl(vl)), "baseId");
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkChild)et).getChildName(), (et, vl) -> ((WhiteSplitMultipleFkChild)et).setChildName((String)vl), "childName");
@@ -65,8 +67,9 @@ public class WhiteSplitMultipleFkChildDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteSplitMultipleFkChild)et).getWhiteSplitMultipleFkBase(), (et, vl) -> ((WhiteSplitMultipleFkChild)et).setWhiteSplitMultipleFkBase((WhiteSplitMultipleFkBase)vl), "whiteSplitMultipleFkBase");
+        setupEfpg(_efpgMap, et -> ((WhiteSplitMultipleFkChild)et).getWhiteSplitMultipleFkBase(), (et, vl) -> ((WhiteSplitMultipleFkChild)et).setWhiteSplitMultipleFkBase((OptionalEntity<WhiteSplitMultipleFkBase>)vl), "whiteSplitMultipleFkBase");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -139,7 +142,7 @@ public class WhiteSplitMultipleFkChildDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSplitMultipleFkBase() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBaseId(), WhiteSplitMultipleFkBaseDbm.getInstance().columnBaseId());
-        return cfi("FK_WHITE_SPLIT_MULTIPLE_FK_BASE", "whiteSplitMultipleFkBase", this, WhiteSplitMultipleFkBaseDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteSplitMultipleFkChildList");
+        return cfi("FK_WHITE_SPLIT_MULTIPLE_FK_BASE", "whiteSplitMultipleFkBase", this, WhiteSplitMultipleFkBaseDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSplitMultipleFkChildList");
     }
 
     // -----------------------------------------------------

@@ -286,8 +286,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setTheLongAndWindingTableAndColumnRefDate_Equal(java.util.Date theLongAndWindingTableAndColumnRefDate) {
-        regTheLongAndWindingTableAndColumnRefDate(CK_EQ,  fCTPD(theLongAndWindingTableAndColumnRefDate));
+    public void setTheLongAndWindingTableAndColumnRefDate_Equal(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
+        regTheLongAndWindingTableAndColumnRefDate(CK_EQ,  theLongAndWindingTableAndColumnRefDate);
     }
 
     /**
@@ -295,8 +295,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTheLongAndWindingTableAndColumnRefDate_GreaterThan(java.util.Date theLongAndWindingTableAndColumnRefDate) {
-        regTheLongAndWindingTableAndColumnRefDate(CK_GT,  fCTPD(theLongAndWindingTableAndColumnRefDate));
+    public void setTheLongAndWindingTableAndColumnRefDate_GreaterThan(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
+        regTheLongAndWindingTableAndColumnRefDate(CK_GT,  theLongAndWindingTableAndColumnRefDate);
     }
 
     /**
@@ -304,8 +304,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTheLongAndWindingTableAndColumnRefDate_LessThan(java.util.Date theLongAndWindingTableAndColumnRefDate) {
-        regTheLongAndWindingTableAndColumnRefDate(CK_LT,  fCTPD(theLongAndWindingTableAndColumnRefDate));
+    public void setTheLongAndWindingTableAndColumnRefDate_LessThan(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
+        regTheLongAndWindingTableAndColumnRefDate(CK_LT,  theLongAndWindingTableAndColumnRefDate);
     }
 
     /**
@@ -313,8 +313,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTheLongAndWindingTableAndColumnRefDate_GreaterEqual(java.util.Date theLongAndWindingTableAndColumnRefDate) {
-        regTheLongAndWindingTableAndColumnRefDate(CK_GE,  fCTPD(theLongAndWindingTableAndColumnRefDate));
+    public void setTheLongAndWindingTableAndColumnRefDate_GreaterEqual(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
+        regTheLongAndWindingTableAndColumnRefDate(CK_GE,  theLongAndWindingTableAndColumnRefDate);
     }
 
     /**
@@ -322,8 +322,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTheLongAndWindingTableAndColumnRefDate_LessEqual(java.util.Date theLongAndWindingTableAndColumnRefDate) {
-        regTheLongAndWindingTableAndColumnRefDate(CK_LE, fCTPD(theLongAndWindingTableAndColumnRefDate));
+    public void setTheLongAndWindingTableAndColumnRefDate_LessEqual(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
+        regTheLongAndWindingTableAndColumnRefDate(CK_LE, theLongAndWindingTableAndColumnRefDate);
     }
 
     /**
@@ -335,7 +335,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of theLongAndWindingTableAndColumnRefDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTheLongAndWindingTableAndColumnRefDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTheLongAndWindingTableAndColumnRefDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTheLongAndWindingTableAndColumnRefDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -348,23 +348,9 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of theLongAndWindingTableAndColumnRefDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTheLongAndWindingTableAndColumnRefDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueTheLongAndWindingTableAndColumnRefDate(), "THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of theLongAndWindingTableAndColumnRefDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of theLongAndWindingTableAndColumnRefDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setTheLongAndWindingTableAndColumnRefDate_DateFromTo(Date fromDate, Date toDate) {
-        setTheLongAndWindingTableAndColumnRefDate_FromTo(fromDate, toDate, xcDFTOP());
+    public void setTheLongAndWindingTableAndColumnRefDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTheLongAndWindingTableAndColumnRefDate(), nm, op);
     }
 
     protected void regTheLongAndWindingTableAndColumnRefDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTheLongAndWindingTableAndColumnRefDate(), "THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE"); }
@@ -375,8 +361,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setShortDate_Equal(java.util.Date shortDate) {
-        regShortDate(CK_EQ,  fCTPD(shortDate));
+    public void setShortDate_Equal(java.time.LocalDate shortDate) {
+        regShortDate(CK_EQ,  shortDate);
     }
 
     /**
@@ -384,8 +370,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setShortDate_GreaterThan(java.util.Date shortDate) {
-        regShortDate(CK_GT,  fCTPD(shortDate));
+    public void setShortDate_GreaterThan(java.time.LocalDate shortDate) {
+        regShortDate(CK_GT,  shortDate);
     }
 
     /**
@@ -393,8 +379,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setShortDate_LessThan(java.util.Date shortDate) {
-        regShortDate(CK_LT,  fCTPD(shortDate));
+    public void setShortDate_LessThan(java.time.LocalDate shortDate) {
+        regShortDate(CK_LT,  shortDate);
     }
 
     /**
@@ -402,8 +388,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setShortDate_GreaterEqual(java.util.Date shortDate) {
-        regShortDate(CK_GE,  fCTPD(shortDate));
+    public void setShortDate_GreaterEqual(java.time.LocalDate shortDate) {
+        regShortDate(CK_GE,  shortDate);
     }
 
     /**
@@ -411,8 +397,8 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setShortDate_LessEqual(java.util.Date shortDate) {
-        regShortDate(CK_LE, fCTPD(shortDate));
+    public void setShortDate_LessEqual(java.time.LocalDate shortDate) {
+        regShortDate(CK_LE, shortDate);
     }
 
     /**
@@ -424,7 +410,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of shortDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setShortDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setShortDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setShortDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -437,23 +423,9 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of shortDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setShortDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueShortDate(), "SHORT_DATE", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * SHORT_DATE: {NotNull, DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of shortDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of shortDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setShortDate_DateFromTo(Date fromDate, Date toDate) {
-        setShortDate_FromTo(fromDate, toDate, xcDFTOP());
+    public void setShortDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "SHORT_DATE"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueShortDate(), nm, op);
     }
 
     protected void regShortDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueShortDate(), "SHORT_DATE"); }

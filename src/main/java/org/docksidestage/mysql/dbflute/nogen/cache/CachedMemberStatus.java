@@ -2,7 +2,9 @@ package org.docksidestage.mysql.dbflute.nogen.cache;
 
 import java.util.Map;
 
+import org.dbflute.exception.NonSetupSelectRelationAccessException;
 import org.dbflute.helper.StringKeyMap;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.exentity.MemberStatus;
 
 /**
@@ -11,11 +13,12 @@ import org.docksidestage.mysql.dbflute.exentity.MemberStatus;
  */
 public class CachedMemberStatus {
 
-    protected static final Map<String, MemberStatus> _memberStatusMap = StringKeyMap
-            .createAsCaseInsensitiveConcurrent();
+    protected static final Map<String, MemberStatus> _memberStatusMap = StringKeyMap.createAsCaseInsensitiveConcurrent();
 
-    public static MemberStatus get(String memberStatusCode) {
-        return _memberStatusMap.get(memberStatusCode);
+    public static OptionalEntity<MemberStatus> get(String memberStatusCode) {
+        return OptionalEntity.ofNullable(_memberStatusMap.get(memberStatusCode), () -> {
+            throw new NonSetupSelectRelationAccessException("No cache for the status code: " + memberStatusCode);
+        });
     }
 
     public static void put(MemberStatus status) {

@@ -52,7 +52,8 @@ public class WhiteTableExceptGenHeadDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteTableExceptGenHead)et).getGenHeadId(), (et, vl) -> ((WhiteTableExceptGenHead)et).setGenHeadId(ctl(vl)), "genHeadId");
         setupEpg(_epgMap, et -> ((WhiteTableExceptGenHead)et).getGenHeadName(), (et, vl) -> ((WhiteTableExceptGenHead)et).setGenHeadName((String)vl), "genHeadName");
         setupEpg(_epgMap, et -> ((WhiteTableExceptGenHead)et).getNometaId(), (et, vl) -> ((WhiteTableExceptGenHead)et).setNometaId(ctl(vl)), "nometaId");

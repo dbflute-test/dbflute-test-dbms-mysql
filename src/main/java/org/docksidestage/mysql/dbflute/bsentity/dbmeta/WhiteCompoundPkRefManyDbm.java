@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,14 +53,15 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getMultipleFirstId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setMultipleFirstId(cti(vl)), "multipleFirstId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getMultipleSecondId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setMultipleSecondId(cti(vl)), "multipleSecondId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyFirstId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyFirstId(cti(vl)), "refManyFirstId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManySecondId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManySecondId(cti(vl)), "refManySecondId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyCode(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyCode((String)vl), "refManyCode");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyName(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyName((String)vl), "refManyName");
-        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyDatetime(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyDatetime((java.sql.Timestamp)vl), "refManyDatetime");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyDatetime(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyDatetime((java.time.LocalDateTime)vl), "refManyDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -69,8 +71,9 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRefMany)et).getWhiteCompoundPkToPK(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setWhiteCompoundPkToPK((WhiteCompoundPk)vl), "whiteCompoundPkToPK");
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRefMany)et).getWhiteCompoundPkToPK(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setWhiteCompoundPkToPK((OptionalEntity<WhiteCompoundPk>)vl), "whiteCompoundPkToPK");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -95,7 +98,7 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnRefManySecondId = cci("REF_MANY_SECOND_ID", "REF_MANY_SECOND_ID", null, null, Integer.class, "refManySecondId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPkToPK", null, null);
     protected final ColumnInfo _columnRefManyCode = cci("REF_MANY_CODE", "REF_MANY_CODE", null, null, String.class, "refManyCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnRefManyName = cci("REF_MANY_NAME", "REF_MANY_NAME", null, null, String.class, "refManyName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnRefManyDatetime = cci("REF_MANY_DATETIME", "REF_MANY_DATETIME", null, null, java.sql.Timestamp.class, "refManyDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnRefManyDatetime = cci("REF_MANY_DATETIME", "REF_MANY_DATETIME", null, null, java.time.LocalDateTime.class, "refManyDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null);
 
     /**
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
@@ -178,7 +181,7 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMapSized(4);
         mp.put(columnRefManyFirstId(), WhiteCompoundPkDbm.getInstance().columnPkFirstId());
         mp.put(columnRefManySecondId(), WhiteCompoundPkDbm.getInstance().columnPkSecondId());
-        return cfi("FK_WHITE_COMPOUND_PK_REF_MANY_TO_ONE_TEST", "whiteCompoundPkToPK", this, WhiteCompoundPkDbm.getInstance(), mp, 0, null, false, false, false, true, "$$localAlias$$.REF_MANY_CODE = 'TPK'", null, false, "whiteCompoundPkRefManyToPKList");
+        return cfi("FK_WHITE_COMPOUND_PK_REF_MANY_TO_ONE_TEST", "whiteCompoundPkToPK", this, WhiteCompoundPkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$localAlias$$.REF_MANY_CODE = 'TPK'", null, false, "whiteCompoundPkRefManyToPKList");
     }
 
     // -----------------------------------------------------

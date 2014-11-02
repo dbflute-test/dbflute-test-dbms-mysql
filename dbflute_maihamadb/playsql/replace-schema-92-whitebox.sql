@@ -745,7 +745,7 @@ create table WHITE_DEPRECATED_CLS_ELEMENT (
 -- = = = = = = = = = =/
 create table WHITE_DB_COMMENT (
 	DB_COMMENT_CODE CHAR(3) NOT NULL COMMENT 'Normal: this is normal comment.',
-	DB_COMMENT_NAME VARCHAR(20) COMMENT 'JavaDocHeadache: e.g. /*BEGIN*/, @ @foo <br />',
+	DB_COMMENT_NAME VARCHAR(20) COMMENT 'JavaDocHeadache: e.g. /*BEGIN*/, @ @foo <br>',
 	PRIMARY KEY (DB_COMMENT_CODE)
 ) ;
 

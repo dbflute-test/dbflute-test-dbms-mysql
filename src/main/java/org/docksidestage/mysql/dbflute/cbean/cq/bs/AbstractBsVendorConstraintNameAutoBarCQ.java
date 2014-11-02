@@ -167,13 +167,13 @@ public abstract class AbstractBsVendorConstraintNameAutoBarCQ extends AbstractCo
      * {exists (select CONSTRAINT_NAME_AUTO_BAR_ID from vendor_constraint_name_auto_ref where ...)} <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorConstraintNameAutoRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsVendorConstraintNameAutoRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of VendorConstraintNameAutoRefList for 'exists'. (NotNull)
      */
-    public void existsVendorConstraintNameAutoRefList(SubQuery<VendorConstraintNameAutoRefCB> subCBLambda) {
+    public void existsVendorConstraintNameAutoRef(SubQuery<VendorConstraintNameAutoRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepConstraintNameAutoBarId_ExistsReferrer_VendorConstraintNameAutoRefList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsVendorConstraintNameAutoBarCQ extends AbstractCo
      * {not exists (select CONSTRAINT_NAME_AUTO_BAR_ID from vendor_constraint_name_auto_ref where ...)} <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorConstraintNameAutoRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsVendorConstraintNameAutoRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ConstraintNameAutoBarId_NotExistsReferrer_VendorConstraintNameAutoRefList for 'not exists'. (NotNull)
      */
-    public void notExistsVendorConstraintNameAutoRefList(SubQuery<VendorConstraintNameAutoRefCB> subCBLambda) {
+    public void notExistsVendorConstraintNameAutoRef(SubQuery<VendorConstraintNameAutoRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepConstraintNameAutoBarId_NotExistsReferrer_VendorConstraintNameAutoRefList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsVendorConstraintNameAutoBarCQ extends AbstractCo
      * {FOO &lt;= (select max(BAR) from vendor_constraint_name_auto_ref where ...)} <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorConstraintNameAutoRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedVendorConstraintNameAutoRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<VendorConstraintNameAutoRefCB> derivedVendorConstraintNameAutoRefList() {
+    public HpQDRFunction<VendorConstraintNameAutoRefCB> derivedVendorConstraintNameAutoRef() {
         return xcreateQDRFunctionVendorConstraintNameAutoRefList();
     }
     protected HpQDRFunction<VendorConstraintNameAutoRefCB> xcreateQDRFunctionVendorConstraintNameAutoRefList() {
@@ -344,15 +344,6 @@ public abstract class AbstractBsVendorConstraintNameAutoBarCQ extends AbstractCo
      */
     public void setConstraintNameAutoBarName_NotLikeSearch(String constraintNameAutoBarName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(constraintNameAutoBarName), xgetCValueConstraintNameAutoBarName(), "CONSTRAINT_NAME_AUTO_BAR_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CONSTRAINT_NAME_AUTO_BAR_NAME: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoBarName The value of constraintNameAutoBarName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setConstraintNameAutoBarName_PrefixSearch(String constraintNameAutoBarName) {
-        setConstraintNameAutoBarName_LikeSearch(constraintNameAutoBarName, xcLSOPPre());
     }
 
     protected void regConstraintNameAutoBarName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueConstraintNameAutoBarName(), "CONSTRAINT_NAME_AUTO_BAR_NAME"); }

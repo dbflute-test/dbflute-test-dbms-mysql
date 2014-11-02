@@ -46,9 +46,9 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.specify().columnBirthdate();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().notExistsPurchaseList(new SubQuery<PurchaseCB>() {
+                subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.columnQuery(new SpecifyQuery<PurchaseCB>() {
                             public void specify(PurchaseCB cb) {
@@ -82,9 +82,9 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.specify().columnBirthdate();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().notExistsPurchaseList(new SubQuery<PurchaseCB>() {
+                subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         SpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne()
                                 .columnServicePointCount();
@@ -116,9 +116,9 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
 
     protected List<Member> selectMyOnlyProductMember() throws Exception {
         MemberCB cb = new MemberCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().derivedPurchaseList().countDistinct(new SubQuery<PurchaseCB>() {
+                subCB.query().queryProduct().derivedPurchase().countDistinct(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnMemberId();
                     }
@@ -135,9 +135,9 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.specify().columnBirthdate();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().notExistsPurchaseList(new SubQuery<PurchaseCB>() {
+                subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.columnQuery(new SpecifyQuery<PurchaseCB>() {
                             public void specify(PurchaseCB cb) {
@@ -174,7 +174,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         {
             Member member = new Member();
-            member.setBirthdate(toDate("2014/09/10"));
+            member.setBirthdate(toLocalDate("2014/09/10"));
             memberBhv.varyingQueryUpdate(member, new MemberCB(), op -> op.allowNonQueryUpdate());
         }
         MemberCB cb = new MemberCB();
@@ -187,7 +187,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).lessEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toDate("2015/04/05"));
+                cb.mysticRhythms(toLocalDate("2015/04/05"));
             }
         }).convert(op -> op.addMonth(dreamCruiseCB.specify().columnVersionNo()));
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
@@ -196,7 +196,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).lessThan(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toDate("2014/09/01"));
+                cb.mysticRhythms(toLocalDate("2014/09/01"));
             }
         }).convert(op -> op.addDay(dreamCruiseCB.specify().columnMemberId()).addMinute(1));
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
@@ -205,7 +205,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).greaterEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toDate("2006/09/26"));
+                cb.mysticRhythms(toLocalDate("2006/09/26"));
             }
         });
 
@@ -234,7 +234,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         {
             Member member = new Member();
-            member.setFormalizedDatetime(toTimestamp("2014/09/10 12:34:56"));
+            member.setFormalizedDatetime(toLocalDateTime("2014/09/10 12:34:56"));
             memberBhv.varyingQueryUpdate(member, new MemberCB(), op -> op.allowNonQueryUpdate());
         }
         MemberCB cb = new MemberCB();
@@ -246,7 +246,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).lessEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toTimestamp("2015/04/05 12:34:56"));
+                cb.mysticRhythms(toLocalDateTime("2015/04/05 12:34:56"));
             }
         }).convert(op -> op.addMonth(dreamCruiseCB.specify().columnVersionNo()));
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
@@ -255,7 +255,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).lessEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toTimestamp("2014/09/01 15:00:00"));
+                cb.mysticRhythms(toLocalDateTime("2014/09/01 15:00:00"));
             }
         }).convert(op -> op.addDay(dreamCruiseCB.specify().columnMemberId()).addHour(-3));
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
@@ -264,7 +264,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).greaterEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toTimestamp("2006/09/26 12:34:56.789"));
+                cb.mysticRhythms(toLocalDateTime("2006/09/26 12:34:56.789"));
             }
         });
 
@@ -290,7 +290,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         {
             Member member = new Member();
-            member.setBirthdate(toDate("2014/09/10"));
+            member.setBirthdate(toLocalDate("2014/09/10"));
             memberBhv.varyingQueryUpdate(member, new MemberCB(), op -> op.allowNonQueryUpdate());
         }
         MemberCB cb = new MemberCB();
@@ -302,7 +302,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).greaterEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toDate("2006/09/26"));
+                cb.mysticRhythms(toLocalDate("2006/09/26"));
             }
         }).convert(op -> op.subtractMonth(dreamCruiseCB.specify().columnVersionNo()));
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
@@ -311,7 +311,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).lessEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toDate("2014/09/20"));
+                cb.mysticRhythms(toLocalDate("2014/09/20"));
             }
         }).convert(op -> op.subtractDay(dreamCruiseCB.specify().columnMemberId()).addMinute(-1));
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
@@ -320,7 +320,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         }).lessEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.mysticRhythms(toDate("2015/04/05"));
+                cb.mysticRhythms(toLocalDate("2015/04/05"));
             }
         });
 
@@ -420,7 +420,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -449,12 +449,12 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
         }, Member.ALIAS_highestPurchasePrice);
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }

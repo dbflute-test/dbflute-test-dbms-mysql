@@ -2,21 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.seasar.dbflute</groupId>
+	<groupId>org.dbflute.dftest</groupId>
 	<artifactId>dbflute-test-dbms-mysql</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>DBFlute Test of PostgreSQL</name>
+	<name>DBFlute Test of MySQL</name>
 	<description>test project of DBMS MySQL, using Seasar</description>
-	<url>https://github.com/dbflute-test/dbflute-test-active-dockside</url>
+	<url>https://github.com/dbflute-test/dbflute-test-dbms-mysql</url>
 	<inceptionYear>2014</inceptionYear>
 
 	<properties>
 		<seasar.version>2.4.46</seasar.version>
 		<dbflute.version>1.1.0-pilotB-SNAPSHOT</dbflute.version>
 		<mysql.jdbc.version>5.1.33</mysql.jdbc.version>
-		<utflute.version>0.5.0-pilotA-SNAPSHOT</utflute.version>
+		<utflute.version>0.5.0-pilotB-SNAPSHOT</utflute.version>
 	</properties>
 
 	<licenses>
@@ -40,7 +40,7 @@
 
 	<issueManagement>
 		<system>Github</system>
-		<url>https://github.com/dbflute-test/dbflute-test-active-dockside/issues</url>
+		<url>https://github.com/dbflute-test/dbflute-test-dbms-mysql/issues</url>
 	</issueManagement>
 	<mailingLists>
 		<mailingList>
@@ -147,11 +147,6 @@
 
 	<repositories>
 		<repository>
-			<id>local</id>
-			<name>Local Repository</name>
-			<url>file:${basedir}/repo</url>
-		</repository>
-		<repository>
 			<id>sonatype-oss-public</id>
 			<url>https://oss.sonatype.org/content/groups/public/</url>
 			<releases>
@@ -160,6 +155,11 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
+		</repository>
+		<repository>
+			<id>local</id>
+			<name>Local Repository</name>
+			<url>file:${basedir}/repo</url>
 		</repository>
 		<repository>
 			<id>maven.seasar.org</id>
@@ -243,13 +243,11 @@
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jta_1.1_spec</artifactId>
 			<version>1.0</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-ejb_3.0_spec</artifactId>
 			<version>1.0</version>
-			<scope>runtime</scope>
 		</dependency>
 
 		<!-- logging -->

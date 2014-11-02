@@ -198,7 +198,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -406,7 +406,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -415,7 +415,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<RegionCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<RegionCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -505,7 +505,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
      * (会員住所情報)member_address by REGION_ID, named 'memberAddressList'.
      * <pre>
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">loadMemberAddressList</span>(<span style="color: #553000">regionList</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">regionList</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addressCB</span>.setupSelect...
      *     <span style="color: #553000">addressCB</span>.query().set...
      *     <span style="color: #553000">addressCB</span>.query().addOrderBy...
@@ -527,16 +527,16 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberAddress> loadMemberAddressList(List<Region> regionList, ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
+    public NestedReferrerListGateway<MemberAddress> loadMemberAddress(List<Region> regionList, ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
         xassLRArg(regionList, refCBLambda);
-        return doLoadMemberAddressList(regionList, new LoadReferrerOption<MemberAddressCB, MemberAddress>().xinit(refCBLambda));
+        return doLoadMemberAddress(regionList, new LoadReferrerOption<MemberAddressCB, MemberAddress>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
      * (会員住所情報)member_address by REGION_ID, named 'memberAddressList'.
      * <pre>
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">loadMemberAddressList</span>(<span style="color: #553000">region</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">region</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addressCB</span>.setupSelect...
      *     <span style="color: #553000">addressCB</span>.query().set...
      *     <span style="color: #553000">addressCB</span>.query().addOrderBy...
@@ -556,9 +556,9 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberAddress> loadMemberAddressList(Region region, ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
+    public NestedReferrerListGateway<MemberAddress> loadMemberAddress(Region region, ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
         xassLRArg(region, refCBLambda);
-        return doLoadMemberAddressList(xnewLRLs(region), new LoadReferrerOption<MemberAddressCB, MemberAddress>().xinit(refCBLambda));
+        return doLoadMemberAddress(xnewLRLs(region), new LoadReferrerOption<MemberAddressCB, MemberAddress>().xinit(refCBLambda));
     }
 
     /**
@@ -567,9 +567,9 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberAddress> loadMemberAddressList(Region region, LoadReferrerOption<MemberAddressCB, MemberAddress> loadReferrerOption) {
+    public NestedReferrerListGateway<MemberAddress> loadMemberAddress(Region region, LoadReferrerOption<MemberAddressCB, MemberAddress> loadReferrerOption) {
         xassLRArg(region, loadReferrerOption);
-        return loadMemberAddressList(xnewLRLs(region), loadReferrerOption);
+        return loadMemberAddress(xnewLRLs(region), loadReferrerOption);
     }
 
     /**
@@ -579,13 +579,13 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<MemberAddress> loadMemberAddressList(List<Region> regionList, LoadReferrerOption<MemberAddressCB, MemberAddress> loadReferrerOption) {
+    public NestedReferrerListGateway<MemberAddress> loadMemberAddress(List<Region> regionList, LoadReferrerOption<MemberAddressCB, MemberAddress> loadReferrerOption) {
         xassLRArg(regionList, loadReferrerOption);
         if (regionList.isEmpty()) { return (NestedReferrerListGateway<MemberAddress>)EMPTY_NREF_LGWAY; }
-        return doLoadMemberAddressList(regionList, loadReferrerOption);
+        return doLoadMemberAddress(regionList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<MemberAddress> doLoadMemberAddressList(List<Region> regionList, LoadReferrerOption<MemberAddressCB, MemberAddress> option) {
+    protected NestedReferrerListGateway<MemberAddress> doLoadMemberAddress(List<Region> regionList, LoadReferrerOption<MemberAddressCB, MemberAddress> option) {
         return helpLoadReferrerInternally(regionList, option, "memberAddressList");
     }
 
@@ -1142,9 +1142,8 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<RegionBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<RegionBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<RegionBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

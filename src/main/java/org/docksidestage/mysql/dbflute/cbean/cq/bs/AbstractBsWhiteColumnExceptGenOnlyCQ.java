@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
         regLSQ(CK_NLS, fRES(genOnlyName), xgetCValueGenOnlyName(), "GEN_ONLY_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
-     * @param genOnlyName The value of genOnlyName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setGenOnlyName_PrefixSearch(String genOnlyName) {
-        setGenOnlyName_LikeSearch(genOnlyName, xcLSOPPre());
-    }
-
     protected void regGenOnlyName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueGenOnlyName(), "GEN_ONLY_NAME"); }
     protected abstract ConditionValue xgetCValueGenOnlyName();
 

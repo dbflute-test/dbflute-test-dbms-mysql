@@ -52,7 +52,8 @@ public class WhiteVariantRelationMasterBarDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterBar)et).getMasterBarId(), (et, vl) -> ((WhiteVariantRelationMasterBar)et).setMasterBarId(ctl(vl)), "masterBarId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterBar)et).getMasterBarName(), (et, vl) -> ((WhiteVariantRelationMasterBar)et).setMasterBarName((String)vl), "masterBarName");
     }

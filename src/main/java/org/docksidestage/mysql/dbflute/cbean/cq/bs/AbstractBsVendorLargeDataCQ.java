@@ -167,13 +167,13 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {exists (select LARGE_DATA_ID from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of VendorLargeDataRefList for 'exists'. (NotNull)
      */
-    public void existsVendorLargeDataRefList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
+    public void existsVendorLargeDataRef(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataId_ExistsReferrer_VendorLargeDataRefList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {not exists (select LARGE_DATA_ID from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of LargeDataId_NotExistsReferrer_VendorLargeDataRefList for 'not exists'. (NotNull)
      */
-    public void notExistsVendorLargeDataRefList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
+    public void notExistsVendorLargeDataRef(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataId_NotExistsReferrer_VendorLargeDataRefList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {FOO &lt;= (select max(BAR) from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<VendorLargeDataRefCB> derivedVendorLargeDataRefList() {
+    public HpQDRFunction<VendorLargeDataRefCB> derivedVendorLargeDataRef() {
         return xcreateQDRFunctionVendorLargeDataRefList();
     }
     protected HpQDRFunction<VendorLargeDataRefCB> xcreateQDRFunctionVendorLargeDataRefList() {
@@ -346,15 +346,6 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
         regLSQ(CK_NLS, fRES(stringIndex), xgetCValueStringIndex(), "STRING_INDEX", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * STRING_INDEX: {IX, NotNull, VARCHAR(180)}
-     * @param stringIndex The value of stringIndex as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setStringIndex_PrefixSearch(String stringIndex) {
-        setStringIndex_LikeSearch(stringIndex, xcLSOPPre());
-    }
-
     protected void regStringIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringIndex(), "STRING_INDEX"); }
     protected abstract ConditionValue xgetCValueStringIndex();
 
@@ -454,15 +445,6 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
         regLSQ(CK_NLS, fRES(stringNoIndex), xgetCValueStringNoIndex(), "STRING_NO_INDEX", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * STRING_NO_INDEX: {NotNull, VARCHAR(180)}
-     * @param stringNoIndex The value of stringNoIndex as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setStringNoIndex_PrefixSearch(String stringNoIndex) {
-        setStringNoIndex_LikeSearch(stringNoIndex, xcLSOPPre());
-    }
-
     protected void regStringNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringNoIndex(), "STRING_NO_INDEX"); }
     protected abstract ConditionValue xgetCValueStringNoIndex();
 
@@ -560,15 +542,6 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      */
     public void setStringUniqueIndex_NotLikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(stringUniqueIndex), xgetCValueStringUniqueIndex(), "STRING_UNIQUE_INDEX", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)}
-     * @param stringUniqueIndex The value of stringUniqueIndex as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setStringUniqueIndex_PrefixSearch(String stringUniqueIndex) {
-        setStringUniqueIndex_LikeSearch(stringUniqueIndex, xcLSOPPre());
     }
 
     protected void regStringUniqueIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringUniqueIndex(), "STRING_UNIQUE_INDEX"); }

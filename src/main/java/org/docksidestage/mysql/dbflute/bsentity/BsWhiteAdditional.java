@@ -59,8 +59,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer fooId = entity.getFooId();
  * String fooName = entity.getFooName();
- * java.util.Date fooDate = entity.getFooDate();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDate fooDate = entity.getFooDate();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * entity.setFooId(fooId);
  * entity.setFooName(fooName);
  * entity.setFooDate(fooDate);
@@ -87,10 +87,10 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
     protected String _fooName;
 
     /** foo_date: {UnknownType} */
-    protected java.util.Date _fooDate;
+    protected java.time.LocalDate _fooDate;
 
     /** register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -164,7 +164,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_fooId));
         sb.append(dm).append(xfND(_fooName));
-        sb.append(dm).append(xfUD(_fooDate));
+        sb.append(dm).append(xfND(_fooDate));
         sb.append(dm).append(xfND(_registerDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -228,7 +228,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
      * [get] foo_date: {UnknownType} <br>
      * @return The value of the column 'foo_date'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getFooDate() {
+    public java.time.LocalDate getFooDate() {
         checkSpecifiedProperty("fooDate");
         return _fooDate;
     }
@@ -237,7 +237,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
      * [set] foo_date: {UnknownType} <br>
      * @param fooDate The value of the column 'foo_date'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setFooDate(java.util.Date fooDate) {
+    public void setFooDate(java.time.LocalDate fooDate) {
         registerModifiedProperty("fooDate");
         _fooDate = fooDate;
     }
@@ -246,7 +246,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
      * [get] register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} <br>
      * @return The value of the column 'register_datetime'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
@@ -255,7 +255,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
      * [set] register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }

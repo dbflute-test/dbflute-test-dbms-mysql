@@ -62,7 +62,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * String withdrawalReasonCode = entity.getWithdrawalReasonCode();
  * String withdrawalReasonText = entity.getWithdrawalReasonText();
  * String withdrawalReasonInputText = entity.getWithdrawalReasonInputText();
- * java.sql.Timestamp withdrawalDatetime = entity.getWithdrawalDatetime();
+ * java.time.LocalDateTime withdrawalDatetime = entity.getWithdrawalDatetime();
  * String memberStatusCode = entity.getMemberStatusCode();
  * String memberStatusName = entity.getMemberStatusName();
  * Long maxPurchasePrice = entity.getMaxPurchasePrice();
@@ -106,7 +106,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     protected String _withdrawalReasonInputText;
 
     /** (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _withdrawalDatetime;
+    protected java.time.LocalDateTime _withdrawalDatetime;
 
     /** (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), classification=MemberStatus} */
     protected String _memberStatusCode;
@@ -449,7 +449,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
      * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
      * @return The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getWithdrawalDatetime() {
+    public java.time.LocalDateTime getWithdrawalDatetime() {
         checkSpecifiedProperty("withdrawalDatetime");
         return _withdrawalDatetime;
     }
@@ -460,7 +460,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
      * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
      * @param withdrawalDatetime The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setWithdrawalDatetime(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime(java.time.LocalDateTime withdrawalDatetime) {
         registerModifiedProperty("withdrawalDatetime");
         _withdrawalDatetime = withdrawalDatetime;
     }

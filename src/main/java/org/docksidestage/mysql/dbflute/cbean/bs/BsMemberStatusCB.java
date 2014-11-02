@@ -350,7 +350,7 @@ public class BsMemberStatusCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberCB, MemberStatusCQ> derivedMemberList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberCB, MemberStatusCQ> derivedMember() {
             assertDerived("memberList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -366,7 +366,7 @@ public class BsMemberStatusCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberLoginCB, MemberStatusCQ> derivedMemberLoginList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberLoginCB, MemberStatusCQ> derivedMemberLogin() {
             assertDerived("memberLoginList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberLoginList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -386,6 +386,24 @@ public class BsMemberStatusCB extends AbstractConditionBean {
             , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
             , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public MemberStatusCB dreamCruiseCB() {
+        MemberStatusCB cb = new MemberStatusCB();
+        cb.xsetupForDreamCruise((MemberStatusCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -419,24 +437,6 @@ public class BsMemberStatusCB extends AbstractConditionBean {
         MemberStatusCB cb = new MemberStatusCB();
         cb.xsetupForColumnQuery((MemberStatusCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public MemberStatusCB dreamCruiseCB() {
-        MemberStatusCB cb = new MemberStatusCB();
-        cb.xsetupForDreamCruise((MemberStatusCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

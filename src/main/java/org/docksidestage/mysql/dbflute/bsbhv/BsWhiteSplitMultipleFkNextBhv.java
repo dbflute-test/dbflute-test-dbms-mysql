@@ -197,7 +197,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteSplitMultipleFkNextCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteSplitMultipleFkNextCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * Load referrer of whiteSplitMultipleFkBaseList by the set-upper of referrer. <br>
      * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkBaseList</span>(<span style="color: #553000">whiteSplitMultipleFkNextList</span>, <span style="color: #553000">baseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkBase</span>(<span style="color: #553000">whiteSplitMultipleFkNextList</span>, <span style="color: #553000">baseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">baseCB</span>.setupSelect...
      *     <span style="color: #553000">baseCB</span>.query().set...
      *     <span style="color: #553000">baseCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBaseList(List<WhiteSplitMultipleFkNext> whiteSplitMultipleFkNextList, ConditionBeanSetupper<WhiteSplitMultipleFkBaseCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBase(List<WhiteSplitMultipleFkNext> whiteSplitMultipleFkNextList, ConditionBeanSetupper<WhiteSplitMultipleFkBaseCB> refCBLambda) {
         xassLRArg(whiteSplitMultipleFkNextList, refCBLambda);
-        return doLoadWhiteSplitMultipleFkBaseList(whiteSplitMultipleFkNextList, new LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase>().xinit(refCBLambda));
+        return doLoadWhiteSplitMultipleFkBase(whiteSplitMultipleFkNextList, new LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteSplitMultipleFkBaseList by the set-upper of referrer. <br>
      * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkBaseList</span>(<span style="color: #553000">whiteSplitMultipleFkNext</span>, <span style="color: #553000">baseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkBase</span>(<span style="color: #553000">whiteSplitMultipleFkNext</span>, <span style="color: #553000">baseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">baseCB</span>.setupSelect...
      *     <span style="color: #553000">baseCB</span>.query().set...
      *     <span style="color: #553000">baseCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBaseList(WhiteSplitMultipleFkNext whiteSplitMultipleFkNext, ConditionBeanSetupper<WhiteSplitMultipleFkBaseCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBase(WhiteSplitMultipleFkNext whiteSplitMultipleFkNext, ConditionBeanSetupper<WhiteSplitMultipleFkBaseCB> refCBLambda) {
         xassLRArg(whiteSplitMultipleFkNext, refCBLambda);
-        return doLoadWhiteSplitMultipleFkBaseList(xnewLRLs(whiteSplitMultipleFkNext), new LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase>().xinit(refCBLambda));
+        return doLoadWhiteSplitMultipleFkBase(xnewLRLs(whiteSplitMultipleFkNext), new LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBaseList(WhiteSplitMultipleFkNext whiteSplitMultipleFkNext, LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBase(WhiteSplitMultipleFkNext whiteSplitMultipleFkNext, LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase> loadReferrerOption) {
         xassLRArg(whiteSplitMultipleFkNext, loadReferrerOption);
-        return loadWhiteSplitMultipleFkBaseList(xnewLRLs(whiteSplitMultipleFkNext), loadReferrerOption);
+        return loadWhiteSplitMultipleFkBase(xnewLRLs(whiteSplitMultipleFkNext), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBaseList(List<WhiteSplitMultipleFkNext> whiteSplitMultipleFkNextList, LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSplitMultipleFkBase> loadWhiteSplitMultipleFkBase(List<WhiteSplitMultipleFkNext> whiteSplitMultipleFkNextList, LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase> loadReferrerOption) {
         xassLRArg(whiteSplitMultipleFkNextList, loadReferrerOption);
         if (whiteSplitMultipleFkNextList.isEmpty()) { return (NestedReferrerListGateway<WhiteSplitMultipleFkBase>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteSplitMultipleFkBaseList(whiteSplitMultipleFkNextList, loadReferrerOption);
+        return doLoadWhiteSplitMultipleFkBase(whiteSplitMultipleFkNextList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteSplitMultipleFkBase> doLoadWhiteSplitMultipleFkBaseList(List<WhiteSplitMultipleFkNext> whiteSplitMultipleFkNextList, LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase> option) {
+    protected NestedReferrerListGateway<WhiteSplitMultipleFkBase> doLoadWhiteSplitMultipleFkBase(List<WhiteSplitMultipleFkNext> whiteSplitMultipleFkNextList, LoadReferrerOption<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkBase> option) {
         return helpLoadReferrerInternally(whiteSplitMultipleFkNextList, option, "whiteSplitMultipleFkBaseList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteSplitMultipleFkNextBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteSplitMultipleFkNextBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteSplitMultipleFkNextBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

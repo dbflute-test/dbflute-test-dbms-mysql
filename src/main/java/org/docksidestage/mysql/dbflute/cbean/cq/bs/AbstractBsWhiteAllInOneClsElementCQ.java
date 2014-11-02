@@ -158,15 +158,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
-     * @param clsCategoryCode The value of clsCategoryCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setClsCategoryCode_PrefixSearch(String clsCategoryCode) {
-        setClsCategoryCode_LikeSearch(clsCategoryCode, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      */
@@ -275,15 +266,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      */
     public void setClsElementCode_NotLikeSearch(String clsElementCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(clsElementCode), xgetCValueClsElementCode(), "CLS_ELEMENT_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsElementCode The value of clsElementCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setClsElementCode_PrefixSearch(String clsElementCode) {
-        setClsElementCode_LikeSearch(clsElementCode, xcLSOPPre());
     }
 
     /**
@@ -397,15 +379,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(clsElementName), xgetCValueClsElementName(), "CLS_ELEMENT_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
-     * @param clsElementName The value of clsElementName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setClsElementName_PrefixSearch(String clsElementName) {
-        setClsElementName_LikeSearch(clsElementName, xcLSOPPre());
-    }
-
     protected void regClsElementName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsElementName(), "CLS_ELEMENT_NAME"); }
     protected abstract ConditionValue xgetCValueClsElementName();
 
@@ -503,15 +476,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      */
     public void setAttributeExp_NotLikeSearch(String attributeExp, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(attributeExp), xgetCValueAttributeExp(), "ATTRIBUTE_EXP", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
-     * @param attributeExp The value of attributeExp as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setAttributeExp_PrefixSearch(String attributeExp) {
-        setAttributeExp_LikeSearch(attributeExp, xcLSOPPre());
     }
 
     protected void regAttributeExp(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAttributeExp(), "ATTRIBUTE_EXP"); }

@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneOneCQ extends Abstract
         regLSQ(CK_NLS, fRES(manyOneOneName), xgetCValueManyOneOneName(), "MANY_ONE_ONE_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MANY_ONE_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneOneName The value of manyOneOneName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setManyOneOneName_PrefixSearch(String manyOneOneName) {
-        setManyOneOneName_LikeSearch(manyOneOneName, xcLSOPPre());
-    }
-
     protected void regManyOneOneName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyOneOneName(), "MANY_ONE_ONE_NAME"); }
     protected abstract ConditionValue xgetCValueManyOneOneName();
 

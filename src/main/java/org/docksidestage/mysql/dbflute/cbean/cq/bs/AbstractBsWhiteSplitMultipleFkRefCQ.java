@@ -274,15 +274,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * SECOND_CODE: {PK, NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setSecondCode_PrefixSearch(String secondCode) {
-        setSecondCode_LikeSearch(secondCode, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
      */
@@ -391,15 +382,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      */
     public void setRefName_NotLikeSearch(String refName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(refName), xgetCValueRefName(), "REF_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REF_NAME: {NotNull, VARCHAR(200)}
-     * @param refName The value of refName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setRefName_PrefixSearch(String refName) {
-        setRefName_LikeSearch(refName, xcLSOPPre());
     }
 
     protected void regRefName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefName(), "REF_NAME"); }

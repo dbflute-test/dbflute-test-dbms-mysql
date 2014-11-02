@@ -197,7 +197,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteVariantRelationMasterBarCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteVariantRelationMasterBarCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * Load referrer of whiteVariantRelationReferrerAsVariantList by the set-upper of referrer. <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariantList</span>(<span style="color: #553000">whiteVariantRelationMasterBarList</span>, <span style="color: #553000">referrerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariant</span>(<span style="color: #553000">whiteVariantRelationMasterBarList</span>, <span style="color: #553000">referrerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">referrerCB</span>.setupSelect...
      *     <span style="color: #553000">referrerCB</span>.query().set...
      *     <span style="color: #553000">referrerCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariantList(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, ConditionBeanSetupper<WhiteVariantRelationReferrerCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariant(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, ConditionBeanSetupper<WhiteVariantRelationReferrerCB> refCBLambda) {
         xassLRArg(whiteVariantRelationMasterBarList, refCBLambda);
-        return doLoadWhiteVariantRelationReferrerAsVariantList(whiteVariantRelationMasterBarList, new LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer>().xinit(refCBLambda));
+        return doLoadWhiteVariantRelationReferrerAsVariant(whiteVariantRelationMasterBarList, new LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteVariantRelationReferrerAsVariantList by the set-upper of referrer. <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariantList</span>(<span style="color: #553000">whiteVariantRelationMasterBar</span>, <span style="color: #553000">referrerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariant</span>(<span style="color: #553000">whiteVariantRelationMasterBar</span>, <span style="color: #553000">referrerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">referrerCB</span>.setupSelect...
      *     <span style="color: #553000">referrerCB</span>.query().set...
      *     <span style="color: #553000">referrerCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariantList(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, ConditionBeanSetupper<WhiteVariantRelationReferrerCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariant(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, ConditionBeanSetupper<WhiteVariantRelationReferrerCB> refCBLambda) {
         xassLRArg(whiteVariantRelationMasterBar, refCBLambda);
-        return doLoadWhiteVariantRelationReferrerAsVariantList(xnewLRLs(whiteVariantRelationMasterBar), new LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer>().xinit(refCBLambda));
+        return doLoadWhiteVariantRelationReferrerAsVariant(xnewLRLs(whiteVariantRelationMasterBar), new LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariantList(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariant(WhiteVariantRelationMasterBar whiteVariantRelationMasterBar, LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer> loadReferrerOption) {
         xassLRArg(whiteVariantRelationMasterBar, loadReferrerOption);
-        return loadWhiteVariantRelationReferrerAsVariantList(xnewLRLs(whiteVariantRelationMasterBar), loadReferrerOption);
+        return loadWhiteVariantRelationReferrerAsVariant(xnewLRLs(whiteVariantRelationMasterBar), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariantList(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariant(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer> loadReferrerOption) {
         xassLRArg(whiteVariantRelationMasterBarList, loadReferrerOption);
         if (whiteVariantRelationMasterBarList.isEmpty()) { return (NestedReferrerListGateway<WhiteVariantRelationReferrer>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteVariantRelationReferrerAsVariantList(whiteVariantRelationMasterBarList, loadReferrerOption);
+        return doLoadWhiteVariantRelationReferrerAsVariant(whiteVariantRelationMasterBarList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteVariantRelationReferrer> doLoadWhiteVariantRelationReferrerAsVariantList(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer> option) {
+    protected NestedReferrerListGateway<WhiteVariantRelationReferrer> doLoadWhiteVariantRelationReferrerAsVariant(List<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarList, LoadReferrerOption<WhiteVariantRelationReferrerCB, WhiteVariantRelationReferrer> option) {
         return helpLoadReferrerInternally(whiteVariantRelationMasterBarList, option, "whiteVariantRelationReferrerAsVariantList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteVariantRelationMasterBarBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteVariantRelationMasterBarBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteVariantRelationMasterBarBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

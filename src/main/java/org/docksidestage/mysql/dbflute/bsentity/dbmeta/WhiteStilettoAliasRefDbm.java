@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getRefId(), (et, vl) -> ((WhiteStilettoAliasRef)et).setRefId(cti(vl)), "refId");
         setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo0(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo0((String)vl), "foo0");
         setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo1(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo1((String)vl), "foo1");
@@ -74,8 +76,9 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteStilettoAliasRef)et).getWhiteStilettoAlias(), (et, vl) -> ((WhiteStilettoAliasRef)et).setWhiteStilettoAlias((WhiteStilettoAlias)vl), "whiteStilettoAlias");
+        setupEfpg(_efpgMap, et -> ((WhiteStilettoAliasRef)et).getWhiteStilettoAlias(), (et, vl) -> ((WhiteStilettoAliasRef)et).setWhiteStilettoAlias((OptionalEntity<WhiteStilettoAlias>)vl), "whiteStilettoAlias");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -211,7 +214,7 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteStilettoAlias() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnStilettoAliasId(), WhiteStilettoAliasDbm.getInstance().columnStilettoAliasId());
-        return cfi("FK_WHITE_STILETTO_ALIAS_REF", "whiteStilettoAlias", this, WhiteStilettoAliasDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteStilettoAliasRefList");
+        return cfi("FK_WHITE_STILETTO_ALIAS_REF", "whiteStilettoAlias", this, WhiteStilettoAliasDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteStilettoAliasRefList");
     }
 
     // -----------------------------------------------------

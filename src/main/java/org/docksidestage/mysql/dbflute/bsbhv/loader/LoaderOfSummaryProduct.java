@@ -76,14 +76,14 @@ public class LoaderOfSummaryProduct {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<Purchase> _referrerPurchaseList;
+    protected List<Purchase> _referrerPurchase;
 
     /**
      * Load referrer of purchaseList by the set-upper of referrer. <br>
      * (購入)purchase by PRODUCT_ID, named 'purchaseList'.
      * <pre>
      * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">summaryProductList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadPurchaseList</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">purchaseCB</span>.setupSelect...
      *         <span style="color: #553000">purchaseCB</span>.query().set...
      *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfSummaryProduct {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfPurchase> loadPurchaseList(ConditionBeanSetupper<PurchaseCB> refCBLambda) {
-        myBhv().loadPurchaseList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerPurchaseList = refLs);
-        return hd -> hd.handle(new LoaderOfPurchase().ready(_referrerPurchaseList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfPurchase> loadPurchase(ConditionBeanSetupper<PurchaseCB> refCBLambda) {
+        myBhv().loadPurchase(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerPurchase = refLs);
+        return hd -> hd.handle(new LoaderOfPurchase().ready(_referrerPurchase, _selector));
     }
 
     // ===================================================================================

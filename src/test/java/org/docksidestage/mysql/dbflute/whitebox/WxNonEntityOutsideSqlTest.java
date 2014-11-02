@@ -28,8 +28,8 @@ public class WxNonEntityOutsideSqlTest extends UnitContainerTestCase {
         Class<NonEntitySimpleMember> entityType = NonEntitySimpleMember.class;
 
         // ## Act ##
-        ListResultBean<NonEntitySimpleMember> memberList = memberBhv.outsideSql().selectList(
-                "sqlblack/MemberBhv_selectBlackWay.sql", pmb, entityType);
+        ListResultBean<NonEntitySimpleMember> memberList =
+                memberBhv.outsideSql().traditionalStyle().selectList("sqlblack/MemberBhv_selectBlackWay.sql", pmb, entityType);
 
         // ## Assert ##
         assertHasAnyElement(memberList);
@@ -48,8 +48,8 @@ public class WxNonEntityOutsideSqlTest extends UnitContainerTestCase {
         Class<NonEntitySimpleMember> entityType = NonEntitySimpleMember.class;
 
         // ## Act ##
-        ListResultBean<NonEntitySimpleMember> memberList = memberBhv.outsideSql().selectList(
-                "sqlblack/NonEntitySimple.sql", pmb, entityType);
+        ListResultBean<NonEntitySimpleMember> memberList =
+                memberBhv.outsideSql().traditionalStyle().selectList("sqlblack/NonEntitySimple.sql", pmb, entityType);
 
         // ## Assert ##
         assertHasAnyElement(memberList);
@@ -65,8 +65,8 @@ public class WxNonEntityOutsideSqlTest extends UnitContainerTestCase {
         Class<NonEntitySql2Entity> entityType = NonEntitySql2Entity.class;
 
         // ## Act ##
-        ListResultBean<NonEntitySql2Entity> memberList = memberBhv.outsideSql().selectList(
-                "sqlblack/NonEntitySimple.sql", pmb, entityType);
+        ListResultBean<NonEntitySql2Entity> memberList =
+                memberBhv.outsideSql().traditionalStyle().selectList("sqlblack/NonEntitySimple.sql", pmb, entityType);
 
         // ## Assert ##
         assertHasAnyElement(memberList);

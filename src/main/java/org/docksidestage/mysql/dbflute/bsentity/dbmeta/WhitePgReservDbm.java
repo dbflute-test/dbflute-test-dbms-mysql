@@ -52,7 +52,8 @@ public class WhitePgReservDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePgReserv)et).getClassSynonym(), (et, vl) -> ((WhitePgReserv)et).setClassSynonym(cti(vl)), "classSynonym");
         setupEpg(_epgMap, et -> ((WhitePgReserv)et).getCaseSynonym(), (et, vl) -> ((WhitePgReserv)et).setCaseSynonym(cti(vl)), "caseSynonym");
         setupEpg(_epgMap, et -> ((WhitePgReserv)et).getPackageSynonym(), (et, vl) -> ((WhitePgReserv)et).setPackageSynonym(cti(vl)), "packageSynonym");

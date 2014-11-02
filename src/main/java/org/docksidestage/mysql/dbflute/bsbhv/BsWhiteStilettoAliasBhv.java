@@ -197,7 +197,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteStilettoAliasCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteStilettoAliasCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * Load referrer of whiteStilettoAliasRefList by the set-upper of referrer. <br>
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRefList</span>(<span style="color: #553000">whiteStilettoAliasList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRef</span>(<span style="color: #553000">whiteStilettoAliasList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(List<WhiteStilettoAlias> whiteStilettoAliasList, ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRef(List<WhiteStilettoAlias> whiteStilettoAliasList, ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
         xassLRArg(whiteStilettoAliasList, refCBLambda);
-        return doLoadWhiteStilettoAliasRefList(whiteStilettoAliasList, new LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef>().xinit(refCBLambda));
+        return doLoadWhiteStilettoAliasRef(whiteStilettoAliasList, new LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteStilettoAliasRefList by the set-upper of referrer. <br>
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRefList</span>(<span style="color: #553000">whiteStilettoAlias</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRef</span>(<span style="color: #553000">whiteStilettoAlias</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(WhiteStilettoAlias whiteStilettoAlias, ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRef(WhiteStilettoAlias whiteStilettoAlias, ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
         xassLRArg(whiteStilettoAlias, refCBLambda);
-        return doLoadWhiteStilettoAliasRefList(xnewLRLs(whiteStilettoAlias), new LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef>().xinit(refCBLambda));
+        return doLoadWhiteStilettoAliasRef(xnewLRLs(whiteStilettoAlias), new LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(WhiteStilettoAlias whiteStilettoAlias, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRef(WhiteStilettoAlias whiteStilettoAlias, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> loadReferrerOption) {
         xassLRArg(whiteStilettoAlias, loadReferrerOption);
-        return loadWhiteStilettoAliasRefList(xnewLRLs(whiteStilettoAlias), loadReferrerOption);
+        return loadWhiteStilettoAliasRef(xnewLRLs(whiteStilettoAlias), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(List<WhiteStilettoAlias> whiteStilettoAliasList, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRef(List<WhiteStilettoAlias> whiteStilettoAliasList, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> loadReferrerOption) {
         xassLRArg(whiteStilettoAliasList, loadReferrerOption);
         if (whiteStilettoAliasList.isEmpty()) { return (NestedReferrerListGateway<WhiteStilettoAliasRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteStilettoAliasRefList(whiteStilettoAliasList, loadReferrerOption);
+        return doLoadWhiteStilettoAliasRef(whiteStilettoAliasList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteStilettoAliasRef> doLoadWhiteStilettoAliasRefList(List<WhiteStilettoAlias> whiteStilettoAliasList, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> option) {
+    protected NestedReferrerListGateway<WhiteStilettoAliasRef> doLoadWhiteStilettoAliasRef(List<WhiteStilettoAlias> whiteStilettoAliasList, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> option) {
         return helpLoadReferrerInternally(whiteStilettoAliasList, option, "whiteStilettoAliasRefList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteStilettoAliasBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteStilettoAliasBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteStilettoAliasBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

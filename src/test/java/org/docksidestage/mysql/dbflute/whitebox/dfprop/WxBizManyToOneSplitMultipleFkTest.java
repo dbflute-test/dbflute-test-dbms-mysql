@@ -63,8 +63,8 @@ public class WxBizManyToOneSplitMultipleFkTest extends UnitContainerTestCase {
         boolean existsPreviousHash = false;
         Map<Set<Object>, String> instanceMap = newHashMap();
         for (WhiteSplitMultipleFkBase base : baseList) {
-            WhiteSplitMultipleFkNext next = base.getWhiteSplitMultipleFkNext();
-            WhiteSplitMultipleFkRef ref = base.getWhiteSplitMultipleFkRefAsSplitMultipleFkTest();
+            WhiteSplitMultipleFkNext next = base.getWhiteSplitMultipleFkNext().get();
+            WhiteSplitMultipleFkRef ref = base.getWhiteSplitMultipleFkRefAsSplitMultipleFkTest().get();
             Integer baseFirstId = base.getFirstId();
             Integer refFirstId = ref.getFirstId();
             assertEquals(baseFirstId, refFirstId);
@@ -124,9 +124,9 @@ public class WxBizManyToOneSplitMultipleFkTest extends UnitContainerTestCase {
         boolean existsPreviousHash = false;
         Map<Set<Object>, String> instanceMap = newHashMap();
         for (WhiteSplitMultipleFkChild child : baseList) {
-            WhiteSplitMultipleFkBase base = child.getWhiteSplitMultipleFkBase();
-            WhiteSplitMultipleFkNext next = base.getWhiteSplitMultipleFkNext();
-            WhiteSplitMultipleFkRef ref = base.getWhiteSplitMultipleFkRefAsSplitMultipleFkTest();
+            WhiteSplitMultipleFkBase base = child.getWhiteSplitMultipleFkBase().get();
+            WhiteSplitMultipleFkNext next = base.getWhiteSplitMultipleFkNext().get();
+            WhiteSplitMultipleFkRef ref = base.getWhiteSplitMultipleFkRefAsSplitMultipleFkTest().get();
             Integer baseFirstId = base.getFirstId();
             Integer refFirstId = ref.getFirstId();
             assertEquals(baseFirstId, refFirstId);

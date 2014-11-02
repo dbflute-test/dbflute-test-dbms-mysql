@@ -158,15 +158,6 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param dbCommentCode The value of dbCommentCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setDbCommentCode_PrefixSearch(String dbCommentCode) {
-        setDbCommentCode_LikeSearch(dbCommentCode, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      */
@@ -275,15 +266,6 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      */
     public void setDbCommentName_NotLikeSearch(String dbCommentName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(dbCommentName), xgetCValueDbCommentName(), "DB_COMMENT_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
-     * @param dbCommentName The value of dbCommentName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setDbCommentName_PrefixSearch(String dbCommentName) {
-        setDbCommentName_LikeSearch(dbCommentName, xcLSOPPre());
     }
 
     /**

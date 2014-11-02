@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteVariantRelationLocalPkReferrerDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationLocalPkReferrer)et).getReversefkSuppressedId(), (et, vl) -> ((WhiteVariantRelationLocalPkReferrer)et).setReversefkSuppressedId(ctl(vl)), "reversefkSuppressedId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationLocalPkReferrer)et).getMasterTypeCode(), (et, vl) -> ((WhiteVariantRelationLocalPkReferrer)et).setMasterTypeCode((String)vl), "masterTypeCode");
     }
@@ -64,8 +66,9 @@ public class WhiteVariantRelationLocalPkReferrerDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationLocalPkReferrer)et).getWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(), (et, vl) -> ((WhiteVariantRelationLocalPkReferrer)et).setWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne((WhiteVariantRelationMasterFoo)vl), "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationLocalPkReferrer)et).getWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(), (et, vl) -> ((WhiteVariantRelationLocalPkReferrer)et).setWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne((OptionalEntity<WhiteVariantRelationMasterFoo>)vl), "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -131,7 +134,7 @@ public class WhiteVariantRelationLocalPkReferrerDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnReversefkSuppressedId(), WhiteVariantRelationMasterFooDbm.getInstance().columnMasterFooId());
-        return cfi("FK_WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER", "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne", this, WhiteVariantRelationMasterFooDbm.getInstance(), mp, 0, null, true, true, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, "whiteVariantRelationLocalPkReferrerAsOne");
+        return cfi("FK_WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER", "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne", this, WhiteVariantRelationMasterFooDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, "whiteVariantRelationLocalPkReferrerAsOne");
     }
 
     // -----------------------------------------------------

@@ -52,7 +52,8 @@ public class WhiteEscapedDfpropDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteEscapedDfprop)et).getEscapedDfpropCode(), (et, vl) -> {
             ColumnInfo col = columnEscapedDfpropCode();
             ccls(col, vl);

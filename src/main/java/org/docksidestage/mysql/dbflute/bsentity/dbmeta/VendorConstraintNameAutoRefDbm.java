@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoRefId(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoRefId(ctl(vl)), "constraintNameAutoRefId");
         setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoFooId(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoFooId(ctl(vl)), "constraintNameAutoFooId");
         setupEpg(_epgMap, et -> ((VendorConstraintNameAutoRef)et).getConstraintNameAutoBarId(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setConstraintNameAutoBarId(ctl(vl)), "constraintNameAutoBarId");
@@ -68,10 +70,11 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoBar(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoBar((VendorConstraintNameAutoBar)vl), "vendorConstraintNameAutoBar");
-        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoFoo(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoFoo((VendorConstraintNameAutoFoo)vl), "vendorConstraintNameAutoFoo");
-        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoQux(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoQux((VendorConstraintNameAutoQux)vl), "vendorConstraintNameAutoQux");
+        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoBar(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoBar((OptionalEntity<VendorConstraintNameAutoBar>)vl), "vendorConstraintNameAutoBar");
+        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoFoo(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoFoo((OptionalEntity<VendorConstraintNameAutoFoo>)vl), "vendorConstraintNameAutoFoo");
+        setupEfpg(_efpgMap, et -> ((VendorConstraintNameAutoRef)et).getVendorConstraintNameAutoQux(), (et, vl) -> ((VendorConstraintNameAutoRef)et).setVendorConstraintNameAutoQux((OptionalEntity<VendorConstraintNameAutoQux>)vl), "vendorConstraintNameAutoQux");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -165,7 +168,7 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorConstraintNameAutoBar() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnConstraintNameAutoBarId(), VendorConstraintNameAutoBarDbm.getInstance().columnConstraintNameAutoBarId());
-        return cfi("vendor_constraint_name_auto_ref_ibfk_2", "vendorConstraintNameAutoBar", this, VendorConstraintNameAutoBarDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "vendorConstraintNameAutoRefList");
+        return cfi("vendor_constraint_name_auto_ref_ibfk_2", "vendorConstraintNameAutoBar", this, VendorConstraintNameAutoBarDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorConstraintNameAutoRefList");
     }
     /**
      * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
@@ -173,7 +176,7 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorConstraintNameAutoFoo() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnConstraintNameAutoFooId(), VendorConstraintNameAutoFooDbm.getInstance().columnConstraintNameAutoFooId());
-        return cfi("vendor_constraint_name_auto_ref_ibfk_1", "vendorConstraintNameAutoFoo", this, VendorConstraintNameAutoFooDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "vendorConstraintNameAutoRefList");
+        return cfi("vendor_constraint_name_auto_ref_ibfk_1", "vendorConstraintNameAutoFoo", this, VendorConstraintNameAutoFooDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorConstraintNameAutoRefList");
     }
     /**
      * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
@@ -181,7 +184,7 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorConstraintNameAutoQux() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnConstraintNameAutoQuxId(), VendorConstraintNameAutoQuxDbm.getInstance().columnConstraintNameAutoQuxId());
-        return cfi("vendor_constraint_name_auto_ref_ibfk_3", "vendorConstraintNameAutoQux", this, VendorConstraintNameAutoQuxDbm.getInstance(), mp, 2, null, false, false, false, false, null, null, false, "vendorConstraintNameAutoRefList");
+        return cfi("vendor_constraint_name_auto_ref_ibfk_3", "vendorConstraintNameAutoQux", this, VendorConstraintNameAutoQuxDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorConstraintNameAutoRefList");
     }
 
     // -----------------------------------------------------

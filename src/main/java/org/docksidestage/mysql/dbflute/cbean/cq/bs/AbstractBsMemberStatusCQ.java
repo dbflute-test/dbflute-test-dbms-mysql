@@ -206,13 +206,13 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * {exists (select MEMBER_STATUS_CODE from member where ...)} <br>
      * (会員)member by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberList for 'exists'. (NotNull)
      */
-    public void existsMemberList(SubQuery<MemberCB> subCBLambda) {
+    public void existsMember(SubQuery<MemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberCB cb = new MemberCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_ExistsReferrer_MemberList(cb.query());
@@ -225,13 +225,13 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * {exists (select LOGIN_MEMBER_STATUS_CODE from member_login where ...)} <br>
      * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberLoginList</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsMemberLogin</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberLoginList for 'exists'. (NotNull)
      */
-    public void existsMemberLoginList(SubQuery<MemberLoginCB> subCBLambda) {
+    public void existsMemberLogin(SubQuery<MemberLoginCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_ExistsReferrer_MemberLoginList(cb.query());
@@ -244,13 +244,13 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * {not exists (select MEMBER_STATUS_CODE from member where ...)} <br>
      * (会員)member by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberStatusCode_NotExistsReferrer_MemberList for 'not exists'. (NotNull)
      */
-    public void notExistsMemberList(SubQuery<MemberCB> subCBLambda) {
+    public void notExistsMember(SubQuery<MemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberCB cb = new MemberCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_NotExistsReferrer_MemberList(cb.query());
@@ -263,13 +263,13 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * {not exists (select LOGIN_MEMBER_STATUS_CODE from member_login where ...)} <br>
      * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberLoginList</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsMemberLogin</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberStatusCode_NotExistsReferrer_MemberLoginList for 'not exists'. (NotNull)
      */
-    public void notExistsMemberLoginList(SubQuery<MemberLoginCB> subCBLambda) {
+    public void notExistsMemberLogin(SubQuery<MemberLoginCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_NotExistsReferrer_MemberLoginList(cb.query());
@@ -298,14 +298,14 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from member where ...)} <br>
      * (会員)member by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberList()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedMember()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     memberCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<MemberCB> derivedMemberList() {
+    public HpQDRFunction<MemberCB> derivedMember() {
         return xcreateQDRFunctionMemberList();
     }
     protected HpQDRFunction<MemberCB> xcreateQDRFunctionMemberList() {
@@ -325,14 +325,14 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from member_login where ...)} <br>
      * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberLoginList()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedMemberLogin()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     loginCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<MemberLoginCB> derivedMemberLoginList() {
+    public HpQDRFunction<MemberLoginCB> derivedMemberLogin() {
         return xcreateQDRFunctionMemberLoginList();
     }
     protected HpQDRFunction<MemberLoginCB> xcreateQDRFunctionMemberLoginList() {
@@ -458,15 +458,6 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(memberStatusName), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMemberStatusName_PrefixSearch(String memberStatusName) {
-        setMemberStatusName_LikeSearch(memberStatusName, xcLSOPPre());
-    }
-
     protected void regMemberStatusName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME"); }
     protected abstract ConditionValue xgetCValueMemberStatusName();
 
@@ -564,15 +555,6 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      */
     public void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(description), xgetCValueDescription(), "DESCRIPTION", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setDescription_PrefixSearch(String description) {
-        setDescription_LikeSearch(description, xcLSOPPre());
     }
 
     protected void regDescription(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDescription(), "DESCRIPTION"); }

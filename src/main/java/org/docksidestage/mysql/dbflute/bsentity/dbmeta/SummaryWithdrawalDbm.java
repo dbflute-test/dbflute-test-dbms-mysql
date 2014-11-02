@@ -52,13 +52,14 @@ public class SummaryWithdrawalDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getMemberId(), (et, vl) -> ((SummaryWithdrawal)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getMemberName(), (et, vl) -> ((SummaryWithdrawal)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getWithdrawalReasonCode(), (et, vl) -> ((SummaryWithdrawal)et).setWithdrawalReasonCode((String)vl), "withdrawalReasonCode");
         setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getWithdrawalReasonText(), (et, vl) -> ((SummaryWithdrawal)et).setWithdrawalReasonText((String)vl), "withdrawalReasonText");
         setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getWithdrawalReasonInputText(), (et, vl) -> ((SummaryWithdrawal)et).setWithdrawalReasonInputText((String)vl), "withdrawalReasonInputText");
-        setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getWithdrawalDatetime(), (et, vl) -> ((SummaryWithdrawal)et).setWithdrawalDatetime((java.sql.Timestamp)vl), "withdrawalDatetime");
+        setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getWithdrawalDatetime(), (et, vl) -> ((SummaryWithdrawal)et).setWithdrawalDatetime((java.time.LocalDateTime)vl), "withdrawalDatetime");
         setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             ccls(col, vl);
@@ -96,7 +97,7 @@ public class SummaryWithdrawalDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnWithdrawalReasonCode = cci("WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", null, "退会理由コード", String.class, "withdrawalReasonCode", null, false, false, false, "CHAR", 3, 0, null, false, null, "退会した定型理由を参照するコード。\n何も言わずに退会する会員もいるので必須項目ではない。", null, null, null);
     protected final ColumnInfo _columnWithdrawalReasonText = cci("WITHDRAWAL_REASON_TEXT", "WITHDRAWAL_REASON_TEXT", null, "退会理由テキスト", String.class, "withdrawalReasonText", null, false, false, false, "TEXT", 65535, 0, null, false, null, "退会理由の内容。テキスト形式なので目いっぱい書けるが、\nそうするとUI側できれいに見せるのが大変でしょうね。", null, null, null);
     protected final ColumnInfo _columnWithdrawalReasonInputText = cci("WITHDRAWAL_REASON_INPUT_TEXT", "WITHDRAWAL_REASON_INPUT_TEXT", null, "退会理由入力テキスト", String.class, "withdrawalReasonInputText", null, false, false, false, "TEXT", 65535, 0, null, false, null, "会員がフリーテキストで入力できる退会理由。\nもう言いたいこと言ってもらう感じ。", null, null, null);
-    protected final ColumnInfo _columnWithdrawalDatetime = cci("WITHDRAWAL_DATETIME", "WITHDRAWAL_DATETIME", null, "退会日時", java.sql.Timestamp.class, "withdrawalDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, "退会した瞬間の日時。\n正式会員日時と違い、こっちはone-to-oneの別テーブルで。", null, null, null);
+    protected final ColumnInfo _columnWithdrawalDatetime = cci("WITHDRAWAL_DATETIME", "WITHDRAWAL_DATETIME", null, "退会日時", java.time.LocalDateTime.class, "withdrawalDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, "退会した瞬間の日時。\n正式会員日時と違い、こっちはone-to-oneの別テーブルで。", null, null, null);
     protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, false, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.MemberStatus);
     protected final ColumnInfo _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnMaxPurchasePrice = cci("MAX_PURCHASE_PRICE", "MAX_PURCHASE_PRICE", null, null, Long.class, "maxPurchasePrice", null, false, false, false, "BIGINT", 19, 0, null, false, null, null, null, null, null);

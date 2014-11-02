@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -131,13 +133,15 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'. */
-    protected WhiteCompoundPk _whiteCompoundPk;
+    protected OptionalEntity<WhiteCompoundPk> _whiteCompoundPk;
 
     /**
      * [get] white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'. <br>
-     * @return The entity of foreign property 'whiteCompoundPk'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundPk'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundPk getWhiteCompoundPk() {
+    public OptionalEntity<WhiteCompoundPk> getWhiteCompoundPk() {
+        if (_whiteCompoundPk == null) { _whiteCompoundPk = OptionalEntity.relationEmpty(this, "whiteCompoundPk"); }
         return _whiteCompoundPk;
     }
 
@@ -145,7 +149,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
      * [set] white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
      * @param whiteCompoundPk The entity of foreign property 'whiteCompoundPk'. (NullAllowed)
      */
-    public void setWhiteCompoundPk(WhiteCompoundPk whiteCompoundPk) {
+    public void setWhiteCompoundPk(OptionalEntity<WhiteCompoundPk> whiteCompoundPk) {
         _whiteCompoundPk = whiteCompoundPk;
     }
 
@@ -223,13 +227,16 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPk != null)
+        if (_whiteCompoundPk != null && _whiteCompoundPk.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundPk, "whiteCompoundPk")); }
         if (_whiteCompoundPkRefNestByQuxMultipleIdList != null) { for (WhiteCompoundPkRefNest et : _whiteCompoundPkRefNestByQuxMultipleIdList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefNestByQuxMultipleIdList")); } } }
         if (_whiteCompoundPkRefNestByFooMultipleIdList != null) { for (WhiteCompoundPkRefNest et : _whiteCompoundPkRefNestByFooMultipleIdList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefNestByFooMultipleIdList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -250,7 +257,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPk != null)
+        if (_whiteCompoundPk != null && _whiteCompoundPk.isPresent())
         { sb.append(dm).append("whiteCompoundPk"); }
         if (_whiteCompoundPkRefNestByQuxMultipleIdList != null && !_whiteCompoundPkRefNestByQuxMultipleIdList.isEmpty())
         { sb.append(dm).append("whiteCompoundPkRefNestByQuxMultipleIdList"); }

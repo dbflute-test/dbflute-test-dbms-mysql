@@ -56,9 +56,9 @@ public class BsPurchaseSummaryMemberCursor {
 
     protected ValueType _vtMemberId = vt(Integer.class);
     protected ValueType _vtMemberName = vt(String.class);
-    protected ValueType _vtBirthdate = vt(java.util.Date.class);
-    protected ValueType _vtFormalizedDatetime = vt(java.sql.Timestamp.class);
-    protected ValueType _vtPurchaseSummary = vt(java.math.BigDecimal.class);
+    protected ValueType _vtBirthdate = vt(java.time.LocalDate.class);
+    protected ValueType _vtFormalizedDatetime = vt(java.time.LocalDateTime.class);
+    protected ValueType _vtPurchaseSummary = vt(Long.class);
 
     protected ValueType vt(Class<?> type) {
         return TnValueTypes.getValueType(type);
@@ -140,8 +140,8 @@ public class BsPurchaseSummaryMemberCursor {
      * @return The value of birthdate. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
-    public java.util.Date getBirthdate() throws SQLException {
-        return (java.util.Date)_vtBirthdate.getValue(_rs, DB_NAME_BIRTHDATE);
+    public java.time.LocalDate getBirthdate() throws SQLException {
+        return (java.time.LocalDate)_vtBirthdate.getValue(_rs, DB_NAME_BIRTHDATE);
     }
 
     /**
@@ -151,8 +151,8 @@ public class BsPurchaseSummaryMemberCursor {
      * @return The value of formalizedDatetime. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
-    public java.sql.Timestamp getFormalizedDatetime() throws SQLException {
-        return (java.sql.Timestamp)_vtFormalizedDatetime.getValue(_rs, DB_NAME_FORMALIZED_DATETIME);
+    public java.time.LocalDateTime getFormalizedDatetime() throws SQLException {
+        return (java.time.LocalDateTime)_vtFormalizedDatetime.getValue(_rs, DB_NAME_FORMALIZED_DATETIME);
     }
 
     /**
@@ -161,8 +161,8 @@ public class BsPurchaseSummaryMemberCursor {
      * @return The value of purchaseSummary. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
-    public java.math.BigDecimal getPurchaseSummary() throws SQLException {
-        return (java.math.BigDecimal)_vtPurchaseSummary.getValue(_rs, DB_NAME_PURCHASE_SUMMARY);
+    public Long getPurchaseSummary() throws SQLException {
+        return (Long)_vtPurchaseSummary.getValue(_rs, DB_NAME_PURCHASE_SUMMARY);
     }
 
 }

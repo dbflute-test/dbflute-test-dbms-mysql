@@ -273,15 +273,6 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
         regLSQ(CK_NLS, fRES(loginPassword), xgetCValueLoginPassword(), "LOGIN_PASSWORD", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (ログインパスワード)LOGIN_PASSWORD: {NotNull, VARCHAR(50)}
-     * @param loginPassword The value of loginPassword as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setLoginPassword_PrefixSearch(String loginPassword) {
-        setLoginPassword_LikeSearch(loginPassword, xcLSOPPre());
-    }
-
     protected void regLoginPassword(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoginPassword(), "LOGIN_PASSWORD"); }
     protected abstract ConditionValue xgetCValueLoginPassword();
 
@@ -381,15 +372,6 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
         regLSQ(CK_NLS, fRES(reminderQuestion), xgetCValueReminderQuestion(), "REMINDER_QUESTION", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (リマインダ質問)REMINDER_QUESTION: {NotNull, VARCHAR(50)}
-     * @param reminderQuestion The value of reminderQuestion as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setReminderQuestion_PrefixSearch(String reminderQuestion) {
-        setReminderQuestion_LikeSearch(reminderQuestion, xcLSOPPre());
-    }
-
     protected void regReminderQuestion(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReminderQuestion(), "REMINDER_QUESTION"); }
     protected abstract ConditionValue xgetCValueReminderQuestion();
 
@@ -487,15 +469,6 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
      */
     public void setReminderAnswer_NotLikeSearch(String reminderAnswer, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(reminderAnswer), xgetCValueReminderAnswer(), "REMINDER_ANSWER", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (リマインダ回答)REMINDER_ANSWER: {NotNull, VARCHAR(50)}
-     * @param reminderAnswer The value of reminderAnswer as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setReminderAnswer_PrefixSearch(String reminderAnswer) {
-        setReminderAnswer_LikeSearch(reminderAnswer, xcLSOPPre());
     }
 
     protected void regReminderAnswer(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReminderAnswer(), "REMINDER_ANSWER"); }
@@ -610,7 +583,7 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
      * REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_Equal(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
@@ -660,7 +633,7 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
      * UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_Equal(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 

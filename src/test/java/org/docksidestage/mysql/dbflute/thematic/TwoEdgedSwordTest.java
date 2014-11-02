@@ -1,7 +1,7 @@
 package org.docksidestage.mysql.dbflute.thematic;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -113,7 +113,7 @@ public class TwoEdgedSwordTest extends UnitContainerTestCase {
 
         // ## Act ##
         // SQL実行！
-        List<SimpleMember> resultList = memberBhv.outsideSql().selectList(path, pmb, entityType);
+        List<SimpleMember> resultList = memberBhv.outsideSql().traditionalStyle().selectList(path, pmb, entityType);
 
         // ## Assert ##
         assertNotSame(0, resultList.size());
@@ -175,7 +175,7 @@ public class TwoEdgedSwordTest extends UnitContainerTestCase {
 
         // ## Act ##
         // SQL実行！
-        List<SimpleMember> memberList = memberBhv.outsideSql().selectList(path, pmb, entityType);
+        List<SimpleMember> memberList = memberBhv.outsideSql().traditionalStyle().selectList(path, pmb, entityType);
 
         // ## Assert ##
         assertNotNull(memberList);
@@ -224,7 +224,7 @@ public class TwoEdgedSwordTest extends UnitContainerTestCase {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberLoginAsLatest().withMemberStatus(); // *Point!
-        cb.query().setMemberName_PrefixSearch("S");
+        cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -233,12 +233,12 @@ public class TwoEdgedSwordTest extends UnitContainerTestCase {
         assertNotSame(0, memberList.size());
         boolean existsNotLoginMember = false;
         for (Member member : memberList) {
-            MemberLogin memberLoginAsLatest = member.getMemberLoginAsLatest();
-            Timestamp latestLogin = null;
+            MemberLogin memberLoginAsLatest = member.getMemberLoginAsLatest().orElse(null);
+            LocalDateTime latestLogin = null;
             String memberStatusName = null;
             if (memberLoginAsLatest != null) {
                 latestLogin = memberLoginAsLatest.getLoginDatetime();
-                memberStatusName = memberLoginAsLatest.getMemberStatus().getMemberStatusName();
+                memberStatusName = memberLoginAsLatest.getMemberStatus().get().getMemberStatusName();
             } else {
                 existsNotLoginMember = true;
             }

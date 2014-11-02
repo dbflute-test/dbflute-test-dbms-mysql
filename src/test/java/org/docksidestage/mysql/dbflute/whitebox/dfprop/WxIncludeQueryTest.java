@@ -1,6 +1,6 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.dbflute.cbean.ConditionBean;
@@ -45,13 +45,13 @@ public class WxIncludeQueryTest extends UnitContainerTestCase {
         // ## Act & Assert ##
         // [included]
         // expect no exception
-        cb.localCQ().invokeQuery("BIRTHDATE", "Equal", currentDate());
-        cb.localCQ().invokeQuery("BIRTHDATE", "GreaterThan", currentDate());
-        cb.localCQ().invokeQuery("BIRTHDATE", "LessThan", currentDate());
-        cb.localCQ().invokeQuery("BIRTHDATE", "GreaterEqual", currentDate());
-        cb.localCQ().invokeQuery("BIRTHDATE", "LessEqual", currentDate());
+        cb.localCQ().invokeQuery("BIRTHDATE", "Equal", currentLocalDate());
+        cb.localCQ().invokeQuery("BIRTHDATE", "GreaterThan", currentLocalDate());
+        cb.localCQ().invokeQuery("BIRTHDATE", "LessThan", currentLocalDate());
+        cb.localCQ().invokeQuery("BIRTHDATE", "GreaterEqual", currentLocalDate());
+        cb.localCQ().invokeQuery("BIRTHDATE", "LessEqual", currentLocalDate());
         cb.enableOverridingQuery(() -> {
-            List<Date> fromToList = DfCollectionUtil.newArrayList(currentDate(), currentDate());
+            List<LocalDate> fromToList = newArrayList(currentLocalDate(), currentLocalDate());
             cb.localCQ().invokeQuery("BIRTHDATE", "FromTo", fromToList, new FromToOption().compareAsDate());
             cb.localCQ().invokeQuery("BIRTHDATE", "DateFromTo", fromToList);
         });
@@ -89,7 +89,7 @@ public class WxIncludeQueryTest extends UnitContainerTestCase {
         // ## Act & Assert ##
         // [included]
         // expect no exception
-        cb.localCQ().invokeQuery("REGISTER_DATETIME", "Equal", currentTimestamp());
+        cb.localCQ().invokeQuery("REGISTER_DATETIME", "Equal", currentLocalDateTime());
 
         // [excluded]
         String name = "REGISTER_DATETIME";

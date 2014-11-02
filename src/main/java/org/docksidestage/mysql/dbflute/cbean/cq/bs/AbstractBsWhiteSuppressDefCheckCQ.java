@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
         regLSQ(CK_NLS, fRES(defCheckName), xgetCValueDefCheckName(), "DEF_CHECK_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
-     * @param defCheckName The value of defCheckName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setDefCheckName_PrefixSearch(String defCheckName) {
-        setDefCheckName_LikeSearch(defCheckName, xcLSOPPre());
-    }
-
     protected void regDefCheckName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDefCheckName(), "DEF_CHECK_NAME"); }
     protected abstract ConditionValue xgetCValueDefCheckName();
 

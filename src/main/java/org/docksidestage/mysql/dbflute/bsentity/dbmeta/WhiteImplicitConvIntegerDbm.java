@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteImplicitConvIntegerDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteImplicitConvInteger)et).getImplicitConvIntegerId(), (et, vl) -> ((WhiteImplicitConvInteger)et).setImplicitConvIntegerId(cti(vl)), "implicitConvIntegerId");
         setupEpg(_epgMap, et -> ((WhiteImplicitConvInteger)et).getImplicitConvNumericId(), (et, vl) -> ((WhiteImplicitConvInteger)et).setImplicitConvNumericId(cti(vl)), "implicitConvNumericId");
         setupEpg(_epgMap, et -> ((WhiteImplicitConvInteger)et).getImplicitConvStringId(), (et, vl) -> ((WhiteImplicitConvInteger)et).setImplicitConvStringId(cti(vl)), "implicitConvStringId");
@@ -66,9 +68,10 @@ public class WhiteImplicitConvIntegerDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteImplicitConvInteger)et).getWhiteImplicitConvNumeric(), (et, vl) -> ((WhiteImplicitConvInteger)et).setWhiteImplicitConvNumeric((WhiteImplicitConvNumeric)vl), "whiteImplicitConvNumeric");
-        setupEfpg(_efpgMap, et -> ((WhiteImplicitConvInteger)et).getWhiteImplicitConvString(), (et, vl) -> ((WhiteImplicitConvInteger)et).setWhiteImplicitConvString((WhiteImplicitConvString)vl), "whiteImplicitConvString");
+        setupEfpg(_efpgMap, et -> ((WhiteImplicitConvInteger)et).getWhiteImplicitConvNumeric(), (et, vl) -> ((WhiteImplicitConvInteger)et).setWhiteImplicitConvNumeric((OptionalEntity<WhiteImplicitConvNumeric>)vl), "whiteImplicitConvNumeric");
+        setupEfpg(_efpgMap, et -> ((WhiteImplicitConvInteger)et).getWhiteImplicitConvString(), (et, vl) -> ((WhiteImplicitConvInteger)et).setWhiteImplicitConvString((OptionalEntity<WhiteImplicitConvString>)vl), "whiteImplicitConvString");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -148,7 +151,7 @@ public class WhiteImplicitConvIntegerDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteImplicitConvNumeric() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnImplicitConvNumericId(), WhiteImplicitConvNumericDbm.getInstance().columnImplicitConvNumericId());
-        return cfi("FK_WHITE_IMPLICIT_CONV_INTEGER_NUMERIC", "whiteImplicitConvNumeric", this, WhiteImplicitConvNumericDbm.getInstance(), mp, 0, null, false, false, false, true, null, null, false, "whiteImplicitConvIntegerList");
+        return cfi("FK_WHITE_IMPLICIT_CONV_INTEGER_NUMERIC", "whiteImplicitConvNumeric", this, WhiteImplicitConvNumericDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteImplicitConvIntegerList");
     }
     /**
      * white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
@@ -156,7 +159,7 @@ public class WhiteImplicitConvIntegerDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteImplicitConvString() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnImplicitConvStringId(), WhiteImplicitConvStringDbm.getInstance().columnImplicitConvStringId());
-        return cfi("FK_WHITE_IMPLICIT_CONV_INTEGER_STRING", "whiteImplicitConvString", this, WhiteImplicitConvStringDbm.getInstance(), mp, 1, null, false, false, false, true, null, null, false, "whiteImplicitConvIntegerList");
+        return cfi("FK_WHITE_IMPLICIT_CONV_INTEGER_STRING", "whiteImplicitConvString", this, WhiteImplicitConvStringDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteImplicitConvIntegerList");
     }
 
     // -----------------------------------------------------

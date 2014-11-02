@@ -585,15 +585,6 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
         regLSQ(CK_NLS, fRES(nestName), xgetCValueNestName(), "NEST_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * NEST_NAME: {NotNull, VARCHAR(50)}
-     * @param nestName The value of nestName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setNestName_PrefixSearch(String nestName) {
-        setNestName_LikeSearch(nestName, xcLSOPPre());
-    }
-
     protected void regNestName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNestName(), "NEST_NAME"); }
     protected abstract ConditionValue xgetCValueNestName();
 

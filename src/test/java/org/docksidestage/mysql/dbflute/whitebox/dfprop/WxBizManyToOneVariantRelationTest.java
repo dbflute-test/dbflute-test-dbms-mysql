@@ -13,7 +13,6 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.cbean.WhiteVariantRelationLocalPkReferrerCB;
 import org.docksidestage.mysql.dbflute.cbean.WhiteVariantRelationMasterFooCB;
 import org.docksidestage.mysql.dbflute.cbean.WhiteVariantRelationReferrerCB;
-import org.docksidestage.mysql.dbflute.cbean.WhiteVariantRelationReferrerRefCB;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteVariantRelationLocalPkReferrerBhv;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteVariantRelationMasterBarBhv;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteVariantRelationMasterFooBhv;
@@ -60,9 +59,9 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         assertHasAnyElement(referrerList);
         for (WhiteVariantRelationReferrer referrer : referrerList) {
             log(referrer);
-            WhiteVariantRelationMasterFoo foo = referrer.getWhiteVariantRelationMasterFooAsVariant();
-            WhiteVariantRelationMasterBar bar = referrer.getWhiteVariantRelationMasterBarAsVariant();
-            WhiteVariantRelationMasterQux qux = referrer.getWhiteVariantRelationMasterQuxAsVariantByQue();
+            WhiteVariantRelationMasterFoo foo = referrer.getWhiteVariantRelationMasterFooAsVariant().orElse(null);
+            WhiteVariantRelationMasterBar bar = referrer.getWhiteVariantRelationMasterBarAsVariant().orElse(null);
+            WhiteVariantRelationMasterQux qux = referrer.getWhiteVariantRelationMasterQuxAsVariantByQue().orElse(null);
             if (foo != null) {
                 whiteVariantRelationMasterFooBhv.selectByPK(foo.getMasterFooId()).get();
                 assertTrue(referrer.isMasterTypeCodeFooCls());
@@ -94,7 +93,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
 
         // ## Act ##
         ListResultBean<WhiteVariantRelationMasterFoo> fooList = whiteVariantRelationMasterFooBhv.selectList(cb);
-        whiteVariantRelationMasterFooBhv.loadWhiteVariantRelationReferrerAsVariantList(fooList,
+        whiteVariantRelationMasterFooBhv.loadWhiteVariantRelationReferrerAsVariant(fooList,
                 new ConditionBeanSetupper<WhiteVariantRelationReferrerCB>() {
                     public void setup(WhiteVariantRelationReferrerCB cb) {
                         cb.setupSelect_WhiteVariantRelationMasterBarAsVariant();
@@ -133,7 +132,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
 
         // ## Act ##
         ListResultBean<WhiteVariantRelationMasterFoo> fooList = whiteVariantRelationMasterFooBhv.selectList(cb);
-        whiteVariantRelationMasterFooBhv.loadWhiteVariantRelationReferrerAsVariantList(fooList,
+        whiteVariantRelationMasterFooBhv.loadWhiteVariantRelationReferrerAsVariant(fooList,
                 new ConditionBeanSetupper<WhiteVariantRelationReferrerCB>() {
                     public void setup(WhiteVariantRelationReferrerCB cb) {
                         cb.setupSelect_WhiteVariantRelationMasterBarAsVariant();
@@ -169,7 +168,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
 
         // ## Act ##
         ListResultBean<WhiteVariantRelationMasterFoo> fooList = whiteVariantRelationMasterFooBhv.selectList(cb);
-        whiteVariantRelationMasterFooBhv.loadWhiteVariantRelationReferrerAsVariantList(fooList,
+        whiteVariantRelationMasterFooBhv.loadWhiteVariantRelationReferrerAsVariant(fooList,
                 new ConditionBeanSetupper<WhiteVariantRelationReferrerCB>() {
                     public void setup(WhiteVariantRelationReferrerCB cb) {
                         cb.setupSelect_WhiteVariantRelationMasterBarAsVariant();
@@ -216,7 +215,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.query().existsWhiteVariantRelationReferrerAsVariantList(new SubQuery<WhiteVariantRelationReferrerCB>() {
+        cb.query().existsWhiteVariantRelationReferrerAsVariant(new SubQuery<WhiteVariantRelationReferrerCB>() {
             public void query(WhiteVariantRelationReferrerCB subCB) {
             }
         });
@@ -241,7 +240,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.query().existsWhiteVariantRelationReferrerAsVariantList(new SubQuery<WhiteVariantRelationReferrerCB>() {
+        cb.query().existsWhiteVariantRelationReferrerAsVariant(new SubQuery<WhiteVariantRelationReferrerCB>() {
             public void query(WhiteVariantRelationReferrerCB subCB) {
                 subCB.query().setVariantMasterId_GreaterEqual(2L);
             }
@@ -270,7 +269,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.query().existsWhiteVariantRelationReferrerAsVariantList(new SubQuery<WhiteVariantRelationReferrerCB>() {
+        cb.query().existsWhiteVariantRelationReferrerAsVariant(new SubQuery<WhiteVariantRelationReferrerCB>() {
             public void query(WhiteVariantRelationReferrerCB subCB) {
                 subCB.query().setVariantMasterId_GreaterEqual(1L);
                 subCB.union(new UnionQuery<WhiteVariantRelationReferrerCB>() {
@@ -309,12 +308,11 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.specify().derivedWhiteVariantRelationReferrerAsVariantList()
-                .max(new SubQuery<WhiteVariantRelationReferrerCB>() {
-                    public void query(WhiteVariantRelationReferrerCB subCB) {
-                        subCB.specify().columnReferrerId();
-                    }
-                }, WhiteVariantRelationMasterFoo.ALIAS_highestPurchasePrice);
+        cb.specify().derivedWhiteVariantRelationReferrerAsVariant().max(new SubQuery<WhiteVariantRelationReferrerCB>() {
+            public void query(WhiteVariantRelationReferrerCB subCB) {
+                subCB.specify().columnReferrerId();
+            }
+        }, WhiteVariantRelationMasterFoo.ALIAS_highestPurchasePrice);
         cb.query().addOrderBy_MasterFooId_Asc();
 
         // ## Act ##
@@ -331,16 +329,15 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.specify().derivedWhiteVariantRelationReferrerAsVariantList()
-                .max(new SubQuery<WhiteVariantRelationReferrerCB>() {
-                    public void query(WhiteVariantRelationReferrerCB subCB) {
-                        subCB.specify().columnReferrerId();
-                        subCB.union(new UnionQuery<WhiteVariantRelationReferrerCB>() {
-                            public void query(WhiteVariantRelationReferrerCB unionCB) {
-                            }
-                        });
+        cb.specify().derivedWhiteVariantRelationReferrerAsVariant().max(new SubQuery<WhiteVariantRelationReferrerCB>() {
+            public void query(WhiteVariantRelationReferrerCB subCB) {
+                subCB.specify().columnReferrerId();
+                subCB.union(new UnionQuery<WhiteVariantRelationReferrerCB>() {
+                    public void query(WhiteVariantRelationReferrerCB unionCB) {
                     }
-                }, WhiteVariantRelationMasterFoo.ALIAS_highestPurchasePrice);
+                });
+            }
+        }, WhiteVariantRelationMasterFoo.ALIAS_highestPurchasePrice);
         cb.query().addOrderBy_MasterFooId_Asc();
 
         // ## Act ##
@@ -361,23 +358,13 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.specify().derivedWhiteVariantRelationReferrerAsVariantList()
-                .max(new SubQuery<WhiteVariantRelationReferrerCB>() {
-                    public void query(WhiteVariantRelationReferrerCB subCB) {
-                        subCB.specify().derivedWhiteVariantRelationReferrerRefList()
-                                .max(new SubQuery<WhiteVariantRelationReferrerRefCB>() {
-                                    public void query(WhiteVariantRelationReferrerRefCB subCB) {
-                                        subCB.specify().columnRefId();
-                                        subCB.query().setReferrerId_LessEqual(100L);
-                                    }
-                                }, null);
-                        subCB.union(new UnionQuery<WhiteVariantRelationReferrerCB>() {
-                            public void query(WhiteVariantRelationReferrerCB unionCB) {
-                                unionCB.query().setMasterTypeCode_Equal_BarCls();
-                            }
-                        });
-                    }
-                }, WhiteVariantRelationMasterFoo.ALIAS_highestPurchasePrice);
+        cb.specify().derivedWhiteVariantRelationReferrerAsVariant().max(referrerCB -> {
+            referrerCB.specify().derivedWhiteVariantRelationReferrerRef().max(refCB -> {
+                refCB.specify().columnRefId();
+                refCB.query().setReferrerId_LessEqual(100L);
+            }, null);
+            referrerCB.union(unionCB -> unionCB.query().setMasterTypeCode_Equal_BarCls());
+        }, WhiteVariantRelationMasterFoo.ALIAS_highestPurchasePrice);
         cb.query().addOrderBy_MasterFooId_Asc();
 
         // ## Act ##
@@ -422,7 +409,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.query().existsWhiteVariantRelationReferrerAsVariantList(new SubQuery<WhiteVariantRelationReferrerCB>() {
+        cb.query().existsWhiteVariantRelationReferrerAsVariant(new SubQuery<WhiteVariantRelationReferrerCB>() {
             public void query(WhiteVariantRelationReferrerCB subCB) {
                 subCB.useInScopeSubQuery();
             }
@@ -448,7 +435,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.query().existsWhiteVariantRelationReferrerAsVariantList(new SubQuery<WhiteVariantRelationReferrerCB>() {
+        cb.query().existsWhiteVariantRelationReferrerAsVariant(new SubQuery<WhiteVariantRelationReferrerCB>() {
             public void query(WhiteVariantRelationReferrerCB subCB) {
                 subCB.useInScopeSubQuery();
                 subCB.query().setVariantMasterId_GreaterEqual(2L);
@@ -477,7 +464,7 @@ public class WxBizManyToOneVariantRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteVariantRelationMasterFooCB cb = new WhiteVariantRelationMasterFooCB();
-        cb.query().existsWhiteVariantRelationReferrerAsVariantList(new SubQuery<WhiteVariantRelationReferrerCB>() {
+        cb.query().existsWhiteVariantRelationReferrerAsVariant(new SubQuery<WhiteVariantRelationReferrerCB>() {
             public void query(WhiteVariantRelationReferrerCB subCB) {
                 subCB.useInScopeSubQuery();
                 subCB.query().setVariantMasterId_GreaterEqual(1L);

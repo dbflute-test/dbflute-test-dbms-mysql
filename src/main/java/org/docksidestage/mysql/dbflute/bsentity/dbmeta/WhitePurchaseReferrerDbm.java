@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhitePurchaseReferrerDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePurchaseReferrer)et).getPurchaseReferrerId(), (et, vl) -> ((WhitePurchaseReferrer)et).setPurchaseReferrerId(ctl(vl)), "purchaseReferrerId");
         setupEpg(_epgMap, et -> ((WhitePurchaseReferrer)et).getPurchaseReferrerName(), (et, vl) -> ((WhitePurchaseReferrer)et).setPurchaseReferrerName((String)vl), "purchaseReferrerName");
     }
@@ -64,8 +66,9 @@ public class WhitePurchaseReferrerDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhitePurchaseReferrer)et).getPurchase(), (et, vl) -> ((WhitePurchaseReferrer)et).setPurchase((Purchase)vl), "purchase");
+        setupEfpg(_efpgMap, et -> ((WhitePurchaseReferrer)et).getPurchase(), (et, vl) -> ((WhitePurchaseReferrer)et).setPurchase((OptionalEntity<Purchase>)vl), "purchase");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -131,7 +134,7 @@ public class WhitePurchaseReferrerDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignPurchase() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnPurchaseReferrerId(), PurchaseDbm.getInstance().columnPurchaseId());
-        return cfi("FK_WHITE_PURCHASE_REFERRER", "purchase", this, PurchaseDbm.getInstance(), mp, 0, null, true, false, false, false, null, null, false, "whitePurchaseReferrerAsOne");
+        return cfi("FK_WHITE_PURCHASE_REFERRER", "purchase", this, PurchaseDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, false, null, null, false, "whitePurchaseReferrerAsOne");
     }
 
     // -----------------------------------------------------

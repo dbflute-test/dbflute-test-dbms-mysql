@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -115,13 +117,15 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity implements
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'. */
-    protected WhiteImplicitReverseFkRef _whiteImplicitReverseFkRefWithImplicitReverseFK;
+    protected OptionalEntity<WhiteImplicitReverseFkRef> _whiteImplicitReverseFkRefWithImplicitReverseFK;
 
     /**
      * [get] white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'. <br>
-     * @return The entity of foreign property 'whiteImplicitReverseFkRefWithImplicitReverseFK'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteImplicitReverseFkRefWithImplicitReverseFK'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteImplicitReverseFkRef getWhiteImplicitReverseFkRefWithImplicitReverseFK() {
+    public OptionalEntity<WhiteImplicitReverseFkRef> getWhiteImplicitReverseFkRefWithImplicitReverseFK() {
+        if (_whiteImplicitReverseFkRefWithImplicitReverseFK == null) { _whiteImplicitReverseFkRefWithImplicitReverseFK = OptionalEntity.relationEmpty(this, "whiteImplicitReverseFkRefWithImplicitReverseFK"); }
         return _whiteImplicitReverseFkRefWithImplicitReverseFK;
     }
 
@@ -129,18 +133,20 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity implements
      * [set] white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
      * @param whiteImplicitReverseFkRefWithImplicitReverseFK The entity of foreign property 'whiteImplicitReverseFkRefWithImplicitReverseFK'. (NullAllowed)
      */
-    public void setWhiteImplicitReverseFkRefWithImplicitReverseFK(WhiteImplicitReverseFkRef whiteImplicitReverseFkRefWithImplicitReverseFK) {
+    public void setWhiteImplicitReverseFkRefWithImplicitReverseFK(OptionalEntity<WhiteImplicitReverseFkRef> whiteImplicitReverseFkRefWithImplicitReverseFK) {
         _whiteImplicitReverseFkRefWithImplicitReverseFK = whiteImplicitReverseFkRefWithImplicitReverseFK;
     }
 
     /** white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'. */
-    protected WhiteImplicitReverseFkSuppress _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK;
+    protected OptionalEntity<WhiteImplicitReverseFkSuppress> _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK;
 
     /**
      * [get] white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'. <br>
-     * @return The entity of foreign property 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteImplicitReverseFkSuppress getWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK() {
+    public OptionalEntity<WhiteImplicitReverseFkSuppress> getWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK() {
+        if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK == null) { _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK = OptionalEntity.relationEmpty(this, "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK"); }
         return _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK;
     }
 
@@ -148,7 +154,7 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity implements
      * [set] white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
      * @param whiteImplicitReverseFkSuppressSuppressImplicitReverseFK The entity of foreign property 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'. (NullAllowed)
      */
-    public void setWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(WhiteImplicitReverseFkSuppress whiteImplicitReverseFkSuppressSuppressImplicitReverseFK) {
+    public void setWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(OptionalEntity<WhiteImplicitReverseFkSuppress> whiteImplicitReverseFkSuppressSuppressImplicitReverseFK) {
         _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK = whiteImplicitReverseFkSuppressSuppressImplicitReverseFK;
     }
 
@@ -184,11 +190,14 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity implements
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteImplicitReverseFkRefWithImplicitReverseFK != null)
+        if (_whiteImplicitReverseFkRefWithImplicitReverseFK != null && _whiteImplicitReverseFkRefWithImplicitReverseFK.isPresent())
         { sb.append(li).append(xbRDS(_whiteImplicitReverseFkRefWithImplicitReverseFK, "whiteImplicitReverseFkRefWithImplicitReverseFK")); }
-        if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK != null)
+        if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK != null && _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK.isPresent())
         { sb.append(li).append(xbRDS(_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK, "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -206,9 +215,9 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity implements
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteImplicitReverseFkRefWithImplicitReverseFK != null)
+        if (_whiteImplicitReverseFkRefWithImplicitReverseFK != null && _whiteImplicitReverseFkRefWithImplicitReverseFK.isPresent())
         { sb.append(dm).append("whiteImplicitReverseFkRefWithImplicitReverseFK"); }
-        if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK != null)
+        if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK != null && _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK.isPresent())
         { sb.append(dm).append("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

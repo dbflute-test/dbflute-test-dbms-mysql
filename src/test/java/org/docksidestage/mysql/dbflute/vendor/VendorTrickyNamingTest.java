@@ -15,7 +15,7 @@ import org.docksidestage.mysql.unit.UnitContainerTestCase;
  * @author jflute
  * @since 0.9.9.1B (2011/10/17 Monday)
  */
-public class VendorNameTest extends UnitContainerTestCase {
+public class VendorTrickyNamingTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute
@@ -46,7 +46,7 @@ public class VendorNameTest extends UnitContainerTestCase {
             assertNotNull(ref.getShortDate());
             assertEquals("2011/10", toString(ref.getTheLongAndWindingTableAndColumnRefDate(), "yyyy/MM"));
             assertEquals("2000/01", toString(ref.getShortDate(), "yyyy/MM"));
-            VendorTheLongAndWindingTableAndColumn main = ref.getVendorTheLongAndWindingTableAndColumn();
+            VendorTheLongAndWindingTableAndColumn main = ref.getVendorTheLongAndWindingTableAndColumn().get();
             assertNotNull(main);
             assertNotNull(main.getTheLongAndWindingTableAndColumnId());
             assertEquals("longName", main.getTheLongAndWindingTableAndColumnName());
@@ -80,7 +80,7 @@ public class VendorNameTest extends UnitContainerTestCase {
             assertNotNull(ref.getShortDate());
             assertEquals("2011/10", toString(ref.getTheLongAndWindingTableAndColumnRefDate(), "yyyy/MM"));
             assertEquals("2000/01", toString(ref.getShortDate(), "yyyy/MM"));
-            VendorTheLongAndWindingTableAndColumn main = ref.getVendorTheLongAndWindingTableAndColumn();
+            VendorTheLongAndWindingTableAndColumn main = ref.getVendorTheLongAndWindingTableAndColumn().get();
             assertNotNull(main);
             assertNotNull(main.getTheLongAndWindingTableAndColumnId());
             assertEquals("longName", main.getTheLongAndWindingTableAndColumnName());
@@ -102,8 +102,8 @@ public class VendorNameTest extends UnitContainerTestCase {
             VendorTheLongAndWindingTableAndColumnRef ref = new VendorTheLongAndWindingTableAndColumnRef();
             ref.setTheLongAndWindingTableAndColumnRefId(3L);
             ref.setTheLongAndWindingTableAndColumnId(1L);
-            ref.setTheLongAndWindingTableAndColumnRefDate(toDate("2011/10/17"));
-            ref.setShortDate(toDate("2000/01/01"));
+            ref.setTheLongAndWindingTableAndColumnRefDate(toLocalDate("2011/10/17"));
+            ref.setShortDate(toLocalDate("2000/01/01"));
             vendorTheLongAndWindingTableAndColumnRefBhv.insert(ref);
             refList.add(ref);
         }
@@ -111,8 +111,8 @@ public class VendorNameTest extends UnitContainerTestCase {
             VendorTheLongAndWindingTableAndColumnRef ref = new VendorTheLongAndWindingTableAndColumnRef();
             ref.setTheLongAndWindingTableAndColumnRefId(4L);
             ref.setTheLongAndWindingTableAndColumnId(1L);
-            ref.setTheLongAndWindingTableAndColumnRefDate(toDate("2011/10/18"));
-            ref.setShortDate(toDate("2000/01/02"));
+            ref.setTheLongAndWindingTableAndColumnRefDate(toLocalDate("2011/10/18"));
+            ref.setShortDate(toLocalDate("2000/01/02"));
             vendorTheLongAndWindingTableAndColumnRefBhv.insert(ref);
             refList.add(ref);
         }

@@ -323,7 +323,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
      * {exists (select ... from white_uq_fk_ref_nest where ...)}
      * @param subQuery The sub-query of WhiteUqFkRefNestList for 'exists'. (NotNull)
      */
-    public void existsWhiteUqFkRefNestList(SubQuery<WhiteUqFkRefNestCB> subQuery) {
+    public void existsWhiteUqFkRefNest(SubQuery<WhiteUqFkRefNestCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteUqFkRefNestCB>", subQuery);
         WhiteUqFkRefNestCB cb = new WhiteUqFkRefNestCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -338,7 +338,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
      * {not exists (select ... from white_uq_fk_ref_nest where ...)}
      * @param subQuery The sub-query of WhiteUqFkRefNestList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteUqFkRefNestList(SubQuery<WhiteUqFkRefNestCB> subQuery) {
+    public void notExistsWhiteUqFkRefNest(SubQuery<WhiteUqFkRefNestCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteUqFkRefNestCB>", subQuery);
         WhiteUqFkRefNestCB cb = new WhiteUqFkRefNestCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -369,7 +369,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
      * {FOO &lt;= (select max(BAR) from white_uq_fk_ref_nest where ...)} <br>
      * white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteUqFkRefNestList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteUqFkRefNestCB&gt;() {
+     * cb.query().<span style="color: #CC4747">derivedWhiteUqFkRefNest()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteUqFkRefNestCB&gt;() {
      *     public void query(WhiteUqFkRefNestCB subCB) {
      *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
@@ -378,7 +378,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteUqFkRefNestCB> derivedWhiteUqFkRefNestList() {
+    public HpQDRFunction<WhiteUqFkRefNestCB> derivedWhiteUqFkRefNest() {
         return xcreateQDRFunctionWhiteUqFkRefNestList();
     }
     protected HpQDRFunction<WhiteUqFkRefNestCB> xcreateQDRFunctionWhiteUqFkRefNestList() {

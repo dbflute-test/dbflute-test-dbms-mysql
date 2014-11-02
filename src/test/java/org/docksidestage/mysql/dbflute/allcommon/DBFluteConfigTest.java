@@ -1,8 +1,6 @@
 package org.docksidestage.mysql.dbflute.allcommon;
 
-import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.Date;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.jdbc.StatementConfig;
@@ -116,7 +114,7 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
     public void test_SqlLogRegistry() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_PrefixSearch("S");
+        cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
         memberBhv.selectList(cb);
         memberBhv.selectCount(cb);
         cb.fetchFirst(3);
@@ -183,17 +181,17 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
         cal.set(2008, 5, 15, 12, 34, 56);
         cal.set(Calendar.MILLISECOND, 123);
         MemberCB cb = new MemberCB();
-        cb.query().setBirthdate_GreaterEqual(new Date(cal.getTimeInMillis()));
+        cb.query().setBirthdate_GreaterEqual(toLocalDate(cal));
         String beforeSql = cb.toDisplaySql();
         log(beforeSql);
         assertTrue(beforeSql.contains("'2008-06-15'"));
         try {
             DBFluteConfig.getInstance().unlock();
-            DBFluteConfig.getInstance().setLogDatePattern("yyyy/MM/dd HH$mm$ss.SSS");
+            DBFluteConfig.getInstance().setLogDatePattern("yyyy$MM%dd");
             // ## Act & Assert ##
             String sql = cb.toDisplaySql();
             log(sql);
-            assertTrue("sql:\n" + sql, sql.contains("'2008/06/15 12$34$56.123'"));
+            assertTrue("sql:\n" + sql, sql.contains("'2008$06%15'"));
         } finally {
             DBFluteConfig.getInstance().setLogDatePattern(null);
             DBFluteConfig.getInstance().lock();
@@ -206,17 +204,17 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
         cal.set(2008, 5, 15, 12, 34, 56);
         cal.set(Calendar.MILLISECOND, 123);
         MemberCB cb = new MemberCB();
-        cb.query().setBirthdate_GreaterEqual(new Date(cal.getTimeInMillis()));
+        cb.query().setBirthdate_GreaterEqual(toLocalDate(cal));
         String beforeSql = cb.toDisplaySql();
         log(beforeSql);
         assertTrue(beforeSql.contains("'2008-06-15'"));
         try {
             DBFluteConfig.getInstance().unlock();
-            DBFluteConfig.getInstance().setLogDatePattern("date $df:{yyyy/MM/dd HH$mm$ss.SSS}");
+            DBFluteConfig.getInstance().setLogDatePattern("date $df:{yyyy$MM+dd}");
             // ## Act & Assert ##
             String sql = cb.toDisplaySql();
             log(sql);
-            assertTrue("sql:\n" + sql, sql.contains("date '2008/06/15 12$34$56.123'"));
+            assertTrue("sql:\n" + sql, sql.contains("date '2008$06+15'"));
         } finally {
             DBFluteConfig.getInstance().setLogDatePattern(null);
             DBFluteConfig.getInstance().lock();
@@ -229,7 +227,7 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
         cal.set(2008, 5, 15, 12, 34, 56);
         cal.set(Calendar.MILLISECOND, 123);
         MemberCB cb = new MemberCB();
-        cb.query().setFormalizedDatetime_GreaterEqual(new Timestamp(cal.getTimeInMillis()));
+        cb.query().setFormalizedDatetime_GreaterEqual(toLocalDateTime(cal));
         String beforeSql = cb.toDisplaySql();
         log(beforeSql);
         assertTrue(beforeSql.contains("'2008-06-15 12:34:56.123'"));
@@ -252,7 +250,7 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
         cal.set(2008, 5, 15, 12, 34, 56);
         cal.set(Calendar.MILLISECOND, 123);
         MemberCB cb = new MemberCB();
-        cb.query().setFormalizedDatetime_GreaterEqual(new Timestamp(cal.getTimeInMillis()));
+        cb.query().setFormalizedDatetime_GreaterEqual(toLocalDateTime(cal));
         String beforeSql = cb.toDisplaySql();
         log(beforeSql);
         assertTrue(beforeSql.contains("'2008-06-15 12:34:56.123'"));

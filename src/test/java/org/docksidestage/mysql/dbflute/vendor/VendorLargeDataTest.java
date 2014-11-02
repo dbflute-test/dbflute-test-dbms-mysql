@@ -5,9 +5,9 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -56,8 +56,8 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
     //                                                          ==========================
     public void test_OrScopeQuery_or_UnionQuery_basic() throws Exception {
         // ## Arrange ##
-        final Date fromDate = currentDate();
-        final Date toDate = new HandyDate(currentDate()).addDay(3).getDate();
+        final LocalDate fromDate = currentLocalDate();
+        final LocalDate toDate = new HandyDate(currentLocalDate()).addDay(3).getLocalDate();
 
         // ## Act ##
         compareByRef(new Callback<VendorLargeDataRefCB>() {
@@ -77,7 +77,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
                     public void query(VendorLargeDataRefCB orCB) {
                         orCB.orScopeQueryAndPart(new AndQuery<VendorLargeDataRefCB>() {
                             public void query(VendorLargeDataRefCB andPartCB) {
-                                andPartCB.query().setDateIndex_DateFromTo(fromDate, toDate);
+                                andPartCB.query().setDateIndex_FromTo(fromDate, toDate, op -> op.compareAsDate());
                             }
                         });
                         orCB.query().setLargeDataId_Equal(3L);
@@ -97,7 +97,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
                 //   from VENDOR_LARGE_DATA_REF dflocal 
                 //  where dflocal.LARGE_DATA_ID = 3 
                 VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-                cb.query().setDateIndex_DateFromTo(fromDate, toDate);
+                cb.query().setDateIndex_FromTo(fromDate, toDate, op -> op.compareAsDate());
                 cb.union(new UnionQuery<VendorLargeDataRefCB>() {
                     public void query(VendorLargeDataRefCB unionCB) {
                         unionCB.query().setLargeDataId_Equal(3L);
@@ -129,7 +129,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
             public VendorLargeDataCB first() {
                 VendorLargeDataCB cb = new VendorLargeDataCB();
                 cb.query().setLargeDataId_InScope(largeDataIdList);
-                cb.query().existsVendorLargeDataRefList(new SubQuery<VendorLargeDataRefCB>() {
+                cb.query().existsVendorLargeDataRef(new SubQuery<VendorLargeDataRefCB>() {
                     public void query(VendorLargeDataRefCB subCB) {
                     }
                 });
@@ -139,7 +139,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
             public VendorLargeDataCB second() {
                 VendorLargeDataCB cb = new VendorLargeDataCB();
                 cb.query().setLargeDataId_InScope(largeDataIdList);
-                cb.query().existsVendorLargeDataRefList(new SubQuery<VendorLargeDataRefCB>() {
+                cb.query().existsVendorLargeDataRef(new SubQuery<VendorLargeDataRefCB>() {
                     public void query(VendorLargeDataRefCB subCB) {
                         subCB.useInScopeSubQuery();
                     }
@@ -166,9 +166,9 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
             public VendorLargeDataCB first() {
                 VendorLargeDataCB cb = new VendorLargeDataCB();
                 cb.query().setLargeDataId_InScope(largeDataIdList);
-                cb.query().existsVendorLargeDataRefList(new SubQuery<VendorLargeDataRefCB>() {
+                cb.query().existsVendorLargeDataRef(new SubQuery<VendorLargeDataRefCB>() {
                     public void query(VendorLargeDataRefCB subCB) {
-                        subCB.query().setDateNoIndex_GreaterEqual(currentDate());
+                        subCB.query().setDateNoIndex_GreaterEqual(currentLocalDate());
                     }
                 });
                 return cb;
@@ -177,10 +177,10 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
             public VendorLargeDataCB second() {
                 VendorLargeDataCB cb = new VendorLargeDataCB();
                 cb.query().setLargeDataId_InScope(largeDataIdList);
-                cb.query().existsVendorLargeDataRefList(new SubQuery<VendorLargeDataRefCB>() {
+                cb.query().existsVendorLargeDataRef(new SubQuery<VendorLargeDataRefCB>() {
                     public void query(VendorLargeDataRefCB subCB) {
                         subCB.useInScopeSubQuery();
-                        subCB.query().setDateNoIndex_GreaterEqual(currentDate());
+                        subCB.query().setDateNoIndex_GreaterEqual(currentLocalDate());
                     }
                 });
                 return cb;
@@ -193,7 +193,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
     //                                                                          ==========
     public void test_Date_compare_index_or_not() throws Exception {
         // ## Arrange ##
-        final Date targetDate = DfTypeUtil.toDate("2010-01-01");
+        final LocalDate targetDate = toLocalDate("2010-01-01");
 
         // ## Act ##
         compareIndexByRef(new Callback<VendorLargeDataRefCB>() {
@@ -243,8 +243,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
         xcompare(callback, "useIndex", "noIndex");
     }
 
-    protected <CB extends ConditionBean> void xcompare(Callback<CB> callback, String first, String second)
-            throws Exception {
+    protected <CB extends ConditionBean> void xcompare(Callback<CB> callback, String first, String second) throws Exception {
         // ## Arrange ##
         int totalTryCount = 20;
 
@@ -337,8 +336,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
         }
     }
 
-    protected void writeLargeDataRef(List<VendorLargeData> dataList, String outputDir, int dataSize, int refSize)
-            throws Exception {
+    protected void writeLargeDataRef(List<VendorLargeData> dataList, String outputDir, int dataSize, int refSize) throws Exception {
         final Calendar baseDateCal = DfTypeUtil.toCalendar("1900/01/01");
         final Calendar baseTimestampCal = DfTypeUtil.toCalendar("1970/01/01 00:00:00");
         final String path = outputDir + "/92-VENDOR_LARGE_DATA_REF.tsv";
@@ -358,9 +356,9 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
                 VendorLargeDataRef ref = new VendorLargeDataRef();
                 ref.setLargeDataRefId(Long.valueOf(currentId));
                 ref.setLargeDataId(dataList.get(currentId % dataSize).getLargeDataId());
-                ref.setDateIndex(DfTypeUtil.toDate(baseDateCal));
+                ref.setDateIndex(DfTypeUtil.toLocalDate(baseDateCal));
                 ref.setDateNoIndex(ref.getDateIndex());
-                ref.setTimestampIndex(DfTypeUtil.toTimestamp(baseTimestampCal));
+                ref.setTimestampIndex(DfTypeUtil.toLocalDateTime(baseTimestampCal));
                 ref.setTimestampNoIndex(ref.getTimestampIndex());
                 if ((currentId % 3) == 0) {
                     ref.setNullableDecimalIndex(new BigDecimal(currentId + "." + (currentId % 1000)));

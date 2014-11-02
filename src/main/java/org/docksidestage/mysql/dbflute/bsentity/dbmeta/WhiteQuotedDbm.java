@@ -52,7 +52,8 @@ public class WhiteQuotedDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteQuoted)et).getSelect(), (et, vl) -> ((WhiteQuoted)et).setSelect(cti(vl)), "select");
         setupEpg(_epgMap, et -> ((WhiteQuoted)et).getFrom(), (et, vl) -> ((WhiteQuoted)et).setFrom((String)vl), "from");
     }

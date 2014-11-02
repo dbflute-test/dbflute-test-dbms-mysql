@@ -52,7 +52,8 @@ public class WhiteSplitMultipleFkRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getFirstId(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setFirstId(cti(vl)), "firstId");
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getSecondCode(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setSecondCode((String)vl), "secondCode");
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getRefName(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setRefName((String)vl), "refName");

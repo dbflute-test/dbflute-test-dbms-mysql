@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(manyName), xgetCValueManyName(), "MANY_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MANY_NAME: {NotNull, VARCHAR(200)}
-     * @param manyName The value of manyName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setManyName_PrefixSearch(String manyName) {
-        setManyName_LikeSearch(manyName, xcLSOPPre());
-    }
-
     protected void regManyName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyName(), "MANY_NAME"); }
     protected abstract ConditionValue xgetCValueManyName();
 

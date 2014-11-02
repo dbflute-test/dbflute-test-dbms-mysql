@@ -52,7 +52,8 @@ public class WhiteColumnExceptDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteColumnExcept)et).getExceptColumnId(), (et, vl) -> ((WhiteColumnExcept)et).setExceptColumnId(ctl(vl)), "exceptColumnId");
         setupEpg(_epgMap, et -> ((WhiteColumnExcept)et).getColumnExceptTest(), (et, vl) -> ((WhiteColumnExcept)et).setColumnExceptTest(cti(vl)), "columnExceptTest");
     }

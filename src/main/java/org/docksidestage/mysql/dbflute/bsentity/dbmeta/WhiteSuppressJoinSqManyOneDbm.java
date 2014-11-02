@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteSuppressJoinSqManyOneDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getManyOneId(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setManyOneId(cti(vl)), "manyOneId");
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getManyOneName(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setManyOneName((String)vl), "manyOneName");
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getManyOneOneId(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setManyOneOneId(cti(vl)), "manyOneOneId");
@@ -65,8 +67,9 @@ public class WhiteSuppressJoinSqManyOneDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getWhiteSuppressJoinSqManyOneOne(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setWhiteSuppressJoinSqManyOneOne((WhiteSuppressJoinSqManyOneOne)vl), "whiteSuppressJoinSqManyOneOne");
+        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqManyOne)et).getWhiteSuppressJoinSqManyOneOne(), (et, vl) -> ((WhiteSuppressJoinSqManyOne)et).setWhiteSuppressJoinSqManyOneOne((OptionalEntity<WhiteSuppressJoinSqManyOneOne>)vl), "whiteSuppressJoinSqManyOneOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -139,7 +142,7 @@ public class WhiteSuppressJoinSqManyOneDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSuppressJoinSqManyOneOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnManyOneOneId(), WhiteSuppressJoinSqManyOneOneDbm.getInstance().columnManyOneOneId());
-        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE", "whiteSuppressJoinSqManyOneOne", this, WhiteSuppressJoinSqManyOneOneDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteSuppressJoinSqManyOneList");
+        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE", "whiteSuppressJoinSqManyOneOne", this, WhiteSuppressJoinSqManyOneOneDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSuppressJoinSqManyOneList");
     }
 
     // -----------------------------------------------------

@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -127,13 +129,15 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'. */
-    protected WhiteAllInOneClsElement _whiteAllInOneClsElementAsFoo;
+    protected OptionalEntity<WhiteAllInOneClsElement> _whiteAllInOneClsElementAsFoo;
 
     /**
      * [get] white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'. <br>
-     * @return The entity of foreign property 'whiteAllInOneClsElementAsFoo'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteAllInOneClsElementAsFoo'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteAllInOneClsElement getWhiteAllInOneClsElementAsFoo() {
+    public OptionalEntity<WhiteAllInOneClsElement> getWhiteAllInOneClsElementAsFoo() {
+        if (_whiteAllInOneClsElementAsFoo == null) { _whiteAllInOneClsElementAsFoo = OptionalEntity.relationEmpty(this, "whiteAllInOneClsElementAsFoo"); }
         return _whiteAllInOneClsElementAsFoo;
     }
 
@@ -141,18 +145,20 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
      * [set] white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
      * @param whiteAllInOneClsElementAsFoo The entity of foreign property 'whiteAllInOneClsElementAsFoo'. (NullAllowed)
      */
-    public void setWhiteAllInOneClsElementAsFoo(WhiteAllInOneClsElement whiteAllInOneClsElementAsFoo) {
+    public void setWhiteAllInOneClsElementAsFoo(OptionalEntity<WhiteAllInOneClsElement> whiteAllInOneClsElementAsFoo) {
         _whiteAllInOneClsElementAsFoo = whiteAllInOneClsElementAsFoo;
     }
 
     /** white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'. */
-    protected WhiteAllInOneClsElement _whiteAllInOneClsElementAsBar;
+    protected OptionalEntity<WhiteAllInOneClsElement> _whiteAllInOneClsElementAsBar;
 
     /**
      * [get] white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'. <br>
-     * @return The entity of foreign property 'whiteAllInOneClsElementAsBar'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteAllInOneClsElementAsBar'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteAllInOneClsElement getWhiteAllInOneClsElementAsBar() {
+    public OptionalEntity<WhiteAllInOneClsElement> getWhiteAllInOneClsElementAsBar() {
+        if (_whiteAllInOneClsElementAsBar == null) { _whiteAllInOneClsElementAsBar = OptionalEntity.relationEmpty(this, "whiteAllInOneClsElementAsBar"); }
         return _whiteAllInOneClsElementAsBar;
     }
 
@@ -160,7 +166,7 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
      * [set] white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
      * @param whiteAllInOneClsElementAsBar The entity of foreign property 'whiteAllInOneClsElementAsBar'. (NullAllowed)
      */
-    public void setWhiteAllInOneClsElementAsBar(WhiteAllInOneClsElement whiteAllInOneClsElementAsBar) {
+    public void setWhiteAllInOneClsElementAsBar(OptionalEntity<WhiteAllInOneClsElement> whiteAllInOneClsElementAsBar) {
         _whiteAllInOneClsElementAsBar = whiteAllInOneClsElementAsBar;
     }
 
@@ -200,11 +206,14 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteAllInOneClsElementAsFoo != null)
+        if (_whiteAllInOneClsElementAsFoo != null && _whiteAllInOneClsElementAsFoo.isPresent())
         { sb.append(li).append(xbRDS(_whiteAllInOneClsElementAsFoo, "whiteAllInOneClsElementAsFoo")); }
-        if (_whiteAllInOneClsElementAsBar != null)
+        if (_whiteAllInOneClsElementAsBar != null && _whiteAllInOneClsElementAsBar.isPresent())
         { sb.append(li).append(xbRDS(_whiteAllInOneClsElementAsBar, "whiteAllInOneClsElementAsBar")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -224,9 +233,9 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteAllInOneClsElementAsFoo != null)
+        if (_whiteAllInOneClsElementAsFoo != null && _whiteAllInOneClsElementAsFoo.isPresent())
         { sb.append(dm).append("whiteAllInOneClsElementAsFoo"); }
-        if (_whiteAllInOneClsElementAsBar != null)
+        if (_whiteAllInOneClsElementAsBar != null && _whiteAllInOneClsElementAsBar.isPresent())
         { sb.append(dm).append("whiteAllInOneClsElementAsBar"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

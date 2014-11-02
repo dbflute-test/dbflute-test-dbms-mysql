@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {exists (select BASE_ID from white_split_multiple_fk_child where ...)} <br>
      * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSplitMultipleFkChildList</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteSplitMultipleFkChild</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     childCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteSplitMultipleFkChildList for 'exists'. (NotNull)
      */
-    public void existsWhiteSplitMultipleFkChildList(SubQuery<WhiteSplitMultipleFkChildCB> subCBLambda) {
+    public void existsWhiteSplitMultipleFkChild(SubQuery<WhiteSplitMultipleFkChildCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSplitMultipleFkChildCB cb = new WhiteSplitMultipleFkChildCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepBaseId_ExistsReferrer_WhiteSplitMultipleFkChildList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {not exists (select BASE_ID from white_split_multiple_fk_child where ...)} <br>
      * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSplitMultipleFkChildList</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSplitMultipleFkChild</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     childCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of BaseId_NotExistsReferrer_WhiteSplitMultipleFkChildList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteSplitMultipleFkChildList(SubQuery<WhiteSplitMultipleFkChildCB> subCBLambda) {
+    public void notExistsWhiteSplitMultipleFkChild(SubQuery<WhiteSplitMultipleFkChildCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSplitMultipleFkChildCB cb = new WhiteSplitMultipleFkChildCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepBaseId_NotExistsReferrer_WhiteSplitMultipleFkChildList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_split_multiple_fk_child where ...)} <br>
      * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSplitMultipleFkChildList()</span>.<span style="color: #CC4747">max</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSplitMultipleFkChild()</span>.<span style="color: #CC4747">max</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     childCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     childCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteSplitMultipleFkChildCB> derivedWhiteSplitMultipleFkChildList() {
+    public HpQDRFunction<WhiteSplitMultipleFkChildCB> derivedWhiteSplitMultipleFkChild() {
         return xcreateQDRFunctionWhiteSplitMultipleFkChildList();
     }
     protected HpQDRFunction<WhiteSplitMultipleFkChildCB> xcreateQDRFunctionWhiteSplitMultipleFkChildList() {
@@ -552,15 +552,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      */
     public void setSplitName_NotLikeSearch(String splitName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(splitName), xgetCValueSplitName(), "SPLIT_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * SPLIT_NAME: {NotNull, VARCHAR(200)}
-     * @param splitName The value of splitName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setSplitName_PrefixSearch(String splitName) {
-        setSplitName_LikeSearch(splitName, xcLSOPPre());
     }
 
     protected void regSplitName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSplitName(), "SPLIT_NAME"); }

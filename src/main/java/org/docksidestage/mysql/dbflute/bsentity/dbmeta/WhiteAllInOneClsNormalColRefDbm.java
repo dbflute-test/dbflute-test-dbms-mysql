@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsNormalColRef)et).getClsRefId(), (et, vl) -> ((WhiteAllInOneClsNormalColRef)et).setClsRefId(cti(vl)), "clsRefId");
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsNormalColRef)et).getFooCode(), (et, vl) -> ((WhiteAllInOneClsNormalColRef)et).setFooCode((String)vl), "fooCode");
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsNormalColRef)et).getBarCode(), (et, vl) -> ((WhiteAllInOneClsNormalColRef)et).setBarCode((String)vl), "barCode");
@@ -66,9 +68,10 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsNormalColRef)et).getWhiteAllInOneClsElementAsFoo(), (et, vl) -> ((WhiteAllInOneClsNormalColRef)et).setWhiteAllInOneClsElementAsFoo((WhiteAllInOneClsElement)vl), "whiteAllInOneClsElementAsFoo");
-        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsNormalColRef)et).getWhiteAllInOneClsElementAsBar(), (et, vl) -> ((WhiteAllInOneClsNormalColRef)et).setWhiteAllInOneClsElementAsBar((WhiteAllInOneClsElement)vl), "whiteAllInOneClsElementAsBar");
+        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsNormalColRef)et).getWhiteAllInOneClsElementAsFoo(), (et, vl) -> ((WhiteAllInOneClsNormalColRef)et).setWhiteAllInOneClsElementAsFoo((OptionalEntity<WhiteAllInOneClsElement>)vl), "whiteAllInOneClsElementAsFoo");
+        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsNormalColRef)et).getWhiteAllInOneClsElementAsBar(), (et, vl) -> ((WhiteAllInOneClsNormalColRef)et).setWhiteAllInOneClsElementAsBar((OptionalEntity<WhiteAllInOneClsElement>)vl), "whiteAllInOneClsElementAsBar");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -154,7 +157,7 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteAllInOneClsElementAsFoo() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnFooCode(), WhiteAllInOneClsElementDbm.getInstance().columnClsElementCode());
-        return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_FOO_TEST", "whiteAllInOneClsElementAsFoo", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 0, null, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'FOO'", null, false, null);
+        return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_FOO_TEST", "whiteAllInOneClsElementAsFoo", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'FOO'", null, false, null);
     }
     /**
      * white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
@@ -162,7 +165,7 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteAllInOneClsElementAsBar() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBarCode(), WhiteAllInOneClsElementDbm.getInstance().columnClsElementCode());
-        return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_BAR_TEST", "whiteAllInOneClsElementAsBar", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 1, null, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'BAR'", null, false, null);
+        return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_BAR_TEST", "whiteAllInOneClsElementAsBar", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'BAR'", null, false, null);
     }
 
     // -----------------------------------------------------

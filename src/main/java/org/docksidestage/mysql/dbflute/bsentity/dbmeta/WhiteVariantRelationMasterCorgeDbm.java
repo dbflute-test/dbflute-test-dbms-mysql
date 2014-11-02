@@ -52,7 +52,8 @@ public class WhiteVariantRelationMasterCorgeDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getMasterCorgeId(), (et, vl) -> ((WhiteVariantRelationMasterCorge)et).setMasterCorgeId(ctl(vl)), "masterCorgeId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getMasterCorgeName(), (et, vl) -> ((WhiteVariantRelationMasterCorge)et).setMasterCorgeName((String)vl), "masterCorgeName");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getCorgeTypeCode(), (et, vl) -> {

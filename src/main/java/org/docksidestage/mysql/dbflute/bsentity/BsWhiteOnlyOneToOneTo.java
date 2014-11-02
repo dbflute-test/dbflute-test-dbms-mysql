@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -131,13 +133,15 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements Do
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'. */
-    protected WhiteOnlyOneToOneFrom _whiteOnlyOneToOneFrom;
+    protected OptionalEntity<WhiteOnlyOneToOneFrom> _whiteOnlyOneToOneFrom;
 
     /**
      * [get] white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'. <br>
-     * @return The entity of foreign property 'whiteOnlyOneToOneFrom'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteOnlyOneToOneFrom'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteOnlyOneToOneFrom getWhiteOnlyOneToOneFrom() {
+    public OptionalEntity<WhiteOnlyOneToOneFrom> getWhiteOnlyOneToOneFrom() {
+        if (_whiteOnlyOneToOneFrom == null) { _whiteOnlyOneToOneFrom = OptionalEntity.relationEmpty(this, "whiteOnlyOneToOneFrom"); }
         return _whiteOnlyOneToOneFrom;
     }
 
@@ -145,7 +149,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements Do
      * [set] white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
      * @param whiteOnlyOneToOneFrom The entity of foreign property 'whiteOnlyOneToOneFrom'. (NullAllowed)
      */
-    public void setWhiteOnlyOneToOneFrom(WhiteOnlyOneToOneFrom whiteOnlyOneToOneFrom) {
+    public void setWhiteOnlyOneToOneFrom(OptionalEntity<WhiteOnlyOneToOneFrom> whiteOnlyOneToOneFrom) {
         _whiteOnlyOneToOneFrom = whiteOnlyOneToOneFrom;
     }
 
@@ -181,9 +185,12 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements Do
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteOnlyOneToOneFrom != null)
+        if (_whiteOnlyOneToOneFrom != null && _whiteOnlyOneToOneFrom.isPresent())
         { sb.append(li).append(xbRDS(_whiteOnlyOneToOneFrom, "whiteOnlyOneToOneFrom")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -202,7 +209,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements Do
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteOnlyOneToOneFrom != null)
+        if (_whiteOnlyOneToOneFrom != null && _whiteOnlyOneToOneFrom.isPresent())
         { sb.append(dm).append("whiteOnlyOneToOneFrom"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

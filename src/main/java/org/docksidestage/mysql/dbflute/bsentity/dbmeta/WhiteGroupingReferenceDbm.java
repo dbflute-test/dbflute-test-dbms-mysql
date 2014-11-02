@@ -52,7 +52,8 @@ public class WhiteGroupingReferenceDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteGroupingReference)et).getGroupingReferenceId(), (et, vl) -> ((WhiteGroupingReference)et).setGroupingReferenceId(ctl(vl)), "groupingReferenceId");
         setupEpg(_epgMap, et -> ((WhiteGroupingReference)et).getGroupingReferenceCode(), (et, vl) -> {
             ColumnInfo col = columnGroupingReferenceCode();

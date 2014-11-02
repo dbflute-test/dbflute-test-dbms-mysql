@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
         regLSQ(CK_NLS, fRES(oneAddiName), xgetCValueOneAddiName(), "ONE_ADDI_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
-     * @param oneAddiName The value of oneAddiName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setOneAddiName_PrefixSearch(String oneAddiName) {
-        setOneAddiName_LikeSearch(oneAddiName, xcLSOPPre());
-    }
-
     protected void regOneAddiName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueOneAddiName(), "ONE_ADDI_NAME"); }
     protected abstract ConditionValue xgetCValueOneAddiName();
 

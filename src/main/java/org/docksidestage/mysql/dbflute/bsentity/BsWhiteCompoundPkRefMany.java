@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -62,7 +64,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * Integer refManySecondId = entity.getRefManySecondId();
  * String refManyCode = entity.getRefManyCode();
  * String refManyName = entity.getRefManyName();
- * java.sql.Timestamp refManyDatetime = entity.getRefManyDatetime();
+ * java.time.LocalDateTime refManyDatetime = entity.getRefManyDatetime();
  * entity.setMultipleFirstId(multipleFirstId);
  * entity.setMultipleSecondId(multipleSecondId);
  * entity.setRefManyFirstId(refManyFirstId);
@@ -104,7 +106,7 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
     protected String _refManyName;
 
     /** REF_MANY_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _refManyDatetime;
+    protected java.time.LocalDateTime _refManyDatetime;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -141,13 +143,15 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'. */
-    protected WhiteCompoundPk _whiteCompoundPkToPK;
+    protected OptionalEntity<WhiteCompoundPk> _whiteCompoundPkToPK;
 
     /**
      * [get] white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'. <br>
-     * @return The entity of foreign property 'whiteCompoundPkToPK'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundPkToPK'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundPk getWhiteCompoundPkToPK() {
+    public OptionalEntity<WhiteCompoundPk> getWhiteCompoundPkToPK() {
+        if (_whiteCompoundPkToPK == null) { _whiteCompoundPkToPK = OptionalEntity.relationEmpty(this, "whiteCompoundPkToPK"); }
         return _whiteCompoundPkToPK;
     }
 
@@ -155,7 +159,7 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
      * [set] white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
      * @param whiteCompoundPkToPK The entity of foreign property 'whiteCompoundPkToPK'. (NullAllowed)
      */
-    public void setWhiteCompoundPkToPK(WhiteCompoundPk whiteCompoundPkToPK) {
+    public void setWhiteCompoundPkToPK(OptionalEntity<WhiteCompoundPk> whiteCompoundPkToPK) {
         _whiteCompoundPkToPK = whiteCompoundPkToPK;
     }
 
@@ -193,9 +197,12 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPkToPK != null)
+        if (_whiteCompoundPkToPK != null && _whiteCompoundPkToPK.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundPkToPK, "whiteCompoundPkToPK")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -218,7 +225,7 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPkToPK != null)
+        if (_whiteCompoundPkToPK != null && _whiteCompoundPkToPK.isPresent())
         { sb.append(dm).append("whiteCompoundPkToPK"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
@@ -346,7 +353,7 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
      * [get] REF_MANY_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'REF_MANY_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getRefManyDatetime() {
+    public java.time.LocalDateTime getRefManyDatetime() {
         checkSpecifiedProperty("refManyDatetime");
         return _refManyDatetime;
     }
@@ -355,7 +362,7 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
      * [set] REF_MANY_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param refManyDatetime The value of the column 'REF_MANY_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setRefManyDatetime(java.sql.Timestamp refManyDatetime) {
+    public void setRefManyDatetime(java.time.LocalDateTime refManyDatetime) {
         registerModifiedProperty("refManyDatetime");
         _refManyDatetime = refManyDatetime;
     }

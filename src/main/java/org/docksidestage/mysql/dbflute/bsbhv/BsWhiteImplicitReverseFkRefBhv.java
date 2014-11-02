@@ -197,7 +197,7 @@ public abstract class BsWhiteImplicitReverseFkRefBhv extends AbstractBehaviorWri
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -273,19 +273,19 @@ public abstract class BsWhiteImplicitReverseFkRefBhv extends AbstractBehaviorWri
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhiteImplicitReverseFkRef> selectByUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate) {
+    public OptionalEntity<WhiteImplicitReverseFkRef> selectByUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate) {
         return facadeSelectByUniqueOf(whiteImplicitReverseFkId, validBeginDate);
     }
 
-    protected OptionalEntity<WhiteImplicitReverseFkRef> facadeSelectByUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate) {
+    protected OptionalEntity<WhiteImplicitReverseFkRef> facadeSelectByUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate) {
         return doSelectByUniqueOf(whiteImplicitReverseFkId, validBeginDate, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhiteImplicitReverseFkRef> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhiteImplicitReverseFkRef> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(whiteImplicitReverseFkId, validBeginDate), tp), whiteImplicitReverseFkId, validBeginDate);
     }
 
-    protected WhiteImplicitReverseFkRefCB xprepareCBAsUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate) {
+    protected WhiteImplicitReverseFkRefCB xprepareCBAsUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate) {
         assertObjectNotNull("whiteImplicitReverseFkId", whiteImplicitReverseFkId);assertObjectNotNull("validBeginDate", validBeginDate);
         return newConditionBean().acceptUniqueOf(whiteImplicitReverseFkId, validBeginDate);
     }
@@ -431,7 +431,7 @@ public abstract class BsWhiteImplicitReverseFkRefBhv extends AbstractBehaviorWri
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitReverseFkRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitReverseFkRefBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -440,7 +440,7 @@ public abstract class BsWhiteImplicitReverseFkRefBhv extends AbstractBehaviorWri
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteImplicitReverseFkRefCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteImplicitReverseFkRefCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -1079,9 +1079,8 @@ public abstract class BsWhiteImplicitReverseFkRefBhv extends AbstractBehaviorWri
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteImplicitReverseFkRefBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteImplicitReverseFkRefBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteImplicitReverseFkRefBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

@@ -76,14 +76,14 @@ public class LoaderOfMemberStatus {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<Member> _referrerMemberList;
+    protected List<Member> _referrerMember;
 
     /**
      * Load referrer of memberList by the set-upper of referrer. <br>
      * (会員)member by MEMBER_STATUS_CODE, named 'memberList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">statusLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">statusLoader</span>.<span style="color: #CC4747">loadMemberList</span>(<span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">statusLoader</span>.<span style="color: #CC4747">loadMember</span>(<span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">memberCB</span>.setupSelect...
      *         <span style="color: #553000">memberCB</span>.query().set...
      *         <span style="color: #553000">memberCB</span>.query().addOrderBy...
@@ -105,19 +105,19 @@ public class LoaderOfMemberStatus {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfMember> loadMemberList(ConditionBeanSetupper<MemberCB> refCBLambda) {
-        myBhv().loadMemberList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberList = refLs);
-        return hd -> hd.handle(new LoaderOfMember().ready(_referrerMemberList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfMember> loadMember(ConditionBeanSetupper<MemberCB> refCBLambda) {
+        myBhv().loadMember(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMember = refLs);
+        return hd -> hd.handle(new LoaderOfMember().ready(_referrerMember, _selector));
     }
 
-    protected List<MemberLogin> _referrerMemberLoginList;
+    protected List<MemberLogin> _referrerMemberLogin;
 
     /**
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
      * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">statusLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">statusLoader</span>.<span style="color: #CC4747">loadMemberLoginList</span>(<span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">statusLoader</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">loginCB</span>.setupSelect...
      *         <span style="color: #553000">loginCB</span>.query().set...
      *         <span style="color: #553000">loginCB</span>.query().addOrderBy...
@@ -139,9 +139,9 @@ public class LoaderOfMemberStatus {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfMemberLogin> loadMemberLoginList(ConditionBeanSetupper<MemberLoginCB> refCBLambda) {
-        myBhv().loadMemberLoginList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberLoginList = refLs);
-        return hd -> hd.handle(new LoaderOfMemberLogin().ready(_referrerMemberLoginList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfMemberLogin> loadMemberLogin(ConditionBeanSetupper<MemberLoginCB> refCBLambda) {
+        myBhv().loadMemberLogin(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberLogin = refLs);
+        return hd -> hd.handle(new LoaderOfMemberLogin().ready(_referrerMemberLogin, _selector));
     }
 
     // ===================================================================================

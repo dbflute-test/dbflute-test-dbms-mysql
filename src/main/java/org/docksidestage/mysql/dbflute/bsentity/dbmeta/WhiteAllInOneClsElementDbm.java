@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteAllInOneClsElementDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsElement)et).getClsCategoryCode(), (et, vl) -> ((WhiteAllInOneClsElement)et).setClsCategoryCode((String)vl), "clsCategoryCode");
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsElement)et).getClsElementCode(), (et, vl) -> ((WhiteAllInOneClsElement)et).setClsElementCode((String)vl), "clsElementCode");
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsElement)et).getClsElementName(), (et, vl) -> ((WhiteAllInOneClsElement)et).setClsElementName((String)vl), "clsElementName");
@@ -66,8 +68,9 @@ public class WhiteAllInOneClsElementDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsElement)et).getWhiteAllInOneClsCategory(), (et, vl) -> ((WhiteAllInOneClsElement)et).setWhiteAllInOneClsCategory((WhiteAllInOneClsCategory)vl), "whiteAllInOneClsCategory");
+        setupEfpg(_efpgMap, et -> ((WhiteAllInOneClsElement)et).getWhiteAllInOneClsCategory(), (et, vl) -> ((WhiteAllInOneClsElement)et).setWhiteAllInOneClsCategory((OptionalEntity<WhiteAllInOneClsCategory>)vl), "whiteAllInOneClsCategory");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -152,7 +155,7 @@ public class WhiteAllInOneClsElementDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteAllInOneClsCategory() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnClsCategoryCode(), WhiteAllInOneClsCategoryDbm.getInstance().columnClsCategoryCode());
-        return cfi("FK_WHITE_ALL_IN_ONE_CLS_ELEMENT_CATEGORY", "whiteAllInOneClsCategory", this, WhiteAllInOneClsCategoryDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteAllInOneClsElementList");
+        return cfi("FK_WHITE_ALL_IN_ONE_CLS_ELEMENT_CATEGORY", "whiteAllInOneClsCategory", this, WhiteAllInOneClsCategoryDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteAllInOneClsElementList");
     }
 
     // -----------------------------------------------------

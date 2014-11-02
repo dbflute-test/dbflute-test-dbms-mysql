@@ -76,14 +76,14 @@ public class LoaderOfWhiteCompoundPkRef {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteCompoundPkRefNest> _referrerWhiteCompoundPkRefNestByQuxMultipleIdList;
+    protected List<WhiteCompoundPkRefNest> _referrerWhiteCompoundPkRefNestByQuxMultipleId;
 
     /**
      * Load referrer of whiteCompoundPkRefNestByQuxMultipleIdList by the set-upper of referrer. <br>
      * white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteCompoundPkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefNestByQuxMultipleIdList</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefNestByQuxMultipleId</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">nestCB</span>.setupSelect...
      *         <span style="color: #553000">nestCB</span>.query().set...
      *         <span style="color: #553000">nestCB</span>.query().addOrderBy...
@@ -105,19 +105,19 @@ public class LoaderOfWhiteCompoundPkRef {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefNest> loadWhiteCompoundPkRefNestByQuxMultipleIdList(ConditionBeanSetupper<WhiteCompoundPkRefNestCB> refCBLambda) {
-        myBhv().loadWhiteCompoundPkRefNestByQuxMultipleIdList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefNestByQuxMultipleIdList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRefNest().ready(_referrerWhiteCompoundPkRefNestByQuxMultipleIdList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefNest> loadWhiteCompoundPkRefNestByQuxMultipleId(ConditionBeanSetupper<WhiteCompoundPkRefNestCB> refCBLambda) {
+        myBhv().loadWhiteCompoundPkRefNestByQuxMultipleId(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefNestByQuxMultipleId = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRefNest().ready(_referrerWhiteCompoundPkRefNestByQuxMultipleId, _selector));
     }
 
-    protected List<WhiteCompoundPkRefNest> _referrerWhiteCompoundPkRefNestByFooMultipleIdList;
+    protected List<WhiteCompoundPkRefNest> _referrerWhiteCompoundPkRefNestByFooMultipleId;
 
     /**
      * Load referrer of whiteCompoundPkRefNestByFooMultipleIdList by the set-upper of referrer. <br>
      * white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteCompoundPkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefNestByFooMultipleIdList</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefNestByFooMultipleId</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">nestCB</span>.setupSelect...
      *         <span style="color: #553000">nestCB</span>.query().set...
      *         <span style="color: #553000">nestCB</span>.query().addOrderBy...
@@ -139,9 +139,9 @@ public class LoaderOfWhiteCompoundPkRef {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefNest> loadWhiteCompoundPkRefNestByFooMultipleIdList(ConditionBeanSetupper<WhiteCompoundPkRefNestCB> refCBLambda) {
-        myBhv().loadWhiteCompoundPkRefNestByFooMultipleIdList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefNestByFooMultipleIdList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRefNest().ready(_referrerWhiteCompoundPkRefNestByFooMultipleIdList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRefNest> loadWhiteCompoundPkRefNestByFooMultipleId(ConditionBeanSetupper<WhiteCompoundPkRefNestCB> refCBLambda) {
+        myBhv().loadWhiteCompoundPkRefNestByFooMultipleId(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefNestByFooMultipleId = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRefNest().ready(_referrerWhiteCompoundPkRefNestByFooMultipleId, _selector));
     }
 
     // ===================================================================================

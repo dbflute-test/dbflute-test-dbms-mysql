@@ -76,14 +76,14 @@ public class LoaderOfWhiteVariantRelationMasterBar {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteVariantRelationReferrer> _referrerWhiteVariantRelationReferrerAsVariantList;
+    protected List<WhiteVariantRelationReferrer> _referrerWhiteVariantRelationReferrerAsVariant;
 
     /**
      * Load referrer of whiteVariantRelationReferrerAsVariantList by the set-upper of referrer. <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteVariantRelationMasterBarList</span>, <span style="color: #553000">barLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">barLoader</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariantList</span>(<span style="color: #553000">referrerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">barLoader</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariant</span>(<span style="color: #553000">referrerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">referrerCB</span>.setupSelect...
      *         <span style="color: #553000">referrerCB</span>.query().set...
      *         <span style="color: #553000">referrerCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteVariantRelationMasterBar {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariantList(ConditionBeanSetupper<WhiteVariantRelationReferrerCB> refCBLambda) {
-        myBhv().loadWhiteVariantRelationReferrerAsVariantList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteVariantRelationReferrerAsVariantList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteVariantRelationReferrer().ready(_referrerWhiteVariantRelationReferrerAsVariantList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteVariantRelationReferrer> loadWhiteVariantRelationReferrerAsVariant(ConditionBeanSetupper<WhiteVariantRelationReferrerCB> refCBLambda) {
+        myBhv().loadWhiteVariantRelationReferrerAsVariant(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteVariantRelationReferrerAsVariant = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteVariantRelationReferrer().ready(_referrerWhiteVariantRelationReferrerAsVariant, _selector));
     }
 
     // ===================================================================================

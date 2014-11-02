@@ -265,7 +265,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
-    public void setupSelect_WhiteImplicitReverseFkRefWithImplicitReverseFK(final java.util.Date targetDate) {
+    public void setupSelect_WhiteImplicitReverseFkRefWithImplicitReverseFK(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("whiteImplicitReverseFkRefWithImplicitReverseFK");
         doSetupSelect(() -> query().queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate));
     }
@@ -283,7 +283,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
-    public void setupSelect_WhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.util.Date targetDate) {
+    public void setupSelect_WhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK");
         doSetupSelect(() -> query().queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate));
     }
@@ -359,7 +359,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public WhiteImplicitReverseFkRefCB.HpSpecification specifyWhiteImplicitReverseFkRefWithImplicitReverseFK(final java.util.Date targetDate) {
+        public WhiteImplicitReverseFkRefCB.HpSpecification specifyWhiteImplicitReverseFkRefWithImplicitReverseFK(final java.time.LocalDate targetDate) {
             assertRelation("whiteImplicitReverseFkRefWithImplicitReverseFK");
             if (_whiteImplicitReverseFkRefWithImplicitReverseFK == null) {
                 _whiteImplicitReverseFkRefWithImplicitReverseFK = new WhiteImplicitReverseFkRefCB.HpSpecification(_baseCB
@@ -401,7 +401,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public WhiteImplicitReverseFkSuppressCB.HpSpecification specifyWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.util.Date targetDate) {
+        public WhiteImplicitReverseFkSuppressCB.HpSpecification specifyWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.time.LocalDate targetDate) {
             assertRelation("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK");
             if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK == null) {
                 _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK = new WhiteImplicitReverseFkSuppressCB.HpSpecification(_baseCB
@@ -455,6 +455,24 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteImplicitReverseFkCB dreamCruiseCB() {
+        WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
+        cb.xsetupForDreamCruise((WhiteImplicitReverseFkCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -486,24 +504,6 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
         cb.xsetupForColumnQuery((WhiteImplicitReverseFkCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteImplicitReverseFkCB dreamCruiseCB() {
-        WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
-        cb.xsetupForDreamCruise((WhiteImplicitReverseFkCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

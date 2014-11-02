@@ -1,8 +1,7 @@
 package org.docksidestage.mysql.dbflute.freegen.json.bean.bs;
 
 import java.io.Serializable;
-
-import org.docksidestage.mysql.dbflute.freegen.json.bean.ex.JsonMemberStatus;
+import org.docksidestage.mysql.dbflute.freegen.json.bean.ex.*;
 
 /**
  * member table

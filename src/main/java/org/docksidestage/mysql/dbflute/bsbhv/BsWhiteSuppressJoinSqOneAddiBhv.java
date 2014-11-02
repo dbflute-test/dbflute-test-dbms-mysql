@@ -197,7 +197,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteSuppressJoinSqOneAddiCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteSuppressJoinSqOneAddiCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
      * Load referrer of whiteSuppressJoinSqOneList by the set-upper of referrer. <br>
      * white_suppress_join_sq_one by ONE_ADDI_ID, named 'whiteSuppressJoinSqOneList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqOneList</span>(<span style="color: #553000">whiteSuppressJoinSqOneAddiList</span>, <span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqOne</span>(<span style="color: #553000">whiteSuppressJoinSqOneAddiList</span>, <span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">oneCB</span>.setupSelect...
      *     <span style="color: #553000">oneCB</span>.query().set...
      *     <span style="color: #553000">oneCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOneList(List<WhiteSuppressJoinSqOneAddi> whiteSuppressJoinSqOneAddiList, ConditionBeanSetupper<WhiteSuppressJoinSqOneCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOne(List<WhiteSuppressJoinSqOneAddi> whiteSuppressJoinSqOneAddiList, ConditionBeanSetupper<WhiteSuppressJoinSqOneCB> refCBLambda) {
         xassLRArg(whiteSuppressJoinSqOneAddiList, refCBLambda);
-        return doLoadWhiteSuppressJoinSqOneList(whiteSuppressJoinSqOneAddiList, new LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne>().xinit(refCBLambda));
+        return doLoadWhiteSuppressJoinSqOne(whiteSuppressJoinSqOneAddiList, new LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteSuppressJoinSqOneList by the set-upper of referrer. <br>
      * white_suppress_join_sq_one by ONE_ADDI_ID, named 'whiteSuppressJoinSqOneList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqOneList</span>(<span style="color: #553000">whiteSuppressJoinSqOneAddi</span>, <span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqOne</span>(<span style="color: #553000">whiteSuppressJoinSqOneAddi</span>, <span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">oneCB</span>.setupSelect...
      *     <span style="color: #553000">oneCB</span>.query().set...
      *     <span style="color: #553000">oneCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOneList(WhiteSuppressJoinSqOneAddi whiteSuppressJoinSqOneAddi, ConditionBeanSetupper<WhiteSuppressJoinSqOneCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOne(WhiteSuppressJoinSqOneAddi whiteSuppressJoinSqOneAddi, ConditionBeanSetupper<WhiteSuppressJoinSqOneCB> refCBLambda) {
         xassLRArg(whiteSuppressJoinSqOneAddi, refCBLambda);
-        return doLoadWhiteSuppressJoinSqOneList(xnewLRLs(whiteSuppressJoinSqOneAddi), new LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne>().xinit(refCBLambda));
+        return doLoadWhiteSuppressJoinSqOne(xnewLRLs(whiteSuppressJoinSqOneAddi), new LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOneList(WhiteSuppressJoinSqOneAddi whiteSuppressJoinSqOneAddi, LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOne(WhiteSuppressJoinSqOneAddi whiteSuppressJoinSqOneAddi, LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne> loadReferrerOption) {
         xassLRArg(whiteSuppressJoinSqOneAddi, loadReferrerOption);
-        return loadWhiteSuppressJoinSqOneList(xnewLRLs(whiteSuppressJoinSqOneAddi), loadReferrerOption);
+        return loadWhiteSuppressJoinSqOne(xnewLRLs(whiteSuppressJoinSqOneAddi), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOneList(List<WhiteSuppressJoinSqOneAddi> whiteSuppressJoinSqOneAddiList, LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOne(List<WhiteSuppressJoinSqOneAddi> whiteSuppressJoinSqOneAddiList, LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne> loadReferrerOption) {
         xassLRArg(whiteSuppressJoinSqOneAddiList, loadReferrerOption);
         if (whiteSuppressJoinSqOneAddiList.isEmpty()) { return (NestedReferrerListGateway<WhiteSuppressJoinSqOne>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteSuppressJoinSqOneList(whiteSuppressJoinSqOneAddiList, loadReferrerOption);
+        return doLoadWhiteSuppressJoinSqOne(whiteSuppressJoinSqOneAddiList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteSuppressJoinSqOne> doLoadWhiteSuppressJoinSqOneList(List<WhiteSuppressJoinSqOneAddi> whiteSuppressJoinSqOneAddiList, LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne> option) {
+    protected NestedReferrerListGateway<WhiteSuppressJoinSqOne> doLoadWhiteSuppressJoinSqOne(List<WhiteSuppressJoinSqOneAddi> whiteSuppressJoinSqOneAddiList, LoadReferrerOption<WhiteSuppressJoinSqOneCB, WhiteSuppressJoinSqOne> option) {
         return helpLoadReferrerInternally(whiteSuppressJoinSqOneAddiList, option, "whiteSuppressJoinSqOneList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhiteSuppressJoinSqOneAddiBhv extends AbstractBehaviorWr
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteSuppressJoinSqOneAddiBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteSuppressJoinSqOneAddiBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteSuppressJoinSqOneAddiBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

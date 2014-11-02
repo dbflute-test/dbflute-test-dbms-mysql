@@ -52,7 +52,8 @@ public class WhiteDeprecatedClsElementDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteDeprecatedClsElement)et).getDeprecatedClsElementCode(), (et, vl) -> {
             ColumnInfo col = columnDeprecatedClsElementCode();
             ccls(col, vl);

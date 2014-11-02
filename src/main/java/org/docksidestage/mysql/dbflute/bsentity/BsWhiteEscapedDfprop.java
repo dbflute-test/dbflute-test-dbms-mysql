@@ -118,7 +118,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
     /**
      * Get the value of escapedDfpropCode as the classification of EscapedDfpropCls. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
-     * delimiter; & endBrace} & path\foo\bar
+     * delimiter; &amp; endBrace} &amp; path\foo\bar
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
@@ -129,7 +129,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
     /**
      * Set the value of escapedDfpropCode as the classification of EscapedDfpropCls. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
-     * delimiter; & endBrace} & path\foo\bar
+     * delimiter; &amp; endBrace} &amp; path\foo\bar
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
     public void setEscapedDfpropCodeAsEscapedDfpropCls(CDef.EscapedDfpropCls cdef) {
@@ -141,7 +141,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
     //                                                              ======================
     /**
      * Set the value of escapedDfpropCode as First (;@\\). <br>
-     * First: delimiter & rear escape char
+     * First: delimiter &amp; rear escape char
      */
     public void setEscapedDfpropCode_First() {
         setEscapedDfpropCodeAsEscapedDfpropCls(CDef.EscapedDfpropCls.First);
@@ -149,7 +149,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
 
     /**
      * Set the value of escapedDfpropCode as Second (\\};). <br>
-     * Second: escape char & endBrace & delimiter
+     * Second: escape char &amp; endBrace &amp; delimiter
      */
     public void setEscapedDfpropCode_Second() {
         setEscapedDfpropCodeAsEscapedDfpropCls(CDef.EscapedDfpropCls.Second);
@@ -157,7 +157,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
 
     /**
      * Set the value of escapedDfpropCode as Third ({=}). <br>
-     * Third: startBrace & equal & endBrace
+     * Third: startBrace &amp; equal &amp; endBrace
      */
     public void setEscapedDfpropCode_Third() {
         setEscapedDfpropCodeAsEscapedDfpropCls(CDef.EscapedDfpropCls.Third);
@@ -168,7 +168,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
     //                                                        ============================
     /**
      * Is the value of escapedDfpropCode First? <br>
-     * First: delimiter & rear escape char
+     * First: delimiter &amp; rear escape char
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */
@@ -179,7 +179,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
 
     /**
      * Is the value of escapedDfpropCode Second? <br>
-     * Second: escape char & endBrace & delimiter
+     * Second: escape char &amp; endBrace &amp; delimiter
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */
@@ -190,7 +190,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
 
     /**
      * Is the value of escapedDfpropCode Third? <br>
-     * Third: startBrace & equal & endBrace
+     * Third: startBrace &amp; equal &amp; endBrace
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */

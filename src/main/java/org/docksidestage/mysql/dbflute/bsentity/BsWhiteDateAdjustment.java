@@ -57,9 +57,9 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long dateAdjustmentId = entity.getDateAdjustmentId();
- * java.util.Date adjustedDate = entity.getAdjustedDate();
- * java.sql.Timestamp adjustedDatetime = entity.getAdjustedDatetime();
- * java.sql.Time adjustedTime = entity.getAdjustedTime();
+ * java.time.LocalDate adjustedDate = entity.getAdjustedDate();
+ * java.time.LocalDateTime adjustedDatetime = entity.getAdjustedDatetime();
+ * java.time.LocalTime adjustedTime = entity.getAdjustedTime();
  * Integer adjustedInteger = entity.getAdjustedInteger();
  * Long adjustedNamedStringLong = entity.getAdjustedNamedStringLong();
  * Long adjustedNamedTypedLong = entity.getAdjustedNamedTypedLong();
@@ -97,13 +97,13 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
     protected Long _dateAdjustmentId;
 
     /** (adjusted)ADJUSTED_DATE: {DATE(10)} */
-    protected java.util.Date _adjustedDate;
+    protected java.time.LocalDate _adjustedDate;
 
     /** ADJUSTED_DATETIME: {DATETIME(19)} */
-    protected java.sql.Timestamp _adjustedDatetime;
+    protected java.time.LocalDateTime _adjustedDatetime;
 
     /** ADJUSTED_TIME: {TIME(8)} */
-    protected java.sql.Time _adjustedTime;
+    protected java.time.LocalTime _adjustedTime;
 
     /** ADJUSTED_INTEGER: {INT(10)} */
     protected Integer _adjustedInteger;
@@ -197,7 +197,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_dateAdjustmentId));
-        sb.append(dm).append(xfUD(_adjustedDate));
+        sb.append(dm).append(xfND(_adjustedDate));
         sb.append(dm).append(xfND(_adjustedDatetime));
         sb.append(dm).append(xfND(_adjustedTime));
         sb.append(dm).append(xfND(_adjustedInteger));
@@ -249,7 +249,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
      * [get] (adjusted)ADJUSTED_DATE: {DATE(10)} <br>
      * @return The value of the column 'ADJUSTED_DATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getAdjustedDate() {
+    public java.time.LocalDate getAdjustedDate() {
         checkSpecifiedProperty("adjustedDate");
         return _adjustedDate;
     }
@@ -258,7 +258,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
      * [set] (adjusted)ADJUSTED_DATE: {DATE(10)} <br>
      * @param adjustedDate The value of the column 'ADJUSTED_DATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setAdjustedDate(java.util.Date adjustedDate) {
+    public void setAdjustedDate(java.time.LocalDate adjustedDate) {
         registerModifiedProperty("adjustedDate");
         _adjustedDate = adjustedDate;
     }
@@ -267,7 +267,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
      * [get] ADJUSTED_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'ADJUSTED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getAdjustedDatetime() {
+    public java.time.LocalDateTime getAdjustedDatetime() {
         checkSpecifiedProperty("adjustedDatetime");
         return _adjustedDatetime;
     }
@@ -276,7 +276,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
      * [set] ADJUSTED_DATETIME: {DATETIME(19)} <br>
      * @param adjustedDatetime The value of the column 'ADJUSTED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setAdjustedDatetime(java.sql.Timestamp adjustedDatetime) {
+    public void setAdjustedDatetime(java.time.LocalDateTime adjustedDatetime) {
         registerModifiedProperty("adjustedDatetime");
         _adjustedDatetime = adjustedDatetime;
     }
@@ -285,7 +285,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
      * [get] ADJUSTED_TIME: {TIME(8)} <br>
      * @return The value of the column 'ADJUSTED_TIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Time getAdjustedTime() {
+    public java.time.LocalTime getAdjustedTime() {
         checkSpecifiedProperty("adjustedTime");
         return _adjustedTime;
     }
@@ -294,7 +294,7 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
      * [set] ADJUSTED_TIME: {TIME(8)} <br>
      * @param adjustedTime The value of the column 'ADJUSTED_TIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setAdjustedTime(java.sql.Time adjustedTime) {
+    public void setAdjustedTime(java.time.LocalTime adjustedTime) {
         registerModifiedProperty("adjustedTime");
         _adjustedTime = adjustedTime;
     }

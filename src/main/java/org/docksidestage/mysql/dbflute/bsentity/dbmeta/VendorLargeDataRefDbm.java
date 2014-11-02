@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,13 +53,14 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getLargeDataRefId(), (et, vl) -> ((VendorLargeDataRef)et).setLargeDataRefId(ctl(vl)), "largeDataRefId");
         setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getLargeDataId(), (et, vl) -> ((VendorLargeDataRef)et).setLargeDataId(ctl(vl)), "largeDataId");
-        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getDateIndex(), (et, vl) -> ((VendorLargeDataRef)et).setDateIndex((java.util.Date)vl), "dateIndex");
-        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getDateNoIndex(), (et, vl) -> ((VendorLargeDataRef)et).setDateNoIndex((java.util.Date)vl), "dateNoIndex");
-        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getTimestampIndex(), (et, vl) -> ((VendorLargeDataRef)et).setTimestampIndex((java.sql.Timestamp)vl), "timestampIndex");
-        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getTimestampNoIndex(), (et, vl) -> ((VendorLargeDataRef)et).setTimestampNoIndex((java.sql.Timestamp)vl), "timestampNoIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getDateIndex(), (et, vl) -> ((VendorLargeDataRef)et).setDateIndex((java.time.LocalDate)vl), "dateIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getDateNoIndex(), (et, vl) -> ((VendorLargeDataRef)et).setDateNoIndex((java.time.LocalDate)vl), "dateNoIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getTimestampIndex(), (et, vl) -> ((VendorLargeDataRef)et).setTimestampIndex((java.time.LocalDateTime)vl), "timestampIndex");
+        setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getTimestampNoIndex(), (et, vl) -> ((VendorLargeDataRef)et).setTimestampNoIndex((java.time.LocalDateTime)vl), "timestampNoIndex");
         setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getNullableDecimalIndex(), (et, vl) -> ((VendorLargeDataRef)et).setNullableDecimalIndex(ctb(vl)), "nullableDecimalIndex");
         setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getNullableDecimalNoIndex(), (et, vl) -> ((VendorLargeDataRef)et).setNullableDecimalNoIndex(ctb(vl)), "nullableDecimalNoIndex");
         setupEpg(_epgMap, et -> ((VendorLargeDataRef)et).getSelfParentId(), (et, vl) -> ((VendorLargeDataRef)et).setSelfParentId(ctl(vl)), "selfParentId");
@@ -71,9 +73,10 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((VendorLargeDataRef)et).getVendorLargeData(), (et, vl) -> ((VendorLargeDataRef)et).setVendorLargeData((VendorLargeData)vl), "vendorLargeData");
-        setupEfpg(_efpgMap, et -> ((VendorLargeDataRef)et).getVendorLargeDataRefSelf(), (et, vl) -> ((VendorLargeDataRef)et).setVendorLargeDataRefSelf((VendorLargeDataRef)vl), "vendorLargeDataRefSelf");
+        setupEfpg(_efpgMap, et -> ((VendorLargeDataRef)et).getVendorLargeData(), (et, vl) -> ((VendorLargeDataRef)et).setVendorLargeData((OptionalEntity<VendorLargeData>)vl), "vendorLargeData");
+        setupEfpg(_efpgMap, et -> ((VendorLargeDataRef)et).getVendorLargeDataRefSelf(), (et, vl) -> ((VendorLargeDataRef)et).setVendorLargeDataRefSelf((OptionalEntity<VendorLargeDataRef>)vl), "vendorLargeDataRefSelf");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -94,10 +97,10 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnLargeDataRefId = cci("LARGE_DATA_REF_ID", "LARGE_DATA_REF_ID", null, null, Long.class, "largeDataRefId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "vendorLargeDataRefSelfList", null);
     protected final ColumnInfo _columnLargeDataId = cci("LARGE_DATA_ID", "LARGE_DATA_ID", null, null, Long.class, "largeDataId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "vendorLargeData", null, null);
-    protected final ColumnInfo _columnDateIndex = cci("DATE_INDEX", "DATE_INDEX", null, null, java.util.Date.class, "dateIndex", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnDateNoIndex = cci("DATE_NO_INDEX", "DATE_NO_INDEX", null, null, java.util.Date.class, "dateNoIndex", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTimestampIndex = cci("TIMESTAMP_INDEX", "TIMESTAMP_INDEX", null, null, java.sql.Timestamp.class, "timestampIndex", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTimestampNoIndex = cci("TIMESTAMP_NO_INDEX", "TIMESTAMP_NO_INDEX", null, null, java.sql.Timestamp.class, "timestampNoIndex", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnDateIndex = cci("DATE_INDEX", "DATE_INDEX", null, null, java.time.LocalDate.class, "dateIndex", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnDateNoIndex = cci("DATE_NO_INDEX", "DATE_NO_INDEX", null, null, java.time.LocalDate.class, "dateNoIndex", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTimestampIndex = cci("TIMESTAMP_INDEX", "TIMESTAMP_INDEX", null, null, java.time.LocalDateTime.class, "timestampIndex", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTimestampNoIndex = cci("TIMESTAMP_NO_INDEX", "TIMESTAMP_NO_INDEX", null, null, java.time.LocalDateTime.class, "timestampNoIndex", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnNullableDecimalIndex = cci("NULLABLE_DECIMAL_INDEX", "NULLABLE_DECIMAL_INDEX", null, null, java.math.BigDecimal.class, "nullableDecimalIndex", null, false, false, false, "DECIMAL", 12, 3, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnNullableDecimalNoIndex = cci("NULLABLE_DECIMAL_NO_INDEX", "NULLABLE_DECIMAL_NO_INDEX", null, null, java.math.BigDecimal.class, "nullableDecimalNoIndex", null, false, false, false, "DECIMAL", 12, 3, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnSelfParentId = cci("SELF_PARENT_ID", "SELF_PARENT_ID", null, null, Long.class, "selfParentId", null, false, false, false, "BIGINT", 19, 0, null, false, null, null, "vendorLargeDataRefSelf", null, null);
@@ -188,7 +191,7 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorLargeData() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnLargeDataId(), VendorLargeDataDbm.getInstance().columnLargeDataId());
-        return cfi("FK_VENDOR_LARGE_DATA_REF_DATA", "vendorLargeData", this, VendorLargeDataDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "vendorLargeDataRefList");
+        return cfi("FK_VENDOR_LARGE_DATA_REF_DATA", "vendorLargeData", this, VendorLargeDataDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorLargeDataRefList");
     }
     /**
      * vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
@@ -196,7 +199,7 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorLargeDataRefSelf() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSelfParentId(), VendorLargeDataRefDbm.getInstance().columnLargeDataRefId());
-        return cfi("FK_VENDOR_LARGE_DATA_REF_SELF", "vendorLargeDataRefSelf", this, VendorLargeDataRefDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "vendorLargeDataRefSelfList");
+        return cfi("FK_VENDOR_LARGE_DATA_REF_SELF", "vendorLargeDataRefSelf", this, VendorLargeDataRefDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorLargeDataRefSelfList");
     }
 
     // -----------------------------------------------------

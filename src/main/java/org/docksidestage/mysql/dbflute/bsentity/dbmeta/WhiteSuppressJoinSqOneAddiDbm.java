@@ -52,7 +52,8 @@ public class WhiteSuppressJoinSqOneAddiDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqOneAddi)et).getOneAddiId(), (et, vl) -> ((WhiteSuppressJoinSqOneAddi)et).setOneAddiId(cti(vl)), "oneAddiId");
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqOneAddi)et).getOneAddiName(), (et, vl) -> ((WhiteSuppressJoinSqOneAddi)et).setOneAddiName((String)vl), "oneAddiName");
     }

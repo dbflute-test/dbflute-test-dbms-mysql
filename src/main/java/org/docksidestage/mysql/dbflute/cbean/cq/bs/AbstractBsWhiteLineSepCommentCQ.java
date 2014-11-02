@@ -307,15 +307,6 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
-     * @param lineSepCommentName The value of lineSepCommentName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setLineSepCommentName_PrefixSearch(String lineSepCommentName) {
-        setLineSepCommentName_LikeSearch(lineSepCommentName, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
      */

@@ -377,15 +377,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
         regLSQ(CK_NLS, fRES(childName), xgetCValueChildName(), "CHILD_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CHILD_NAME: {NotNull, VARCHAR(200)}
-     * @param childName The value of childName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setChildName_PrefixSearch(String childName) {
-        setChildName_LikeSearch(childName, xcLSOPPre());
-    }
-
     protected void regChildName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueChildName(), "CHILD_NAME"); }
     protected abstract ConditionValue xgetCValueChildName();
 

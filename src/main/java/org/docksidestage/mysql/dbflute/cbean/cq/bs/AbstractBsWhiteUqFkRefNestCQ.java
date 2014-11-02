@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteUqFkRefNestCQ extends AbstractConditionQuer
         regLSQ(CK_NLS, fRES(compoundUqFirstCode), xgetCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * COMPOUND_UQ_FIRST_CODE: {IX+, NotNull, CHAR(3), FK to white_uq_fk_ref}
-     * @param compoundUqFirstCode The value of compoundUqFirstCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setCompoundUqFirstCode_PrefixSearch(String compoundUqFirstCode) {
-        setCompoundUqFirstCode_LikeSearch(compoundUqFirstCode, xcLSOPPre());
-    }
-
     protected void regCompoundUqFirstCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCompoundUqFirstCode(), "COMPOUND_UQ_FIRST_CODE"); }
     protected abstract ConditionValue xgetCValueCompoundUqFirstCode();
 
@@ -379,15 +370,6 @@ public abstract class AbstractBsWhiteUqFkRefNestCQ extends AbstractConditionQuer
      */
     public void setCompoundUqSecondCode_NotLikeSearch(String compoundUqSecondCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(compoundUqSecondCode), xgetCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * COMPOUND_UQ_SECOND_CODE: {NotNull, CHAR(3), FK to white_uq_fk_ref}
-     * @param compoundUqSecondCode The value of compoundUqSecondCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setCompoundUqSecondCode_PrefixSearch(String compoundUqSecondCode) {
-        setCompoundUqSecondCode_LikeSearch(compoundUqSecondCode, xcLSOPPre());
     }
 
     protected void regCompoundUqSecondCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCompoundUqSecondCode(), "COMPOUND_UQ_SECOND_CODE"); }

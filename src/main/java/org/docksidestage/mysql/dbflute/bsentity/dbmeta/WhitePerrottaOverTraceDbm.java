@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getTraceId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setTraceId(ctl(vl)), "traceId");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getPreviousProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setPreviousProductId(ctl(vl)), "previousProductId");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getNextProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setNextProductId(ctl(vl)), "nextProductId");
@@ -66,9 +68,10 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverTrace)et).getWhitePerrottaOverProductByNextProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setWhitePerrottaOverProductByNextProductId((WhitePerrottaOverProduct)vl), "whitePerrottaOverProductByNextProductId");
-        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverTrace)et).getWhitePerrottaOverProductByPreviousProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setWhitePerrottaOverProductByPreviousProductId((WhitePerrottaOverProduct)vl), "whitePerrottaOverProductByPreviousProductId");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverTrace)et).getWhitePerrottaOverProductByNextProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setWhitePerrottaOverProductByNextProductId((OptionalEntity<WhitePerrottaOverProduct>)vl), "whitePerrottaOverProductByNextProductId");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverTrace)et).getWhitePerrottaOverProductByPreviousProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setWhitePerrottaOverProductByPreviousProductId((OptionalEntity<WhitePerrottaOverProduct>)vl), "whitePerrottaOverProductByPreviousProductId");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -148,7 +151,7 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverProductByNextProductId() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnNextProductId(), WhitePerrottaOverProductDbm.getInstance().columnProductId());
-        return cfi("FK_WHITE_PERROTTA_OVER_TRACE_NEXT", "whitePerrottaOverProductByNextProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whitePerrottaOverTraceByNextProductIdList");
+        return cfi("FK_WHITE_PERROTTA_OVER_TRACE_NEXT", "whitePerrottaOverProductByNextProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverTraceByNextProductIdList");
     }
     /**
      * white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
@@ -156,7 +159,7 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverProductByPreviousProductId() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnPreviousProductId(), WhitePerrottaOverProductDbm.getInstance().columnProductId());
-        return cfi("FK_WHITE_PERROTTA_OVER_TRACE_PREVIOUS", "whitePerrottaOverProductByPreviousProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "whitePerrottaOverTraceByPreviousProductIdList");
+        return cfi("FK_WHITE_PERROTTA_OVER_TRACE_PREVIOUS", "whitePerrottaOverProductByPreviousProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverTraceByPreviousProductIdList");
     }
 
     // -----------------------------------------------------

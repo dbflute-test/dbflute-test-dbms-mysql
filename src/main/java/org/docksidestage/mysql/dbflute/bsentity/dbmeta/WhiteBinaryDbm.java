@@ -52,7 +52,8 @@ public class WhiteBinaryDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteBinary)et).getBinaryId(), (et, vl) -> ((WhiteBinary)et).setBinaryId(ctl(vl)), "binaryId");
         setupEpg(_epgMap, et -> ((WhiteBinary)et).getBinaryData(), (et, vl) -> ((WhiteBinary)et).setBinaryData((byte[])vl), "binaryData");
         setupEpg(_epgMap, et -> ((WhiteBinary)et).getBlobData(), (et, vl) -> ((WhiteBinary)et).setBlobData((byte[])vl), "blobData");

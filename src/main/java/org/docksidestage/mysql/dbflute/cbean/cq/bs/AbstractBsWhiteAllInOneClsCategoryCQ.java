@@ -158,26 +158,17 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsCategoryCode The value of clsCategoryCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setClsCategoryCode_PrefixSearch(String clsCategoryCode) {
-        setClsCategoryCode_LikeSearch(clsCategoryCode, xcLSOPPre());
-    }
-
-    /**
      * Set up ExistsReferrer (correlated sub-query). <br>
      * {exists (select CLS_CATEGORY_CODE from white_all_in_one_cls_element where ...)} <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteAllInOneClsElementList</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteAllInOneClsElement</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     elementCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteAllInOneClsElementList for 'exists'. (NotNull)
      */
-    public void existsWhiteAllInOneClsElementList(SubQuery<WhiteAllInOneClsElementCB> subCBLambda) {
+    public void existsWhiteAllInOneClsElement(SubQuery<WhiteAllInOneClsElementCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepClsCategoryCode_ExistsReferrer_WhiteAllInOneClsElementList(cb.query());
@@ -190,13 +181,13 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * {not exists (select CLS_CATEGORY_CODE from white_all_in_one_cls_element where ...)} <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteAllInOneClsElementList</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteAllInOneClsElement</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     elementCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteAllInOneClsElementList(SubQuery<WhiteAllInOneClsElementCB> subCBLambda) {
+    public void notExistsWhiteAllInOneClsElement(SubQuery<WhiteAllInOneClsElementCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteAllInOneClsElementCB cb = new WhiteAllInOneClsElementCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepClsCategoryCode_NotExistsReferrer_WhiteAllInOneClsElementList(cb.query());
@@ -217,14 +208,14 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_all_in_one_cls_element where ...)} <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteAllInOneClsElementList()</span>.<span style="color: #CC4747">max</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteAllInOneClsElement()</span>.<span style="color: #CC4747">max</span>(elementCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     elementCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     elementCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteAllInOneClsElementCB> derivedWhiteAllInOneClsElementList() {
+    public HpQDRFunction<WhiteAllInOneClsElementCB> derivedWhiteAllInOneClsElement() {
         return xcreateQDRFunctionWhiteAllInOneClsElementList();
     }
     protected HpQDRFunction<WhiteAllInOneClsElementCB> xcreateQDRFunctionWhiteAllInOneClsElementList() {
@@ -350,15 +341,6 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
         regLSQ(CK_NLS, fRES(clsCategoryName), xgetCValueClsCategoryName(), "CLS_CATEGORY_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
-     * @param clsCategoryName The value of clsCategoryName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setClsCategoryName_PrefixSearch(String clsCategoryName) {
-        setClsCategoryName_LikeSearch(clsCategoryName, xcLSOPPre());
-    }
-
     protected void regClsCategoryName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsCategoryName(), "CLS_CATEGORY_NAME"); }
     protected abstract ConditionValue xgetCValueClsCategoryName();
 
@@ -456,15 +438,6 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      */
     public void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(description), xgetCValueDescription(), "DESCRIPTION", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * DESCRIPTION: {NotNull, VARCHAR(50)}
-     * @param description The value of description as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setDescription_PrefixSearch(String description) {
-        setDescription_LikeSearch(description, xcLSOPPre());
     }
 
     protected void regDescription(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDescription(), "DESCRIPTION"); }

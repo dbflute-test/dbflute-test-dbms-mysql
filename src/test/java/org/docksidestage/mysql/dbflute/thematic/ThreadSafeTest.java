@@ -50,7 +50,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 // ## Arrange ##
                 MemberCB cb = new MemberCB();
                 cb.setupSelect_MemberStatus();
-                cb.query().setMemberName_PrefixSearch("S");
+                cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
                 cb.query().addOrderBy_Birthdate_Desc().addOrderBy_MemberId_Asc();
 
                 // ## Act ##
@@ -81,7 +81,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 Class<SimpleMember> entityType = SimpleMember.class;
 
                 // ## Act ##
-                List<SimpleMember> memberList = memberBhv.outsideSql().selectList(path, pmb, entityType);
+                List<SimpleMember> memberList = memberBhv.outsideSql().traditionalStyle().selectList(path, pmb, entityType);
 
                 // ## Assert ##
                 assertNotSame(0, memberList.size());
@@ -151,7 +151,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                     long currentMillis = currentTimestamp().getTime();
                     long keyMillis = currentMillis - (entryNumber * 10000) - (i * 10000);
                     HandyDate handyDate = new HandyDate(new Timestamp(keyMillis));
-                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getTimestamp());
+                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getLocalDateTime());
                     purchase.setPurchaseCount(1234 + i);
                     purchase.setPurchasePrice(1234 + i);
                     purchase.setPaymentCompleteFlg_True();
@@ -173,7 +173,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 purchase.setMemberId(entryNumber % 2 == 1 ? 3 : 4);
                 purchase.setProductId(entryNumber % 3 == 1 ? 3 : (entryNumber % 3 == 2 ? 4 : 5));
                 long keyMillis = currentTimestamp().getTime() - (entryNumber * 1000);
-                purchase.setPurchaseDatetime(new Timestamp(keyMillis));
+                purchase.setPurchaseDatetime(toLocalDateTime(new Timestamp(keyMillis)));
                 purchaseBhv.insert(purchase);
 
                 // deadlock if update is executed after insert including updateNonstrict()

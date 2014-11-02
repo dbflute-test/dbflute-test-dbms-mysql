@@ -52,7 +52,8 @@ public class VendorCheckDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getVendorCheckId(), (et, vl) -> ((VendorCheck)et).setVendorCheckId(ctl(vl)), "vendorCheckId");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfChar(), (et, vl) -> ((VendorCheck)et).setTypeOfChar((String)vl), "typeOfChar");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfVarchar(), (et, vl) -> ((VendorCheck)et).setTypeOfVarchar((String)vl), "typeOfVarchar");
@@ -70,11 +71,11 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBigint(), (et, vl) -> ((VendorCheck)et).setTypeOfBigint(ctl(vl)), "typeOfBigint");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfFloat(), (et, vl) -> ((VendorCheck)et).setTypeOfFloat(ctb(vl)), "typeOfFloat");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDouble(), (et, vl) -> ((VendorCheck)et).setTypeOfDouble(ctb(vl)), "typeOfDouble");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDate(), (et, vl) -> ((VendorCheck)et).setTypeOfDate((java.util.Date)vl), "typeOfDate");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime((java.sql.Timestamp)vl), "typeOfDatetime");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((VendorCheck)et).setTypeOfTimestamp((java.sql.Timestamp)vl), "typeOfTimestamp");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime((java.sql.Time)vl), "typeOfTime");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfYear(), (et, vl) -> ((VendorCheck)et).setTypeOfYear((java.util.Date)vl), "typeOfYear");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDate(), (et, vl) -> ((VendorCheck)et).setTypeOfDate((java.time.LocalDate)vl), "typeOfDate");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime((java.time.LocalDateTime)vl), "typeOfDatetime");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((VendorCheck)et).setTypeOfTimestamp((java.time.LocalDateTime)vl), "typeOfTimestamp");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime((java.time.LocalTime)vl), "typeOfTime");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfYear(), (et, vl) -> ((VendorCheck)et).setTypeOfYear((java.time.LocalDate)vl), "typeOfYear");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBoolean(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBoolean();
             ccls(col, vl);
@@ -128,11 +129,11 @@ public class VendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfBigint = cci("TYPE_OF_BIGINT", "TYPE_OF_BIGINT", null, null, Long.class, "typeOfBigint", null, false, false, false, "BIGINT", 19, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnTypeOfFloat = cci("TYPE_OF_FLOAT", "TYPE_OF_FLOAT", null, null, java.math.BigDecimal.class, "typeOfFloat", null, false, false, false, "FLOAT", 12, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnTypeOfDouble = cci("TYPE_OF_DOUBLE", "TYPE_OF_DOUBLE", null, null, java.math.BigDecimal.class, "typeOfDouble", null, false, false, false, "DOUBLE", 22, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfDate = cci("TYPE_OF_DATE", "TYPE_OF_DATE", null, null, java.util.Date.class, "typeOfDate", null, false, false, false, "DATE", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfDatetime = cci("TYPE_OF_DATETIME", "TYPE_OF_DATETIME", null, null, java.sql.Timestamp.class, "typeOfDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfTimestamp = cci("TYPE_OF_TIMESTAMP", "TYPE_OF_TIMESTAMP", null, null, java.sql.Timestamp.class, "typeOfTimestamp", null, false, false, true, "TIMESTAMP", 19, 0, "CURRENT_TIMESTAMP", false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfTime = cci("TYPE_OF_TIME", "TYPE_OF_TIME", null, null, java.sql.Time.class, "typeOfTime", null, false, false, false, "TIME", 8, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfYear = cci("TYPE_OF_YEAR", "TYPE_OF_YEAR", null, null, java.util.Date.class, "typeOfYear", null, false, false, false, "YEAR", null, null, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfDate = cci("TYPE_OF_DATE", "TYPE_OF_DATE", null, null, java.time.LocalDate.class, "typeOfDate", null, false, false, false, "DATE", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfDatetime = cci("TYPE_OF_DATETIME", "TYPE_OF_DATETIME", null, null, java.time.LocalDateTime.class, "typeOfDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfTimestamp = cci("TYPE_OF_TIMESTAMP", "TYPE_OF_TIMESTAMP", null, null, java.time.LocalDateTime.class, "typeOfTimestamp", null, false, false, true, "TIMESTAMP", 19, 0, "CURRENT_TIMESTAMP", false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfTime = cci("TYPE_OF_TIME", "TYPE_OF_TIME", null, null, java.time.LocalTime.class, "typeOfTime", null, false, false, false, "TIME", 8, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfYear = cci("TYPE_OF_YEAR", "TYPE_OF_YEAR", null, null, java.time.LocalDate.class, "typeOfYear", null, false, false, false, "YEAR", null, null, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnTypeOfBoolean = cci("TYPE_OF_BOOLEAN", "TYPE_OF_BOOLEAN", null, null, Boolean.class, "typeOfBoolean", null, false, false, false, "BIT", null, null, null, false, null, null, null, null, CDef.DefMeta.BooleanFlg);
     protected final ColumnInfo _columnTypeOfBlob = cci("TYPE_OF_BLOB", "TYPE_OF_BLOB", null, null, byte[].class, "typeOfBlob", null, false, false, false, "BLOB", 65535, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnTypeOfTinyblob = cci("TYPE_OF_TINYBLOB", "TYPE_OF_TINYBLOB", null, null, byte[].class, "typeOfTinyblob", null, false, false, false, "TINYBLOB", 255, 0, null, false, null, null, null, null, null);

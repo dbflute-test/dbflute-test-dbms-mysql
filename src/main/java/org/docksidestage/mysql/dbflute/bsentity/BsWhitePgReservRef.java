@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -115,13 +117,15 @@ public abstract class BsWhitePgReservRef extends AbstractEntity implements Domai
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_pg_reserv by my CLASS, named 'whitePgReserv'. */
-    protected WhitePgReserv _whitePgReserv;
+    protected OptionalEntity<WhitePgReserv> _whitePgReserv;
 
     /**
      * [get] white_pg_reserv by my CLASS, named 'whitePgReserv'. <br>
-     * @return The entity of foreign property 'whitePgReserv'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whitePgReserv'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhitePgReserv getWhitePgReserv() {
+    public OptionalEntity<WhitePgReserv> getWhitePgReserv() {
+        if (_whitePgReserv == null) { _whitePgReserv = OptionalEntity.relationEmpty(this, "whitePgReserv"); }
         return _whitePgReserv;
     }
 
@@ -129,7 +133,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity implements Domai
      * [set] white_pg_reserv by my CLASS, named 'whitePgReserv'.
      * @param whitePgReserv The entity of foreign property 'whitePgReserv'. (NullAllowed)
      */
-    public void setWhitePgReserv(WhitePgReserv whitePgReserv) {
+    public void setWhitePgReserv(OptionalEntity<WhitePgReserv> whitePgReserv) {
         _whitePgReserv = whitePgReserv;
     }
 
@@ -165,9 +169,12 @@ public abstract class BsWhitePgReservRef extends AbstractEntity implements Domai
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePgReserv != null)
+        if (_whitePgReserv != null && _whitePgReserv.isPresent())
         { sb.append(li).append(xbRDS(_whitePgReserv, "whitePgReserv")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -185,7 +192,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity implements Domai
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePgReserv != null)
+        if (_whitePgReserv != null && _whitePgReserv.isPresent())
         { sb.append(dm).append("whitePgReserv"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

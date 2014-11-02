@@ -52,7 +52,8 @@ public class WhitePerrottaOverMemberMachoDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMemberMacho)et).getMachoCode(), (et, vl) -> ((WhitePerrottaOverMemberMacho)et).setMachoCode((String)vl), "machoCode");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMemberMacho)et).getMachoName(), (et, vl) -> ((WhitePerrottaOverMemberMacho)et).setMachoName((String)vl), "machoName");
     }

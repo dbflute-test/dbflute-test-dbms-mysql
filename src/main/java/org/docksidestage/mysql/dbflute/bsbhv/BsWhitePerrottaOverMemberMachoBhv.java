@@ -197,7 +197,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhitePerrottaOverMemberMachoCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhitePerrottaOverMemberMachoCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * Load referrer of whitePerrottaOverMemberList by the set-upper of referrer. <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverMemberList</span>(<span style="color: #553000">whitePerrottaOverMemberMachoList</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverMember</span>(<span style="color: #553000">whitePerrottaOverMemberMachoList</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberCB</span>.setupSelect...
      *     <span style="color: #553000">memberCB</span>.query().set...
      *     <span style="color: #553000">memberCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMemberList(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMember(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
         xassLRArg(whitePerrottaOverMemberMachoList, refCBLambda);
-        return doLoadWhitePerrottaOverMemberList(whitePerrottaOverMemberMachoList, new LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember>().xinit(refCBLambda));
+        return doLoadWhitePerrottaOverMember(whitePerrottaOverMemberMachoList, new LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whitePerrottaOverMemberList by the set-upper of referrer. <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverMemberList</span>(<span style="color: #553000">whitePerrottaOverMemberMacho</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverMember</span>(<span style="color: #553000">whitePerrottaOverMemberMacho</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberCB</span>.setupSelect...
      *     <span style="color: #553000">memberCB</span>.query().set...
      *     <span style="color: #553000">memberCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMemberList(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho, ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMember(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho, ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
         xassLRArg(whitePerrottaOverMemberMacho, refCBLambda);
-        return doLoadWhitePerrottaOverMemberList(xnewLRLs(whitePerrottaOverMemberMacho), new LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember>().xinit(refCBLambda));
+        return doLoadWhitePerrottaOverMember(xnewLRLs(whitePerrottaOverMemberMacho), new LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMemberList(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMember(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> loadReferrerOption) {
         xassLRArg(whitePerrottaOverMemberMacho, loadReferrerOption);
-        return loadWhitePerrottaOverMemberList(xnewLRLs(whitePerrottaOverMemberMacho), loadReferrerOption);
+        return loadWhitePerrottaOverMember(xnewLRLs(whitePerrottaOverMemberMacho), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMemberList(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMember(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> loadReferrerOption) {
         xassLRArg(whitePerrottaOverMemberMachoList, loadReferrerOption);
         if (whitePerrottaOverMemberMachoList.isEmpty()) { return (NestedReferrerListGateway<WhitePerrottaOverMember>)EMPTY_NREF_LGWAY; }
-        return doLoadWhitePerrottaOverMemberList(whitePerrottaOverMemberMachoList, loadReferrerOption);
+        return doLoadWhitePerrottaOverMember(whitePerrottaOverMemberMachoList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhitePerrottaOverMember> doLoadWhitePerrottaOverMemberList(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> option) {
+    protected NestedReferrerListGateway<WhitePerrottaOverMember> doLoadWhitePerrottaOverMember(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> option) {
         return helpLoadReferrerInternally(whitePerrottaOverMemberMachoList, option, "whitePerrottaOverMemberList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhitePerrottaOverMemberMachoBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhitePerrottaOverMemberMachoBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhitePerrottaOverMemberMachoBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

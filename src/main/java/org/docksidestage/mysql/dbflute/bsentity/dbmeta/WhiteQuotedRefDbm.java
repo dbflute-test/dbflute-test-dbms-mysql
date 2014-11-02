@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteQuotedRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteQuotedRef)et).getWhere(), (et, vl) -> ((WhiteQuotedRef)et).setWhere(cti(vl)), "where");
         setupEpg(_epgMap, et -> ((WhiteQuotedRef)et).getOrder(), (et, vl) -> ((WhiteQuotedRef)et).setOrder(cti(vl)), "order");
     }
@@ -64,8 +66,9 @@ public class WhiteQuotedRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteQuotedRef)et).getWhiteQuoted(), (et, vl) -> ((WhiteQuotedRef)et).setWhiteQuoted((WhiteQuoted)vl), "whiteQuoted");
+        setupEfpg(_efpgMap, et -> ((WhiteQuotedRef)et).getWhiteQuoted(), (et, vl) -> ((WhiteQuotedRef)et).setWhiteQuoted((OptionalEntity<WhiteQuoted>)vl), "whiteQuoted");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -131,7 +134,7 @@ public class WhiteQuotedRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteQuoted() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnOrder(), WhiteQuotedDbm.getInstance().columnSelect());
-        return cfi("FK_WHITE_QUOTED_REF", "whiteQuoted", this, WhiteQuotedDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteQuotedRefList");
+        return cfi("FK_WHITE_QUOTED_REF", "whiteQuoted", this, WhiteQuotedDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteQuotedRefList");
     }
 
     // -----------------------------------------------------

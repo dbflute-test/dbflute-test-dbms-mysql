@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * {exists (select STILETTO_ALIAS_ID from white_stiletto_alias_ref where ...)} <br>
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteStilettoAliasRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteStilettoAliasRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteStilettoAliasRefList for 'exists'. (NotNull)
      */
-    public void existsWhiteStilettoAliasRefList(SubQuery<WhiteStilettoAliasRefCB> subCBLambda) {
+    public void existsWhiteStilettoAliasRef(SubQuery<WhiteStilettoAliasRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteStilettoAliasRefCB cb = new WhiteStilettoAliasRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepStilettoAliasId_ExistsReferrer_WhiteStilettoAliasRefList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * {not exists (select STILETTO_ALIAS_ID from white_stiletto_alias_ref where ...)} <br>
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteStilettoAliasRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteStilettoAliasRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of StilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteStilettoAliasRefList(SubQuery<WhiteStilettoAliasRefCB> subCBLambda) {
+    public void notExistsWhiteStilettoAliasRef(SubQuery<WhiteStilettoAliasRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteStilettoAliasRefCB cb = new WhiteStilettoAliasRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepStilettoAliasId_NotExistsReferrer_WhiteStilettoAliasRefList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      * {FOO &lt;= (select max(BAR) from white_stiletto_alias_ref where ...)} <br>
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteStilettoAliasRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteStilettoAliasRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteStilettoAliasRefCB> derivedWhiteStilettoAliasRefList() {
+    public HpQDRFunction<WhiteStilettoAliasRefCB> derivedWhiteStilettoAliasRef() {
         return xcreateQDRFunctionWhiteStilettoAliasRefList();
     }
     protected HpQDRFunction<WhiteStilettoAliasRefCB> xcreateQDRFunctionWhiteStilettoAliasRefList() {
@@ -347,15 +347,6 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO: {VARCHAR(200)}
-     * @param foo The value of foo as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo_PrefixSearch(String foo) {
-        setFoo_LikeSearch(foo, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * FOO: {VARCHAR(200)}
      */
@@ -470,15 +461,6 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo0_NotLikeSearch(String foo0, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(foo0), xgetCValueFoo0(), "FOO_0", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO_0: {VARCHAR(200)}
-     * @param foo0 The value of foo0 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo0_PrefixSearch(String foo0) {
-        setFoo0_LikeSearch(foo0, xcLSOPPre());
     }
 
     /**
@@ -599,15 +581,6 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO_1: {VARCHAR(200)}
-     * @param foo1 The value of foo1 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo1_PrefixSearch(String foo1) {
-        setFoo1_LikeSearch(foo1, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * FOO_1: {VARCHAR(200)}
      */
@@ -722,15 +695,6 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo2_NotLikeSearch(String foo2, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(foo2), xgetCValueFoo2(), "FOO2", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO2: {VARCHAR(200)}
-     * @param foo2 The value of foo2 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo2_PrefixSearch(String foo2) {
-        setFoo2_LikeSearch(foo2, xcLSOPPre());
     }
 
     /**
@@ -851,15 +815,6 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO_3: {VARCHAR(200)}
-     * @param foo3 The value of foo3 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo3_PrefixSearch(String foo3) {
-        setFoo3_LikeSearch(foo3, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * FOO_3: {VARCHAR(200)}
      */
@@ -974,15 +929,6 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setFoo4_NotLikeSearch(String foo4, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(foo4), xgetCValueFoo4(), "FOO4", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO4: {VARCHAR(200)}
-     * @param foo4 The value of foo4 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo4_PrefixSearch(String foo4) {
-        setFoo4_LikeSearch(foo4, xcLSOPPre());
     }
 
     /**
@@ -1103,15 +1049,6 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * BAR: {VARCHAR(200)}
-     * @param bar The value of bar as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setBar_PrefixSearch(String bar) {
-        setBar_LikeSearch(bar, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * BAR: {VARCHAR(200)}
      */
@@ -1226,15 +1163,6 @@ public abstract class AbstractBsWhiteStilettoAliasCQ extends AbstractConditionQu
      */
     public void setQux_NotLikeSearch(String qux, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(qux), xgetCValueQux(), "QUX", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * QUX: {VARCHAR(200)}
-     * @param qux The value of qux as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setQux_PrefixSearch(String qux) {
-        setQux_LikeSearch(qux, xcLSOPPre());
     }
 
     /**

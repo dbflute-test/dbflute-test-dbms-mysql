@@ -167,13 +167,13 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnCQ extends 
      * {exists (select THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID from vendor_the_long_and_winding_table_and_column_ref where ...)} <br>
      * vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorTheLongAndWindingTableAndColumnRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsVendorTheLongAndWindingTableAndColumnRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of VendorTheLongAndWindingTableAndColumnRefList for 'exists'. (NotNull)
      */
-    public void existsVendorTheLongAndWindingTableAndColumnRefList(SubQuery<VendorTheLongAndWindingTableAndColumnRefCB> subCBLambda) {
+    public void existsVendorTheLongAndWindingTableAndColumnRef(SubQuery<VendorTheLongAndWindingTableAndColumnRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorTheLongAndWindingTableAndColumnRefCB cb = new VendorTheLongAndWindingTableAndColumnRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepTheLongAndWindingTableAndColumnId_ExistsReferrer_VendorTheLongAndWindingTableAndColumnRefList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnCQ extends 
      * {not exists (select THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID from vendor_the_long_and_winding_table_and_column_ref where ...)} <br>
      * vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorTheLongAndWindingTableAndColumnRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsVendorTheLongAndWindingTableAndColumnRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of TheLongAndWindingTableAndColumnId_NotExistsReferrer_VendorTheLongAndWindingTableAndColumnRefList for 'not exists'. (NotNull)
      */
-    public void notExistsVendorTheLongAndWindingTableAndColumnRefList(SubQuery<VendorTheLongAndWindingTableAndColumnRefCB> subCBLambda) {
+    public void notExistsVendorTheLongAndWindingTableAndColumnRef(SubQuery<VendorTheLongAndWindingTableAndColumnRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorTheLongAndWindingTableAndColumnRefCB cb = new VendorTheLongAndWindingTableAndColumnRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepTheLongAndWindingTableAndColumnId_NotExistsReferrer_VendorTheLongAndWindingTableAndColumnRefList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnCQ extends 
      * {FOO &lt;= (select max(BAR) from vendor_the_long_and_winding_table_and_column_ref where ...)} <br>
      * vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorTheLongAndWindingTableAndColumnRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedVendorTheLongAndWindingTableAndColumnRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<VendorTheLongAndWindingTableAndColumnRefCB> derivedVendorTheLongAndWindingTableAndColumnRefList() {
+    public HpQDRFunction<VendorTheLongAndWindingTableAndColumnRefCB> derivedVendorTheLongAndWindingTableAndColumnRef() {
         return xcreateQDRFunctionVendorTheLongAndWindingTableAndColumnRefList();
     }
     protected HpQDRFunction<VendorTheLongAndWindingTableAndColumnRefCB> xcreateQDRFunctionVendorTheLongAndWindingTableAndColumnRefList() {
@@ -346,15 +346,6 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnCQ extends 
         regLSQ(CK_NLS, fRES(theLongAndWindingTableAndColumnName), xgetCValueTheLongAndWindingTableAndColumnName(), "THE_LONG_AND_WINDING_TABLE_AND_COLUMN_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_NAME: {UQ, NotNull, VARCHAR(180)}
-     * @param theLongAndWindingTableAndColumnName The value of theLongAndWindingTableAndColumnName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTheLongAndWindingTableAndColumnName_PrefixSearch(String theLongAndWindingTableAndColumnName) {
-        setTheLongAndWindingTableAndColumnName_LikeSearch(theLongAndWindingTableAndColumnName, xcLSOPPre());
-    }
-
     protected void regTheLongAndWindingTableAndColumnName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTheLongAndWindingTableAndColumnName(), "THE_LONG_AND_WINDING_TABLE_AND_COLUMN_NAME"); }
     protected abstract ConditionValue xgetCValueTheLongAndWindingTableAndColumnName();
 
@@ -452,15 +443,6 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnCQ extends 
      */
     public void setShortName_NotLikeSearch(String shortName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(shortName), xgetCValueShortName(), "SHORT_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * SHORT_NAME: {NotNull, VARCHAR(200)}
-     * @param shortName The value of shortName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setShortName_PrefixSearch(String shortName) {
-        setShortName_LikeSearch(shortName, xcLSOPPre());
     }
 
     protected void regShortName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueShortName(), "SHORT_NAME"); }

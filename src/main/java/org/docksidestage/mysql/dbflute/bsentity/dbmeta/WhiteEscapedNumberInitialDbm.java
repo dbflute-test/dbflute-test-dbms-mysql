@@ -52,7 +52,8 @@ public class WhiteEscapedNumberInitialDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteEscapedNumberInitial)et).getNumberInitialCode(), (et, vl) -> {
             ColumnInfo col = columnNumberInitialCode();
             ccls(col, vl);

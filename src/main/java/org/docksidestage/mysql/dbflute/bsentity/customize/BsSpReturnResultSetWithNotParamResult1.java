@@ -58,8 +58,8 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
- * java.util.Date birthdate = entity.getBirthdate();
- * java.sql.Timestamp formalizedDatetime = entity.getFormalizedDatetime();
+ * java.time.LocalDate birthdate = entity.getBirthdate();
+ * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
  * String memberStatusCode = entity.getMemberStatusCode();
  * entity.setMemberId(memberId);
  * entity.setMemberName(memberName);
@@ -88,10 +88,10 @@ public abstract class BsSpReturnResultSetWithNotParamResult1 extends AbstractEnt
     protected String _memberName;
 
     /** (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} */
-    protected java.util.Date _birthdate;
+    protected java.time.LocalDate _birthdate;
 
     /** (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} */
-    protected java.sql.Timestamp _formalizedDatetime;
+    protected java.time.LocalDateTime _formalizedDatetime;
 
     /** (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to member.MEMBER_STATUS_CODE, classification=MemberStatus} */
     protected String _memberStatusCode;
@@ -283,7 +283,7 @@ public abstract class BsSpReturnResultSetWithNotParamResult1 extends AbstractEnt
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_memberId));
         sb.append(dm).append(xfND(_memberName));
-        sb.append(dm).append(xfUD(_birthdate));
+        sb.append(dm).append(xfND(_birthdate));
         sb.append(dm).append(xfND(_formalizedDatetime));
         sb.append(dm).append(xfND(_memberStatusCode));
         if (sb.length() > dm.length()) {
@@ -353,7 +353,7 @@ public abstract class BsSpReturnResultSetWithNotParamResult1 extends AbstractEnt
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getBirthdate() {
+    public java.time.LocalDate getBirthdate() {
         checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
@@ -363,7 +363,7 @@ public abstract class BsSpReturnResultSetWithNotParamResult1 extends AbstractEnt
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBirthdate(java.util.Date birthdate) {
+    public void setBirthdate(java.time.LocalDate birthdate) {
         registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }
@@ -374,7 +374,7 @@ public abstract class BsSpReturnResultSetWithNotParamResult1 extends AbstractEnt
      * 仮会員のときはnull。
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getFormalizedDatetime() {
+    public java.time.LocalDateTime getFormalizedDatetime() {
         checkSpecifiedProperty("formalizedDatetime");
         return _formalizedDatetime;
     }
@@ -385,7 +385,7 @@ public abstract class BsSpReturnResultSetWithNotParamResult1 extends AbstractEnt
      * 仮会員のときはnull。
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setFormalizedDatetime(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime(java.time.LocalDateTime formalizedDatetime) {
         registerModifiedProperty("formalizedDatetime");
         _formalizedDatetime = formalizedDatetime;
     }

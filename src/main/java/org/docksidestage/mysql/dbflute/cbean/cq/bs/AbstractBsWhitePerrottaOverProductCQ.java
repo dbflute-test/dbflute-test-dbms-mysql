@@ -167,13 +167,13 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {exists (select PRODUCT_ID from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhitePerrottaOverMemberList for 'exists'. (NotNull)
      */
-    public void existsWhitePerrottaOverMemberList(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
+    public void existsWhitePerrottaOverMember(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_ExistsReferrer_WhitePerrottaOverMemberList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {exists (select NEXT_PRODUCT_ID from white_perrotta_over_trace where ...)} <br>
      * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverTraceByNextProductIdList</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverTraceByNextProductId</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhitePerrottaOverTraceByNextProductIdList for 'exists'. (NotNull)
      */
-    public void existsWhitePerrottaOverTraceByNextProductIdList(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
+    public void existsWhitePerrottaOverTraceByNextProductId(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_ExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query());
@@ -205,13 +205,13 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {exists (select PREVIOUS_PRODUCT_ID from white_perrotta_over_trace where ...)} <br>
      * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverTraceByPreviousProductIdList</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverTraceByPreviousProductId</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhitePerrottaOverTraceByPreviousProductIdList for 'exists'. (NotNull)
      */
-    public void existsWhitePerrottaOverTraceByPreviousProductIdList(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
+    public void existsWhitePerrottaOverTraceByPreviousProductId(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_ExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query());
@@ -224,13 +224,13 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {not exists (select PRODUCT_ID from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductId_NotExistsReferrer_WhitePerrottaOverMemberList for 'not exists'. (NotNull)
      */
-    public void notExistsWhitePerrottaOverMemberList(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
+    public void notExistsWhitePerrottaOverMember(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverMemberList(cb.query());
@@ -243,13 +243,13 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {not exists (select NEXT_PRODUCT_ID from white_perrotta_over_trace where ...)} <br>
      * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverTraceByNextProductIdList</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverTraceByNextProductId</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList for 'not exists'. (NotNull)
      */
-    public void notExistsWhitePerrottaOverTraceByNextProductIdList(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
+    public void notExistsWhitePerrottaOverTraceByNextProductId(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByNextProductIdList(cb.query());
@@ -262,13 +262,13 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {not exists (select PREVIOUS_PRODUCT_ID from white_perrotta_over_trace where ...)} <br>
      * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverTraceByPreviousProductIdList</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverTraceByPreviousProductId</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList for 'not exists'. (NotNull)
      */
-    public void notExistsWhitePerrottaOverTraceByPreviousProductIdList(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
+    public void notExistsWhitePerrottaOverTraceByPreviousProductId(SubQuery<WhitePerrottaOverTraceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverTraceCB cb = new WhitePerrottaOverTraceCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_NotExistsReferrer_WhitePerrottaOverTraceByPreviousProductIdList(cb.query());
@@ -305,14 +305,14 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMember()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     memberCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhitePerrottaOverMemberCB> derivedWhitePerrottaOverMemberList() {
+    public HpQDRFunction<WhitePerrottaOverMemberCB> derivedWhitePerrottaOverMember() {
         return xcreateQDRFunctionWhitePerrottaOverMemberList();
     }
     protected HpQDRFunction<WhitePerrottaOverMemberCB> xcreateQDRFunctionWhitePerrottaOverMemberList() {
@@ -332,14 +332,14 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_trace where ...)} <br>
      * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverTraceByNextProductIdList()</span>.<span style="color: #CC4747">max</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverTraceByNextProductId()</span>.<span style="color: #CC4747">max</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     traceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhitePerrottaOverTraceCB> derivedWhitePerrottaOverTraceByNextProductIdList() {
+    public HpQDRFunction<WhitePerrottaOverTraceCB> derivedWhitePerrottaOverTraceByNextProductId() {
         return xcreateQDRFunctionWhitePerrottaOverTraceByNextProductIdList();
     }
     protected HpQDRFunction<WhitePerrottaOverTraceCB> xcreateQDRFunctionWhitePerrottaOverTraceByNextProductIdList() {
@@ -359,14 +359,14 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_trace where ...)} <br>
      * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverTraceByPreviousProductIdList()</span>.<span style="color: #CC4747">max</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverTraceByPreviousProductId()</span>.<span style="color: #CC4747">max</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     traceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     traceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhitePerrottaOverTraceCB> derivedWhitePerrottaOverTraceByPreviousProductIdList() {
+    public HpQDRFunction<WhitePerrottaOverTraceCB> derivedWhitePerrottaOverTraceByPreviousProductId() {
         return xcreateQDRFunctionWhitePerrottaOverTraceByPreviousProductIdList();
     }
     protected HpQDRFunction<WhitePerrottaOverTraceCB> xcreateQDRFunctionWhitePerrottaOverTraceByPreviousProductIdList() {
@@ -492,15 +492,6 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
         regLSQ(CK_NLS, fRES(productName), xgetCValueProductName(), "PRODUCT_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
-     * @param productName The value of productName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setProductName_PrefixSearch(String productName) {
-        setProductName_LikeSearch(productName, xcLSOPPre());
-    }
-
     protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductName(), "PRODUCT_NAME"); }
     protected abstract ConditionValue xgetCValueProductName();
 
@@ -598,15 +589,6 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      */
     public void setProductNestedCode_NotLikeSearch(String productNestedCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productNestedCode), xgetCValueProductNestedCode(), "PRODUCT_NESTED_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested}
-     * @param productNestedCode The value of productNestedCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setProductNestedCode_PrefixSearch(String productNestedCode) {
-        setProductNestedCode_LikeSearch(productNestedCode, xcLSOPPre());
     }
 
     protected void regProductNestedCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductNestedCode(), "PRODUCT_NESTED_CODE"); }

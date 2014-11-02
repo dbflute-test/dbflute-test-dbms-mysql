@@ -46,7 +46,7 @@ public class MemberNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public MemberAddressNss withMemberAddressAsValid(final java.util.Date targetDate) {
+    public MemberAddressNss withMemberAddressAsValid(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryMemberAddressAsValid(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsValid(targetDate));
     }
@@ -56,7 +56,7 @@ public class MemberNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public MemberAddressNss withMemberAddressAsValidBefore(final java.util.Date targetDate) {
+    public MemberAddressNss withMemberAddressAsValidBefore(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryMemberAddressAsValidBefore(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsValidBefore(targetDate));
     }
@@ -77,7 +77,7 @@ public class MemberNss {
      * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public MemberAddressNss withMemberAddressAsIfComment(final java.util.Date targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
+    public MemberAddressNss withMemberAddressAsIfComment(final java.time.LocalDate targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
         _query.xdoNss(() -> _query.queryMemberAddressAsIfComment(targetDate, region));
         return new MemberAddressNss(_query.queryMemberAddressAsIfComment(targetDate, region));
     }
@@ -87,7 +87,7 @@ public class MemberNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public MemberAddressNss withMemberAddressAsOnlyOneDate(final java.util.Date targetDate) {
+    public MemberAddressNss withMemberAddressAsOnlyOneDate(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryMemberAddressAsOnlyOneDate(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsOnlyOneDate(targetDate));
     }
@@ -176,7 +176,7 @@ public class MemberNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public MemberLoginNss withMemberLoginAsForeignForeignParameterOverTest(final java.util.Date targetDate) {
+    public MemberLoginNss withMemberLoginAsForeignForeignParameterOverTest(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryMemberLoginAsForeignForeignParameterOverTest(targetDate));
         return new MemberLoginNss(_query.queryMemberLoginAsForeignForeignParameterOverTest(targetDate));
     }
@@ -231,7 +231,7 @@ public class MemberNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public MemberAddressNss withMemberAddressAsFormattedBasic(final java.util.Date targetDate) {
+    public MemberAddressNss withMemberAddressAsFormattedBasic(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryMemberAddressAsFormattedBasic(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsFormattedBasic(targetDate));
     }
@@ -241,7 +241,7 @@ public class MemberNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public MemberAddressNss withMemberAddressAsFormattedLong(final java.util.Date targetDate) {
+    public MemberAddressNss withMemberAddressAsFormattedLong(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryMemberAddressAsFormattedLong(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsFormattedLong(targetDate));
     }

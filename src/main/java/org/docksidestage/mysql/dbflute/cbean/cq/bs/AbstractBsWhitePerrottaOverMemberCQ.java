@@ -273,15 +273,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(memberName), xgetCValueMemberName(), "MEMBER_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
-     * @param memberName The value of memberName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMemberName_PrefixSearch(String memberName) {
-        setMemberName_LikeSearch(memberName, xcLSOPPre());
-    }
-
     protected void regMemberName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberName(), "MEMBER_NAME"); }
     protected abstract ConditionValue xgetCValueMemberName();
 
@@ -485,15 +476,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(traceTypeCode), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTraceTypeCode_PrefixSearch(String traceTypeCode) {
-        setTraceTypeCode_LikeSearch(traceTypeCode, xcLSOPPre());
-    }
-
     protected void regTraceTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE"); }
     protected abstract ConditionValue xgetCValueTraceTypeCode();
 
@@ -591,15 +573,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      */
     public void setMachoCode_NotLikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(machoCode), xgetCValueMachoCode(), "MACHO_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
-     * @param machoCode The value of machoCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMachoCode_PrefixSearch(String machoCode) {
-        setMachoCode_LikeSearch(machoCode, xcLSOPPre());
     }
 
     protected void regMachoCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMachoCode(), "MACHO_CODE"); }

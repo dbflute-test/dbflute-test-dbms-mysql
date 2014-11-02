@@ -261,15 +261,6 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
         regLSQ(CK_NLS, fRES(productName), xgetCValueProductName(), "PRODUCT_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
-     * @param productName The value of productName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setProductName_PrefixSearch(String productName) {
-        setProductName_LikeSearch(productName, xcLSOPPre());
-    }
-
     protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductName(), "PRODUCT_NAME"); }
     protected abstract ConditionValue xgetCValueProductName();
 
@@ -367,15 +358,6 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      */
     public void setProductHandleCode_NotLikeSearch(String productHandleCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productHandleCode), xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
-     * @param productHandleCode The value of productHandleCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setProductHandleCode_PrefixSearch(String productHandleCode) {
-        setProductHandleCode_LikeSearch(productHandleCode, xcLSOPPre());
     }
 
     protected void regProductHandleCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE"); }
@@ -529,7 +511,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_Equal(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_Equal(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_EQ,  latestPurchaseDatetime);
     }
 
@@ -538,7 +520,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_GreaterThan(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_GreaterThan(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_GT,  latestPurchaseDatetime);
     }
 
@@ -547,7 +529,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_LessThan(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_LessThan(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_LT,  latestPurchaseDatetime);
     }
 
@@ -556,7 +538,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_GreaterEqual(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_GreaterEqual(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_GE,  latestPurchaseDatetime);
     }
 
@@ -565,7 +547,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_LessEqual(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_LessEqual(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_LE, latestPurchaseDatetime);
     }
 
@@ -578,7 +560,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setLatestPurchaseDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setLatestPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setLatestPurchaseDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -591,23 +573,9 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setLatestPurchaseDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueLatestPurchaseDatetime(), "LATEST_PURCHASE_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of latestPurchaseDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setLatestPurchaseDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setLatestPurchaseDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setLatestPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "LATEST_PURCHASE_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueLatestPurchaseDatetime(), nm, op);
     }
 
     /**

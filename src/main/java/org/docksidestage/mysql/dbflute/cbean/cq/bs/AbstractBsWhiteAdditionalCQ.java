@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
         regLSQ(CK_NLS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
-     * @param fooName The value of fooName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFooName_PrefixSearch(String fooName) {
-        setFooName_LikeSearch(fooName, xcLSOPPre());
-    }
-
     protected void regFooName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooName(), "foo_name"); }
     protected abstract ConditionValue xgetCValueFooName();
 
@@ -290,8 +281,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_Equal(java.util.Date fooDate) {
-        regFooDate(CK_EQ,  fCTPD(fooDate));
+    public void setFooDate_Equal(java.time.LocalDate fooDate) {
+        regFooDate(CK_EQ,  fooDate);
     }
 
     /**
@@ -299,8 +290,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_GreaterThan(java.util.Date fooDate) {
-        regFooDate(CK_GT,  fCTPD(fooDate));
+    public void setFooDate_GreaterThan(java.time.LocalDate fooDate) {
+        regFooDate(CK_GT,  fooDate);
     }
 
     /**
@@ -308,8 +299,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_LessThan(java.util.Date fooDate) {
-        regFooDate(CK_LT,  fCTPD(fooDate));
+    public void setFooDate_LessThan(java.time.LocalDate fooDate) {
+        regFooDate(CK_LT,  fooDate);
     }
 
     /**
@@ -317,8 +308,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_GreaterEqual(java.util.Date fooDate) {
-        regFooDate(CK_GE,  fCTPD(fooDate));
+    public void setFooDate_GreaterEqual(java.time.LocalDate fooDate) {
+        regFooDate(CK_GE,  fooDate);
     }
 
     /**
@@ -326,8 +317,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * foo_date: {UnknownType}
      * @param fooDate The value of fooDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_LessEqual(java.util.Date fooDate) {
-        regFooDate(CK_LE, fCTPD(fooDate));
+    public void setFooDate_LessEqual(java.time.LocalDate fooDate) {
+        regFooDate(CK_LE, fooDate);
     }
 
     /**
@@ -339,7 +330,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of fooDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setFooDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setFooDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setFooDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -352,23 +343,9 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of fooDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setFooDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueFooDate(), "foo_date", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * foo_date: {UnknownType}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of fooDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of fooDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setFooDate_DateFromTo(Date fromDate, Date toDate) {
-        setFooDate_FromTo(fromDate, toDate, xcDFTOP());
+    public void setFooDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "foo_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueFooDate(), nm, op);
     }
 
     /**
@@ -391,7 +368,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_Equal(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
@@ -400,7 +377,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_GreaterThan(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GT,  registerDatetime);
     }
 
@@ -409,7 +386,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_LessThan(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_LT,  registerDatetime);
     }
 
@@ -418,7 +395,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_GreaterEqual(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GE,  registerDatetime);
     }
 
@@ -431,7 +408,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setRegisterDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setRegisterDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -444,23 +421,9 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueRegisterDatetime(), "register_datetime", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of registerDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of registerDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setRegisterDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setRegisterDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setRegisterDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "register_datetime"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueRegisterDatetime(), nm, op);
     }
 
     /**

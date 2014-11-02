@@ -52,7 +52,8 @@ public class WhitePerrottaOverProductNestedDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePerrottaOverProductNested)et).getProductNestedCode(), (et, vl) -> ((WhitePerrottaOverProductNested)et).setProductNestedCode((String)vl), "productNestedCode");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverProductNested)et).getProductNestedName(), (et, vl) -> ((WhitePerrottaOverProductNested)et).setProductNestedName((String)vl), "productNestedName");
     }

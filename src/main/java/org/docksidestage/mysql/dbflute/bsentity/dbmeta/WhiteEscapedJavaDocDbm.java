@@ -52,7 +52,8 @@ public class WhiteEscapedJavaDocDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteEscapedJavaDoc)et).getEscapedJavaDocCode(), (et, vl) -> {
             ColumnInfo col = columnEscapedJavaDocCode();
             ccls(col, vl);

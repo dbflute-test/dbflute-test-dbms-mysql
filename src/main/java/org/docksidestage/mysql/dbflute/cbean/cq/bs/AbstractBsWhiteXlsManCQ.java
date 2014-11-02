@@ -274,15 +274,6 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * STRING_CONVERTED: {VARCHAR(200)}
-     * @param stringConverted The value of stringConverted as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setStringConverted_PrefixSearch(String stringConverted) {
-        setStringConverted_LikeSearch(stringConverted, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * STRING_CONVERTED: {VARCHAR(200)}
      */
@@ -308,7 +299,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
      * @param timestampConverted The value of timestampConverted as equal. (NullAllowed: if null, no condition)
      */
-    public void setTimestampConverted_Equal(java.sql.Timestamp timestampConverted) {
+    public void setTimestampConverted_Equal(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_EQ,  timestampConverted);
     }
 
@@ -317,7 +308,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
      * @param timestampConverted The value of timestampConverted as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampConverted_GreaterThan(java.sql.Timestamp timestampConverted) {
+    public void setTimestampConverted_GreaterThan(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_GT,  timestampConverted);
     }
 
@@ -326,7 +317,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
      * @param timestampConverted The value of timestampConverted as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampConverted_LessThan(java.sql.Timestamp timestampConverted) {
+    public void setTimestampConverted_LessThan(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_LT,  timestampConverted);
     }
 
@@ -335,7 +326,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
      * @param timestampConverted The value of timestampConverted as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampConverted_GreaterEqual(java.sql.Timestamp timestampConverted) {
+    public void setTimestampConverted_GreaterEqual(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_GE,  timestampConverted);
     }
 
@@ -344,7 +335,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
      * @param timestampConverted The value of timestampConverted as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampConverted_LessEqual(java.sql.Timestamp timestampConverted) {
+    public void setTimestampConverted_LessEqual(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_LE, timestampConverted);
     }
 
@@ -357,7 +348,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampConverted. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTimestampConverted_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTimestampConverted_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTimestampConverted_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -370,23 +361,9 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampConverted. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTimestampConverted_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampConverted(), "TIMESTAMP_CONVERTED", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * TIMESTAMP_CONVERTED: {DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of timestampConverted. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of timestampConverted. (NullAllowed: if null, no to-condition)
-     */
-    public void setTimestampConverted_DateFromTo(Date fromDate, Date toDate) {
-        setTimestampConverted_FromTo(fromDate, toDate, xcDFTOP());
+    public void setTimestampConverted_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TIMESTAMP_CONVERTED"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTimestampConverted(), nm, op);
     }
 
     /**

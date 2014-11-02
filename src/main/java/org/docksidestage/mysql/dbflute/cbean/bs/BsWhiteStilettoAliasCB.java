@@ -362,7 +362,7 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteStilettoAliasRefCB, WhiteStilettoAliasCQ> derivedWhiteStilettoAliasRefList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteStilettoAliasRefCB, WhiteStilettoAliasCQ> derivedWhiteStilettoAliasRef() {
             assertDerived("whiteStilettoAliasRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteStilettoAliasRefList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -382,6 +382,24 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
             , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
             , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteStilettoAliasCB dreamCruiseCB() {
+        WhiteStilettoAliasCB cb = new WhiteStilettoAliasCB();
+        cb.xsetupForDreamCruise((WhiteStilettoAliasCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -415,24 +433,6 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
         WhiteStilettoAliasCB cb = new WhiteStilettoAliasCB();
         cb.xsetupForColumnQuery((WhiteStilettoAliasCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteStilettoAliasCB dreamCruiseCB() {
-        WhiteStilettoAliasCB cb = new WhiteStilettoAliasCB();
-        cb.xsetupForDreamCruise((WhiteStilettoAliasCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

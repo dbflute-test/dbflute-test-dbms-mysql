@@ -428,6 +428,24 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteSelfReferenceRefOneCB dreamCruiseCB() {
+        WhiteSelfReferenceRefOneCB cb = new WhiteSelfReferenceRefOneCB();
+        cb.xsetupForDreamCruise((WhiteSelfReferenceRefOneCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -459,24 +477,6 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
         WhiteSelfReferenceRefOneCB cb = new WhiteSelfReferenceRefOneCB();
         cb.xsetupForColumnQuery((WhiteSelfReferenceRefOneCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteSelfReferenceRefOneCB dreamCruiseCB() {
-        WhiteSelfReferenceRefOneCB cb = new WhiteSelfReferenceRefOneCB();
-        cb.xsetupForDreamCruise((WhiteSelfReferenceRefOneCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

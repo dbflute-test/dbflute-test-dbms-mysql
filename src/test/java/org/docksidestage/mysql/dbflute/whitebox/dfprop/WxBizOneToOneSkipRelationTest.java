@@ -17,7 +17,7 @@ public class WxBizOneToOneSkipRelationTest extends UnitContainerTestCase {
     public void test_SkipRelation_SpecifyColumn_foreignColumn_basic() throws Exception {
         // ## Arrange ##
         PurchaseCB cb = new PurchaseCB();
-        cb.setupSelect_MemberAddressAsSkipRelation(currentDate());
+        cb.setupSelect_MemberAddressAsSkipRelation(currentLocalDate());
         cb.specify().columnPurchaseDatetime();
         cb.specify().specifyMemberAddressAsSkipRelation().columnAddress();
 
@@ -28,7 +28,7 @@ public class WxBizOneToOneSkipRelationTest extends UnitContainerTestCase {
         assertHasAnyElement(purchaseList);
         boolean exists = false;
         for (Purchase purchase : purchaseList) {
-            MemberAddress address = purchase.getMemberAddressAsSkipRelation();
+            MemberAddress address = purchase.getMemberAddressAsSkipRelation().orElse(null);
             Integer memberId = address != null ? address.getMemberId() : null;
             String addressStr = address != null ? address.getAddress() : null;
             log(purchase.getPurchaseId(), purchase.getPurchaseDatetime(), memberId, addressStr);
@@ -48,7 +48,7 @@ public class WxBizOneToOneSkipRelationTest extends UnitContainerTestCase {
     public void test_SkipRelation_SpecifyColumn_foreignColumn_duplicateSpecify() throws Exception {
         // ## Arrange ##
         PurchaseCB cb = new PurchaseCB();
-        cb.setupSelect_MemberAddressAsSkipRelation(currentDate());
+        cb.setupSelect_MemberAddressAsSkipRelation(currentLocalDate());
         cb.specify().columnMemberId(); // duplicate specify
         cb.specify().columnPurchaseDatetime();
         cb.specify().specifyMemberAddressAsSkipRelation().columnAddress();
@@ -60,7 +60,7 @@ public class WxBizOneToOneSkipRelationTest extends UnitContainerTestCase {
         assertHasAnyElement(purchaseList);
         boolean exists = false;
         for (Purchase purchase : purchaseList) {
-            MemberAddress address = purchase.getMemberAddressAsSkipRelation();
+            MemberAddress address = purchase.getMemberAddressAsSkipRelation().orElse(null);
             Integer memberId = address != null ? address.getMemberId() : null;
             String addressStr = address != null ? address.getAddress() : null;
             log(purchase.getPurchaseId(), purchase.getPurchaseDatetime(), memberId, addressStr);

@@ -76,14 +76,14 @@ public class LoaderOfWhiteStilettoAlias {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteStilettoAliasRef> _referrerWhiteStilettoAliasRefList;
+    protected List<WhiteStilettoAliasRef> _referrerWhiteStilettoAliasRef;
 
     /**
      * Load referrer of whiteStilettoAliasRefList by the set-upper of referrer. <br>
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteStilettoAliasList</span>, <span style="color: #553000">aliasLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">aliasLoader</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRefList</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">aliasLoader</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">refCB</span>.setupSelect...
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteStilettoAlias {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
-        myBhv().loadWhiteStilettoAliasRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteStilettoAliasRefList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteStilettoAliasRef().ready(_referrerWhiteStilettoAliasRefList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteStilettoAliasRef> loadWhiteStilettoAliasRef(ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
+        myBhv().loadWhiteStilettoAliasRef(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteStilettoAliasRef = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteStilettoAliasRef().ready(_referrerWhiteStilettoAliasRef, _selector));
     }
 
     // ===================================================================================

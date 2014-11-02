@@ -52,7 +52,8 @@ public class VendorCheckIntegerSumDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorCheckIntegerSum)et).getIntegerNonDigitSum(), (et, vl) -> ((VendorCheckIntegerSum)et).setIntegerNonDigitSum(ctb(vl)), "integerNonDigitSum");
     }
     public PropertyGateway findPropertyGateway(String prop)

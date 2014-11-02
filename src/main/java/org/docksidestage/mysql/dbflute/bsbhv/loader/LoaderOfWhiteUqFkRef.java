@@ -76,14 +76,14 @@ public class LoaderOfWhiteUqFkRef {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteUqFkRefNest> _referrerWhiteUqFkRefNestList;
+    protected List<WhiteUqFkRefNest> _referrerWhiteUqFkRefNest;
 
     /**
      * Load referrer of whiteUqFkRefNestList by the set-upper of referrer. <br>
      * white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteUqFkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteUqFkRefNestList</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteUqFkRefNest</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">nestCB</span>.setupSelect...
      *         <span style="color: #553000">nestCB</span>.query().set...
      *         <span style="color: #553000">nestCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteUqFkRef {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRefNest> loadWhiteUqFkRefNestList(ConditionBeanSetupper<WhiteUqFkRefNestCB> refCBLambda) {
-        myBhv().loadWhiteUqFkRefNestList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteUqFkRefNestList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteUqFkRefNest().ready(_referrerWhiteUqFkRefNestList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteUqFkRefNest> loadWhiteUqFkRefNest(ConditionBeanSetupper<WhiteUqFkRefNestCB> refCBLambda) {
+        myBhv().loadWhiteUqFkRefNest(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteUqFkRefNest = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteUqFkRefNest().ready(_referrerWhiteUqFkRefNest, _selector));
     }
 
     // ===================================================================================

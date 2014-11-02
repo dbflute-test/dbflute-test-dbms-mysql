@@ -1,6 +1,7 @@
 package org.docksidestage.mysql.dbflute.lightening;
 
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -67,7 +68,7 @@ public abstract class LighteningTestCase extends UnitContainerTestCase {
         return obj.toString();
     }
 
-    protected String format_yyyyMMdd(Date date) {
+    protected String format_yyyyMMdd(LocalDate date) {
         return DfTypeUtil.toString(date, "yyyy/MM/dd");
     }
 

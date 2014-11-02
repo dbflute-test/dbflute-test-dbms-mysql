@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberId(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberId(ctl(vl)), "memberId");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberName(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getProductId(), (et, vl) -> ((WhitePerrottaOverMember)et).setProductId(ctl(vl)), "productId");
@@ -67,9 +69,10 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverMemberMacho(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverMemberMacho((WhitePerrottaOverMemberMacho)vl), "whitePerrottaOverMemberMacho");
-        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverProduct(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverProduct((WhitePerrottaOverProduct)vl), "whitePerrottaOverProduct");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverMemberMacho(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverMemberMacho((OptionalEntity<WhitePerrottaOverMemberMacho>)vl), "whitePerrottaOverMemberMacho");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverProduct(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverProduct((OptionalEntity<WhitePerrottaOverProduct>)vl), "whitePerrottaOverProduct");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -156,7 +159,7 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverMemberMacho() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMachoCode(), WhitePerrottaOverMemberMachoDbm.getInstance().columnMachoCode());
-        return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_MACHO", "whitePerrottaOverMemberMacho", this, WhitePerrottaOverMemberMachoDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whitePerrottaOverMemberList");
+        return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_MACHO", "whitePerrottaOverMemberMacho", this, WhitePerrottaOverMemberMachoDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverMemberList");
     }
     /**
      * white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
@@ -164,7 +167,7 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverProduct() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), WhitePerrottaOverProductDbm.getInstance().columnProductId());
-        return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_PRODUCT", "whitePerrottaOverProduct", this, WhitePerrottaOverProductDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "whitePerrottaOverMemberList");
+        return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_PRODUCT", "whitePerrottaOverProduct", this, WhitePerrottaOverProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverMemberList");
     }
 
     // -----------------------------------------------------

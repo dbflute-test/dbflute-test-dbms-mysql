@@ -329,15 +329,6 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * NUMBER_INITIAL_NAME: {VARCHAR(20)}
-     * @param numberInitialName The value of numberInitialName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setNumberInitialName_PrefixSearch(String numberInitialName) {
-        setNumberInitialName_LikeSearch(numberInitialName, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      */

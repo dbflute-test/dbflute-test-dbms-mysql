@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
         regLSQ(CK_NLS, fRES(whiteImplicitReverseFkName), xgetCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
-     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setWhiteImplicitReverseFkName_PrefixSearch(String whiteImplicitReverseFkName) {
-        setWhiteImplicitReverseFkName_LikeSearch(whiteImplicitReverseFkName, xcLSOPPre());
-    }
-
     protected void regWhiteImplicitReverseFkName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWhiteImplicitReverseFkName(), "WHITE_IMPLICIT_REVERSE_FK_NAME"); }
     protected abstract ConditionValue xgetCValueWhiteImplicitReverseFkName();
 

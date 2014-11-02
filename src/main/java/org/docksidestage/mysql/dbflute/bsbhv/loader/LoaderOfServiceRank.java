@@ -76,14 +76,14 @@ public class LoaderOfServiceRank {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<MemberService> _referrerMemberServiceList;
+    protected List<MemberService> _referrerMemberService;
 
     /**
      * Load referrer of memberServiceList by the set-upper of referrer. <br>
      * (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
      * <pre>
      * <span style="color: #0000C0">serviceRankBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">serviceRankList</span>, <span style="color: #553000">rankLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">rankLoader</span>.<span style="color: #CC4747">loadMemberServiceList</span>(<span style="color: #553000">serviceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">rankLoader</span>.<span style="color: #CC4747">loadMemberService</span>(<span style="color: #553000">serviceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">serviceCB</span>.setupSelect...
      *         <span style="color: #553000">serviceCB</span>.query().set...
      *         <span style="color: #553000">serviceCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfServiceRank {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfMemberService> loadMemberServiceList(ConditionBeanSetupper<MemberServiceCB> refCBLambda) {
-        myBhv().loadMemberServiceList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberServiceList = refLs);
-        return hd -> hd.handle(new LoaderOfMemberService().ready(_referrerMemberServiceList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfMemberService> loadMemberService(ConditionBeanSetupper<MemberServiceCB> refCBLambda) {
+        myBhv().loadMemberService(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberService = refLs);
+        return hd -> hd.handle(new LoaderOfMemberService().ready(_referrerMemberService, _selector));
     }
 
     // ===================================================================================

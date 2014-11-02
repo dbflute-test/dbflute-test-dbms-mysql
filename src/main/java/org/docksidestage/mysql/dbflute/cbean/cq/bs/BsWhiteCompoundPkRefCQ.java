@@ -276,7 +276,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
      * {exists (select ... from white_compound_pk_ref_nest where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefNestByQuxMultipleIdList for 'exists'. (NotNull)
      */
-    public void existsWhiteCompoundPkRefNestByQuxMultipleIdList(SubQuery<WhiteCompoundPkRefNestCB> subQuery) {
+    public void existsWhiteCompoundPkRefNestByQuxMultipleId(SubQuery<WhiteCompoundPkRefNestCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteCompoundPkRefNestCB>", subQuery);
         WhiteCompoundPkRefNestCB cb = new WhiteCompoundPkRefNestCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -291,7 +291,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
      * {exists (select ... from white_compound_pk_ref_nest where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefNestByFooMultipleIdList for 'exists'. (NotNull)
      */
-    public void existsWhiteCompoundPkRefNestByFooMultipleIdList(SubQuery<WhiteCompoundPkRefNestCB> subQuery) {
+    public void existsWhiteCompoundPkRefNestByFooMultipleId(SubQuery<WhiteCompoundPkRefNestCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteCompoundPkRefNestCB>", subQuery);
         WhiteCompoundPkRefNestCB cb = new WhiteCompoundPkRefNestCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -306,7 +306,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
      * {not exists (select ... from white_compound_pk_ref_nest where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefNestByQuxMultipleIdList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteCompoundPkRefNestByQuxMultipleIdList(SubQuery<WhiteCompoundPkRefNestCB> subQuery) {
+    public void notExistsWhiteCompoundPkRefNestByQuxMultipleId(SubQuery<WhiteCompoundPkRefNestCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteCompoundPkRefNestCB>", subQuery);
         WhiteCompoundPkRefNestCB cb = new WhiteCompoundPkRefNestCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -321,7 +321,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
      * {not exists (select ... from white_compound_pk_ref_nest where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefNestByFooMultipleIdList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteCompoundPkRefNestByFooMultipleIdList(SubQuery<WhiteCompoundPkRefNestCB> subQuery) {
+    public void notExistsWhiteCompoundPkRefNestByFooMultipleId(SubQuery<WhiteCompoundPkRefNestCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteCompoundPkRefNestCB>", subQuery);
         WhiteCompoundPkRefNestCB cb = new WhiteCompoundPkRefNestCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -362,7 +362,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
      * {FOO &lt;= (select max(BAR) from white_compound_pk_ref_nest where ...)} <br>
      * white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefNestByQuxMultipleIdList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
+     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefNestByQuxMultipleId()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *     public void query(WhiteCompoundPkRefNestCB subCB) {
      *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
@@ -371,7 +371,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteCompoundPkRefNestCB> derivedWhiteCompoundPkRefNestByQuxMultipleIdList() {
+    public HpQDRFunction<WhiteCompoundPkRefNestCB> derivedWhiteCompoundPkRefNestByQuxMultipleId() {
         return xcreateQDRFunctionWhiteCompoundPkRefNestByQuxMultipleIdList();
     }
     protected HpQDRFunction<WhiteCompoundPkRefNestCB> xcreateQDRFunctionWhiteCompoundPkRefNestByQuxMultipleIdList() {
@@ -398,7 +398,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
      * {FOO &lt;= (select max(BAR) from white_compound_pk_ref_nest where ...)} <br>
      * white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefNestByFooMultipleIdList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
+     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefNestByFooMultipleId()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefNestCB&gt;() {
      *     public void query(WhiteCompoundPkRefNestCB subCB) {
      *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
@@ -407,7 +407,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteCompoundPkRefNestCB> derivedWhiteCompoundPkRefNestByFooMultipleIdList() {
+    public HpQDRFunction<WhiteCompoundPkRefNestCB> derivedWhiteCompoundPkRefNestByFooMultipleId() {
         return xcreateQDRFunctionWhiteCompoundPkRefNestByFooMultipleIdList();
     }
     protected HpQDRFunction<WhiteCompoundPkRefNestCB> xcreateQDRFunctionWhiteCompoundPkRefNestByFooMultipleIdList() {

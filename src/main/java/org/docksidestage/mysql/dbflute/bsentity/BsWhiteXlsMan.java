@@ -58,7 +58,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long xlsManId = entity.getXlsManId();
  * String stringConverted = entity.getStringConverted();
- * java.sql.Timestamp timestampConverted = entity.getTimestampConverted();
+ * java.time.LocalDateTime timestampConverted = entity.getTimestampConverted();
  * entity.setXlsManId(xlsManId);
  * entity.setStringConverted(stringConverted);
  * entity.setTimestampConverted(timestampConverted);
@@ -84,7 +84,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
     protected String _stringConverted;
 
     /** TIMESTAMP_CONVERTED: {DATETIME(19)} */
-    protected java.sql.Timestamp _timestampConverted;
+    protected java.time.LocalDateTime _timestampConverted;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -219,7 +219,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
      * [get] TIMESTAMP_CONVERTED: {DATETIME(19)} <br>
      * @return The value of the column 'TIMESTAMP_CONVERTED'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getTimestampConverted() {
+    public java.time.LocalDateTime getTimestampConverted() {
         checkSpecifiedProperty("timestampConverted");
         return _timestampConverted;
     }
@@ -228,7 +228,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
      * [set] TIMESTAMP_CONVERTED: {DATETIME(19)} <br>
      * @param timestampConverted The value of the column 'TIMESTAMP_CONVERTED'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTimestampConverted(java.sql.Timestamp timestampConverted) {
+    public void setTimestampConverted(java.time.LocalDateTime timestampConverted) {
         registerModifiedProperty("timestampConverted");
         _timestampConverted = timestampConverted;
     }

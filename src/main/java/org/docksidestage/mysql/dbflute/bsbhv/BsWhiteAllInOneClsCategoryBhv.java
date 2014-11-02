@@ -197,7 +197,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteAllInOneClsCategoryCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteAllInOneClsCategoryCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * Load referrer of whiteAllInOneClsElementList by the set-upper of referrer. <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * <pre>
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElementList</span>(<span style="color: #553000">whiteAllInOneClsCategoryList</span>, <span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElement</span>(<span style="color: #553000">whiteAllInOneClsCategoryList</span>, <span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">elementCB</span>.setupSelect...
      *     <span style="color: #553000">elementCB</span>.query().set...
      *     <span style="color: #553000">elementCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElement(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
         xassLRArg(whiteAllInOneClsCategoryList, refCBLambda);
-        return doLoadWhiteAllInOneClsElementList(whiteAllInOneClsCategoryList, new LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement>().xinit(refCBLambda));
+        return doLoadWhiteAllInOneClsElement(whiteAllInOneClsCategoryList, new LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteAllInOneClsElementList by the set-upper of referrer. <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * <pre>
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElementList</span>(<span style="color: #553000">whiteAllInOneClsCategory</span>, <span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElement</span>(<span style="color: #553000">whiteAllInOneClsCategory</span>, <span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">elementCB</span>.setupSelect...
      *     <span style="color: #553000">elementCB</span>.query().set...
      *     <span style="color: #553000">elementCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(WhiteAllInOneClsCategory whiteAllInOneClsCategory, ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElement(WhiteAllInOneClsCategory whiteAllInOneClsCategory, ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
         xassLRArg(whiteAllInOneClsCategory, refCBLambda);
-        return doLoadWhiteAllInOneClsElementList(xnewLRLs(whiteAllInOneClsCategory), new LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement>().xinit(refCBLambda));
+        return doLoadWhiteAllInOneClsElement(xnewLRLs(whiteAllInOneClsCategory), new LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(WhiteAllInOneClsCategory whiteAllInOneClsCategory, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElement(WhiteAllInOneClsCategory whiteAllInOneClsCategory, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> loadReferrerOption) {
         xassLRArg(whiteAllInOneClsCategory, loadReferrerOption);
-        return loadWhiteAllInOneClsElementList(xnewLRLs(whiteAllInOneClsCategory), loadReferrerOption);
+        return loadWhiteAllInOneClsElement(xnewLRLs(whiteAllInOneClsCategory), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElement(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> loadReferrerOption) {
         xassLRArg(whiteAllInOneClsCategoryList, loadReferrerOption);
         if (whiteAllInOneClsCategoryList.isEmpty()) { return (NestedReferrerListGateway<WhiteAllInOneClsElement>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteAllInOneClsElementList(whiteAllInOneClsCategoryList, loadReferrerOption);
+        return doLoadWhiteAllInOneClsElement(whiteAllInOneClsCategoryList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteAllInOneClsElement> doLoadWhiteAllInOneClsElementList(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> option) {
+    protected NestedReferrerListGateway<WhiteAllInOneClsElement> doLoadWhiteAllInOneClsElement(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> option) {
         return helpLoadReferrerInternally(whiteAllInOneClsCategoryList, option, "whiteAllInOneClsElementList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteAllInOneClsCategoryBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteAllInOneClsCategoryBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteAllInOneClsCategoryBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

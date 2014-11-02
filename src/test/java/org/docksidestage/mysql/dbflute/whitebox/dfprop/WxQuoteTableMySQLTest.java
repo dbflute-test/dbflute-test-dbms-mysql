@@ -2,7 +2,6 @@ package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
-import org.dbflute.cbean.scoping.SubQuery;
 import org.dbflute.dbmeta.name.TableSqlName;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.VendorCheckDbm;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteQuotedDbm;
@@ -105,10 +104,7 @@ public class WxQuoteTableMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         WhiteQuotedRefCB cb = new WhiteQuotedRefCB();
         cb.setupSelect_WhiteQuoted();
-        cb.query().queryWhiteQuoted().existsWhiteQuotedRefList(new SubQuery<WhiteQuotedRefCB>() {
-            public void query(WhiteQuotedRefCB subCB) {
-            }
-        });
+        cb.query().queryWhiteQuoted().existsWhiteQuotedRef(subCB -> {});
 
         // ## Act ##
         ListResultBean<WhiteQuotedRef> refList = whiteQuotedRefBhv.selectList(cb);

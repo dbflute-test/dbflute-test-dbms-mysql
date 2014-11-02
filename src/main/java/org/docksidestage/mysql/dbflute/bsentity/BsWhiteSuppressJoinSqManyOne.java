@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -120,13 +122,15 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. */
-    protected WhiteSuppressJoinSqManyOneOne _whiteSuppressJoinSqManyOneOne;
+    protected OptionalEntity<WhiteSuppressJoinSqManyOneOne> _whiteSuppressJoinSqManyOneOne;
 
     /**
      * [get] white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. <br>
-     * @return The entity of foreign property 'whiteSuppressJoinSqManyOneOne'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSuppressJoinSqManyOneOne'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSuppressJoinSqManyOneOne getWhiteSuppressJoinSqManyOneOne() {
+    public OptionalEntity<WhiteSuppressJoinSqManyOneOne> getWhiteSuppressJoinSqManyOneOne() {
+        if (_whiteSuppressJoinSqManyOneOne == null) { _whiteSuppressJoinSqManyOneOne = OptionalEntity.relationEmpty(this, "whiteSuppressJoinSqManyOneOne"); }
         return _whiteSuppressJoinSqManyOneOne;
     }
 
@@ -134,7 +138,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
      * [set] white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
      * @param whiteSuppressJoinSqManyOneOne The entity of foreign property 'whiteSuppressJoinSqManyOneOne'. (NullAllowed)
      */
-    public void setWhiteSuppressJoinSqManyOneOne(WhiteSuppressJoinSqManyOneOne whiteSuppressJoinSqManyOneOne) {
+    public void setWhiteSuppressJoinSqManyOneOne(OptionalEntity<WhiteSuppressJoinSqManyOneOne> whiteSuppressJoinSqManyOneOne) {
         _whiteSuppressJoinSqManyOneOne = whiteSuppressJoinSqManyOneOne;
     }
 
@@ -190,11 +194,14 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSuppressJoinSqManyOneOne != null)
+        if (_whiteSuppressJoinSqManyOneOne != null && _whiteSuppressJoinSqManyOneOne.isPresent())
         { sb.append(li).append(xbRDS(_whiteSuppressJoinSqManyOneOne, "whiteSuppressJoinSqManyOneOne")); }
         if (_whiteSuppressJoinSqManyList != null) { for (WhiteSuppressJoinSqMany et : _whiteSuppressJoinSqManyList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteSuppressJoinSqManyList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -213,7 +220,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSuppressJoinSqManyOneOne != null)
+        if (_whiteSuppressJoinSqManyOneOne != null && _whiteSuppressJoinSqManyOneOne.isPresent())
         { sb.append(dm).append("whiteSuppressJoinSqManyOneOne"); }
         if (_whiteSuppressJoinSqManyList != null && !_whiteSuppressJoinSqManyList.isEmpty())
         { sb.append(dm).append("whiteSuppressJoinSqManyList"); }

@@ -274,15 +274,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_CHAR: {CHAR(3)}
-     * @param typeOfChar The value of typeOfChar as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTypeOfChar_PrefixSearch(String typeOfChar) {
-        setTypeOfChar_LikeSearch(typeOfChar, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * TYPE_OF_CHAR: {CHAR(3)}
      */
@@ -397,15 +388,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfVarchar_NotLikeSearch(String typeOfVarchar, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(typeOfVarchar), xgetCValueTypeOfVarchar(), "TYPE_OF_VARCHAR", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_VARCHAR: {VARCHAR(200)}
-     * @param typeOfVarchar The value of typeOfVarchar as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTypeOfVarchar_PrefixSearch(String typeOfVarchar) {
-        setTypeOfVarchar_LikeSearch(typeOfVarchar, xcLSOPPre());
     }
 
     /**
@@ -526,15 +508,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_TEXT: {TEXT(65535)}
-     * @param typeOfText The value of typeOfText as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTypeOfText_PrefixSearch(String typeOfText) {
-        setTypeOfText_LikeSearch(typeOfText, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(65535)}
      */
@@ -649,15 +622,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfTinytext_NotLikeSearch(String typeOfTinytext, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(typeOfTinytext), xgetCValueTypeOfTinytext(), "TYPE_OF_TINYTEXT", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_TINYTEXT: {TINYTEXT(255)}
-     * @param typeOfTinytext The value of typeOfTinytext as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTypeOfTinytext_PrefixSearch(String typeOfTinytext) {
-        setTypeOfTinytext_LikeSearch(typeOfTinytext, xcLSOPPre());
     }
 
     /**
@@ -778,15 +742,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_MEDIUMTEXT: {MEDIUMTEXT(16777215)}
-     * @param typeOfMediumtext The value of typeOfMediumtext as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTypeOfMediumtext_PrefixSearch(String typeOfMediumtext) {
-        setTypeOfMediumtext_LikeSearch(typeOfMediumtext, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * TYPE_OF_MEDIUMTEXT: {MEDIUMTEXT(16777215)}
      */
@@ -901,15 +856,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfLongtext_NotLikeSearch(String typeOfLongtext, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(typeOfLongtext), xgetCValueTypeOfLongtext(), "TYPE_OF_LONGTEXT", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_LONGTEXT: {LONGTEXT(2147483647)}
-     * @param typeOfLongtext The value of typeOfLongtext as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTypeOfLongtext_PrefixSearch(String typeOfLongtext) {
-        setTypeOfLongtext_LikeSearch(typeOfLongtext, xcLSOPPre());
     }
 
     /**
@@ -2098,8 +2044,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATE: {DATE(10)}
      * @param typeOfDate The value of typeOfDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_Equal(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_EQ,  fCTPD(typeOfDate));
+    public void setTypeOfDate_Equal(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_EQ,  typeOfDate);
     }
 
     /**
@@ -2107,8 +2053,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATE: {DATE(10)}
      * @param typeOfDate The value of typeOfDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_GreaterThan(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_GT,  fCTPD(typeOfDate));
+    public void setTypeOfDate_GreaterThan(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_GT,  typeOfDate);
     }
 
     /**
@@ -2116,8 +2062,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATE: {DATE(10)}
      * @param typeOfDate The value of typeOfDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_LessThan(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_LT,  fCTPD(typeOfDate));
+    public void setTypeOfDate_LessThan(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_LT,  typeOfDate);
     }
 
     /**
@@ -2125,8 +2071,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATE: {DATE(10)}
      * @param typeOfDate The value of typeOfDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_GreaterEqual(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_GE,  fCTPD(typeOfDate));
+    public void setTypeOfDate_GreaterEqual(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_GE,  typeOfDate);
     }
 
     /**
@@ -2134,8 +2080,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATE: {DATE(10)}
      * @param typeOfDate The value of typeOfDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_LessEqual(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_LE, fCTPD(typeOfDate));
+    public void setTypeOfDate_LessEqual(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_LE, typeOfDate);
     }
 
     /**
@@ -2147,7 +2093,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTypeOfDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTypeOfDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTypeOfDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -2160,23 +2106,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTypeOfDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueTypeOfDate(), "TYPE_OF_DATE", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_DATE: {DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of typeOfDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of typeOfDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setTypeOfDate_DateFromTo(Date fromDate, Date toDate) {
-        setTypeOfDate_FromTo(fromDate, toDate, xcDFTOP());
+    public void setTypeOfDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "TYPE_OF_DATE"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfDate(), nm, op);
     }
 
     /**
@@ -2199,7 +2131,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATETIME: {DATETIME(19)}
      * @param typeOfDatetime The value of typeOfDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDatetime_Equal(java.sql.Timestamp typeOfDatetime) {
+    public void setTypeOfDatetime_Equal(java.time.LocalDateTime typeOfDatetime) {
         regTypeOfDatetime(CK_EQ,  typeOfDatetime);
     }
 
@@ -2208,7 +2140,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATETIME: {DATETIME(19)}
      * @param typeOfDatetime The value of typeOfDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDatetime_GreaterThan(java.sql.Timestamp typeOfDatetime) {
+    public void setTypeOfDatetime_GreaterThan(java.time.LocalDateTime typeOfDatetime) {
         regTypeOfDatetime(CK_GT,  typeOfDatetime);
     }
 
@@ -2217,7 +2149,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATETIME: {DATETIME(19)}
      * @param typeOfDatetime The value of typeOfDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDatetime_LessThan(java.sql.Timestamp typeOfDatetime) {
+    public void setTypeOfDatetime_LessThan(java.time.LocalDateTime typeOfDatetime) {
         regTypeOfDatetime(CK_LT,  typeOfDatetime);
     }
 
@@ -2226,7 +2158,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATETIME: {DATETIME(19)}
      * @param typeOfDatetime The value of typeOfDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDatetime_GreaterEqual(java.sql.Timestamp typeOfDatetime) {
+    public void setTypeOfDatetime_GreaterEqual(java.time.LocalDateTime typeOfDatetime) {
         regTypeOfDatetime(CK_GE,  typeOfDatetime);
     }
 
@@ -2235,7 +2167,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_DATETIME: {DATETIME(19)}
      * @param typeOfDatetime The value of typeOfDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDatetime_LessEqual(java.sql.Timestamp typeOfDatetime) {
+    public void setTypeOfDatetime_LessEqual(java.time.LocalDateTime typeOfDatetime) {
         regTypeOfDatetime(CK_LE, typeOfDatetime);
     }
 
@@ -2248,7 +2180,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTypeOfDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTypeOfDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTypeOfDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -2261,23 +2193,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTypeOfDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTypeOfDatetime(), "TYPE_OF_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_DATETIME: {DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of typeOfDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of typeOfDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setTypeOfDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setTypeOfDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setTypeOfDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TYPE_OF_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfDatetime(), nm, op);
     }
 
     /**
@@ -2300,7 +2218,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @param typeOfTimestamp The value of typeOfTimestamp as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_Equal(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_Equal(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_EQ,  typeOfTimestamp);
     }
 
@@ -2309,7 +2227,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @param typeOfTimestamp The value of typeOfTimestamp as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_GreaterThan(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_GreaterThan(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_GT,  typeOfTimestamp);
     }
 
@@ -2318,7 +2236,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @param typeOfTimestamp The value of typeOfTimestamp as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_LessThan(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_LessThan(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_LT,  typeOfTimestamp);
     }
 
@@ -2327,7 +2245,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @param typeOfTimestamp The value of typeOfTimestamp as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_GreaterEqual(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_GreaterEqual(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_GE,  typeOfTimestamp);
     }
 
@@ -2336,7 +2254,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @param typeOfTimestamp The value of typeOfTimestamp as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_LessEqual(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_LessEqual(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_LE, typeOfTimestamp);
     }
 
@@ -2349,7 +2267,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfTimestamp. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTypeOfTimestamp_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTypeOfTimestamp_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTypeOfTimestamp_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -2362,23 +2280,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfTimestamp. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTypeOfTimestamp_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTypeOfTimestamp(), "TYPE_OF_TIMESTAMP", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of typeOfTimestamp. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of typeOfTimestamp. (NullAllowed: if null, no to-condition)
-     */
-    public void setTypeOfTimestamp_DateFromTo(Date fromDate, Date toDate) {
-        setTypeOfTimestamp_FromTo(fromDate, toDate, xcDFTOP());
+    public void setTypeOfTimestamp_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TYPE_OF_TIMESTAMP"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfTimestamp(), nm, op);
     }
 
     protected void regTypeOfTimestamp(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfTimestamp(), "TYPE_OF_TIMESTAMP"); }
@@ -2389,7 +2293,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIME: {TIME(8)}
      * @param typeOfTime The value of typeOfTime as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_Equal(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_Equal(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_EQ,  typeOfTime);
     }
 
@@ -2398,7 +2302,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIME: {TIME(8)}
      * @param typeOfTime The value of typeOfTime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_GreaterThan(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_GreaterThan(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_GT,  typeOfTime);
     }
 
@@ -2407,7 +2311,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIME: {TIME(8)}
      * @param typeOfTime The value of typeOfTime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_LessThan(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_LessThan(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_LT,  typeOfTime);
     }
 
@@ -2416,7 +2320,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIME: {TIME(8)}
      * @param typeOfTime The value of typeOfTime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_GreaterEqual(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_GreaterEqual(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_GE,  typeOfTime);
     }
 
@@ -2425,7 +2329,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_TIME: {TIME(8)}
      * @param typeOfTime The value of typeOfTime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_LessEqual(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_LessEqual(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_LE, typeOfTime);
     }
 
@@ -2449,8 +2353,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_YEAR: {YEAR}
      * @param typeOfYear The value of typeOfYear as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfYear_Equal(java.util.Date typeOfYear) {
-        regTypeOfYear(CK_EQ,  fCTPD(typeOfYear));
+    public void setTypeOfYear_Equal(java.time.LocalDate typeOfYear) {
+        regTypeOfYear(CK_EQ,  typeOfYear);
     }
 
     /**
@@ -2458,8 +2362,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_YEAR: {YEAR}
      * @param typeOfYear The value of typeOfYear as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfYear_GreaterThan(java.util.Date typeOfYear) {
-        regTypeOfYear(CK_GT,  fCTPD(typeOfYear));
+    public void setTypeOfYear_GreaterThan(java.time.LocalDate typeOfYear) {
+        regTypeOfYear(CK_GT,  typeOfYear);
     }
 
     /**
@@ -2467,8 +2371,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_YEAR: {YEAR}
      * @param typeOfYear The value of typeOfYear as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfYear_LessThan(java.util.Date typeOfYear) {
-        regTypeOfYear(CK_LT,  fCTPD(typeOfYear));
+    public void setTypeOfYear_LessThan(java.time.LocalDate typeOfYear) {
+        regTypeOfYear(CK_LT,  typeOfYear);
     }
 
     /**
@@ -2476,8 +2380,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_YEAR: {YEAR}
      * @param typeOfYear The value of typeOfYear as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfYear_GreaterEqual(java.util.Date typeOfYear) {
-        regTypeOfYear(CK_GE,  fCTPD(typeOfYear));
+    public void setTypeOfYear_GreaterEqual(java.time.LocalDate typeOfYear) {
+        regTypeOfYear(CK_GE,  typeOfYear);
     }
 
     /**
@@ -2485,8 +2389,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * TYPE_OF_YEAR: {YEAR}
      * @param typeOfYear The value of typeOfYear as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfYear_LessEqual(java.util.Date typeOfYear) {
-        regTypeOfYear(CK_LE, fCTPD(typeOfYear));
+    public void setTypeOfYear_LessEqual(java.time.LocalDate typeOfYear) {
+        regTypeOfYear(CK_LE, typeOfYear);
     }
 
     /**
@@ -2498,7 +2402,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfYear. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTypeOfYear_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTypeOfYear_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTypeOfYear_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -2511,23 +2415,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfYear. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTypeOfYear_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueTypeOfYear(), "TYPE_OF_YEAR", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_YEAR: {YEAR}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of typeOfYear. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of typeOfYear. (NullAllowed: if null, no to-condition)
-     */
-    public void setTypeOfYear_DateFromTo(Date fromDate, Date toDate) {
-        setTypeOfYear_FromTo(fromDate, toDate, xcDFTOP());
+    public void setTypeOfYear_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "TYPE_OF_YEAR"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfYear(), nm, op);
     }
 
     /**
@@ -2778,15 +2668,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_ENUM: {ENUM(6)}
-     * @param typeOfEnum The value of typeOfEnum as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTypeOfEnum_PrefixSearch(String typeOfEnum) {
-        setTypeOfEnum_LikeSearch(typeOfEnum, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * TYPE_OF_ENUM: {ENUM(6)}
      */
@@ -2901,15 +2782,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      */
     public void setTypeOfSet_NotLikeSearch(String typeOfSet, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(typeOfSet), xgetCValueTypeOfSet(), "TYPE_OF_SET", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_SET: {SET(15)}
-     * @param typeOfSet The value of typeOfSet as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTypeOfSet_PrefixSearch(String typeOfSet) {
-        setTypeOfSet_LikeSearch(typeOfSet, xcLSOPPre());
     }
 
     /**

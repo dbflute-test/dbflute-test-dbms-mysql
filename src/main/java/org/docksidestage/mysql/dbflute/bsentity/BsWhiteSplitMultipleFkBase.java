@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -125,13 +127,15 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'. */
-    protected WhiteSplitMultipleFkNext _whiteSplitMultipleFkNext;
+    protected OptionalEntity<WhiteSplitMultipleFkNext> _whiteSplitMultipleFkNext;
 
     /**
      * [get] white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'. <br>
-     * @return The entity of foreign property 'whiteSplitMultipleFkNext'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSplitMultipleFkNext'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSplitMultipleFkNext getWhiteSplitMultipleFkNext() {
+    public OptionalEntity<WhiteSplitMultipleFkNext> getWhiteSplitMultipleFkNext() {
+        if (_whiteSplitMultipleFkNext == null) { _whiteSplitMultipleFkNext = OptionalEntity.relationEmpty(this, "whiteSplitMultipleFkNext"); }
         return _whiteSplitMultipleFkNext;
     }
 
@@ -139,18 +143,20 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
      * [set] white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
      * @param whiteSplitMultipleFkNext The entity of foreign property 'whiteSplitMultipleFkNext'. (NullAllowed)
      */
-    public void setWhiteSplitMultipleFkNext(WhiteSplitMultipleFkNext whiteSplitMultipleFkNext) {
+    public void setWhiteSplitMultipleFkNext(OptionalEntity<WhiteSplitMultipleFkNext> whiteSplitMultipleFkNext) {
         _whiteSplitMultipleFkNext = whiteSplitMultipleFkNext;
     }
 
     /** white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. */
-    protected WhiteSplitMultipleFkRef _whiteSplitMultipleFkRefAsSplitMultipleFkTest;
+    protected OptionalEntity<WhiteSplitMultipleFkRef> _whiteSplitMultipleFkRefAsSplitMultipleFkTest;
 
     /**
      * [get] white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. <br>
-     * @return The entity of foreign property 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSplitMultipleFkRef getWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
+    public OptionalEntity<WhiteSplitMultipleFkRef> getWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
+        if (_whiteSplitMultipleFkRefAsSplitMultipleFkTest == null) { _whiteSplitMultipleFkRefAsSplitMultipleFkTest = OptionalEntity.relationEmpty(this, "whiteSplitMultipleFkRefAsSplitMultipleFkTest"); }
         return _whiteSplitMultipleFkRefAsSplitMultipleFkTest;
     }
 
@@ -158,7 +164,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
      * [set] white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
      * @param whiteSplitMultipleFkRefAsSplitMultipleFkTest The entity of foreign property 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. (NullAllowed)
      */
-    public void setWhiteSplitMultipleFkRefAsSplitMultipleFkTest(WhiteSplitMultipleFkRef whiteSplitMultipleFkRefAsSplitMultipleFkTest) {
+    public void setWhiteSplitMultipleFkRefAsSplitMultipleFkTest(OptionalEntity<WhiteSplitMultipleFkRef> whiteSplitMultipleFkRefAsSplitMultipleFkTest) {
         _whiteSplitMultipleFkRefAsSplitMultipleFkTest = whiteSplitMultipleFkRefAsSplitMultipleFkTest;
     }
 
@@ -214,13 +220,16 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSplitMultipleFkNext != null)
+        if (_whiteSplitMultipleFkNext != null && _whiteSplitMultipleFkNext.isPresent())
         { sb.append(li).append(xbRDS(_whiteSplitMultipleFkNext, "whiteSplitMultipleFkNext")); }
-        if (_whiteSplitMultipleFkRefAsSplitMultipleFkTest != null)
+        if (_whiteSplitMultipleFkRefAsSplitMultipleFkTest != null && _whiteSplitMultipleFkRefAsSplitMultipleFkTest.isPresent())
         { sb.append(li).append(xbRDS(_whiteSplitMultipleFkRefAsSplitMultipleFkTest, "whiteSplitMultipleFkRefAsSplitMultipleFkTest")); }
         if (_whiteSplitMultipleFkChildList != null) { for (WhiteSplitMultipleFkChild et : _whiteSplitMultipleFkChildList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteSplitMultipleFkChildList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -240,9 +249,9 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSplitMultipleFkNext != null)
+        if (_whiteSplitMultipleFkNext != null && _whiteSplitMultipleFkNext.isPresent())
         { sb.append(dm).append("whiteSplitMultipleFkNext"); }
-        if (_whiteSplitMultipleFkRefAsSplitMultipleFkTest != null)
+        if (_whiteSplitMultipleFkRefAsSplitMultipleFkTest != null && _whiteSplitMultipleFkRefAsSplitMultipleFkTest.isPresent())
         { sb.append(dm).append("whiteSplitMultipleFkRefAsSplitMultipleFkTest"); }
         if (_whiteSplitMultipleFkChildList != null && !_whiteSplitMultipleFkChildList.isEmpty())
         { sb.append(dm).append("whiteSplitMultipleFkChildList"); }

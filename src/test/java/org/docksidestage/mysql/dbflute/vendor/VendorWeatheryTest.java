@@ -11,24 +11,30 @@ import javax.sql.DataSource;
 import org.dbflute.bhv.core.context.ConditionBeanContext;
 import org.dbflute.bhv.core.context.ContextStack;
 import org.dbflute.bhv.readable.EntityRowHandler;
+import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.result.PagingResultBean;
+import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseMySql;
 import org.dbflute.outsidesql.OutsideSqlContext;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.cbean.MemberStatusCB;
 import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;
+import org.docksidestage.mysql.dbflute.cbean.VendorCheckCB;
+import org.docksidestage.mysql.dbflute.cbean.cq.VendorCheckCQ;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.mysql.dbflute.exbhv.MemberStatusBhv;
 import org.docksidestage.mysql.dbflute.exbhv.PurchaseBhv;
+import org.docksidestage.mysql.dbflute.exbhv.VendorCheckBhv;
 import org.docksidestage.mysql.dbflute.exentity.Member;
 import org.docksidestage.mysql.dbflute.exentity.MemberStatus;
+import org.docksidestage.mysql.dbflute.exentity.VendorCheck;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
 
 /**
  * @author jflute
  * @since 0.6.1 (2008/01/23 Wednesday)
  */
-public class VendorCheckTest extends UnitContainerTestCase {
+public class VendorWeatheryTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute
@@ -36,6 +42,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
     private MemberBhv memberBhv;
     private MemberStatusBhv memberStatusBhv;
     private PurchaseBhv purchaseBhv;
+    private VendorCheckBhv vendorCheckBhv;
 
     // ===================================================================================
     //                                                                       Repeat Select
@@ -65,7 +72,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
             PurchaseCB purchaseCB = new PurchaseCB();
             purchaseCB.setupSelect_Member();
             purchaseCB.query().setMemberId_Equal(3);
-            Member actual = purchaseBhv.selectList(purchaseCB).get(0).getMember();
+            Member actual = purchaseBhv.selectList(purchaseCB).get(0).getMember().get();
             log("joined actual=" + actual);
             assertEquals("testName", actual.getMemberName());
         }
@@ -92,7 +99,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
             PurchaseCB purchaseCB = new PurchaseCB();
             purchaseCB.setupSelect_Member();
             purchaseCB.query().setMemberId_Equal(3);
-            Member actual = purchaseBhv.selectList(purchaseCB).get(0).getMember();
+            Member actual = purchaseBhv.selectList(purchaseCB).get(0).getMember().get();
             log("joined actual=" + actual);
             assertEquals("testName", actual.getMemberName());
         }
@@ -263,8 +270,85 @@ public class VendorCheckTest extends UnitContainerTestCase {
         if (suppress) {
             assertTrue(clause.contains("limit 8, 4"));
         } else {
-            assertTrue(clause
-                    .contains("limit /*pmb.sqlClause.pagingBindingOffset*/0, /*pmb.sqlClause.pagingBindingLimit*/0"));
+            assertTrue(clause.contains("limit /*pmb.sqlClause.pagingBindingOffset*/0, /*pmb.sqlClause.pagingBindingLimit*/0"));
         }
+    }
+
+    // ===================================================================================
+    //                                                                          Short Char
+    //                                                                          ==========
+    public void test_shortChar_inout_trimmed_value() {
+        // *This test does not depend on shortCharHandlingMode of DBFlute 
+        // ## Arrange ##
+        String code = "AB";
+
+        VendorCheck vendorCheck = new VendorCheck();
+        vendorCheck.setVendorCheckId(99999L);
+        vendorCheck.setTypeOfChar(code);
+        vendorCheckBhv.insert(vendorCheck);
+
+        VendorCheckCB cb = new VendorCheckCB();
+        cb.query().setVendorCheckId_Equal(99999L);
+        cb.query().setTypeOfChar_Equal(code + " ");
+
+        // ## Act ##
+        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+
+        // ## Assert ##
+        assertEquals(code, actual.getTypeOfChar()); // DB trims it
+    }
+
+    public void test_shortChar_inout_filled_value() {
+        // *This test does not depend on shortCharHandlingMode of DBFlute 
+        // ## Arrange ##
+        String code = "AB ";
+
+        VendorCheck vendorCheck = new VendorCheck();
+        vendorCheck.setVendorCheckId(99999L);
+        vendorCheck.setTypeOfChar(code);
+        vendorCheckBhv.insert(vendorCheck);
+
+        VendorCheckCB cb = new VendorCheckCB();
+        cb.query().setVendorCheckId_Equal(99999L);
+        cb.query().setTypeOfChar_Equal(code);
+
+        // ## Act ##
+        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+
+        // ## Assert ##
+        assertEquals(code.trim(), actual.getTypeOfChar()); // DB trims it
+    }
+
+    public void test_shortChar_condition() {
+        // *This test does not depend on shortCharHandlingMode of DBFlute 
+        // ## Arrange ##
+        String code = "AB ";
+
+        VendorCheck vendorCheck = new VendorCheck();
+        vendorCheck.setVendorCheckId(99999L);
+        vendorCheck.setTypeOfChar(code);
+        vendorCheckBhv.insert(vendorCheck);
+
+        VendorCheckCB cb = new VendorCheckCB() {
+            // internal manipulation (Don't mimic it)
+            @Override
+            protected VendorCheckCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+                return new VendorCheckCQ(childQuery, sqlClause, aliasName, nestLevel) {
+                    @Override
+                    protected String hSC(String propertyName, String value, Integer size, String modeCode) {
+                        return value; // do nothing for not depending on shortCharHandlingMode
+                    }
+                };
+            }
+        };
+        cb.query().setVendorCheckId_Equal(99999L);
+        cb.query().setTypeOfChar_Equal(code.trim());
+        assertTrue(cb.toDisplaySql().contains("'AB'"));
+
+        // ## Act ##
+        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+
+        // ## Assert ##
+        assertEquals(code.trim(), actual.getTypeOfChar());
     }
 }

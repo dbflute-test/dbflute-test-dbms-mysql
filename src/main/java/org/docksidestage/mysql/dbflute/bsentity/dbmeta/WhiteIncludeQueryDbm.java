@@ -52,12 +52,13 @@ public class WhiteIncludeQueryDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryId(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryId(ctl(vl)), "includeQueryId");
         setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryVarchar(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryVarchar((String)vl), "includeQueryVarchar");
         setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryInteger(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryInteger(cti(vl)), "includeQueryInteger");
-        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDate(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDate((java.util.Date)vl), "includeQueryDate");
-        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDatetime(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDatetime((java.sql.Timestamp)vl), "includeQueryDatetime");
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDate(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDate((java.time.LocalDate)vl), "includeQueryDate");
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDatetime(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDatetime((java.time.LocalDateTime)vl), "includeQueryDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -79,8 +80,8 @@ public class WhiteIncludeQueryDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnIncludeQueryId = cci("INCLUDE_QUERY_ID", "INCLUDE_QUERY_ID", null, null, Long.class, "includeQueryId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnIncludeQueryVarchar = cci("INCLUDE_QUERY_VARCHAR", "INCLUDE_QUERY_VARCHAR", null, null, String.class, "includeQueryVarchar", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnIncludeQueryInteger = cci("INCLUDE_QUERY_INTEGER", "INCLUDE_QUERY_INTEGER", null, null, Integer.class, "includeQueryInteger", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnIncludeQueryDate = cci("INCLUDE_QUERY_DATE", "INCLUDE_QUERY_DATE", null, null, java.util.Date.class, "includeQueryDate", null, false, false, false, "DATE", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnIncludeQueryDatetime = cci("INCLUDE_QUERY_DATETIME", "INCLUDE_QUERY_DATETIME", null, null, java.sql.Timestamp.class, "includeQueryDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnIncludeQueryDate = cci("INCLUDE_QUERY_DATE", "INCLUDE_QUERY_DATE", null, null, java.time.LocalDate.class, "includeQueryDate", null, false, false, false, "DATE", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnIncludeQueryDatetime = cci("INCLUDE_QUERY_DATETIME", "INCLUDE_QUERY_DATETIME", null, null, java.time.LocalDateTime.class, "includeQueryDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null);
 
     /**
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}

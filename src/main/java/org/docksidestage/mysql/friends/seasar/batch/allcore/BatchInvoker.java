@@ -9,7 +9,7 @@ import java.util.List;
 public interface BatchInvoker {
 
     /**
-     * Invoke the batch controller. <br />
+     * Invoke the batch controller. <br>
      * All batch controllers must be invoked through this invoker.
      * @param componentKey The component key of batch. (NotNull)
      * @param controller The controller of batch. (NotNull)

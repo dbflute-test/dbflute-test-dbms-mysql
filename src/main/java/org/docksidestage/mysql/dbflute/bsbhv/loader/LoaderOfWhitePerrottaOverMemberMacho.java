@@ -76,14 +76,14 @@ public class LoaderOfWhitePerrottaOverMemberMacho {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhitePerrottaOverMember> _referrerWhitePerrottaOverMemberList;
+    protected List<WhitePerrottaOverMember> _referrerWhitePerrottaOverMember;
 
     /**
      * Load referrer of whitePerrottaOverMemberList by the set-upper of referrer. <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whitePerrottaOverMemberMachoList</span>, <span style="color: #553000">machoLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">machoLoader</span>.<span style="color: #CC4747">loadWhitePerrottaOverMemberList</span>(<span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">machoLoader</span>.<span style="color: #CC4747">loadWhitePerrottaOverMember</span>(<span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">memberCB</span>.setupSelect...
      *         <span style="color: #553000">memberCB</span>.query().set...
      *         <span style="color: #553000">memberCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhitePerrottaOverMemberMacho {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverMember> loadWhitePerrottaOverMemberList(ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
-        myBhv().loadWhitePerrottaOverMemberList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePerrottaOverMemberList = refLs);
-        return hd -> hd.handle(new LoaderOfWhitePerrottaOverMember().ready(_referrerWhitePerrottaOverMemberList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhitePerrottaOverMember> loadWhitePerrottaOverMember(ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
+        myBhv().loadWhitePerrottaOverMember(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePerrottaOverMember = refLs);
+        return hd -> hd.handle(new LoaderOfWhitePerrottaOverMember().ready(_referrerWhitePerrottaOverMember, _selector));
     }
 
     // ===================================================================================

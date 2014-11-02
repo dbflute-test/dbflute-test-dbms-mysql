@@ -273,15 +273,6 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
         regLSQ(CK_NLS, fRES(purchaseReferrerName), xgetCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
-     * @param purchaseReferrerName The value of purchaseReferrerName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setPurchaseReferrerName_PrefixSearch(String purchaseReferrerName) {
-        setPurchaseReferrerName_LikeSearch(purchaseReferrerName, xcLSOPPre());
-    }
-
     protected void regPurchaseReferrerName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePurchaseReferrerName(), "PURCHASE_REFERRER_NAME"); }
     protected abstract ConditionValue xgetCValuePurchaseReferrerName();
 

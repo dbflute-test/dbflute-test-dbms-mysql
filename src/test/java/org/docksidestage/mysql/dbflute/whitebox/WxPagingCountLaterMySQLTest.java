@@ -71,8 +71,8 @@ public class WxPagingCountLaterMySQLTest extends UnitContainerTestCase {
             log("currentPageNumber=" + page3.getCurrentPageNumber());
             log("currentStartRecordNumber=" + page3.getCurrentStartRecordNumber());
             log("currentEndRecordNumber=" + page3.getCurrentEndRecordNumber());
-            log("isExistPrePage=" + page3.isExistPrePage());
-            log("isExistNextPage=" + page3.isExistNextPage());
+            log("existsPreviousPage=" + page3.existsPreviousPage());
+            log("existsNextPage=" + page3.existsNextPage());
             assertEquals(expectedPage3, page3);
             assertEquals(expectedPage3.getAllRecordCount(), page3.getAllRecordCount());
             assertEquals(expectedPage3.getAllPageCount(), page3.getAllPageCount());
@@ -123,8 +123,8 @@ public class WxPagingCountLaterMySQLTest extends UnitContainerTestCase {
             log("currentPageNumber=" + page3.getCurrentPageNumber());
             log("currentStartRecordNumber=" + page3.getCurrentStartRecordNumber());
             log("currentEndRecordNumber=" + page3.getCurrentEndRecordNumber());
-            log("isExistPrePage=" + page3.isExistPrePage());
-            log("isExistNextPage=" + page3.isExistNextPage());
+            log("existsPreviousPage=" + page3.existsPreviousPage());
+            log("existsNextPage=" + page3.existsNextPage());
             assertEquals(expectedPage3, page3);
             assertEquals(expectedPage3.getAllRecordCount(), page3.getAllRecordCount());
             assertEquals(expectedPage3.getAllPageCount(), page3.getAllPageCount());
@@ -177,8 +177,8 @@ public class WxPagingCountLaterMySQLTest extends UnitContainerTestCase {
             log("currentPageNumber=" + actualPageMax.getCurrentPageNumber());
             log("currentStartRecordNumber=" + actualPageMax.getCurrentStartRecordNumber());
             log("currentEndRecordNumber=" + actualPageMax.getCurrentEndRecordNumber());
-            log("isExistPrePage=" + actualPageMax.isExistPrePage());
-            log("isExistNextPage=" + actualPageMax.isExistNextPage());
+            log("existsPreviousPage=" + actualPageMax.existsPreviousPage());
+            log("existsNextPage=" + actualPageMax.existsNextPage());
             assertEquals(expectedPageMax, actualPageMax);
             assertEquals(expectedPageMax.getAllRecordCount(), actualPageMax.getAllRecordCount());
             assertEquals(expectedPageMax.getAllPageCount(), actualPageMax.getAllPageCount());
@@ -238,8 +238,8 @@ public class WxPagingCountLaterMySQLTest extends UnitContainerTestCase {
             log("currentPageNumber=" + page3.getCurrentPageNumber());
             log("currentStartRecordNumber=" + page3.getCurrentStartRecordNumber());
             log("currentEndRecordNumber=" + page3.getCurrentEndRecordNumber());
-            log("isExistPrePage=" + page3.isExistPrePage());
-            log("isExistNextPage=" + page3.isExistNextPage());
+            log("existsPreviousPage=" + page3.existsPreviousPage());
+            log("existsNextPage=" + page3.existsNextPage());
             assertEquals(expectedPage3, page3);
             assertFalse(Srl.contains(displaySqlList.get(0), " sql_calc_found_rows "));
             assertFalse(Srl.contains(displaySqlList.get(1), " found_rows()"));
@@ -263,7 +263,7 @@ public class WxPagingCountLaterMySQLTest extends UnitContainerTestCase {
                         String prefix = _count % 2 == 0 ? "S" : "M";
                         MemberCB cb = new MemberCB();
                         cb.setupSelect_MemberStatus();
-                        cb.query().setMemberName_PrefixSearch(prefix);
+                        cb.query().setMemberName_LikeSearch(prefix, op -> op.likePrefix());
                         cb.query().addOrderBy_Birthdate_Desc().addOrderBy_MemberId_Asc();
                         int expectedCount = memberBhv.selectCount(cb);
                         cb.paging(3, 1);

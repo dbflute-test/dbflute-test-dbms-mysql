@@ -76,14 +76,14 @@ public class LoaderOfWhiteImplicitConvString {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteImplicitConvInteger> _referrerWhiteImplicitConvIntegerList;
+    protected List<WhiteImplicitConvInteger> _referrerWhiteImplicitConvInteger;
 
     /**
      * Load referrer of whiteImplicitConvIntegerList by the set-upper of referrer. <br>
      * white_implicit_conv_integer by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvIntegerList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteImplicitConvStringList</span>, <span style="color: #553000">stringLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">stringLoader</span>.<span style="color: #CC4747">loadWhiteImplicitConvIntegerList</span>(<span style="color: #553000">integerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">stringLoader</span>.<span style="color: #CC4747">loadWhiteImplicitConvInteger</span>(<span style="color: #553000">integerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">integerCB</span>.setupSelect...
      *         <span style="color: #553000">integerCB</span>.query().set...
      *         <span style="color: #553000">integerCB</span>.query().addOrderBy...
@@ -105,19 +105,19 @@ public class LoaderOfWhiteImplicitConvString {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvInteger> loadWhiteImplicitConvIntegerList(ConditionBeanSetupper<WhiteImplicitConvIntegerCB> refCBLambda) {
-        myBhv().loadWhiteImplicitConvIntegerList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteImplicitConvIntegerList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteImplicitConvInteger().ready(_referrerWhiteImplicitConvIntegerList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvInteger> loadWhiteImplicitConvInteger(ConditionBeanSetupper<WhiteImplicitConvIntegerCB> refCBLambda) {
+        myBhv().loadWhiteImplicitConvInteger(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteImplicitConvInteger = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteImplicitConvInteger().ready(_referrerWhiteImplicitConvInteger, _selector));
     }
 
-    protected List<WhiteImplicitConvNumeric> _referrerWhiteImplicitConvNumericList;
+    protected List<WhiteImplicitConvNumeric> _referrerWhiteImplicitConvNumeric;
 
     /**
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteImplicitConvStringList</span>, <span style="color: #553000">stringLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">stringLoader</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(<span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">stringLoader</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumeric</span>(<span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">numericCB</span>.setupSelect...
      *         <span style="color: #553000">numericCB</span>.query().set...
      *         <span style="color: #553000">numericCB</span>.query().addOrderBy...
@@ -139,9 +139,9 @@ public class LoaderOfWhiteImplicitConvString {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
-        myBhv().loadWhiteImplicitConvNumericList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteImplicitConvNumericList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteImplicitConvNumeric().ready(_referrerWhiteImplicitConvNumericList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
+        myBhv().loadWhiteImplicitConvNumeric(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteImplicitConvNumeric = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteImplicitConvNumeric().ready(_referrerWhiteImplicitConvNumeric, _selector));
     }
 
     // ===================================================================================

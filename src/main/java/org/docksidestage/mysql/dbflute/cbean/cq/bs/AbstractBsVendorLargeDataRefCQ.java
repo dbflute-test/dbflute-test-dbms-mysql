@@ -167,13 +167,13 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {exists (select SELF_PARENT_ID from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefSelfList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefSelf</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of VendorLargeDataRefSelfList for 'exists'. (NotNull)
      */
-    public void existsVendorLargeDataRefSelfList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
+    public void existsVendorLargeDataRefSelf(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataRefId_ExistsReferrer_VendorLargeDataRefSelfList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {not exists (select SELF_PARENT_ID from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefSelfList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefSelf</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of LargeDataRefId_NotExistsReferrer_VendorLargeDataRefSelfList for 'not exists'. (NotNull)
      */
-    public void notExistsVendorLargeDataRefSelfList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
+    public void notExistsVendorLargeDataRefSelf(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataRefId_NotExistsReferrer_VendorLargeDataRefSelfList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {FOO &lt;= (select max(BAR) from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefSelfList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefSelf()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<VendorLargeDataRefCB> derivedVendorLargeDataRefSelfList() {
+    public HpQDRFunction<VendorLargeDataRefCB> derivedVendorLargeDataRefSelf() {
         return xcreateQDRFunctionVendorLargeDataRefSelfList();
     }
     protected HpQDRFunction<VendorLargeDataRefCB> xcreateQDRFunctionVendorLargeDataRefSelfList() {
@@ -359,8 +359,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_INDEX: {IX, NotNull, DATE(10)}
      * @param dateIndex The value of dateIndex as equal. (NullAllowed: if null, no condition)
      */
-    public void setDateIndex_Equal(java.util.Date dateIndex) {
-        regDateIndex(CK_EQ,  fCTPD(dateIndex));
+    public void setDateIndex_Equal(java.time.LocalDate dateIndex) {
+        regDateIndex(CK_EQ,  dateIndex);
     }
 
     /**
@@ -368,8 +368,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_INDEX: {IX, NotNull, DATE(10)}
      * @param dateIndex The value of dateIndex as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setDateIndex_GreaterThan(java.util.Date dateIndex) {
-        regDateIndex(CK_GT,  fCTPD(dateIndex));
+    public void setDateIndex_GreaterThan(java.time.LocalDate dateIndex) {
+        regDateIndex(CK_GT,  dateIndex);
     }
 
     /**
@@ -377,8 +377,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_INDEX: {IX, NotNull, DATE(10)}
      * @param dateIndex The value of dateIndex as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setDateIndex_LessThan(java.util.Date dateIndex) {
-        regDateIndex(CK_LT,  fCTPD(dateIndex));
+    public void setDateIndex_LessThan(java.time.LocalDate dateIndex) {
+        regDateIndex(CK_LT,  dateIndex);
     }
 
     /**
@@ -386,8 +386,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_INDEX: {IX, NotNull, DATE(10)}
      * @param dateIndex The value of dateIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setDateIndex_GreaterEqual(java.util.Date dateIndex) {
-        regDateIndex(CK_GE,  fCTPD(dateIndex));
+    public void setDateIndex_GreaterEqual(java.time.LocalDate dateIndex) {
+        regDateIndex(CK_GE,  dateIndex);
     }
 
     /**
@@ -395,8 +395,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_INDEX: {IX, NotNull, DATE(10)}
      * @param dateIndex The value of dateIndex as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setDateIndex_LessEqual(java.util.Date dateIndex) {
-        regDateIndex(CK_LE, fCTPD(dateIndex));
+    public void setDateIndex_LessEqual(java.time.LocalDate dateIndex) {
+        regDateIndex(CK_LE, dateIndex);
     }
 
     /**
@@ -408,7 +408,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateIndex. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setDateIndex_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setDateIndex_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setDateIndex_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -421,23 +421,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateIndex. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setDateIndex_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueDateIndex(), "DATE_INDEX", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * DATE_INDEX: {IX, NotNull, DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of dateIndex. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of dateIndex. (NullAllowed: if null, no to-condition)
-     */
-    public void setDateIndex_DateFromTo(Date fromDate, Date toDate) {
-        setDateIndex_FromTo(fromDate, toDate, xcDFTOP());
+    public void setDateIndex_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "DATE_INDEX"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueDateIndex(), nm, op);
     }
 
     protected void regDateIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDateIndex(), "DATE_INDEX"); }
@@ -448,8 +434,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_NO_INDEX: {NotNull, DATE(10)}
      * @param dateNoIndex The value of dateNoIndex as equal. (NullAllowed: if null, no condition)
      */
-    public void setDateNoIndex_Equal(java.util.Date dateNoIndex) {
-        regDateNoIndex(CK_EQ,  fCTPD(dateNoIndex));
+    public void setDateNoIndex_Equal(java.time.LocalDate dateNoIndex) {
+        regDateNoIndex(CK_EQ,  dateNoIndex);
     }
 
     /**
@@ -457,8 +443,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_NO_INDEX: {NotNull, DATE(10)}
      * @param dateNoIndex The value of dateNoIndex as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setDateNoIndex_GreaterThan(java.util.Date dateNoIndex) {
-        regDateNoIndex(CK_GT,  fCTPD(dateNoIndex));
+    public void setDateNoIndex_GreaterThan(java.time.LocalDate dateNoIndex) {
+        regDateNoIndex(CK_GT,  dateNoIndex);
     }
 
     /**
@@ -466,8 +452,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_NO_INDEX: {NotNull, DATE(10)}
      * @param dateNoIndex The value of dateNoIndex as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setDateNoIndex_LessThan(java.util.Date dateNoIndex) {
-        regDateNoIndex(CK_LT,  fCTPD(dateNoIndex));
+    public void setDateNoIndex_LessThan(java.time.LocalDate dateNoIndex) {
+        regDateNoIndex(CK_LT,  dateNoIndex);
     }
 
     /**
@@ -475,8 +461,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_NO_INDEX: {NotNull, DATE(10)}
      * @param dateNoIndex The value of dateNoIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setDateNoIndex_GreaterEqual(java.util.Date dateNoIndex) {
-        regDateNoIndex(CK_GE,  fCTPD(dateNoIndex));
+    public void setDateNoIndex_GreaterEqual(java.time.LocalDate dateNoIndex) {
+        regDateNoIndex(CK_GE,  dateNoIndex);
     }
 
     /**
@@ -484,8 +470,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * DATE_NO_INDEX: {NotNull, DATE(10)}
      * @param dateNoIndex The value of dateNoIndex as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setDateNoIndex_LessEqual(java.util.Date dateNoIndex) {
-        regDateNoIndex(CK_LE, fCTPD(dateNoIndex));
+    public void setDateNoIndex_LessEqual(java.time.LocalDate dateNoIndex) {
+        regDateNoIndex(CK_LE, dateNoIndex);
     }
 
     /**
@@ -497,7 +483,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateNoIndex. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setDateNoIndex_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setDateNoIndex_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setDateNoIndex_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -510,23 +496,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateNoIndex. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setDateNoIndex_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueDateNoIndex(), "DATE_NO_INDEX", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * DATE_NO_INDEX: {NotNull, DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of dateNoIndex. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of dateNoIndex. (NullAllowed: if null, no to-condition)
-     */
-    public void setDateNoIndex_DateFromTo(Date fromDate, Date toDate) {
-        setDateNoIndex_FromTo(fromDate, toDate, xcDFTOP());
+    public void setDateNoIndex_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "DATE_NO_INDEX"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueDateNoIndex(), nm, op);
     }
 
     protected void regDateNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDateNoIndex(), "DATE_NO_INDEX"); }
@@ -537,7 +509,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)}
      * @param timestampIndex The value of timestampIndex as equal. (NullAllowed: if null, no condition)
      */
-    public void setTimestampIndex_Equal(java.sql.Timestamp timestampIndex) {
+    public void setTimestampIndex_Equal(java.time.LocalDateTime timestampIndex) {
         regTimestampIndex(CK_EQ,  timestampIndex);
     }
 
@@ -546,7 +518,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)}
      * @param timestampIndex The value of timestampIndex as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampIndex_GreaterThan(java.sql.Timestamp timestampIndex) {
+    public void setTimestampIndex_GreaterThan(java.time.LocalDateTime timestampIndex) {
         regTimestampIndex(CK_GT,  timestampIndex);
     }
 
@@ -555,7 +527,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)}
      * @param timestampIndex The value of timestampIndex as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampIndex_LessThan(java.sql.Timestamp timestampIndex) {
+    public void setTimestampIndex_LessThan(java.time.LocalDateTime timestampIndex) {
         regTimestampIndex(CK_LT,  timestampIndex);
     }
 
@@ -564,7 +536,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)}
      * @param timestampIndex The value of timestampIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampIndex_GreaterEqual(java.sql.Timestamp timestampIndex) {
+    public void setTimestampIndex_GreaterEqual(java.time.LocalDateTime timestampIndex) {
         regTimestampIndex(CK_GE,  timestampIndex);
     }
 
@@ -573,7 +545,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)}
      * @param timestampIndex The value of timestampIndex as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampIndex_LessEqual(java.sql.Timestamp timestampIndex) {
+    public void setTimestampIndex_LessEqual(java.time.LocalDateTime timestampIndex) {
         regTimestampIndex(CK_LE, timestampIndex);
     }
 
@@ -586,7 +558,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampIndex. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTimestampIndex_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTimestampIndex_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTimestampIndex_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -599,23 +571,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampIndex. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTimestampIndex_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampIndex(), "TIMESTAMP_INDEX", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of timestampIndex. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of timestampIndex. (NullAllowed: if null, no to-condition)
-     */
-    public void setTimestampIndex_DateFromTo(Date fromDate, Date toDate) {
-        setTimestampIndex_FromTo(fromDate, toDate, xcDFTOP());
+    public void setTimestampIndex_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TIMESTAMP_INDEX"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTimestampIndex(), nm, op);
     }
 
     protected void regTimestampIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTimestampIndex(), "TIMESTAMP_INDEX"); }
@@ -626,7 +584,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)}
      * @param timestampNoIndex The value of timestampNoIndex as equal. (NullAllowed: if null, no condition)
      */
-    public void setTimestampNoIndex_Equal(java.sql.Timestamp timestampNoIndex) {
+    public void setTimestampNoIndex_Equal(java.time.LocalDateTime timestampNoIndex) {
         regTimestampNoIndex(CK_EQ,  timestampNoIndex);
     }
 
@@ -635,7 +593,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)}
      * @param timestampNoIndex The value of timestampNoIndex as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampNoIndex_GreaterThan(java.sql.Timestamp timestampNoIndex) {
+    public void setTimestampNoIndex_GreaterThan(java.time.LocalDateTime timestampNoIndex) {
         regTimestampNoIndex(CK_GT,  timestampNoIndex);
     }
 
@@ -644,7 +602,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)}
      * @param timestampNoIndex The value of timestampNoIndex as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampNoIndex_LessThan(java.sql.Timestamp timestampNoIndex) {
+    public void setTimestampNoIndex_LessThan(java.time.LocalDateTime timestampNoIndex) {
         regTimestampNoIndex(CK_LT,  timestampNoIndex);
     }
 
@@ -653,7 +611,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)}
      * @param timestampNoIndex The value of timestampNoIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampNoIndex_GreaterEqual(java.sql.Timestamp timestampNoIndex) {
+    public void setTimestampNoIndex_GreaterEqual(java.time.LocalDateTime timestampNoIndex) {
         regTimestampNoIndex(CK_GE,  timestampNoIndex);
     }
 
@@ -662,7 +620,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)}
      * @param timestampNoIndex The value of timestampNoIndex as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampNoIndex_LessEqual(java.sql.Timestamp timestampNoIndex) {
+    public void setTimestampNoIndex_LessEqual(java.time.LocalDateTime timestampNoIndex) {
         regTimestampNoIndex(CK_LE, timestampNoIndex);
     }
 
@@ -675,7 +633,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampNoIndex. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTimestampNoIndex_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTimestampNoIndex_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTimestampNoIndex_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -688,23 +646,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampNoIndex. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTimestampNoIndex_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampNoIndex(), "TIMESTAMP_NO_INDEX", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of timestampNoIndex. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of timestampNoIndex. (NullAllowed: if null, no to-condition)
-     */
-    public void setTimestampNoIndex_DateFromTo(Date fromDate, Date toDate) {
-        setTimestampNoIndex_FromTo(fromDate, toDate, xcDFTOP());
+    public void setTimestampNoIndex_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TIMESTAMP_NO_INDEX"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTimestampNoIndex(), nm, op);
     }
 
     protected void regTimestampNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTimestampNoIndex(), "TIMESTAMP_NO_INDEX"); }

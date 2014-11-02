@@ -52,7 +52,8 @@ public class WhiteUqFkWithoutPkDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteUqFkWithoutPk)et).getUqFkCode(), (et, vl) -> ((WhiteUqFkWithoutPk)et).setUqFkCode((String)vl), "uqFkCode");
         setupEpg(_epgMap, et -> ((WhiteUqFkWithoutPk)et).getUqFkName(), (et, vl) -> ((WhiteUqFkWithoutPk)et).setUqFkName((String)vl), "uqFkName");
     }

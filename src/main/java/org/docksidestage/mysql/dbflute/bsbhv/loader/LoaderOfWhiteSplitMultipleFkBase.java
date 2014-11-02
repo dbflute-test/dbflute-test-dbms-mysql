@@ -76,14 +76,14 @@ public class LoaderOfWhiteSplitMultipleFkBase {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteSplitMultipleFkChild> _referrerWhiteSplitMultipleFkChildList;
+    protected List<WhiteSplitMultipleFkChild> _referrerWhiteSplitMultipleFkChild;
 
     /**
      * Load referrer of whiteSplitMultipleFkChildList by the set-upper of referrer. <br>
      * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkBaseBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSplitMultipleFkBaseList</span>, <span style="color: #553000">baseLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">baseLoader</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkChildList</span>(<span style="color: #553000">childCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">baseLoader</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkChild</span>(<span style="color: #553000">childCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">childCB</span>.setupSelect...
      *         <span style="color: #553000">childCB</span>.query().set...
      *         <span style="color: #553000">childCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteSplitMultipleFkBase {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteSplitMultipleFkChild> loadWhiteSplitMultipleFkChildList(ConditionBeanSetupper<WhiteSplitMultipleFkChildCB> refCBLambda) {
-        myBhv().loadWhiteSplitMultipleFkChildList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSplitMultipleFkChildList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteSplitMultipleFkChild().ready(_referrerWhiteSplitMultipleFkChildList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteSplitMultipleFkChild> loadWhiteSplitMultipleFkChild(ConditionBeanSetupper<WhiteSplitMultipleFkChildCB> refCBLambda) {
+        myBhv().loadWhiteSplitMultipleFkChild(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSplitMultipleFkChild = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSplitMultipleFkChild().ready(_referrerWhiteSplitMultipleFkChild, _selector));
     }
 
     // ===================================================================================

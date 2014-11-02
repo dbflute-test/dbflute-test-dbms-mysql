@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -115,13 +117,15 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'. */
-    protected WhiteSelfReference _whiteSelfReference;
+    protected OptionalEntity<WhiteSelfReference> _whiteSelfReference;
 
     /**
      * [get] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'. <br>
-     * @return The entity of foreign property 'whiteSelfReference'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSelfReference'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSelfReference getWhiteSelfReference() {
+    public OptionalEntity<WhiteSelfReference> getWhiteSelfReference() {
+        if (_whiteSelfReference == null) { _whiteSelfReference = OptionalEntity.relationEmpty(this, "whiteSelfReference"); }
         return _whiteSelfReference;
     }
 
@@ -129,18 +133,20 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
      * [set] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
      * @param whiteSelfReference The entity of foreign property 'whiteSelfReference'. (NullAllowed)
      */
-    public void setWhiteSelfReference(WhiteSelfReference whiteSelfReference) {
+    public void setWhiteSelfReference(OptionalEntity<WhiteSelfReference> whiteSelfReference) {
         _whiteSelfReference = whiteSelfReference;
     }
 
     /** white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'. */
-    protected WhiteSelfReference _whiteSelfReferenceAsDirectParent;
+    protected OptionalEntity<WhiteSelfReference> _whiteSelfReferenceAsDirectParent;
 
     /**
      * [get] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'. <br>
-     * @return The entity of foreign property 'whiteSelfReferenceAsDirectParent'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSelfReferenceAsDirectParent'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSelfReference getWhiteSelfReferenceAsDirectParent() {
+    public OptionalEntity<WhiteSelfReference> getWhiteSelfReferenceAsDirectParent() {
+        if (_whiteSelfReferenceAsDirectParent == null) { _whiteSelfReferenceAsDirectParent = OptionalEntity.relationEmpty(this, "whiteSelfReferenceAsDirectParent"); }
         return _whiteSelfReferenceAsDirectParent;
     }
 
@@ -148,7 +154,7 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
      * [set] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
      * @param whiteSelfReferenceAsDirectParent The entity of foreign property 'whiteSelfReferenceAsDirectParent'. (NullAllowed)
      */
-    public void setWhiteSelfReferenceAsDirectParent(WhiteSelfReference whiteSelfReferenceAsDirectParent) {
+    public void setWhiteSelfReferenceAsDirectParent(OptionalEntity<WhiteSelfReference> whiteSelfReferenceAsDirectParent) {
         _whiteSelfReferenceAsDirectParent = whiteSelfReferenceAsDirectParent;
     }
 
@@ -184,11 +190,14 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSelfReference != null)
+        if (_whiteSelfReference != null && _whiteSelfReference.isPresent())
         { sb.append(li).append(xbRDS(_whiteSelfReference, "whiteSelfReference")); }
-        if (_whiteSelfReferenceAsDirectParent != null)
+        if (_whiteSelfReferenceAsDirectParent != null && _whiteSelfReferenceAsDirectParent.isPresent())
         { sb.append(li).append(xbRDS(_whiteSelfReferenceAsDirectParent, "whiteSelfReferenceAsDirectParent")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -206,9 +215,9 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSelfReference != null)
+        if (_whiteSelfReference != null && _whiteSelfReference.isPresent())
         { sb.append(dm).append("whiteSelfReference"); }
-        if (_whiteSelfReferenceAsDirectParent != null)
+        if (_whiteSelfReferenceAsDirectParent != null && _whiteSelfReferenceAsDirectParent.isPresent())
         { sb.append(dm).append("whiteSelfReferenceAsDirectParent"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

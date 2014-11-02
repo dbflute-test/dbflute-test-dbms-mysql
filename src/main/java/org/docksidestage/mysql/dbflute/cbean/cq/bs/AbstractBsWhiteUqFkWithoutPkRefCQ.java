@@ -261,15 +261,6 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
         regLSQ(CK_NLS, fRES(fkToUqCode), xgetCValueFkToUqCode(), "FK_TO_UQ_CODE", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk_without_pk}
-     * @param fkToUqCode The value of fkToUqCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFkToUqCode_PrefixSearch(String fkToUqCode) {
-        setFkToUqCode_LikeSearch(fkToUqCode, xcLSOPPre());
-    }
-
     protected void regFkToUqCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFkToUqCode(), "FK_TO_UQ_CODE"); }
     protected abstract ConditionValue xgetCValueFkToUqCode();
 

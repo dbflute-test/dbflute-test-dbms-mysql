@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -58,10 +60,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long largeDataRefId = entity.getLargeDataRefId();
  * Long largeDataId = entity.getLargeDataId();
- * java.util.Date dateIndex = entity.getDateIndex();
- * java.util.Date dateNoIndex = entity.getDateNoIndex();
- * java.sql.Timestamp timestampIndex = entity.getTimestampIndex();
- * java.sql.Timestamp timestampNoIndex = entity.getTimestampNoIndex();
+ * java.time.LocalDate dateIndex = entity.getDateIndex();
+ * java.time.LocalDate dateNoIndex = entity.getDateNoIndex();
+ * java.time.LocalDateTime timestampIndex = entity.getTimestampIndex();
+ * java.time.LocalDateTime timestampNoIndex = entity.getTimestampNoIndex();
  * java.math.BigDecimal nullableDecimalIndex = entity.getNullableDecimalIndex();
  * java.math.BigDecimal nullableDecimalNoIndex = entity.getNullableDecimalNoIndex();
  * Long selfParentId = entity.getSelfParentId();
@@ -96,16 +98,16 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     protected Long _largeDataId;
 
     /** DATE_INDEX: {IX, NotNull, DATE(10)} */
-    protected java.util.Date _dateIndex;
+    protected java.time.LocalDate _dateIndex;
 
     /** DATE_NO_INDEX: {NotNull, DATE(10)} */
-    protected java.util.Date _dateNoIndex;
+    protected java.time.LocalDate _dateNoIndex;
 
     /** TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _timestampIndex;
+    protected java.time.LocalDateTime _timestampIndex;
 
     /** TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _timestampNoIndex;
+    protected java.time.LocalDateTime _timestampNoIndex;
 
     /** NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)} */
     protected java.math.BigDecimal _nullableDecimalIndex;
@@ -150,13 +152,15 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     //                                                                    Foreign Property
     //                                                                    ================
     /** vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'. */
-    protected VendorLargeData _vendorLargeData;
+    protected OptionalEntity<VendorLargeData> _vendorLargeData;
 
     /**
      * [get] vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'. <br>
-     * @return The entity of foreign property 'vendorLargeData'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendorLargeData'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public VendorLargeData getVendorLargeData() {
+    public OptionalEntity<VendorLargeData> getVendorLargeData() {
+        if (_vendorLargeData == null) { _vendorLargeData = OptionalEntity.relationEmpty(this, "vendorLargeData"); }
         return _vendorLargeData;
     }
 
@@ -164,18 +168,20 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [set] vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'.
      * @param vendorLargeData The entity of foreign property 'vendorLargeData'. (NullAllowed)
      */
-    public void setVendorLargeData(VendorLargeData vendorLargeData) {
+    public void setVendorLargeData(OptionalEntity<VendorLargeData> vendorLargeData) {
         _vendorLargeData = vendorLargeData;
     }
 
     /** vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'. */
-    protected VendorLargeDataRef _vendorLargeDataRefSelf;
+    protected OptionalEntity<VendorLargeDataRef> _vendorLargeDataRefSelf;
 
     /**
      * [get] vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'. <br>
-     * @return The entity of foreign property 'vendorLargeDataRefSelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendorLargeDataRefSelf'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public VendorLargeDataRef getVendorLargeDataRefSelf() {
+    public OptionalEntity<VendorLargeDataRef> getVendorLargeDataRefSelf() {
+        if (_vendorLargeDataRefSelf == null) { _vendorLargeDataRefSelf = OptionalEntity.relationEmpty(this, "vendorLargeDataRefSelf"); }
         return _vendorLargeDataRefSelf;
     }
 
@@ -183,7 +189,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [set] vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
      * @param vendorLargeDataRefSelf The entity of foreign property 'vendorLargeDataRefSelf'. (NullAllowed)
      */
-    public void setVendorLargeDataRefSelf(VendorLargeDataRef vendorLargeDataRefSelf) {
+    public void setVendorLargeDataRefSelf(OptionalEntity<VendorLargeDataRef> vendorLargeDataRefSelf) {
         _vendorLargeDataRefSelf = vendorLargeDataRefSelf;
     }
 
@@ -239,13 +245,16 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorLargeData != null)
+        if (_vendorLargeData != null && _vendorLargeData.isPresent())
         { sb.append(li).append(xbRDS(_vendorLargeData, "vendorLargeData")); }
-        if (_vendorLargeDataRefSelf != null)
+        if (_vendorLargeDataRefSelf != null && _vendorLargeDataRefSelf.isPresent())
         { sb.append(li).append(xbRDS(_vendorLargeDataRefSelf, "vendorLargeDataRefSelf")); }
         if (_vendorLargeDataRefSelfList != null) { for (VendorLargeDataRef et : _vendorLargeDataRefSelfList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "vendorLargeDataRefSelfList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -253,8 +262,8 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_largeDataRefId));
         sb.append(dm).append(xfND(_largeDataId));
-        sb.append(dm).append(xfUD(_dateIndex));
-        sb.append(dm).append(xfUD(_dateNoIndex));
+        sb.append(dm).append(xfND(_dateIndex));
+        sb.append(dm).append(xfND(_dateNoIndex));
         sb.append(dm).append(xfND(_timestampIndex));
         sb.append(dm).append(xfND(_timestampNoIndex));
         sb.append(dm).append(xfND(_nullableDecimalIndex));
@@ -270,9 +279,9 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorLargeData != null)
+        if (_vendorLargeData != null && _vendorLargeData.isPresent())
         { sb.append(dm).append("vendorLargeData"); }
-        if (_vendorLargeDataRefSelf != null)
+        if (_vendorLargeDataRefSelf != null && _vendorLargeDataRefSelf.isPresent())
         { sb.append(dm).append("vendorLargeDataRefSelf"); }
         if (_vendorLargeDataRefSelfList != null && !_vendorLargeDataRefSelfList.isEmpty())
         { sb.append(dm).append("vendorLargeDataRefSelfList"); }
@@ -330,7 +339,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [get] DATE_INDEX: {IX, NotNull, DATE(10)} <br>
      * @return The value of the column 'DATE_INDEX'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getDateIndex() {
+    public java.time.LocalDate getDateIndex() {
         checkSpecifiedProperty("dateIndex");
         return _dateIndex;
     }
@@ -339,7 +348,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [set] DATE_INDEX: {IX, NotNull, DATE(10)} <br>
      * @param dateIndex The value of the column 'DATE_INDEX'. (basically NotNull if update: for the constraint)
      */
-    public void setDateIndex(java.util.Date dateIndex) {
+    public void setDateIndex(java.time.LocalDate dateIndex) {
         registerModifiedProperty("dateIndex");
         _dateIndex = dateIndex;
     }
@@ -348,7 +357,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [get] DATE_NO_INDEX: {NotNull, DATE(10)} <br>
      * @return The value of the column 'DATE_NO_INDEX'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getDateNoIndex() {
+    public java.time.LocalDate getDateNoIndex() {
         checkSpecifiedProperty("dateNoIndex");
         return _dateNoIndex;
     }
@@ -357,7 +366,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [set] DATE_NO_INDEX: {NotNull, DATE(10)} <br>
      * @param dateNoIndex The value of the column 'DATE_NO_INDEX'. (basically NotNull if update: for the constraint)
      */
-    public void setDateNoIndex(java.util.Date dateNoIndex) {
+    public void setDateNoIndex(java.time.LocalDate dateNoIndex) {
         registerModifiedProperty("dateNoIndex");
         _dateNoIndex = dateNoIndex;
     }
@@ -366,7 +375,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [get] TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)} <br>
      * @return The value of the column 'TIMESTAMP_INDEX'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getTimestampIndex() {
+    public java.time.LocalDateTime getTimestampIndex() {
         checkSpecifiedProperty("timestampIndex");
         return _timestampIndex;
     }
@@ -375,7 +384,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [set] TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)} <br>
      * @param timestampIndex The value of the column 'TIMESTAMP_INDEX'. (basically NotNull if update: for the constraint)
      */
-    public void setTimestampIndex(java.sql.Timestamp timestampIndex) {
+    public void setTimestampIndex(java.time.LocalDateTime timestampIndex) {
         registerModifiedProperty("timestampIndex");
         _timestampIndex = timestampIndex;
     }
@@ -384,7 +393,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [get] TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'TIMESTAMP_NO_INDEX'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getTimestampNoIndex() {
+    public java.time.LocalDateTime getTimestampNoIndex() {
         checkSpecifiedProperty("timestampNoIndex");
         return _timestampNoIndex;
     }
@@ -393,7 +402,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
      * [set] TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)} <br>
      * @param timestampNoIndex The value of the column 'TIMESTAMP_NO_INDEX'. (basically NotNull if update: for the constraint)
      */
-    public void setTimestampNoIndex(java.sql.Timestamp timestampNoIndex) {
+    public void setTimestampNoIndex(java.time.LocalDateTime timestampNoIndex) {
         registerModifiedProperty("timestampNoIndex");
         _timestampNoIndex = timestampNoIndex;
     }

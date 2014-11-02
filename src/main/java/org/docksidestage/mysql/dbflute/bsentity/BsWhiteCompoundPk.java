@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -152,13 +154,15 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'. */
-    protected WhiteCompoundReferredNormally _whiteCompoundReferredNormally;
+    protected OptionalEntity<WhiteCompoundReferredNormally> _whiteCompoundReferredNormally;
 
     /**
      * [get] white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'. <br>
-     * @return The entity of foreign property 'whiteCompoundReferredNormally'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundReferredNormally'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundReferredNormally getWhiteCompoundReferredNormally() {
+    public OptionalEntity<WhiteCompoundReferredNormally> getWhiteCompoundReferredNormally() {
+        if (_whiteCompoundReferredNormally == null) { _whiteCompoundReferredNormally = OptionalEntity.relationEmpty(this, "whiteCompoundReferredNormally"); }
         return _whiteCompoundReferredNormally;
     }
 
@@ -166,18 +170,20 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
      * [set] white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
      * @param whiteCompoundReferredNormally The entity of foreign property 'whiteCompoundReferredNormally'. (NullAllowed)
      */
-    public void setWhiteCompoundReferredNormally(WhiteCompoundReferredNormally whiteCompoundReferredNormally) {
+    public void setWhiteCompoundReferredNormally(OptionalEntity<WhiteCompoundReferredNormally> whiteCompoundReferredNormally) {
         _whiteCompoundReferredNormally = whiteCompoundReferredNormally;
     }
 
     /** white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'. */
-    protected WhiteCompoundReferredPrimary _whiteCompoundReferredPrimary;
+    protected OptionalEntity<WhiteCompoundReferredPrimary> _whiteCompoundReferredPrimary;
 
     /**
      * [get] white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'. <br>
-     * @return The entity of foreign property 'whiteCompoundReferredPrimary'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundReferredPrimary'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundReferredPrimary getWhiteCompoundReferredPrimary() {
+    public OptionalEntity<WhiteCompoundReferredPrimary> getWhiteCompoundReferredPrimary() {
+        if (_whiteCompoundReferredPrimary == null) { _whiteCompoundReferredPrimary = OptionalEntity.relationEmpty(this, "whiteCompoundReferredPrimary"); }
         return _whiteCompoundReferredPrimary;
     }
 
@@ -185,18 +191,20 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
      * [set] white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
      * @param whiteCompoundReferredPrimary The entity of foreign property 'whiteCompoundReferredPrimary'. (NullAllowed)
      */
-    public void setWhiteCompoundReferredPrimary(WhiteCompoundReferredPrimary whiteCompoundReferredPrimary) {
+    public void setWhiteCompoundReferredPrimary(OptionalEntity<WhiteCompoundReferredPrimary> whiteCompoundReferredPrimary) {
         _whiteCompoundReferredPrimary = whiteCompoundReferredPrimary;
     }
 
     /** white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'. */
-    protected WhiteCompoundPkRefMany _whiteCompoundPkRefManyAsMax;
+    protected OptionalEntity<WhiteCompoundPkRefMany> _whiteCompoundPkRefManyAsMax;
 
     /**
      * [get] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'. <br>
-     * @return The entity of foreign property 'whiteCompoundPkRefManyAsMax'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundPkRefManyAsMax'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundPkRefMany getWhiteCompoundPkRefManyAsMax() {
+    public OptionalEntity<WhiteCompoundPkRefMany> getWhiteCompoundPkRefManyAsMax() {
+        if (_whiteCompoundPkRefManyAsMax == null) { _whiteCompoundPkRefManyAsMax = OptionalEntity.relationEmpty(this, "whiteCompoundPkRefManyAsMax"); }
         return _whiteCompoundPkRefManyAsMax;
     }
 
@@ -204,18 +212,20 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
      * [set] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
      * @param whiteCompoundPkRefManyAsMax The entity of foreign property 'whiteCompoundPkRefManyAsMax'. (NullAllowed)
      */
-    public void setWhiteCompoundPkRefManyAsMax(WhiteCompoundPkRefMany whiteCompoundPkRefManyAsMax) {
+    public void setWhiteCompoundPkRefManyAsMax(OptionalEntity<WhiteCompoundPkRefMany> whiteCompoundPkRefManyAsMax) {
         _whiteCompoundPkRefManyAsMax = whiteCompoundPkRefManyAsMax;
     }
 
     /** white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'. */
-    protected WhiteCompoundPkRefMany _whiteCompoundPkRefManyAsMin;
+    protected OptionalEntity<WhiteCompoundPkRefMany> _whiteCompoundPkRefManyAsMin;
 
     /**
      * [get] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'. <br>
-     * @return The entity of foreign property 'whiteCompoundPkRefManyAsMin'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundPkRefManyAsMin'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundPkRefMany getWhiteCompoundPkRefManyAsMin() {
+    public OptionalEntity<WhiteCompoundPkRefMany> getWhiteCompoundPkRefManyAsMin() {
+        if (_whiteCompoundPkRefManyAsMin == null) { _whiteCompoundPkRefManyAsMin = OptionalEntity.relationEmpty(this, "whiteCompoundPkRefManyAsMin"); }
         return _whiteCompoundPkRefManyAsMin;
     }
 
@@ -223,7 +233,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
      * [set] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
      * @param whiteCompoundPkRefManyAsMin The entity of foreign property 'whiteCompoundPkRefManyAsMin'. (NullAllowed)
      */
-    public void setWhiteCompoundPkRefManyAsMin(WhiteCompoundPkRefMany whiteCompoundPkRefManyAsMin) {
+    public void setWhiteCompoundPkRefManyAsMin(OptionalEntity<WhiteCompoundPkRefMany> whiteCompoundPkRefManyAsMin) {
         _whiteCompoundPkRefManyAsMin = whiteCompoundPkRefManyAsMin;
     }
 
@@ -301,19 +311,22 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundReferredNormally != null)
+        if (_whiteCompoundReferredNormally != null && _whiteCompoundReferredNormally.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundReferredNormally, "whiteCompoundReferredNormally")); }
-        if (_whiteCompoundReferredPrimary != null)
+        if (_whiteCompoundReferredPrimary != null && _whiteCompoundReferredPrimary.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundReferredPrimary, "whiteCompoundReferredPrimary")); }
-        if (_whiteCompoundPkRefManyAsMax != null)
+        if (_whiteCompoundPkRefManyAsMax != null && _whiteCompoundPkRefManyAsMax.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundPkRefManyAsMax, "whiteCompoundPkRefManyAsMax")); }
-        if (_whiteCompoundPkRefManyAsMin != null)
+        if (_whiteCompoundPkRefManyAsMin != null && _whiteCompoundPkRefManyAsMin.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundPkRefManyAsMin, "whiteCompoundPkRefManyAsMin")); }
         if (_whiteCompoundPkRefList != null) { for (WhiteCompoundPkRef et : _whiteCompoundPkRefList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefList")); } } }
         if (_whiteCompoundPkRefManyToPKList != null) { for (WhiteCompoundPkRefMany et : _whiteCompoundPkRefManyToPKList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefManyToPKList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -333,13 +346,13 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundReferredNormally != null)
+        if (_whiteCompoundReferredNormally != null && _whiteCompoundReferredNormally.isPresent())
         { sb.append(dm).append("whiteCompoundReferredNormally"); }
-        if (_whiteCompoundReferredPrimary != null)
+        if (_whiteCompoundReferredPrimary != null && _whiteCompoundReferredPrimary.isPresent())
         { sb.append(dm).append("whiteCompoundReferredPrimary"); }
-        if (_whiteCompoundPkRefManyAsMax != null)
+        if (_whiteCompoundPkRefManyAsMax != null && _whiteCompoundPkRefManyAsMax.isPresent())
         { sb.append(dm).append("whiteCompoundPkRefManyAsMax"); }
-        if (_whiteCompoundPkRefManyAsMin != null)
+        if (_whiteCompoundPkRefManyAsMin != null && _whiteCompoundPkRefManyAsMin.isPresent())
         { sb.append(dm).append("whiteCompoundPkRefManyAsMin"); }
         if (_whiteCompoundPkRefList != null && !_whiteCompoundPkRefList.isEmpty())
         { sb.append(dm).append("whiteCompoundPkRefList"); }

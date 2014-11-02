@@ -38,7 +38,7 @@ public class WhiteImplicitReverseFkNss {
      * white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
-    public void withWhiteImplicitReverseFkRefWithImplicitReverseFK(final java.util.Date targetDate) {
+    public void withWhiteImplicitReverseFkRefWithImplicitReverseFK(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate));
     }
     /**
@@ -46,7 +46,7 @@ public class WhiteImplicitReverseFkNss {
      * white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
-    public void withWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.util.Date targetDate) {
+    public void withWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate));
     }
 }

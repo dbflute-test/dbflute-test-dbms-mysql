@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
@@ -63,13 +65,13 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * Long purchaseId = entity.getPurchaseId();
  * Integer memberId = entity.getMemberId();
  * Integer productId = entity.getProductId();
- * java.sql.Timestamp purchaseDatetime = entity.getPurchaseDatetime();
+ * java.time.LocalDateTime purchaseDatetime = entity.getPurchaseDatetime();
  * Integer purchaseCount = entity.getPurchaseCount();
  * Integer purchasePrice = entity.getPurchasePrice();
  * Integer paymentCompleteFlg = entity.getPaymentCompleteFlg();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
  * Long versionNo = entity.getVersionNo();
  * entity.setPurchaseId(purchaseId);
@@ -109,7 +111,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     protected Integer _productId;
 
     /** (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _purchaseDatetime;
+    protected java.time.LocalDateTime _purchaseDatetime;
 
     /** (購入数量)PURCHASE_COUNT: {NotNull, INT(10)} */
     protected Integer _purchaseCount;
@@ -121,13 +123,13 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     protected Integer _paymentCompleteFlg;
 
     /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
     /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
@@ -172,7 +174,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * @param productId (商品ID): +UQ, IX+, NotNull, INT(10), FK to product. (NotNull)
      * @param purchaseDatetime (購入日時): +UQ, IX+, NotNull, DATETIME(19). (NotNull)
      */
-    public void uniqueBy(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    public void uniqueBy(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         __uniqueDrivenProperties.clear();
         __uniqueDrivenProperties.addPropertyName("memberId");
         __uniqueDrivenProperties.addPropertyName("productId");
@@ -273,13 +275,15 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     //                                                                    Foreign Property
     //                                                                    ================
     /** (会員)member by my MEMBER_ID, named 'member'. */
-    protected Member _member;
+    protected OptionalEntity<Member> _member;
 
     /**
      * [get] (会員)member by my MEMBER_ID, named 'member'. <br>
-     * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Member getMember() {
+    public OptionalEntity<Member> getMember() {
+        if (_member == null) { _member = OptionalEntity.relationEmpty(this, "member"); }
         return _member;
     }
 
@@ -287,18 +291,20 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] (会員)member by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
-    public void setMember(Member member) {
+    public void setMember(OptionalEntity<Member> member) {
         _member = member;
     }
 
     /** (商品)product by my PRODUCT_ID, named 'product'. */
-    protected Product _product;
+    protected OptionalEntity<Product> _product;
 
     /**
      * [get] (商品)product by my PRODUCT_ID, named 'product'. <br>
-     * @return The entity of foreign property 'product'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'product'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Product getProduct() {
+    public OptionalEntity<Product> getProduct() {
+        if (_product == null) { _product = OptionalEntity.relationEmpty(this, "product"); }
         return _product;
     }
 
@@ -306,18 +312,20 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] (商品)product by my PRODUCT_ID, named 'product'.
      * @param product The entity of foreign property 'product'. (NullAllowed)
      */
-    public void setProduct(Product product) {
+    public void setProduct(OptionalEntity<Product> product) {
         _product = product;
     }
 
     /** (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'. */
-    protected SummaryProduct _summaryProduct;
+    protected OptionalEntity<SummaryProduct> _summaryProduct;
 
     /**
      * [get] (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'. <br>
-     * @return The entity of foreign property 'summaryProduct'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'summaryProduct'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public SummaryProduct getSummaryProduct() {
+    public OptionalEntity<SummaryProduct> getSummaryProduct() {
+        if (_summaryProduct == null) { _summaryProduct = OptionalEntity.relationEmpty(this, "summaryProduct"); }
         return _summaryProduct;
     }
 
@@ -325,18 +333,20 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'.
      * @param summaryProduct The entity of foreign property 'summaryProduct'. (NullAllowed)
      */
-    public void setSummaryProduct(SummaryProduct summaryProduct) {
+    public void setSummaryProduct(OptionalEntity<SummaryProduct> summaryProduct) {
         _summaryProduct = summaryProduct;
     }
 
     /** (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'. */
-    protected SummaryWithdrawal _summaryWithdrawal;
+    protected OptionalEntity<SummaryWithdrawal> _summaryWithdrawal;
 
     /**
      * [get] (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'. <br>
-     * @return The entity of foreign property 'summaryWithdrawal'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'summaryWithdrawal'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public SummaryWithdrawal getSummaryWithdrawal() {
+    public OptionalEntity<SummaryWithdrawal> getSummaryWithdrawal() {
+        if (_summaryWithdrawal == null) { _summaryWithdrawal = OptionalEntity.relationEmpty(this, "summaryWithdrawal"); }
         return _summaryWithdrawal;
     }
 
@@ -344,18 +354,20 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
      * @param summaryWithdrawal The entity of foreign property 'summaryWithdrawal'. (NullAllowed)
      */
-    public void setSummaryWithdrawal(SummaryWithdrawal summaryWithdrawal) {
+    public void setSummaryWithdrawal(OptionalEntity<SummaryWithdrawal> summaryWithdrawal) {
         _summaryWithdrawal = summaryWithdrawal;
     }
 
     /** (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'. */
-    protected WhiteNoPkRelation _whiteNoPkRelation;
+    protected OptionalEntity<WhiteNoPkRelation> _whiteNoPkRelation;
 
     /**
      * [get] (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'. <br>
-     * @return The entity of foreign property 'whiteNoPkRelation'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteNoPkRelation'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteNoPkRelation getWhiteNoPkRelation() {
+    public OptionalEntity<WhiteNoPkRelation> getWhiteNoPkRelation() {
+        if (_whiteNoPkRelation == null) { _whiteNoPkRelation = OptionalEntity.relationEmpty(this, "whiteNoPkRelation"); }
         return _whiteNoPkRelation;
     }
 
@@ -363,18 +375,20 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
      * @param whiteNoPkRelation The entity of foreign property 'whiteNoPkRelation'. (NullAllowed)
      */
-    public void setWhiteNoPkRelation(WhiteNoPkRelation whiteNoPkRelation) {
+    public void setWhiteNoPkRelation(OptionalEntity<WhiteNoPkRelation> whiteNoPkRelation) {
         _whiteNoPkRelation = whiteNoPkRelation;
     }
 
     /** (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'. */
-    protected Purchase _purchaseSelf;
+    protected OptionalEntity<Purchase> _purchaseSelf;
 
     /**
      * [get] (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'. <br>
-     * @return The entity of foreign property 'purchaseSelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'purchaseSelf'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Purchase getPurchaseSelf() {
+    public OptionalEntity<Purchase> getPurchaseSelf() {
+        if (_purchaseSelf == null) { _purchaseSelf = OptionalEntity.relationEmpty(this, "purchaseSelf"); }
         return _purchaseSelf;
     }
 
@@ -382,18 +396,20 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'.
      * @param purchaseSelf The entity of foreign property 'purchaseSelf'. (NullAllowed)
      */
-    public void setPurchaseSelf(Purchase purchaseSelf) {
+    public void setPurchaseSelf(OptionalEntity<Purchase> purchaseSelf) {
         _purchaseSelf = purchaseSelf;
     }
 
     /** (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'. */
-    protected MemberAddress _memberAddressAsSkipRelation;
+    protected OptionalEntity<MemberAddress> _memberAddressAsSkipRelation;
 
     /**
      * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'. <br>
-     * @return The entity of foreign property 'memberAddressAsSkipRelation'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'memberAddressAsSkipRelation'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public MemberAddress getMemberAddressAsSkipRelation() {
+    public OptionalEntity<MemberAddress> getMemberAddressAsSkipRelation() {
+        if (_memberAddressAsSkipRelation == null) { _memberAddressAsSkipRelation = OptionalEntity.relationEmpty(this, "memberAddressAsSkipRelation"); }
         return _memberAddressAsSkipRelation;
     }
 
@@ -401,18 +417,20 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
      * @param memberAddressAsSkipRelation The entity of foreign property 'memberAddressAsSkipRelation'. (NullAllowed)
      */
-    public void setMemberAddressAsSkipRelation(MemberAddress memberAddressAsSkipRelation) {
+    public void setMemberAddressAsSkipRelation(OptionalEntity<MemberAddress> memberAddressAsSkipRelation) {
         _memberAddressAsSkipRelation = memberAddressAsSkipRelation;
     }
 
     /** white_purchase_referrer by PURCHASE_REFERRER_ID, named 'whitePurchaseReferrerAsOne'. */
-    protected WhitePurchaseReferrer _whitePurchaseReferrerAsOne;
+    protected OptionalEntity<WhitePurchaseReferrer> _whitePurchaseReferrerAsOne;
 
     /**
      * [get] white_purchase_referrer by PURCHASE_REFERRER_ID, named 'whitePurchaseReferrerAsOne'.
-     * @return the entity of foreign property(referrer-as-one) 'whitePurchaseReferrerAsOne'. (NullAllowed: when e.g. no data, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return the entity of foreign property(referrer-as-one) 'whitePurchaseReferrerAsOne'. (NotNull, EmptyAllowed: when e.g. no data, no setupSelect)
      */
-    public WhitePurchaseReferrer getWhitePurchaseReferrerAsOne() {
+    public OptionalEntity<WhitePurchaseReferrer> getWhitePurchaseReferrerAsOne() {
+        if (_whitePurchaseReferrerAsOne == null) { _whitePurchaseReferrerAsOne = OptionalEntity.relationEmpty(this, "whitePurchaseReferrerAsOne"); }
         return _whitePurchaseReferrerAsOne;
     }
 
@@ -420,18 +438,20 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] white_purchase_referrer by PURCHASE_REFERRER_ID, named 'whitePurchaseReferrerAsOne'.
      * @param whitePurchaseReferrerAsOne The entity of foreign property(referrer-as-one) 'whitePurchaseReferrerAsOne'. (NullAllowed)
      */
-    public void setWhitePurchaseReferrerAsOne(WhitePurchaseReferrer whitePurchaseReferrerAsOne) {
+    public void setWhitePurchaseReferrerAsOne(OptionalEntity<WhitePurchaseReferrer> whitePurchaseReferrerAsOne) {
         _whitePurchaseReferrerAsOne = whitePurchaseReferrerAsOne;
     }
 
     /** (購入)purchase by PURCHASE_ID, named 'purchaseSelfAsOne'. */
-    protected Purchase _purchaseSelfAsOne;
+    protected OptionalEntity<Purchase> _purchaseSelfAsOne;
 
     /**
      * [get] (購入)purchase by PURCHASE_ID, named 'purchaseSelfAsOne'.
-     * @return the entity of foreign property(referrer-as-one) 'purchaseSelfAsOne'. (NullAllowed: when e.g. no data, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return the entity of foreign property(referrer-as-one) 'purchaseSelfAsOne'. (NotNull, EmptyAllowed: when e.g. no data, no setupSelect)
      */
-    public Purchase getPurchaseSelfAsOne() {
+    public OptionalEntity<Purchase> getPurchaseSelfAsOne() {
+        if (_purchaseSelfAsOne == null) { _purchaseSelfAsOne = OptionalEntity.relationEmpty(this, "purchaseSelfAsOne"); }
         return _purchaseSelfAsOne;
     }
 
@@ -439,7 +459,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] (購入)purchase by PURCHASE_ID, named 'purchaseSelfAsOne'.
      * @param purchaseSelfAsOne The entity of foreign property(referrer-as-one) 'purchaseSelfAsOne'. (NullAllowed)
      */
-    public void setPurchaseSelfAsOne(Purchase purchaseSelfAsOne) {
+    public void setPurchaseSelfAsOne(OptionalEntity<Purchase> purchaseSelfAsOne) {
         _purchaseSelfAsOne = purchaseSelfAsOne;
     }
 
@@ -495,27 +515,30 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_member != null)
+        if (_member != null && _member.isPresent())
         { sb.append(li).append(xbRDS(_member, "member")); }
-        if (_product != null)
+        if (_product != null && _product.isPresent())
         { sb.append(li).append(xbRDS(_product, "product")); }
-        if (_summaryProduct != null)
+        if (_summaryProduct != null && _summaryProduct.isPresent())
         { sb.append(li).append(xbRDS(_summaryProduct, "summaryProduct")); }
-        if (_summaryWithdrawal != null)
+        if (_summaryWithdrawal != null && _summaryWithdrawal.isPresent())
         { sb.append(li).append(xbRDS(_summaryWithdrawal, "summaryWithdrawal")); }
-        if (_whiteNoPkRelation != null)
+        if (_whiteNoPkRelation != null && _whiteNoPkRelation.isPresent())
         { sb.append(li).append(xbRDS(_whiteNoPkRelation, "whiteNoPkRelation")); }
-        if (_purchaseSelf != null)
+        if (_purchaseSelf != null && _purchaseSelf.isPresent())
         { sb.append(li).append(xbRDS(_purchaseSelf, "purchaseSelf")); }
-        if (_memberAddressAsSkipRelation != null)
+        if (_memberAddressAsSkipRelation != null && _memberAddressAsSkipRelation.isPresent())
         { sb.append(li).append(xbRDS(_memberAddressAsSkipRelation, "memberAddressAsSkipRelation")); }
-        if (_whitePurchaseReferrerAsOne != null)
+        if (_whitePurchaseReferrerAsOne != null && _whitePurchaseReferrerAsOne.isPresent())
         { sb.append(li).append(xbRDS(_whitePurchaseReferrerAsOne, "whitePurchaseReferrerAsOne")); }
-        if (_purchaseSelfAsOne != null)
+        if (_purchaseSelfAsOne != null && _purchaseSelfAsOne.isPresent())
         { sb.append(li).append(xbRDS(_purchaseSelfAsOne, "purchaseSelfAsOne")); }
         if (_purchasePaymentList != null) { for (PurchasePayment et : _purchasePaymentList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "purchasePaymentList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -543,23 +566,23 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_member != null)
+        if (_member != null && _member.isPresent())
         { sb.append(dm).append("member"); }
-        if (_product != null)
+        if (_product != null && _product.isPresent())
         { sb.append(dm).append("product"); }
-        if (_summaryProduct != null)
+        if (_summaryProduct != null && _summaryProduct.isPresent())
         { sb.append(dm).append("summaryProduct"); }
-        if (_summaryWithdrawal != null)
+        if (_summaryWithdrawal != null && _summaryWithdrawal.isPresent())
         { sb.append(dm).append("summaryWithdrawal"); }
-        if (_whiteNoPkRelation != null)
+        if (_whiteNoPkRelation != null && _whiteNoPkRelation.isPresent())
         { sb.append(dm).append("whiteNoPkRelation"); }
-        if (_purchaseSelf != null)
+        if (_purchaseSelf != null && _purchaseSelf.isPresent())
         { sb.append(dm).append("purchaseSelf"); }
-        if (_memberAddressAsSkipRelation != null)
+        if (_memberAddressAsSkipRelation != null && _memberAddressAsSkipRelation.isPresent())
         { sb.append(dm).append("memberAddressAsSkipRelation"); }
-        if (_whitePurchaseReferrerAsOne != null)
+        if (_whitePurchaseReferrerAsOne != null && _whitePurchaseReferrerAsOne.isPresent())
         { sb.append(dm).append("whitePurchaseReferrerAsOne"); }
-        if (_purchaseSelfAsOne != null)
+        if (_purchaseSelfAsOne != null && _purchaseSelfAsOne.isPresent())
         { sb.append(dm).append("purchaseSelfAsOne"); }
         if (_purchasePaymentList != null && !_purchasePaymentList.isEmpty())
         { sb.append(dm).append("purchasePaymentList"); }
@@ -644,7 +667,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * 購入した瞬間の日時。
      * @return The value of the column 'PURCHASE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getPurchaseDatetime() {
+    public java.time.LocalDateTime getPurchaseDatetime() {
         checkSpecifiedProperty("purchaseDatetime");
         return _purchaseDatetime;
     }
@@ -654,7 +677,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * 購入した瞬間の日時。
      * @param purchaseDatetime The value of the column 'PURCHASE_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setPurchaseDatetime(java.sql.Timestamp purchaseDatetime) {
+    public void setPurchaseDatetime(java.time.LocalDateTime purchaseDatetime) {
         registerModifiedProperty("purchaseDatetime");
         _purchaseDatetime = purchaseDatetime;
     }
@@ -728,7 +751,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
@@ -737,7 +760,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
@@ -764,7 +787,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
@@ -773,7 +796,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }

@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
         regLSQ(CK_NLS, fRES(masterQuxName), xgetCValueMasterQuxName(), "MASTER_QUX_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
-     * @param masterQuxName The value of masterQuxName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMasterQuxName_PrefixSearch(String masterQuxName) {
-        setMasterQuxName_LikeSearch(masterQuxName, xcLSOPPre());
-    }
-
     protected void regMasterQuxName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterQuxName(), "MASTER_QUX_NAME"); }
     protected abstract ConditionValue xgetCValueMasterQuxName();
 

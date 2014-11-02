@@ -52,7 +52,8 @@ public class WhiteStilettoAliasDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteStilettoAlias)et).getStilettoAliasId(), (et, vl) -> ((WhiteStilettoAlias)et).setStilettoAliasId(cti(vl)), "stilettoAliasId");
         setupEpg(_epgMap, et -> ((WhiteStilettoAlias)et).getFoo(), (et, vl) -> ((WhiteStilettoAlias)et).setFoo((String)vl), "foo");
         setupEpg(_epgMap, et -> ((WhiteStilettoAlias)et).getFoo0(), (et, vl) -> ((WhiteStilettoAlias)et).setFoo0((String)vl), "foo0");

@@ -451,15 +451,6 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)}
-     * @param withdrawalReasonInputText The value of withdrawalReasonInputText as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setWithdrawalReasonInputText_PrefixSearch(String withdrawalReasonInputText) {
-        setWithdrawalReasonInputText_LikeSearch(withdrawalReasonInputText, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)}
      */
@@ -485,7 +476,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
      * @param withdrawalDatetime The value of withdrawalDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_Equal(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_Equal(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_EQ,  withdrawalDatetime);
     }
 
@@ -494,7 +485,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
      * @param withdrawalDatetime The value of withdrawalDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_GreaterThan(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_GreaterThan(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_GT,  withdrawalDatetime);
     }
 
@@ -503,7 +494,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
      * @param withdrawalDatetime The value of withdrawalDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_LessThan(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_LessThan(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_LT,  withdrawalDatetime);
     }
 
@@ -512,7 +503,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
      * @param withdrawalDatetime The value of withdrawalDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_GreaterEqual(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_GreaterEqual(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_GE,  withdrawalDatetime);
     }
 
@@ -521,7 +512,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
      * @param withdrawalDatetime The value of withdrawalDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_LessEqual(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_LessEqual(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_LE, withdrawalDatetime);
     }
 
@@ -534,7 +525,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of withdrawalDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setWithdrawalDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setWithdrawalDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setWithdrawalDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -547,23 +538,9 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of withdrawalDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setWithdrawalDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueWithdrawalDatetime(), "WITHDRAWAL_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of withdrawalDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of withdrawalDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setWithdrawalDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setWithdrawalDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setWithdrawalDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "WITHDRAWAL_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueWithdrawalDatetime(), nm, op);
     }
 
     protected void regWithdrawalDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalDatetime(), "WITHDRAWAL_DATETIME"); }
@@ -574,7 +551,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_Equal(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
@@ -624,7 +601,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_Equal(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 

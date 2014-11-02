@@ -2,11 +2,11 @@ package org.docksidestage.mysql.dbflute.vendor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Time;
-import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.dbflute.cbean.ordering.ManualOrderOption;
@@ -37,7 +37,7 @@ import org.docksidestage.mysql.unit.UnitContainerTestCase;
  * @author jflute
  * @since 0.6.1 (2008/01/23 Wednesday)
  */
-public class VendorTypeTest extends UnitContainerTestCase {
+public class VendorDataTypeTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute
@@ -232,6 +232,9 @@ public class VendorTypeTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                           Date Type
     //                                                                           =========
+    // -----------------------------------------------------
+    //                                                  DATE
+    //                                                  ----
     public void test_DATE_HHmmss_conditionBean() { // *Important!
         // ## Arrange ##
         Calendar cal = Calendar.getInstance();
@@ -239,7 +242,7 @@ public class VendorTypeTest extends UnitContainerTestCase {
         cal.set(Calendar.MILLISECOND, 123);
         Member member = new Member();
         member.setMemberId(3);
-        member.setBirthdate(new Date(cal.getTimeInMillis()));
+        member.setBirthdate(toLocalDate(cal));
         memberBhv.updateNonstrict(member);
 
         // ## Act ##
@@ -247,35 +250,35 @@ public class VendorTypeTest extends UnitContainerTestCase {
         {
             MemberCB cb = new MemberCB();
             cb.query().setMemberId_Equal(3);
-            cb.query().setBirthdate_GreaterEqual(new Date(cal.getTimeInMillis()));
+            cb.query().setBirthdate_GreaterEqual(toLocalDate(cal));
             Member actual = memberBhv.selectEntityWithDeletedCheck(cb);
 
             // ## Assert ##
-            Date actualValue = actual.getBirthdate();
-            String formatted = DfTypeUtil.toString(actualValue, "yyyy/MM/dd HH:mm:ss.SSS");
+            LocalDate actualValue = actual.getBirthdate();
+            String formatted = toString(actualValue, "yyyy/MM/dd");
             log("actualValue = " + formatted);
-            assertEquals("2008/06/15 00:00:00.000", formatted);
+            assertEquals("2008/06/15", formatted);
         }
         {
             MemberCB cb = new MemberCB();
             cb.query().setMemberId_Equal(3);
-            cb.query().setBirthdate_GreaterEqual(new java.sql.Date(cal.getTimeInMillis()));
+            cb.query().setBirthdate_GreaterEqual(toLocalDate(cal));
             Member actual = memberBhv.selectEntityWithDeletedCheck(cb);
 
             // ## Assert ##
-            Date actualValue = actual.getBirthdate();
-            String formatted = DfTypeUtil.toString(actualValue, "yyyy/MM/dd HH:mm:ss.SSS");
+            LocalDate actualValue = actual.getBirthdate();
+            String formatted = toString(actualValue, "yyyy/MM/dd");
             log("actualValue = " + formatted);
-            assertEquals("2008/06/15 00:00:00.000", formatted);
+            assertEquals("2008/06/15", formatted);
         }
         {
             MemberCB cb = new MemberCB();
             cb.query().setMemberId_Equal(3);
-            cb.query().setBirthdate_GreaterEqual(new Timestamp(cal.getTimeInMillis()));
+            cb.query().setBirthdate_GreaterEqual(currentLocalDate());
             Member actual = memberBhv.selectEntityWithDeletedCheck(cb);
 
             // ## Assert ##
-            Date actualValue = actual.getBirthdate();
+            LocalDate actualValue = actual.getBirthdate();
             String formatted = DfTypeUtil.toString(actualValue, "yyyy/MM/dd HH:mm:ss.SSS");
             log("actualValue = " + formatted);
             assertEquals("2008/06/15 00:00:00.000", formatted);
@@ -289,7 +292,7 @@ public class VendorTypeTest extends UnitContainerTestCase {
         cal.set(Calendar.MILLISECOND, 0);
         Member member = new Member();
         member.setMemberId(3);
-        member.setBirthdate(new Date(cal.getTimeInMillis()));
+        member.setBirthdate(currentLocalDate());
         memberBhv.updateNonstrict(member);
 
         String path = MemberBhv.PATH_whitebox_pmbean_selectCompareDate;
@@ -297,12 +300,12 @@ public class VendorTypeTest extends UnitContainerTestCase {
         CompareDatePmb pmb = new CompareDatePmb();
         pmb.setMemberId(3);
         cal.set(9001, 5, 15, 23, 45, 57);
-        pmb.setBirthdateFrom(new Date(cal.getTimeInMillis()));
+        pmb.setBirthdateFrom(currentLocalDate());
 
         Class<Member> entityType = Member.class;
 
         // ## Act ##
-        List<Member> memberList = memberBhv.outsideSql().selectList(path, pmb, entityType);
+        List<Member> memberList = memberBhv.outsideSql().traditionalStyle().selectList(path, pmb, entityType);
 
         // ## Assert ##
         assertNotSame(0, memberList.size());
@@ -322,10 +325,9 @@ public class VendorTypeTest extends UnitContainerTestCase {
         // ## Assert ##
         assertNotSame(0, memberList.size());
         for (Member member : memberList) {
-            Date birthdate = member.getBirthdate();
-            assertTrue(java.util.Date.class.equals(birthdate.getClass()));
-            assertFalse(birthdate instanceof java.sql.Date);
-            assertFalse(birthdate instanceof Timestamp);
+            LocalDate birthdate = member.getBirthdate();
+            assertTrue(LocalDate.class.equals(birthdate.getClass()));
+            assertTrue(birthdate instanceof LocalDate);
         }
     }
 
@@ -336,7 +338,7 @@ public class VendorTypeTest extends UnitContainerTestCase {
         cal.set(Calendar.MILLISECOND, 0);
         Member member = new Member();
         member.setMemberId(3);
-        member.setBirthdate(new Date(cal.getTimeInMillis()));
+        member.setBirthdate(toLocalDate(cal));
         memberBhv.updateNonstrict(member);
 
         String path = MemberBhv.PATH_whitebox_pmbean_selectCompareDate;
@@ -344,18 +346,63 @@ public class VendorTypeTest extends UnitContainerTestCase {
         CompareDatePmb pmb = new CompareDatePmb();
         pmb.setMemberId(3);
         cal.set(9001, 5, 15, 23, 45, 57);
-        pmb.setBirthdateFrom(new java.sql.Date(cal.getTimeInMillis()));
+        pmb.setBirthdateFrom(toLocalDate(cal));
 
         Class<Member> entityType = Member.class;
 
         // ## Act ##
-        Member actual = memberBhv.outsideSql().entityHandling().selectEntityWithDeletedCheck(path, pmb, entityType);
+        Member actual = memberBhv.outsideSql().traditionalStyle().selectEntity(path, pmb, entityType).get();
 
         // ## Assert ##
-        Date actualValue = actual.getBirthdate();
-        String formatted = DfTypeUtil.toString(actualValue, "yyyy/MM/dd HH:mm:ss.SSS");
+        LocalDate actualValue = actual.getBirthdate();
+        String formatted = toString(actualValue, "yyyy/MM/dd");
         log("actualValue = " + formatted);
-        assertEquals("9001/06/15 00:00:00.000", formatted);
+        assertEquals("9001/06/15", formatted);
+    }
+
+    // -----------------------------------------------------
+    //                                               DATE BC
+    //                                               -------
+    public void test_DATE_BC_date() {
+        // ## Arrange ##
+        Member member = memberBhv.selectEntity(cb -> {
+            cb.query().setBirthdate_IsNotNull();
+            cb.fetchFirst(1);
+            cb.addOrderBy_PK_Asc();
+        }).get();
+        member.setBirthdate(toLocalDate("BC1234/12/25"));
+
+        // ## Act ##
+        memberBhv.update(member);
+
+        // ## Assert ##
+        Member actual = memberBhv.selectByPK(member.getMemberId()).get();
+        LocalDate birthdate = actual.getBirthdate();
+        log(birthdate, birthdate.getYear(), birthdate.getMonth(), birthdate.getDayOfMonth());
+        assertFalse(DfTypeUtil.isDateBC(toDate(birthdate))); // cannot handle BC date
+        String formatted = toString(birthdate, "yyyy/MM/dd");
+        assertEquals("1233/01/11", formatted);
+    }
+
+    public void test_DATE_BC_datetime() {
+        // ## Arrange ##
+        Member member = memberBhv.selectEntity(cb -> {
+            cb.query().setFormalizedDatetime_IsNotNull();
+            cb.fetchFirst(1);
+            cb.addOrderBy_PK_Asc();
+        }).get();
+        member.setFormalizedDatetime(toLocalDateTime("BC1234/12/25 12:34:56.147"));
+
+        // ## Act ##
+        memberBhv.update(member);
+
+        // ## Assert ##
+        Member actual = memberBhv.selectByPK(member.getMemberId()).get();
+        LocalDateTime formalizedDatetime = actual.getFormalizedDatetime();
+        log(formalizedDatetime);
+        assertFalse(DfTypeUtil.isDateBC(toDate(formalizedDatetime))); // cannot handle BC date
+        String formatted = toString(formalizedDatetime, "yyyy/MM/dd");
+        assertEquals("1233/01/12", formatted);
     }
 
     // ===================================================================================
@@ -464,9 +511,9 @@ public class VendorTypeTest extends UnitContainerTestCase {
             BigDecimal decimalDigit = vendorCheck.getTypeOfNumericDecimal();
             Boolean typeOfBoolean = vendorCheck.getTypeOfBoolean();
             String typeOfLongtext = vendorCheck.getTypeOfLongtext();
-            Date typeOfDate = vendorCheck.getTypeOfDate();
-            Timestamp typeOfDatetime = vendorCheck.getTypeOfDatetime();
-            Time typeOfTime = vendorCheck.getTypeOfTime();
+            LocalDate typeOfDate = vendorCheck.getTypeOfDate();
+            LocalDateTime typeOfDatetime = vendorCheck.getTypeOfDatetime();
+            LocalTime typeOfTime = vendorCheck.getTypeOfTime();
         }
         {
             SimpleVendorCheck vendorCheck = new SimpleVendorCheck();

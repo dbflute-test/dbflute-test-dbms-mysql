@@ -57,9 +57,9 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
- * java.util.Date birthdate = entity.getBirthdate();
- * java.sql.Timestamp formalizedDatetime = entity.getFormalizedDatetime();
- * java.math.BigDecimal purchaseSummary = entity.getPurchaseSummary();
+ * java.time.LocalDate birthdate = entity.getBirthdate();
+ * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
+ * Long purchaseSummary = entity.getPurchaseSummary();
  * entity.setMemberId(memberId);
  * entity.setMemberName(memberName);
  * entity.setBirthdate(birthdate);
@@ -87,13 +87,13 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     protected String _memberName;
 
     /** (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} */
-    protected java.util.Date _birthdate;
+    protected java.time.LocalDate _birthdate;
 
     /** (正式会員日時)FORMALIZED_DATETIME: {DATETIME(19), refers to member.FORMALIZED_DATETIME} */
-    protected java.sql.Timestamp _formalizedDatetime;
+    protected java.time.LocalDateTime _formalizedDatetime;
 
     /** PURCHASE_SUMMARY: {DECIMAL(32)} */
-    protected java.math.BigDecimal _purchaseSummary;
+    protected Long _purchaseSummary;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -174,7 +174,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_memberId));
         sb.append(dm).append(xfND(_memberName));
-        sb.append(dm).append(xfUD(_birthdate));
+        sb.append(dm).append(xfND(_birthdate));
         sb.append(dm).append(xfND(_formalizedDatetime));
         sb.append(dm).append(xfND(_purchaseSummary));
         if (sb.length() > dm.length()) {
@@ -246,7 +246,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getBirthdate() {
+    public java.time.LocalDate getBirthdate() {
         checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
@@ -256,7 +256,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBirthdate(java.util.Date birthdate) {
+    public void setBirthdate(java.time.LocalDate birthdate) {
         registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }
@@ -267,7 +267,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * 仮会員のときはnull。
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getFormalizedDatetime() {
+    public java.time.LocalDateTime getFormalizedDatetime() {
         checkSpecifiedProperty("formalizedDatetime");
         return _formalizedDatetime;
     }
@@ -278,7 +278,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * 仮会員のときはnull。
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setFormalizedDatetime(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime(java.time.LocalDateTime formalizedDatetime) {
         registerModifiedProperty("formalizedDatetime");
         _formalizedDatetime = formalizedDatetime;
     }
@@ -288,7 +288,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * // sum of purchase count
      * @return The value of the column 'PURCHASE_SUMMARY'. (NullAllowed even if selected: for no constraint)
      */
-    public java.math.BigDecimal getPurchaseSummary() {
+    public Long getPurchaseSummary() {
         checkSpecifiedProperty("purchaseSummary");
         return _purchaseSummary;
     }
@@ -298,7 +298,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * // sum of purchase count
      * @param purchaseSummary The value of the column 'PURCHASE_SUMMARY'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setPurchaseSummary(java.math.BigDecimal purchaseSummary) {
+    public void setPurchaseSummary(Long purchaseSummary) {
         registerModifiedProperty("purchaseSummary");
         _purchaseSummary = purchaseSummary;
     }

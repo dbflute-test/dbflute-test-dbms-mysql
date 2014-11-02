@@ -52,7 +52,8 @@ public class WhiteColumnExceptGenOnlyDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteColumnExceptGenOnly)et).getGenOnlyId(), (et, vl) -> ((WhiteColumnExceptGenOnly)et).setGenOnlyId(ctl(vl)), "genOnlyId");
         setupEpg(_epgMap, et -> ((WhiteColumnExceptGenOnly)et).getGenOnlyName(), (et, vl) -> ((WhiteColumnExceptGenOnly)et).setGenOnlyName((String)vl), "genOnlyName");
     }

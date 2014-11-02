@@ -74,11 +74,11 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * Long typeOfBigint = entity.getTypeOfBigint();
  * java.math.BigDecimal typeOfFloat = entity.getTypeOfFloat();
  * java.math.BigDecimal typeOfDouble = entity.getTypeOfDouble();
- * java.util.Date typeOfDate = entity.getTypeOfDate();
- * java.sql.Timestamp typeOfDatetime = entity.getTypeOfDatetime();
- * java.sql.Timestamp typeOfTimestamp = entity.getTypeOfTimestamp();
- * java.sql.Time typeOfTime = entity.getTypeOfTime();
- * java.util.Date typeOfYear = entity.getTypeOfYear();
+ * java.time.LocalDate typeOfDate = entity.getTypeOfDate();
+ * java.time.LocalDateTime typeOfDatetime = entity.getTypeOfDatetime();
+ * java.time.LocalDateTime typeOfTimestamp = entity.getTypeOfTimestamp();
+ * java.time.LocalTime typeOfTime = entity.getTypeOfTime();
+ * java.time.LocalDate typeOfYear = entity.getTypeOfYear();
  * Boolean typeOfBoolean = entity.getTypeOfBoolean();
  * byte[] typeOfBlob = entity.getTypeOfBlob();
  * byte[] typeOfTinyblob = entity.getTypeOfTinyblob();
@@ -186,19 +186,19 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     protected java.math.BigDecimal _typeOfDouble;
 
     /** TYPE_OF_DATE: {DATE(10)} */
-    protected java.util.Date _typeOfDate;
+    protected java.time.LocalDate _typeOfDate;
 
     /** TYPE_OF_DATETIME: {DATETIME(19)} */
-    protected java.sql.Timestamp _typeOfDatetime;
+    protected java.time.LocalDateTime _typeOfDatetime;
 
     /** TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} */
-    protected java.sql.Timestamp _typeOfTimestamp;
+    protected java.time.LocalDateTime _typeOfTimestamp;
 
     /** TYPE_OF_TIME: {TIME(8)} */
-    protected java.sql.Time _typeOfTime;
+    protected java.time.LocalTime _typeOfTime;
 
     /** TYPE_OF_YEAR: {YEAR} */
-    protected java.util.Date _typeOfYear;
+    protected java.time.LocalDate _typeOfYear;
 
     /** TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} */
     protected Boolean _typeOfBoolean;
@@ -394,11 +394,11 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
         sb.append(dm).append(xfND(_typeOfBigint));
         sb.append(dm).append(xfND(_typeOfFloat));
         sb.append(dm).append(xfND(_typeOfDouble));
-        sb.append(dm).append(xfUD(_typeOfDate));
+        sb.append(dm).append(xfND(_typeOfDate));
         sb.append(dm).append(xfND(_typeOfDatetime));
         sb.append(dm).append(xfND(_typeOfTimestamp));
         sb.append(dm).append(xfND(_typeOfTime));
-        sb.append(dm).append(xfUD(_typeOfYear));
+        sb.append(dm).append(xfND(_typeOfYear));
         sb.append(dm).append(xfND(_typeOfBoolean));
         sb.append(dm).append(xfBA(_typeOfBlob));
         sb.append(dm).append(xfBA(_typeOfTinyblob));
@@ -738,7 +738,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [get] TYPE_OF_DATE: {DATE(10)} <br>
      * @return The value of the column 'TYPE_OF_DATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getTypeOfDate() {
+    public java.time.LocalDate getTypeOfDate() {
         checkSpecifiedProperty("typeOfDate");
         return _typeOfDate;
     }
@@ -747,7 +747,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [set] TYPE_OF_DATE: {DATE(10)} <br>
      * @param typeOfDate The value of the column 'TYPE_OF_DATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTypeOfDate(java.util.Date typeOfDate) {
+    public void setTypeOfDate(java.time.LocalDate typeOfDate) {
         registerModifiedProperty("typeOfDate");
         _typeOfDate = typeOfDate;
     }
@@ -756,7 +756,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [get] TYPE_OF_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'TYPE_OF_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getTypeOfDatetime() {
+    public java.time.LocalDateTime getTypeOfDatetime() {
         checkSpecifiedProperty("typeOfDatetime");
         return _typeOfDatetime;
     }
@@ -765,7 +765,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [set] TYPE_OF_DATETIME: {DATETIME(19)} <br>
      * @param typeOfDatetime The value of the column 'TYPE_OF_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTypeOfDatetime(java.sql.Timestamp typeOfDatetime) {
+    public void setTypeOfDatetime(java.time.LocalDateTime typeOfDatetime) {
         registerModifiedProperty("typeOfDatetime");
         _typeOfDatetime = typeOfDatetime;
     }
@@ -774,7 +774,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [get] TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} <br>
      * @return The value of the column 'TYPE_OF_TIMESTAMP'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getTypeOfTimestamp() {
+    public java.time.LocalDateTime getTypeOfTimestamp() {
         checkSpecifiedProperty("typeOfTimestamp");
         return _typeOfTimestamp;
     }
@@ -783,7 +783,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [set] TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} <br>
      * @param typeOfTimestamp The value of the column 'TYPE_OF_TIMESTAMP'. (basically NotNull if update: for the constraint)
      */
-    public void setTypeOfTimestamp(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp(java.time.LocalDateTime typeOfTimestamp) {
         registerModifiedProperty("typeOfTimestamp");
         _typeOfTimestamp = typeOfTimestamp;
     }
@@ -792,7 +792,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [get] TYPE_OF_TIME: {TIME(8)} <br>
      * @return The value of the column 'TYPE_OF_TIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Time getTypeOfTime() {
+    public java.time.LocalTime getTypeOfTime() {
         checkSpecifiedProperty("typeOfTime");
         return _typeOfTime;
     }
@@ -801,7 +801,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [set] TYPE_OF_TIME: {TIME(8)} <br>
      * @param typeOfTime The value of the column 'TYPE_OF_TIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTypeOfTime(java.sql.Time typeOfTime) {
+    public void setTypeOfTime(java.time.LocalTime typeOfTime) {
         registerModifiedProperty("typeOfTime");
         _typeOfTime = typeOfTime;
     }
@@ -810,7 +810,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [get] TYPE_OF_YEAR: {YEAR} <br>
      * @return The value of the column 'TYPE_OF_YEAR'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getTypeOfYear() {
+    public java.time.LocalDate getTypeOfYear() {
         checkSpecifiedProperty("typeOfYear");
         return _typeOfYear;
     }
@@ -819,7 +819,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [set] TYPE_OF_YEAR: {YEAR} <br>
      * @param typeOfYear The value of the column 'TYPE_OF_YEAR'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTypeOfYear(java.util.Date typeOfYear) {
+    public void setTypeOfYear(java.time.LocalDate typeOfYear) {
         registerModifiedProperty("typeOfYear");
         _typeOfYear = typeOfYear;
     }

@@ -213,7 +213,7 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -242,12 +242,12 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
         }, Member.ALIAS_highestPurchasePrice);
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -297,12 +297,12 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
     public void test_DreamCruise_ManualOrder_union_journeyLogBook_basic() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
         }, Member.ALIAS_highestPurchasePrice);
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -333,12 +333,12 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
     public void test_DreamCruise_ManualOrder_union_journeyLogBook_nested() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
         }, Member.ALIAS_highestPurchasePrice);
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }

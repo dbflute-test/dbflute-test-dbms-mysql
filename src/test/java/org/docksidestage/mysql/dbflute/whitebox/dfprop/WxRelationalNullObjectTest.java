@@ -44,7 +44,7 @@ public class WxRelationalNullObjectTest extends UnitContainerTestCase {
         Member member = memberBhv.selectEntityWithDeletedCheck(cb -> cb.acceptPK(3));
 
         // ## Act ##
-        MemberStatus status = member.getMemberStatus();
+        MemberStatus status = member.getMemberStatus().get();
 
         // ## Assert ##
         log("status = " + status);
@@ -66,7 +66,7 @@ public class WxRelationalNullObjectTest extends UnitContainerTestCase {
         Member member = memberBhv.selectEntityWithDeletedCheck(cb);
 
         // ## Act ##
-        MemberStatus status = member.getMemberStatus();
+        MemberStatus status = member.getMemberStatus().get();
 
         // ## Assert ##
         log("status = " + status);
@@ -87,7 +87,7 @@ public class WxRelationalNullObjectTest extends UnitContainerTestCase {
         Member member = memberBhv.selectEntityWithDeletedCheck(cb -> cb.acceptPK(3));
 
         // ## Act ##
-        MemberSecurity security = member.getMemberSecurityAsOne();
+        MemberSecurity security = member.getMemberSecurityAsOne().get();
 
         // ## Assert ##
         log("security = " + security);

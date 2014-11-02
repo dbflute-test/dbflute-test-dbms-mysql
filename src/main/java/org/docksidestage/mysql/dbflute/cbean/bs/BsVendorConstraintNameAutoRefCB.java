@@ -500,6 +500,24 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public VendorConstraintNameAutoRefCB dreamCruiseCB() {
+        VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
+        cb.xsetupForDreamCruise((VendorConstraintNameAutoRefCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -531,24 +549,6 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
         cb.xsetupForColumnQuery((VendorConstraintNameAutoRefCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public VendorConstraintNameAutoRefCB dreamCruiseCB() {
-        VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB();
-        cb.xsetupForDreamCruise((VendorConstraintNameAutoRefCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

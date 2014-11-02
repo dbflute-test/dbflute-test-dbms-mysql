@@ -403,7 +403,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ> derivedWhiteCompoundPkRefNestByQuxMultipleIdList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ> derivedWhiteCompoundPkRefNestByQuxMultipleId() {
             assertDerived("whiteCompoundPkRefNestByQuxMultipleIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefNestByQuxMultipleIdList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -419,7 +419,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ> derivedWhiteCompoundPkRefNestByFooMultipleIdList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ> derivedWhiteCompoundPkRefNestByFooMultipleId() {
             assertDerived("whiteCompoundPkRefNestByFooMultipleIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefNestByFooMultipleIdList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -431,6 +431,24 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
             , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
             , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteCompoundPkRefCB dreamCruiseCB() {
+        WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
+        cb.xsetupForDreamCruise((WhiteCompoundPkRefCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -464,24 +482,6 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
         cb.xsetupForColumnQuery((WhiteCompoundPkRefCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteCompoundPkRefCB dreamCruiseCB() {
-        WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
-        cb.xsetupForDreamCruise((WhiteCompoundPkRefCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

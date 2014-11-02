@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * {exists (select REFERRED_ID from white_compound_pk where ...)} <br>
      * white_compound_pk by REFERRED_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteCompoundPkList</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteCompoundPk</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     pkCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteCompoundPkList for 'exists'. (NotNull)
      */
-    public void existsWhiteCompoundPkList(SubQuery<WhiteCompoundPkCB> subCBLambda) {
+    public void existsWhiteCompoundPk(SubQuery<WhiteCompoundPkCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepReferredId_ExistsReferrer_WhiteCompoundPkList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * {not exists (select REFERRED_ID from white_compound_pk where ...)} <br>
      * white_compound_pk by REFERRED_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteCompoundPkList</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteCompoundPk</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     pkCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ReferredId_NotExistsReferrer_WhiteCompoundPkList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteCompoundPkList(SubQuery<WhiteCompoundPkCB> subCBLambda) {
+    public void notExistsWhiteCompoundPk(SubQuery<WhiteCompoundPkCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepReferredId_NotExistsReferrer_WhiteCompoundPkList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * {FOO &lt;= (select max(BAR) from white_compound_pk where ...)} <br>
      * white_compound_pk by REFERRED_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkList()</span>.<span style="color: #CC4747">max</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPk()</span>.<span style="color: #CC4747">max</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     pkCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     pkCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteCompoundPkCB> derivedWhiteCompoundPkList() {
+    public HpQDRFunction<WhiteCompoundPkCB> derivedWhiteCompoundPk() {
         return xcreateQDRFunctionWhiteCompoundPkList();
     }
     protected HpQDRFunction<WhiteCompoundPkCB> xcreateQDRFunctionWhiteCompoundPkList() {
@@ -344,15 +344,6 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      */
     public void setReferredName_NotLikeSearch(String referredName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(referredName), xgetCValueReferredName(), "REFERRED_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REFERRED_NAME: {NotNull, VARCHAR(200)}
-     * @param referredName The value of referredName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setReferredName_PrefixSearch(String referredName) {
-        setReferredName_LikeSearch(referredName, xcLSOPPre());
     }
 
     protected void regReferredName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReferredName(), "REFERRED_NAME"); }

@@ -52,7 +52,8 @@ public class WhiteLineSepCommentDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteLineSepComment)et).getLineSepCommentCode(), (et, vl) -> {
             ColumnInfo col = columnLineSepCommentCode();
             ccls(col, vl);

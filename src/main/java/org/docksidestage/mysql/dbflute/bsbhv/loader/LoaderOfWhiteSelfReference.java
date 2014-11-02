@@ -76,14 +76,14 @@ public class LoaderOfWhiteSelfReference {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteSelfReference> _referrerWhiteSelfReferenceSelfList;
+    protected List<WhiteSelfReference> _referrerWhiteSelfReferenceSelf;
 
     /**
      * Load referrer of whiteSelfReferenceSelfList by the set-upper of referrer. <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * <pre>
      * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSelfReferenceList</span>, <span style="color: #553000">referenceLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">referenceLoader</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelfList</span>(<span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">referenceLoader</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelf</span>(<span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">referenceCB</span>.setupSelect...
      *         <span style="color: #553000">referenceCB</span>.query().set...
      *         <span style="color: #553000">referenceCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteSelfReference {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteSelfReference> loadWhiteSelfReferenceSelfList(ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
-        myBhv().loadWhiteSelfReferenceSelfList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSelfReferenceSelfList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteSelfReference().ready(_referrerWhiteSelfReferenceSelfList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteSelfReference> loadWhiteSelfReferenceSelf(ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
+        myBhv().loadWhiteSelfReferenceSelf(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSelfReferenceSelf = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSelfReference().ready(_referrerWhiteSelfReferenceSelf, _selector));
     }
 
     // ===================================================================================

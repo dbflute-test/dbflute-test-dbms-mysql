@@ -76,14 +76,14 @@ public class LoaderOfWhiteSuppressJoinSq {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteSuppressJoinSqMany> _referrerWhiteSuppressJoinSqManyList;
+    protected List<WhiteSuppressJoinSqMany> _referrerWhiteSuppressJoinSqMany;
 
     /**
      * Load referrer of whiteSuppressJoinSqManyList by the set-upper of referrer. <br>
      * white_suppress_join_sq_many by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSuppressJoinSqList</span>, <span style="color: #553000">sqLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">sqLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqManyList</span>(<span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">sqLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqMany</span>(<span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">manyCB</span>.setupSelect...
      *         <span style="color: #553000">manyCB</span>.query().set...
      *         <span style="color: #553000">manyCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteSuppressJoinSq {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqMany> loadWhiteSuppressJoinSqManyList(ConditionBeanSetupper<WhiteSuppressJoinSqManyCB> refCBLambda) {
-        myBhv().loadWhiteSuppressJoinSqManyList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqManyList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqMany().ready(_referrerWhiteSuppressJoinSqManyList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqMany> loadWhiteSuppressJoinSqMany(ConditionBeanSetupper<WhiteSuppressJoinSqManyCB> refCBLambda) {
+        myBhv().loadWhiteSuppressJoinSqMany(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqMany = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqMany().ready(_referrerWhiteSuppressJoinSqMany, _selector));
     }
 
     // ===================================================================================

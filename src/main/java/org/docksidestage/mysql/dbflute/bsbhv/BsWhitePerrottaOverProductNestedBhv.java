@@ -197,7 +197,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhitePerrottaOverProductNestedCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhitePerrottaOverProductNestedCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * Load referrer of whitePerrottaOverProductList by the set-upper of referrer. <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProductList</span>(<span style="color: #553000">whitePerrottaOverProductNestedList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProduct</span>(<span style="color: #553000">whitePerrottaOverProductNestedList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
      *     <span style="color: #553000">productCB</span>.query().set...
      *     <span style="color: #553000">productCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProductList(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProduct(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
         xassLRArg(whitePerrottaOverProductNestedList, refCBLambda);
-        return doLoadWhitePerrottaOverProductList(whitePerrottaOverProductNestedList, new LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct>().xinit(refCBLambda));
+        return doLoadWhitePerrottaOverProduct(whitePerrottaOverProductNestedList, new LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whitePerrottaOverProductList by the set-upper of referrer. <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProductList</span>(<span style="color: #553000">whitePerrottaOverProductNested</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProduct</span>(<span style="color: #553000">whitePerrottaOverProductNested</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
      *     <span style="color: #553000">productCB</span>.query().set...
      *     <span style="color: #553000">productCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProductList(WhitePerrottaOverProductNested whitePerrottaOverProductNested, ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProduct(WhitePerrottaOverProductNested whitePerrottaOverProductNested, ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
         xassLRArg(whitePerrottaOverProductNested, refCBLambda);
-        return doLoadWhitePerrottaOverProductList(xnewLRLs(whitePerrottaOverProductNested), new LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct>().xinit(refCBLambda));
+        return doLoadWhitePerrottaOverProduct(xnewLRLs(whitePerrottaOverProductNested), new LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProductList(WhitePerrottaOverProductNested whitePerrottaOverProductNested, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProduct(WhitePerrottaOverProductNested whitePerrottaOverProductNested, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> loadReferrerOption) {
         xassLRArg(whitePerrottaOverProductNested, loadReferrerOption);
-        return loadWhitePerrottaOverProductList(xnewLRLs(whitePerrottaOverProductNested), loadReferrerOption);
+        return loadWhitePerrottaOverProduct(xnewLRLs(whitePerrottaOverProductNested), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProductList(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProduct(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> loadReferrerOption) {
         xassLRArg(whitePerrottaOverProductNestedList, loadReferrerOption);
         if (whitePerrottaOverProductNestedList.isEmpty()) { return (NestedReferrerListGateway<WhitePerrottaOverProduct>)EMPTY_NREF_LGWAY; }
-        return doLoadWhitePerrottaOverProductList(whitePerrottaOverProductNestedList, loadReferrerOption);
+        return doLoadWhitePerrottaOverProduct(whitePerrottaOverProductNestedList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhitePerrottaOverProduct> doLoadWhitePerrottaOverProductList(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> option) {
+    protected NestedReferrerListGateway<WhitePerrottaOverProduct> doLoadWhitePerrottaOverProduct(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> option) {
         return helpLoadReferrerInternally(whitePerrottaOverProductNestedList, option, "whitePerrottaOverProductList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhitePerrottaOverProductNestedBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhitePerrottaOverProductNestedBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhitePerrottaOverProductNestedBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

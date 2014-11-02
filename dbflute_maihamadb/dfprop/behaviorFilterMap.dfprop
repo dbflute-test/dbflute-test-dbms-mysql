@@ -5,7 +5,7 @@
 #
 map:{
     ; beforeInsertMap = map:{
-        ; WITHDRAWAL_DATETIME = $$AccessContext$$.getAccessTimestampOnThread()
+        ; WITHDRAWAL_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
     }
     ; beforeUpdateMap = map:{
     }

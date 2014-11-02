@@ -197,7 +197,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -274,19 +274,19 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<Purchase> selectByUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    public OptionalEntity<Purchase> selectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         return facadeSelectByUniqueOf(memberId, productId, purchaseDatetime);
     }
 
-    protected OptionalEntity<Purchase> facadeSelectByUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    protected OptionalEntity<Purchase> facadeSelectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         return doSelectByUniqueOf(memberId, productId, purchaseDatetime, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends Purchase> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends Purchase> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(memberId, productId, purchaseDatetime), tp), memberId, productId, purchaseDatetime);
     }
 
-    protected PurchaseCB xprepareCBAsUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    protected PurchaseCB xprepareCBAsUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         assertObjectNotNull("memberId", memberId);assertObjectNotNull("productId", productId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
         return newConditionBean().acceptUniqueOf(memberId, productId, purchaseDatetime);
     }
@@ -432,7 +432,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -441,7 +441,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<PurchaseCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<PurchaseCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -531,7 +531,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
      * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePaymentList</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...
      *     <span style="color: #553000">paymentCB</span>.query().set...
      *     <span style="color: #553000">paymentCB</span>.query().addOrderBy...
@@ -553,16 +553,16 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePaymentList(List<Purchase> purchaseList, ConditionBeanSetupper<PurchasePaymentCB> refCBLambda) {
+    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(List<Purchase> purchaseList, ConditionBeanSetupper<PurchasePaymentCB> refCBLambda) {
         xassLRArg(purchaseList, refCBLambda);
-        return doLoadPurchasePaymentList(purchaseList, new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
+        return doLoadPurchasePayment(purchaseList, new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
      * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePaymentList</span>(<span style="color: #553000">purchase</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchase</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...
      *     <span style="color: #553000">paymentCB</span>.query().set...
      *     <span style="color: #553000">paymentCB</span>.query().addOrderBy...
@@ -582,9 +582,9 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePaymentList(Purchase purchase, ConditionBeanSetupper<PurchasePaymentCB> refCBLambda) {
+    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(Purchase purchase, ConditionBeanSetupper<PurchasePaymentCB> refCBLambda) {
         xassLRArg(purchase, refCBLambda);
-        return doLoadPurchasePaymentList(xnewLRLs(purchase), new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
+        return doLoadPurchasePayment(xnewLRLs(purchase), new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
     }
 
     /**
@@ -593,9 +593,9 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePaymentList(Purchase purchase, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> loadReferrerOption) {
+    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(Purchase purchase, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> loadReferrerOption) {
         xassLRArg(purchase, loadReferrerOption);
-        return loadPurchasePaymentList(xnewLRLs(purchase), loadReferrerOption);
+        return loadPurchasePayment(xnewLRLs(purchase), loadReferrerOption);
     }
 
     /**
@@ -605,13 +605,13 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePaymentList(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> loadReferrerOption) {
+    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> loadReferrerOption) {
         xassLRArg(purchaseList, loadReferrerOption);
         if (purchaseList.isEmpty()) { return (NestedReferrerListGateway<PurchasePayment>)EMPTY_NREF_LGWAY; }
-        return doLoadPurchasePaymentList(purchaseList, loadReferrerOption);
+        return doLoadPurchasePayment(purchaseList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<PurchasePayment> doLoadPurchasePaymentList(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> option) {
+    protected NestedReferrerListGateway<PurchasePayment> doLoadPurchasePayment(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> option) {
         return helpLoadReferrerInternally(purchaseList, option, "purchasePaymentList");
     }
 
@@ -1415,9 +1415,8 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<PurchaseBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<PurchaseBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<PurchaseBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

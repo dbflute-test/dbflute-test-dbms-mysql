@@ -158,26 +158,17 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
-     * @param productNestedCode The value of productNestedCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setProductNestedCode_PrefixSearch(String productNestedCode) {
-        setProductNestedCode_LikeSearch(productNestedCode, xcLSOPPre());
-    }
-
-    /**
      * Set up ExistsReferrer (correlated sub-query). <br>
      * {exists (select PRODUCT_NESTED_CODE from white_perrotta_over_product where ...)} <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhitePerrottaOverProductList for 'exists'. (NotNull)
      */
-    public void existsWhitePerrottaOverProductList(SubQuery<WhitePerrottaOverProductCB> subCBLambda) {
+    public void existsWhitePerrottaOverProduct(SubQuery<WhitePerrottaOverProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductNestedCode_ExistsReferrer_WhitePerrottaOverProductList(cb.query());
@@ -190,13 +181,13 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * {not exists (select PRODUCT_NESTED_CODE from white_perrotta_over_product where ...)} <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductNestedCode_NotExistsReferrer_WhitePerrottaOverProductList for 'not exists'. (NotNull)
      */
-    public void notExistsWhitePerrottaOverProductList(SubQuery<WhitePerrottaOverProductCB> subCBLambda) {
+    public void notExistsWhitePerrottaOverProduct(SubQuery<WhitePerrottaOverProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverProductCB cb = new WhitePerrottaOverProductCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductNestedCode_NotExistsReferrer_WhitePerrottaOverProductList(cb.query());
@@ -217,14 +208,14 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_product where ...)} <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverProductList()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverProduct()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     productCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhitePerrottaOverProductCB> derivedWhitePerrottaOverProductList() {
+    public HpQDRFunction<WhitePerrottaOverProductCB> derivedWhitePerrottaOverProduct() {
         return xcreateQDRFunctionWhitePerrottaOverProductList();
     }
     protected HpQDRFunction<WhitePerrottaOverProductCB> xcreateQDRFunctionWhitePerrottaOverProductList() {
@@ -348,15 +339,6 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
      */
     public void setProductNestedName_NotLikeSearch(String productNestedName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productNestedName), xgetCValueProductNestedName(), "PRODUCT_NESTED_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
-     * @param productNestedName The value of productNestedName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setProductNestedName_PrefixSearch(String productNestedName) {
-        setProductNestedName_LikeSearch(productNestedName, xcLSOPPre());
     }
 
     protected void regProductNestedName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductNestedName(), "PRODUCT_NESTED_NAME"); }

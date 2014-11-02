@@ -19,18 +19,18 @@
             name="MEMBER_STATUS_CODE" required="true" size="3" type="CHAR"/>
         <column
             comment="正式会員日時: 会員が正式に確定した日時。一度確定したら更新されない。&#xa;仮会員のときはnull。"
-            dbType="DATETIME" javaType="java.sql.Timestamp"
+            dbType="DATETIME" javaType="java.time.LocalDateTime"
             name="FORMALIZED_DATETIME" size="19" type="TIMESTAMP"/>
         <column comment="生年月日: 必須項目ではないので、このデータがない会員もいる。" dbType="DATE"
-            javaType="java.util.Date" name="BIRTHDATE" size="10" type="DATE"/>
+            javaType="java.time.LocalDate" name="BIRTHDATE" size="10" type="DATE"/>
         <column comment="登録日時: レコードが登録された日時。共通カラムの一つ。" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="登録ユーザ: レコードを登録したユーザ。共通カラムの一つ。" dbType="VARCHAR"
             javaType="String" name="REGISTER_USER" required="true"
             size="200" type="VARCHAR"/>
         <column comment="更新日時: レコードが（最後に）更新された日時。共通カラムの一つ。"
-            dbType="DATETIME" javaType="java.sql.Timestamp"
+            dbType="DATETIME" javaType="java.time.LocalDateTime"
             name="UPDATE_DATETIME" required="true" size="19" type="TIMESTAMP"/>
         <column comment="更新ユーザ: レコードを更新したユーザ。" dbType="VARCHAR"
             javaType="String" name="UPDATE_USER" required="true"
@@ -68,11 +68,11 @@
             required="true" size="10" type="INTEGER"/>
         <column
             comment="有効開始日: 一つの有効期間の開始を示す日付。&#xa;前の有効終了日の次の日の値が格納される。"
-            dbType="DATE" javaType="java.util.Date"
+            dbType="DATE" javaType="java.time.LocalDate"
             name="VALID_BEGIN_DATE" required="true" size="10" type="DATE"/>
         <column
             comment="有効終了日: 有効期間の終了日。&#xa;次の有効開始日の一日前の値が格納される。&#xa;ただし、次の有効期間がない場合は 9999/12/31 となる。"
-            dbType="DATE" javaType="java.util.Date"
+            dbType="DATE" javaType="java.time.LocalDate"
             name="VALID_END_DATE" required="true" size="10" type="DATE"/>
         <column comment="住所: まるごと住所" dbType="VARCHAR" javaType="String"
             name="ADDRESS" required="true" size="200" type="VARCHAR"/>
@@ -80,12 +80,12 @@
             dbType="INT" javaType="Integer" name="REGION_ID"
             required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
@@ -115,7 +115,7 @@
         <column comment="会員ID" dbType="INT" javaType="Integer"
             name="MEMBER_ID" required="true" size="10" type="INTEGER"/>
         <column comment="ログイン日時: ログインした瞬間の日時。" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="LOGIN_DATETIME"
+            javaType="java.time.LocalDateTime" name="LOGIN_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="モバイルログインフラグ: モバイル機器からのログインか否か。" dbType="INT"
             javaType="Integer" name="MOBILE_LOGIN_FLG" required="true"
@@ -163,12 +163,12 @@
             dbType="INT" javaType="Integer" name="REMINDER_USE_COUNT"
             required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
@@ -197,12 +197,12 @@
             dbType="CHAR" javaType="String" name="SERVICE_RANK_CODE"
             required="true" size="3" type="CHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
@@ -261,15 +261,15 @@
             name="WITHDRAWAL_REASON_INPUT_TEXT" size="65535" type="LONGVARCHAR"/>
         <column
             comment="退会日時: 退会した瞬間の日時。&#xa;正式会員日時と違い、こっちはone-to-oneの別テーブルで。"
-            dbType="DATETIME" javaType="java.sql.Timestamp"
+            dbType="DATETIME" javaType="java.time.LocalDateTime"
             name="WITHDRAWAL_DATETIME" required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
@@ -304,12 +304,12 @@
             javaType="Integer" name="REGULAR_PRICE" required="true"
             size="10" type="INTEGER"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
@@ -381,7 +381,7 @@
             javaType="Integer" name="PRODUCT_ID" required="true"
             size="10" type="INTEGER"/>
         <column comment="購入日時: 購入した瞬間の日時。" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="PURCHASE_DATETIME"
+            javaType="java.time.LocalDateTime" name="PURCHASE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="購入数量: 購入した商品の（一回の購入における）数量。" dbType="INT"
             javaType="Integer" name="PURCHASE_COUNT" required="true"
@@ -394,12 +394,12 @@
             javaType="Integer" name="PAYMENT_COMPLETE_FLG"
             required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
@@ -449,18 +449,18 @@
             javaType="java.math.BigDecimal" name="PAYMENT_AMOUNT"
             required="true" size="10, 2" type="DECIMAL"/>
         <column comment="支払日時: 支払ったときの日時" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="PAYMENT_DATETIME"
+            javaType="java.time.LocalDateTime" name="PAYMENT_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="支払方法コード: 手渡しや銀行振込など" dbType="CHAR"
             javaType="String" name="PAYMENT_METHOD_CODE" required="true"
             size="3" type="CHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
@@ -521,7 +521,7 @@
         <column comment="" dbType="CHAR" javaType="String"
             name="PRODUCT_STATUS_CODE" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp"
+            javaType="java.time.LocalDateTime"
             name="LATEST_PURCHASE_DATETIME" size="19" type="TIMESTAMP"/>
     </table>
     <table comment="VIEW" name="summary_withdrawal"
@@ -544,7 +544,7 @@
             name="WITHDRAWAL_REASON_INPUT_TEXT" size="65535" type="LONGVARCHAR"/>
         <column
             comment="退会日時: 退会した瞬間の日時。&#xa;正式会員日時と違い、こっちはone-to-oneの別テーブルで。"
-            dbType="DATETIME" javaType="java.sql.Timestamp"
+            dbType="DATETIME" javaType="java.time.LocalDateTime"
             name="WITHDRAWAL_DATETIME" required="true" size="19" type="TIMESTAMP"/>
         <column comment="会員ステータスコード" dbType="CHAR" javaType="String"
             name="MEMBER_STATUS_CODE" size="3" type="CHAR"/>
@@ -593,17 +593,18 @@
         <column comment="" dbType="DOUBLE"
             javaType="java.math.BigDecimal" name="TYPE_OF_DOUBLE"
             size="22" type="DOUBLE"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="TYPE_OF_DATE" size="10" type="DATE"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="TYPE_OF_DATETIME"
+            javaType="java.time.LocalDateTime" name="TYPE_OF_DATETIME"
             size="19" type="TIMESTAMP"/>
         <column comment="" dbType="TIMESTAMP"
-            default="CURRENT_TIMESTAMP" javaType="java.sql.Timestamp"
-            name="TYPE_OF_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <column comment="" dbType="TIME" javaType="java.sql.Time"
+            default="CURRENT_TIMESTAMP"
+            javaType="java.time.LocalDateTime" name="TYPE_OF_TIMESTAMP"
+            required="true" size="19" type="TIMESTAMP"/>
+        <column comment="" dbType="TIME" javaType="java.time.LocalTime"
             name="TYPE_OF_TIME" size="8" type="TIME"/>
-        <column comment="" dbType="YEAR" javaType="java.util.Date"
+        <column comment="" dbType="YEAR" javaType="java.time.LocalDate"
             name="TYPE_OF_YEAR" type="DATE"/>
         <column comment="" dbType="BIT" javaType="Boolean"
             name="TYPE_OF_BOOLEAN" type="BIT"/>
@@ -735,15 +736,15 @@
             required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="BIGINT" javaType="Long"
             name="LARGE_DATA_ID" required="true" size="19" type="BIGINT"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="DATE_INDEX" required="true" size="10" type="DATE"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="DATE_NO_INDEX" required="true" size="10" type="DATE"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="TIMESTAMP_INDEX"
+            javaType="java.time.LocalDateTime" name="TIMESTAMP_INDEX"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="TIMESTAMP_NO_INDEX"
+            javaType="java.time.LocalDateTime" name="TIMESTAMP_NO_INDEX"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="DECIMAL"
             javaType="java.math.BigDecimal"
@@ -802,10 +803,10 @@
         <column comment="" dbType="BIGINT" javaType="Long"
             name="THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID"
             required="true" size="19" type="BIGINT"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE"
             required="true" size="10" type="DATE"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="SHORT_DATE" required="true" size="10" type="DATE"/>
         <foreign-key foreignSchema="maihamadb_slave.$$NoNameSchema$$"
             foreignTable="vendor_the_long_and_winding_table_and_column" name="FK_VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF">
@@ -959,7 +960,7 @@
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REF_MANY_NAME" required="true" size="50" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REF_MANY_DATETIME"
+            javaType="java.time.LocalDateTime" name="REF_MANY_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
     </table>
     <table name="white_compound_pk_ref_nest"
@@ -1016,11 +1017,12 @@
             name="DATE_ADJUSTMENT_ID" pkName="PRIMARY" primaryKey="true"
             required="true" size="19" type="BIGINT"/>
         <column comment="adjusted" dbType="DATE"
-            javaType="java.util.Date" name="ADJUSTED_DATE" size="10" type="DATE"/>
+            javaType="java.time.LocalDate" name="ADJUSTED_DATE"
+            size="10" type="DATE"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="ADJUSTED_DATETIME"
+            javaType="java.time.LocalDateTime" name="ADJUSTED_DATETIME"
             size="19" type="TIMESTAMP"/>
-        <column comment="" dbType="TIME" javaType="java.sql.Time"
+        <column comment="" dbType="TIME" javaType="java.time.LocalTime"
             name="ADJUSTED_TIME" size="8" type="TIME"/>
         <column comment="" dbType="INT" javaType="Integer"
             name="ADJUSTED_INTEGER" size="10" type="INTEGER"/>
@@ -1043,7 +1045,7 @@
             javaType="String" name="DB_COMMENT_CODE" pkName="PRIMARY"
             primaryKey="true" required="true" size="3" type="CHAR"/>
         <column
-            comment="JavaDocHeadache: e.g. /*BEGIN*/, @ @foo &lt;br />"
+            comment="JavaDocHeadache: e.g. /*BEGIN*/, @ @foo &lt;br>"
             dbType="VARCHAR" javaType="String" name="DB_COMMENT_NAME"
             size="20" type="VARCHAR"/>
     </table>
@@ -1058,7 +1060,7 @@
             name="STRING_CONVERTED" size="200" type="VARCHAR"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="STRING_NON_CONVERTED" size="200" type="VARCHAR"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="DATE_DEFAULT" required="true" size="10" type="DATE"/>
     </table>
     <table name="white_deprecated_cls_element"
@@ -1102,10 +1104,10 @@
             name="CIPHER_INTEGER" size="100" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="CIPHER_VARCHAR" size="100" type="VARCHAR"/>
-        <column comment="" dbType="VARCHAR" javaType="java.util.Date"
-            name="CIPHER_DATE" size="100" type="DATE"/>
         <column comment="" dbType="VARCHAR"
-            javaType="java.sql.Timestamp" name="CIPHER_DATETIME"
+            javaType="java.time.LocalDate" name="CIPHER_DATE" size="100" type="DATE"/>
+        <column comment="" dbType="VARCHAR"
+            javaType="java.time.LocalDateTime" name="CIPHER_DATETIME"
             size="100" type="TIMESTAMP"/>
     </table>
     <table name="white_grouping_reference"
@@ -1172,9 +1174,9 @@
         <column comment="" dbType="INT" javaType="Integer"
             name="WHITE_IMPLICIT_REVERSE_FK_ID" required="true"
             size="10" type="INTEGER"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="VALID_BEGIN_DATE" required="true" size="10" type="DATE"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="VALID_END_DATE" required="true" size="10" type="DATE"/>
         <unique name="WHITE_IMPLICIT_REVERSE_FK_ID">
             <unique-column name="WHITE_IMPLICIT_REVERSE_FK_ID" position="1"/>
@@ -1190,9 +1192,9 @@
         <column comment="" dbType="INT" javaType="Integer"
             name="WHITE_IMPLICIT_REVERSE_FK_ID" required="true"
             size="10" type="INTEGER"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="VALID_BEGIN_DATE" required="true" size="10" type="DATE"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="VALID_END_DATE" required="true" size="10" type="DATE"/>
         <unique name="WHITE_IMPLICIT_REVERSE_FK_ID">
             <unique-column name="WHITE_IMPLICIT_REVERSE_FK_ID" position="1"/>
@@ -1208,11 +1210,11 @@
             name="INCLUDE_QUERY_VARCHAR" size="100" type="VARCHAR"/>
         <column comment="" dbType="INT" javaType="Integer"
             name="INCLUDE_QUERY_INTEGER" size="10" type="INTEGER"/>
-        <column comment="" dbType="DATE" javaType="java.util.Date"
+        <column comment="" dbType="DATE" javaType="java.time.LocalDate"
             name="INCLUDE_QUERY_DATE" size="10" type="DATE"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="INCLUDE_QUERY_DATETIME"
-            size="19" type="TIMESTAMP"/>
+            javaType="java.time.LocalDateTime"
+            name="INCLUDE_QUERY_DATETIME" size="19" type="TIMESTAMP"/>
     </table>
     <table name="white_line_sep_comment"
         schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
@@ -1275,7 +1277,7 @@
         <column comment="" dbType="CHAR" javaType="String"
             name="PRODUCT_STATUS_CODE" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp"
+            javaType="java.time.LocalDateTime"
             name="LATEST_PURCHASE_DATETIME" size="19" type="TIMESTAMP"/>
     </table>
     <table name="white_only_one_to_one_from"
@@ -1462,7 +1464,8 @@
         <column comment="" dbType="BIGINT"
             javaType="org.docksidestage.mysql.mytype.MySaleDate"
             name="POINT_TYPE_MAPPING_SALE_DATE" size="19" type="SALE_DATE"/>
-        <column comment="" dbType="DATETIME" javaType="java.util.Date"
+        <column comment="" dbType="DATETIME"
+            javaType="java.time.LocalDate"
             name="POINT_TYPE_MAPPING_WANTED_DATETIME" size="19" type="DATE"/>
     </table>
     <table name="white_purchase_referrer"
@@ -1955,8 +1958,8 @@
         <column comment="" dbType="VARCHAR" javaType="String"
             name="STRING_CONVERTED" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="TIMESTAMP_CONVERTED"
-            size="19" type="TIMESTAMP"/>
+            javaType="java.time.LocalDateTime"
+            name="TIMESTAMP_CONVERTED" size="19" type="TIMESTAMP"/>
     </table>
     <table comment="退会理由: 会員に選ばせる定型的な退会理由のマスタ。" name="withdrawal_reason"
         schema="maihamadb_slave.$$NoNameSchema$$" type="TABLE">
@@ -1983,14 +1986,14 @@
         <column comment="" dbType="INT" javaType="Integer"
             name="COLUMN_EXCEPT_GEN_ONLY_TEST" size="10" type="INTEGER"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_PROCESS" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>

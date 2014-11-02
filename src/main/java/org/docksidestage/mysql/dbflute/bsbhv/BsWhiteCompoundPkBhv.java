@@ -197,7 +197,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -458,7 +458,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -467,7 +467,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteCompoundPkCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteCompoundPkCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -557,7 +557,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * Load referrer of whiteCompoundPkRefList by the set-upper of referrer. <br>
      * white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefList</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRef</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -579,16 +579,16 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPkRef> loadWhiteCompoundPkRefList(List<WhiteCompoundPk> whiteCompoundPkList, ConditionBeanSetupper<WhiteCompoundPkRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteCompoundPkRef> loadWhiteCompoundPkRef(List<WhiteCompoundPk> whiteCompoundPkList, ConditionBeanSetupper<WhiteCompoundPkRefCB> refCBLambda) {
         xassLRArg(whiteCompoundPkList, refCBLambda);
-        return doLoadWhiteCompoundPkRefList(whiteCompoundPkList, new LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef>().xinit(refCBLambda));
+        return doLoadWhiteCompoundPkRef(whiteCompoundPkList, new LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteCompoundPkRefList by the set-upper of referrer. <br>
      * white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefList</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRef</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -608,9 +608,9 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPkRef> loadWhiteCompoundPkRefList(WhiteCompoundPk whiteCompoundPk, ConditionBeanSetupper<WhiteCompoundPkRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteCompoundPkRef> loadWhiteCompoundPkRef(WhiteCompoundPk whiteCompoundPk, ConditionBeanSetupper<WhiteCompoundPkRefCB> refCBLambda) {
         xassLRArg(whiteCompoundPk, refCBLambda);
-        return doLoadWhiteCompoundPkRefList(xnewLRLs(whiteCompoundPk), new LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef>().xinit(refCBLambda));
+        return doLoadWhiteCompoundPkRef(xnewLRLs(whiteCompoundPk), new LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef>().xinit(refCBLambda));
     }
 
     /**
@@ -619,9 +619,9 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPkRef> loadWhiteCompoundPkRefList(WhiteCompoundPk whiteCompoundPk, LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteCompoundPkRef> loadWhiteCompoundPkRef(WhiteCompoundPk whiteCompoundPk, LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef> loadReferrerOption) {
         xassLRArg(whiteCompoundPk, loadReferrerOption);
-        return loadWhiteCompoundPkRefList(xnewLRLs(whiteCompoundPk), loadReferrerOption);
+        return loadWhiteCompoundPkRef(xnewLRLs(whiteCompoundPk), loadReferrerOption);
     }
 
     /**
@@ -631,13 +631,13 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteCompoundPkRef> loadWhiteCompoundPkRefList(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteCompoundPkRef> loadWhiteCompoundPkRef(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef> loadReferrerOption) {
         xassLRArg(whiteCompoundPkList, loadReferrerOption);
         if (whiteCompoundPkList.isEmpty()) { return (NestedReferrerListGateway<WhiteCompoundPkRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteCompoundPkRefList(whiteCompoundPkList, loadReferrerOption);
+        return doLoadWhiteCompoundPkRef(whiteCompoundPkList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteCompoundPkRef> doLoadWhiteCompoundPkRefList(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef> option) {
+    protected NestedReferrerListGateway<WhiteCompoundPkRef> doLoadWhiteCompoundPkRef(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef> option) {
         return helpLoadReferrerInternally(whiteCompoundPkList, option, "whiteCompoundPkRefList");
     }
 
@@ -645,7 +645,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * Load referrer of whiteCompoundPkRefManyToPKList by the set-upper of referrer. <br>
      * white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefManyToPKList</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefManyToPK</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">manyCB</span>.setupSelect...
      *     <span style="color: #553000">manyCB</span>.query().set...
      *     <span style="color: #553000">manyCB</span>.query().addOrderBy...
@@ -667,16 +667,16 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPKList(List<WhiteCompoundPk> whiteCompoundPkList, ConditionBeanSetupper<WhiteCompoundPkRefManyCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPK(List<WhiteCompoundPk> whiteCompoundPkList, ConditionBeanSetupper<WhiteCompoundPkRefManyCB> refCBLambda) {
         xassLRArg(whiteCompoundPkList, refCBLambda);
-        return doLoadWhiteCompoundPkRefManyToPKList(whiteCompoundPkList, new LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany>().xinit(refCBLambda));
+        return doLoadWhiteCompoundPkRefManyToPK(whiteCompoundPkList, new LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteCompoundPkRefManyToPKList by the set-upper of referrer. <br>
      * white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefManyToPKList</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefManyToPK</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">manyCB</span>.setupSelect...
      *     <span style="color: #553000">manyCB</span>.query().set...
      *     <span style="color: #553000">manyCB</span>.query().addOrderBy...
@@ -696,9 +696,9 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPKList(WhiteCompoundPk whiteCompoundPk, ConditionBeanSetupper<WhiteCompoundPkRefManyCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPK(WhiteCompoundPk whiteCompoundPk, ConditionBeanSetupper<WhiteCompoundPkRefManyCB> refCBLambda) {
         xassLRArg(whiteCompoundPk, refCBLambda);
-        return doLoadWhiteCompoundPkRefManyToPKList(xnewLRLs(whiteCompoundPk), new LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany>().xinit(refCBLambda));
+        return doLoadWhiteCompoundPkRefManyToPK(xnewLRLs(whiteCompoundPk), new LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany>().xinit(refCBLambda));
     }
 
     /**
@@ -707,9 +707,9 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPKList(WhiteCompoundPk whiteCompoundPk, LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPK(WhiteCompoundPk whiteCompoundPk, LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany> loadReferrerOption) {
         xassLRArg(whiteCompoundPk, loadReferrerOption);
-        return loadWhiteCompoundPkRefManyToPKList(xnewLRLs(whiteCompoundPk), loadReferrerOption);
+        return loadWhiteCompoundPkRefManyToPK(xnewLRLs(whiteCompoundPk), loadReferrerOption);
     }
 
     /**
@@ -719,13 +719,13 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPKList(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteCompoundPkRefMany> loadWhiteCompoundPkRefManyToPK(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany> loadReferrerOption) {
         xassLRArg(whiteCompoundPkList, loadReferrerOption);
         if (whiteCompoundPkList.isEmpty()) { return (NestedReferrerListGateway<WhiteCompoundPkRefMany>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteCompoundPkRefManyToPKList(whiteCompoundPkList, loadReferrerOption);
+        return doLoadWhiteCompoundPkRefManyToPK(whiteCompoundPkList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteCompoundPkRefMany> doLoadWhiteCompoundPkRefManyToPKList(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany> option) {
+    protected NestedReferrerListGateway<WhiteCompoundPkRefMany> doLoadWhiteCompoundPkRefManyToPK(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefManyCB, WhiteCompoundPkRefMany> option) {
         return helpLoadReferrerInternally(whiteCompoundPkList, option, "whiteCompoundPkRefManyToPKList");
     }
 
@@ -1306,9 +1306,8 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteCompoundPkBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteCompoundPkBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteCompoundPkBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

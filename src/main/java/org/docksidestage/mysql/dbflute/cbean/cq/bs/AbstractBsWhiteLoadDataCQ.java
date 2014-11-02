@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(loadDataName), xgetCValueLoadDataName(), "LOAD_DATA_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
-     * @param loadDataName The value of loadDataName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setLoadDataName_PrefixSearch(String loadDataName) {
-        setLoadDataName_LikeSearch(loadDataName, xcLSOPPre());
-    }
-
     protected void regLoadDataName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoadDataName(), "LOAD_DATA_NAME"); }
     protected abstract ConditionValue xgetCValueLoadDataName();
 

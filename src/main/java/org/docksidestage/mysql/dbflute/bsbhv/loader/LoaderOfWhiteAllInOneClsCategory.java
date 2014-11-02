@@ -76,14 +76,14 @@ public class LoaderOfWhiteAllInOneClsCategory {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteAllInOneClsElement> _referrerWhiteAllInOneClsElementList;
+    protected List<WhiteAllInOneClsElement> _referrerWhiteAllInOneClsElement;
 
     /**
      * Load referrer of whiteAllInOneClsElementList by the set-upper of referrer. <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * <pre>
      * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteAllInOneClsCategoryList</span>, <span style="color: #553000">categoryLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">categoryLoader</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElementList</span>(<span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">categoryLoader</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElement</span>(<span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">elementCB</span>.setupSelect...
      *         <span style="color: #553000">elementCB</span>.query().set...
      *         <span style="color: #553000">elementCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteAllInOneClsCategory {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
-        myBhv().loadWhiteAllInOneClsElementList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteAllInOneClsElementList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteAllInOneClsElement().ready(_referrerWhiteAllInOneClsElementList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteAllInOneClsElement> loadWhiteAllInOneClsElement(ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
+        myBhv().loadWhiteAllInOneClsElement(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteAllInOneClsElement = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteAllInOneClsElement().ready(_referrerWhiteAllInOneClsElement, _selector));
     }
 
     // ===================================================================================

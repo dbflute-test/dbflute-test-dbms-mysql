@@ -52,7 +52,8 @@ public class WhiteAllInOneClsCategoryDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsCategory)et).getClsCategoryCode(), (et, vl) -> ((WhiteAllInOneClsCategory)et).setClsCategoryCode((String)vl), "clsCategoryCode");
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsCategory)et).getClsCategoryName(), (et, vl) -> ((WhiteAllInOneClsCategory)et).setClsCategoryName((String)vl), "clsCategoryName");
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsCategory)et).getDescription(), (et, vl) -> ((WhiteAllInOneClsCategory)et).setDescription((String)vl), "description");

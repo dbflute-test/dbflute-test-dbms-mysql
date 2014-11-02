@@ -349,7 +349,7 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorTheLongAndWindingTableAndColumnRefCB, VendorTheLongAndWindingTableAndColumnCQ> derivedVendorTheLongAndWindingTableAndColumnRefList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<VendorTheLongAndWindingTableAndColumnRefCB, VendorTheLongAndWindingTableAndColumnCQ> derivedVendorTheLongAndWindingTableAndColumnRef() {
             assertDerived("vendorTheLongAndWindingTableAndColumnRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveVendorTheLongAndWindingTableAndColumnRefList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -369,6 +369,24 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
             , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
             , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public VendorTheLongAndWindingTableAndColumnCB dreamCruiseCB() {
+        VendorTheLongAndWindingTableAndColumnCB cb = new VendorTheLongAndWindingTableAndColumnCB();
+        cb.xsetupForDreamCruise((VendorTheLongAndWindingTableAndColumnCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -402,24 +420,6 @@ public class BsVendorTheLongAndWindingTableAndColumnCB extends AbstractCondition
         VendorTheLongAndWindingTableAndColumnCB cb = new VendorTheLongAndWindingTableAndColumnCB();
         cb.xsetupForColumnQuery((VendorTheLongAndWindingTableAndColumnCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public VendorTheLongAndWindingTableAndColumnCB dreamCruiseCB() {
-        VendorTheLongAndWindingTableAndColumnCB cb = new VendorTheLongAndWindingTableAndColumnCB();
-        cb.xsetupForDreamCruise((VendorTheLongAndWindingTableAndColumnCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

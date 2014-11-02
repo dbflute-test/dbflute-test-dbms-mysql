@@ -197,7 +197,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteQuotedCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteQuotedCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * Load referrer of whiteQuotedRefList by the set-upper of referrer. <br>
      * white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">loadWhiteQuotedRefList</span>(<span style="color: #553000">whiteQuotedList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">loadWhiteQuotedRef</span>(<span style="color: #553000">whiteQuotedList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRefList(List<WhiteQuoted> whiteQuotedList, ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRef(List<WhiteQuoted> whiteQuotedList, ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
         xassLRArg(whiteQuotedList, refCBLambda);
-        return doLoadWhiteQuotedRefList(whiteQuotedList, new LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef>().xinit(refCBLambda));
+        return doLoadWhiteQuotedRef(whiteQuotedList, new LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteQuotedRefList by the set-upper of referrer. <br>
      * white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">loadWhiteQuotedRefList</span>(<span style="color: #553000">whiteQuoted</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">loadWhiteQuotedRef</span>(<span style="color: #553000">whiteQuoted</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRefList(WhiteQuoted whiteQuoted, ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRef(WhiteQuoted whiteQuoted, ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
         xassLRArg(whiteQuoted, refCBLambda);
-        return doLoadWhiteQuotedRefList(xnewLRLs(whiteQuoted), new LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef>().xinit(refCBLambda));
+        return doLoadWhiteQuotedRef(xnewLRLs(whiteQuoted), new LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRefList(WhiteQuoted whiteQuoted, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRef(WhiteQuoted whiteQuoted, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> loadReferrerOption) {
         xassLRArg(whiteQuoted, loadReferrerOption);
-        return loadWhiteQuotedRefList(xnewLRLs(whiteQuoted), loadReferrerOption);
+        return loadWhiteQuotedRef(xnewLRLs(whiteQuoted), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRefList(List<WhiteQuoted> whiteQuotedList, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRef(List<WhiteQuoted> whiteQuotedList, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> loadReferrerOption) {
         xassLRArg(whiteQuotedList, loadReferrerOption);
         if (whiteQuotedList.isEmpty()) { return (NestedReferrerListGateway<WhiteQuotedRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteQuotedRefList(whiteQuotedList, loadReferrerOption);
+        return doLoadWhiteQuotedRef(whiteQuotedList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteQuotedRef> doLoadWhiteQuotedRefList(List<WhiteQuoted> whiteQuotedList, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> option) {
+    protected NestedReferrerListGateway<WhiteQuotedRef> doLoadWhiteQuotedRef(List<WhiteQuoted> whiteQuotedList, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> option) {
         return helpLoadReferrerInternally(whiteQuotedList, option, "whiteQuotedRefList");
     }
 
@@ -1141,9 +1141,8 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteQuotedBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteQuotedBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteQuotedBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

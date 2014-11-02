@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
         regLSQ(CK_NLS, fRES(suppressJoinSqName), xgetCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)}
-     * @param suppressJoinSqName The value of suppressJoinSqName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setSuppressJoinSqName_PrefixSearch(String suppressJoinSqName) {
-        setSuppressJoinSqName_LikeSearch(suppressJoinSqName, xcLSOPPre());
-    }
-
     protected void regSuppressJoinSqName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSuppressJoinSqName(), "SUPPRESS_JOIN_SQ_NAME"); }
     protected abstract ConditionValue xgetCValueSuppressJoinSqName();
 

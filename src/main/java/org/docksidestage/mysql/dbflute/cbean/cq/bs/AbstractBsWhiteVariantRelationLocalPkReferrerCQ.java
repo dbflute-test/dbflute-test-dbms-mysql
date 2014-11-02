@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
         regLSQ(CK_NLS, fRES(masterTypeCode), xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param masterTypeCode The value of masterTypeCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMasterTypeCode_PrefixSearch(String masterTypeCode) {
-        setMasterTypeCode_LikeSearch(masterTypeCode, xcLSOPPre());
-    }
-
     protected void regMasterTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterTypeCode(), "MASTER_TYPE_CODE"); }
     protected abstract ConditionValue xgetCValueMasterTypeCode();
 

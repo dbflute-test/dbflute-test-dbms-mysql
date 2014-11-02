@@ -262,15 +262,6 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
-     * @param fooCode The value of fooCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFooCode_PrefixSearch(String fooCode) {
-        setFooCode_LikeSearch(fooCode, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
      */
@@ -382,15 +373,6 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
-     * @param barCode The value of barCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setBarCode_PrefixSearch(String barCode) {
-        setBarCode_LikeSearch(barCode, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
      */
@@ -499,15 +481,6 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
      */
     public void setQuxCode_NotLikeSearch(String quxCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(quxCode), xgetCValueQuxCode(), "QUX_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * QUX_CODE: {PK, NotNull, CHAR(3)}
-     * @param quxCode The value of quxCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setQuxCode_PrefixSearch(String quxCode) {
-        setQuxCode_LikeSearch(quxCode, xcLSOPPre());
     }
 
     /**

@@ -80,7 +80,7 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         };
 
         // ## Act ##
-        memberBhv.outsideSql().cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().selectCursor(pmb, handler);
     }
 
     public void test_cursorSelectFetchSize_default() {
@@ -107,7 +107,7 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         };
 
         // ## Act ##
-        memberBhv.outsideSql().cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().selectCursor(pmb, handler);
     }
 
     protected void assertDbAccess() {
@@ -150,7 +150,7 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         };
 
         // ## Act ##
-        memberBhv.outsideSql().configure(config).cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().configure(config).selectCursor(pmb, handler);
     }
 
     // ===================================================================================

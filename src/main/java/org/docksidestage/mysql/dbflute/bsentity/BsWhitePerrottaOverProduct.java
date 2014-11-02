@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -120,13 +122,15 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'. */
-    protected WhitePerrottaOverProductNested _whitePerrottaOverProductNested;
+    protected OptionalEntity<WhitePerrottaOverProductNested> _whitePerrottaOverProductNested;
 
     /**
      * [get] white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'. <br>
-     * @return The entity of foreign property 'whitePerrottaOverProductNested'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whitePerrottaOverProductNested'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhitePerrottaOverProductNested getWhitePerrottaOverProductNested() {
+    public OptionalEntity<WhitePerrottaOverProductNested> getWhitePerrottaOverProductNested() {
+        if (_whitePerrottaOverProductNested == null) { _whitePerrottaOverProductNested = OptionalEntity.relationEmpty(this, "whitePerrottaOverProductNested"); }
         return _whitePerrottaOverProductNested;
     }
 
@@ -134,18 +138,20 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
      * [set] white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
      * @param whitePerrottaOverProductNested The entity of foreign property 'whitePerrottaOverProductNested'. (NullAllowed)
      */
-    public void setWhitePerrottaOverProductNested(WhitePerrottaOverProductNested whitePerrottaOverProductNested) {
+    public void setWhitePerrottaOverProductNested(OptionalEntity<WhitePerrottaOverProductNested> whitePerrottaOverProductNested) {
         _whitePerrottaOverProductNested = whitePerrottaOverProductNested;
     }
 
     /** white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'. */
-    protected WhitePerrottaOverTrace _whitePerrottaOverTraceAsPerrotta;
+    protected OptionalEntity<WhitePerrottaOverTrace> _whitePerrottaOverTraceAsPerrotta;
 
     /**
      * [get] white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'. <br>
-     * @return The entity of foreign property 'whitePerrottaOverTraceAsPerrotta'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whitePerrottaOverTraceAsPerrotta'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhitePerrottaOverTrace getWhitePerrottaOverTraceAsPerrotta() {
+    public OptionalEntity<WhitePerrottaOverTrace> getWhitePerrottaOverTraceAsPerrotta() {
+        if (_whitePerrottaOverTraceAsPerrotta == null) { _whitePerrottaOverTraceAsPerrotta = OptionalEntity.relationEmpty(this, "whitePerrottaOverTraceAsPerrotta"); }
         return _whitePerrottaOverTraceAsPerrotta;
     }
 
@@ -153,7 +159,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
      * [set] white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
      * @param whitePerrottaOverTraceAsPerrotta The entity of foreign property 'whitePerrottaOverTraceAsPerrotta'. (NullAllowed)
      */
-    public void setWhitePerrottaOverTraceAsPerrotta(WhitePerrottaOverTrace whitePerrottaOverTraceAsPerrotta) {
+    public void setWhitePerrottaOverTraceAsPerrotta(OptionalEntity<WhitePerrottaOverTrace> whitePerrottaOverTraceAsPerrotta) {
         _whitePerrottaOverTraceAsPerrotta = whitePerrottaOverTraceAsPerrotta;
     }
 
@@ -249,9 +255,9 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePerrottaOverProductNested != null)
+        if (_whitePerrottaOverProductNested != null && _whitePerrottaOverProductNested.isPresent())
         { sb.append(li).append(xbRDS(_whitePerrottaOverProductNested, "whitePerrottaOverProductNested")); }
-        if (_whitePerrottaOverTraceAsPerrotta != null)
+        if (_whitePerrottaOverTraceAsPerrotta != null && _whitePerrottaOverTraceAsPerrotta.isPresent())
         { sb.append(li).append(xbRDS(_whitePerrottaOverTraceAsPerrotta, "whitePerrottaOverTraceAsPerrotta")); }
         if (_whitePerrottaOverMemberList != null) { for (WhitePerrottaOverMember et : _whitePerrottaOverMemberList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whitePerrottaOverMemberList")); } } }
@@ -260,6 +266,9 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
         if (_whitePerrottaOverTraceByPreviousProductIdList != null) { for (WhitePerrottaOverTrace et : _whitePerrottaOverTraceByPreviousProductIdList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whitePerrottaOverTraceByPreviousProductIdList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -278,9 +287,9 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePerrottaOverProductNested != null)
+        if (_whitePerrottaOverProductNested != null && _whitePerrottaOverProductNested.isPresent())
         { sb.append(dm).append("whitePerrottaOverProductNested"); }
-        if (_whitePerrottaOverTraceAsPerrotta != null)
+        if (_whitePerrottaOverTraceAsPerrotta != null && _whitePerrottaOverTraceAsPerrotta.isPresent())
         { sb.append(dm).append("whitePerrottaOverTraceAsPerrotta"); }
         if (_whitePerrottaOverMemberList != null && !_whitePerrottaOverMemberList.isEmpty())
         { sb.append(dm).append("whitePerrottaOverMemberList"); }

@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
         regLSQ(CK_NLS, fRES(selfReferenceRefOneName), xgetCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setSelfReferenceRefOneName_PrefixSearch(String selfReferenceRefOneName) {
-        setSelfReferenceRefOneName_LikeSearch(selfReferenceRefOneName, xcLSOPPre());
-    }
-
     protected void regSelfReferenceRefOneName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSelfReferenceRefOneName(), "SELF_REFERENCE_REF_ONE_NAME"); }
     protected abstract ConditionValue xgetCValueSelfReferenceRefOneName();
 

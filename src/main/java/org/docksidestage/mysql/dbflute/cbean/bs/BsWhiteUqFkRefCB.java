@@ -449,7 +449,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkRefNestCB, WhiteUqFkRefCQ> derivedWhiteUqFkRefNestList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkRefNestCB, WhiteUqFkRefCQ> derivedWhiteUqFkRefNest() {
             assertDerived("whiteUqFkRefNestList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteUqFkRefNestList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -469,6 +469,24 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
             , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
             , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteUqFkRefCB dreamCruiseCB() {
+        WhiteUqFkRefCB cb = new WhiteUqFkRefCB();
+        cb.xsetupForDreamCruise((WhiteUqFkRefCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -502,24 +520,6 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         WhiteUqFkRefCB cb = new WhiteUqFkRefCB();
         cb.xsetupForColumnQuery((WhiteUqFkRefCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteUqFkRefCB dreamCruiseCB() {
-        WhiteUqFkRefCB cb = new WhiteUqFkRefCB();
-        cb.xsetupForDreamCruise((WhiteUqFkRefCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

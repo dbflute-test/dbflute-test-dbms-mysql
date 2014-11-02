@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * {exists (select ORDER from white_quoted_ref where ...)} <br>
      * white_quoted_ref by ORDER, named 'whiteQuotedRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteQuotedRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteQuotedRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteQuotedRefList for 'exists'. (NotNull)
      */
-    public void existsWhiteQuotedRefList(SubQuery<WhiteQuotedRefCB> subCBLambda) {
+    public void existsWhiteQuotedRef(SubQuery<WhiteQuotedRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteQuotedRefCB cb = new WhiteQuotedRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepSelect_ExistsReferrer_WhiteQuotedRefList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * {not exists (select ORDER from white_quoted_ref where ...)} <br>
      * white_quoted_ref by ORDER, named 'whiteQuotedRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteQuotedRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteQuotedRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of Select_NotExistsReferrer_WhiteQuotedRefList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteQuotedRefList(SubQuery<WhiteQuotedRefCB> subCBLambda) {
+    public void notExistsWhiteQuotedRef(SubQuery<WhiteQuotedRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteQuotedRefCB cb = new WhiteQuotedRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepSelect_NotExistsReferrer_WhiteQuotedRefList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from white_quoted_ref where ...)} <br>
      * white_quoted_ref by ORDER, named 'whiteQuotedRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteQuotedRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteQuotedRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteQuotedRefCB> derivedWhiteQuotedRefList() {
+    public HpQDRFunction<WhiteQuotedRefCB> derivedWhiteQuotedRef() {
         return xcreateQDRFunctionWhiteQuotedRefList();
     }
     protected HpQDRFunction<WhiteQuotedRefCB> xcreateQDRFunctionWhiteQuotedRefList() {
@@ -344,15 +344,6 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      */
     public void setFrom_NotLikeSearch(String from, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(from), xgetCValueFrom(), "FROM", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FROM: {VARCHAR(200)}
-     * @param from The value of from as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFrom_PrefixSearch(String from) {
-        setFrom_LikeSearch(from, xcLSOPPre());
     }
 
     /**

@@ -52,7 +52,8 @@ public class WhiteVariantRelationMasterQuxDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterQux)et).getMasterQuxId(), (et, vl) -> ((WhiteVariantRelationMasterQux)et).setMasterQuxId(ctl(vl)), "masterQuxId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterQux)et).getMasterQuxName(), (et, vl) -> ((WhiteVariantRelationMasterQux)et).setMasterQuxName((String)vl), "masterQuxName");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterQux)et).getQuxTypeCode(), (et, vl) -> {

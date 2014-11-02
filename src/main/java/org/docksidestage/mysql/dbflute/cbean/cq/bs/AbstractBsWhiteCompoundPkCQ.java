@@ -389,15 +389,6 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
         regLSQ(CK_NLS, fRES(pkName), xgetCValuePkName(), "PK_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setPkName_PrefixSearch(String pkName) {
-        setPkName_LikeSearch(pkName, xcLSOPPre());
-    }
-
     protected void regPkName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePkName(), "PK_NAME"); }
     protected abstract ConditionValue xgetCValuePkName();
 

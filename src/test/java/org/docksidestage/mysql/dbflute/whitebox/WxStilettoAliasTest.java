@@ -1,6 +1,7 @@
 package org.docksidestage.mysql.dbflute.whitebox;
 
 import org.dbflute.cbean.result.ListResultBean;
+import org.dbflute.exception.NonSetupSelectRelationAccessException;
 import org.docksidestage.mysql.dbflute.cbean.WhiteStilettoAliasRefCB;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteStilettoAliasBhv;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteStilettoAliasRefBhv;
@@ -38,7 +39,7 @@ public class WxStilettoAliasTest extends UnitContainerTestCase {
         assertHasAnyElement(refList);
         int number = 1;
         for (WhiteStilettoAliasRef ref : refList) {
-            WhiteStilettoAlias alias = ref.getWhiteStilettoAlias();
+            WhiteStilettoAlias alias = ref.getWhiteStilettoAlias().get();
             log(ref, alias);
             assertEquals("1-" + number + ":foo0", ref.getFoo0());
             assertEquals("1-" + number + ":foo1", ref.getFoo1());
@@ -80,7 +81,7 @@ public class WxStilettoAliasTest extends UnitContainerTestCase {
         assertHasAnyElement(refList);
         int number = 1;
         for (WhiteStilettoAliasRef ref : refList) {
-            WhiteStilettoAlias alias = ref.getWhiteStilettoAlias();
+            WhiteStilettoAlias alias = ref.getWhiteStilettoAlias().get();
             log(ref, alias);
             assertEquals(null, ref.xznocheckGetFoo0());
             assertEquals("1-" + number + ":foo1", ref.getFoo1());
@@ -121,7 +122,7 @@ public class WxStilettoAliasTest extends UnitContainerTestCase {
         assertHasAnyElement(refList);
         int number = 1;
         for (WhiteStilettoAliasRef ref : refList) {
-            WhiteStilettoAlias alias = ref.getWhiteStilettoAlias();
+            WhiteStilettoAlias alias = ref.getWhiteStilettoAlias().get();
             log(ref, alias);
             assertEquals("1-" + number + ":foo0", ref.getFoo0());
             assertEquals("1-" + number + ":foo1", ref.getFoo1());
@@ -161,8 +162,8 @@ public class WxStilettoAliasTest extends UnitContainerTestCase {
         assertHasAnyElement(refList);
         int number = 1;
         for (WhiteStilettoAliasRef ref : refList) {
-            WhiteStilettoAlias alias = ref.getWhiteStilettoAlias();
-            log(ref, alias);
+            assertException(NonSetupSelectRelationAccessException.class, () -> ref.getWhiteStilettoAlias().get());
+            log(ref);
             assertEquals("1-" + number + ":foo0", ref.getFoo0());
             assertEquals("1-" + number + ":foo1", ref.getFoo1());
             assertEquals("1-" + number + ":foo2", ref.getFoo2());
@@ -172,7 +173,6 @@ public class WxStilettoAliasTest extends UnitContainerTestCase {
             assertEquals("1-" + number + ":c21", ref.getC21());
             assertEquals("1-" + number + ":c22", ref.getC22());
             assertEquals("1-" + number + ":c23", ref.getC23());
-            assertEquals(null, alias);
             ++number;
         }
     }

@@ -52,7 +52,8 @@ public class WhiteNoPkDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkId(), (et, vl) -> ((WhiteNoPk)et).setNoPkId(ctl(vl)), "noPkId");
         setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkName(), (et, vl) -> ((WhiteNoPk)et).setNoPkName((String)vl), "noPkName");
         setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkInteger(), (et, vl) -> ((WhiteNoPk)et).setNoPkInteger(cti(vl)), "noPkInteger");

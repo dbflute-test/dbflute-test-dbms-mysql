@@ -1,6 +1,7 @@
 package org.docksidestage.mysql.dbflute.vendor;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,6 @@ import org.dbflute.exception.EntityAlreadyUpdatedException;
 import org.dbflute.helper.HandyDate;
 import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballDragon;
-import org.dbflute.utflute.core.cannonball.CannonballFinalizer;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
 import org.dbflute.utflute.core.cannonball.CannonballProjectA;
 import org.dbflute.utflute.core.cannonball.CannonballRun;
@@ -32,6 +32,7 @@ import org.docksidestage.mysql.dbflute.exentity.Member;
 import org.docksidestage.mysql.dbflute.exentity.MemberLogin;
 import org.docksidestage.mysql.dbflute.exentity.MemberStatus;
 import org.docksidestage.mysql.dbflute.exentity.Purchase;
+import org.docksidestage.mysql.dbflute.exentity.PurchasePayment;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
 
 /**
@@ -64,7 +65,7 @@ public class VendorLockTest extends UnitContainerTestCase {
     //                                    UniqueKey DeadLock
     //                                    ------------------
     public void test_insert_UniqueKeyDeadlock_basic() throws Exception {
-        final Timestamp purchaseDatetime = new HandyDate(currentDate()).moveToDayJust().getTimestamp();
+        final LocalDateTime purchaseDatetime = new HandyDate(currentLocalDate()).moveToDayJust().getLocalDateTime();
         String expected = "Deadlock found"; // why?
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
@@ -168,7 +169,7 @@ public class VendorLockTest extends UnitContainerTestCase {
                         Purchase purchase = new Purchase();
                         purchase.setMemberId(memberId);
                         purchase.setProductId(1);
-                        purchase.setPurchaseDatetime(currentTimestamp());
+                        purchase.setPurchaseDatetime(currentLocalDateTime());
                         purchase.setPurchasePrice(123);
                         purchase.setPurchaseCount(9);
                         purchase.setPaymentCompleteFlg_True();
@@ -201,7 +202,7 @@ public class VendorLockTest extends UnitContainerTestCase {
                         Purchase purchase = new Purchase();
                         purchase.setMemberId(memberId);
                         purchase.setProductId(1);
-                        purchase.setPurchaseDatetime(currentTimestamp());
+                        purchase.setPurchaseDatetime(currentLocalDateTime());
                         purchase.setPurchasePrice(123);
                         purchase.setPurchaseCount(9);
                         purchase.setPaymentCompleteFlg_True();
@@ -221,7 +222,7 @@ public class VendorLockTest extends UnitContainerTestCase {
                         Purchase purchase = new Purchase();
                         purchase.setMemberId(memberId);
                         purchase.setProductId(1);
-                        purchase.setPurchaseDatetime(currentTimestamp());
+                        purchase.setPurchaseDatetime(currentLocalDateTime());
                         purchase.setPurchasePrice(123);
                         purchase.setPurchaseCount(9);
                         purchase.setPaymentCompleteFlg_True();
@@ -250,7 +251,7 @@ public class VendorLockTest extends UnitContainerTestCase {
                         Purchase purchase = new Purchase();
                         purchase.setMemberId(memberId);
                         purchase.setProductId(1);
-                        purchase.setPurchaseDatetime(currentTimestamp());
+                        purchase.setPurchaseDatetime(currentLocalDateTime());
                         purchase.setPurchasePrice(123);
                         purchase.setPurchaseCount(9);
                         purchase.setPaymentCompleteFlg_True();
@@ -264,7 +265,7 @@ public class VendorLockTest extends UnitContainerTestCase {
                         login.setMemberId(3);
                         login.setLoginMemberStatusCode_正式会員();
                         login.setMobileLoginFlg_True();
-                        login.setLoginDatetime(currentTimestamp());
+                        login.setLoginDatetime(currentLocalDateTime());
                         memberLoginBhv.insert(login);
                     }
                 }, 2);
@@ -276,6 +277,7 @@ public class VendorLockTest extends UnitContainerTestCase {
     //                                  NextKeyLock Deadlock
     //                                  --------------------
     public void test_insert_NextKeyLockDeadlock_for_FK() {
+        ListResultBean<PurchasePayment> removedPaymentList = purchasePaymentBhv.selectList(cb -> {});
         purchasePaymentBhv.varyingQueryDelete(new PurchasePaymentCB(), op -> op.allowNonQueryDelete());
         // {3, 6, 7} no deadlock (if no data since first, deadlock)
         // if unique index removed, {3, 6, 9} no deadlock but {3, 3} deadlock
@@ -286,11 +288,9 @@ public class VendorLockTest extends UnitContainerTestCase {
         String msg = "Deadlock found";
         final List<Purchase> removedPurchaseList = removePurchaseList(parameterMap.values());
         final Purchase source = purchaseBhv.selectByPK(1L).get();
-        CannonballOption option = new CannonballOption().threadCount(parameterMap.size()).commitTx()
-                .expectExceptionAny(msg).finalizer(new CannonballFinalizer() {
-                    public void run() {
-                        purchaseBhv.varyingBatchInsert(removedPurchaseList, op -> op.disablePrimaryKeyIdentity());
-                    }
+        CannonballOption option =
+                new CannonballOption().threadCount(parameterMap.size()).commitTx().expectExceptionAny(msg).finalizer(() -> {
+                    restoreDeletedPurchase(removedPaymentList, removedPurchaseList);
                 });
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
@@ -306,14 +306,19 @@ public class VendorLockTest extends UnitContainerTestCase {
 
                 Purchase inserted = source.clone();
                 inserted.setMemberId(memberId);
-                long currentTime = currentTimestamp().getTime();
+                long currentTime = currentDate().getTime();
                 long randomMillis = currentTime + (entryNumber * 10000);
-                inserted.setPurchaseDatetime(toTimestamp(randomMillis));
+                inserted.setPurchaseDatetime(toLocalDateTime(randomMillis));
 
                 purchaseBhv.insert(inserted);
                 purchaseBhv.delete(inserted); // to revert
             }
         }, option);
+    }
+
+    protected void restoreDeletedPurchase(ListResultBean<PurchasePayment> removedPaymentList, final List<Purchase> removedPurchaseList) {
+        purchaseBhv.varyingBatchInsert(removedPurchaseList, op -> op.disablePrimaryKeyIdentity().disableCommonColumnAutoSetup());
+        purchasePaymentBhv.varyingBatchInsert(removedPaymentList, op -> op.disablePrimaryKeyIdentity().disableCommonColumnAutoSetup());
     }
 
     protected List<Purchase> removePurchaseList(Collection<Integer> parameters) {
@@ -448,7 +453,7 @@ public class VendorLockTest extends UnitContainerTestCase {
     }
 
     public void test_update_UniqueKeyWait_compoundKey() throws Exception {
-        final Timestamp purchaseDatetime = toTimestamp("2014/04/30 12:34:56");
+        final LocalDateTime purchaseDatetime = toLocalDateTime("2014/04/30 12:34:56");
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
                 car.projectA(new CannonballProjectA() {
@@ -491,9 +496,9 @@ public class VendorLockTest extends UnitContainerTestCase {
                 Purchase purchase = new Purchase();
                 purchase.setMemberId(3);
                 purchase.setProductId(3);
-                long currentMillis = currentTimestamp().getTime();
+                long currentMillis = currentDate().getTime();
                 long keyMillis = currentMillis - (entryNumber * 10000000);
-                purchase.setPurchaseDatetime(new Timestamp(keyMillis));
+                purchase.setPurchaseDatetime(toLocalDateTime(new Timestamp(keyMillis)));
                 purchase.setPurchaseCount(1234);
                 purchase.setPurchasePrice(1234);
                 purchase.setPaymentCompleteFlg_True();
@@ -521,16 +526,16 @@ public class VendorLockTest extends UnitContainerTestCase {
                 purchase.setMemberId(1);
                 purchase.setProductId(1);
                 long threadId = car.getThreadId();
-                long currentMillis = currentTimestamp().getTime();
+                long currentMillis = currentDate().getTime();
                 long keyMillis = currentMillis - (threadId * 10000000);
-                purchase.setPurchaseDatetime(new Timestamp(keyMillis));
+                purchase.setPurchaseDatetime(toLocalDateTime(new Timestamp(keyMillis)));
                 purchaseBhv.insert(purchase);
 
                 car.restart();
 
                 Member member = new Member();
                 member.setMemberId(1);
-                member.setBirthdate(currentDate());
+                member.setBirthdate(currentLocalDate());
                 memberBhv.updateNonstrict(member);
             }
         }, new CannonballOption().threadCount(3).repeatCount(1).expectExceptionAny("Deadlock found"));
@@ -544,16 +549,16 @@ public class VendorLockTest extends UnitContainerTestCase {
             public void drive(CannonballCar car) {
                 Member member = new Member();
                 member.setMemberId(1);
-                member.setBirthdate(currentDate());
+                member.setBirthdate(currentLocalDate());
                 memberBhv.updateNonstrict(member);
 
                 Purchase purchase = new Purchase();
                 purchase.setMemberId(1);
                 purchase.setProductId(1);
                 int entryNumber = car.getEntryNumber();
-                long currentMillis = currentTimestamp().getTime();
+                long currentMillis = currentDate().getTime();
                 long keyMillis = currentMillis - (entryNumber * 10000000);
-                purchase.setPurchaseDatetime(new Timestamp(keyMillis));
+                purchase.setPurchaseDatetime(toLocalDateTime(new Timestamp(keyMillis)));
                 purchase.setPurchaseCount(1234);
                 purchase.setPurchasePrice(1234);
                 purchase.setPaymentCompleteFlg_True();
@@ -618,7 +623,7 @@ public class VendorLockTest extends UnitContainerTestCase {
 
                 Member member = new Member();
                 member.setMemberId(3);
-                member.setBirthdate(currentDate());
+                member.setBirthdate(currentLocalDate());
                 memberBhv.updateNonstrict(member);
             }
         }, new CannonballOption().threadCount(3)); // no deadlock

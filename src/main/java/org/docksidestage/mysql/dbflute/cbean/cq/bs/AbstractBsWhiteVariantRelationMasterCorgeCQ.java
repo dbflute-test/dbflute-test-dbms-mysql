@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
         regLSQ(CK_NLS, fRES(masterCorgeName), xgetCValueMasterCorgeName(), "MASTER_CORGE_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
-     * @param masterCorgeName The value of masterCorgeName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMasterCorgeName_PrefixSearch(String masterCorgeName) {
-        setMasterCorgeName_LikeSearch(masterCorgeName, xcLSOPPre());
-    }
-
     protected void regMasterCorgeName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterCorgeName(), "MASTER_CORGE_NAME"); }
     protected abstract ConditionValue xgetCValueMasterCorgeName();
 

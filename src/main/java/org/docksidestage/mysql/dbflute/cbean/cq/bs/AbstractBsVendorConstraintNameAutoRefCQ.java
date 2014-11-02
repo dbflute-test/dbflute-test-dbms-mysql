@@ -689,15 +689,6 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
         regLSQ(CK_NLS, fRES(constraintNameAutoUnique), xgetCValueConstraintNameAutoUnique(), "CONSTRAINT_NAME_AUTO_UNIQUE", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setConstraintNameAutoUnique_PrefixSearch(String constraintNameAutoUnique) {
-        setConstraintNameAutoUnique_LikeSearch(constraintNameAutoUnique, xcLSOPPre());
-    }
-
     protected void regConstraintNameAutoUnique(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueConstraintNameAutoUnique(), "CONSTRAINT_NAME_AUTO_UNIQUE"); }
     protected abstract ConditionValue xgetCValueConstraintNameAutoUnique();
 

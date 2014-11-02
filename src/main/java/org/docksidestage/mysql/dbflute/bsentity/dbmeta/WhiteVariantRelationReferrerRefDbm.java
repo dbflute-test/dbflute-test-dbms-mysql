@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrerRef)et).getRefId(), (et, vl) -> ((WhiteVariantRelationReferrerRef)et).setRefId(ctl(vl)), "refId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrerRef)et).getReferrerId(), (et, vl) -> ((WhiteVariantRelationReferrerRef)et).setReferrerId(ctl(vl)), "referrerId");
     }
@@ -64,8 +66,9 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrerRef)et).getWhiteVariantRelationReferrer(), (et, vl) -> ((WhiteVariantRelationReferrerRef)et).setWhiteVariantRelationReferrer((WhiteVariantRelationReferrer)vl), "whiteVariantRelationReferrer");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrerRef)et).getWhiteVariantRelationReferrer(), (et, vl) -> ((WhiteVariantRelationReferrerRef)et).setWhiteVariantRelationReferrer((OptionalEntity<WhiteVariantRelationReferrer>)vl), "whiteVariantRelationReferrer");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -131,7 +134,7 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationReferrer() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnReferrerId(), WhiteVariantRelationReferrerDbm.getInstance().columnReferrerId());
-        return cfi("FK_WHITE_VARIANT_RELATION_REFERRER_REF", "whiteVariantRelationReferrer", this, WhiteVariantRelationReferrerDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteVariantRelationReferrerRefList");
+        return cfi("FK_WHITE_VARIANT_RELATION_REFERRER_REF", "whiteVariantRelationReferrer", this, WhiteVariantRelationReferrerDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteVariantRelationReferrerRefList");
     }
 
     // -----------------------------------------------------

@@ -40,25 +40,14 @@ map:{
     # _/_/_/_/_/_/_/_/_/
     # compile compatible (true if compatible)
     ; isMakeDirectConditionBeanSetup = true
-    ; isAvailableSelectEntityPlainReturn = false
-    ; isAvailableRelationPlainEntity = true
-    ; isMakeConditionQueryPrefixSearch = true
-    ; isMakeConditionQueryDateFromTo = true
     ; isMakeDirectConditionOptionSetup = true
     ; isMakeDirectConditionManualOrder = true
     ; isCompatibleLoadReferrerOldOption = true
-    ; isCompatibleReferrerCBMethodIdentityNameListSuffix = true
-    ; isCompatibleOutsideSqlFacadeChainOldStyle = true
-
-    # compatible with date
-    ; isAvailableJava8TimeLocalDateEntity = false
+    ; isCompatibleOutsideSqlSqlCommentCheckDefault = true
 
     # the test of check count for next-key-lock of MySQL
     # set this property if you test it  
     ; isCheckCountBeforeQueryUpdate = true
-
-    # for table classification small size
-    ; isMakeConditionQueryPlainListManualOrder = false
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)

@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -115,13 +117,15 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. */
-    protected WhiteVariantRelationMasterFoo _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne;
+    protected OptionalEntity<WhiteVariantRelationMasterFoo> _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne;
 
     /**
      * [get] white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. <br>
-     * @return The entity of foreign property 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteVariantRelationMasterFoo getWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {
+    public OptionalEntity<WhiteVariantRelationMasterFoo> getWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {
+        if (_whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne == null) { _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne = OptionalEntity.relationEmpty(this, "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne"); }
         return _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne;
     }
 
@@ -129,7 +133,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
      * [set] white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
      * @param whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne The entity of foreign property 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. (NullAllowed)
      */
-    public void setWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(WhiteVariantRelationMasterFoo whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne) {
+    public void setWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(OptionalEntity<WhiteVariantRelationMasterFoo> whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne) {
         _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne = whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne;
     }
 
@@ -165,9 +169,12 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne != null)
+        if (_whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne != null && _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne.isPresent())
         { sb.append(li).append(xbRDS(_whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne, "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -185,7 +192,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne != null)
+        if (_whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne != null && _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne.isPresent())
         { sb.append(dm).append("whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

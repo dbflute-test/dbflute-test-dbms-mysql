@@ -52,7 +52,8 @@ public class WhiteLoadDataDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteLoadData)et).getLoadDataId(), (et, vl) -> ((WhiteLoadData)et).setLoadDataId(ctl(vl)), "loadDataId");
         setupEpg(_epgMap, et -> ((WhiteLoadData)et).getLoadDataName(), (et, vl) -> ((WhiteLoadData)et).setLoadDataName((String)vl), "loadDataName");
     }

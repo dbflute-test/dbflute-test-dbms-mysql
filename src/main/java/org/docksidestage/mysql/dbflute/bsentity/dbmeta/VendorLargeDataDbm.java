@@ -52,7 +52,8 @@ public class VendorLargeDataDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorLargeData)et).getLargeDataId(), (et, vl) -> ((VendorLargeData)et).setLargeDataId(ctl(vl)), "largeDataId");
         setupEpg(_epgMap, et -> ((VendorLargeData)et).getStringIndex(), (et, vl) -> ((VendorLargeData)et).setStringIndex((String)vl), "stringIndex");
         setupEpg(_epgMap, et -> ((VendorLargeData)et).getStringNoIndex(), (et, vl) -> ((VendorLargeData)et).setStringNoIndex((String)vl), "stringNoIndex");

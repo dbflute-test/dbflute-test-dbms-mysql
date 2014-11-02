@@ -52,7 +52,8 @@ public class WhiteCompoundReferredNormallyDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteCompoundReferredNormally)et).getReferredId(), (et, vl) -> ((WhiteCompoundReferredNormally)et).setReferredId(cti(vl)), "referredId");
         setupEpg(_epgMap, et -> ((WhiteCompoundReferredNormally)et).getReferredName(), (et, vl) -> ((WhiteCompoundReferredNormally)et).setReferredName((String)vl), "referredName");
     }

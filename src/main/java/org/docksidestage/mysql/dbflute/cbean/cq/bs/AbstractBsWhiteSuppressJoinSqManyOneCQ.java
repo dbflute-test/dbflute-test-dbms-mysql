@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {exists (select MANY_ONE_ID from white_suppress_join_sq_many where ...)} <br>
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSuppressJoinSqManyList</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteSuppressJoinSqMany</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     manyCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteSuppressJoinSqManyList for 'exists'. (NotNull)
      */
-    public void existsWhiteSuppressJoinSqManyList(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
+    public void existsWhiteSuppressJoinSqMany(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepManyOneId_ExistsReferrer_WhiteSuppressJoinSqManyList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {not exists (select MANY_ONE_ID from white_suppress_join_sq_many where ...)} <br>
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSuppressJoinSqManyList</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSuppressJoinSqMany</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     manyCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteSuppressJoinSqManyList(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
+    public void notExistsWhiteSuppressJoinSqMany(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {FOO &lt;= (select max(BAR) from white_suppress_join_sq_many where ...)} <br>
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSuppressJoinSqManyList()</span>.<span style="color: #CC4747">max</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSuppressJoinSqMany()</span>.<span style="color: #CC4747">max</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     manyCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     manyCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteSuppressJoinSqManyCB> derivedWhiteSuppressJoinSqManyList() {
+    public HpQDRFunction<WhiteSuppressJoinSqManyCB> derivedWhiteSuppressJoinSqMany() {
         return xcreateQDRFunctionWhiteSuppressJoinSqManyList();
     }
     protected HpQDRFunction<WhiteSuppressJoinSqManyCB> xcreateQDRFunctionWhiteSuppressJoinSqManyList() {
@@ -344,15 +344,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      */
     public void setManyOneName_NotLikeSearch(String manyOneName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(manyOneName), xgetCValueManyOneName(), "MANY_ONE_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneName The value of manyOneName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setManyOneName_PrefixSearch(String manyOneName) {
-        setManyOneName_LikeSearch(manyOneName, xcLSOPPre());
     }
 
     protected void regManyOneName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyOneName(), "MANY_ONE_NAME"); }

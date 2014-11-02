@@ -57,9 +57,9 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
  * entity.setMemberId(memberId);
  * entity.setMemberName(memberName);
@@ -89,13 +89,13 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     protected String _memberName;
 
     /** (登録日時)REGISTER_DATETIME: {DATETIME(19), refers to member.REGISTER_DATETIME} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to member.REGISTER_USER} */
     protected String _registerUser;
 
     /** (更新日時)UPDATE_DATETIME: {DATETIME(19), refers to member.UPDATE_DATETIME} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to member.UPDATE_USER} */
     protected String _updateUser;
@@ -252,7 +252,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
      * レコードが登録された日時。共通カラムの一つ。
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
@@ -262,7 +262,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
      * レコードが登録された日時。共通カラムの一つ。
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
@@ -292,7 +292,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
      * レコードが（最後に）更新された日時。共通カラムの一つ。
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
@@ -302,7 +302,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
      * レコードが（最後に）更新された日時。共通カラムの一つ。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }

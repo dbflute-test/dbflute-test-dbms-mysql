@@ -197,7 +197,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +405,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +414,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteSelfReferenceCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteSelfReferenceCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -504,7 +504,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * Load referrer of whiteSelfReferenceSelfList by the set-upper of referrer. <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelfList</span>(<span style="color: #553000">whiteSelfReferenceList</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelf</span>(<span style="color: #553000">whiteSelfReferenceList</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">referenceCB</span>.setupSelect...
      *     <span style="color: #553000">referenceCB</span>.query().set...
      *     <span style="color: #553000">referenceCB</span>.query().addOrderBy...
@@ -526,16 +526,16 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelfList(List<WhiteSelfReference> whiteSelfReferenceList, ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelf(List<WhiteSelfReference> whiteSelfReferenceList, ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
         xassLRArg(whiteSelfReferenceList, refCBLambda);
-        return doLoadWhiteSelfReferenceSelfList(whiteSelfReferenceList, new LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference>().xinit(refCBLambda));
+        return doLoadWhiteSelfReferenceSelf(whiteSelfReferenceList, new LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteSelfReferenceSelfList by the set-upper of referrer. <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelfList</span>(<span style="color: #553000">whiteSelfReference</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelf</span>(<span style="color: #553000">whiteSelfReference</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">referenceCB</span>.setupSelect...
      *     <span style="color: #553000">referenceCB</span>.query().set...
      *     <span style="color: #553000">referenceCB</span>.query().addOrderBy...
@@ -555,9 +555,9 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelfList(WhiteSelfReference whiteSelfReference, ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelf(WhiteSelfReference whiteSelfReference, ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
         xassLRArg(whiteSelfReference, refCBLambda);
-        return doLoadWhiteSelfReferenceSelfList(xnewLRLs(whiteSelfReference), new LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference>().xinit(refCBLambda));
+        return doLoadWhiteSelfReferenceSelf(xnewLRLs(whiteSelfReference), new LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +566,9 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelfList(WhiteSelfReference whiteSelfReference, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelf(WhiteSelfReference whiteSelfReference, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> loadReferrerOption) {
         xassLRArg(whiteSelfReference, loadReferrerOption);
-        return loadWhiteSelfReferenceSelfList(xnewLRLs(whiteSelfReference), loadReferrerOption);
+        return loadWhiteSelfReferenceSelf(xnewLRLs(whiteSelfReference), loadReferrerOption);
     }
 
     /**
@@ -578,13 +578,13 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelfList(List<WhiteSelfReference> whiteSelfReferenceList, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelf(List<WhiteSelfReference> whiteSelfReferenceList, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> loadReferrerOption) {
         xassLRArg(whiteSelfReferenceList, loadReferrerOption);
         if (whiteSelfReferenceList.isEmpty()) { return (NestedReferrerListGateway<WhiteSelfReference>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteSelfReferenceSelfList(whiteSelfReferenceList, loadReferrerOption);
+        return doLoadWhiteSelfReferenceSelf(whiteSelfReferenceList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteSelfReference> doLoadWhiteSelfReferenceSelfList(List<WhiteSelfReference> whiteSelfReferenceList, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> option) {
+    protected NestedReferrerListGateway<WhiteSelfReference> doLoadWhiteSelfReferenceSelf(List<WhiteSelfReference> whiteSelfReferenceList, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> option) {
         return helpLoadReferrerInternally(whiteSelfReferenceList, option, "whiteSelfReferenceSelfList");
     }
 
@@ -1157,9 +1157,8 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteSelfReferenceBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteSelfReferenceBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteSelfReferenceBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

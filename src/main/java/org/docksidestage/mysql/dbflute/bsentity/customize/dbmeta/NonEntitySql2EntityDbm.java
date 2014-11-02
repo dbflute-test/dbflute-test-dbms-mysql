@@ -52,7 +52,8 @@ public class NonEntitySql2EntityDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((NonEntitySql2Entity)et).getMemberId(), (et, vl) -> ((NonEntitySql2Entity)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((NonEntitySql2Entity)et).getMemberName(), (et, vl) -> ((NonEntitySql2Entity)et).setMemberName((String)vl), "memberName");
     }

@@ -3,14 +3,14 @@
  */
 package org.docksidestage.mysql.dbflute.exentity;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import org.dbflute.jdbc.ClassificationMeta;
 
 /**
- * The entity of member. <br />
- * You can implement your original methods here. <br />
- * This class is NOT overrided when re-generating. <br />
+ * The entity of member. <br>
+ * You can implement your original methods here. <br>
+ * This class is NOT overrided when re-generating. <br>
  * @author DBFlute(AutoGenerator)
  */
 public class Member extends org.docksidestage.mysql.dbflute.bsentity.BsMember {
@@ -31,7 +31,7 @@ public class Member extends org.docksidestage.mysql.dbflute.bsentity.BsMember {
     //                                                                           Attribute
     //                                                                           =========
     protected Integer _highestPurchasePrice;
-    protected Timestamp _latestLoginDatetime;
+    protected LocalDateTime _latestLoginDatetime;
     protected Integer _loginCount;
     protected Integer _productKindCount;
     protected String _groupExpression;
@@ -59,11 +59,11 @@ public class Member extends org.docksidestage.mysql.dbflute.bsentity.BsMember {
         this._highestPurchasePrice = highestPurchasePrice;
     }
 
-    public Timestamp getLatestLoginDatetime() {
+    public LocalDateTime getLatestLoginDatetime() {
         return _latestLoginDatetime;
     }
 
-    public void setLatestLoginDatetime(Timestamp latestLoginDatetime) {
+    public void setLatestLoginDatetime(LocalDateTime latestLoginDatetime) {
         _latestLoginDatetime = latestLoginDatetime;
     }
 

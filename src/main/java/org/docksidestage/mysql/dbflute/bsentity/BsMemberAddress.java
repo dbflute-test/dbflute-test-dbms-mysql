@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
@@ -62,13 +64,13 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberAddressId = entity.getMemberAddressId();
  * Integer memberId = entity.getMemberId();
- * java.util.Date validBeginDate = entity.getValidBeginDate();
- * java.util.Date validEndDate = entity.getValidEndDate();
+ * java.time.LocalDate validBeginDate = entity.getValidBeginDate();
+ * java.time.LocalDate validEndDate = entity.getValidEndDate();
  * String address = entity.getAddress();
  * Integer regionId = entity.getRegionId();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
  * Long versionNo = entity.getVersionNo();
  * entity.setMemberAddressId(memberAddressId);
@@ -104,10 +106,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     protected Integer _memberId;
 
     /** (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} */
-    protected java.util.Date _validBeginDate;
+    protected java.time.LocalDate _validBeginDate;
 
     /** (有効終了日)VALID_END_DATE: {NotNull, DATE(10)} */
-    protected java.util.Date _validEndDate;
+    protected java.time.LocalDate _validEndDate;
 
     /** (住所)ADDRESS: {NotNull, VARCHAR(200)} */
     protected String _address;
@@ -116,13 +118,13 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     protected Integer _regionId;
 
     /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
     /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
@@ -166,7 +168,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * @param memberId (会員ID): UQ+, NotNull, INT(10), FK to member. (NotNull)
      * @param validBeginDate (有効開始日): +UQ, NotNull, DATE(10). (NotNull)
      */
-    public void uniqueBy(Integer memberId, java.util.Date validBeginDate) {
+    public void uniqueBy(Integer memberId, java.time.LocalDate validBeginDate) {
         __uniqueDrivenProperties.clear();
         __uniqueDrivenProperties.addPropertyName("memberId");
         __uniqueDrivenProperties.addPropertyName("validBeginDate");
@@ -283,13 +285,15 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     //                                                                    Foreign Property
     //                                                                    ================
     /** (会員)member by my MEMBER_ID, named 'member'. */
-    protected Member _member;
+    protected OptionalEntity<Member> _member;
 
     /**
      * [get] (会員)member by my MEMBER_ID, named 'member'. <br>
-     * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Member getMember() {
+    public OptionalEntity<Member> getMember() {
+        if (_member == null) { _member = OptionalEntity.relationEmpty(this, "member"); }
         return _member;
     }
 
@@ -297,18 +301,20 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [set] (会員)member by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
-    public void setMember(Member member) {
+    public void setMember(OptionalEntity<Member> member) {
         _member = member;
     }
 
     /** (地域)region by my REGION_ID, named 'region'. */
-    protected Region _region;
+    protected OptionalEntity<Region> _region;
 
     /**
      * [get] (地域)region by my REGION_ID, named 'region'. <br>
-     * @return The entity of foreign property 'region'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'region'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Region getRegion() {
+    public OptionalEntity<Region> getRegion() {
+        if (_region == null) { _region = OptionalEntity.relationEmpty(this, "region"); }
         return _region;
     }
 
@@ -316,7 +322,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [set] (地域)region by my REGION_ID, named 'region'.
      * @param region The entity of foreign property 'region'. (NullAllowed)
      */
-    public void setRegion(Region region) {
+    public void setRegion(OptionalEntity<Region> region) {
         _region = region;
     }
 
@@ -352,11 +358,14 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_member != null)
+        if (_member != null && _member.isPresent())
         { sb.append(li).append(xbRDS(_member, "member")); }
-        if (_region != null)
+        if (_region != null && _region.isPresent())
         { sb.append(li).append(xbRDS(_region, "region")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -364,8 +373,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_memberAddressId));
         sb.append(dm).append(xfND(_memberId));
-        sb.append(dm).append(xfUD(_validBeginDate));
-        sb.append(dm).append(xfUD(_validEndDate));
+        sb.append(dm).append(xfND(_validBeginDate));
+        sb.append(dm).append(xfND(_validEndDate));
         sb.append(dm).append(xfND(_address));
         sb.append(dm).append(xfND(_regionId));
         sb.append(dm).append(xfND(_registerDatetime));
@@ -383,9 +392,9 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_member != null)
+        if (_member != null && _member.isPresent())
         { sb.append(dm).append("member"); }
-        if (_region != null)
+        if (_region != null && _region.isPresent())
         { sb.append(dm).append("region"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
@@ -451,7 +460,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * 前の有効終了日の次の日の値が格納される。
      * @return The value of the column 'VALID_BEGIN_DATE'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getValidBeginDate() {
+    public java.time.LocalDate getValidBeginDate() {
         checkSpecifiedProperty("validBeginDate");
         return _validBeginDate;
     }
@@ -462,7 +471,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * 前の有効終了日の次の日の値が格納される。
      * @param validBeginDate The value of the column 'VALID_BEGIN_DATE'. (basically NotNull if update: for the constraint)
      */
-    public void setValidBeginDate(java.util.Date validBeginDate) {
+    public void setValidBeginDate(java.time.LocalDate validBeginDate) {
         registerModifiedProperty("validBeginDate");
         _validBeginDate = validBeginDate;
     }
@@ -474,7 +483,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * ただし、次の有効期間がない場合は 9999/12/31 となる。
      * @return The value of the column 'VALID_END_DATE'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getValidEndDate() {
+    public java.time.LocalDate getValidEndDate() {
         checkSpecifiedProperty("validEndDate");
         return _validEndDate;
     }
@@ -486,7 +495,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * ただし、次の有効期間がない場合は 9999/12/31 となる。
      * @param validEndDate The value of the column 'VALID_END_DATE'. (basically NotNull if update: for the constraint)
      */
-    public void setValidEndDate(java.util.Date validEndDate) {
+    public void setValidEndDate(java.time.LocalDate validEndDate) {
         registerModifiedProperty("validEndDate");
         _validEndDate = validEndDate;
     }
@@ -538,7 +547,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
@@ -547,7 +556,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
@@ -574,7 +583,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
@@ -583,7 +592,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }

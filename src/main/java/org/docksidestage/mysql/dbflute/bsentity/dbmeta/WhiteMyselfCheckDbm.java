@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteMyselfCheckDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteMyselfCheck)et).getMyselfCheckId(), (et, vl) -> ((WhiteMyselfCheck)et).setMyselfCheckId(cti(vl)), "myselfCheckId");
         setupEpg(_epgMap, et -> ((WhiteMyselfCheck)et).getMyselfCheckName(), (et, vl) -> ((WhiteMyselfCheck)et).setMyselfCheckName((String)vl), "myselfCheckName");
         setupEpg(_epgMap, et -> ((WhiteMyselfCheck)et).getMyselfId(), (et, vl) -> ((WhiteMyselfCheck)et).setMyselfId(cti(vl)), "myselfId");
@@ -65,8 +67,9 @@ public class WhiteMyselfCheckDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteMyselfCheck)et).getWhiteMyself(), (et, vl) -> ((WhiteMyselfCheck)et).setWhiteMyself((WhiteMyself)vl), "whiteMyself");
+        setupEfpg(_efpgMap, et -> ((WhiteMyselfCheck)et).getWhiteMyself(), (et, vl) -> ((WhiteMyselfCheck)et).setWhiteMyself((OptionalEntity<WhiteMyself>)vl), "whiteMyself");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -139,7 +142,7 @@ public class WhiteMyselfCheckDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteMyself() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMyselfId(), WhiteMyselfDbm.getInstance().columnMyselfId());
-        return cfi("FK_WHITE_MYSELF_CHECK_SELF", "whiteMyself", this, WhiteMyselfDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteMyselfCheckList");
+        return cfi("FK_WHITE_MYSELF_CHECK_SELF", "whiteMyself", this, WhiteMyselfDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteMyselfCheckList");
     }
 
     // -----------------------------------------------------

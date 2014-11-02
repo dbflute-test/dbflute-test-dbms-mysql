@@ -52,7 +52,8 @@ public class VendorConstraintNameAutoFooDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorConstraintNameAutoFoo)et).getConstraintNameAutoFooId(), (et, vl) -> ((VendorConstraintNameAutoFoo)et).setConstraintNameAutoFooId(ctl(vl)), "constraintNameAutoFooId");
         setupEpg(_epgMap, et -> ((VendorConstraintNameAutoFoo)et).getConstraintNameAutoFooName(), (et, vl) -> ((VendorConstraintNameAutoFoo)et).setConstraintNameAutoFooName((String)vl), "constraintNameAutoFooName");
     }

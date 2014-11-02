@@ -52,12 +52,13 @@ public class WhiteDelimiterDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getDelimiterId(), (et, vl) -> ((WhiteDelimiter)et).setDelimiterId(ctl(vl)), "delimiterId");
         setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getNumberNullable(), (et, vl) -> ((WhiteDelimiter)et).setNumberNullable(cti(vl)), "numberNullable");
         setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getStringConverted(), (et, vl) -> ((WhiteDelimiter)et).setStringConverted((String)vl), "stringConverted");
         setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getStringNonConverted(), (et, vl) -> ((WhiteDelimiter)et).setStringNonConverted((String)vl), "stringNonConverted");
-        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getDateDefault(), (et, vl) -> ((WhiteDelimiter)et).setDateDefault((java.util.Date)vl), "dateDefault");
+        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getDateDefault(), (et, vl) -> ((WhiteDelimiter)et).setDateDefault((java.time.LocalDate)vl), "dateDefault");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -80,7 +81,7 @@ public class WhiteDelimiterDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnNumberNullable = cci("NUMBER_NULLABLE", "NUMBER_NULLABLE", null, null, Integer.class, "numberNullable", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnStringConverted = cci("STRING_CONVERTED", "STRING_CONVERTED", null, null, String.class, "stringConverted", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnStringNonConverted = cci("STRING_NON_CONVERTED", "STRING_NON_CONVERTED", null, null, String.class, "stringNonConverted", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnDateDefault = cci("DATE_DEFAULT", "DATE_DEFAULT", null, null, java.util.Date.class, "dateDefault", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnDateDefault = cci("DATE_DEFAULT", "DATE_DEFAULT", null, null, java.time.LocalDate.class, "dateDefault", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null);
 
     /**
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}

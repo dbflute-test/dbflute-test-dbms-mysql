@@ -167,13 +167,13 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {exists (select PURCHASE_ID from purchase_payment where ...)} <br>
      * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsPurchasePaymentList</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsPurchasePayment</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     paymentCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of PurchasePaymentList for 'exists'. (NotNull)
      */
-    public void existsPurchasePaymentList(SubQuery<PurchasePaymentCB> subCBLambda) {
+    public void existsPurchasePayment(SubQuery<PurchasePaymentCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         PurchasePaymentCB cb = new PurchasePaymentCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepPurchaseId_ExistsReferrer_PurchasePaymentList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {not exists (select PURCHASE_ID from purchase_payment where ...)} <br>
      * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsPurchasePaymentList</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsPurchasePayment</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     paymentCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of PurchaseId_NotExistsReferrer_PurchasePaymentList for 'not exists'. (NotNull)
      */
-    public void notExistsPurchasePaymentList(SubQuery<PurchasePaymentCB> subCBLambda) {
+    public void notExistsPurchasePayment(SubQuery<PurchasePaymentCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         PurchasePaymentCB cb = new PurchasePaymentCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepPurchaseId_NotExistsReferrer_PurchasePaymentList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from purchase_payment where ...)} <br>
      * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedPurchasePaymentList()</span>.<span style="color: #CC4747">max</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedPurchasePayment()</span>.<span style="color: #CC4747">max</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     paymentCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     paymentCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<PurchasePaymentCB> derivedPurchasePaymentList() {
+    public HpQDRFunction<PurchasePaymentCB> derivedPurchasePayment() {
         return xcreateQDRFunctionPurchasePaymentList();
     }
     protected HpQDRFunction<PurchasePaymentCB> xcreateQDRFunctionPurchasePaymentList() {
@@ -463,7 +463,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
      * @param purchaseDatetime The value of purchaseDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setPurchaseDatetime_Equal(java.sql.Timestamp purchaseDatetime) {
+    public void setPurchaseDatetime_Equal(java.time.LocalDateTime purchaseDatetime) {
         regPurchaseDatetime(CK_EQ,  purchaseDatetime);
     }
 
@@ -472,7 +472,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
      * @param purchaseDatetime The value of purchaseDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setPurchaseDatetime_GreaterThan(java.sql.Timestamp purchaseDatetime) {
+    public void setPurchaseDatetime_GreaterThan(java.time.LocalDateTime purchaseDatetime) {
         regPurchaseDatetime(CK_GT,  purchaseDatetime);
     }
 
@@ -481,7 +481,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
      * @param purchaseDatetime The value of purchaseDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setPurchaseDatetime_LessThan(java.sql.Timestamp purchaseDatetime) {
+    public void setPurchaseDatetime_LessThan(java.time.LocalDateTime purchaseDatetime) {
         regPurchaseDatetime(CK_LT,  purchaseDatetime);
     }
 
@@ -490,7 +490,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
      * @param purchaseDatetime The value of purchaseDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setPurchaseDatetime_GreaterEqual(java.sql.Timestamp purchaseDatetime) {
+    public void setPurchaseDatetime_GreaterEqual(java.time.LocalDateTime purchaseDatetime) {
         regPurchaseDatetime(CK_GE,  purchaseDatetime);
     }
 
@@ -499,7 +499,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
      * @param purchaseDatetime The value of purchaseDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setPurchaseDatetime_LessEqual(java.sql.Timestamp purchaseDatetime) {
+    public void setPurchaseDatetime_LessEqual(java.time.LocalDateTime purchaseDatetime) {
         regPurchaseDatetime(CK_LE, purchaseDatetime);
     }
 
@@ -512,7 +512,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of purchaseDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setPurchaseDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setPurchaseDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -525,23 +525,9 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of purchaseDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setPurchaseDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValuePurchaseDatetime(), "PURCHASE_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of purchaseDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of purchaseDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setPurchaseDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setPurchaseDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "PURCHASE_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValuePurchaseDatetime(), nm, op);
     }
 
     protected void regPurchaseDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePurchaseDatetime(), "PURCHASE_DATETIME"); }
@@ -848,7 +834,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_Equal(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
@@ -898,7 +884,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_Equal(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 

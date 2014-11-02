@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
         regLSQ(CK_NLS, fRES(toName), xgetCValueToName(), "TO_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TO_NAME: {NotNull, VARCHAR(200)}
-     * @param toName The value of toName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setToName_PrefixSearch(String toName) {
-        setToName_LikeSearch(toName, xcLSOPPre());
-    }
-
     protected void regToName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueToName(), "TO_NAME"); }
     protected abstract ConditionValue xgetCValueToName();
 

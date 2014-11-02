@@ -481,15 +481,6 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
         regLSQ(CK_NLS, fRES(traceTypeCode), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTraceTypeCode_PrefixSearch(String traceTypeCode) {
-        setTraceTypeCode_LikeSearch(traceTypeCode, xcLSOPPre());
-    }
-
     protected void regTraceTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE"); }
     protected abstract ConditionValue xgetCValueTraceTypeCode();
 

@@ -263,7 +263,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setPointTypeMappingSaleDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setPointTypeMappingSaleDate_FromTo(org.docksidestage.mysql.mytype.MySaleDate fromDatetime, org.docksidestage.mysql.mytype.MySaleDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setPointTypeMappingSaleDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -276,23 +276,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setPointTypeMappingSaleDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
+    public void setPointTypeMappingSaleDate_FromTo(org.docksidestage.mysql.mytype.MySaleDate fromDatetime, org.docksidestage.mysql.mytype.MySaleDate toDatetime, FromToOption fromToOption) {
         regFTQ((fromDatetime != null ? new org.docksidestage.mysql.mytype.MySaleDate(fromDatetime.getTime()) : null), (toDatetime != null ? new org.docksidestage.mysql.mytype.MySaleDate(toDatetime.getTime()) : null), xgetCValuePointTypeMappingSaleDate(), "POINT_TYPE_MAPPING_SALE_DATE", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of pointTypeMappingSaleDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of pointTypeMappingSaleDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setPointTypeMappingSaleDate_DateFromTo(Date fromDate, Date toDate) {
-        setPointTypeMappingSaleDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
     /**
@@ -315,8 +300,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setPointTypeMappingWantedDatetime_Equal(java.util.Date pointTypeMappingWantedDatetime) {
-        regPointTypeMappingWantedDatetime(CK_EQ,  fCTPD(pointTypeMappingWantedDatetime));
+    public void setPointTypeMappingWantedDatetime_Equal(java.time.LocalDate pointTypeMappingWantedDatetime) {
+        regPointTypeMappingWantedDatetime(CK_EQ,  pointTypeMappingWantedDatetime);
     }
 
     /**
@@ -324,8 +309,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setPointTypeMappingWantedDatetime_GreaterThan(java.util.Date pointTypeMappingWantedDatetime) {
-        regPointTypeMappingWantedDatetime(CK_GT,  fCTPD(pointTypeMappingWantedDatetime));
+    public void setPointTypeMappingWantedDatetime_GreaterThan(java.time.LocalDate pointTypeMappingWantedDatetime) {
+        regPointTypeMappingWantedDatetime(CK_GT,  pointTypeMappingWantedDatetime);
     }
 
     /**
@@ -333,8 +318,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setPointTypeMappingWantedDatetime_LessThan(java.util.Date pointTypeMappingWantedDatetime) {
-        regPointTypeMappingWantedDatetime(CK_LT,  fCTPD(pointTypeMappingWantedDatetime));
+    public void setPointTypeMappingWantedDatetime_LessThan(java.time.LocalDate pointTypeMappingWantedDatetime) {
+        regPointTypeMappingWantedDatetime(CK_LT,  pointTypeMappingWantedDatetime);
     }
 
     /**
@@ -342,8 +327,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setPointTypeMappingWantedDatetime_GreaterEqual(java.util.Date pointTypeMappingWantedDatetime) {
-        regPointTypeMappingWantedDatetime(CK_GE,  fCTPD(pointTypeMappingWantedDatetime));
+    public void setPointTypeMappingWantedDatetime_GreaterEqual(java.time.LocalDate pointTypeMappingWantedDatetime) {
+        regPointTypeMappingWantedDatetime(CK_GE,  pointTypeMappingWantedDatetime);
     }
 
     /**
@@ -351,8 +336,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setPointTypeMappingWantedDatetime_LessEqual(java.util.Date pointTypeMappingWantedDatetime) {
-        regPointTypeMappingWantedDatetime(CK_LE, fCTPD(pointTypeMappingWantedDatetime));
+    public void setPointTypeMappingWantedDatetime_LessEqual(java.time.LocalDate pointTypeMappingWantedDatetime) {
+        regPointTypeMappingWantedDatetime(CK_LE, pointTypeMappingWantedDatetime);
     }
 
     /**
@@ -364,7 +349,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setPointTypeMappingWantedDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setPointTypeMappingWantedDatetime_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setPointTypeMappingWantedDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -377,23 +362,9 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setPointTypeMappingWantedDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValuePointTypeMappingWantedDatetime(), "POINT_TYPE_MAPPING_WANTED_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setPointTypeMappingWantedDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setPointTypeMappingWantedDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setPointTypeMappingWantedDatetime_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "POINT_TYPE_MAPPING_WANTED_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValuePointTypeMappingWantedDatetime(), nm, op);
     }
 
     /**

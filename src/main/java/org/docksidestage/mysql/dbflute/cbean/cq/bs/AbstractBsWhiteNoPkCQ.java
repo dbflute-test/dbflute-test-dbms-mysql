@@ -262,15 +262,6 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * NO_PK_NAME: {VARCHAR(32)}
-     * @param noPkName The value of noPkName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setNoPkName_PrefixSearch(String noPkName) {
-        setNoPkName_LikeSearch(noPkName, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * NO_PK_NAME: {VARCHAR(32)}
      */

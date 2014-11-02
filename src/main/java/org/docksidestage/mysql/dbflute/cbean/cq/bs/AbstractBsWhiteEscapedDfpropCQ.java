@@ -73,7 +73,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * Equal(=). As EscapedDfpropCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
-     * delimiter; & endBrace} & path\foo\bar
+     * delimiter; &amp; endBrace} &amp; path\foo\bar
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
     public void setEscapedDfpropCode_Equal_AsEscapedDfpropCls(CDef.EscapedDfpropCls cdef) {
@@ -82,7 +82,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
 
     /**
      * Equal(=). As First (;@\\). And OnlyOnceRegistered. <br>
-     * First: delimiter & rear escape char
+     * First: delimiter &amp; rear escape char
      */
     public void setEscapedDfpropCode_Equal_First() {
         setEscapedDfpropCode_Equal_AsEscapedDfpropCls(CDef.EscapedDfpropCls.First);
@@ -90,7 +90,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
 
     /**
      * Equal(=). As Second (\\};). And OnlyOnceRegistered. <br>
-     * Second: escape char & endBrace & delimiter
+     * Second: escape char &amp; endBrace &amp; delimiter
      */
     public void setEscapedDfpropCode_Equal_Second() {
         setEscapedDfpropCode_Equal_AsEscapedDfpropCls(CDef.EscapedDfpropCls.Second);
@@ -98,7 +98,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
 
     /**
      * Equal(=). As Third ({=}). And OnlyOnceRegistered. <br>
-     * Third: startBrace & equal & endBrace
+     * Third: startBrace &amp; equal &amp; endBrace
      */
     public void setEscapedDfpropCode_Equal_Third() {
         setEscapedDfpropCode_Equal_AsEscapedDfpropCls(CDef.EscapedDfpropCls.Third);
@@ -120,7 +120,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * NotEqual(&lt;&gt;). As EscapedDfpropCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
-     * delimiter; & endBrace} & path\foo\bar
+     * delimiter; &amp; endBrace} &amp; path\foo\bar
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
      */
     public void setEscapedDfpropCode_NotEqual_AsEscapedDfpropCls(CDef.EscapedDfpropCls cdef) {
@@ -129,7 +129,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
 
     /**
      * NotEqual(&lt;&gt;). As First (;@\\). And OnlyOnceRegistered. <br>
-     * First: delimiter & rear escape char
+     * First: delimiter &amp; rear escape char
      */
     public void setEscapedDfpropCode_NotEqual_First() {
         setEscapedDfpropCode_NotEqual_AsEscapedDfpropCls(CDef.EscapedDfpropCls.First);
@@ -137,7 +137,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
 
     /**
      * NotEqual(&lt;&gt;). As Second (\\};). And OnlyOnceRegistered. <br>
-     * Second: escape char & endBrace & delimiter
+     * Second: escape char &amp; endBrace &amp; delimiter
      */
     public void setEscapedDfpropCode_NotEqual_Second() {
         setEscapedDfpropCode_NotEqual_AsEscapedDfpropCls(CDef.EscapedDfpropCls.Second);
@@ -145,7 +145,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
 
     /**
      * NotEqual(&lt;&gt;). As Third ({=}). And OnlyOnceRegistered. <br>
-     * Third: startBrace & equal & endBrace
+     * Third: startBrace &amp; equal &amp; endBrace
      */
     public void setEscapedDfpropCode_NotEqual_Third() {
         setEscapedDfpropCode_NotEqual_AsEscapedDfpropCls(CDef.EscapedDfpropCls.Third);
@@ -167,7 +167,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * InScope {in ('a', 'b')}. As EscapedDfpropCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
-     * delimiter; & endBrace} & path\foo\bar
+     * delimiter; &amp; endBrace} &amp; path\foo\bar
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
     public void setEscapedDfpropCode_InScope_AsEscapedDfpropCls(Collection<CDef.EscapedDfpropCls> cdefList) {
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * NotInScope {not in ('a', 'b')}. As EscapedDfpropCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
-     * delimiter; & endBrace} & path\foo\bar
+     * delimiter; &amp; endBrace} &amp; path\foo\bar
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
     public void setEscapedDfpropCode_NotInScope_AsEscapedDfpropCls(Collection<CDef.EscapedDfpropCls> cdefList) {
@@ -310,15 +310,6 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      */
     public void setEscapedDfpropName_NotLikeSearch(String escapedDfpropName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(escapedDfpropName), xgetCValueEscapedDfpropName(), "ESCAPED_DFPROP_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
-     * @param escapedDfpropName The value of escapedDfpropName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setEscapedDfpropName_PrefixSearch(String escapedDfpropName) {
-        setEscapedDfpropName_LikeSearch(escapedDfpropName, xcLSOPPre());
     }
 
     /**

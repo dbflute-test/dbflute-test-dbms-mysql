@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteUqFkRefNestDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteUqFkRefNest)et).getUqFkRefNestId(), (et, vl) -> ((WhiteUqFkRefNest)et).setUqFkRefNestId(ctl(vl)), "uqFkRefNestId");
         setupEpg(_epgMap, et -> ((WhiteUqFkRefNest)et).getCompoundUqFirstCode(), (et, vl) -> ((WhiteUqFkRefNest)et).setCompoundUqFirstCode((String)vl), "compoundUqFirstCode");
         setupEpg(_epgMap, et -> ((WhiteUqFkRefNest)et).getCompoundUqSecondCode(), (et, vl) -> ((WhiteUqFkRefNest)et).setCompoundUqSecondCode((String)vl), "compoundUqSecondCode");
@@ -65,8 +67,9 @@ public class WhiteUqFkRefNestDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteUqFkRefNest)et).getWhiteUqFkRef(), (et, vl) -> ((WhiteUqFkRefNest)et).setWhiteUqFkRef((WhiteUqFkRef)vl), "whiteUqFkRef");
+        setupEfpg(_efpgMap, et -> ((WhiteUqFkRefNest)et).getWhiteUqFkRef(), (et, vl) -> ((WhiteUqFkRefNest)et).setWhiteUqFkRef((OptionalEntity<WhiteUqFkRef>)vl), "whiteUqFkRef");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -141,7 +144,7 @@ public class WhiteUqFkRefNestDbm extends AbstractDBMeta {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMapSized(4);
         mp.put(columnCompoundUqFirstCode(), WhiteUqFkRefDbm.getInstance().columnCompoundUqFirstCode());
         mp.put(columnCompoundUqSecondCode(), WhiteUqFkRefDbm.getInstance().columnCompoundUqSecondCode());
-        return cfi("FK_WHITE_UQ_FK_REF_NEST_UQ", "whiteUqFkRef", this, WhiteUqFkRefDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteUqFkRefNestList");
+        return cfi("FK_WHITE_UQ_FK_REF_NEST_UQ", "whiteUqFkRef", this, WhiteUqFkRefDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteUqFkRefNestList");
     }
 
     // -----------------------------------------------------

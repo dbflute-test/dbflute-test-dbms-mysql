@@ -111,7 +111,7 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
      * @param validBeginDate : +UQ, NotNull, DATE(10). (NotNull)
      * @return this. (NotNull)
      */
-    public WhiteImplicitReverseFkSuppressCB acceptUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate) {
+    public WhiteImplicitReverseFkSuppressCB acceptUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate) {
         assertObjectNotNull("whiteImplicitReverseFkId", whiteImplicitReverseFkId);assertObjectNotNull("validBeginDate", validBeginDate);
         BsWhiteImplicitReverseFkSuppressCB cb = this;
         cb.query().setWhiteImplicitReverseFkId_Equal(whiteImplicitReverseFkId);cb.query().setValidBeginDate_Equal(validBeginDate);
@@ -356,6 +356,24 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteImplicitReverseFkSuppressCB dreamCruiseCB() {
+        WhiteImplicitReverseFkSuppressCB cb = new WhiteImplicitReverseFkSuppressCB();
+        cb.xsetupForDreamCruise((WhiteImplicitReverseFkSuppressCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -387,24 +405,6 @@ public class BsWhiteImplicitReverseFkSuppressCB extends AbstractConditionBean {
         WhiteImplicitReverseFkSuppressCB cb = new WhiteImplicitReverseFkSuppressCB();
         cb.xsetupForColumnQuery((WhiteImplicitReverseFkSuppressCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteImplicitReverseFkSuppressCB dreamCruiseCB() {
-        WhiteImplicitReverseFkSuppressCB cb = new WhiteImplicitReverseFkSuppressCB();
-        cb.xsetupForDreamCruise((WhiteImplicitReverseFkSuppressCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

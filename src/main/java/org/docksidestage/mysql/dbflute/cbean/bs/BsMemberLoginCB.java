@@ -112,7 +112,7 @@ public class BsMemberLoginCB extends AbstractConditionBean {
      * @param loginDatetime (ログイン日時): +UQ, IX, NotNull, DATETIME(19). (NotNull)
      * @return this. (NotNull)
      */
-    public MemberLoginCB acceptUniqueOf(Integer memberId, java.sql.Timestamp loginDatetime) {
+    public MemberLoginCB acceptUniqueOf(Integer memberId, java.time.LocalDateTime loginDatetime) {
         assertObjectNotNull("memberId", memberId);assertObjectNotNull("loginDatetime", loginDatetime);
         BsMemberLoginCB cb = this;
         cb.query().setMemberId_Equal(memberId);cb.query().setLoginDatetime_Equal(loginDatetime);
@@ -461,6 +461,24 @@ public class BsMemberLoginCB extends AbstractConditionBean {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public MemberLoginCB dreamCruiseCB() {
+        MemberLoginCB cb = new MemberLoginCB();
+        cb.xsetupForDreamCruise((MemberLoginCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -492,24 +510,6 @@ public class BsMemberLoginCB extends AbstractConditionBean {
         MemberLoginCB cb = new MemberLoginCB();
         cb.xsetupForColumnQuery((MemberLoginCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public MemberLoginCB dreamCruiseCB() {
-        MemberLoginCB cb = new MemberLoginCB();
-        cb.xsetupForDreamCruise((MemberLoginCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

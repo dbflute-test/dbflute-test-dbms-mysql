@@ -273,15 +273,6 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
         regLSQ(CK_NLS, fRES(myselfCheckName), xgetCValueMyselfCheckName(), "MYSELF_CHECK_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
-     * @param myselfCheckName The value of myselfCheckName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMyselfCheckName_PrefixSearch(String myselfCheckName) {
-        setMyselfCheckName_LikeSearch(myselfCheckName, xcLSOPPre());
-    }
-
     protected void regMyselfCheckName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMyselfCheckName(), "MYSELF_CHECK_NAME"); }
     protected abstract ConditionValue xgetCValueMyselfCheckName();
 

@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {exists (select REFERRER_ID from white_variant_relation_referrer_ref where ...)} <br>
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteVariantRelationReferrerRefList for 'exists'. (NotNull)
      */
-    public void existsWhiteVariantRelationReferrerRefList(SubQuery<WhiteVariantRelationReferrerRefCB> subCBLambda) {
+    public void existsWhiteVariantRelationReferrerRef(SubQuery<WhiteVariantRelationReferrerRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerRefCB cb = new WhiteVariantRelationReferrerRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepReferrerId_ExistsReferrer_WhiteVariantRelationReferrerRefList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {not exists (select REFERRER_ID from white_variant_relation_referrer_ref where ...)} <br>
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ReferrerId_NotExistsReferrer_WhiteVariantRelationReferrerRefList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteVariantRelationReferrerRefList(SubQuery<WhiteVariantRelationReferrerRefCB> subCBLambda) {
+    public void notExistsWhiteVariantRelationReferrerRef(SubQuery<WhiteVariantRelationReferrerRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerRefCB cb = new WhiteVariantRelationReferrerRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepReferrerId_NotExistsReferrer_WhiteVariantRelationReferrerRefList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer_ref where ...)} <br>
      * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteVariantRelationReferrerRefCB> derivedWhiteVariantRelationReferrerRefList() {
+    public HpQDRFunction<WhiteVariantRelationReferrerRefCB> derivedWhiteVariantRelationReferrerRef() {
         return xcreateQDRFunctionWhiteVariantRelationReferrerRefList();
     }
     protected HpQDRFunction<WhiteVariantRelationReferrerRefCB> xcreateQDRFunctionWhiteVariantRelationReferrerRefList() {

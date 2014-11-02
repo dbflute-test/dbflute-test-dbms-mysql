@@ -390,15 +390,6 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CIPHER_VARCHAR: {VARCHAR(100)}
-     * @param cipherVarchar The value of cipherVarchar as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setCipherVarchar_PrefixSearch(String cipherVarchar) {
-        setCipherVarchar_LikeSearch(cipherVarchar, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
      */
@@ -424,8 +415,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATE: {VARCHAR(100)}
      * @param cipherDate The value of cipherDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setCipherDate_Equal(java.util.Date cipherDate) {
-        regCipherDate(CK_EQ,  fCTPD(cipherDate));
+    public void setCipherDate_Equal(java.time.LocalDate cipherDate) {
+        regCipherDate(CK_EQ,  cipherDate);
     }
 
     /**
@@ -433,8 +424,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATE: {VARCHAR(100)}
      * @param cipherDate The value of cipherDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setCipherDate_GreaterThan(java.util.Date cipherDate) {
-        regCipherDate(CK_GT,  fCTPD(cipherDate));
+    public void setCipherDate_GreaterThan(java.time.LocalDate cipherDate) {
+        regCipherDate(CK_GT,  cipherDate);
     }
 
     /**
@@ -442,8 +433,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATE: {VARCHAR(100)}
      * @param cipherDate The value of cipherDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setCipherDate_LessThan(java.util.Date cipherDate) {
-        regCipherDate(CK_LT,  fCTPD(cipherDate));
+    public void setCipherDate_LessThan(java.time.LocalDate cipherDate) {
+        regCipherDate(CK_LT,  cipherDate);
     }
 
     /**
@@ -451,8 +442,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATE: {VARCHAR(100)}
      * @param cipherDate The value of cipherDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setCipherDate_GreaterEqual(java.util.Date cipherDate) {
-        regCipherDate(CK_GE,  fCTPD(cipherDate));
+    public void setCipherDate_GreaterEqual(java.time.LocalDate cipherDate) {
+        regCipherDate(CK_GE,  cipherDate);
     }
 
     /**
@@ -460,8 +451,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATE: {VARCHAR(100)}
      * @param cipherDate The value of cipherDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setCipherDate_LessEqual(java.util.Date cipherDate) {
-        regCipherDate(CK_LE, fCTPD(cipherDate));
+    public void setCipherDate_LessEqual(java.time.LocalDate cipherDate) {
+        regCipherDate(CK_LE, cipherDate);
     }
 
     /**
@@ -473,7 +464,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of cipherDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setCipherDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setCipherDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setCipherDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -486,23 +477,9 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of cipherDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setCipherDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueCipherDate(), "CIPHER_DATE", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * CIPHER_DATE: {VARCHAR(100)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of cipherDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of cipherDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setCipherDate_DateFromTo(Date fromDate, Date toDate) {
-        setCipherDate_FromTo(fromDate, toDate, xcDFTOP());
+    public void setCipherDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "CIPHER_DATE"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueCipherDate(), nm, op);
     }
 
     /**
@@ -525,7 +502,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATETIME: {VARCHAR(100)}
      * @param cipherDatetime The value of cipherDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setCipherDatetime_Equal(java.sql.Timestamp cipherDatetime) {
+    public void setCipherDatetime_Equal(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_EQ,  cipherDatetime);
     }
 
@@ -534,7 +511,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATETIME: {VARCHAR(100)}
      * @param cipherDatetime The value of cipherDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setCipherDatetime_GreaterThan(java.sql.Timestamp cipherDatetime) {
+    public void setCipherDatetime_GreaterThan(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_GT,  cipherDatetime);
     }
 
@@ -543,7 +520,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATETIME: {VARCHAR(100)}
      * @param cipherDatetime The value of cipherDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setCipherDatetime_LessThan(java.sql.Timestamp cipherDatetime) {
+    public void setCipherDatetime_LessThan(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_LT,  cipherDatetime);
     }
 
@@ -552,7 +529,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATETIME: {VARCHAR(100)}
      * @param cipherDatetime The value of cipherDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setCipherDatetime_GreaterEqual(java.sql.Timestamp cipherDatetime) {
+    public void setCipherDatetime_GreaterEqual(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_GE,  cipherDatetime);
     }
 
@@ -561,7 +538,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * CIPHER_DATETIME: {VARCHAR(100)}
      * @param cipherDatetime The value of cipherDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setCipherDatetime_LessEqual(java.sql.Timestamp cipherDatetime) {
+    public void setCipherDatetime_LessEqual(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_LE, cipherDatetime);
     }
 
@@ -574,7 +551,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of cipherDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setCipherDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setCipherDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setCipherDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -587,23 +564,9 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of cipherDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setCipherDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueCipherDatetime(), "CIPHER_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * CIPHER_DATETIME: {VARCHAR(100)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of cipherDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of cipherDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setCipherDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setCipherDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setCipherDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "CIPHER_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueCipherDatetime(), nm, op);
     }
 
     /**

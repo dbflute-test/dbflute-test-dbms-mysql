@@ -52,7 +52,8 @@ public class WhiteUqClassificationDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteUqClassification)et).getUqClsId(), (et, vl) -> ((WhiteUqClassification)et).setUqClsId(ctl(vl)), "uqClsId");
         setupEpg(_epgMap, et -> ((WhiteUqClassification)et).getUqClsCode(), (et, vl) -> {
             ColumnInfo col = columnUqClsCode();

@@ -5,9 +5,9 @@ package org.docksidestage.mysql.dbflute.cbean;
 
 
 /**
- * The condition-bean of member. <br />
- * You can implement your original methods here. <br />
- * This class is NOT overrided when re-generating. <br />
+ * The condition-bean of member. <br>
+ * You can implement your original methods here. <br>
+ * This class is NOT overrided when re-generating. <br>
  * 
  * @author DBFlute(AutoGenerator)
  */

@@ -58,8 +58,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer whiteImplicitReverseFkSuppressId = entity.getWhiteImplicitReverseFkSuppressId();
  * Integer whiteImplicitReverseFkId = entity.getWhiteImplicitReverseFkId();
- * java.util.Date validBeginDate = entity.getValidBeginDate();
- * java.util.Date validEndDate = entity.getValidEndDate();
+ * java.time.LocalDate validBeginDate = entity.getValidBeginDate();
+ * java.time.LocalDate validEndDate = entity.getValidEndDate();
  * entity.setWhiteImplicitReverseFkSuppressId(whiteImplicitReverseFkSuppressId);
  * entity.setWhiteImplicitReverseFkId(whiteImplicitReverseFkId);
  * entity.setValidBeginDate(validBeginDate);
@@ -86,10 +86,10 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
     protected Integer _whiteImplicitReverseFkId;
 
     /** VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} */
-    protected java.util.Date _validBeginDate;
+    protected java.time.LocalDate _validBeginDate;
 
     /** VALID_END_DATE: {NotNull, DATE(10)} */
-    protected java.util.Date _validEndDate;
+    protected java.time.LocalDate _validEndDate;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -127,7 +127,7 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
      * @param whiteImplicitReverseFkId : UQ+, NotNull, INT(10). (NotNull)
      * @param validBeginDate : +UQ, NotNull, DATE(10). (NotNull)
      */
-    public void uniqueBy(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate) {
+    public void uniqueBy(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate) {
         __uniqueDrivenProperties.clear();
         __uniqueDrivenProperties.addPropertyName("whiteImplicitReverseFkId");
         __uniqueDrivenProperties.addPropertyName("validBeginDate");
@@ -176,8 +176,8 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_whiteImplicitReverseFkSuppressId));
         sb.append(dm).append(xfND(_whiteImplicitReverseFkId));
-        sb.append(dm).append(xfUD(_validBeginDate));
-        sb.append(dm).append(xfUD(_validEndDate));
+        sb.append(dm).append(xfND(_validBeginDate));
+        sb.append(dm).append(xfND(_validEndDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -238,7 +238,7 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
      * [get] VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br>
      * @return The value of the column 'VALID_BEGIN_DATE'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getValidBeginDate() {
+    public java.time.LocalDate getValidBeginDate() {
         checkSpecifiedProperty("validBeginDate");
         return _validBeginDate;
     }
@@ -247,7 +247,7 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
      * [set] VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br>
      * @param validBeginDate The value of the column 'VALID_BEGIN_DATE'. (basically NotNull if update: for the constraint)
      */
-    public void setValidBeginDate(java.util.Date validBeginDate) {
+    public void setValidBeginDate(java.time.LocalDate validBeginDate) {
         registerModifiedProperty("validBeginDate");
         _validBeginDate = validBeginDate;
     }
@@ -256,7 +256,7 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
      * [get] VALID_END_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'VALID_END_DATE'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getValidEndDate() {
+    public java.time.LocalDate getValidEndDate() {
         checkSpecifiedProperty("validEndDate");
         return _validEndDate;
     }
@@ -265,7 +265,7 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
      * [set] VALID_END_DATE: {NotNull, DATE(10)} <br>
      * @param validEndDate The value of the column 'VALID_END_DATE'. (basically NotNull if update: for the constraint)
      */
-    public void setValidEndDate(java.util.Date validEndDate) {
+    public void setValidEndDate(java.time.LocalDate validEndDate) {
         registerModifiedProperty("validEndDate");
         _validEndDate = validEndDate;
     }

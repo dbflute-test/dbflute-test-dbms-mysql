@@ -58,7 +58,7 @@ public class WxCBMyselfDerivedMySqlTest extends UnitContainerTestCase {
         boolean existsSame = false;
         for (Member member : memberList) {
             Integer memberId = member.getMemberId();
-            Integer servicePointCount = member.getMemberServiceAsOne().getServicePointCount();
+            Integer servicePointCount = member.getMemberServiceAsOne().get().getServicePointCount();
             Integer pointRank = member.getLoginCount();
             log(memberId + ", " + servicePointCount + ", " + pointRank);
             if (previousPoint != null && previousPoint < servicePointCount) {
@@ -80,7 +80,7 @@ public class WxCBMyselfDerivedMySqlTest extends UnitContainerTestCase {
     public void test_SpecifyMyselfDerived_ranking_derived() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -91,7 +91,7 @@ public class WxCBMyselfDerivedMySqlTest extends UnitContainerTestCase {
                 subCB.specify().columnMemberId();
                 subCB.columnQuery(new SpecifyQuery<MemberCB>() {
                     public void specify(MemberCB cb) {
-                        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                             public void query(PurchaseCB subCB) {
                                 subCB.specify().columnPurchasePrice();
                             }
@@ -238,7 +238,7 @@ public class WxCBMyselfDerivedMySqlTest extends UnitContainerTestCase {
             if (previousRank != null && previousRank > pointRank) {
                 fail();
             }
-            assertNull(member.getMemberServiceAsOne());
+            assertFalse(member.getMemberServiceAsOne().isPresent());
             assertTrue(pointRank <= 3);
             previousRank = pointRank;
         }

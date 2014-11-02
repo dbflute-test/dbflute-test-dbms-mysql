@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -143,13 +145,15 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. */
-    protected WhiteUqFk _whiteUqFkByFkToPkId;
+    protected OptionalEntity<WhiteUqFk> _whiteUqFkByFkToPkId;
 
     /**
      * [get] white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. <br>
-     * @return The entity of foreign property 'whiteUqFkByFkToPkId'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteUqFkByFkToPkId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteUqFk getWhiteUqFkByFkToPkId() {
+    public OptionalEntity<WhiteUqFk> getWhiteUqFkByFkToPkId() {
+        if (_whiteUqFkByFkToPkId == null) { _whiteUqFkByFkToPkId = OptionalEntity.relationEmpty(this, "whiteUqFkByFkToPkId"); }
         return _whiteUqFkByFkToPkId;
     }
 
@@ -157,18 +161,20 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
      * [set] white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      * @param whiteUqFkByFkToPkId The entity of foreign property 'whiteUqFkByFkToPkId'. (NullAllowed)
      */
-    public void setWhiteUqFkByFkToPkId(WhiteUqFk whiteUqFkByFkToPkId) {
+    public void setWhiteUqFkByFkToPkId(OptionalEntity<WhiteUqFk> whiteUqFkByFkToPkId) {
         _whiteUqFkByFkToPkId = whiteUqFkByFkToPkId;
     }
 
     /** white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. */
-    protected WhiteUqFk _whiteUqFkByFkToUqCode;
+    protected OptionalEntity<WhiteUqFk> _whiteUqFkByFkToUqCode;
 
     /**
      * [get] white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. <br>
-     * @return The entity of foreign property 'whiteUqFkByFkToUqCode'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteUqFkByFkToUqCode'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteUqFk getWhiteUqFkByFkToUqCode() {
+    public OptionalEntity<WhiteUqFk> getWhiteUqFkByFkToUqCode() {
+        if (_whiteUqFkByFkToUqCode == null) { _whiteUqFkByFkToUqCode = OptionalEntity.relationEmpty(this, "whiteUqFkByFkToUqCode"); }
         return _whiteUqFkByFkToUqCode;
     }
 
@@ -176,7 +182,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
      * [set] white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      * @param whiteUqFkByFkToUqCode The entity of foreign property 'whiteUqFkByFkToUqCode'. (NullAllowed)
      */
-    public void setWhiteUqFkByFkToUqCode(WhiteUqFk whiteUqFkByFkToUqCode) {
+    public void setWhiteUqFkByFkToUqCode(OptionalEntity<WhiteUqFk> whiteUqFkByFkToUqCode) {
         _whiteUqFkByFkToUqCode = whiteUqFkByFkToUqCode;
     }
 
@@ -232,13 +238,16 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteUqFkByFkToPkId != null)
+        if (_whiteUqFkByFkToPkId != null && _whiteUqFkByFkToPkId.isPresent())
         { sb.append(li).append(xbRDS(_whiteUqFkByFkToPkId, "whiteUqFkByFkToPkId")); }
-        if (_whiteUqFkByFkToUqCode != null)
+        if (_whiteUqFkByFkToUqCode != null && _whiteUqFkByFkToUqCode.isPresent())
         { sb.append(li).append(xbRDS(_whiteUqFkByFkToUqCode, "whiteUqFkByFkToUqCode")); }
         if (_whiteUqFkRefNestList != null) { for (WhiteUqFkRefNest et : _whiteUqFkRefNestList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteUqFkRefNestList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -259,9 +268,9 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteUqFkByFkToPkId != null)
+        if (_whiteUqFkByFkToPkId != null && _whiteUqFkByFkToPkId.isPresent())
         { sb.append(dm).append("whiteUqFkByFkToPkId"); }
-        if (_whiteUqFkByFkToUqCode != null)
+        if (_whiteUqFkByFkToUqCode != null && _whiteUqFkByFkToUqCode.isPresent())
         { sb.append(dm).append("whiteUqFkByFkToUqCode"); }
         if (_whiteUqFkRefNestList != null && !_whiteUqFkRefNestList.isEmpty())
         { sb.append(dm).append("whiteUqFkRefNestList"); }

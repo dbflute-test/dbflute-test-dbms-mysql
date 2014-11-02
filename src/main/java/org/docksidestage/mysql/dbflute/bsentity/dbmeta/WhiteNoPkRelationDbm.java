@@ -52,7 +52,8 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductId(), (et, vl) -> ((WhiteNoPkRelation)et).setProductId(cti(vl)), "productId");
         setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductName(), (et, vl) -> ((WhiteNoPkRelation)et).setProductName((String)vl), "productName");
         setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductHandleCode(), (et, vl) -> ((WhiteNoPkRelation)et).setProductHandleCode((String)vl), "productHandleCode");
@@ -66,7 +67,7 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
                 ((WhiteNoPkRelation)et).mynativeMappingProductStatusCode((String)vl);
             }
         }, "productStatusCode");
-        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getLatestPurchaseDatetime(), (et, vl) -> ((WhiteNoPkRelation)et).setLatestPurchaseDatetime((java.sql.Timestamp)vl), "latestPurchaseDatetime");
+        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getLatestPurchaseDatetime(), (et, vl) -> ((WhiteNoPkRelation)et).setLatestPurchaseDatetime((java.time.LocalDateTime)vl), "latestPurchaseDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -91,7 +92,7 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, "商品名称", String.class, "productName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, "商品ハンドルコード", String.class, "productHandleCode", null, false, false, true, "VARCHAR", 100, 0, null, false, null, "商品を識別する業務上のコード。", null, null, null);
     protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.ProductStatus);
-    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, java.sql.Timestamp.class, "latestPurchaseDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null);
 
     /**
      * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}

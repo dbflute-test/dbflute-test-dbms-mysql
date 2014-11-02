@@ -327,15 +327,6 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
-     * @param deprecatedClsElementName The value of deprecatedClsElementName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setDeprecatedClsElementName_PrefixSearch(String deprecatedClsElementName) {
-        setDeprecatedClsElementName_LikeSearch(deprecatedClsElementName, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      */

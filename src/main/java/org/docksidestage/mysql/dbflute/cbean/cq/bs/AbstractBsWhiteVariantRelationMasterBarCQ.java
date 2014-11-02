@@ -167,13 +167,13 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * {exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerAsVariant</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referrerCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteVariantRelationReferrerAsVariantList for 'exists'. (NotNull)
      */
-    public void existsWhiteVariantRelationReferrerAsVariantList(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
+    public void existsWhiteVariantRelationReferrerAsVariant(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMasterBarId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList(cb.query());
@@ -186,13 +186,13 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * {not exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerAsVariant</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referrerCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MasterBarId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteVariantRelationReferrerAsVariantList(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
+    public void notExistsWhiteVariantRelationReferrerAsVariant(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMasterBarId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList(cb.query());
@@ -213,14 +213,14 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerAsVariantList()</span>.<span style="color: #CC4747">max</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerAsVariant()</span>.<span style="color: #CC4747">max</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referrerCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     referrerCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteVariantRelationReferrerCB> derivedWhiteVariantRelationReferrerAsVariantList() {
+    public HpQDRFunction<WhiteVariantRelationReferrerCB> derivedWhiteVariantRelationReferrerAsVariant() {
         return xcreateQDRFunctionWhiteVariantRelationReferrerAsVariantList();
     }
     protected HpQDRFunction<WhiteVariantRelationReferrerCB> xcreateQDRFunctionWhiteVariantRelationReferrerAsVariantList() {
@@ -344,15 +344,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      */
     public void setMasterBarName_NotLikeSearch(String masterBarName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(masterBarName), xgetCValueMasterBarName(), "MASTER_BAR_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
-     * @param masterBarName The value of masterBarName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMasterBarName_PrefixSearch(String masterBarName) {
-        setMasterBarName_LikeSearch(masterBarName, xcLSOPPre());
     }
 
     protected void regMasterBarName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterBarName(), "MASTER_BAR_NAME"); }

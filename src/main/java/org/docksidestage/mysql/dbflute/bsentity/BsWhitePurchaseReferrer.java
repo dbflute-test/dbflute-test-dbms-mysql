@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -115,13 +117,15 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     //                                                                    Foreign Property
     //                                                                    ================
     /** (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'. */
-    protected Purchase _purchase;
+    protected OptionalEntity<Purchase> _purchase;
 
     /**
      * [get] (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'. <br>
-     * @return The entity of foreign property 'purchase'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'purchase'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Purchase getPurchase() {
+    public OptionalEntity<Purchase> getPurchase() {
+        if (_purchase == null) { _purchase = OptionalEntity.relationEmpty(this, "purchase"); }
         return _purchase;
     }
 
@@ -129,7 +133,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
      * [set] (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'.
      * @param purchase The entity of foreign property 'purchase'. (NullAllowed)
      */
-    public void setPurchase(Purchase purchase) {
+    public void setPurchase(OptionalEntity<Purchase> purchase) {
         _purchase = purchase;
     }
 
@@ -165,9 +169,12 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_purchase != null)
+        if (_purchase != null && _purchase.isPresent())
         { sb.append(li).append(xbRDS(_purchase, "purchase")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -185,7 +192,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_purchase != null)
+        if (_purchase != null && _purchase.isPresent())
         { sb.append(dm).append("purchase"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

@@ -89,7 +89,7 @@ public class PurchaseNss {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public MemberAddressNss withMemberAddressAsSkipRelation(final java.util.Date targetDate) {
+    public MemberAddressNss withMemberAddressAsSkipRelation(final java.time.LocalDate targetDate) {
         _query.xdoNss(() -> _query.queryMemberAddressAsSkipRelation(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsSkipRelation(targetDate));
     }

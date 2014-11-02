@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkId(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkId(cti(vl)), "whiteImplicitReverseFkId");
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkName(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkName((String)vl), "whiteImplicitReverseFkName");
     }
@@ -64,9 +66,10 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkRefWithImplicitReverseFK(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkRefWithImplicitReverseFK((WhiteImplicitReverseFkRef)vl), "whiteImplicitReverseFkRefWithImplicitReverseFK");
-        setupEfpg(_efpgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK((WhiteImplicitReverseFkSuppress)vl), "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK");
+        setupEfpg(_efpgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkRefWithImplicitReverseFK(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkRefWithImplicitReverseFK((OptionalEntity<WhiteImplicitReverseFkRef>)vl), "whiteImplicitReverseFkRefWithImplicitReverseFK");
+        setupEfpg(_efpgMap, et -> ((WhiteImplicitReverseFk)et).getWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(), (et, vl) -> ((WhiteImplicitReverseFk)et).setWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK((OptionalEntity<WhiteImplicitReverseFkSuppress>)vl), "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -132,7 +135,7 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteImplicitReverseFkRefWithImplicitReverseFK() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnWhiteImplicitReverseFkId(), WhiteImplicitReverseFkRefDbm.getInstance().columnWhiteImplicitReverseFkId());
-        return cfi("FK_WHITE_IMPLICIT_REVERSE_FK_REF_WITH", "whiteImplicitReverseFkRefWithImplicitReverseFK", this, WhiteImplicitReverseFkRefDbm.getInstance(), mp, 0, null, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK.targetDate*/null", newArrayList("targetDate"), false, null);
+        return cfi("FK_WHITE_IMPLICIT_REVERSE_FK_REF_WITH", "whiteImplicitReverseFkRefWithImplicitReverseFK", this, WhiteImplicitReverseFkRefDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK.targetDate*/null", newArrayList("targetDate"), false, null);
     }
     /**
      * white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
@@ -140,7 +143,7 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnWhiteImplicitReverseFkId(), WhiteImplicitReverseFkSuppressDbm.getInstance().columnWhiteImplicitReverseFkId());
-        return cfi("FK_WHITE_IMPLICIT_REVERSE_FK_REF_SUPPRESS", "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK", this, WhiteImplicitReverseFkSuppressDbm.getInstance(), mp, 1, null, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK.targetDate*/null", newArrayList("targetDate"), false, null);
+        return cfi("FK_WHITE_IMPLICIT_REVERSE_FK_REF_SUPPRESS", "whiteImplicitReverseFkSuppressSuppressImplicitReverseFK", this, WhiteImplicitReverseFkSuppressDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK.targetDate*/null", newArrayList("targetDate"), false, null);
     }
 
     // -----------------------------------------------------

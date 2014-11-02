@@ -1,8 +1,8 @@
 package org.docksidestage.mysql.dbflute.vendor;
 
-import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.dbflute.cbean.coption.LikeSearchOption;
@@ -222,14 +222,14 @@ public class VendorQueryTest extends UnitContainerTestCase {
     public void test_query_derivedReferrer_between_Integer() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().sum(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().sum(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
         }, Member.ALIAS_loginCount); // rental
         Integer fromCount = 6;
         Integer toCount = 7;
-        cb.query().derivedPurchaseList().sum(new SubQuery<PurchaseCB>() {
+        cb.query().derivedPurchase().sum(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -252,15 +252,15 @@ public class VendorQueryTest extends UnitContainerTestCase {
     public void test_query_derivedReferrer_between_Date() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
         }, Member.ALIAS_latestLoginDatetime); // rental
-        Date currentDate = currentDate();
-        Date fromDate = toDate(new HandyDate(currentDate).addMonth(-6));
-        Date toDate = toDate(currentDate);
-        cb.query().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        LocalDate currentDate = currentLocalDate();
+        LocalDate fromDate = toLocalDate(new HandyDate(currentDate).addMonth(-6));
+        LocalDate toDate = toLocalDate(currentDate);
+        cb.query().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -273,10 +273,10 @@ public class VendorQueryTest extends UnitContainerTestCase {
         // ## Assert ##
         assertHasAnyElement(memberList);
         for (Member member : memberList) {
-            Timestamp latestDate = member.getLatestLoginDatetime();
+            LocalDateTime latestDate = member.getLatestLoginDatetime();
             log(member.getMemberName() + ", " + toString(member.getLatestLoginDatetime()));
-            assertTrue(fromDate.equals(latestDate) || fromDate.before(latestDate));
-            assertTrue(toDate.equals(latestDate) || toDate.after(latestDate));
+            assertTrue(fromDate.equals(latestDate) || fromDate.isBefore(latestDate.toLocalDate()));
+            assertTrue(toDate.equals(latestDate) || toDate.isAfter(latestDate.toLocalDate()));
         }
     }
 
@@ -294,8 +294,8 @@ public class VendorQueryTest extends UnitContainerTestCase {
     }
 
     // ===================================================================================
-    //                                                                             IsNull
-    //                                                                             ======
+    //                                                                              IsNull
+    //                                                                              ======
     public void test_IsNull_EmptyString() throws Exception {
         // ## Arrange ##
         MemberWithdrawal updated;
@@ -319,7 +319,7 @@ public class VendorQueryTest extends UnitContainerTestCase {
         MemberWithdrawalCB cb = new MemberWithdrawalCB();
         cb.query().setMemberId_Equal(updated.getMemberId());
         cb.query().setWithdrawalReasonInputText_IsNull();
-        MemberWithdrawal withdrawal = memberWithdrawalBhv.selectEntity(cb).orElseNull();
+        MemberWithdrawal withdrawal = memberWithdrawalBhv.selectEntity(cb).orElse(null);
 
         // ## Assert ##
         assertNull(withdrawal);

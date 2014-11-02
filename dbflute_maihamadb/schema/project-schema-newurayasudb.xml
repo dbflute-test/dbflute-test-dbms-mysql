@@ -14,14 +14,14 @@
         <column comment="" dbType="INT" javaType="Integer"
             name="COLUMN_EXCEPT_GEN_ONLY_TEST" size="10" type="INTEGER"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="REGISTER_DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_USER" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="REGISTER_PROCESS" required="true" size="200" type="VARCHAR"/>
         <column comment="" dbType="DATETIME"
-            javaType="java.sql.Timestamp" name="UPDATE_DATETIME"
+            javaType="java.time.LocalDateTime" name="UPDATE_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="UPDATE_USER" required="true" size="200" type="VARCHAR"/>
