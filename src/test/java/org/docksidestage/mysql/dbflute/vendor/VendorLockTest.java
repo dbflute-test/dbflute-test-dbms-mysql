@@ -617,6 +617,7 @@ public class VendorLockTest extends UnitContainerTestCase {
         stack.addAll(purchaseIdList);
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
+                purchasePaymentBhv.varyingQueryDelete(qcb -> {}, op -> op.allowNonQueryDelete());
                 Purchase purchase = new Purchase();
                 purchase.setPurchaseId(stack.pop());
                 purchaseBhv.deleteNonstrict(purchase);

@@ -14,3 +14,5 @@ taskReturnCode=$?
 if [ $taskReturnCode -ne 0 ];then
   exit $taskReturnCode;
 fi
+
+unset DBFLUTE_ENVIRONMENT_TYPE

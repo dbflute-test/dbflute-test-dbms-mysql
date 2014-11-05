@@ -274,14 +274,14 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         {
             MemberCB cb = new MemberCB();
             cb.query().setMemberId_Equal(3);
-            cb.query().setBirthdate_GreaterEqual(currentLocalDate());
+            cb.query().setBirthdate_GreaterEqual(toLocalDate(cal));
             Member actual = memberBhv.selectEntityWithDeletedCheck(cb);
 
             // ## Assert ##
             LocalDate actualValue = actual.getBirthdate();
-            String formatted = DfTypeUtil.toString(actualValue, "yyyy/MM/dd HH:mm:ss.SSS");
+            String formatted = DfTypeUtil.toString(actualValue, "yyyy/MM/dd");
             log("actualValue = " + formatted);
-            assertEquals("2008/06/15 00:00:00.000", formatted);
+            assertEquals("2008/06/15", formatted);
         }
     }
 

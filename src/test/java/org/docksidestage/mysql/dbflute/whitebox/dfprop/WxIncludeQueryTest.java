@@ -31,7 +31,8 @@ public class WxIncludeQueryTest extends UnitContainerTestCase {
         cb.localCQ().invokeQuery("MEMBER_NAME", "NotEqual", "foo");
         cb.localCQ().invokeQuery("MEMBER_NAME", "InScope", DfCollectionUtil.newArrayList("foo"));
         cb.localCQ().invokeQuery("MEMBER_NAME", "NotInScope", DfCollectionUtil.newArrayList("bar"));
-        cb.localCQ().invokeQuery("MEMBER_NAME", "PrefixSearch", "foo");
+        // disappeared since 1.1
+        //cb.localCQ().invokeQuery("MEMBER_NAME", "PrefixSearch", "foo");
         cb.localCQ().invokeQuery("MEMBER_NAME", "LikeSearch", "foo", new LikeSearchOption().likeContain());
         cb.localCQ().invokeQuery("MEMBER_NAME", "NotLikeSearch", "foo", new LikeSearchOption().likeContain());
 
@@ -53,7 +54,8 @@ public class WxIncludeQueryTest extends UnitContainerTestCase {
         cb.enableOverridingQuery(() -> {
             List<LocalDate> fromToList = newArrayList(currentLocalDate(), currentLocalDate());
             cb.localCQ().invokeQuery("BIRTHDATE", "FromTo", fromToList, new FromToOption().compareAsDate());
-            cb.localCQ().invokeQuery("BIRTHDATE", "DateFromTo", fromToList);
+            // disappeared since 1.1
+            //cb.localCQ().invokeQuery("BIRTHDATE", "DateFromTo", fromToList);
         });
         cb.localCQ().invokeQuery("BIRTHDATE", "IsNull", new Object());
         cb.localCQ().invokeQuery("BIRTHDATE", "IsNotNull", new Object());

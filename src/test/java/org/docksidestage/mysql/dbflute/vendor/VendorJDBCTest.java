@@ -24,7 +24,6 @@ import org.dbflute.exception.SQLFailureException;
 import org.dbflute.hook.CallbackContext;
 import org.dbflute.hook.SqlLogHandler;
 import org.dbflute.hook.SqlLogInfo;
-import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballFinalizer;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
@@ -64,8 +63,6 @@ public class VendorJDBCTest extends UnitContainerTestCase {
         // ## Arrange ##
         final int countAll = memberBhv.selectCount(new MemberCB());
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        StatementConfig config = new StatementConfig();
-        config.fetchSize(1);
 
         // ## Act ##
         PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
@@ -84,14 +81,13 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                 return null;
             }
         };
-        memberBhv.outsideSql().configure(config).selectCursor(pmb, handler);
+        memberBhv.outsideSql().configure(conf -> conf.fetchSize(1)).selectCursor(pmb, handler);
     }
 
     public void test_ResultSet_rowData_specialFetchSize() {
         // ## Arrange ##
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        StatementConfig config = new StatementConfig();
-        config.fetchSize(Integer.MIN_VALUE); // MySQL's special fetchSize
+        int fetchSize = Integer.MIN_VALUE; // MySQL's special fetchSize
 
         // ## Act ##
         PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
@@ -110,7 +106,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                 return null;
             }
         };
-        memberBhv.outsideSql().configure(config).selectCursor(pmb, handler);
+        memberBhv.outsideSql().configure(conf -> conf.fetchSize(fetchSize)).selectCursor(pmb, handler);
     }
 
     protected void assertDbAccess() {
@@ -179,17 +175,18 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                             return null;
                         }
                     };
-                    StatementConfig config = new StatementConfig().fetchSize(Integer.MIN_VALUE);
-                    if (TestingResultSetType.FORWARD_ONLY.equals(resultSetType)) {
-                        config.typeForwardOnly();
-                    } else if (TestingResultSetType.SCROLL_INSENSITIVE.equals(resultSetType)) {
-                        config.typeScrollInsensitive();
-                    } else if (sensitive) {
-                        config.typeScrollSensitive();
-                    } else {
-                        fail();
-                    }
-                    memberBhv.outsideSql().configure(config).selectCursor(pmb, handler);
+                    memberBhv.outsideSql().configure(conf -> {
+                        conf.fetchSize(Integer.MIN_VALUE);
+                        if (TestingResultSetType.FORWARD_ONLY.equals(resultSetType)) {
+                            conf.typeForwardOnly();
+                        } else if (TestingResultSetType.SCROLL_INSENSITIVE.equals(resultSetType)) {
+                            conf.typeScrollInsensitive();
+                        } else if (sensitive) {
+                            conf.typeScrollSensitive();
+                        } else {
+                            fail();
+                        }
+                    }).selectCursor(pmb, handler);
                 } else {
                     sleep(500);
                     MemberCB cb = new MemberCB();
@@ -250,7 +247,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                     member.setMemberAccount("same"); // same value to wait for lock
                     member.setMemberStatusCode_Formalized();
                     sleep(1000);
-                    memberBhv.varyingInsert(member, op -> op.configure(new StatementConfig().queryTimeout(1)));
+                    memberBhv.varyingInsert(member, op -> op.configure(conf -> conf.queryTimeout(1)));
                 }
                 return null;
             }

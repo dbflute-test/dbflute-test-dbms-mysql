@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.exception.SQLFailureException;
-import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.mysql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
@@ -125,8 +124,6 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         assertEquals(Integer.MIN_VALUE, DBFluteConfig.getInstance().getCursorSelectFetchSize());
         final int countAll = memberBhv.selectCount(new MemberCB());
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        StatementConfig config = new StatementConfig();
-        config.fetchSize(1);
 
         PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
             @Override
@@ -150,7 +147,7 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         };
 
         // ## Act ##
-        memberBhv.outsideSql().configure(config).selectCursor(pmb, handler);
+        memberBhv.outsideSql().configure(conf -> conf.fetchSize(1)).selectCursor(pmb, handler);
     }
 
     // ===================================================================================

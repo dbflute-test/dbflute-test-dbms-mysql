@@ -1,5 +1,5 @@
 map:{
-    ; documentOutputDirectory = ../../../dbflute-example-referrerpj/dbflute-bhvap-seasar-example/dbflute_apbranch/output/doc
+    ; documentOutputDirectory = ../../../dbflute-test-refpj-bhvap-seasar/dbflute_apbranch/output/doc
     ; schemaHtmlFileName = schema-bhvap-outsideSql.html
     ; loadDataReverseMap = map:{}
 }
