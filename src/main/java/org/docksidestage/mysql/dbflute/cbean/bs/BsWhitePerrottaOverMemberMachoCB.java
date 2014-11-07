@@ -329,7 +329,8 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberCB, WhitePerrottaOverMemberMachoCQ> derivedWhitePerrottaOverMember() {
             assertDerived("whitePerrottaOverMemberList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhitePerrottaOverMemberList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhitePerrottaOverMemberCB> sq, WhitePerrottaOverMemberMachoCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhitePerrottaOverMemberList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -337,7 +338,8 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberMachoCB, WhitePerrottaOverMemberMachoCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhitePerrottaOverMemberMachoCB> sq, WhitePerrottaOverMemberMachoCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

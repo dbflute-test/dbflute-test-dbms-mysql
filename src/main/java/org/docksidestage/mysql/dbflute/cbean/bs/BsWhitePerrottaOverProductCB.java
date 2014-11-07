@@ -427,7 +427,8 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverMemberCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverMember() {
             assertDerived("whitePerrottaOverMemberList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhitePerrottaOverMemberList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhitePerrottaOverMemberCB> sq, WhitePerrottaOverProductCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhitePerrottaOverMemberList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
@@ -443,7 +444,8 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverTraceCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverTraceByNextProductId() {
             assertDerived("whitePerrottaOverTraceByNextProductIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhitePerrottaOverTraceByNextProductIdList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhitePerrottaOverTraceCB> sq, WhitePerrottaOverProductCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhitePerrottaOverTraceByNextProductIdList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
@@ -459,7 +461,8 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverTraceCB, WhitePerrottaOverProductCQ> derivedWhitePerrottaOverTraceByPreviousProductId() {
             assertDerived("whitePerrottaOverTraceByPreviousProductIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhitePerrottaOverTraceByPreviousProductIdList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhitePerrottaOverTraceCB> sq, WhitePerrottaOverProductCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhitePerrottaOverTraceByPreviousProductIdList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -467,7 +470,8 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePerrottaOverProductCB, WhitePerrottaOverProductCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhitePerrottaOverProductCB> sq, WhitePerrottaOverProductCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

@@ -26,7 +26,7 @@ public class WhitePurchaseReferrerNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhitePurchaseReferrerCQ _query;
+    protected final WhitePurchaseReferrerCQ _query;
     public WhitePurchaseReferrerNss(WhitePurchaseReferrerCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

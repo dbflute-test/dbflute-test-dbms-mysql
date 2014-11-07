@@ -26,7 +26,7 @@ public class WhiteImplicitReverseFkNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteImplicitReverseFkCQ _query;
+    protected final WhiteImplicitReverseFkCQ _query;
     public WhiteImplicitReverseFkNss(WhiteImplicitReverseFkCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

@@ -419,7 +419,8 @@ public class BsWhitePgReservCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePgReservRefCB, WhitePgReservCQ> derivedWhitePgReservRef() {
             assertDerived("whitePgReservRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhitePgReservRefList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhitePgReservRefCB> sq, WhitePgReservCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhitePgReservRefList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -427,7 +428,8 @@ public class BsWhitePgReservCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhitePgReservCB, WhitePgReservCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhitePgReservCB> sq, WhitePgReservCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

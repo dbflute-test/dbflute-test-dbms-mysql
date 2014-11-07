@@ -334,7 +334,8 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteAllInOneClsElementCB, WhiteAllInOneClsCategoryCQ> derivedWhiteAllInOneClsElement() {
             assertDerived("whiteAllInOneClsElementList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteAllInOneClsElementList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteAllInOneClsElementCB> sq, WhiteAllInOneClsCategoryCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteAllInOneClsElementList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -342,7 +343,8 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteAllInOneClsCategoryCB, WhiteAllInOneClsCategoryCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteAllInOneClsCategoryCB> sq, WhiteAllInOneClsCategoryCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

@@ -26,7 +26,7 @@ public class WhiteMyselfCheckNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteMyselfCheckCQ _query;
+    protected final WhiteMyselfCheckCQ _query;
     public WhiteMyselfCheckNss(WhiteMyselfCheckCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

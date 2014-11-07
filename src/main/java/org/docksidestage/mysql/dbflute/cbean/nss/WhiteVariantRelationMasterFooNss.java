@@ -26,7 +26,7 @@ public class WhiteVariantRelationMasterFooNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteVariantRelationMasterFooCQ _query;
+    protected final WhiteVariantRelationMasterFooCQ _query;
     public WhiteVariantRelationMasterFooNss(WhiteVariantRelationMasterFooCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

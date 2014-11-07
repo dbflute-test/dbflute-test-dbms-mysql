@@ -329,7 +329,8 @@ public class BsWhiteVariantRelationMasterBarCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationReferrerCB, WhiteVariantRelationMasterBarCQ> derivedWhiteVariantRelationReferrerAsVariant() {
             assertDerived("whiteVariantRelationReferrerAsVariantList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteVariantRelationReferrerAsVariantList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteVariantRelationReferrerCB> sq, WhiteVariantRelationMasterBarCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteVariantRelationReferrerAsVariantList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -337,7 +338,8 @@ public class BsWhiteVariantRelationMasterBarCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteVariantRelationMasterBarCB, WhiteVariantRelationMasterBarCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteVariantRelationMasterBarCB> sq, WhiteVariantRelationMasterBarCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

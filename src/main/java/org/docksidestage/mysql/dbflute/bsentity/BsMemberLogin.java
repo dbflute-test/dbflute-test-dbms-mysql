@@ -338,7 +338,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
     public OptionalEntity<MemberStatus> getMemberStatus() {
-        if (_memberStatus == null) { _memberStatus = CachedMemberStatus.get(getLoginMemberStatusCode()); }
+        if (_memberStatus == null) { _memberStatus = CachedMemberStatus.get(this, "memberStatus", getLoginMemberStatusCode()); }
         if (_memberStatus == null) { _memberStatus = OptionalEntity.relationEmpty(this, "memberStatus"); }
         return _memberStatus;
     }

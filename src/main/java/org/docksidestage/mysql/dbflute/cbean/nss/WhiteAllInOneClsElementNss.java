@@ -26,7 +26,7 @@ public class WhiteAllInOneClsElementNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteAllInOneClsElementCQ _query;
+    protected final WhiteAllInOneClsElementCQ _query;
     public WhiteAllInOneClsElementNss(WhiteAllInOneClsElementCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

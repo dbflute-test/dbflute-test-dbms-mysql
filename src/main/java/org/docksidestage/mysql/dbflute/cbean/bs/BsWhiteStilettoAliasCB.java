@@ -364,7 +364,8 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteStilettoAliasRefCB, WhiteStilettoAliasCQ> derivedWhiteStilettoAliasRef() {
             assertDerived("whiteStilettoAliasRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteStilettoAliasRefList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteStilettoAliasRefCB> sq, WhiteStilettoAliasCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteStilettoAliasRefList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -372,7 +373,8 @@ public class BsWhiteStilettoAliasCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteStilettoAliasCB, WhiteStilettoAliasCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteStilettoAliasCB> sq, WhiteStilettoAliasCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

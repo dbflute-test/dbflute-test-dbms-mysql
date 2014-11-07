@@ -26,7 +26,7 @@ public class WhiteStilettoAliasRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteStilettoAliasRefCQ _query;
+    protected final WhiteStilettoAliasRefCQ _query;
     public WhiteStilettoAliasRefNss(WhiteStilettoAliasRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

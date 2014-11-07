@@ -26,7 +26,7 @@ public class WhiteSplitMultipleFkBaseNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteSplitMultipleFkBaseCQ _query;
+    protected final WhiteSplitMultipleFkBaseCQ _query;
     public WhiteSplitMultipleFkBaseNss(WhiteSplitMultipleFkBaseCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

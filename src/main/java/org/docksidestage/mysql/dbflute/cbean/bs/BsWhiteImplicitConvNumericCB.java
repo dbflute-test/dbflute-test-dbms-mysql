@@ -448,7 +448,8 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvIntegerCB, WhiteImplicitConvNumericCQ> derivedWhiteImplicitConvInteger() {
             assertDerived("whiteImplicitConvIntegerList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteImplicitConvIntegerList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteImplicitConvIntegerCB> sq, WhiteImplicitConvNumericCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteImplicitConvIntegerList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
@@ -464,7 +465,8 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvStringCB, WhiteImplicitConvNumericCQ> derivedWhiteImplicitConvString() {
             assertDerived("whiteImplicitConvStringList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteImplicitConvStringList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteImplicitConvStringCB> sq, WhiteImplicitConvNumericCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteImplicitConvStringList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -472,7 +474,8 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitConvNumericCB, WhiteImplicitConvNumericCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteImplicitConvNumericCB> sq, WhiteImplicitConvNumericCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

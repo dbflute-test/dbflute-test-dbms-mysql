@@ -329,7 +329,8 @@ public class BsWhiteSplitMultipleFkNextCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSplitMultipleFkBaseCB, WhiteSplitMultipleFkNextCQ> derivedWhiteSplitMultipleFkBase() {
             assertDerived("whiteSplitMultipleFkBaseList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteSplitMultipleFkBaseList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteSplitMultipleFkBaseCB> sq, WhiteSplitMultipleFkNextCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteSplitMultipleFkBaseList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -337,7 +338,8 @@ public class BsWhiteSplitMultipleFkNextCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSplitMultipleFkNextCB, WhiteSplitMultipleFkNextCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteSplitMultipleFkNextCB> sq, WhiteSplitMultipleFkNextCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

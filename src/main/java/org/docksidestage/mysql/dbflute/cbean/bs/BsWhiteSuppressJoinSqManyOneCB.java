@@ -379,7 +379,8 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSuppressJoinSqManyCB, WhiteSuppressJoinSqManyOneCQ> derivedWhiteSuppressJoinSqMany() {
             assertDerived("whiteSuppressJoinSqManyList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteSuppressJoinSqManyList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteSuppressJoinSqManyCB> sq, WhiteSuppressJoinSqManyOneCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteSuppressJoinSqManyList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -387,7 +388,8 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteSuppressJoinSqManyOneCB, WhiteSuppressJoinSqManyOneCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteSuppressJoinSqManyOneCB> sq, WhiteSuppressJoinSqManyOneCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

@@ -344,7 +344,8 @@ public class BsWhiteUqFkCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkRefCB, WhiteUqFkCQ> derivedWhiteUqFkRefByFkToPkId() {
             assertDerived("whiteUqFkRefByFkToPkIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteUqFkRefByFkToPkIdList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteUqFkRefCB> sq, WhiteUqFkCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteUqFkRefByFkToPkIdList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
@@ -360,7 +361,8 @@ public class BsWhiteUqFkCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkRefCB, WhiteUqFkCQ> derivedWhiteUqFkRefByFkToUqCode() {
             assertDerived("whiteUqFkRefByFkToUqCodeList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteUqFkRefByFkToUqCodeList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteUqFkRefCB> sq, WhiteUqFkCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteUqFkRefByFkToUqCodeList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -368,7 +370,8 @@ public class BsWhiteUqFkCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteUqFkCB, WhiteUqFkCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteUqFkCB> sq, WhiteUqFkCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

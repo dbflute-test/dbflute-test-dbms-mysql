@@ -26,7 +26,7 @@ public class WhiteCompoundPkNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteCompoundPkCQ _query;
+    protected final WhiteCompoundPkCQ _query;
     public WhiteCompoundPkNss(WhiteCompoundPkCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

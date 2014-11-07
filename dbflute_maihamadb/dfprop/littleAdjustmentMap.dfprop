@@ -349,7 +349,7 @@ map:{
     ; relationalNullObjectMap = map:{
         ; providerPackage = $$packageBase$$.nogen.cache
         ; foreignMap = map:{
-            ; MEMBER_STATUS = CachedMemberStatus.get($$PrimaryKey$$)
+            ; MEMBER_STATUS = CachedMemberStatus.get(this, "$$foreignPropertyName$$", $$PrimaryKey$$)
             ; MEMBER_SECURITY = CachedMemberSecurity.get($$PrimaryKey$$)
         }
     }

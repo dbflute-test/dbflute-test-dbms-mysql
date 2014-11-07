@@ -26,7 +26,7 @@ public class VendorConstraintNameAutoRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected VendorConstraintNameAutoRefCQ _query;
+    protected final VendorConstraintNameAutoRefCQ _query;
     public VendorConstraintNameAutoRefNss(VendorConstraintNameAutoRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

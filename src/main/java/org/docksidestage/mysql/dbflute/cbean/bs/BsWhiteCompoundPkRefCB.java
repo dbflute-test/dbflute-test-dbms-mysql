@@ -405,7 +405,8 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ> derivedWhiteCompoundPkRefNestByQuxMultipleId() {
             assertDerived("whiteCompoundPkRefNestByQuxMultipleIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefNestByQuxMultipleIdList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteCompoundPkRefNestCB> sq, WhiteCompoundPkRefCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteCompoundPkRefNestByQuxMultipleIdList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
@@ -421,7 +422,8 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteCompoundPkRefNestCB, WhiteCompoundPkRefCQ> derivedWhiteCompoundPkRefNestByFooMultipleId() {
             assertDerived("whiteCompoundPkRefNestByFooMultipleIdList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefNestByFooMultipleIdList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteCompoundPkRefNestCB> sq, WhiteCompoundPkRefCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteCompoundPkRefNestByFooMultipleIdList(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
