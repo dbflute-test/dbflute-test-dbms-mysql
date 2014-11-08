@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.UnionQuery;
 import org.dbflute.exception.UndefinedClassificationCodeException;
@@ -93,9 +92,9 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         registerTrueAndFalse();
         VendorCheckCB cb = new VendorCheckCB();
         List<BooleanFlg> orderValueList = Arrays.asList(CDef.BooleanFlg.True);
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.acceptOrderValueList(orderValueList);
-        cb.query().addOrderBy_TypeOfBoolean_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_TypeOfBoolean_Asc().withManualOrder(op -> {
+            op.acceptOrderValueList(orderValueList);
+        });
 
         // ## Act ##
         ListResultBean<VendorCheck> checkList = vendorCheckBhv.selectList(cb);
@@ -115,9 +114,9 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         registerTrueAndFalse();
         VendorCheckCB cb = new VendorCheckCB();
         List<BooleanFlg> orderValueList = Arrays.asList(CDef.BooleanFlg.False);
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.acceptOrderValueList(orderValueList);
-        cb.query().addOrderBy_TypeOfBoolean_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_TypeOfBoolean_Asc().withManualOrder(op -> {
+            op.acceptOrderValueList(orderValueList);
+        });
 
         // ## Act ##
         ListResultBean<VendorCheck> checkList = vendorCheckBhv.selectList(cb);

@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 
 import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.cbean.coption.RangeOfOption;
-import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -659,11 +658,10 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         purchaseBhv.updateNonstrict(purchase);
         PurchaseCB cb = new PurchaseCB();
         cb.query().setPurchaseId_Equal(3L);
-        RangeOfOption option = new RangeOfOption();
-        cb.query().setPurchasePrice_RangeOf(999999999, 999999999, option);
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.acceptOrderValueList(newArrayList("cipher", "wipher"));
-        cb.query().addOrderBy_PurchasePrice_Asc().withManualOrder(mob);
+        cb.query().setPurchasePrice_RangeOf(999999999, 999999999, op -> {});
+        cb.query().addOrderBy_PurchasePrice_Asc().withManualOrder(op -> {
+            op.acceptOrderValueList(newArrayList("cipher", "wipher"));
+        });
         cb.query().queryMember().addOrderBy_UpdateUser_Asc();
 
         // ## Act ##
@@ -685,13 +683,12 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         purchaseBhv.updateNonstrict(purchase);
         PurchaseCB cb = new PurchaseCB();
         cb.query().setPurchaseId_Equal(3L);
-        RangeOfOption option = new RangeOfOption();
-        cb.query().setPurchasePrice_RangeOf(999999999, 999999999, option);
-        PurchaseCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.plus(dreamCruiseCB.specify().columnPurchasePrice());
-        mob.minus(dreamCruiseCB.specify().columnPurchasePrice());
-        cb.query().addOrderBy_PurchaseCount_Asc().withManualOrder(mob);
+        cb.query().setPurchasePrice_RangeOf(999999999, 999999999, op -> {});
+        cb.query().addOrderBy_PurchaseCount_Asc().withManualOrder(op -> {
+            PurchaseCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.plus(dreamCruiseCB.specify().columnPurchasePrice());
+            op.minus(dreamCruiseCB.specify().columnPurchasePrice());
+        });
         cb.query().queryMember().addOrderBy_UpdateUser_Asc();
 
         // ## Act ##

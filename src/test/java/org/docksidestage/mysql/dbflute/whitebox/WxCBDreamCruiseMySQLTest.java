@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.cbean.dream.SpecifiedColumn;
-import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -86,8 +85,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             public void query(PurchaseCB subCB) {
                 subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
-                        SpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne()
-                                .columnServicePointCount();
+                        SpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
                         subCB.columnQuery(colCB -> {
                             colCB.specify().columnMemberId();
                         }).notEqual(new SpecifyQuery<PurchaseCB>() {
@@ -225,8 +223,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         assertMarked("exists");
         String sql = cb.toDisplaySql();
         assertContains(sql, "where dfloc.BIRTHDATE <= date_add('2015-04-05', interval dfloc.VERSION_NO month)");
-        assertContains(sql,
-                "and dfloc.BIRTHDATE < date_add(date_add('2014-09-01', interval dfloc.MEMBER_ID day), interval 1 minute)");
+        assertContains(sql, "and dfloc.BIRTHDATE < date_add(date_add('2014-09-01', interval dfloc.MEMBER_ID day), interval 1 minute)");
         assertContains(sql, "and dfloc.BIRTHDATE >= '2006-09-26'");
     }
 
@@ -278,10 +275,8 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             assertTrue(member.getMemberId() >= 10);
         }
         String sql = cb.toDisplaySql();
+        assertContains(sql, "where dfloc.FORMALIZED_DATETIME <= date_add('2015-04-05 12:34:56.000', interval dfloc.VERSION_NO month)");
         assertContains(sql,
-                "where dfloc.FORMALIZED_DATETIME <= date_add('2015-04-05 12:34:56.000', interval dfloc.VERSION_NO month)");
-        assertContains(
-                sql,
                 "and dfloc.FORMALIZED_DATETIME <= date_add(date_add('2014-09-01 15:00:00.000', interval dfloc.MEMBER_ID day), interval -3 hour)");
         assertContains(sql, "and dfloc.FORMALIZED_DATETIME >= '2006-09-26 12:34:56.789'");
     }
@@ -340,8 +335,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         assertMarked("exists");
         String sql = cb.toDisplaySql();
         assertContains(sql, "where dfloc.BIRTHDATE >= date_add('2006-09-26', interval -dfloc.VERSION_NO month)");
-        assertContains(sql,
-                "and dfloc.BIRTHDATE <= date_add(date_add('2014-09-20', interval -dfloc.MEMBER_ID day), interval -1 minute)");
+        assertContains(sql, "and dfloc.BIRTHDATE <= date_add(date_add('2014-09-20', interval -dfloc.MEMBER_ID day), interval -1 minute)");
         assertContains(sql, "and dfloc.BIRTHDATE <= '2015-04-05'");
     }
 
@@ -389,10 +383,10 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -425,10 +419,10 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
                 subCB.specify().columnPurchasePrice();
             }
         }, Member.ALIAS_highestPurchasePrice);
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -459,11 +453,11 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
                 subCB.specify().columnPurchaseCount();
             }
         }, Member.ALIAS_loginCount);
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
-        mob.plus(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_loginCount));
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
+            op.plus(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_loginCount));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -489,10 +483,10 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             public void query(MemberCB unionCB) {
             }
         });
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);

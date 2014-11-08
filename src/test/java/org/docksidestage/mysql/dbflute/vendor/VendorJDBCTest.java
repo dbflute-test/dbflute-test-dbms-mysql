@@ -28,9 +28,6 @@ import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballFinalizer;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
 import org.dbflute.utflute.core.cannonball.CannonballRun;
-import org.dbflute.utflute.core.thread.ThreadFireExecution;
-import org.dbflute.utflute.core.thread.ThreadFireOption;
-import org.dbflute.utflute.core.thread.ThreadFireResource;
 import org.dbflute.utflute.core.transaction.TransactionPerformer;
 import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
@@ -231,8 +228,8 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     //                                                                       Query Timeout
     //                                                                       =============
     public void test_QueryTimeout_insert() throws Exception {
-        threadFire(new ThreadFireExecution<Void>() {
-            public Void execute(ThreadFireResource resource) {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
                 final long threadId = Thread.currentThread().getId();
                 if (threadId % 2 == 0) {
                     Member member = new Member();
@@ -249,9 +246,8 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                     sleep(1000);
                     memberBhv.varyingInsert(member, op -> op.configure(conf -> conf.queryTimeout(1)));
                 }
-                return null;
             }
-        }, new ThreadFireOption().threadCount(2).repeatCount(1).expectExceptionAny("timeout"));
+        }, new CannonballOption().threadCount(2).repeatCount(1).expectExceptionAny("timeout"));
     }
 
     // ===================================================================================

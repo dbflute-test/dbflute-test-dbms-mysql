@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.dbflute.cbean.dream.SpecifiedColumn;
-import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SubQuery;
 import org.dbflute.cbean.scoping.UnionQuery;
@@ -36,10 +35,10 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
     public void test_DreamCruise_ManualOrder_CaseWhen_basic() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.when_GreaterEqual(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.when_GreaterEqual(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -54,11 +53,12 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
     public void test_DreamCruise_ManualOrder_CaseWhen_SpecifyCalculation_basic() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.when_GreaterEqual(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount()
-                .plus(dreamCruiseCB.specify().columnVersionNo()));
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            SpecifiedColumn servicePointCount = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
+            SpecifiedColumn versionNo = dreamCruiseCB.specify().columnVersionNo();
+            op.when_GreaterEqual(servicePointCount.plus(versionNo));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -73,11 +73,12 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
     public void test_DreamCruise_ManualOrder_CaseWhen_SpecifyCalculation_convert() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.when_GreaterEqual(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount()
-                .plus(dreamCruiseCB.specify().columnVersionNo()).convert(op -> op.round(1)));
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            SpecifiedColumn servicePointCount = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
+            SpecifiedColumn versionNo = dreamCruiseCB.specify().columnVersionNo();
+            op.when_GreaterEqual(servicePointCount.plus(versionNo).convert(cv -> cv.round(1)));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -93,11 +94,13 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.when_GreaterEqual(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount()
-                .multiply(dreamCruiseCB.specify().columnVersionNo().plus(1)).convert(op -> op.round(2)));
-        mob.multiply(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            SpecifiedColumn servicePointCount = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
+            SpecifiedColumn reminderUseCount = dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount();
+            SpecifiedColumn versionNo = dreamCruiseCB.specify().columnVersionNo();
+            op.when_GreaterEqual(servicePointCount.multiply(versionNo.plus(1)).convert(cv -> cv.round(2)));
+            op.multiply(reminderUseCount);
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -124,9 +127,9 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
         }
         MemberCB cb = new MemberCB();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            op.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -156,10 +159,10 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Desc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Desc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -187,11 +190,11 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        mob.multiply(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+            op.multiply(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -218,10 +221,10 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
                 subCB.specify().columnPurchasePrice();
             }
         }, Member.ALIAS_highestPurchasePrice);
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb); // expect no exception
@@ -252,11 +255,11 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
                 subCB.specify().columnPurchaseCount();
             }
         }, Member.ALIAS_loginCount);
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
-        mob.plus(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_loginCount));
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_highestPurchasePrice));
+            op.plus(dreamCruiseCB.inviteDerivedToDreamCruise(Member.ALIAS_loginCount));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb); // expect no exception
@@ -277,10 +280,10 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(cb.dreamCruiseCB().specify().specifyMemberServiceAsOne().columnServicePointCount());
-        mob.multiply(cb.dreamCruiseCB().specify().specifyMemberSecurityAsOne().columnReminderUseCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            op.multiply(cb.dreamCruiseCB().specify().specifyMemberServiceAsOne().columnServicePointCount());
+            op.multiply(cb.dreamCruiseCB().specify().specifyMemberSecurityAsOne().columnReminderUseCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -311,10 +314,10 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             public void query(MemberCB unionCB) {
             }
         });
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb); // expect no exception
@@ -326,8 +329,7 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
         assertContains(sql, "union");
         assertContains(sql, "order by MEMBER_ID * SERVICE_POINT_COUNT_25 asc");
         assertEquals(2, Srl.count(sql, ", dfrel_25.MEMBER_SERVICE_ID as MEMBER_SERVICE_ID_25"));
-        assertEquals(2,
-                Srl.count(sql, "left outer join MEMBER_SERVICE dfrel_25 on dfloc.MEMBER_ID = dfrel_25.MEMBER_ID"));
+        assertEquals(2, Srl.count(sql, "left outer join MEMBER_SERVICE dfrel_25 on dfloc.MEMBER_ID = dfrel_25.MEMBER_ID"));
     }
 
     public void test_DreamCruise_ManualOrder_union_journeyLogBook_nested() throws Exception {
@@ -348,10 +350,11 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             }
         });
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().columnVersionNo()).multiply(
-                dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            SpecifiedColumn versionNo = dreamCruiseCB.specify().columnVersionNo();
+            SpecifiedColumn servicePointCount = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
+            op.multiply(versionNo).multiply(servicePointCount);
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb); // expect no exception
@@ -363,8 +366,7 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
         assertContains(sql, "union");
         assertContains(sql, "order by (MEMBER_ID * VERSION_NO) * SERVICE_POINT_COUNT_25 asc");
         assertEquals(2, Srl.count(sql, ", dfrel_25.MEMBER_SERVICE_ID as MEMBER_SERVICE_ID_25"));
-        assertEquals(2,
-                Srl.count(sql, "left outer join MEMBER_SERVICE dfrel_25 on dfloc.MEMBER_ID = dfrel_25.MEMBER_ID"));
+        assertEquals(2, Srl.count(sql, "left outer join MEMBER_SERVICE dfrel_25 on dfloc.MEMBER_ID = dfrel_25.MEMBER_ID"));
     }
 
     // ===================================================================================
@@ -379,10 +381,10 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
         }
         MemberCB cb = new MemberCB();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.convert(op -> op.coalesce(0));
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            op.convert(cv -> cv.coalesce(0));
+            op.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -402,14 +404,13 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.convert(op -> op.coalesce(1));
-        SpecifiedColumn columnPoint = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
-        columnPoint.convert(op -> op.coalesce(2));
-        mob.multiply(columnPoint);
-        mob.convert(op -> op.coalesce(3));
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            SpecifiedColumn columnPoint = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
+            op.convert(cv -> cv.coalesce(1));
+            op.multiply(columnPoint.convert(cv -> cv.coalesce(2)));
+            op.convert(cv -> cv.coalesce(3));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -430,14 +431,14 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.convert(op -> op.coalesce(1));
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount()
-                .convert(op -> op.coalesce(2))
-                .plus(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount()));
-        mob.convert(op -> op.coalesce(3));
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            SpecifiedColumn servicePointCount = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
+            SpecifiedColumn reminderUseCount = dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount();
+            op.convert(cv -> cv.coalesce(1));
+            op.multiply(servicePointCount.convert(cv -> cv.coalesce(2)).plus(reminderUseCount));
+            op.convert(cv -> cv.coalesce(3));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -472,10 +473,10 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
             public void query(MemberCB unionCB) {
             }
         });
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberId_Asc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb); // expect no exception
@@ -498,14 +499,11 @@ public class WxCBManualOrderDreamCruiseMySQLTest extends UnitContainerTestCase {
         }
         MemberCB cb = new MemberCB();
         //cb.setupSelect_MemberServiceAsOne(); // auto-resolved
-        cb.union(new UnionQuery<MemberCB>() {
-            public void query(MemberCB unionCB) {
-            }
+        cb.union(unionCB -> {});
+        cb.query().addOrderBy_MemberId_Desc().withManualOrder(op -> {
+            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
         });
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.multiply(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        cb.query().addOrderBy_MemberId_Desc().withManualOrder(mob);
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb); // expect no exception

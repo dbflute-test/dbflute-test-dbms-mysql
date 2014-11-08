@@ -41,7 +41,7 @@ map:{
     # compile compatible (true if compatible)
     ; isMakeDirectConditionBeanSetup = true
     ; isMakeDirectConditionOptionSetup = true
-    ; isMakeDirectConditionManualOrder = true
+    ; isMakeDirectConditionManualOrder = false
     ; isCompatibleLoadReferrerOldOption = true
     ; isCompatibleOutsideSqlSqlCommentCheckDefault = true
 
