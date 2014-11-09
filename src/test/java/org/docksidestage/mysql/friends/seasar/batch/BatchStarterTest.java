@@ -18,6 +18,12 @@ import org.seasar.framework.container.factory.SingletonS2ContainerFactory;
  */
 public class BatchStarterTest extends PlainTestCase {
 
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+        SingletonS2ContainerFactory.destroy();
+    }
+
     public void test_container_fire() {
         // ## Arrange ##
         if (SingletonS2ContainerFactory.hasContainer()) {
@@ -59,8 +65,7 @@ public class BatchStarterTest extends PlainTestCase {
             protected BatchInvoker getBatchInvoker() {
                 markList.add("getBatchInvoker");
                 return new BatchInvoker() {
-                    public void invoke(String componentKey, BatchController controller, List<String> argList)
-                            throws BatchException {
+                    public void invoke(String componentKey, BatchController controller, List<String> argList) throws BatchException {
                         controller.execute(argList);
                     }
                 };
@@ -110,8 +115,7 @@ public class BatchStarterTest extends PlainTestCase {
             protected BatchInvoker getBatchInvoker() {
                 markList.add("getBatchInvoker");
                 return new BatchInvoker() {
-                    public void invoke(String componentKey, BatchController controller, List<String> argList)
-                            throws BatchException {
+                    public void invoke(String componentKey, BatchController controller, List<String> argList) throws BatchException {
                         controller.execute(argList);
                     }
                 };
@@ -160,8 +164,7 @@ public class BatchStarterTest extends PlainTestCase {
             protected BatchInvoker getBatchInvoker() {
                 markList.add("getBatchInvoker");
                 return new BatchInvoker() {
-                    public void invoke(String componentKey, BatchController controller, List<String> argList)
-                            throws BatchException {
+                    public void invoke(String componentKey, BatchController controller, List<String> argList) throws BatchException {
                         controller.execute(argList);
                     }
                 };
@@ -210,8 +213,7 @@ public class BatchStarterTest extends PlainTestCase {
             protected BatchInvoker getBatchInvoker() {
                 markList.add("getBatchInvoker");
                 return new BatchInvoker() {
-                    public void invoke(String componentKey, BatchController controller, List<String> argList)
-                            throws BatchException {
+                    public void invoke(String componentKey, BatchController controller, List<String> argList) throws BatchException {
                         controller.execute(argList);
                     }
                 };

@@ -1,19 +1,4 @@
-##
-## Copyright 2014-2014 the original author or authors.
-##
-## Licensed under the Apache License, Version 2.0 (the "License");
-## you may not use this file except in compliance with the License.
-## You may obtain a copy of the License at
-##
-##     http://www.apache.org/licenses/LICENSE-2.0
-##
-## Unless required by applicable law or agreed to in writing, software
-## distributed under the License is distributed on an "AS IS" BASIS,
-## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-## either express or implied. See the License for the specific language
-## governing permissions and limitations under the License.
-##
-${database.allClassCopyright}package ${glPackageBaseCommon};
+package org.docksidestage.mysql.dbflute.resola.allcommon;
 
 import javax.sql.DataSource;
 
@@ -38,25 +23,21 @@ import org.dbflute.optional.RelationOptionalFactory;
 import org.dbflute.outsidesql.OutsideSqlOption;
 import org.dbflute.outsidesql.factory.DefaultOutsideSqlExecutorFactory;
 import org.dbflute.outsidesql.factory.OutsideSqlExecutorFactory;
-#if ($database.isTargetContainerSeasar())
 import org.dbflute.helper.beans.factory.DfBeanDescFactory;
-#end
 import org.dbflute.s2dao.extension.TnBeanMetaDataFactoryExtension;
 import org.dbflute.s2dao.jdbc.TnStatementFactoryImpl;
 import org.dbflute.s2dao.metadata.TnBeanMetaDataFactory;
 import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
-#if ($database.isTargetContainerSeasar())
 
 import org.seasar.framework.container.annotation.tiger.Binding;
 import org.seasar.framework.container.annotation.tiger.BindingType;
 import org.seasar.framework.util.Disposable;
 import org.seasar.framework.util.DisposableUtil;
-#end
 
 /**
- * @author ${database.classAuthor}
+ * @author DBFlute(AutoGenerator)
  */
-public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
+public class ResolaImplementedInvokerAssistant implements InvokerAssistant {
 
     // ===================================================================================
     //                                                                           Attribute
@@ -74,7 +55,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     //                                          DI Component
     //                                          ------------
     protected DataSource _dataSource;
-    protected ${glDBFluteInitializer} _introduction;
+    protected ResolaDBFluteInitializer _introduction;
 
     // -----------------------------------------------------
     //                                        Lazy Component
@@ -102,7 +83,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     //                                         -------------
     /** {@inheritDoc} */
     public DBDef assistCurrentDBDef() {
-        return ${glDBCurrent}.getInstance().currentDBDef();
+        return ResolaDBCurrent.getInstance().currentDBDef();
     }
 
     // -----------------------------------------------------
@@ -113,7 +94,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
         // this instance will be cached in SQL executions
         // so the handler should be set before initialization of DBFlute
         // (and it means you cannot switch data source after initialization)
-        DataSourceHandler handler = ${glDBFluteConfig}.getInstance().getDataSourceHandler();
+        DataSourceHandler handler = ResolaDBFluteConfig.getInstance().getDataSourceHandler();
         return handler != null ? new HandlingDataSourceWrapper(_dataSource, handler) : _dataSource;
     }
 
@@ -135,7 +116,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     }
 
     protected DBMetaProvider createDBMetaProvider() {
-        return ${glDBMetaInstanceHandler}.getProvider();
+        return ResolaDBMetaInstanceHandler.getProvider();
     }
 
     // -----------------------------------------------------
@@ -156,15 +137,15 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     }
 
     protected SqlClauseCreator createSqlClauseCreator() {
-        SqlClauseCreator creator = ${glDBFluteConfig}.getInstance().getSqlClauseCreator();
+        SqlClauseCreator creator = ResolaDBFluteConfig.getInstance().getSqlClauseCreator();
         if (creator != null) {
             return creator;
         }
         return newImplementedSqlClauseCreator(); // as default
     }
 
-    protected ${glImplementedSqlClauseCreator} newImplementedSqlClauseCreator() {
-        return new ${glImplementedSqlClauseCreator}();
+    protected ResolaImplementedSqlClauseCreator newImplementedSqlClauseCreator() {
+        return new ResolaImplementedSqlClauseCreator();
     }
 
     // -----------------------------------------------------
@@ -187,8 +168,8 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     protected StatementFactory createStatementFactory() {
         final TnStatementFactoryImpl factory = newStatementFactoryImpl();
         factory.setDefaultStatementConfig(assistDefaultStatementConfig());
-        factory.setInternalDebug(${glDBFluteConfig}.getInstance().isInternalDebug());
-        factory.setCursorSelectFetchSize(${glDBFluteConfig}.getInstance().getCursorSelectFetchSize());
+        factory.setInternalDebug(ResolaDBFluteConfig.getInstance().isInternalDebug());
+        factory.setCursorSelectFetchSize(ResolaDBFluteConfig.getInstance().getCursorSelectFetchSize());
         return factory;
     }
 
@@ -217,7 +198,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
         RelationOptionalFactory relationOptionalFactory = assistRelationOptionalFactory();
         final TnBeanMetaDataFactoryExtension factory = newBeanMetaDataFactoryExtension(relationOptionalFactory);
         factory.setDataSource(_dataSource);
-        factory.setInternalDebug(${glDBFluteConfig}.getInstance().isInternalDebug());
+        factory.setInternalDebug(ResolaDBFluteConfig.getInstance().isInternalDebug());
         return factory;
     }
 
@@ -284,13 +265,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     }
 
     protected OutsideSqlOption prepareFirstOutsideSqlOption(String tableDbName) {
-#if ($database.isNonSpecifiedColumnAccessAllowed())
-        OutsideSqlOption option = new OutsideSqlOption();
-        option.setTableDbName(tableDbName);
-        return option.enableNonSpecifiedColumnAccess();
-#else
         return null; // no instance (lazy-loaded) as default
-#end
     }
 
     // -----------------------------------------------------
@@ -311,7 +286,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     }
 
     protected OutsideSqlExecutorFactory createOutsideSqlExecutorFactory() {
-        OutsideSqlExecutorFactory factory = ${glDBFluteConfig}.getInstance().getOutsideSqlExecutorFactory();
+        OutsideSqlExecutorFactory factory = ResolaDBFluteConfig.getInstance().getOutsideSqlExecutorFactory();
         if (factory != null) {
             return factory;
         }
@@ -331,7 +306,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     }
 
     protected SQLExceptionDigger createSQLExceptionDigger() {
-        return ${glDBFluteConfig}.getInstance().getSQLExceptionDigger();
+        return ResolaDBFluteConfig.getInstance().getSQLExceptionDigger();
     }
 
     // -----------------------------------------------------
@@ -378,11 +353,11 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
 
     protected SequenceCacheHandler createSequenceCacheHandler() {
         SequenceCacheHandler handler = newSequenceCacheHandler();
-        SequenceCacheKeyGenerator generator = ${glDBFluteConfig}.getInstance().getSequenceCacheKeyGenerator();
+        SequenceCacheKeyGenerator generator = ResolaDBFluteConfig.getInstance().getSequenceCacheKeyGenerator();
         if (generator != null) {
             handler.setSequenceCacheKeyGenerator(generator);
         }
-        handler.setInternalDebug(${glDBFluteConfig}.getInstance().isInternalDebug());
+        handler.setInternalDebug(ResolaDBFluteConfig.getInstance().isInternalDebug());
         return handler;
     }
 
@@ -395,7 +370,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     //                                     -----------------
     /** {@inheritDoc} */
     public String assistSqlFileEncoding() {
-        return "${database.sqlFileEncoding}";
+        return "UTF-8";
     }
 
     // -----------------------------------------------------
@@ -403,7 +378,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     //                               -----------------------
     /** {@inheritDoc} */
     public StatementConfig assistDefaultStatementConfig() {
-        return ${glDBFluteConfig}.getInstance().getDefaultStatementConfig();
+        return ResolaDBFluteConfig.getInstance().getDefaultStatementConfig();
     }
 
     // -----------------------------------------------------
@@ -419,7 +394,7 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     //                                 ---------------------
     /** {@inheritDoc} */
     public GearedCipherManager assistGearedCipherManager() {
-        return ${glDBFluteConfig}.getInstance().getGearedCipherManager();
+        return ResolaDBFluteConfig.getInstance().getGearedCipherManager();
     }
 
     // -----------------------------------------------------
@@ -432,13 +407,13 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
 
     protected ResourceParameter createResourceParameter() {
         ResourceParameter parameter = newResourceParameter();
-        parameter.setOutsideSqlPackage(${glDBFluteConfig}.getInstance().getOutsideSqlPackage());
-        parameter.setMappingDateTimeZoneProvider(${glDBFluteConfig}.getInstance().getMappingDateTimeZoneProvider());
-        parameter.setLogDatePattern(${glDBFluteConfig}.getInstance().getLogDatePattern());
-        parameter.setLogTimestampPattern(${glDBFluteConfig}.getInstance().getLogTimestampPattern());
-        parameter.setLogTimePattern(${glDBFluteConfig}.getInstance().getLogTimePattern());
-        parameter.setLogTimeZoneProvider(${glDBFluteConfig}.getInstance().getLogTimeZoneProvider());
-        parameter.setInternalDebug(${glDBFluteConfig}.getInstance().isInternalDebug());
+        parameter.setOutsideSqlPackage(ResolaDBFluteConfig.getInstance().getOutsideSqlPackage());
+        parameter.setMappingDateTimeZoneProvider(ResolaDBFluteConfig.getInstance().getMappingDateTimeZoneProvider());
+        parameter.setLogDatePattern(ResolaDBFluteConfig.getInstance().getLogDatePattern());
+        parameter.setLogTimestampPattern(ResolaDBFluteConfig.getInstance().getLogTimestampPattern());
+        parameter.setLogTimePattern(ResolaDBFluteConfig.getInstance().getLogTimePattern());
+        parameter.setLogTimeZoneProvider(ResolaDBFluteConfig.getInstance().getLogTimeZoneProvider());
+        parameter.setInternalDebug(ResolaDBFluteConfig.getInstance().isInternalDebug());
         return parameter;
     }
 
@@ -464,7 +439,6 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     //                                                                             =======
     /** {@inheritDoc} */
     public void toBeDisposable(final DisposableProcess callerProcess) { // for HotDeploy
-#if ($database.isTargetContainerSeasar())
         if (_disposable) {
             return;
         }
@@ -485,9 +459,6 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
             });
             _disposable = true;
         }
-#else
-        // do nothing: unsupported at this DI container
-#end
     }
 
     public boolean isDisposable() {
@@ -506,10 +477,8 @@ public class ${glImplementedInvokerAssistant} implements InvokerAssistant {
     // so this variable is actually unused in this class
     // (needs to be injected only when the DI container
     // is set by its DI setting file)
-#if ($database.isTargetContainerSeasar())
     @Binding(bindingType=BindingType.MUST)
-#end
-    public void setIntroduction(${glDBFluteInitializer} introduction) {
+    public void setIntroduction(ResolaDBFluteInitializer introduction) {
         _introduction = introduction;
     }
 }

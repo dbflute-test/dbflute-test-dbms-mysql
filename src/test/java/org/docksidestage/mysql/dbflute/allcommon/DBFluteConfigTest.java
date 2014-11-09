@@ -8,6 +8,7 @@ import org.dbflute.s2dao.extension.TnSqlLogRegistry;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.mysql.dbflute.exentity.Member;
+import org.docksidestage.mysql.dbflute.resola.allcommon.ResolaDBFluteConfig;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
 
 /**
@@ -70,6 +71,9 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
 
         // UseSqlLogRegistry(テストということでここではtrue)
         DBFluteConfig.getInstance().setUseSqlLogRegistry(true);
+        ResolaDBFluteConfig.getInstance().unlock();
+        ResolaDBFluteConfig.getInstance().setUseSqlLogRegistry(true); // 連動してるのでこっちも
+        ResolaDBFluteConfig.getInstance().lock();
 
         // Containerの初期化が始まり、再度ロックが掛かる
         super.setUp();
@@ -87,6 +91,9 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
         DBFluteConfig.getInstance().setDefaultStatementConfig(null);
         DBFluteConfig.getInstance().setInternalDebug(false);
         DBFluteConfig.getInstance().setUseSqlLogRegistry(false);
+        ResolaDBFluteConfig.getInstance().unlock();
+        ResolaDBFluteConfig.getInstance().setUseSqlLogRegistry(false);
+        ResolaDBFluteConfig.getInstance().lock();
         DBFluteConfig.getInstance().lock();
     }
 
