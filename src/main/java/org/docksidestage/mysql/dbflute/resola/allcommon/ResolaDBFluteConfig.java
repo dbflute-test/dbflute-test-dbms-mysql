@@ -75,6 +75,7 @@ public class ResolaDBFluteConfig {
     // environment
     protected StatementConfig _defaultStatementConfig;
     protected Integer _cursorSelectFetchSize;
+    protected Integer _entitySelectFetchSize = Integer.MIN_VALUE;
     protected DataSourceHandler _dataSourceHandler;
     protected PhysicalConnectionDigger _physicalConnectionDigger;
     protected SQLExceptionDigger _sqlExceptionDigger;
@@ -406,6 +407,21 @@ public class ResolaDBFluteConfig {
             _log.info("...Setting cursorSelectFetchSize: " + cursorSelectFetchSize);
         }
         _cursorSelectFetchSize = cursorSelectFetchSize;
+    }
+
+    // ===================================================================================
+    //                                                              EntitySelect FetchSize
+    //                                                              ======================
+    public Integer getEntitySelectFetchSize() {
+        return _entitySelectFetchSize;
+    }
+
+    public void setEntitySelectFetchSize(Integer entitySelectFetchSize) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting entitySelectFetchSize: " + entitySelectFetchSize);
+        }
+        _entitySelectFetchSize = entitySelectFetchSize;
     }
 
     // [DBFlute-0.9.0]

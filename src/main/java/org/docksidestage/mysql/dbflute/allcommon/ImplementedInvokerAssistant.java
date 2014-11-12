@@ -185,6 +185,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
         factory.setDefaultStatementConfig(assistDefaultStatementConfig());
         factory.setInternalDebug(DBFluteConfig.getInstance().isInternalDebug());
         factory.setCursorSelectFetchSize(DBFluteConfig.getInstance().getCursorSelectFetchSize());
+        factory.setEntitySelectFetchSize(DBFluteConfig.getInstance().getEntitySelectFetchSize());
         return factory;
     }
 

@@ -170,6 +170,7 @@ public class ResolaImplementedInvokerAssistant implements InvokerAssistant {
         factory.setDefaultStatementConfig(assistDefaultStatementConfig());
         factory.setInternalDebug(ResolaDBFluteConfig.getInstance().isInternalDebug());
         factory.setCursorSelectFetchSize(ResolaDBFluteConfig.getInstance().getCursorSelectFetchSize());
+        factory.setEntitySelectFetchSize(ResolaDBFluteConfig.getInstance().getEntitySelectFetchSize());
         return factory;
     }
 
