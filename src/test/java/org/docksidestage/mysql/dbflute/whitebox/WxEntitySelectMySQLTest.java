@@ -1,8 +1,8 @@
 package org.docksidestage.mysql.dbflute.whitebox;
 
 import org.dbflute.cbean.result.ListResultBean;
-import org.dbflute.exception.EntityAlreadyDeletedException;
 import org.dbflute.exception.EntityDuplicatedException;
+import org.docksidestage.mysql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.mysql.dbflute.cbean.VendorLargeDataRefCB;
 import org.docksidestage.mysql.dbflute.exbhv.VendorLargeDataRefBhv;
 import org.docksidestage.mysql.dbflute.exentity.VendorLargeDataRef;
@@ -44,6 +44,10 @@ public class WxEntitySelectMySQLTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                          Fetch Size
     //                                                                          ==========
+    public void test_pagingSynchronizedFetchSize_DBFluteConfig() throws Exception {
+        assertEquals(Integer.MIN_VALUE, DBFluteConfig.getInstance().getEntitySelectFetchSize());
+    }
+
     public void test_entitySelectFetchSize_defaultFetchSize() throws Exception {
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
         cb.query().setLargeDataRefId_IsNotNull(); // to avoid no condition exception
@@ -51,8 +55,6 @@ public class WxEntitySelectMySQLTest extends UnitContainerTestCase {
         try {
             vendorLargeDataRefBhv.selectEntity(cb).get();
             fail();
-        } catch (EntityAlreadyDeletedException e) { // because large data is not required 
-            log(e.getMessage());
         } catch (EntityDuplicatedException e) { // needs manual test by large data
             log(e.getMessage());
         }
@@ -70,8 +72,7 @@ public class WxEntitySelectMySQLTest extends UnitContainerTestCase {
         ListResultBean<VendorLargeDataRef> memberList = vendorLargeDataRefBhv.selectList(cb);
 
         // ## Assert ##
-        // because large data is not required
-        //assertHasAnyElement(memberList);
+        assertHasAnyElement(memberList);
         assertEquals(countAll, memberList.size());
         assertEquals(0, vendorLargeDataRefBhv.getFetchSizeMap().get("selectList"));
         assertEquals(com.mysql.jdbc.RowDataStatic.class, vendorLargeDataRefBhv.getRowDataClassMap().get("selectList"));

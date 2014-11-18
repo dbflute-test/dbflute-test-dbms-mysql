@@ -90,10 +90,10 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnTraceId = cci("TRACE_ID", "TRACE_ID", null, null, Long.class, "traceId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnPreviousProductId = cci("PREVIOUS_PRODUCT_ID", "PREVIOUS_PRODUCT_ID", null, null, Long.class, "previousProductId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverProductByPreviousProductId", null, null);
-    protected final ColumnInfo _columnNextProductId = cci("NEXT_PRODUCT_ID", "NEXT_PRODUCT_ID", null, null, Long.class, "nextProductId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverProductByNextProductId", null, null);
-    protected final ColumnInfo _columnTraceTypeCode = cci("TRACE_TYPE_CODE", "TRACE_TYPE_CODE", null, null, String.class, "traceTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTraceId = cci("TRACE_ID", "TRACE_ID", null, null, Long.class, "traceId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPreviousProductId = cci("PREVIOUS_PRODUCT_ID", "PREVIOUS_PRODUCT_ID", null, null, Long.class, "previousProductId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverProductByPreviousProductId", null, null, false);
+    protected final ColumnInfo _columnNextProductId = cci("NEXT_PRODUCT_ID", "NEXT_PRODUCT_ID", null, null, Long.class, "nextProductId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverProductByNextProductId", null, null, false);
+    protected final ColumnInfo _columnTraceTypeCode = cci("TRACE_TYPE_CODE", "TRACE_TYPE_CODE", null, null, String.class, "traceTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
 
     /**
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
@@ -151,7 +151,7 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverProductByNextProductId() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnNextProductId(), WhitePerrottaOverProductDbm.getInstance().columnProductId());
-        return cfi("FK_WHITE_PERROTTA_OVER_TRACE_NEXT", "whitePerrottaOverProductByNextProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverTraceByNextProductIdList");
+        return cfi("FK_WHITE_PERROTTA_OVER_TRACE_NEXT", "whitePerrottaOverProductByNextProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverTraceByNextProductIdList", false);
     }
     /**
      * white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
@@ -159,7 +159,7 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverProductByPreviousProductId() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnPreviousProductId(), WhitePerrottaOverProductDbm.getInstance().columnProductId());
-        return cfi("FK_WHITE_PERROTTA_OVER_TRACE_PREVIOUS", "whitePerrottaOverProductByPreviousProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverTraceByPreviousProductIdList");
+        return cfi("FK_WHITE_PERROTTA_OVER_TRACE_PREVIOUS", "whitePerrottaOverProductByPreviousProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverTraceByPreviousProductIdList", false);
     }
 
     // -----------------------------------------------------

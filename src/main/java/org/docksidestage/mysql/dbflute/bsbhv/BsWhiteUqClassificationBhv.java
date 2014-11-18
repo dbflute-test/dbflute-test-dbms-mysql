@@ -76,10 +76,12 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteUqClassificationDbm getDBMeta() { return WhiteUqClassificationDbm.getInstance(); }
+    public WhiteUqClassificationDbm asDBMeta() { return WhiteUqClassificationDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_uq_classification"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -449,7 +451,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

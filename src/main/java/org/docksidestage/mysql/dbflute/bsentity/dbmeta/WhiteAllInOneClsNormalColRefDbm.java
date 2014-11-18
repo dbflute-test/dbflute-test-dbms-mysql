@@ -90,10 +90,10 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnClsRefId = cci("CLS_REF_ID", "CLS_REF_ID", null, null, Integer.class, "clsRefId", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFooCode = cci("FOO_CODE", "FOO_CODE", null, null, String.class, "fooCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, "whiteAllInOneClsElementAsFoo", null, null);
-    protected final ColumnInfo _columnBarCode = cci("BAR_CODE", "BAR_CODE", null, null, String.class, "barCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, "whiteAllInOneClsElementAsBar", null, null);
-    protected final ColumnInfo _columnQuxCode = cci("QUX_CODE", "QUX_CODE", null, null, String.class, "quxCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnClsRefId = cci("CLS_REF_ID", "CLS_REF_ID", null, null, Integer.class, "clsRefId", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFooCode = cci("FOO_CODE", "FOO_CODE", null, null, String.class, "fooCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, "whiteAllInOneClsElementAsFoo", null, null, false);
+    protected final ColumnInfo _columnBarCode = cci("BAR_CODE", "BAR_CODE", null, null, String.class, "barCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, "whiteAllInOneClsElementAsBar", null, null, false);
+    protected final ColumnInfo _columnQuxCode = cci("QUX_CODE", "QUX_CODE", null, null, String.class, "quxCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
 
     /**
      * CLS_REF_ID: {NotNull, INT(10)}
@@ -157,7 +157,7 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteAllInOneClsElementAsFoo() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnFooCode(), WhiteAllInOneClsElementDbm.getInstance().columnClsElementCode());
-        return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_FOO_TEST", "whiteAllInOneClsElementAsFoo", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'FOO'", null, false, null);
+        return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_FOO_TEST", "whiteAllInOneClsElementAsFoo", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'FOO'", null, false, null, false);
     }
     /**
      * white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
@@ -165,7 +165,7 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteAllInOneClsElementAsBar() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBarCode(), WhiteAllInOneClsElementDbm.getInstance().columnClsElementCode());
-        return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_BAR_TEST", "whiteAllInOneClsElementAsBar", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'BAR'", null, false, null);
+        return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_BAR_TEST", "whiteAllInOneClsElementAsBar", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'BAR'", null, false, null, false);
     }
 
     // -----------------------------------------------------

@@ -74,8 +74,8 @@ public class WhiteDbCommentDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnDbCommentCode = cci("DB_COMMENT_CODE", "DB_COMMENT_CODE", null, "Normal", String.class, "dbCommentCode", null, true, false, true, "CHAR", 3, 0, null, false, null, "this is normal comment.", null, null, null);
-    protected final ColumnInfo _columnDbCommentName = cci("DB_COMMENT_NAME", "DB_COMMENT_NAME", null, "JavaDocHeadache", String.class, "dbCommentName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, "e.g. /*BEGIN*/, @ @foo <br>", null, null, null);
+    protected final ColumnInfo _columnDbCommentCode = cci("DB_COMMENT_CODE", "DB_COMMENT_CODE", null, "Normal", String.class, "dbCommentCode", null, true, false, true, "CHAR", 3, 0, null, false, null, "this is normal comment.", null, null, null, false);
+    protected final ColumnInfo _columnDbCommentName = cci("DB_COMMENT_NAME", "DB_COMMENT_NAME", null, "JavaDocHeadache", String.class, "dbCommentName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, "e.g. /*BEGIN*/, @ @foo <br>", null, null, null, false);
 
     /**
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}

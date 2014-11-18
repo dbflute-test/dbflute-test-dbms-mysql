@@ -76,17 +76,14 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider(); // as default
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_no_pk_relation";
     }
 
@@ -94,12 +91,12 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
     //                                                                 PrimaryKey Handling
     //                                                                 ===================
     public ConditionBean addOrderBy_PK_Asc() {
-        String msg = "The table has no primary-keys: " + getTableDbName();
+        String msg = "The table has no primary-keys: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        String msg = "The table has no primary-keys: " + getTableDbName();
+        String msg = "The table has no primary-keys: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

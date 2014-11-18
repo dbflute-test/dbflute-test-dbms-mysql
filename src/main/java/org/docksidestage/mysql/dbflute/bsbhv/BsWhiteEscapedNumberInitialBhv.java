@@ -76,10 +76,12 @@ public abstract class BsWhiteEscapedNumberInitialBhv extends AbstractBehaviorWri
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteEscapedNumberInitialDbm getDBMeta() { return WhiteEscapedNumberInitialDbm.getInstance(); }
+    public WhiteEscapedNumberInitialDbm asDBMeta() { return WhiteEscapedNumberInitialDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_escaped_number_initial"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -424,7 +426,7 @@ public abstract class BsWhiteEscapedNumberInitialBhv extends AbstractBehaviorWri
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

@@ -75,10 +75,12 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteCompoundReferredPrimaryDbm getDBMeta() { return WhiteCompoundReferredPrimaryDbm.getInstance(); }
+    public WhiteCompoundReferredPrimaryDbm asDBMeta() { return WhiteCompoundReferredPrimaryDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_compound_referred_primary"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

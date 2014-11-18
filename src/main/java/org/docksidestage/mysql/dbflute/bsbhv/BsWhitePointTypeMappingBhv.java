@@ -75,10 +75,12 @@ public abstract class BsWhitePointTypeMappingBhv extends AbstractBehaviorWritabl
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhitePointTypeMappingDbm getDBMeta() { return WhitePointTypeMappingDbm.getInstance(); }
+    public WhitePointTypeMappingDbm asDBMeta() { return WhitePointTypeMappingDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_point_type_mapping"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhitePointTypeMappingBhv extends AbstractBehaviorWritabl
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

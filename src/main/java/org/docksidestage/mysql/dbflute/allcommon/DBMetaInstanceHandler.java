@@ -82,6 +82,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("white_compound_pk_ref", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteCompoundPkRefDbm");
         tmpMap.put("white_compound_pk_ref_many", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteCompoundPkRefManyDbm");
         tmpMap.put("white_compound_pk_ref_nest", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteCompoundPkRefNestDbm");
+        tmpMap.put("white_compound_pk_wrong_order", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteCompoundPkWrongOrderDbm");
         tmpMap.put("white_compound_referred_normally", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteCompoundReferredNormallyDbm");
         tmpMap.put("white_compound_referred_primary", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteCompoundReferredPrimaryDbm");
         tmpMap.put("white_date_adjustment", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteDateAdjustmentDbm");
@@ -382,7 +383,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
             }
             if (Entity.class.isAssignableFrom(entityType)) { // required
                 Entity entity = newEntity(entityType);
-                dbmeta = getCachedDBMeta(entity.getTableDbName());
+                dbmeta = getCachedDBMeta(entity.asTableDbName());
             }
             if (dbmeta == null) {
                 return null;

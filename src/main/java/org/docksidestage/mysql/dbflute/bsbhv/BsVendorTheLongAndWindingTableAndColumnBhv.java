@@ -75,10 +75,12 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnBhv extends Abstrac
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public VendorTheLongAndWindingTableAndColumnDbm getDBMeta() { return VendorTheLongAndWindingTableAndColumnDbm.getInstance(); }
+    public VendorTheLongAndWindingTableAndColumnDbm asDBMeta() { return VendorTheLongAndWindingTableAndColumnDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "vendor_the_long_and_winding_table_and_column"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -448,7 +450,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnBhv extends Abstrac
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

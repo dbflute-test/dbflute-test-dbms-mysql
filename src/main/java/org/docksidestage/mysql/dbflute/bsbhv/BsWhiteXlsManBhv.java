@@ -75,10 +75,12 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteXlsManDbm getDBMeta() { return WhiteXlsManDbm.getInstance(); }
+    public WhiteXlsManDbm asDBMeta() { return WhiteXlsManDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_xls_man"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

@@ -44,7 +44,25 @@ public class ThreadSafeTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                       ConditionBean
     //                                                                       =============
-    public void test_ThreadSafe_ConditionBean_sameExecution() {
+    public void test_ThreadSafe_ConditionBean_entity_sameExecution() {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
+                // ## Arrange ##
+                MemberCB cb = new MemberCB();
+                cb.setupSelect_MemberStatus();
+                cb.query().setMemberId_Equal(1);
+
+                // ## Act ##
+                Member member = memberBhv.selectEntity(cb).get();
+
+                // ## Assert ##
+                assertEquals(1, member.getMemberId());
+                car.goal(member);
+            }
+        }, new CannonballOption().expectSameResult());
+    }
+
+    public void test_ThreadSafe_ConditionBean_list_sameExecution() {
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
                 // ## Arrange ##
@@ -57,7 +75,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
                 // ## Assert ##
-                assertFalse(memberList.isEmpty());
+                assertHasAnyElement(memberList);
                 for (Member member : memberList) {
                     assertTrue(member.getMemberName().startsWith("S"));
                 }

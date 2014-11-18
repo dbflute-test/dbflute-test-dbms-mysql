@@ -75,10 +75,12 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhitePurchaseReferrerDbm getDBMeta() { return WhitePurchaseReferrerDbm.getInstance(); }
+    public WhitePurchaseReferrerDbm asDBMeta() { return WhitePurchaseReferrerDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_purchase_referrer"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

@@ -83,8 +83,8 @@ public class WhiteUqClassificationDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnUqClsId = cci("UQ_CLS_ID", "UQ_CLS_ID", null, null, Long.class, "uqClsId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnUqClsCode = cci("UQ_CLS_CODE", "UQ_CLS_CODE", null, null, String.class, "uqClsCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.UQClassificationType);
+    protected final ColumnInfo _columnUqClsId = cci("UQ_CLS_ID", "UQ_CLS_ID", null, null, Long.class, "uqClsId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUqClsCode = cci("UQ_CLS_CODE", "UQ_CLS_CODE", null, null, String.class, "uqClsCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.UQClassificationType, false);
 
     /**
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}

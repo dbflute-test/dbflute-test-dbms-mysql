@@ -90,10 +90,10 @@ public class WhiteImplicitConvStringDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnImplicitConvStringId = cci("IMPLICIT_CONV_STRING_ID", "IMPLICIT_CONV_STRING_ID", null, null, String.class, "implicitConvStringId", null, true, false, true, "VARCHAR", 10, 0, null, false, null, null, null, "whiteImplicitConvIntegerList,whiteImplicitConvNumericList", null);
-    protected final ColumnInfo _columnImplicitConvIntegerId = cci("IMPLICIT_CONV_INTEGER_ID", "IMPLICIT_CONV_INTEGER_ID", null, null, String.class, "implicitConvIntegerId", null, false, false, true, "VARCHAR", 10, 0, null, false, null, null, "whiteImplicitConvInteger", null, null);
-    protected final ColumnInfo _columnImplicitConvNumericId = cci("IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", null, null, String.class, "implicitConvNumericId", null, false, false, true, "VARCHAR", 10, 0, null, false, null, null, "whiteImplicitConvNumeric", null, null);
-    protected final ColumnInfo _columnImplicitConvName = cci("IMPLICIT_CONV_NAME", "IMPLICIT_CONV_NAME", null, null, String.class, "implicitConvName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnImplicitConvStringId = cci("IMPLICIT_CONV_STRING_ID", "IMPLICIT_CONV_STRING_ID", null, null, String.class, "implicitConvStringId", null, true, false, true, "VARCHAR", 10, 0, null, false, null, null, null, "whiteImplicitConvIntegerList,whiteImplicitConvNumericList", null, false);
+    protected final ColumnInfo _columnImplicitConvIntegerId = cci("IMPLICIT_CONV_INTEGER_ID", "IMPLICIT_CONV_INTEGER_ID", null, null, String.class, "implicitConvIntegerId", null, false, false, true, "VARCHAR", 10, 0, null, false, null, null, "whiteImplicitConvInteger", null, null, false);
+    protected final ColumnInfo _columnImplicitConvNumericId = cci("IMPLICIT_CONV_NUMERIC_ID", "IMPLICIT_CONV_NUMERIC_ID", null, null, String.class, "implicitConvNumericId", null, false, false, true, "VARCHAR", 10, 0, null, false, null, null, "whiteImplicitConvNumeric", null, null, false);
+    protected final ColumnInfo _columnImplicitConvName = cci("IMPLICIT_CONV_NAME", "IMPLICIT_CONV_NAME", null, null, String.class, "implicitConvName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)}
@@ -151,7 +151,7 @@ public class WhiteImplicitConvStringDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteImplicitConvInteger() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnImplicitConvIntegerId(), WhiteImplicitConvIntegerDbm.getInstance().columnImplicitConvIntegerId());
-        return cfi("FK_WHITE_IMPLICIT_CONV_STRING_INTEGER", "whiteImplicitConvInteger", this, WhiteImplicitConvIntegerDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteImplicitConvStringList");
+        return cfi("FK_WHITE_IMPLICIT_CONV_STRING_INTEGER", "whiteImplicitConvInteger", this, WhiteImplicitConvIntegerDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteImplicitConvStringList", false);
     }
     /**
      * white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
@@ -159,7 +159,7 @@ public class WhiteImplicitConvStringDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteImplicitConvNumeric() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnImplicitConvNumericId(), WhiteImplicitConvNumericDbm.getInstance().columnImplicitConvNumericId());
-        return cfi("FK_WHITE_IMPLICIT_CONV_STRING_NUMERIC", "whiteImplicitConvNumeric", this, WhiteImplicitConvNumericDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteImplicitConvStringList");
+        return cfi("FK_WHITE_IMPLICIT_CONV_STRING_NUMERIC", "whiteImplicitConvNumeric", this, WhiteImplicitConvNumericDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteImplicitConvStringList", false);
     }
 
     // -----------------------------------------------------

@@ -87,8 +87,8 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqManyList", null);
-    protected final ColumnInfo _columnSuppressJoinSqName = cci("SUPPRESS_JOIN_SQ_NAME", "SUPPRESS_JOIN_SQ_NAME", null, null, String.class, "suppressJoinSqName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqManyList", null, false);
+    protected final ColumnInfo _columnSuppressJoinSqName = cci("SUPPRESS_JOIN_SQ_NAME", "SUPPRESS_JOIN_SQ_NAME", null, null, String.class, "suppressJoinSqName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
@@ -134,7 +134,7 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSuppressJoinSqOneAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSuppressJoinSqId(), WhiteSuppressJoinSqOneDbm.getInstance().columnSuppressJoinSqId());
-        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE", "whiteSuppressJoinSqOneAsOne", this, WhiteSuppressJoinSqOneDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "whiteSuppressJoinSq");
+        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE", "whiteSuppressJoinSqOneAsOne", this, WhiteSuppressJoinSqOneDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "whiteSuppressJoinSq", false);
     }
 
     // -----------------------------------------------------

@@ -75,10 +75,12 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteSplitMultipleFkNextDbm getDBMeta() { return WhiteSplitMultipleFkNextDbm.getInstance(); }
+    public WhiteSplitMultipleFkNextDbm asDBMeta() { return WhiteSplitMultipleFkNextDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_split_multiple_fk_next"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

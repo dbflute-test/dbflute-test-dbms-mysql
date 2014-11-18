@@ -76,10 +76,12 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteDeprecatedClsElementDbm getDBMeta() { return WhiteDeprecatedClsElementDbm.getInstance(); }
+    public WhiteDeprecatedClsElementDbm asDBMeta() { return WhiteDeprecatedClsElementDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_deprecated_cls_element"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -424,7 +426,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

@@ -75,10 +75,12 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteImplicitConvStringDbm getDBMeta() { return WhiteImplicitConvStringDbm.getInstance(); }
+    public WhiteImplicitConvStringDbm asDBMeta() { return WhiteImplicitConvStringDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_implicit_conv_string"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

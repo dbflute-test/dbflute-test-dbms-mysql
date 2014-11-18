@@ -75,10 +75,12 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhitePgReservDbm getDBMeta() { return WhitePgReservDbm.getInstance(); }
+    public WhitePgReservDbm asDBMeta() { return WhitePgReservDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_pg_reserv"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

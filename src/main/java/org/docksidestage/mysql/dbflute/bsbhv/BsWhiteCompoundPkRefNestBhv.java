@@ -75,10 +75,12 @@ public abstract class BsWhiteCompoundPkRefNestBhv extends AbstractBehaviorWritab
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteCompoundPkRefNestDbm getDBMeta() { return WhiteCompoundPkRefNestDbm.getInstance(); }
+    public WhiteCompoundPkRefNestDbm asDBMeta() { return WhiteCompoundPkRefNestDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_compound_pk_ref_nest"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteCompoundPkRefNestBhv extends AbstractBehaviorWritab
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

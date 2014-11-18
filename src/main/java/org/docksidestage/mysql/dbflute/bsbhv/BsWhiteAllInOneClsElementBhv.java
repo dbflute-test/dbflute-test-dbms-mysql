@@ -75,10 +75,12 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteAllInOneClsElementDbm getDBMeta() { return WhiteAllInOneClsElementDbm.getInstance(); }
+    public WhiteAllInOneClsElementDbm asDBMeta() { return WhiteAllInOneClsElementDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_all_in_one_cls_element"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -424,7 +426,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

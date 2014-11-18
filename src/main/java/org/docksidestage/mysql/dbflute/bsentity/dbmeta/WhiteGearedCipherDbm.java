@@ -77,11 +77,11 @@ public class WhiteGearedCipherDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnCipherId = cci("CIPHER_ID", "CIPHER_ID", null, null, Long.class, "cipherId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCipherInteger = cci("CIPHER_INTEGER", "CIPHER_INTEGER", null, null, Integer.class, "cipherInteger", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCipherVarchar = cci("CIPHER_VARCHAR", "CIPHER_VARCHAR", null, null, String.class, "cipherVarchar", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCipherDate = cci("CIPHER_DATE", "CIPHER_DATE", null, null, java.time.LocalDate.class, "cipherDate", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCipherDatetime = cci("CIPHER_DATETIME", "CIPHER_DATETIME", null, null, java.time.LocalDateTime.class, "cipherDatetime", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnCipherId = cci("CIPHER_ID", "CIPHER_ID", null, null, Long.class, "cipherId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCipherInteger = cci("CIPHER_INTEGER", "CIPHER_INTEGER", null, null, Integer.class, "cipherInteger", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCipherVarchar = cci("CIPHER_VARCHAR", "CIPHER_VARCHAR", null, null, String.class, "cipherVarchar", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCipherDate = cci("CIPHER_DATE", "CIPHER_DATE", null, null, java.time.LocalDate.class, "cipherDate", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCipherDatetime = cci("CIPHER_DATETIME", "CIPHER_DATETIME", null, null, java.time.LocalDateTime.class, "cipherDatetime", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
 
     /**
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}

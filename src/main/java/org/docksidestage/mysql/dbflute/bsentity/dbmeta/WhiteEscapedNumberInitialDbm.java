@@ -83,8 +83,8 @@ public class WhiteEscapedNumberInitialDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnNumberInitialCode = cci("NUMBER_INITIAL_CODE", "NUMBER_INITIAL_CODE", null, null, String.class, "numberInitialCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.EscapedNumberInitialCls);
-    protected final ColumnInfo _columnNumberInitialName = cci("NUMBER_INITIAL_NAME", "NUMBER_INITIAL_NAME", null, null, String.class, "numberInitialName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnNumberInitialCode = cci("NUMBER_INITIAL_CODE", "NUMBER_INITIAL_CODE", null, null, String.class, "numberInitialCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.EscapedNumberInitialCls, false);
+    protected final ColumnInfo _columnNumberInitialName = cci("NUMBER_INITIAL_NAME", "NUMBER_INITIAL_NAME", null, null, String.class, "numberInitialName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null, false);
 
     /**
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}

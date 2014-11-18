@@ -90,10 +90,10 @@ public class WhiteSuppressJoinSqOneDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnOneId = cci("ONE_ID", "ONE_ID", null, null, Integer.class, "oneId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnOneName = cci("ONE_NAME", "ONE_NAME", null, null, String.class, "oneName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSq", null, null);
-    protected final ColumnInfo _columnOneAddiId = cci("ONE_ADDI_ID", "ONE_ADDI_ID", null, null, Integer.class, "oneAddiId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSqOneAddi", null, null);
+    protected final ColumnInfo _columnOneId = cci("ONE_ID", "ONE_ID", null, null, Integer.class, "oneId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnOneName = cci("ONE_NAME", "ONE_NAME", null, null, String.class, "oneName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSq", null, null, false);
+    protected final ColumnInfo _columnOneAddiId = cci("ONE_ADDI_ID", "ONE_ADDI_ID", null, null, Integer.class, "oneAddiId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSqOneAddi", null, null, false);
 
     /**
      * ONE_ID: {PK, NotNull, INT(10)}
@@ -151,7 +151,7 @@ public class WhiteSuppressJoinSqOneDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSuppressJoinSq() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSuppressJoinSqId(), WhiteSuppressJoinSqDbm.getInstance().columnSuppressJoinSqId());
-        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE", "whiteSuppressJoinSq", this, WhiteSuppressJoinSqDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, false, null, null, false, "whiteSuppressJoinSqOneAsOne");
+        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE", "whiteSuppressJoinSq", this, WhiteSuppressJoinSqDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, false, null, null, false, "whiteSuppressJoinSqOneAsOne", false);
     }
     /**
      * white_suppress_join_sq_one_addi by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'.
@@ -159,7 +159,7 @@ public class WhiteSuppressJoinSqOneDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSuppressJoinSqOneAddi() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnOneAddiId(), WhiteSuppressJoinSqOneAddiDbm.getInstance().columnOneAddiId());
-        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI_TEST", "whiteSuppressJoinSqOneAddi", this, WhiteSuppressJoinSqOneAddiDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteSuppressJoinSqOneList");
+        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI_TEST", "whiteSuppressJoinSqOneAddi", this, WhiteSuppressJoinSqOneAddiDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteSuppressJoinSqOneList", false);
     }
 
     // -----------------------------------------------------

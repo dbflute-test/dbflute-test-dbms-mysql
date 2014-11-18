@@ -75,10 +75,12 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteImplicitReverseFkSuppressDbm getDBMeta() { return WhiteImplicitReverseFkSuppressDbm.getInstance(); }
+    public WhiteImplicitReverseFkSuppressDbm asDBMeta() { return WhiteImplicitReverseFkSuppressDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_implicit_reverse_fk_suppress"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -449,7 +451,7 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

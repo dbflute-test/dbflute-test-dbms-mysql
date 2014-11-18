@@ -75,10 +75,12 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhitePerrottaOverProductNestedDbm getDBMeta() { return WhitePerrottaOverProductNestedDbm.getInstance(); }
+    public WhitePerrottaOverProductNestedDbm asDBMeta() { return WhitePerrottaOverProductNestedDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_perrotta_over_product_nested"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

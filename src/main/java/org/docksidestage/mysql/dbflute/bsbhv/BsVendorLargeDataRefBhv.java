@@ -72,13 +72,19 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     //                                                                          Definition
     //                                                                          ==========
     /*df:beginQueryPath*/
+    /** Large Data with AutoPaging */
+    public static final String PATH_whitebox_vendorcheck_selectLargeAutoPaging = "whitebox:vendorcheck:selectLargeAutoPaging";
+    /** Large Data with ManualPaging */
+    public static final String PATH_whitebox_vendorcheck_selectLargeManualPaging = "whitebox:vendorcheck:selectLargeManualPaging";
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public VendorLargeDataRefDbm getDBMeta() { return VendorLargeDataRefDbm.getInstance(); }
+    public VendorLargeDataRefDbm asDBMeta() { return VendorLargeDataRefDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "vendor_large_data_ref"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +429,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

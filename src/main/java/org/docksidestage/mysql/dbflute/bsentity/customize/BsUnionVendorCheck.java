@@ -107,24 +107,16 @@ public abstract class BsUnionVendorCheck extends AbstractEntity implements Custo
     protected byte[] _typeOfBlob;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "UnionVendorCheck";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "unionVendorCheck";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.mysql.dbflute.bsentity.customize.dbmeta.UnionVendorCheckDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "UnionVendorCheck";
     }
 
     // ===================================================================================
@@ -248,7 +240,7 @@ public abstract class BsUnionVendorCheck extends AbstractEntity implements Custo
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _vendorCheckId);
         hs = xCH(hs, _typeOfText);
         hs = xCH(hs, _typeOfNumericDecimal);

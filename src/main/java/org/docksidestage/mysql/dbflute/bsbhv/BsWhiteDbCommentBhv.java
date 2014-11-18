@@ -75,10 +75,12 @@ public abstract class BsWhiteDbCommentBhv extends AbstractBehaviorWritable<White
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteDbCommentDbm getDBMeta() { return WhiteDbCommentDbm.getInstance(); }
+    public WhiteDbCommentDbm asDBMeta() { return WhiteDbCommentDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_db_comment"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteDbCommentBhv extends AbstractBehaviorWritable<White
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

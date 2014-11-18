@@ -75,10 +75,12 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteDateAdjustmentDbm getDBMeta() { return WhiteDateAdjustmentDbm.getInstance(); }
+    public WhiteDateAdjustmentDbm asDBMeta() { return WhiteDateAdjustmentDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_date_adjustment"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

@@ -89,9 +89,9 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Long.class, "productId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverTraceAsPerrotta", "whitePerrottaOverMemberList,whitePerrottaOverTraceByNextProductIdList,whitePerrottaOverTraceByPreviousProductIdList", null);
-    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnProductNestedCode = cci("PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", null, null, String.class, "productNestedCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "whitePerrottaOverProductNested", null, null);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Long.class, "productId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverTraceAsPerrotta", "whitePerrottaOverMemberList,whitePerrottaOverTraceByNextProductIdList,whitePerrottaOverTraceByPreviousProductIdList", null, false);
+    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductNestedCode = cci("PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", null, null, String.class, "productNestedCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "whitePerrottaOverProductNested", null, null, false);
 
     /**
      * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
@@ -143,7 +143,7 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverProductNested() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductNestedCode(), WhitePerrottaOverProductNestedDbm.getInstance().columnProductNestedCode());
-        return cfi("FK_WHITE_PERROTTA_OVER_PRODUCT_NESTED", "whitePerrottaOverProductNested", this, WhitePerrottaOverProductNestedDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverProductList");
+        return cfi("FK_WHITE_PERROTTA_OVER_PRODUCT_NESTED", "whitePerrottaOverProductNested", this, WhitePerrottaOverProductNestedDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverProductList", false);
     }
     /**
      * white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
@@ -151,7 +151,7 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverTraceAsPerrotta() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), WhitePerrottaOverTraceDbm.getInstance().columnPreviousProductId());
-        return cfi("FK_OVER_RELATION_CACHE_TEST", "whitePerrottaOverTraceAsPerrotta", this, WhitePerrottaOverTraceDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.TRACE_TYPE_CODE = $$over(WHITE_PERROTTA_OVER_MEMBER)$$.TRACE_TYPE_CODE", null, false, null);
+        return cfi("FK_OVER_RELATION_CACHE_TEST", "whitePerrottaOverTraceAsPerrotta", this, WhitePerrottaOverTraceDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.TRACE_TYPE_CODE = $$over(WHITE_PERROTTA_OVER_MEMBER)$$.TRACE_TYPE_CODE", null, false, null, false);
     }
 
     // -----------------------------------------------------

@@ -87,8 +87,8 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Long.class, "refId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnReferrerId = cci("REFERRER_ID", "REFERRER_ID", null, null, Long.class, "referrerId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationReferrer", null, null);
+    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Long.class, "refId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnReferrerId = cci("REFERRER_ID", "REFERRER_ID", null, null, Long.class, "referrerId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationReferrer", null, null, false);
 
     /**
      * REF_ID: {PK, NotNull, BIGINT(19)}
@@ -134,7 +134,7 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationReferrer() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnReferrerId(), WhiteVariantRelationReferrerDbm.getInstance().columnReferrerId());
-        return cfi("FK_WHITE_VARIANT_RELATION_REFERRER_REF", "whiteVariantRelationReferrer", this, WhiteVariantRelationReferrerDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteVariantRelationReferrerRefList");
+        return cfi("FK_WHITE_VARIANT_RELATION_REFERRER_REF", "whiteVariantRelationReferrer", this, WhiteVariantRelationReferrerDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteVariantRelationReferrerRefList", false);
     }
 
     // -----------------------------------------------------

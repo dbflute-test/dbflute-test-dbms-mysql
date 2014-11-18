@@ -75,10 +75,12 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteVariantRelationLocalPkReferrerDbm getDBMeta() { return WhiteVariantRelationLocalPkReferrerDbm.getInstance(); }
+    public WhiteVariantRelationLocalPkReferrerDbm asDBMeta() { return WhiteVariantRelationLocalPkReferrerDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_variant_relation_local_pk_referrer"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

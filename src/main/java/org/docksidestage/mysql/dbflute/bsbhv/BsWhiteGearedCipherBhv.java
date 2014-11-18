@@ -75,10 +75,12 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteGearedCipherDbm getDBMeta() { return WhiteGearedCipherDbm.getInstance(); }
+    public WhiteGearedCipherDbm asDBMeta() { return WhiteGearedCipherDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_geared_cipher"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

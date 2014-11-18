@@ -76,10 +76,12 @@ public abstract class BsProductStatusBhv extends AbstractBehaviorWritable<Produc
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public ProductStatusDbm getDBMeta() { return ProductStatusDbm.getInstance(); }
+    public ProductStatusDbm asDBMeta() { return ProductStatusDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "product_status"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -449,7 +451,7 @@ public abstract class BsProductStatusBhv extends AbstractBehaviorWritable<Produc
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

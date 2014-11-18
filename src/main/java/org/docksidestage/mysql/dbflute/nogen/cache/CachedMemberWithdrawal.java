@@ -29,7 +29,7 @@ public class CachedMemberWithdrawal {
         loadCache(entity, columnName, memberId);
         final MemberWithdrawal reloaded = _cacheMap.get(memberId);
         if (reloaded == null) {
-            String msg = "Failed to reload cache: " + entity.getTableDbName() + "." + columnName + "::" + memberId;
+            String msg = "Failed to reload cache: " + entity.asTableDbName() + "." + columnName + "::" + memberId;
             throw new IllegalStateException(msg);
         }
         return columnInfo.read(status);

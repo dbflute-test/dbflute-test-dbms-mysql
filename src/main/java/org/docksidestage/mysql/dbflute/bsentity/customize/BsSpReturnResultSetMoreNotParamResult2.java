@@ -92,24 +92,16 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     protected Integer _displayOrder;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "SpReturnResultSetMoreNotParamResult2";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "spReturnResultSetMoreNotParamResult2";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.mysql.dbflute.bsentity.customize.dbmeta.SpReturnResultSetMoreNotParamResult2Dbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "SpReturnResultSetMoreNotParamResult2";
     }
 
     // ===================================================================================
@@ -258,7 +250,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEnt
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberStatusCode);
         hs = xCH(hs, _memberStatusName);
         hs = xCH(hs, _description);

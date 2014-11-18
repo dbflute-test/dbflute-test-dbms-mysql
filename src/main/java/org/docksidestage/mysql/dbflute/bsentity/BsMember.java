@@ -135,24 +135,16 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     protected Long _versionNo;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "member";
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
     }
 
     /** {@inheritDoc} */
-    public String getTablePropertyName() {
+    public String asTableDbName() {
         return "member";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -295,8 +287,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
     public OptionalEntity<MemberStatus> getMemberStatus() {
-        if (_memberStatus == null) { _memberStatus = CachedMemberStatus.get(this, "memberStatus", getMemberStatusCode()); }
         if (_memberStatus == null) { _memberStatus = OptionalEntity.relationEmpty(this, "memberStatus"); }
+        if (_memberStatus.orElse(null) == null) { _memberStatus = CachedMemberStatus.get(this, "memberStatus", getMemberStatusCode()); }
         return _memberStatus;
     }
 
@@ -800,8 +792,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * @return the entity of foreign property(referrer-as-one) 'memberSecurityAsOne'. (NotNull, EmptyAllowed: when e.g. no data, no setupSelect)
      */
     public OptionalEntity<MemberSecurity> getMemberSecurityAsOne() {
-        if (_memberSecurityAsOne == null) { _memberSecurityAsOne = CachedMemberSecurity.get(getMemberId()); }
         if (_memberSecurityAsOne == null) { _memberSecurityAsOne = OptionalEntity.relationEmpty(this, "memberSecurityAsOne"); }
+        if (_memberSecurityAsOne.orElse(null) == null) { _memberSecurityAsOne = CachedMemberSecurity.get(getMemberId()); }
         return _memberSecurityAsOne;
     }
 
@@ -939,7 +931,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         return hs;
     }

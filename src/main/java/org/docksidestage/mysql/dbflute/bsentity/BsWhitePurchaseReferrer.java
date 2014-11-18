@@ -84,24 +84,16 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     protected String _purchaseReferrerName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_purchase_referrer";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whitePurchaseReferrer";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -161,7 +153,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _purchaseReferrerId);
         return hs;
     }

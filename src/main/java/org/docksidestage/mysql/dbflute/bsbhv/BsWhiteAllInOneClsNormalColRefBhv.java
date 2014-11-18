@@ -75,10 +75,12 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteAllInOneClsNormalColRefDbm getDBMeta() { return WhiteAllInOneClsNormalColRefDbm.getInstance(); }
+    public WhiteAllInOneClsNormalColRefDbm asDBMeta() { return WhiteAllInOneClsNormalColRefDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_all_in_one_cls_normal_col_ref"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -425,7 +427,7 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

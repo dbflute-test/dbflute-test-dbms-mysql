@@ -76,10 +76,12 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteEscapedDfpropDbm getDBMeta() { return WhiteEscapedDfpropDbm.getInstance(); }
+    public WhiteEscapedDfpropDbm asDBMeta() { return WhiteEscapedDfpropDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_escaped_dfprop"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -424,7 +426,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

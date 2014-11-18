@@ -75,10 +75,12 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteLoadDataDbm getDBMeta() { return WhiteLoadDataDbm.getInstance(); }
+    public WhiteLoadDataDbm asDBMeta() { return WhiteLoadDataDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_load_data"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteLoadDataBhv extends AbstractBehaviorWritable<WhiteL
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

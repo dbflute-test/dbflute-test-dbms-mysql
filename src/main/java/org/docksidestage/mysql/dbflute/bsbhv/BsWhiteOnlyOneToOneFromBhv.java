@@ -75,10 +75,12 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteOnlyOneToOneFromDbm getDBMeta() { return WhiteOnlyOneToOneFromDbm.getInstance(); }
+    public WhiteOnlyOneToOneFromDbm asDBMeta() { return WhiteOnlyOneToOneFromDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_only_one_to_one_from"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteOnlyOneToOneFromBhv extends AbstractBehaviorWritabl
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

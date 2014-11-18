@@ -75,10 +75,12 @@ public abstract class BsWhitePerrottaOverTraceBhv extends AbstractBehaviorWritab
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhitePerrottaOverTraceDbm getDBMeta() { return WhitePerrottaOverTraceDbm.getInstance(); }
+    public WhitePerrottaOverTraceDbm asDBMeta() { return WhitePerrottaOverTraceDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_perrotta_over_trace"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -449,7 +451,7 @@ public abstract class BsWhitePerrottaOverTraceBhv extends AbstractBehaviorWritab
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

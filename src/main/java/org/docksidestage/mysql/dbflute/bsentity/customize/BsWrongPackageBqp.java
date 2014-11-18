@@ -91,24 +91,16 @@ public abstract class BsWrongPackageBqp extends AbstractEntity implements Custom
     protected String _memberStatusName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "WrongPackageBqp";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "wrongPackageBqp";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.mysql.dbflute.bsentity.customize.dbmeta.WrongPackageBqpDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "WrongPackageBqp";
     }
 
     // ===================================================================================
@@ -149,7 +141,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity implements Custom
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _birthdate);

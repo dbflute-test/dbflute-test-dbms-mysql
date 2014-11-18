@@ -75,10 +75,12 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public VendorConstraintNameAutoBarDbm getDBMeta() { return VendorConstraintNameAutoBarDbm.getInstance(); }
+    public VendorConstraintNameAutoBarDbm asDBMeta() { return VendorConstraintNameAutoBarDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "vendor_constraint_name_auto_bar"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -448,7 +450,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

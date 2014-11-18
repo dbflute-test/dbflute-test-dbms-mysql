@@ -63,12 +63,12 @@ public class ResolaStationDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnStationId = cci("STATION_ID", "STATION_ID", null, null, Integer.class, "stationId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnStationName = cci("STATION_NAME", "STATION_NAME", null, null, String.class, "stationName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnBirthdate = cci("BIRTHDATE", "BIRTHDATE", null, null, java.time.LocalDate.class, "birthdate", null, false, false, false, "DATE", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFormalizedDatetime = cci("FORMALIZED_DATETIME", "FORMALIZED_DATETIME", null, null, java.time.LocalDateTime.class, "formalizedDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnHomeCount = cci("HOME_COUNT", "HOME_COUNT", null, null, Integer.class, "homeCount", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnWorkingKilometer = cci("WORKING_KILOMETER", "WORKING_KILOMETER", null, null, java.math.BigDecimal.class, "workingKilometer", null, false, false, false, "DECIMAL", 4, 2, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnStationId = cci("STATION_ID", "STATION_ID", null, null, Integer.class, "stationId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStationName = cci("STATION_NAME", "STATION_NAME", null, null, String.class, "stationName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBirthdate = cci("BIRTHDATE", "BIRTHDATE", null, null, java.time.LocalDate.class, "birthdate", null, false, false, false, "DATE", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFormalizedDatetime = cci("FORMALIZED_DATETIME", "FORMALIZED_DATETIME", null, null, java.time.LocalDateTime.class, "formalizedDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnHomeCount = cci("HOME_COUNT", "HOME_COUNT", null, null, Integer.class, "homeCount", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnWorkingKilometer = cci("WORKING_KILOMETER", "WORKING_KILOMETER", null, null, java.math.BigDecimal.class, "workingKilometer", null, false, false, false, "DECIMAL", 4, 2, null, false, null, null, null, null, null, false);
 
     /**
      * STATION_ID: {PK, NotNull, INT(10)}

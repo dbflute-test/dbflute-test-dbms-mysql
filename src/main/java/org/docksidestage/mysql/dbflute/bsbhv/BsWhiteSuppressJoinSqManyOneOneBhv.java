@@ -75,10 +75,12 @@ public abstract class BsWhiteSuppressJoinSqManyOneOneBhv extends AbstractBehavio
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteSuppressJoinSqManyOneOneDbm getDBMeta() { return WhiteSuppressJoinSqManyOneOneDbm.getInstance(); }
+    public WhiteSuppressJoinSqManyOneOneDbm asDBMeta() { return WhiteSuppressJoinSqManyOneOneDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_suppress_join_sq_many_one_one"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteSuppressJoinSqManyOneOneBhv extends AbstractBehavio
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

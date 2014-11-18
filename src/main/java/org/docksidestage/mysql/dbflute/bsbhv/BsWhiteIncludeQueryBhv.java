@@ -75,10 +75,12 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteIncludeQueryDbm getDBMeta() { return WhiteIncludeQueryDbm.getInstance(); }
+    public WhiteIncludeQueryDbm asDBMeta() { return WhiteIncludeQueryDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_include_query"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

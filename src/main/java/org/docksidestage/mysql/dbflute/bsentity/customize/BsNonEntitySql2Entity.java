@@ -81,24 +81,16 @@ public abstract class BsNonEntitySql2Entity extends AbstractEntity implements Cu
     protected String _memberName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "NonEntitySql2Entity";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "nonEntitySql2Entity";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.mysql.dbflute.bsentity.customize.dbmeta.NonEntitySql2EntityDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "NonEntitySql2Entity";
     }
 
     // ===================================================================================
@@ -137,7 +129,7 @@ public abstract class BsNonEntitySql2Entity extends AbstractEntity implements Cu
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         return hs;

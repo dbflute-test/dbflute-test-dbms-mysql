@@ -76,10 +76,12 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public RegionDbm getDBMeta() { return RegionDbm.getInstance(); }
+    public RegionDbm asDBMeta() { return RegionDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "region"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -424,7 +426,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

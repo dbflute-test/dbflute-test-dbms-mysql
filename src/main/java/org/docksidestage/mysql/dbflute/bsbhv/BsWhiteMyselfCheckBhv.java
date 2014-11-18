@@ -75,10 +75,12 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteMyselfCheckDbm getDBMeta() { return WhiteMyselfCheckDbm.getInstance(); }
+    public WhiteMyselfCheckDbm asDBMeta() { return WhiteMyselfCheckDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_myself_check"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -423,7 +425,7 @@ public abstract class BsWhiteMyselfCheckBhv extends AbstractBehaviorWritable<Whi
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
