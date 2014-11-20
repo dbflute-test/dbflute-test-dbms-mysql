@@ -544,11 +544,7 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkRef.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSplitMultipleFkRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">update</span>(whiteSplitMultipleFkRef);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">update</span>(whiteSplitMultipleFkRef);
      * </pre>
      * @param whiteSplitMultipleFkRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -709,9 +705,9 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkRef.setVersionNo(value);</span>
-     * WhiteSplitMultipleFkRefCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkRef, cb);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteSplitMultipleFkRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
@@ -751,9 +747,9 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkRef, cb);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @return The deleted count.
@@ -793,10 +789,10 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteSplitMultipleFkRef.setFoo...(value);
      * whiteSplitMultipleFkRef.setBar...(value);
-     * InsertOption&lt;WhiteSplitMultipleFkRefCB&gt; option = new InsertOption&lt;WhiteSplitMultipleFkRefCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSplitMultipleFkRef, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSplitMultipleFkRef, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteSplitMultipleFkRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteSplitMultipleFkRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -817,18 +813,12 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * whiteSplitMultipleFkRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSplitMultipleFkRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteSplitMultipleFkRefCB&gt; option = new UpdateOption&lt;WhiteSplitMultipleFkRefCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkRefCB&gt;() {
-     *         public void specify(WhiteSplitMultipleFkRefCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSplitMultipleFkRef, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSplitMultipleFkRef, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteSplitMultipleFkRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -937,15 +927,13 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkRef.setVersionNo(value);</span>
-     * WhiteSplitMultipleFkRefCB cb = new WhiteSplitMultipleFkRefCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSplitMultipleFkRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSplitMultipleFkRefCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkRefCB&gt;() {
-     *     public void specify(WhiteSplitMultipleFkRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkRef, cb, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteSplitMultipleFkRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
@@ -973,13 +961,11 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkRef.setVersionNo(value);</span>
      * WhiteSplitMultipleFkRefCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkRefCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSplitMultipleFkRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSplitMultipleFkRefCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkRefCB&gt;() {
-     *     public void specify(WhiteSplitMultipleFkRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkRef, cb, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkRef, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteSplitMultipleFkRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
@@ -994,7 +980,14 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteSplitMultipleFkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1007,7 +1000,7 @@ public abstract class BsWhiteSplitMultipleFkRefBhv extends AbstractBehaviorWrita
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteSplitMultipleFkRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.

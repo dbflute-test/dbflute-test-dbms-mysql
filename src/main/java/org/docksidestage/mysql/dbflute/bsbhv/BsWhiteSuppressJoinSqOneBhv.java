@@ -600,11 +600,7 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqOne.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSuppressJoinSqOne.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">update</span>(whiteSuppressJoinSqOne);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">update</span>(whiteSuppressJoinSqOne);
      * </pre>
      * @param whiteSuppressJoinSqOne The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -765,9 +761,9 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqOne.setVersionNo(value);</span>
-     * WhiteSuppressJoinSqOneCB cb = <span style="color: #70226C">new</span> WhiteSuppressJoinSqOneCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSuppressJoinSqOne, cb);
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSuppressJoinSqOne, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteSuppressJoinSqOne The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqOne. (NotNull)
@@ -807,9 +803,9 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteSuppressJoinSqOneCB cb = new WhiteSuppressJoinSqOneCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSuppressJoinSqOne, cb);
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSuppressJoinSqOne, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqOne. (NotNull)
      * @return The deleted count.
@@ -849,10 +845,10 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteSuppressJoinSqOne.setFoo...(value);
      * whiteSuppressJoinSqOne.setBar...(value);
-     * InsertOption&lt;WhiteSuppressJoinSqOneCB&gt; option = new InsertOption&lt;WhiteSuppressJoinSqOneCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSuppressJoinSqOne, option);
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSuppressJoinSqOne, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteSuppressJoinSqOne.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteSuppressJoinSqOne The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -873,18 +869,12 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
      * whiteSuppressJoinSqOne.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSuppressJoinSqOne.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteSuppressJoinSqOneCB&gt; option = new UpdateOption&lt;WhiteSuppressJoinSqOneCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteSuppressJoinSqOneCB&gt;() {
-     *         public void specify(WhiteSuppressJoinSqOneCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSuppressJoinSqOne, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSuppressJoinSqOne, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteSuppressJoinSqOne The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -993,15 +983,13 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqOne.setVersionNo(value);</span>
-     * WhiteSuppressJoinSqOneCB cb = new WhiteSuppressJoinSqOneCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSuppressJoinSqOneCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSuppressJoinSqOneCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteSuppressJoinSqOneCB&gt;() {
-     *     public void specify(WhiteSuppressJoinSqOneCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSuppressJoinSqOne, cb, option);
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSuppressJoinSqOne, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteSuppressJoinSqOne The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqOne. (NotNull)
@@ -1029,13 +1017,11 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
      * <span style="color: #3F7E5E">//whiteSuppressJoinSqOne.setVersionNo(value);</span>
      * WhiteSuppressJoinSqOneCB cb = <span style="color: #70226C">new</span> WhiteSuppressJoinSqOneCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSuppressJoinSqOneCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSuppressJoinSqOneCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteSuppressJoinSqOneCB&gt;() {
-     *     public void specify(WhiteSuppressJoinSqOneCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSuppressJoinSqOne, cb, option);
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSuppressJoinSqOne, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteSuppressJoinSqOne The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteSuppressJoinSqOne. (NotNull)
@@ -1050,7 +1036,14 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSuppressJoinSqOne, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSuppressJoinSqOne. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1063,7 +1056,7 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteSuppressJoinSqOne. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.

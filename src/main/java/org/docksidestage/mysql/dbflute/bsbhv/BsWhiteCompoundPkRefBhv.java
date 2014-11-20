@@ -728,11 +728,7 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteCompoundPkRef.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteCompoundPkRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">update</span>(whiteCompoundPkRef);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">update</span>(whiteCompoundPkRef);
      * </pre>
      * @param whiteCompoundPkRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -893,9 +889,9 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteCompoundPkRef.setVersionNo(value);</span>
-     * WhiteCompoundPkRefCB cb = <span style="color: #70226C">new</span> WhiteCompoundPkRefCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteCompoundPkRef, cb);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteCompoundPkRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
@@ -935,9 +931,9 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRef, cb);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
      * @return The deleted count.
@@ -977,10 +973,10 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteCompoundPkRef.setFoo...(value);
      * whiteCompoundPkRef.setBar...(value);
-     * InsertOption&lt;WhiteCompoundPkRefCB&gt; option = new InsertOption&lt;WhiteCompoundPkRefCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteCompoundPkRef, option);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteCompoundPkRef, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteCompoundPkRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteCompoundPkRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -1001,18 +997,12 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * whiteCompoundPkRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteCompoundPkRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteCompoundPkRefCB&gt; option = new UpdateOption&lt;WhiteCompoundPkRefCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteCompoundPkRefCB&gt;() {
-     *         public void specify(WhiteCompoundPkRefCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteCompoundPkRef, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteCompoundPkRef, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteCompoundPkRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1121,15 +1111,13 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteCompoundPkRef.setVersionNo(value);</span>
-     * WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteCompoundPkRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteCompoundPkRefCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteCompoundPkRefCB&gt;() {
-     *     public void specify(WhiteCompoundPkRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRef, cb, option);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteCompoundPkRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
@@ -1157,13 +1145,11 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteCompoundPkRef.setVersionNo(value);</span>
      * WhiteCompoundPkRefCB cb = <span style="color: #70226C">new</span> WhiteCompoundPkRefCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteCompoundPkRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteCompoundPkRefCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteCompoundPkRefCB&gt;() {
-     *     public void specify(WhiteCompoundPkRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRef, cb, option);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRef, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteCompoundPkRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteCompoundPkRef. (NotNull)
@@ -1178,7 +1164,14 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1191,7 +1184,7 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteCompoundPkRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.

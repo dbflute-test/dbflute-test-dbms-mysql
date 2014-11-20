@@ -551,11 +551,7 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">//whiteIncludeQuery.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteIncludeQuery.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">update</span>(whiteIncludeQuery);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">update</span>(whiteIncludeQuery);
      * </pre>
      * @param whiteIncludeQuery The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -716,9 +712,9 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteIncludeQuery.setVersionNo(value);</span>
-     * WhiteIncludeQueryCB cb = <span style="color: #70226C">new</span> WhiteIncludeQueryCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteIncludeQuery, cb);
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteIncludeQuery, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteIncludeQuery The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteIncludeQuery. (NotNull)
@@ -758,9 +754,9 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteIncludeQueryCB cb = new WhiteIncludeQueryCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteIncludeQuery, cb);
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteIncludeQuery, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteIncludeQuery. (NotNull)
      * @return The deleted count.
@@ -800,10 +796,10 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteIncludeQuery.setFoo...(value);
      * whiteIncludeQuery.setBar...(value);
-     * InsertOption&lt;WhiteIncludeQueryCB&gt; option = new InsertOption&lt;WhiteIncludeQueryCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteIncludeQuery, option);
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteIncludeQuery, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteIncludeQuery.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteIncludeQuery The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -824,18 +820,12 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
      * whiteIncludeQuery.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteIncludeQuery.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteIncludeQueryCB&gt; option = new UpdateOption&lt;WhiteIncludeQueryCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteIncludeQueryCB&gt;() {
-     *         public void specify(WhiteIncludeQueryCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteIncludeQuery, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteIncludeQuery, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteIncludeQuery The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -944,15 +934,13 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteIncludeQuery.setVersionNo(value);</span>
-     * WhiteIncludeQueryCB cb = new WhiteIncludeQueryCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteIncludeQueryCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteIncludeQueryCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteIncludeQueryCB&gt;() {
-     *     public void specify(WhiteIncludeQueryCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteIncludeQuery, cb, option);
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteIncludeQuery, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteIncludeQuery The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteIncludeQuery. (NotNull)
@@ -980,13 +968,11 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
      * <span style="color: #3F7E5E">//whiteIncludeQuery.setVersionNo(value);</span>
      * WhiteIncludeQueryCB cb = <span style="color: #70226C">new</span> WhiteIncludeQueryCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteIncludeQueryCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteIncludeQueryCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteIncludeQueryCB&gt;() {
-     *     public void specify(WhiteIncludeQueryCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteIncludeQuery, cb, option);
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteIncludeQuery, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteIncludeQuery The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteIncludeQuery. (NotNull)
@@ -1001,7 +987,14 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteIncludeQuery, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteIncludeQuery. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1014,7 +1007,7 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteIncludeQuery. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
