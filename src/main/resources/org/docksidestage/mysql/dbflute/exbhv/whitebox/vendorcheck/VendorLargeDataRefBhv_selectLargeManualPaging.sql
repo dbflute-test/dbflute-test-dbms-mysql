@@ -3,7 +3,7 @@
  Large Data with ManualPaging
  
  [df:description]
- test of large data
+ test of large data with manual-paging
 */
 -- #df:entity#
 -- !df:pmb extends Paging!

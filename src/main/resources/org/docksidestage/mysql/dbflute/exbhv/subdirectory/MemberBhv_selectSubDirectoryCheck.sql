@@ -3,7 +3,7 @@
  SubDirectory Check Select
  
  [df:description]
- This SQL is simple select.
+ This SQL is simple select. only for sub directory
 */
 select member.MEMBER_ID
      , member.MEMBER_NAME
