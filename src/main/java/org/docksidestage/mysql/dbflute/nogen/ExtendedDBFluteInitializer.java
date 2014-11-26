@@ -5,7 +5,6 @@ import org.dbflute.cbean.cipher.CipherFunctionFilter;
 import org.dbflute.cbean.cipher.GearedCipherManager;
 import org.dbflute.dbmeta.info.ColumnInfo;
 import org.dbflute.dbway.DBDef;
-import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.outsidesql.OutsideSqlOption;
 import org.dbflute.outsidesql.executor.OutsideSqlBasicExecutor;
 import org.dbflute.outsidesql.factory.DefaultOutsideSqlExecutorFactory;
@@ -39,11 +38,10 @@ public class ExtendedDBFluteInitializer extends DBFluteInitializer {
 
         config.setOutsideSqlExecutorFactory(new DefaultOutsideSqlExecutorFactory() {
             @Override
-            public <BEHAVIOR> OutsideSqlBasicExecutor<BEHAVIOR> createBasic(
-                    BehaviorCommandInvoker behaviorCommandInvoker, String tableDbName, DBDef currentDBDef,
-                    StatementConfig defaultStatementConfig, OutsideSqlOption outsideSqlOption) {
-                final OutsideSqlBasicExecutor<BEHAVIOR> executor = super.createBasic(behaviorCommandInvoker,
-                        tableDbName, currentDBDef, defaultStatementConfig, outsideSqlOption);
+            public <BEHAVIOR> OutsideSqlBasicExecutor<BEHAVIOR> createBasic(BehaviorCommandInvoker behaviorCommandInvoker,
+                    String tableDbName, DBDef currentDBDef, OutsideSqlOption outsideSqlOption) {
+                final OutsideSqlBasicExecutor<BEHAVIOR> executor =
+                        super.createBasic(behaviorCommandInvoker, tableDbName, currentDBDef, outsideSqlOption);
                 return executor.formatSql(); // format only here (tests of removing are other example)
             }
         });

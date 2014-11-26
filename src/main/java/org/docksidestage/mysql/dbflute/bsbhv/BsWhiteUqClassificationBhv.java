@@ -76,10 +76,12 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteUqClassificationDbm getDBMeta() { return WhiteUqClassificationDbm.getInstance(); }
+    public WhiteUqClassificationDbm asDBMeta() { return WhiteUqClassificationDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_uq_classification"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -198,7 +200,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -431,7 +433,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -440,7 +442,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteUqClassificationCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteUqClassificationCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -449,7 +451,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -583,11 +585,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whiteUqClassification.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteUqClassification.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">update</span>(whiteUqClassification);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">update</span>(whiteUqClassification);
      * </pre>
      * @param whiteUqClassification The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -748,9 +746,9 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setVersionNo(value);</span>
-     * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteUqClassification, cb);
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteUqClassification, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteUqClassification The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteUqClassification. (NotNull)
@@ -790,9 +788,9 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteUqClassification, cb);
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteUqClassification, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqClassification. (NotNull)
      * @return The deleted count.
@@ -832,10 +830,10 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteUqClassification.setFoo...(value);
      * whiteUqClassification.setBar...(value);
-     * InsertOption&lt;WhiteUqClassificationCB&gt; option = new InsertOption&lt;WhiteUqClassificationCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteUqClassification, option);
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteUqClassification, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteUqClassification.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteUqClassification The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -856,18 +854,12 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * whiteUqClassification.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteUqClassification.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteUqClassificationCB&gt; option = new UpdateOption&lt;WhiteUqClassificationCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteUqClassificationCB&gt;() {
-     *         public void specify(WhiteUqClassificationCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteUqClassification, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteUqClassification, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteUqClassification The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -976,15 +968,13 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteUqClassification.setVersionNo(value);</span>
-     * WhiteUqClassificationCB cb = new WhiteUqClassificationCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteUqClassificationCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteUqClassificationCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteUqClassificationCB&gt;() {
-     *     public void specify(WhiteUqClassificationCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteUqClassification, cb, option);
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteUqClassification, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteUqClassification The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteUqClassification. (NotNull)
@@ -1012,13 +1002,11 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//whiteUqClassification.setVersionNo(value);</span>
      * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteUqClassificationCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteUqClassificationCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteUqClassificationCB&gt;() {
-     *     public void specify(WhiteUqClassificationCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteUqClassification, cb, option);
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteUqClassification, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteUqClassification The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteUqClassification. (NotNull)
@@ -1033,7 +1021,14 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteUqClassification, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqClassification. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1046,7 +1041,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteUqClassification. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1087,9 +1082,8 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteUqClassificationBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteUqClassificationBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteUqClassificationBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

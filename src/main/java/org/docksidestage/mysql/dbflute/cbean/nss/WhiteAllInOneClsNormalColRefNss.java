@@ -26,7 +26,7 @@ public class WhiteAllInOneClsNormalColRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteAllInOneClsNormalColRefCQ _query;
+    protected final WhiteAllInOneClsNormalColRefCQ _query;
     public WhiteAllInOneClsNormalColRefNss(WhiteAllInOneClsNormalColRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

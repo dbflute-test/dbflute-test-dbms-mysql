@@ -52,7 +52,8 @@ public class WhiteAllInOneClsCategoryDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsCategory)et).getClsCategoryCode(), (et, vl) -> ((WhiteAllInOneClsCategory)et).setClsCategoryCode((String)vl), "clsCategoryCode");
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsCategory)et).getClsCategoryName(), (et, vl) -> ((WhiteAllInOneClsCategory)et).setClsCategoryName((String)vl), "clsCategoryName");
         setupEpg(_epgMap, et -> ((WhiteAllInOneClsCategory)et).getDescription(), (et, vl) -> ((WhiteAllInOneClsCategory)et).setDescription((String)vl), "description");
@@ -74,9 +75,9 @@ public class WhiteAllInOneClsCategoryDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnClsCategoryCode = cci("CLS_CATEGORY_CODE", "CLS_CATEGORY_CODE", null, null, String.class, "clsCategoryCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, "whiteAllInOneClsElementList", null);
-    protected final ColumnInfo _columnClsCategoryName = cci("CLS_CATEGORY_NAME", "CLS_CATEGORY_NAME", null, null, String.class, "clsCategoryName", null, false, false, true, "VARCHAR", 20, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnDescription = cci("DESCRIPTION", "DESCRIPTION", null, null, String.class, "description", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnClsCategoryCode = cci("CLS_CATEGORY_CODE", "CLS_CATEGORY_CODE", null, null, String.class, "clsCategoryCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, "whiteAllInOneClsElementList", null, false);
+    protected final ColumnInfo _columnClsCategoryName = cci("CLS_CATEGORY_NAME", "CLS_CATEGORY_NAME", null, null, String.class, "clsCategoryName", null, false, false, true, "VARCHAR", 20, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDescription = cci("DESCRIPTION", "DESCRIPTION", null, null, String.class, "description", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
 
     /**
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}

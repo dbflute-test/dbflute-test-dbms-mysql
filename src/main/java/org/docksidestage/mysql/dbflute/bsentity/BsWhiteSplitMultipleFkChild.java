@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -87,24 +89,16 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
     protected String _childName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_split_multiple_fk_child";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteSplitMultipleFkChild";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -120,13 +114,15 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'. */
-    protected WhiteSplitMultipleFkBase _whiteSplitMultipleFkBase;
+    protected OptionalEntity<WhiteSplitMultipleFkBase> _whiteSplitMultipleFkBase;
 
     /**
      * [get] white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'. <br>
-     * @return The entity of foreign property 'whiteSplitMultipleFkBase'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSplitMultipleFkBase'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSplitMultipleFkBase getWhiteSplitMultipleFkBase() {
+    public OptionalEntity<WhiteSplitMultipleFkBase> getWhiteSplitMultipleFkBase() {
+        if (_whiteSplitMultipleFkBase == null) { _whiteSplitMultipleFkBase = OptionalEntity.relationEmpty(this, "whiteSplitMultipleFkBase"); }
         return _whiteSplitMultipleFkBase;
     }
 
@@ -134,7 +130,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
      * [set] white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'.
      * @param whiteSplitMultipleFkBase The entity of foreign property 'whiteSplitMultipleFkBase'. (NullAllowed)
      */
-    public void setWhiteSplitMultipleFkBase(WhiteSplitMultipleFkBase whiteSplitMultipleFkBase) {
+    public void setWhiteSplitMultipleFkBase(OptionalEntity<WhiteSplitMultipleFkBase> whiteSplitMultipleFkBase) {
         _whiteSplitMultipleFkBase = whiteSplitMultipleFkBase;
     }
 
@@ -162,7 +158,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _childId);
         return hs;
     }
@@ -170,9 +166,12 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSplitMultipleFkBase != null)
+        if (_whiteSplitMultipleFkBase != null && _whiteSplitMultipleFkBase.isPresent())
         { sb.append(li).append(xbRDS(_whiteSplitMultipleFkBase, "whiteSplitMultipleFkBase")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -191,7 +190,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSplitMultipleFkBase != null)
+        if (_whiteSplitMultipleFkBase != null && _whiteSplitMultipleFkBase.isPresent())
         { sb.append(dm).append("whiteSplitMultipleFkBase"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

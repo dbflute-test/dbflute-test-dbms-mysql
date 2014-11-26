@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_split_multiple_fk_next";
     }
 
@@ -167,13 +164,13 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * {exists (select NEXT_ID from white_split_multiple_fk_base where ...)} <br>
      * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSplitMultipleFkBaseList</span>(baseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteSplitMultipleFkBase</span>(baseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     baseCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteSplitMultipleFkBaseList for 'exists'. (NotNull)
      */
-    public void existsWhiteSplitMultipleFkBaseList(SubQuery<WhiteSplitMultipleFkBaseCB> subCBLambda) {
+    public void existsWhiteSplitMultipleFkBase(SubQuery<WhiteSplitMultipleFkBaseCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSplitMultipleFkBaseCB cb = new WhiteSplitMultipleFkBaseCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepNextId_ExistsReferrer_WhiteSplitMultipleFkBaseList(cb.query());
@@ -186,13 +183,13 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * {not exists (select NEXT_ID from white_split_multiple_fk_base where ...)} <br>
      * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSplitMultipleFkBaseList</span>(baseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSplitMultipleFkBase</span>(baseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     baseCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of NextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteSplitMultipleFkBaseList(SubQuery<WhiteSplitMultipleFkBaseCB> subCBLambda) {
+    public void notExistsWhiteSplitMultipleFkBase(SubQuery<WhiteSplitMultipleFkBaseCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSplitMultipleFkBaseCB cb = new WhiteSplitMultipleFkBaseCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepNextId_NotExistsReferrer_WhiteSplitMultipleFkBaseList(cb.query());
@@ -213,14 +210,14 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * {FOO &lt;= (select max(BAR) from white_split_multiple_fk_base where ...)} <br>
      * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSplitMultipleFkBaseList()</span>.<span style="color: #CC4747">max</span>(baseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSplitMultipleFkBase()</span>.<span style="color: #CC4747">max</span>(baseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     baseCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     baseCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteSplitMultipleFkBaseCB> derivedWhiteSplitMultipleFkBaseList() {
+    public HpQDRFunction<WhiteSplitMultipleFkBaseCB> derivedWhiteSplitMultipleFkBase() {
         return xcreateQDRFunctionWhiteSplitMultipleFkBaseList();
     }
     protected HpQDRFunction<WhiteSplitMultipleFkBaseCB> xcreateQDRFunctionWhiteSplitMultipleFkBaseList() {
@@ -344,15 +341,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      */
     public void setSecondCode_NotLikeSearch(String secondCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(secondCode), xgetCValueSecondCode(), "SECOND_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * SECOND_CODE: {NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setSecondCode_PrefixSearch(String secondCode) {
-        setSecondCode_LikeSearch(secondCode, xcLSOPPre());
     }
 
     protected void regSecondCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSecondCode(), "SECOND_CODE"); }
@@ -591,39 +579,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

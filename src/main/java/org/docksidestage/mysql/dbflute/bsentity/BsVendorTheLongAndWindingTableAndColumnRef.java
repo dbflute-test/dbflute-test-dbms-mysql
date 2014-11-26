@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -58,8 +60,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long theLongAndWindingTableAndColumnRefId = entity.getTheLongAndWindingTableAndColumnRefId();
  * Long theLongAndWindingTableAndColumnId = entity.getTheLongAndWindingTableAndColumnId();
- * java.util.Date theLongAndWindingTableAndColumnRefDate = entity.getTheLongAndWindingTableAndColumnRefDate();
- * java.util.Date shortDate = entity.getShortDate();
+ * java.time.LocalDate theLongAndWindingTableAndColumnRefDate = entity.getTheLongAndWindingTableAndColumnRefDate();
+ * java.time.LocalDate shortDate = entity.getShortDate();
  * entity.setTheLongAndWindingTableAndColumnRefId(theLongAndWindingTableAndColumnRefId);
  * entity.setTheLongAndWindingTableAndColumnId(theLongAndWindingTableAndColumnId);
  * entity.setTheLongAndWindingTableAndColumnRefDate(theLongAndWindingTableAndColumnRefDate);
@@ -86,30 +88,22 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
     protected Long _theLongAndWindingTableAndColumnId;
 
     /** THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)} */
-    protected java.util.Date _theLongAndWindingTableAndColumnRefDate;
+    protected java.time.LocalDate _theLongAndWindingTableAndColumnRefDate;
 
     /** SHORT_DATE: {NotNull, DATE(10)} */
-    protected java.util.Date _shortDate;
+    protected java.time.LocalDate _shortDate;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "vendor_the_long_and_winding_table_and_column_ref";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorTheLongAndWindingTableAndColumnRef";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -125,13 +119,15 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
     //                                                                    Foreign Property
     //                                                                    ================
     /** vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'. */
-    protected VendorTheLongAndWindingTableAndColumn _vendorTheLongAndWindingTableAndColumn;
+    protected OptionalEntity<VendorTheLongAndWindingTableAndColumn> _vendorTheLongAndWindingTableAndColumn;
 
     /**
      * [get] vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'. <br>
-     * @return The entity of foreign property 'vendorTheLongAndWindingTableAndColumn'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendorTheLongAndWindingTableAndColumn'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public VendorTheLongAndWindingTableAndColumn getVendorTheLongAndWindingTableAndColumn() {
+    public OptionalEntity<VendorTheLongAndWindingTableAndColumn> getVendorTheLongAndWindingTableAndColumn() {
+        if (_vendorTheLongAndWindingTableAndColumn == null) { _vendorTheLongAndWindingTableAndColumn = OptionalEntity.relationEmpty(this, "vendorTheLongAndWindingTableAndColumn"); }
         return _vendorTheLongAndWindingTableAndColumn;
     }
 
@@ -139,7 +135,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
      * [set] vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
      * @param vendorTheLongAndWindingTableAndColumn The entity of foreign property 'vendorTheLongAndWindingTableAndColumn'. (NullAllowed)
      */
-    public void setVendorTheLongAndWindingTableAndColumn(VendorTheLongAndWindingTableAndColumn vendorTheLongAndWindingTableAndColumn) {
+    public void setVendorTheLongAndWindingTableAndColumn(OptionalEntity<VendorTheLongAndWindingTableAndColumn> vendorTheLongAndWindingTableAndColumn) {
         _vendorTheLongAndWindingTableAndColumn = vendorTheLongAndWindingTableAndColumn;
     }
 
@@ -167,7 +163,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _theLongAndWindingTableAndColumnRefId);
         return hs;
     }
@@ -175,9 +171,12 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorTheLongAndWindingTableAndColumn != null)
+        if (_vendorTheLongAndWindingTableAndColumn != null && _vendorTheLongAndWindingTableAndColumn.isPresent())
         { sb.append(li).append(xbRDS(_vendorTheLongAndWindingTableAndColumn, "vendorTheLongAndWindingTableAndColumn")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -185,8 +184,8 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_theLongAndWindingTableAndColumnRefId));
         sb.append(dm).append(xfND(_theLongAndWindingTableAndColumnId));
-        sb.append(dm).append(xfUD(_theLongAndWindingTableAndColumnRefDate));
-        sb.append(dm).append(xfUD(_shortDate));
+        sb.append(dm).append(xfND(_theLongAndWindingTableAndColumnRefDate));
+        sb.append(dm).append(xfND(_shortDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -197,7 +196,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorTheLongAndWindingTableAndColumn != null)
+        if (_vendorTheLongAndWindingTableAndColumn != null && _vendorTheLongAndWindingTableAndColumn.isPresent())
         { sb.append(dm).append("vendorTheLongAndWindingTableAndColumn"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
@@ -253,7 +252,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
      * [get] THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getTheLongAndWindingTableAndColumnRefDate() {
+    public java.time.LocalDate getTheLongAndWindingTableAndColumnRefDate() {
         checkSpecifiedProperty("theLongAndWindingTableAndColumnRefDate");
         return _theLongAndWindingTableAndColumnRefDate;
     }
@@ -262,7 +261,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
      * [set] THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)} <br>
      * @param theLongAndWindingTableAndColumnRefDate The value of the column 'THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE'. (basically NotNull if update: for the constraint)
      */
-    public void setTheLongAndWindingTableAndColumnRefDate(java.util.Date theLongAndWindingTableAndColumnRefDate) {
+    public void setTheLongAndWindingTableAndColumnRefDate(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
         registerModifiedProperty("theLongAndWindingTableAndColumnRefDate");
         _theLongAndWindingTableAndColumnRefDate = theLongAndWindingTableAndColumnRefDate;
     }
@@ -271,7 +270,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
      * [get] SHORT_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'SHORT_DATE'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getShortDate() {
+    public java.time.LocalDate getShortDate() {
         checkSpecifiedProperty("shortDate");
         return _shortDate;
     }
@@ -280,7 +279,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
      * [set] SHORT_DATE: {NotNull, DATE(10)} <br>
      * @param shortDate The value of the column 'SHORT_DATE'. (basically NotNull if update: for the constraint)
      */
-    public void setShortDate(java.util.Date shortDate) {
+    public void setShortDate(java.time.LocalDate shortDate) {
         registerModifiedProperty("shortDate");
         _shortDate = shortDate;
     }

@@ -26,7 +26,7 @@ public class WhiteSelfReferenceRefOneNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteSelfReferenceRefOneCQ _query;
+    protected final WhiteSelfReferenceRefOneCQ _query;
     public WhiteSelfReferenceRefOneNss(WhiteSelfReferenceRefOneCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

@@ -77,17 +77,14 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider(); // as default
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "withdrawal_reason";
     }
 
@@ -343,39 +340,6 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
     }
 
-    // [DBFlute-0.9.5.3]
-    // ===================================================================================
-    //                                                                        Column Query
-    //                                                                        ============
-    /**
-     * Set up column-query. {column1 = column2}
-     * <pre>
-     * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WithdrawalReasonCB&gt;() {
-     *     public void query(WithdrawalReasonCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
-     *     }
-     * }).lessThan(new SpecifyQuery&lt;WithdrawalReasonCB&gt;() {
-     *     public void query(WithdrawalReasonCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
-     *     }
-     * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
-     * </pre>
-     * @param colCBLambda The callback for specify-query of left column. (NotNull)
-     * @return The object for setting up operand and right column. (NotNull)
-     */
-    public HpColQyOperand.HpExtendedColQyOperandMySql<WithdrawalReasonCB> columnQuery(final SpecifyQuery<WithdrawalReasonCB> colCBLambda) {
-        return xcreateColQyOperandMySql((rightSp, operand) -> {
-            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-        });
-    }
-
-    protected WithdrawalReasonCB xcreateColumnQueryCB() {
-        WithdrawalReasonCB cb = new WithdrawalReasonCB();
-        cb.xsetupForColumnQuery((WithdrawalReasonCB)this);
-        return cb;
-    }
-
     // ===================================================================================
     //                                                                        Dream Cruise
     //                                                                        ============
@@ -394,6 +358,35 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
         return dreamCruiseCB();
     }
 
+    // [DBFlute-0.9.5.3]
+    // ===================================================================================
+    //                                                                        Column Query
+    //                                                                        ============
+    /**
+     * Set up column-query. {column1 = column2}
+     * <pre>
+     * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
+     * cb.<span style="color: #CC4747">columnQuery</span>(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     * }).lessThan(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
+     * </pre>
+     * @param colCBLambda The callback for specify-query of left column. (NotNull)
+     * @return The object for setting up operand and right column. (NotNull)
+     */
+    public HpColQyOperand.HpExtendedColQyOperandMySql<WithdrawalReasonCB> columnQuery(final SpecifyQuery<WithdrawalReasonCB> colCBLambda) {
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
+        });
+    }
+
+    protected WithdrawalReasonCB xcreateColumnQueryCB() {
+        WithdrawalReasonCB cb = new WithdrawalReasonCB();
+        cb.xsetupForColumnQuery((WithdrawalReasonCB)this);
+        return cb;
+    }
+
     // [DBFlute-0.9.6.3]
     // ===================================================================================
     //                                                                       OrScope Query
@@ -403,11 +396,9 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WithdrawalReasonCB&gt;() {
-     *     public void query(WithdrawalReasonCB orCB) {
-     *         orCB.query().setFOO_Equal...
-     *         orCB.query().setBAR_Equal...
-     *     }
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(<span style="color: #553000">orCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">orCB</span>.query().setFoo...
+     *     <span style="color: #553000">orCB</span>.query().setBar...
      * });
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
@@ -421,16 +412,12 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WithdrawalReasonCB&gt;() {
-     *     public void query(WithdrawalReasonCB orCB) {
-     *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WithdrawalReasonCB&gt;() {
-     *             public void query(WithdrawalReasonCB andCB) {
-     *                 andCB.query().setBar_...
-     *                 andCB.query().setQux_...
-     *             }
-     *         });
-     *     }
+     * cb.<span style="color: #994747">orScopeQuery</span>(<span style="color: #553000">orCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">orCB</span>.query().setFoo...
+     *     <span style="color: #553000">orCB</span>.<span style="color: #CC4747">orScopeQueryAndPart</span>(<span style="color: #553000">andCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">andCB</span>.query().setBar...
+     *         <span style="color: #553000">andCB</span>.query().setQux...
+     *     });
      * });
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)

@@ -26,7 +26,7 @@ public class WhiteImplicitConvNumericNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteImplicitConvNumericCQ _query;
+    protected final WhiteImplicitConvNumericCQ _query;
     public WhiteImplicitConvNumericNss(WhiteImplicitConvNumericCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

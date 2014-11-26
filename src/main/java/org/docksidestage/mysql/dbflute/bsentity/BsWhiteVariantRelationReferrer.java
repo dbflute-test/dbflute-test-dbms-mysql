@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
@@ -88,24 +90,16 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     protected String _masterTypeCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_variant_relation_referrer";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteVariantRelationReferrer";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -249,13 +243,15 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'. */
-    protected WhiteVariantRelationMasterFoo _whiteVariantRelationMasterFooAsVariant;
+    protected OptionalEntity<WhiteVariantRelationMasterFoo> _whiteVariantRelationMasterFooAsVariant;
 
     /**
      * [get] white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'. <br>
-     * @return The entity of foreign property 'whiteVariantRelationMasterFooAsVariant'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteVariantRelationMasterFooAsVariant'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteVariantRelationMasterFoo getWhiteVariantRelationMasterFooAsVariant() {
+    public OptionalEntity<WhiteVariantRelationMasterFoo> getWhiteVariantRelationMasterFooAsVariant() {
+        if (_whiteVariantRelationMasterFooAsVariant == null) { _whiteVariantRelationMasterFooAsVariant = OptionalEntity.relationEmpty(this, "whiteVariantRelationMasterFooAsVariant"); }
         return _whiteVariantRelationMasterFooAsVariant;
     }
 
@@ -263,18 +259,20 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
      * [set] white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
      * @param whiteVariantRelationMasterFooAsVariant The entity of foreign property 'whiteVariantRelationMasterFooAsVariant'. (NullAllowed)
      */
-    public void setWhiteVariantRelationMasterFooAsVariant(WhiteVariantRelationMasterFoo whiteVariantRelationMasterFooAsVariant) {
+    public void setWhiteVariantRelationMasterFooAsVariant(OptionalEntity<WhiteVariantRelationMasterFoo> whiteVariantRelationMasterFooAsVariant) {
         _whiteVariantRelationMasterFooAsVariant = whiteVariantRelationMasterFooAsVariant;
     }
 
     /** white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'. */
-    protected WhiteVariantRelationMasterBar _whiteVariantRelationMasterBarAsVariant;
+    protected OptionalEntity<WhiteVariantRelationMasterBar> _whiteVariantRelationMasterBarAsVariant;
 
     /**
      * [get] white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'. <br>
-     * @return The entity of foreign property 'whiteVariantRelationMasterBarAsVariant'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteVariantRelationMasterBarAsVariant'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteVariantRelationMasterBar getWhiteVariantRelationMasterBarAsVariant() {
+    public OptionalEntity<WhiteVariantRelationMasterBar> getWhiteVariantRelationMasterBarAsVariant() {
+        if (_whiteVariantRelationMasterBarAsVariant == null) { _whiteVariantRelationMasterBarAsVariant = OptionalEntity.relationEmpty(this, "whiteVariantRelationMasterBarAsVariant"); }
         return _whiteVariantRelationMasterBarAsVariant;
     }
 
@@ -282,18 +280,20 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
      * [set] white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
      * @param whiteVariantRelationMasterBarAsVariant The entity of foreign property 'whiteVariantRelationMasterBarAsVariant'. (NullAllowed)
      */
-    public void setWhiteVariantRelationMasterBarAsVariant(WhiteVariantRelationMasterBar whiteVariantRelationMasterBarAsVariant) {
+    public void setWhiteVariantRelationMasterBarAsVariant(OptionalEntity<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarAsVariant) {
         _whiteVariantRelationMasterBarAsVariant = whiteVariantRelationMasterBarAsVariant;
     }
 
     /** white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'. */
-    protected WhiteVariantRelationMasterQux _whiteVariantRelationMasterQuxAsVariantByQue;
+    protected OptionalEntity<WhiteVariantRelationMasterQux> _whiteVariantRelationMasterQuxAsVariantByQue;
 
     /**
      * [get] white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'. <br>
-     * @return The entity of foreign property 'whiteVariantRelationMasterQuxAsVariantByQue'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteVariantRelationMasterQuxAsVariantByQue'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteVariantRelationMasterQux getWhiteVariantRelationMasterQuxAsVariantByQue() {
+    public OptionalEntity<WhiteVariantRelationMasterQux> getWhiteVariantRelationMasterQuxAsVariantByQue() {
+        if (_whiteVariantRelationMasterQuxAsVariantByQue == null) { _whiteVariantRelationMasterQuxAsVariantByQue = OptionalEntity.relationEmpty(this, "whiteVariantRelationMasterQuxAsVariantByQue"); }
         return _whiteVariantRelationMasterQuxAsVariantByQue;
     }
 
@@ -301,18 +301,20 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
      * [set] white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
      * @param whiteVariantRelationMasterQuxAsVariantByQue The entity of foreign property 'whiteVariantRelationMasterQuxAsVariantByQue'. (NullAllowed)
      */
-    public void setWhiteVariantRelationMasterQuxAsVariantByQue(WhiteVariantRelationMasterQux whiteVariantRelationMasterQuxAsVariantByQue) {
+    public void setWhiteVariantRelationMasterQuxAsVariantByQue(OptionalEntity<WhiteVariantRelationMasterQux> whiteVariantRelationMasterQuxAsVariantByQue) {
         _whiteVariantRelationMasterQuxAsVariantByQue = whiteVariantRelationMasterQuxAsVariantByQue;
     }
 
     /** white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. */
-    protected WhiteVariantRelationMasterCorge _whiteVariantRelationMasterCorgeAsVariantByQuxType;
+    protected OptionalEntity<WhiteVariantRelationMasterCorge> _whiteVariantRelationMasterCorgeAsVariantByQuxType;
 
     /**
      * [get] white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. <br>
-     * @return The entity of foreign property 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteVariantRelationMasterCorge getWhiteVariantRelationMasterCorgeAsVariantByQuxType() {
+    public OptionalEntity<WhiteVariantRelationMasterCorge> getWhiteVariantRelationMasterCorgeAsVariantByQuxType() {
+        if (_whiteVariantRelationMasterCorgeAsVariantByQuxType == null) { _whiteVariantRelationMasterCorgeAsVariantByQuxType = OptionalEntity.relationEmpty(this, "whiteVariantRelationMasterCorgeAsVariantByQuxType"); }
         return _whiteVariantRelationMasterCorgeAsVariantByQuxType;
     }
 
@@ -320,7 +322,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
      * [set] white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
      * @param whiteVariantRelationMasterCorgeAsVariantByQuxType The entity of foreign property 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. (NullAllowed)
      */
-    public void setWhiteVariantRelationMasterCorgeAsVariantByQuxType(WhiteVariantRelationMasterCorge whiteVariantRelationMasterCorgeAsVariantByQuxType) {
+    public void setWhiteVariantRelationMasterCorgeAsVariantByQuxType(OptionalEntity<WhiteVariantRelationMasterCorge> whiteVariantRelationMasterCorgeAsVariantByQuxType) {
         _whiteVariantRelationMasterCorgeAsVariantByQuxType = whiteVariantRelationMasterCorgeAsVariantByQuxType;
     }
 
@@ -368,7 +370,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _referrerId);
         return hs;
     }
@@ -376,17 +378,20 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationMasterFooAsVariant != null)
+        if (_whiteVariantRelationMasterFooAsVariant != null && _whiteVariantRelationMasterFooAsVariant.isPresent())
         { sb.append(li).append(xbRDS(_whiteVariantRelationMasterFooAsVariant, "whiteVariantRelationMasterFooAsVariant")); }
-        if (_whiteVariantRelationMasterBarAsVariant != null)
+        if (_whiteVariantRelationMasterBarAsVariant != null && _whiteVariantRelationMasterBarAsVariant.isPresent())
         { sb.append(li).append(xbRDS(_whiteVariantRelationMasterBarAsVariant, "whiteVariantRelationMasterBarAsVariant")); }
-        if (_whiteVariantRelationMasterQuxAsVariantByQue != null)
+        if (_whiteVariantRelationMasterQuxAsVariantByQue != null && _whiteVariantRelationMasterQuxAsVariantByQue.isPresent())
         { sb.append(li).append(xbRDS(_whiteVariantRelationMasterQuxAsVariantByQue, "whiteVariantRelationMasterQuxAsVariantByQue")); }
-        if (_whiteVariantRelationMasterCorgeAsVariantByQuxType != null)
+        if (_whiteVariantRelationMasterCorgeAsVariantByQuxType != null && _whiteVariantRelationMasterCorgeAsVariantByQuxType.isPresent())
         { sb.append(li).append(xbRDS(_whiteVariantRelationMasterCorgeAsVariantByQuxType, "whiteVariantRelationMasterCorgeAsVariantByQuxType")); }
         if (_whiteVariantRelationReferrerRefList != null) { for (WhiteVariantRelationReferrerRef et : _whiteVariantRelationReferrerRefList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteVariantRelationReferrerRefList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -405,13 +410,13 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationMasterFooAsVariant != null)
+        if (_whiteVariantRelationMasterFooAsVariant != null && _whiteVariantRelationMasterFooAsVariant.isPresent())
         { sb.append(dm).append("whiteVariantRelationMasterFooAsVariant"); }
-        if (_whiteVariantRelationMasterBarAsVariant != null)
+        if (_whiteVariantRelationMasterBarAsVariant != null && _whiteVariantRelationMasterBarAsVariant.isPresent())
         { sb.append(dm).append("whiteVariantRelationMasterBarAsVariant"); }
-        if (_whiteVariantRelationMasterQuxAsVariantByQue != null)
+        if (_whiteVariantRelationMasterQuxAsVariantByQue != null && _whiteVariantRelationMasterQuxAsVariantByQue.isPresent())
         { sb.append(dm).append("whiteVariantRelationMasterQuxAsVariantByQue"); }
-        if (_whiteVariantRelationMasterCorgeAsVariantByQuxType != null)
+        if (_whiteVariantRelationMasterCorgeAsVariantByQuxType != null && _whiteVariantRelationMasterCorgeAsVariantByQuxType.isPresent())
         { sb.append(dm).append("whiteVariantRelationMasterCorgeAsVariantByQuxType"); }
         if (_whiteVariantRelationReferrerRefList != null && !_whiteVariantRelationReferrerRefList.isEmpty())
         { sb.append(dm).append("whiteVariantRelationReferrerRefList"); }

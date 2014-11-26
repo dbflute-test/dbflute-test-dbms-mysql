@@ -44,17 +44,14 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "purchase_payment";
     }
 
@@ -390,7 +387,7 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * (支払日時)PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)}
      * @param paymentDatetime The value of paymentDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setPaymentDatetime_Equal(java.sql.Timestamp paymentDatetime) {
+    public void setPaymentDatetime_Equal(java.time.LocalDateTime paymentDatetime) {
         regPaymentDatetime(CK_EQ,  paymentDatetime);
     }
 
@@ -399,7 +396,7 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * (支払日時)PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)}
      * @param paymentDatetime The value of paymentDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setPaymentDatetime_GreaterThan(java.sql.Timestamp paymentDatetime) {
+    public void setPaymentDatetime_GreaterThan(java.time.LocalDateTime paymentDatetime) {
         regPaymentDatetime(CK_GT,  paymentDatetime);
     }
 
@@ -408,7 +405,7 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * (支払日時)PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)}
      * @param paymentDatetime The value of paymentDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setPaymentDatetime_LessThan(java.sql.Timestamp paymentDatetime) {
+    public void setPaymentDatetime_LessThan(java.time.LocalDateTime paymentDatetime) {
         regPaymentDatetime(CK_LT,  paymentDatetime);
     }
 
@@ -417,7 +414,7 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * (支払日時)PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)}
      * @param paymentDatetime The value of paymentDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setPaymentDatetime_GreaterEqual(java.sql.Timestamp paymentDatetime) {
+    public void setPaymentDatetime_GreaterEqual(java.time.LocalDateTime paymentDatetime) {
         regPaymentDatetime(CK_GE,  paymentDatetime);
     }
 
@@ -426,7 +423,7 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * (支払日時)PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)}
      * @param paymentDatetime The value of paymentDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setPaymentDatetime_LessEqual(java.sql.Timestamp paymentDatetime) {
+    public void setPaymentDatetime_LessEqual(java.time.LocalDateTime paymentDatetime) {
         regPaymentDatetime(CK_LE, paymentDatetime);
     }
 
@@ -439,7 +436,7 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of paymentDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setPaymentDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setPaymentDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setPaymentDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -452,23 +449,9 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of paymentDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setPaymentDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValuePaymentDatetime(), "PAYMENT_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * (支払日時)PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of paymentDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of paymentDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setPaymentDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setPaymentDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setPaymentDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "PAYMENT_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValuePaymentDatetime(), nm, op);
     }
 
     protected void regPaymentDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePaymentDatetime(), "PAYMENT_DATETIME"); }
@@ -632,7 +615,7 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_Equal(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
@@ -682,7 +665,7 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      * UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_Equal(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 
@@ -960,39 +943,6 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

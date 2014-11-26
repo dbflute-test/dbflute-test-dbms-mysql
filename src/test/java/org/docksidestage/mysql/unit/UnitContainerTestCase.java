@@ -67,7 +67,7 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
     //                                                                     Isolation Level
     //                                                                     ===============
     /**
-     * Adjust transaction isolation level to READ COMMITTED on this session. <br />
+     * Adjust transaction isolation level to READ COMMITTED on this session. <br>
      * This method depends on the MySQL. (you cannot use for other DBMSs)
      */
     protected void adjustTransactionIsolationLevel_ReadCommitted() {

@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.allcommon.CDef.MemberStatus;
@@ -33,14 +32,17 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberSecurityAsOne();
         cb.setupSelect_MemberServiceAsOne();
-        MemberCB dreamCruiseCB = cb.dreamCruiseCB();
         cb.query().addOrderBy_MemberStatusCode_Asc();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.when_Equal(CDef.MemberStatus.Formalized).then(dreamCruiseCB.specify().columnMemberId());
-        mob.when_Equal(CDef.MemberStatus.Provisional).then(
-                dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-        mob.elseEnd(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount());
-        cb.query().addOrderBy_MemberStatusCode_Asc().withManualOrder(mob);
+        cb.query()
+                .addOrderBy_MemberStatusCode_Asc()
+                .withManualOrder(
+                        op -> {
+                            MemberCB dreamCruiseCB = cb.dreamCruiseCB();
+                            op.when_Equal(CDef.MemberStatus.Formalized).then(dreamCruiseCB.specify().columnMemberId());
+                            op.when_Equal(CDef.MemberStatus.Provisional).then(
+                                    dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
+                            op.elseEnd(dreamCruiseCB.specify().specifyMemberSecurityAsOne().columnReminderUseCount());
+                        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -53,8 +55,8 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         String previousStatus = null;
         Set<String> statusSet = newHashSet();
         for (Member member : memberList) {
-            log(member.getMemberStatusCode(), member.getMemberId(), member.getMemberServiceAsOne()
-                    .getServicePointCount(), member.getMemberSecurityAsOne().getReminderUseCount());
+            log(member.getMemberStatusCode(), member.getMemberId(), member.getMemberServiceAsOne().get().getServicePointCount(), member
+                    .getMemberSecurityAsOne().get().getReminderUseCount());
             if (member.isMemberStatusCodeFormalized()) {
                 fmlList.add(member);
             } else if (member.isMemberStatusCodeProvisional()) {
@@ -86,7 +88,7 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
             Integer previousPoint = null;
             assertHasPluralElement(prvList);
             for (Member member : prvList) {
-                Integer point = member.getMemberServiceAsOne().getServicePointCount();
+                Integer point = member.getMemberServiceAsOne().get().getServicePointCount();
                 assertNotNull(point);
                 assertTrue(previousPoint == null || previousPoint < point);
                 previousPoint = point;
@@ -97,7 +99,7 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
             Integer previousCount = null;
             assertHasPluralElement(wdlList);
             for (Member member : wdlList) {
-                Integer count = member.getMemberSecurityAsOne().getReminderUseCount();
+                Integer count = member.getMemberSecurityAsOne().get().getReminderUseCount();
                 assertNotNull(count);
                 assertTrue(previousCount == null || previousCount < count);
                 previousCount = count;
@@ -113,19 +115,19 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         adjustMemberStatusCount();
         MemberCB cb = new MemberCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.when_Equal(CDef.MemberStatus.Formalized).then(3);
-        mob.when_Equal(CDef.MemberStatus.Provisional).then(4);
-        mob.elseEnd(2);
-        cb.query().addOrderBy_MemberStatusCode_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberStatusCode_Asc().withManualOrder(op -> {
+            op.when_Equal(CDef.MemberStatus.Formalized).then(3);
+            op.when_Equal(CDef.MemberStatus.Provisional).then(4);
+            op.elseEnd(2);
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
         // ## Assert ##
         assertHasAnyElement(memberList);
-        List<CDef.MemberStatus> expectedList = newArrayList(CDef.MemberStatus.Withdrawal, CDef.MemberStatus.Formalized,
-                CDef.MemberStatus.Provisional);
+        List<CDef.MemberStatus> expectedList =
+                newArrayList(CDef.MemberStatus.Withdrawal, CDef.MemberStatus.Formalized, CDef.MemberStatus.Provisional);
         Set<CDef.MemberStatus> actualSet = newLinkedHashSet();
         for (Member member : memberList) {
             actualSet.add(member.getMemberStatusCodeAsMemberStatus());
@@ -141,19 +143,19 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         adjustMemberStatusCount();
         MemberCB cb = new MemberCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.when_Equal(CDef.MemberStatus.Formalized).then(toDate("2012/10/31"));
-        mob.when_Equal(CDef.MemberStatus.Provisional).then(toDate("2001/10/31"));
-        mob.elseEnd(toDate("2007/10/31"));
-        cb.query().addOrderBy_MemberStatusCode_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberStatusCode_Asc().withManualOrder(op -> {
+            op.when_Equal(CDef.MemberStatus.Formalized).then(toLocalDate("2012/10/31"));
+            op.when_Equal(CDef.MemberStatus.Provisional).then(toLocalDate("2001/10/31"));
+            op.elseEnd(toLocalDate("2007/10/31"));
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
         // ## Assert ##
         assertHasAnyElement(memberList);
-        List<CDef.MemberStatus> expectedList = newArrayList(CDef.MemberStatus.Provisional,
-                CDef.MemberStatus.Withdrawal, CDef.MemberStatus.Formalized);
+        List<CDef.MemberStatus> expectedList =
+                newArrayList(CDef.MemberStatus.Provisional, CDef.MemberStatus.Withdrawal, CDef.MemberStatus.Formalized);
         Set<CDef.MemberStatus> actualSet = newLinkedHashSet();
         for (Member member : memberList) {
             actualSet.add(member.getMemberStatusCodeAsMemberStatus());
@@ -169,19 +171,19 @@ public class WxCBManualOrderSwitchOrderMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         adjustMemberStatusCount();
         MemberCB cb = new MemberCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.when_Equal(CDef.MemberStatus.Formalized).then(CDef.MemberStatus.Withdrawal);
-        mob.when_Equal(CDef.MemberStatus.Provisional).then(CDef.MemberStatus.Formalized);
-        mob.elseEnd(CDef.MemberStatus.Provisional);
-        cb.query().addOrderBy_MemberStatusCode_Asc().withManualOrder(mob);
+        cb.query().addOrderBy_MemberStatusCode_Asc().withManualOrder(op -> {
+            op.when_Equal(CDef.MemberStatus.Formalized).then(CDef.MemberStatus.Withdrawal);
+            op.when_Equal(CDef.MemberStatus.Provisional).then(CDef.MemberStatus.Formalized);
+            op.elseEnd(CDef.MemberStatus.Provisional);
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
         // ## Assert ##
         assertHasAnyElement(memberList);
-        List<CDef.MemberStatus> expectedList = newArrayList(CDef.MemberStatus.Provisional,
-                CDef.MemberStatus.Withdrawal, CDef.MemberStatus.Formalized);
+        List<CDef.MemberStatus> expectedList =
+                newArrayList(CDef.MemberStatus.Provisional, CDef.MemberStatus.Withdrawal, CDef.MemberStatus.Formalized);
         Set<CDef.MemberStatus> actualSet = newLinkedHashSet();
         for (Member member : memberList) {
             actualSet.add(member.getMemberStatusCodeAsMemberStatus());

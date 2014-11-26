@@ -60,7 +60,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * org.docksidestage.mysql.mytype.MyMemberName pointTypeMappingMemberName = entity.getPointTypeMappingMemberName();
  * org.docksidestage.mysql.mytype.MyPriceCount pointTypeMappingPriceCount = entity.getPointTypeMappingPriceCount();
  * org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate = entity.getPointTypeMappingSaleDate();
- * java.util.Date pointTypeMappingWantedDatetime = entity.getPointTypeMappingWantedDatetime();
+ * java.time.LocalDate pointTypeMappingWantedDatetime = entity.getPointTypeMappingWantedDatetime();
  * entity.setPointTypeMappingId(pointTypeMappingId);
  * entity.setPointTypeMappingMemberName(pointTypeMappingMemberName);
  * entity.setPointTypeMappingPriceCount(pointTypeMappingPriceCount);
@@ -94,27 +94,19 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity implements 
     protected org.docksidestage.mysql.mytype.MySaleDate _pointTypeMappingSaleDate;
 
     /** POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)} */
-    protected java.util.Date _pointTypeMappingWantedDatetime;
+    protected java.time.LocalDate _pointTypeMappingWantedDatetime;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_point_type_mapping";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whitePointTypeMapping";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -153,7 +145,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity implements 
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _pointTypeMappingId);
         return hs;
     }
@@ -170,7 +162,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity implements 
         sb.append(dm).append(xfND(_pointTypeMappingMemberName));
         sb.append(dm).append(xfND(_pointTypeMappingPriceCount));
         sb.append(dm).append(xfND(_pointTypeMappingSaleDate));
-        sb.append(dm).append(xfUD(_pointTypeMappingWantedDatetime));
+        sb.append(dm).append(xfND(_pointTypeMappingWantedDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -267,7 +259,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity implements 
      * [get] POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'POINT_TYPE_MAPPING_WANTED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getPointTypeMappingWantedDatetime() {
+    public java.time.LocalDate getPointTypeMappingWantedDatetime() {
         checkSpecifiedProperty("pointTypeMappingWantedDatetime");
         return _pointTypeMappingWantedDatetime;
     }
@@ -276,7 +268,7 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity implements 
      * [set] POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)} <br>
      * @param pointTypeMappingWantedDatetime The value of the column 'POINT_TYPE_MAPPING_WANTED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setPointTypeMappingWantedDatetime(java.util.Date pointTypeMappingWantedDatetime) {
+    public void setPointTypeMappingWantedDatetime(java.time.LocalDate pointTypeMappingWantedDatetime) {
         registerModifiedProperty("pointTypeMappingWantedDatetime");
         _pointTypeMappingWantedDatetime = pointTypeMappingWantedDatetime;
     }

@@ -26,7 +26,7 @@ public class WhiteAllInOneClsCompoundPkRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteAllInOneClsCompoundPkRefCQ _query;
+    protected final WhiteAllInOneClsCompoundPkRefCQ _query;
     public WhiteAllInOneClsCompoundPkRefNss(WhiteAllInOneClsCompoundPkRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

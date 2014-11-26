@@ -44,20 +44,38 @@ public class ThreadSafeTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                       ConditionBean
     //                                                                       =============
-    public void test_ThreadSafe_ConditionBean_sameExecution() {
+    public void test_ThreadSafe_ConditionBean_entity_sameExecution() {
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
                 // ## Arrange ##
                 MemberCB cb = new MemberCB();
                 cb.setupSelect_MemberStatus();
-                cb.query().setMemberName_PrefixSearch("S");
+                cb.query().setMemberId_Equal(1);
+
+                // ## Act ##
+                Member member = memberBhv.selectEntity(cb).get();
+
+                // ## Assert ##
+                assertEquals(1, member.getMemberId());
+                car.goal(member);
+            }
+        }, new CannonballOption().expectSameResult());
+    }
+
+    public void test_ThreadSafe_ConditionBean_list_sameExecution() {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
+                // ## Arrange ##
+                MemberCB cb = new MemberCB();
+                cb.setupSelect_MemberStatus();
+                cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
                 cb.query().addOrderBy_Birthdate_Desc().addOrderBy_MemberId_Asc();
 
                 // ## Act ##
                 ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
                 // ## Assert ##
-                assertFalse(memberList.isEmpty());
+                assertHasAnyElement(memberList);
                 for (Member member : memberList) {
                     assertTrue(member.getMemberName().startsWith("S"));
                 }
@@ -81,7 +99,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 Class<SimpleMember> entityType = SimpleMember.class;
 
                 // ## Act ##
-                List<SimpleMember> memberList = memberBhv.outsideSql().selectList(path, pmb, entityType);
+                List<SimpleMember> memberList = memberBhv.outsideSql().traditionalStyle().selectList(path, pmb, entityType);
 
                 // ## Assert ##
                 assertNotSame(0, memberList.size());
@@ -151,7 +169,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                     long currentMillis = currentTimestamp().getTime();
                     long keyMillis = currentMillis - (entryNumber * 10000) - (i * 10000);
                     HandyDate handyDate = new HandyDate(new Timestamp(keyMillis));
-                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getTimestamp());
+                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getLocalDateTime());
                     purchase.setPurchaseCount(1234 + i);
                     purchase.setPurchasePrice(1234 + i);
                     purchase.setPaymentCompleteFlg_True();
@@ -173,7 +191,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 purchase.setMemberId(entryNumber % 2 == 1 ? 3 : 4);
                 purchase.setProductId(entryNumber % 3 == 1 ? 3 : (entryNumber % 3 == 2 ? 4 : 5));
                 long keyMillis = currentTimestamp().getTime() - (entryNumber * 1000);
-                purchase.setPurchaseDatetime(new Timestamp(keyMillis));
+                purchase.setPurchaseDatetime(toLocalDateTime(new Timestamp(keyMillis)));
                 purchaseBhv.insert(purchase);
 
                 // deadlock if update is executed after insert including updateNonstrict()

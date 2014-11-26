@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRef)et).getMultipleFirstId(), (et, vl) -> ((WhiteCompoundPkRef)et).setMultipleFirstId(cti(vl)), "multipleFirstId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRef)et).getMultipleSecondId(), (et, vl) -> ((WhiteCompoundPkRef)et).setMultipleSecondId(cti(vl)), "multipleSecondId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRef)et).getRefFirstId(), (et, vl) -> ((WhiteCompoundPkRef)et).setRefFirstId(cti(vl)), "refFirstId");
@@ -67,8 +69,9 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRef)et).getWhiteCompoundPk(), (et, vl) -> ((WhiteCompoundPkRef)et).setWhiteCompoundPk((WhiteCompoundPk)vl), "whiteCompoundPk");
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRef)et).getWhiteCompoundPk(), (et, vl) -> ((WhiteCompoundPkRef)et).setWhiteCompoundPk((OptionalEntity<WhiteCompoundPk>)vl), "whiteCompoundPk");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -87,11 +90,11 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMultipleFirstId = cci("MULTIPLE_FIRST_ID", "MULTIPLE_FIRST_ID", null, null, Integer.class, "multipleFirstId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteCompoundPkRefNestByQuxMultipleIdList,whiteCompoundPkRefNestByFooMultipleIdList", null);
-    protected final ColumnInfo _columnMultipleSecondId = cci("MULTIPLE_SECOND_ID", "MULTIPLE_SECOND_ID", null, null, Integer.class, "multipleSecondId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteCompoundPkRefNestByQuxMultipleIdList,whiteCompoundPkRefNestByFooMultipleIdList", null);
-    protected final ColumnInfo _columnRefFirstId = cci("REF_FIRST_ID", "REF_FIRST_ID", null, null, Integer.class, "refFirstId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPk", null, null);
-    protected final ColumnInfo _columnRefSecondId = cci("REF_SECOND_ID", "REF_SECOND_ID", null, null, Integer.class, "refSecondId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPk", null, null);
-    protected final ColumnInfo _columnRefName = cci("REF_NAME", "REF_NAME", null, null, String.class, "refName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnMultipleFirstId = cci("MULTIPLE_FIRST_ID", "MULTIPLE_FIRST_ID", null, null, Integer.class, "multipleFirstId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteCompoundPkRefNestByQuxMultipleIdList,whiteCompoundPkRefNestByFooMultipleIdList", null, false);
+    protected final ColumnInfo _columnMultipleSecondId = cci("MULTIPLE_SECOND_ID", "MULTIPLE_SECOND_ID", null, null, Integer.class, "multipleSecondId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteCompoundPkRefNestByQuxMultipleIdList,whiteCompoundPkRefNestByFooMultipleIdList", null, false);
+    protected final ColumnInfo _columnRefFirstId = cci("REF_FIRST_ID", "REF_FIRST_ID", null, null, Integer.class, "refFirstId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPk", null, null, false);
+    protected final ColumnInfo _columnRefSecondId = cci("REF_SECOND_ID", "REF_SECOND_ID", null, null, Integer.class, "refSecondId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPk", null, null, false);
+    protected final ColumnInfo _columnRefName = cci("REF_NAME", "REF_NAME", null, null, String.class, "refName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
 
     /**
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
@@ -162,7 +165,7 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMapSized(4);
         mp.put(columnRefFirstId(), WhiteCompoundPkDbm.getInstance().columnPkFirstId());
         mp.put(columnRefSecondId(), WhiteCompoundPkDbm.getInstance().columnPkSecondId());
-        return cfi("FK_WHITE_COMPOUND_PK_REF", "whiteCompoundPk", this, WhiteCompoundPkDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteCompoundPkRefList");
+        return cfi("FK_WHITE_COMPOUND_PK_REF", "whiteCompoundPk", this, WhiteCompoundPkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteCompoundPkRefList", false);
     }
 
     // -----------------------------------------------------

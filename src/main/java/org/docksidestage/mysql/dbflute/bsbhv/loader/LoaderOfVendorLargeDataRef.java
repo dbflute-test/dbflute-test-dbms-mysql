@@ -76,14 +76,14 @@ public class LoaderOfVendorLargeDataRef {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<VendorLargeDataRef> _referrerVendorLargeDataRefSelfList;
+    protected List<VendorLargeDataRef> _referrerVendorLargeDataRefSelf;
 
     /**
      * Load referrer of vendorLargeDataRefSelfList by the set-upper of referrer. <br>
      * vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
      * <pre>
      * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorLargeDataRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadVendorLargeDataRefSelfList</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadVendorLargeDataRefSelf</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">refCB</span>.setupSelect...
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfVendorLargeDataRef {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfVendorLargeDataRef> loadVendorLargeDataRefSelfList(ConditionBeanSetupper<VendorLargeDataRefCB> refCBLambda) {
-        myBhv().loadVendorLargeDataRefSelfList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorLargeDataRefSelfList = refLs);
-        return hd -> hd.handle(new LoaderOfVendorLargeDataRef().ready(_referrerVendorLargeDataRefSelfList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfVendorLargeDataRef> loadVendorLargeDataRefSelf(ConditionBeanSetupper<VendorLargeDataRefCB> refCBLambda) {
+        myBhv().loadVendorLargeDataRefSelf(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorLargeDataRefSelf = refLs);
+        return hd -> hd.handle(new LoaderOfVendorLargeDataRef().ready(_referrerVendorLargeDataRefSelf, _selector));
     }
 
     // ===================================================================================

@@ -75,10 +75,12 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteImplicitConvStringDbm getDBMeta() { return WhiteImplicitConvStringDbm.getInstance(); }
+    public WhiteImplicitConvStringDbm asDBMeta() { return WhiteImplicitConvStringDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_implicit_conv_string"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteImplicitConvStringCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteImplicitConvStringCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * Load referrer of whiteImplicitConvIntegerList by the set-upper of referrer. <br>
      * white_implicit_conv_integer by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvIntegerList'.
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvIntegerList</span>(<span style="color: #553000">whiteImplicitConvStringList</span>, <span style="color: #553000">integerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvInteger</span>(<span style="color: #553000">whiteImplicitConvStringList</span>, <span style="color: #553000">integerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">integerCB</span>.setupSelect...
      *     <span style="color: #553000">integerCB</span>.query().set...
      *     <span style="color: #553000">integerCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvInteger> loadWhiteImplicitConvIntegerList(List<WhiteImplicitConvString> whiteImplicitConvStringList, ConditionBeanSetupper<WhiteImplicitConvIntegerCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteImplicitConvInteger> loadWhiteImplicitConvInteger(List<WhiteImplicitConvString> whiteImplicitConvStringList, ConditionBeanSetupper<WhiteImplicitConvIntegerCB> refCBLambda) {
         xassLRArg(whiteImplicitConvStringList, refCBLambda);
-        return doLoadWhiteImplicitConvIntegerList(whiteImplicitConvStringList, new LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger>().xinit(refCBLambda));
+        return doLoadWhiteImplicitConvInteger(whiteImplicitConvStringList, new LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteImplicitConvIntegerList by the set-upper of referrer. <br>
      * white_implicit_conv_integer by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvIntegerList'.
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvIntegerList</span>(<span style="color: #553000">whiteImplicitConvString</span>, <span style="color: #553000">integerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvInteger</span>(<span style="color: #553000">whiteImplicitConvString</span>, <span style="color: #553000">integerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">integerCB</span>.setupSelect...
      *     <span style="color: #553000">integerCB</span>.query().set...
      *     <span style="color: #553000">integerCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvInteger> loadWhiteImplicitConvIntegerList(WhiteImplicitConvString whiteImplicitConvString, ConditionBeanSetupper<WhiteImplicitConvIntegerCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteImplicitConvInteger> loadWhiteImplicitConvInteger(WhiteImplicitConvString whiteImplicitConvString, ConditionBeanSetupper<WhiteImplicitConvIntegerCB> refCBLambda) {
         xassLRArg(whiteImplicitConvString, refCBLambda);
-        return doLoadWhiteImplicitConvIntegerList(xnewLRLs(whiteImplicitConvString), new LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger>().xinit(refCBLambda));
+        return doLoadWhiteImplicitConvInteger(xnewLRLs(whiteImplicitConvString), new LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvInteger> loadWhiteImplicitConvIntegerList(WhiteImplicitConvString whiteImplicitConvString, LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteImplicitConvInteger> loadWhiteImplicitConvInteger(WhiteImplicitConvString whiteImplicitConvString, LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger> loadReferrerOption) {
         xassLRArg(whiteImplicitConvString, loadReferrerOption);
-        return loadWhiteImplicitConvIntegerList(xnewLRLs(whiteImplicitConvString), loadReferrerOption);
+        return loadWhiteImplicitConvInteger(xnewLRLs(whiteImplicitConvString), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteImplicitConvInteger> loadWhiteImplicitConvIntegerList(List<WhiteImplicitConvString> whiteImplicitConvStringList, LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteImplicitConvInteger> loadWhiteImplicitConvInteger(List<WhiteImplicitConvString> whiteImplicitConvStringList, LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger> loadReferrerOption) {
         xassLRArg(whiteImplicitConvStringList, loadReferrerOption);
         if (whiteImplicitConvStringList.isEmpty()) { return (NestedReferrerListGateway<WhiteImplicitConvInteger>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteImplicitConvIntegerList(whiteImplicitConvStringList, loadReferrerOption);
+        return doLoadWhiteImplicitConvInteger(whiteImplicitConvStringList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteImplicitConvInteger> doLoadWhiteImplicitConvIntegerList(List<WhiteImplicitConvString> whiteImplicitConvStringList, LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger> option) {
+    protected NestedReferrerListGateway<WhiteImplicitConvInteger> doLoadWhiteImplicitConvInteger(List<WhiteImplicitConvString> whiteImplicitConvStringList, LoadReferrerOption<WhiteImplicitConvIntegerCB, WhiteImplicitConvInteger> option) {
         return helpLoadReferrerInternally(whiteImplicitConvStringList, option, "whiteImplicitConvIntegerList");
     }
 
@@ -592,7 +594,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(<span style="color: #553000">whiteImplicitConvStringList</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumeric</span>(<span style="color: #553000">whiteImplicitConvStringList</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">numericCB</span>.setupSelect...
      *     <span style="color: #553000">numericCB</span>.query().set...
      *     <span style="color: #553000">numericCB</span>.query().addOrderBy...
@@ -614,16 +616,16 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(List<WhiteImplicitConvString> whiteImplicitConvStringList, ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(List<WhiteImplicitConvString> whiteImplicitConvStringList, ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
         xassLRArg(whiteImplicitConvStringList, refCBLambda);
-        return doLoadWhiteImplicitConvNumericList(whiteImplicitConvStringList, new LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric>().xinit(refCBLambda));
+        return doLoadWhiteImplicitConvNumeric(whiteImplicitConvStringList, new LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumericList</span>(<span style="color: #553000">whiteImplicitConvString</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumeric</span>(<span style="color: #553000">whiteImplicitConvString</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">numericCB</span>.setupSelect...
      *     <span style="color: #553000">numericCB</span>.query().set...
      *     <span style="color: #553000">numericCB</span>.query().addOrderBy...
@@ -643,9 +645,9 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(WhiteImplicitConvString whiteImplicitConvString, ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(WhiteImplicitConvString whiteImplicitConvString, ConditionBeanSetupper<WhiteImplicitConvNumericCB> refCBLambda) {
         xassLRArg(whiteImplicitConvString, refCBLambda);
-        return doLoadWhiteImplicitConvNumericList(xnewLRLs(whiteImplicitConvString), new LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric>().xinit(refCBLambda));
+        return doLoadWhiteImplicitConvNumeric(xnewLRLs(whiteImplicitConvString), new LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric>().xinit(refCBLambda));
     }
 
     /**
@@ -654,9 +656,9 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(WhiteImplicitConvString whiteImplicitConvString, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(WhiteImplicitConvString whiteImplicitConvString, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> loadReferrerOption) {
         xassLRArg(whiteImplicitConvString, loadReferrerOption);
-        return loadWhiteImplicitConvNumericList(xnewLRLs(whiteImplicitConvString), loadReferrerOption);
+        return loadWhiteImplicitConvNumeric(xnewLRLs(whiteImplicitConvString), loadReferrerOption);
     }
 
     /**
@@ -666,13 +668,13 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumericList(List<WhiteImplicitConvString> whiteImplicitConvStringList, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteImplicitConvNumeric> loadWhiteImplicitConvNumeric(List<WhiteImplicitConvString> whiteImplicitConvStringList, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> loadReferrerOption) {
         xassLRArg(whiteImplicitConvStringList, loadReferrerOption);
         if (whiteImplicitConvStringList.isEmpty()) { return (NestedReferrerListGateway<WhiteImplicitConvNumeric>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteImplicitConvNumericList(whiteImplicitConvStringList, loadReferrerOption);
+        return doLoadWhiteImplicitConvNumeric(whiteImplicitConvStringList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteImplicitConvNumeric> doLoadWhiteImplicitConvNumericList(List<WhiteImplicitConvString> whiteImplicitConvStringList, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> option) {
+    protected NestedReferrerListGateway<WhiteImplicitConvNumeric> doLoadWhiteImplicitConvNumeric(List<WhiteImplicitConvString> whiteImplicitConvStringList, LoadReferrerOption<WhiteImplicitConvNumericCB, WhiteImplicitConvNumeric> option) {
         return helpLoadReferrerInternally(whiteImplicitConvStringList, option, "whiteImplicitConvNumericList");
     }
 
@@ -741,11 +743,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteImplicitConvString.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteImplicitConvString.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">update</span>(whiteImplicitConvString);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">update</span>(whiteImplicitConvString);
      * </pre>
      * @param whiteImplicitConvString The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -906,9 +904,9 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteImplicitConvString.setVersionNo(value);</span>
-     * WhiteImplicitConvStringCB cb = <span style="color: #70226C">new</span> WhiteImplicitConvStringCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitConvString, cb);
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitConvString, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteImplicitConvString The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvString. (NotNull)
@@ -948,9 +946,9 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteImplicitConvStringCB cb = new WhiteImplicitConvStringCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitConvString, cb);
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitConvString, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvString. (NotNull)
      * @return The deleted count.
@@ -990,10 +988,10 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteImplicitConvString.setFoo...(value);
      * whiteImplicitConvString.setBar...(value);
-     * InsertOption&lt;WhiteImplicitConvStringCB&gt; option = new InsertOption&lt;WhiteImplicitConvStringCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteImplicitConvString, option);
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteImplicitConvString, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteImplicitConvString.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteImplicitConvString The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -1014,18 +1012,12 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * whiteImplicitConvString.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteImplicitConvString.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteImplicitConvStringCB&gt; option = new UpdateOption&lt;WhiteImplicitConvStringCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteImplicitConvStringCB&gt;() {
-     *         public void specify(WhiteImplicitConvStringCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteImplicitConvString, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteImplicitConvString, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteImplicitConvString The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1134,15 +1126,13 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteImplicitConvString.setVersionNo(value);</span>
-     * WhiteImplicitConvStringCB cb = new WhiteImplicitConvStringCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteImplicitConvStringCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteImplicitConvStringCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteImplicitConvStringCB&gt;() {
-     *     public void specify(WhiteImplicitConvStringCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitConvString, cb, option);
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitConvString, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteImplicitConvString The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvString. (NotNull)
@@ -1170,13 +1160,11 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * <span style="color: #3F7E5E">//whiteImplicitConvString.setVersionNo(value);</span>
      * WhiteImplicitConvStringCB cb = <span style="color: #70226C">new</span> WhiteImplicitConvStringCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteImplicitConvStringCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteImplicitConvStringCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteImplicitConvStringCB&gt;() {
-     *     public void specify(WhiteImplicitConvStringCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitConvString, cb, option);
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitConvString, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteImplicitConvString The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteImplicitConvString. (NotNull)
@@ -1191,7 +1179,14 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitConvString, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitConvString. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1204,7 +1199,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteImplicitConvString. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1245,9 +1240,8 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteImplicitConvStringBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteImplicitConvStringBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteImplicitConvStringBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

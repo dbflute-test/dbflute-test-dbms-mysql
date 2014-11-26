@@ -542,9 +542,9 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberAddressCQ queryMemberAddressAsSkipRelation(java.util.Date targetDate) {
+    public MemberAddressCQ queryMemberAddressAsSkipRelation(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsSkipRelation();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("memberAddressAsSkipRelation", parameterMap);
         return xdfgetConditionQueryMemberAddressAsSkipRelation();
     }

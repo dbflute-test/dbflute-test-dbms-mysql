@@ -325,7 +325,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * {exists (select ... from white_compound_pk_ref where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefList for 'exists'. (NotNull)
      */
-    public void existsWhiteCompoundPkRefList(SubQuery<WhiteCompoundPkRefCB> subQuery) {
+    public void existsWhiteCompoundPkRef(SubQuery<WhiteCompoundPkRefCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteCompoundPkRefCB>", subQuery);
         WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -340,7 +340,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * {exists (select ... from white_compound_pk_ref_many where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefManyToPKList for 'exists'. (NotNull)
      */
-    public void existsWhiteCompoundPkRefManyToPKList(SubQuery<WhiteCompoundPkRefManyCB> subQuery) {
+    public void existsWhiteCompoundPkRefManyToPK(SubQuery<WhiteCompoundPkRefManyCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteCompoundPkRefManyCB>", subQuery);
         WhiteCompoundPkRefManyCB cb = new WhiteCompoundPkRefManyCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -355,7 +355,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * {not exists (select ... from white_compound_pk_ref where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteCompoundPkRefList(SubQuery<WhiteCompoundPkRefCB> subQuery) {
+    public void notExistsWhiteCompoundPkRef(SubQuery<WhiteCompoundPkRefCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteCompoundPkRefCB>", subQuery);
         WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -370,7 +370,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * {not exists (select ... from white_compound_pk_ref_many where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefManyToPKList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteCompoundPkRefManyToPKList(SubQuery<WhiteCompoundPkRefManyCB> subQuery) {
+    public void notExistsWhiteCompoundPkRefManyToPK(SubQuery<WhiteCompoundPkRefManyCB> subQuery) {
         assertObjectNotNull("subQuery<WhiteCompoundPkRefManyCB>", subQuery);
         WhiteCompoundPkRefManyCB cb = new WhiteCompoundPkRefManyCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
@@ -411,7 +411,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * {FOO &lt;= (select max(BAR) from white_compound_pk_ref where ...)} <br>
      * white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRef()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefCB&gt;() {
      *     public void query(WhiteCompoundPkRefCB subCB) {
      *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
@@ -420,7 +420,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteCompoundPkRefCB> derivedWhiteCompoundPkRefList() {
+    public HpQDRFunction<WhiteCompoundPkRefCB> derivedWhiteCompoundPkRef() {
         return xcreateQDRFunctionWhiteCompoundPkRefList();
     }
     protected HpQDRFunction<WhiteCompoundPkRefCB> xcreateQDRFunctionWhiteCompoundPkRefList() {
@@ -447,7 +447,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * {FOO &lt;= (select max(BAR) from white_compound_pk_ref_many where ...)} <br>
      * white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefManyToPKList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefManyCB&gt;() {
+     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefManyToPK()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefManyCB&gt;() {
      *     public void query(WhiteCompoundPkRefManyCB subCB) {
      *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
@@ -456,7 +456,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteCompoundPkRefManyCB> derivedWhiteCompoundPkRefManyToPKList() {
+    public HpQDRFunction<WhiteCompoundPkRefManyCB> derivedWhiteCompoundPkRefManyToPK() {
         return xcreateQDRFunctionWhiteCompoundPkRefManyToPKList();
     }
     protected HpQDRFunction<WhiteCompoundPkRefManyCB> xcreateQDRFunctionWhiteCompoundPkRefManyToPKList() {

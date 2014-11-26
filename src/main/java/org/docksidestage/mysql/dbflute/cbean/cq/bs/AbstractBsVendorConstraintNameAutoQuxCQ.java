@@ -44,17 +44,14 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "vendor_constraint_name_auto_qux";
     }
 
@@ -167,13 +164,13 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * {exists (select CONSTRAINT_NAME_AUTO_QUX_ID from vendor_constraint_name_auto_ref where ...)} <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorConstraintNameAutoRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsVendorConstraintNameAutoRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of VendorConstraintNameAutoRefList for 'exists'. (NotNull)
      */
-    public void existsVendorConstraintNameAutoRefList(SubQuery<VendorConstraintNameAutoRefCB> subCBLambda) {
+    public void existsVendorConstraintNameAutoRef(SubQuery<VendorConstraintNameAutoRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepConstraintNameAutoQuxId_ExistsReferrer_VendorConstraintNameAutoRefList(cb.query());
@@ -186,13 +183,13 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * {not exists (select CONSTRAINT_NAME_AUTO_QUX_ID from vendor_constraint_name_auto_ref where ...)} <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorConstraintNameAutoRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsVendorConstraintNameAutoRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ConstraintNameAutoQuxId_NotExistsReferrer_VendorConstraintNameAutoRefList for 'not exists'. (NotNull)
      */
-    public void notExistsVendorConstraintNameAutoRefList(SubQuery<VendorConstraintNameAutoRefCB> subCBLambda) {
+    public void notExistsVendorConstraintNameAutoRef(SubQuery<VendorConstraintNameAutoRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorConstraintNameAutoRefCB cb = new VendorConstraintNameAutoRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepConstraintNameAutoQuxId_NotExistsReferrer_VendorConstraintNameAutoRefList(cb.query());
@@ -213,14 +210,14 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * {FOO &lt;= (select max(BAR) from vendor_constraint_name_auto_ref where ...)} <br>
      * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorConstraintNameAutoRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedVendorConstraintNameAutoRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<VendorConstraintNameAutoRefCB> derivedVendorConstraintNameAutoRefList() {
+    public HpQDRFunction<VendorConstraintNameAutoRefCB> derivedVendorConstraintNameAutoRef() {
         return xcreateQDRFunctionVendorConstraintNameAutoRefList();
     }
     protected HpQDRFunction<VendorConstraintNameAutoRefCB> xcreateQDRFunctionVendorConstraintNameAutoRefList() {
@@ -344,15 +341,6 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      */
     public void setConstraintNameAutoQuxName_NotLikeSearch(String constraintNameAutoQuxName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(constraintNameAutoQuxName), xgetCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setConstraintNameAutoQuxName_PrefixSearch(String constraintNameAutoQuxName) {
-        setConstraintNameAutoQuxName_LikeSearch(constraintNameAutoQuxName, xcLSOPPre());
     }
 
     protected void regConstraintNameAutoQuxName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueConstraintNameAutoQuxName(), "CONSTRAINT_NAME_AUTO_QUX_NAME"); }
@@ -591,39 +579,6 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

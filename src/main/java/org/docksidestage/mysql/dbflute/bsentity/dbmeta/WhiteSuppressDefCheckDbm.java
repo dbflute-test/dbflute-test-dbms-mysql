@@ -52,7 +52,8 @@ public class WhiteSuppressDefCheckDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSuppressDefCheck)et).getDefCheckId(), (et, vl) -> ((WhiteSuppressDefCheck)et).setDefCheckId(ctl(vl)), "defCheckId");
         setupEpg(_epgMap, et -> ((WhiteSuppressDefCheck)et).getDefCheckName(), (et, vl) -> ((WhiteSuppressDefCheck)et).setDefCheckName((String)vl), "defCheckName");
     }
@@ -73,8 +74,8 @@ public class WhiteSuppressDefCheckDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnDefCheckId = cci("DEF_CHECK_ID", "DEF_CHECK_ID", null, null, Long.class, "defCheckId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnDefCheckName = cci("DEF_CHECK_NAME", "DEF_CHECK_NAME", null, null, String.class, "defCheckName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnDefCheckId = cci("DEF_CHECK_ID", "DEF_CHECK_ID", null, null, Long.class, "defCheckId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDefCheckName = cci("DEF_CHECK_NAME", "DEF_CHECK_NAME", null, null, String.class, "defCheckName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}

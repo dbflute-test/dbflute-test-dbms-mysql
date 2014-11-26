@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getRefId(), (et, vl) -> ((WhiteStilettoAliasRef)et).setRefId(cti(vl)), "refId");
         setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo0(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo0((String)vl), "foo0");
         setupEpg(_epgMap, et -> ((WhiteStilettoAliasRef)et).getFoo1(), (et, vl) -> ((WhiteStilettoAliasRef)et).setFoo1((String)vl), "foo1");
@@ -74,8 +76,9 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteStilettoAliasRef)et).getWhiteStilettoAlias(), (et, vl) -> ((WhiteStilettoAliasRef)et).setWhiteStilettoAlias((WhiteStilettoAlias)vl), "whiteStilettoAlias");
+        setupEfpg(_efpgMap, et -> ((WhiteStilettoAliasRef)et).getWhiteStilettoAlias(), (et, vl) -> ((WhiteStilettoAliasRef)et).setWhiteStilettoAlias((OptionalEntity<WhiteStilettoAlias>)vl), "whiteStilettoAlias");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -94,18 +97,18 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Integer.class, "refId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFoo0 = cci("FOO0", "FOO0", null, null, String.class, "foo0", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFoo1 = cci("FOO_1", "FOO_1", null, null, String.class, "foo1", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFoo2 = cci("FOO2", "FOO2", null, null, String.class, "foo2", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFoo3 = cci("FOO3", "FOO3", null, null, String.class, "foo3", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFoo4 = cci("FOO_4", "FOO_4", null, null, String.class, "foo4", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnBar0 = cci("BAR_0", "BAR_0", null, null, String.class, "bar0", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnQux0 = cci("QUX_0", "QUX_0", null, null, String.class, "qux0", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnC21 = cci("c21", "c21", null, null, String.class, "c21", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnC22 = cci("c22", "c22", null, null, String.class, "c22", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnC23 = cci("c23", "c23", null, null, String.class, "c23", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnStilettoAliasId = cci("STILETTO_ALIAS_ID", "STILETTO_ALIAS_ID", null, null, Integer.class, "stilettoAliasId", null, false, false, false, "INT", 10, 0, null, false, null, null, "whiteStilettoAlias", null, null);
+    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Integer.class, "refId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo0 = cci("FOO0", "FOO0", null, null, String.class, "foo0", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo1 = cci("FOO_1", "FOO_1", null, null, String.class, "foo1", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo2 = cci("FOO2", "FOO2", null, null, String.class, "foo2", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo3 = cci("FOO3", "FOO3", null, null, String.class, "foo3", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo4 = cci("FOO_4", "FOO_4", null, null, String.class, "foo4", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBar0 = cci("BAR_0", "BAR_0", null, null, String.class, "bar0", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnQux0 = cci("QUX_0", "QUX_0", null, null, String.class, "qux0", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnC21 = cci("c21", "c21", null, null, String.class, "c21", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnC22 = cci("c22", "c22", null, null, String.class, "c22", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnC23 = cci("c23", "c23", null, null, String.class, "c23", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStilettoAliasId = cci("STILETTO_ALIAS_ID", "STILETTO_ALIAS_ID", null, null, Integer.class, "stilettoAliasId", null, false, false, false, "INT", 10, 0, null, false, null, null, "whiteStilettoAlias", null, null, false);
 
     /**
      * REF_ID: {PK, NotNull, INT(10)}
@@ -211,7 +214,7 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteStilettoAlias() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnStilettoAliasId(), WhiteStilettoAliasDbm.getInstance().columnStilettoAliasId());
-        return cfi("FK_WHITE_STILETTO_ALIAS_REF", "whiteStilettoAlias", this, WhiteStilettoAliasDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteStilettoAliasRefList");
+        return cfi("FK_WHITE_STILETTO_ALIAS_REF", "whiteStilettoAlias", this, WhiteStilettoAliasDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteStilettoAliasRefList", false);
     }
 
     // -----------------------------------------------------

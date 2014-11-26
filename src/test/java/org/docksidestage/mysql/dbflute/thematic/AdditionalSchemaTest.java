@@ -29,10 +29,10 @@ public class AdditionalSchemaTest extends UnitContainerTestCase {
         nextSchemaProduct.setProductName("TEST");
 
         // because of isSuppressCommonColumn = true in additionalSchemaMap
-        nextSchemaProduct.setRegisterDatetime(getAccessContext().getAccessTimestamp());
+        nextSchemaProduct.setRegisterDatetime(getAccessContext().getAccessLocalDateTime());
         nextSchemaProduct.setRegisterUser(getAccessContext().getAccessUser());
         nextSchemaProduct.setRegisterProcess(getAccessContext().getAccessProcess());
-        nextSchemaProduct.setUpdateDatetime(getAccessContext().getAccessTimestamp());
+        nextSchemaProduct.setUpdateDatetime(getAccessContext().getAccessLocalDateTime());
         nextSchemaProduct.setUpdateUser(getAccessContext().getAccessUser());
         nextSchemaProduct.setUpdateProcess(getAccessContext().getAccessProcess());
 

@@ -75,10 +75,12 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteQuotedDbm getDBMeta() { return WhiteQuotedDbm.getInstance(); }
+    public WhiteQuotedDbm asDBMeta() { return WhiteQuotedDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_quoted"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteQuotedCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteQuotedCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * Load referrer of whiteQuotedRefList by the set-upper of referrer. <br>
      * white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">loadWhiteQuotedRefList</span>(<span style="color: #553000">whiteQuotedList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">loadWhiteQuotedRef</span>(<span style="color: #553000">whiteQuotedList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRefList(List<WhiteQuoted> whiteQuotedList, ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRef(List<WhiteQuoted> whiteQuotedList, ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
         xassLRArg(whiteQuotedList, refCBLambda);
-        return doLoadWhiteQuotedRefList(whiteQuotedList, new LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef>().xinit(refCBLambda));
+        return doLoadWhiteQuotedRef(whiteQuotedList, new LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteQuotedRefList by the set-upper of referrer. <br>
      * white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">loadWhiteQuotedRefList</span>(<span style="color: #553000">whiteQuoted</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">loadWhiteQuotedRef</span>(<span style="color: #553000">whiteQuoted</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRefList(WhiteQuoted whiteQuoted, ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRef(WhiteQuoted whiteQuoted, ConditionBeanSetupper<WhiteQuotedRefCB> refCBLambda) {
         xassLRArg(whiteQuoted, refCBLambda);
-        return doLoadWhiteQuotedRefList(xnewLRLs(whiteQuoted), new LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef>().xinit(refCBLambda));
+        return doLoadWhiteQuotedRef(xnewLRLs(whiteQuoted), new LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRefList(WhiteQuoted whiteQuoted, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRef(WhiteQuoted whiteQuoted, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> loadReferrerOption) {
         xassLRArg(whiteQuoted, loadReferrerOption);
-        return loadWhiteQuotedRefList(xnewLRLs(whiteQuoted), loadReferrerOption);
+        return loadWhiteQuotedRef(xnewLRLs(whiteQuoted), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRefList(List<WhiteQuoted> whiteQuotedList, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteQuotedRef> loadWhiteQuotedRef(List<WhiteQuoted> whiteQuotedList, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> loadReferrerOption) {
         xassLRArg(whiteQuotedList, loadReferrerOption);
         if (whiteQuotedList.isEmpty()) { return (NestedReferrerListGateway<WhiteQuotedRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteQuotedRefList(whiteQuotedList, loadReferrerOption);
+        return doLoadWhiteQuotedRef(whiteQuotedList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteQuotedRef> doLoadWhiteQuotedRefList(List<WhiteQuoted> whiteQuotedList, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> option) {
+    protected NestedReferrerListGateway<WhiteQuotedRef> doLoadWhiteQuotedRef(List<WhiteQuoted> whiteQuotedList, LoadReferrerOption<WhiteQuotedRefCB, WhiteQuotedRef> option) {
         return helpLoadReferrerInternally(whiteQuotedList, option, "whiteQuotedRefList");
     }
 
@@ -637,11 +639,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * <span style="color: #3F7E5E">//whiteQuoted.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteQuoted.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">update</span>(whiteQuoted);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">update</span>(whiteQuoted);
      * </pre>
      * @param whiteQuoted The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -802,9 +800,9 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteQuoted.setVersionNo(value);</span>
-     * WhiteQuotedCB cb = <span style="color: #70226C">new</span> WhiteQuotedCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteQuoted, cb);
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteQuoted, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteQuoted The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteQuoted. (NotNull)
@@ -844,9 +842,9 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteQuotedCB cb = new WhiteQuotedCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteQuoted, cb);
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteQuoted, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteQuoted. (NotNull)
      * @return The deleted count.
@@ -886,10 +884,10 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteQuoted.setFoo...(value);
      * whiteQuoted.setBar...(value);
-     * InsertOption&lt;WhiteQuotedCB&gt; option = new InsertOption&lt;WhiteQuotedCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteQuoted, option);
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteQuoted, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteQuoted.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteQuoted The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -910,18 +908,12 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * whiteQuoted.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteQuoted.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteQuotedCB&gt; option = new UpdateOption&lt;WhiteQuotedCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteQuotedCB&gt;() {
-     *         public void specify(WhiteQuotedCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteQuoted, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteQuoted, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteQuoted The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1030,15 +1022,13 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteQuoted.setVersionNo(value);</span>
-     * WhiteQuotedCB cb = new WhiteQuotedCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteQuotedCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteQuotedCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteQuotedCB&gt;() {
-     *     public void specify(WhiteQuotedCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteQuoted, cb, option);
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteQuoted, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteQuoted The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteQuoted. (NotNull)
@@ -1066,13 +1056,11 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * <span style="color: #3F7E5E">//whiteQuoted.setVersionNo(value);</span>
      * WhiteQuotedCB cb = <span style="color: #70226C">new</span> WhiteQuotedCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteQuotedCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteQuotedCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteQuotedCB&gt;() {
-     *     public void specify(WhiteQuotedCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteQuoted, cb, option);
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteQuoted, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteQuoted The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteQuoted. (NotNull)
@@ -1087,7 +1075,14 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteQuoted, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteQuoted. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1100,7 +1095,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteQuoted. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1141,9 +1136,8 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteQuotedBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteQuotedBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteQuotedBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

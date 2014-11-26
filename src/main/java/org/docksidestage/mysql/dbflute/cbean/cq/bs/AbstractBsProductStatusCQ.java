@@ -44,17 +44,14 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "product_status";
     }
 
@@ -206,13 +203,13 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * {exists (select PRODUCT_STATUS_CODE from product where ...)} <br>
      * (商品)product by PRODUCT_STATUS_CODE, named 'productAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductList for 'exists'. (NotNull)
      */
-    public void existsProductList(SubQuery<ProductCB> subCBLambda) {
+    public void existsProduct(SubQuery<ProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCB cb = new ProductCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductStatusCode_ExistsReferrer_ProductList(cb.query());
@@ -225,13 +222,13 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * {exists (select PRODUCT_STATUS_CODE from summary_product where ...)} <br>
      * (VIEW)summary_product by PRODUCT_STATUS_CODE, named 'summaryProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsSummaryProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsSummaryProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of SummaryProductList for 'exists'. (NotNull)
      */
-    public void existsSummaryProductList(SubQuery<SummaryProductCB> subCBLambda) {
+    public void existsSummaryProduct(SubQuery<SummaryProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         SummaryProductCB cb = new SummaryProductCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductStatusCode_ExistsReferrer_SummaryProductList(cb.query());
@@ -244,13 +241,13 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * {not exists (select PRODUCT_STATUS_CODE from product where ...)} <br>
      * (商品)product by PRODUCT_STATUS_CODE, named 'productAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductStatusCode_NotExistsReferrer_ProductList for 'not exists'. (NotNull)
      */
-    public void notExistsProductList(SubQuery<ProductCB> subCBLambda) {
+    public void notExistsProduct(SubQuery<ProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCB cb = new ProductCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductStatusCode_NotExistsReferrer_ProductList(cb.query());
@@ -263,13 +260,13 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * {not exists (select PRODUCT_STATUS_CODE from summary_product where ...)} <br>
      * (VIEW)summary_product by PRODUCT_STATUS_CODE, named 'summaryProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsSummaryProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsSummaryProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductStatusCode_NotExistsReferrer_SummaryProductList for 'not exists'. (NotNull)
      */
-    public void notExistsSummaryProductList(SubQuery<SummaryProductCB> subCBLambda) {
+    public void notExistsSummaryProduct(SubQuery<SummaryProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         SummaryProductCB cb = new SummaryProductCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductStatusCode_NotExistsReferrer_SummaryProductList(cb.query());
@@ -298,14 +295,14 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from product where ...)} <br>
      * (商品)product by PRODUCT_STATUS_CODE, named 'productAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedProductList()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedProduct()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     productCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<ProductCB> derivedProductList() {
+    public HpQDRFunction<ProductCB> derivedProduct() {
         return xcreateQDRFunctionProductList();
     }
     protected HpQDRFunction<ProductCB> xcreateQDRFunctionProductList() {
@@ -325,14 +322,14 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from summary_product where ...)} <br>
      * (VIEW)summary_product by PRODUCT_STATUS_CODE, named 'summaryProductAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedSummaryProductList()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedSummaryProduct()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     productCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<SummaryProductCB> derivedSummaryProductList() {
+    public HpQDRFunction<SummaryProductCB> derivedSummaryProduct() {
         return xcreateQDRFunctionSummaryProductList();
     }
     protected HpQDRFunction<SummaryProductCB> xcreateQDRFunctionSummaryProductList() {
@@ -456,15 +453,6 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      */
     public void setProductStatusName_NotLikeSearch(String productStatusName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productStatusName), xgetCValueProductStatusName(), "PRODUCT_STATUS_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品ステータス名称)PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param productStatusName The value of productStatusName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setProductStatusName_PrefixSearch(String productStatusName) {
-        setProductStatusName_LikeSearch(productStatusName, xcLSOPPre());
     }
 
     protected void regProductStatusName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductStatusName(), "PRODUCT_STATUS_NAME"); }
@@ -807,39 +795,6 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

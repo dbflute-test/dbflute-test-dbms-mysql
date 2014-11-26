@@ -1,5 +1,5 @@
 map:{
-    ; generateOutputDirectory = ../../../dbflute-example-referrerpj/dbflute-bhvap-seasar-example/src/main/java
+    ; generateOutputDirectory = ../../../dbflute-test-refpj-bhvap-seasar/src/main/java
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o applicationBehaviorMap: (NotRequired - Default map:{})

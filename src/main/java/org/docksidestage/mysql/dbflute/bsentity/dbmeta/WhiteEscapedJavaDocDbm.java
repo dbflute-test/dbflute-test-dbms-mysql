@@ -52,7 +52,8 @@ public class WhiteEscapedJavaDocDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteEscapedJavaDoc)et).getEscapedJavaDocCode(), (et, vl) -> {
             ColumnInfo col = columnEscapedJavaDocCode();
             ccls(col, vl);
@@ -82,8 +83,8 @@ public class WhiteEscapedJavaDocDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnEscapedJavaDocCode = cci("ESCAPED_JAVA_DOC_CODE", "ESCAPED_JAVA_DOC_CODE", null, null, String.class, "escapedJavaDocCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.EscapedJavaDocCls);
-    protected final ColumnInfo _columnEscapedJavaDocName = cci("ESCAPED_JAVA_DOC_NAME", "ESCAPED_JAVA_DOC_NAME", null, null, String.class, "escapedJavaDocName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnEscapedJavaDocCode = cci("ESCAPED_JAVA_DOC_CODE", "ESCAPED_JAVA_DOC_CODE", null, null, String.class, "escapedJavaDocCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.EscapedJavaDocCls, false);
+    protected final ColumnInfo _columnEscapedJavaDocName = cci("ESCAPED_JAVA_DOC_NAME", "ESCAPED_JAVA_DOC_NAME", null, null, String.class, "escapedJavaDocName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null, false);
 
     /**
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}

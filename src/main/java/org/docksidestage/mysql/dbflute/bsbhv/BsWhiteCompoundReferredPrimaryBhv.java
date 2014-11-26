@@ -75,10 +75,12 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteCompoundReferredPrimaryDbm getDBMeta() { return WhiteCompoundReferredPrimaryDbm.getInstance(); }
+    public WhiteCompoundReferredPrimaryDbm asDBMeta() { return WhiteCompoundReferredPrimaryDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_compound_referred_primary"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteCompoundReferredPrimaryCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteCompoundReferredPrimaryCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * Load referrer of whiteCompoundPkList by the set-upper of referrer. <br>
      * white_compound_pk by PK_SECOND_ID, named 'whiteCompoundPkList'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkList</span>(<span style="color: #553000">whiteCompoundReferredPrimaryList</span>, <span style="color: #553000">pkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPk</span>(<span style="color: #553000">whiteCompoundReferredPrimaryList</span>, <span style="color: #553000">pkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">pkCB</span>.setupSelect...
      *     <span style="color: #553000">pkCB</span>.query().set...
      *     <span style="color: #553000">pkCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPk> loadWhiteCompoundPkList(List<WhiteCompoundReferredPrimary> whiteCompoundReferredPrimaryList, ConditionBeanSetupper<WhiteCompoundPkCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteCompoundPk> loadWhiteCompoundPk(List<WhiteCompoundReferredPrimary> whiteCompoundReferredPrimaryList, ConditionBeanSetupper<WhiteCompoundPkCB> refCBLambda) {
         xassLRArg(whiteCompoundReferredPrimaryList, refCBLambda);
-        return doLoadWhiteCompoundPkList(whiteCompoundReferredPrimaryList, new LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk>().xinit(refCBLambda));
+        return doLoadWhiteCompoundPk(whiteCompoundReferredPrimaryList, new LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteCompoundPkList by the set-upper of referrer. <br>
      * white_compound_pk by PK_SECOND_ID, named 'whiteCompoundPkList'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkList</span>(<span style="color: #553000">whiteCompoundReferredPrimary</span>, <span style="color: #553000">pkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPk</span>(<span style="color: #553000">whiteCompoundReferredPrimary</span>, <span style="color: #553000">pkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">pkCB</span>.setupSelect...
      *     <span style="color: #553000">pkCB</span>.query().set...
      *     <span style="color: #553000">pkCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPk> loadWhiteCompoundPkList(WhiteCompoundReferredPrimary whiteCompoundReferredPrimary, ConditionBeanSetupper<WhiteCompoundPkCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteCompoundPk> loadWhiteCompoundPk(WhiteCompoundReferredPrimary whiteCompoundReferredPrimary, ConditionBeanSetupper<WhiteCompoundPkCB> refCBLambda) {
         xassLRArg(whiteCompoundReferredPrimary, refCBLambda);
-        return doLoadWhiteCompoundPkList(xnewLRLs(whiteCompoundReferredPrimary), new LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk>().xinit(refCBLambda));
+        return doLoadWhiteCompoundPk(xnewLRLs(whiteCompoundReferredPrimary), new LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPk> loadWhiteCompoundPkList(WhiteCompoundReferredPrimary whiteCompoundReferredPrimary, LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteCompoundPk> loadWhiteCompoundPk(WhiteCompoundReferredPrimary whiteCompoundReferredPrimary, LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk> loadReferrerOption) {
         xassLRArg(whiteCompoundReferredPrimary, loadReferrerOption);
-        return loadWhiteCompoundPkList(xnewLRLs(whiteCompoundReferredPrimary), loadReferrerOption);
+        return loadWhiteCompoundPk(xnewLRLs(whiteCompoundReferredPrimary), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteCompoundPk> loadWhiteCompoundPkList(List<WhiteCompoundReferredPrimary> whiteCompoundReferredPrimaryList, LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteCompoundPk> loadWhiteCompoundPk(List<WhiteCompoundReferredPrimary> whiteCompoundReferredPrimaryList, LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk> loadReferrerOption) {
         xassLRArg(whiteCompoundReferredPrimaryList, loadReferrerOption);
         if (whiteCompoundReferredPrimaryList.isEmpty()) { return (NestedReferrerListGateway<WhiteCompoundPk>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteCompoundPkList(whiteCompoundReferredPrimaryList, loadReferrerOption);
+        return doLoadWhiteCompoundPk(whiteCompoundReferredPrimaryList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteCompoundPk> doLoadWhiteCompoundPkList(List<WhiteCompoundReferredPrimary> whiteCompoundReferredPrimaryList, LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk> option) {
+    protected NestedReferrerListGateway<WhiteCompoundPk> doLoadWhiteCompoundPk(List<WhiteCompoundReferredPrimary> whiteCompoundReferredPrimaryList, LoadReferrerOption<WhiteCompoundPkCB, WhiteCompoundPk> option) {
         return helpLoadReferrerInternally(whiteCompoundReferredPrimaryList, option, "whiteCompoundPkList");
     }
 
@@ -637,11 +639,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">//whiteCompoundReferredPrimary.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteCompoundReferredPrimary.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">update</span>(whiteCompoundReferredPrimary);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">update</span>(whiteCompoundReferredPrimary);
      * </pre>
      * @param whiteCompoundReferredPrimary The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -802,9 +800,9 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteCompoundReferredPrimary.setVersionNo(value);</span>
-     * WhiteCompoundReferredPrimaryCB cb = <span style="color: #70226C">new</span> WhiteCompoundReferredPrimaryCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteCompoundReferredPrimary, cb);
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteCompoundReferredPrimary, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteCompoundReferredPrimary The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteCompoundReferredPrimary. (NotNull)
@@ -844,9 +842,9 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteCompoundReferredPrimaryCB cb = new WhiteCompoundReferredPrimaryCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundReferredPrimary, cb);
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundReferredPrimary, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteCompoundReferredPrimary. (NotNull)
      * @return The deleted count.
@@ -886,10 +884,10 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteCompoundReferredPrimary.setFoo...(value);
      * whiteCompoundReferredPrimary.setBar...(value);
-     * InsertOption&lt;WhiteCompoundReferredPrimaryCB&gt; option = new InsertOption&lt;WhiteCompoundReferredPrimaryCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteCompoundReferredPrimary, option);
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteCompoundReferredPrimary, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteCompoundReferredPrimary.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteCompoundReferredPrimary The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -910,18 +908,12 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * whiteCompoundReferredPrimary.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteCompoundReferredPrimary.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteCompoundReferredPrimaryCB&gt; option = new UpdateOption&lt;WhiteCompoundReferredPrimaryCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteCompoundReferredPrimaryCB&gt;() {
-     *         public void specify(WhiteCompoundReferredPrimaryCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteCompoundReferredPrimary, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteCompoundReferredPrimary, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteCompoundReferredPrimary The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1030,15 +1022,13 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteCompoundReferredPrimary.setVersionNo(value);</span>
-     * WhiteCompoundReferredPrimaryCB cb = new WhiteCompoundReferredPrimaryCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteCompoundReferredPrimaryCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteCompoundReferredPrimaryCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteCompoundReferredPrimaryCB&gt;() {
-     *     public void specify(WhiteCompoundReferredPrimaryCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundReferredPrimary, cb, option);
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundReferredPrimary, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteCompoundReferredPrimary The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteCompoundReferredPrimary. (NotNull)
@@ -1066,13 +1056,11 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">//whiteCompoundReferredPrimary.setVersionNo(value);</span>
      * WhiteCompoundReferredPrimaryCB cb = <span style="color: #70226C">new</span> WhiteCompoundReferredPrimaryCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteCompoundReferredPrimaryCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteCompoundReferredPrimaryCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteCompoundReferredPrimaryCB&gt;() {
-     *     public void specify(WhiteCompoundReferredPrimaryCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundReferredPrimary, cb, option);
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundReferredPrimary, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteCompoundReferredPrimary The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteCompoundReferredPrimary. (NotNull)
@@ -1087,7 +1075,14 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundReferredPrimary, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteCompoundReferredPrimary. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1100,7 +1095,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteCompoundReferredPrimary. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1141,9 +1136,8 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteCompoundReferredPrimaryBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteCompoundReferredPrimaryBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteCompoundReferredPrimaryBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

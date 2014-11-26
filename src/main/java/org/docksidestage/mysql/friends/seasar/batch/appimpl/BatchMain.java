@@ -3,7 +3,7 @@ package org.docksidestage.mysql.friends.seasar.batch.appimpl;
 import org.docksidestage.mysql.friends.seasar.batch.allcore.BatchReturn;
 
 /**
- * Batch main class for executing batch controllers. <br />
+ * Batch main class for executing batch controllers. <br>
  * This doesn't have scheduling system. Executing only.
  * @author jflute
  * @since 0.9.1 (2009/02/07 Saturday)

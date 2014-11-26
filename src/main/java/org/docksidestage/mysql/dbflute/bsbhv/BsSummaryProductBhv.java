@@ -75,10 +75,12 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public SummaryProductDbm getDBMeta() { return SummaryProductDbm.getInstance(); }
+    public SummaryProductDbm asDBMeta() { return SummaryProductDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "summary_product"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -430,7 +432,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -439,7 +441,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<SummaryProductCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<SummaryProductCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -448,7 +450,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -529,7 +531,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * Load referrer of purchaseList by the set-upper of referrer. <br>
      * (購入)purchase by PRODUCT_ID, named 'purchaseList'.
      * <pre>
-     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">loadPurchaseList</span>(<span style="color: #553000">summaryProductList</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">summaryProductList</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseCB</span>.setupSelect...
      *     <span style="color: #553000">purchaseCB</span>.query().set...
      *     <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
@@ -551,16 +553,16 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Purchase> loadPurchaseList(List<SummaryProduct> summaryProductList, ConditionBeanSetupper<PurchaseCB> refCBLambda) {
+    public NestedReferrerListGateway<Purchase> loadPurchase(List<SummaryProduct> summaryProductList, ConditionBeanSetupper<PurchaseCB> refCBLambda) {
         xassLRArg(summaryProductList, refCBLambda);
-        return doLoadPurchaseList(summaryProductList, new LoadReferrerOption<PurchaseCB, Purchase>().xinit(refCBLambda));
+        return doLoadPurchase(summaryProductList, new LoadReferrerOption<PurchaseCB, Purchase>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of purchaseList by the set-upper of referrer. <br>
      * (購入)purchase by PRODUCT_ID, named 'purchaseList'.
      * <pre>
-     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">loadPurchaseList</span>(<span style="color: #553000">summaryProduct</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">summaryProduct</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseCB</span>.setupSelect...
      *     <span style="color: #553000">purchaseCB</span>.query().set...
      *     <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
@@ -580,9 +582,9 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Purchase> loadPurchaseList(SummaryProduct summaryProduct, ConditionBeanSetupper<PurchaseCB> refCBLambda) {
+    public NestedReferrerListGateway<Purchase> loadPurchase(SummaryProduct summaryProduct, ConditionBeanSetupper<PurchaseCB> refCBLambda) {
         xassLRArg(summaryProduct, refCBLambda);
-        return doLoadPurchaseList(xnewLRLs(summaryProduct), new LoadReferrerOption<PurchaseCB, Purchase>().xinit(refCBLambda));
+        return doLoadPurchase(xnewLRLs(summaryProduct), new LoadReferrerOption<PurchaseCB, Purchase>().xinit(refCBLambda));
     }
 
     /**
@@ -591,9 +593,9 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Purchase> loadPurchaseList(SummaryProduct summaryProduct, LoadReferrerOption<PurchaseCB, Purchase> loadReferrerOption) {
+    public NestedReferrerListGateway<Purchase> loadPurchase(SummaryProduct summaryProduct, LoadReferrerOption<PurchaseCB, Purchase> loadReferrerOption) {
         xassLRArg(summaryProduct, loadReferrerOption);
-        return loadPurchaseList(xnewLRLs(summaryProduct), loadReferrerOption);
+        return loadPurchase(xnewLRLs(summaryProduct), loadReferrerOption);
     }
 
     /**
@@ -603,13 +605,13 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<Purchase> loadPurchaseList(List<SummaryProduct> summaryProductList, LoadReferrerOption<PurchaseCB, Purchase> loadReferrerOption) {
+    public NestedReferrerListGateway<Purchase> loadPurchase(List<SummaryProduct> summaryProductList, LoadReferrerOption<PurchaseCB, Purchase> loadReferrerOption) {
         xassLRArg(summaryProductList, loadReferrerOption);
         if (summaryProductList.isEmpty()) { return (NestedReferrerListGateway<Purchase>)EMPTY_NREF_LGWAY; }
-        return doLoadPurchaseList(summaryProductList, loadReferrerOption);
+        return doLoadPurchase(summaryProductList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<Purchase> doLoadPurchaseList(List<SummaryProduct> summaryProductList, LoadReferrerOption<PurchaseCB, Purchase> option) {
+    protected NestedReferrerListGateway<Purchase> doLoadPurchase(List<SummaryProduct> summaryProductList, LoadReferrerOption<PurchaseCB, Purchase> option) {
         return helpLoadReferrerInternally(summaryProductList, option, "purchaseList");
     }
 
@@ -678,11 +680,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * <span style="color: #3F7E5E">//summaryProduct.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * summaryProduct.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">update</span>(summaryProduct);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">update</span>(summaryProduct);
      * </pre>
      * @param summaryProduct The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -843,9 +841,9 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//summaryProduct.setVersionNo(value);</span>
-     * SummaryProductCB cb = <span style="color: #70226C">new</span> SummaryProductCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">queryUpdate</span>(summaryProduct, cb);
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">queryUpdate</span>(summaryProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param summaryProduct The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of SummaryProduct. (NotNull)
@@ -885,9 +883,9 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * SummaryProductCB cb = new SummaryProductCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(summaryProduct, cb);
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(summaryProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of SummaryProduct. (NotNull)
      * @return The deleted count.
@@ -927,10 +925,10 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * summaryProduct.setFoo...(value);
      * summaryProduct.setBar...(value);
-     * InsertOption&lt;SummaryProductCB&gt; option = new InsertOption&lt;SummaryProductCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">varyingInsert</span>(summaryProduct, option);
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">varyingInsert</span>(summaryProduct, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = summaryProduct.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param summaryProduct The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -951,18 +949,12 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * summaryProduct.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * summaryProduct.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;SummaryProductCB&gt; option = new UpdateOption&lt;SummaryProductCB&gt;();
-     *     option.self(new SpecifyQuery&lt;SummaryProductCB&gt;() {
-     *         public void specify(SummaryProductCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(summaryProduct, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(summaryProduct, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param summaryProduct The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1071,15 +1063,13 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//summaryProduct.setVersionNo(value);</span>
-     * SummaryProductCB cb = new SummaryProductCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;SummaryProductCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;SummaryProductCB&gt;();
-     * option.self(new SpecifyQuery&lt;SummaryProductCB&gt;() {
-     *     public void specify(SummaryProductCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(summaryProduct, cb, option);
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(summaryProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param summaryProduct The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of SummaryProduct. (NotNull)
@@ -1107,13 +1097,11 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * <span style="color: #3F7E5E">//summaryProduct.setVersionNo(value);</span>
      * SummaryProductCB cb = <span style="color: #70226C">new</span> SummaryProductCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;SummaryProductCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;SummaryProductCB&gt;();
-     * option.self(new SpecifyQuery&lt;SummaryProductCB&gt;() {
-     *     public void specify(SummaryProductCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(summaryProduct, cb, option);
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(summaryProduct, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param summaryProduct The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of SummaryProduct. (NotNull)
@@ -1128,7 +1116,14 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">summaryProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(summaryProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of SummaryProduct. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1141,7 +1136,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of SummaryProduct. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1182,9 +1177,8 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<SummaryProductBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<SummaryProductBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<SummaryProductBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

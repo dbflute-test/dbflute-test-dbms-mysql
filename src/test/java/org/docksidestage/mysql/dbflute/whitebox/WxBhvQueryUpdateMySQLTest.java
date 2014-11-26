@@ -68,7 +68,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
         member.setFormalizedDatetime(null);
 
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_PrefixSearch("S");
+        cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
         cb.query().queryMemberStatus().setDisplayOrder_GreaterEqual(2);
         ListResultBean<Member> beforeList = memberBhv.selectList(cb);
 
@@ -123,7 +123,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
 
         MemberCB cb = new MemberCB();
         cb.query().setMemberStatusCode_Equal_Formalized();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().setPurchasePrice_GreaterEqual(2000);
             }
@@ -138,7 +138,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
         actualCB.query().setMemberStatusCode_Equal_Provisional();
         actualCB.query().setFormalizedDatetime_IsNull();
         actualCB.query().setUpdateUser_Equal(getAccessContext().getAccessUser());
-        actualCB.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        actualCB.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().setPurchasePrice_GreaterEqual(2000);
             }
@@ -298,7 +298,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
         assertEquals(0, memberBhv.selectCount(cb));
     }
 
-    public void test_queryDelete_OuterJoin() {
+    public void test_queryDelete_outerJoin() {
         // ## Arrange ##
         purchasePaymentBhv.varyingQueryDelete(new PurchasePaymentCB(), op -> op.allowNonQueryDelete());
         PurchaseCB cb = new PurchaseCB();
@@ -337,7 +337,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         deleteMemberReferrer();
         MemberCB cb = new MemberCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().setPurchasePrice_GreaterEqual(2000);
             }
@@ -371,7 +371,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
         deleteMemberReferrer();
         int countAll = memberBhv.selectCount(new MemberCB());
         MemberCB cb = new MemberCB();
-        cb.query().notExistsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().notExistsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
             }
         });
@@ -403,7 +403,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         deleteMemberReferrer();
         MemberCB cb = new MemberCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.useInScopeSubQuery();
                 subCB.query().setPurchasePrice_GreaterEqual(2000);

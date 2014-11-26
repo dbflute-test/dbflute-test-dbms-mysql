@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+    "http://www.seasar.org/dtd/components21.dtd">
+
+<components namespace="dbflute">
+    <include path="j2ee_resola.dicon"/>
+
+    <!-- The components of DBFlute Runtime. -->
+    <component name="introduction" class="org.docksidestage.mysql.dbflute.resola.allcommon.ResolaDBFluteInitializer"/>
+    <component name="invokerAssistant" class="org.docksidestage.mysql.dbflute.resola.allcommon.ResolaImplementedInvokerAssistant"/>
+    <component name="commonColumnAutoSetupper" class="org.docksidestage.mysql.dbflute.resola.allcommon.ResolaImplementedCommonColumnAutoSetupper"/>
+    <component name="behaviorSelector" class="org.docksidestage.mysql.dbflute.resola.allcommon.ResolaImplementedBehaviorSelector"/>
+    <component name="behaviorCommandInvoker" class="org.dbflute.bhv.core.BehaviorCommandInvoker"/>
+
+    <!-- The components of Behavior. -->
+    <component name="resolaStationBhv" class="org.docksidestage.mysql.dbflute.resola.exbhv.ResolaStationBhv"/>
+</components>

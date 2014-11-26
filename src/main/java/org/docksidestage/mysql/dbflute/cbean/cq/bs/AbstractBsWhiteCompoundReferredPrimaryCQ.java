@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_compound_referred_primary";
     }
 
@@ -167,13 +164,13 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      * {exists (select PK_SECOND_ID from white_compound_pk where ...)} <br>
      * white_compound_pk by PK_SECOND_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteCompoundPkList</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteCompoundPk</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     pkCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteCompoundPkList for 'exists'. (NotNull)
      */
-    public void existsWhiteCompoundPkList(SubQuery<WhiteCompoundPkCB> subCBLambda) {
+    public void existsWhiteCompoundPk(SubQuery<WhiteCompoundPkCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepReferredId_ExistsReferrer_WhiteCompoundPkList(cb.query());
@@ -186,13 +183,13 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      * {not exists (select PK_SECOND_ID from white_compound_pk where ...)} <br>
      * white_compound_pk by PK_SECOND_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteCompoundPkList</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteCompoundPk</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     pkCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ReferredId_NotExistsReferrer_WhiteCompoundPkList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteCompoundPkList(SubQuery<WhiteCompoundPkCB> subCBLambda) {
+    public void notExistsWhiteCompoundPk(SubQuery<WhiteCompoundPkCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepReferredId_NotExistsReferrer_WhiteCompoundPkList(cb.query());
@@ -213,14 +210,14 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      * {FOO &lt;= (select max(BAR) from white_compound_pk where ...)} <br>
      * white_compound_pk by PK_SECOND_ID, named 'whiteCompoundPkAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkList()</span>.<span style="color: #CC4747">max</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPk()</span>.<span style="color: #CC4747">max</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     pkCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     pkCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteCompoundPkCB> derivedWhiteCompoundPkList() {
+    public HpQDRFunction<WhiteCompoundPkCB> derivedWhiteCompoundPk() {
         return xcreateQDRFunctionWhiteCompoundPkList();
     }
     protected HpQDRFunction<WhiteCompoundPkCB> xcreateQDRFunctionWhiteCompoundPkList() {
@@ -344,15 +341,6 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      */
     public void setReferredName_NotLikeSearch(String referredName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(referredName), xgetCValueReferredName(), "REFERRED_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REFERRED_NAME: {NotNull, VARCHAR(200)}
-     * @param referredName The value of referredName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setReferredName_PrefixSearch(String referredName) {
-        setReferredName_LikeSearch(referredName, xcLSOPPre());
     }
 
     protected void regReferredName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReferredName(), "REFERRED_NAME"); }
@@ -591,39 +579,6 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

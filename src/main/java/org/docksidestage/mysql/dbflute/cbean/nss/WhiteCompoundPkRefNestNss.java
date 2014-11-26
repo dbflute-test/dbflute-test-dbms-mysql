@@ -26,7 +26,7 @@ public class WhiteCompoundPkRefNestNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteCompoundPkRefNestCQ _query;
+    protected final WhiteCompoundPkRefNestCQ _query;
     public WhiteCompoundPkRefNestNss(WhiteCompoundPkRefNestCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

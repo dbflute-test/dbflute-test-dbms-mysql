@@ -61,7 +61,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * String productName = entity.getProductName();
  * String productHandleCode = entity.getProductHandleCode();
  * String productStatusCode = entity.getProductStatusCode();
- * java.sql.Timestamp latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
+ * java.time.LocalDateTime latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
  * entity.setProductId(productId);
  * entity.setProductName(productName);
  * entity.setProductHandleCode(productHandleCode);
@@ -95,27 +95,19 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     protected String _productStatusCode;
 
     /** LATEST_PURCHASE_DATETIME: {DATETIME(19)} */
-    protected java.sql.Timestamp _latestPurchaseDatetime;
+    protected java.time.LocalDateTime _latestPurchaseDatetime;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_no_pk_relation";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteNoPkRelation";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -265,7 +257,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productId);
         hs = xCH(hs, _productName);
         hs = xCH(hs, _productHandleCode);
@@ -386,7 +378,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
      * [get] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getLatestPurchaseDatetime() {
+    public java.time.LocalDateTime getLatestPurchaseDatetime() {
         checkSpecifiedProperty("latestPurchaseDatetime");
         return _latestPurchaseDatetime;
     }
@@ -395,7 +387,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
      * [set] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br>
      * @param latestPurchaseDatetime The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setLatestPurchaseDatetime(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime(java.time.LocalDateTime latestPurchaseDatetime) {
         registerModifiedProperty("latestPurchaseDatetime");
         _latestPurchaseDatetime = latestPurchaseDatetime;
     }

@@ -41,7 +41,7 @@ public class WxCBRelationMappingNoPKTest extends UnitContainerTestCase {
         Set<String> withdrawalHashSet = newHashSet();
         boolean existsWithdrawal = false;
         for (Purchase purchase : purchaseList) {
-            WhiteNoPkRelation relation = purchase.getWhiteNoPkRelation();
+            WhiteNoPkRelation relation = purchase.getWhiteNoPkRelation().get();
             Integer productId = relation.getProductId();
             String productName = relation.getProductName();
             assertNotNull(productName);
@@ -50,7 +50,7 @@ public class WxCBRelationMappingNoPKTest extends UnitContainerTestCase {
             String productHash = Integer.toHexString(relation.instanceHash());
             productHashSet.add(productHash);
 
-            SummaryWithdrawal withdrawal = purchase.getSummaryWithdrawal();
+            SummaryWithdrawal withdrawal = purchase.getSummaryWithdrawal().orElse(null);
             if (withdrawal != null) {
                 Integer memberId = withdrawal.getMemberId();
                 String memberName = withdrawal.getMemberName();
@@ -92,8 +92,8 @@ public class WxCBRelationMappingNoPKTest extends UnitContainerTestCase {
         Set<String> withdrawalHashSet = newHashSet();
         boolean existsWithdrawal = false;
         for (Purchase purchase : purchaseList) {
-            Purchase purchaseSelf = purchase.getPurchaseSelf();
-            WhiteNoPkRelation relation = purchaseSelf.getWhiteNoPkRelation();
+            Purchase purchaseSelf = purchase.getPurchaseSelf().get();
+            WhiteNoPkRelation relation = purchaseSelf.getWhiteNoPkRelation().get();
             Integer productId = relation.getProductId();
             String productName = relation.getProductName();
             assertNotNull(productName);
@@ -102,7 +102,7 @@ public class WxCBRelationMappingNoPKTest extends UnitContainerTestCase {
             String productHash = Integer.toHexString(relation.instanceHash());
             productHashSet.add(productHash);
 
-            SummaryWithdrawal withdrawal = purchaseSelf.getSummaryWithdrawal();
+            SummaryWithdrawal withdrawal = purchaseSelf.getSummaryWithdrawal().orElse(null);
             if (withdrawal != null) {
                 Integer memberId = withdrawal.getMemberId();
                 String memberName = withdrawal.getMemberName();

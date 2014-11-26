@@ -52,7 +52,8 @@ public class VendorConstraintNameAutoBarDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorConstraintNameAutoBar)et).getConstraintNameAutoBarId(), (et, vl) -> ((VendorConstraintNameAutoBar)et).setConstraintNameAutoBarId(ctl(vl)), "constraintNameAutoBarId");
         setupEpg(_epgMap, et -> ((VendorConstraintNameAutoBar)et).getConstraintNameAutoBarName(), (et, vl) -> ((VendorConstraintNameAutoBar)et).setConstraintNameAutoBarName((String)vl), "constraintNameAutoBarName");
     }
@@ -73,8 +74,8 @@ public class VendorConstraintNameAutoBarDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnConstraintNameAutoBarId = cci("CONSTRAINT_NAME_AUTO_BAR_ID", "CONSTRAINT_NAME_AUTO_BAR_ID", null, null, Long.class, "constraintNameAutoBarId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, "vendorConstraintNameAutoRefList", null);
-    protected final ColumnInfo _columnConstraintNameAutoBarName = cci("CONSTRAINT_NAME_AUTO_BAR_NAME", "CONSTRAINT_NAME_AUTO_BAR_NAME", null, null, String.class, "constraintNameAutoBarName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnConstraintNameAutoBarId = cci("CONSTRAINT_NAME_AUTO_BAR_ID", "CONSTRAINT_NAME_AUTO_BAR_ID", null, null, Long.class, "constraintNameAutoBarId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, "vendorConstraintNameAutoRefList", null, false);
+    protected final ColumnInfo _columnConstraintNameAutoBarName = cci("CONSTRAINT_NAME_AUTO_BAR_NAME", "CONSTRAINT_NAME_AUTO_BAR_NAME", null, null, String.class, "constraintNameAutoBarName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
 
     /**
      * CONSTRAINT_NAME_AUTO_BAR_ID: {PK, NotNull, DECIMAL(16)}

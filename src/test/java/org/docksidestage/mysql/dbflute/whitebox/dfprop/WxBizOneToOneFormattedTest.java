@@ -23,7 +23,7 @@ public class WxBizOneToOneFormattedTest extends UnitContainerTestCase {
     public void test_formatted_basic() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.setupSelect_MemberAddressAsFormattedBasic(currentDate());
+        cb.setupSelect_MemberAddressAsFormattedBasic(currentLocalDate());
 
         // ## Act ##
         final List<String> sqlList = new ArrayList<String>();
@@ -44,7 +44,7 @@ public class WxBizOneToOneFormattedTest extends UnitContainerTestCase {
     public void test_formatted_long() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.setupSelect_MemberAddressAsFormattedLong(currentDate());
+        cb.setupSelect_MemberAddressAsFormattedLong(currentLocalDate());
 
         // ## Act ##
         final List<String> sqlList = new ArrayList<String>();

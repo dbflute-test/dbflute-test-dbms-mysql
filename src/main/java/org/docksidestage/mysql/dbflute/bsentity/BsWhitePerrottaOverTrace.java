@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -92,24 +94,16 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     protected String _traceTypeCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_perrotta_over_trace";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whitePerrottaOverTrace";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -138,13 +132,15 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'. */
-    protected WhitePerrottaOverProduct _whitePerrottaOverProductByNextProductId;
+    protected OptionalEntity<WhitePerrottaOverProduct> _whitePerrottaOverProductByNextProductId;
 
     /**
      * [get] white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'. <br>
-     * @return The entity of foreign property 'whitePerrottaOverProductByNextProductId'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whitePerrottaOverProductByNextProductId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhitePerrottaOverProduct getWhitePerrottaOverProductByNextProductId() {
+    public OptionalEntity<WhitePerrottaOverProduct> getWhitePerrottaOverProductByNextProductId() {
+        if (_whitePerrottaOverProductByNextProductId == null) { _whitePerrottaOverProductByNextProductId = OptionalEntity.relationEmpty(this, "whitePerrottaOverProductByNextProductId"); }
         return _whitePerrottaOverProductByNextProductId;
     }
 
@@ -152,18 +148,20 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
      * [set] white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
      * @param whitePerrottaOverProductByNextProductId The entity of foreign property 'whitePerrottaOverProductByNextProductId'. (NullAllowed)
      */
-    public void setWhitePerrottaOverProductByNextProductId(WhitePerrottaOverProduct whitePerrottaOverProductByNextProductId) {
+    public void setWhitePerrottaOverProductByNextProductId(OptionalEntity<WhitePerrottaOverProduct> whitePerrottaOverProductByNextProductId) {
         _whitePerrottaOverProductByNextProductId = whitePerrottaOverProductByNextProductId;
     }
 
     /** white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'. */
-    protected WhitePerrottaOverProduct _whitePerrottaOverProductByPreviousProductId;
+    protected OptionalEntity<WhitePerrottaOverProduct> _whitePerrottaOverProductByPreviousProductId;
 
     /**
      * [get] white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'. <br>
-     * @return The entity of foreign property 'whitePerrottaOverProductByPreviousProductId'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whitePerrottaOverProductByPreviousProductId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhitePerrottaOverProduct getWhitePerrottaOverProductByPreviousProductId() {
+    public OptionalEntity<WhitePerrottaOverProduct> getWhitePerrottaOverProductByPreviousProductId() {
+        if (_whitePerrottaOverProductByPreviousProductId == null) { _whitePerrottaOverProductByPreviousProductId = OptionalEntity.relationEmpty(this, "whitePerrottaOverProductByPreviousProductId"); }
         return _whitePerrottaOverProductByPreviousProductId;
     }
 
@@ -171,7 +169,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
      * [set] white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
      * @param whitePerrottaOverProductByPreviousProductId The entity of foreign property 'whitePerrottaOverProductByPreviousProductId'. (NullAllowed)
      */
-    public void setWhitePerrottaOverProductByPreviousProductId(WhitePerrottaOverProduct whitePerrottaOverProductByPreviousProductId) {
+    public void setWhitePerrottaOverProductByPreviousProductId(OptionalEntity<WhitePerrottaOverProduct> whitePerrottaOverProductByPreviousProductId) {
         _whitePerrottaOverProductByPreviousProductId = whitePerrottaOverProductByPreviousProductId;
     }
 
@@ -199,7 +197,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _traceId);
         return hs;
     }
@@ -207,11 +205,14 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePerrottaOverProductByNextProductId != null)
+        if (_whitePerrottaOverProductByNextProductId != null && _whitePerrottaOverProductByNextProductId.isPresent())
         { sb.append(li).append(xbRDS(_whitePerrottaOverProductByNextProductId, "whitePerrottaOverProductByNextProductId")); }
-        if (_whitePerrottaOverProductByPreviousProductId != null)
+        if (_whitePerrottaOverProductByPreviousProductId != null && _whitePerrottaOverProductByPreviousProductId.isPresent())
         { sb.append(li).append(xbRDS(_whitePerrottaOverProductByPreviousProductId, "whitePerrottaOverProductByPreviousProductId")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -231,9 +232,9 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePerrottaOverProductByNextProductId != null)
+        if (_whitePerrottaOverProductByNextProductId != null && _whitePerrottaOverProductByNextProductId.isPresent())
         { sb.append(dm).append("whitePerrottaOverProductByNextProductId"); }
-        if (_whitePerrottaOverProductByPreviousProductId != null)
+        if (_whitePerrottaOverProductByPreviousProductId != null && _whitePerrottaOverProductByPreviousProductId.isPresent())
         { sb.append(dm).append("whitePerrottaOverProductByPreviousProductId"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

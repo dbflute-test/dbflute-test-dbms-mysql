@@ -1,12 +1,11 @@
 package org.docksidestage.mysql.dbflute.whitebox;
 
 import java.security.MessageDigest;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.cbean.coption.RangeOfOption;
-import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -396,7 +395,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchasePrice();
                     }
@@ -404,7 +403,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
             }
         }).greaterThan(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchasePrice();
                     }
@@ -425,7 +424,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchasePrice();
                     }
@@ -433,7 +432,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
             }
         }).greaterThan(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchasePrice();
                     }
@@ -486,7 +485,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
             // ## Arrange ##
             Purchase purchase = encryptPurchasePriceAll();
             MemberCB cb = new MemberCB();
-            cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+            cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                 public void query(PurchaseCB subCB) {
                     subCB.specify().columnPurchasePrice();
                 }
@@ -508,9 +507,9 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         Purchase purchase = encryptPurchasePriceAll();
         MemberStatusCB cb = new MemberStatusCB();
-        cb.specify().derivedMemberList().max(new SubQuery<MemberCB>() {
+        cb.specify().derivedMember().max(new SubQuery<MemberCB>() {
             public void query(MemberCB subCB) {
-                subCB.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                subCB.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchasePrice();
                     }
@@ -533,7 +532,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         Purchase purchase = encryptPurchasePriceAll();
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
                 subCB.query().setPurchaseCount_GreaterEqual(2);
@@ -560,9 +559,9 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         Purchase purchase = encryptPurchasePriceAll();
         MemberStatusCB cb = new MemberStatusCB();
-        cb.specify().derivedMemberList().max(new SubQuery<MemberCB>() {
+        cb.specify().derivedMember().max(new SubQuery<MemberCB>() {
             public void query(MemberCB subCB) {
-                subCB.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                subCB.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchasePrice();
                         subCB.query().setPurchaseCount_GreaterEqual(2);
@@ -594,7 +593,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         encryptPurchasePriceAll();
         MemberCB cb = new MemberCB();
-        cb.query().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.query().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -616,7 +615,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         int coalesce = 7849238;
 
         // ## Act ##
-        purchaseBhv.scalarSelect(Integer.class).max(cb -> {
+        purchaseBhv.selectScalar(Integer.class).max(cb -> {
             cb.specify().columnPurchasePrice();
             cb.query().setPurchasePrice_LessThan(-1);
         }, op -> op.coalesce(coalesce)).alwaysPresent(max -> {
@@ -659,11 +658,10 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         purchaseBhv.updateNonstrict(purchase);
         PurchaseCB cb = new PurchaseCB();
         cb.query().setPurchaseId_Equal(3L);
-        RangeOfOption option = new RangeOfOption();
-        cb.query().setPurchasePrice_RangeOf(999999999, 999999999, option);
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.acceptOrderValueList(newArrayList("cipher", "wipher"));
-        cb.query().addOrderBy_PurchasePrice_Asc().withManualOrder(mob);
+        cb.query().setPurchasePrice_RangeOf(999999999, 999999999, op -> {});
+        cb.query().addOrderBy_PurchasePrice_Asc().withManualOrder(op -> {
+            op.acceptOrderValueList(newArrayList("cipher", "wipher"));
+        });
         cb.query().queryMember().addOrderBy_UpdateUser_Asc();
 
         // ## Act ##
@@ -685,13 +683,12 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         purchaseBhv.updateNonstrict(purchase);
         PurchaseCB cb = new PurchaseCB();
         cb.query().setPurchaseId_Equal(3L);
-        RangeOfOption option = new RangeOfOption();
-        cb.query().setPurchasePrice_RangeOf(999999999, 999999999, option);
-        PurchaseCB dreamCruiseCB = cb.dreamCruiseCB();
-        ManualOrderOption mob = new ManualOrderOption();
-        mob.plus(dreamCruiseCB.specify().columnPurchasePrice());
-        mob.minus(dreamCruiseCB.specify().columnPurchasePrice());
-        cb.query().addOrderBy_PurchaseCount_Asc().withManualOrder(mob);
+        cb.query().setPurchasePrice_RangeOf(999999999, 999999999, op -> {});
+        cb.query().addOrderBy_PurchaseCount_Asc().withManualOrder(op -> {
+            PurchaseCB dreamCruiseCB = cb.dreamCruiseCB();
+            op.plus(dreamCruiseCB.specify().columnPurchasePrice());
+            op.minus(dreamCruiseCB.specify().columnPurchasePrice());
+        });
         cb.query().queryMember().addOrderBy_UpdateUser_Asc();
 
         // ## Act ##
@@ -700,8 +697,7 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         // ## Assert ##
         assertEquals(999999999, actual.getPurchasePrice());
         String sql = cb.toDisplaySql();
-        assertTrue(Srl.contains(sql,
-                "(dfloc.PURCHASE_COUNT + (dfloc.PURCHASE_PRICE - 13)) - (dfloc.PURCHASE_PRICE - 13)"));
+        assertTrue(Srl.contains(sql, "(dfloc.PURCHASE_COUNT + (dfloc.PURCHASE_PRICE - 13)) - (dfloc.PURCHASE_PRICE - 13)"));
         assertTrue(Srl.contains(sql, "convert(aes_decrypt(unhex(dfrel_0.UPDATE_USER), 'himitsu') using utf8) asc"));
     }
 
@@ -729,8 +725,8 @@ public class WxGearedCipherMySQLTest extends UnitContainerTestCase {
         WhiteGearedCipher inserted = new WhiteGearedCipher();
         String expectedVarchar = "foo";
         int expectedInteger = 6;
-        Date expectedDate = toDate("2014/09/26");
-        Timestamp expectedDatetime = toTimestamp("2014/03/03 12:34:56");
+        LocalDate expectedDate = toLocalDate("2014/09/26");
+        LocalDateTime expectedDatetime = toLocalDateTime("2014/03/03 12:34:56");
         inserted.setCipherVarchar(expectedVarchar);
         inserted.setCipherInteger(expectedInteger);
         inserted.setCipherDate(expectedDate);

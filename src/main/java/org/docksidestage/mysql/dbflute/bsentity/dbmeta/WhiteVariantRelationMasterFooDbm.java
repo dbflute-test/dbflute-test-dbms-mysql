@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteVariantRelationMasterFooDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterFoo)et).getMasterFooId(), (et, vl) -> ((WhiteVariantRelationMasterFoo)et).setMasterFooId(ctl(vl)), "masterFooId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterFoo)et).getMasterFooName(), (et, vl) -> ((WhiteVariantRelationMasterFoo)et).setMasterFooName((String)vl), "masterFooName");
     }
@@ -64,9 +66,10 @@ public class WhiteVariantRelationMasterFooDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationMasterFoo)et).getWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(), (et, vl) -> ((WhiteVariantRelationMasterFoo)et).setWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne((WhiteVariantRelationReferrer)vl), "whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne");
-        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationMasterFoo)et).getWhiteVariantRelationLocalPkReferrerAsOne(), (et, vl) -> ((WhiteVariantRelationMasterFoo)et).setWhiteVariantRelationLocalPkReferrerAsOne((WhiteVariantRelationLocalPkReferrer)vl), "whiteVariantRelationLocalPkReferrerAsOne");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationMasterFoo)et).getWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(), (et, vl) -> ((WhiteVariantRelationMasterFoo)et).setWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne((OptionalEntity<WhiteVariantRelationReferrer>)vl), "whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationMasterFoo)et).getWhiteVariantRelationLocalPkReferrerAsOne(), (et, vl) -> ((WhiteVariantRelationMasterFoo)et).setWhiteVariantRelationLocalPkReferrerAsOne((OptionalEntity<WhiteVariantRelationLocalPkReferrer>)vl), "whiteVariantRelationLocalPkReferrerAsOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -85,8 +88,8 @@ public class WhiteVariantRelationMasterFooDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMasterFooId = cci("MASTER_FOO_ID", "MASTER_FOO_ID", null, null, Long.class, "masterFooId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne,whiteVariantRelationLocalPkReferrerAsOne", "whiteVariantRelationReferrerAsVariantList", null);
-    protected final ColumnInfo _columnMasterFooName = cci("MASTER_FOO_NAME", "MASTER_FOO_NAME", null, null, String.class, "masterFooName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnMasterFooId = cci("MASTER_FOO_ID", "MASTER_FOO_ID", null, null, Long.class, "masterFooId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne,whiteVariantRelationLocalPkReferrerAsOne", "whiteVariantRelationReferrerAsVariantList", null, false);
+    protected final ColumnInfo _columnMasterFooName = cci("MASTER_FOO_NAME", "MASTER_FOO_NAME", null, null, String.class, "masterFooName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
@@ -132,7 +135,7 @@ public class WhiteVariantRelationMasterFooDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMasterFooId(), WhiteVariantRelationReferrerDbm.getInstance().columnVariantMasterId());
-        return cfi("FK_WHITE_VARIANT_RELATION_BIZ_ONE_TO_ONE_FOR_BIZ_MANY_TO_ONE", "whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne", this, WhiteVariantRelationReferrerDbm.getInstance(), mp, 0, null, true, true, false, true, "$$foreignAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, null);
+        return cfi("FK_WHITE_VARIANT_RELATION_BIZ_ONE_TO_ONE_FOR_BIZ_MANY_TO_ONE", "whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne", this, WhiteVariantRelationReferrerDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, null, false);
     }
     /**
      * white_variant_relation_local_pk_referrer by REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationLocalPkReferrerAsOne'.
@@ -140,7 +143,7 @@ public class WhiteVariantRelationMasterFooDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationLocalPkReferrerAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMasterFooId(), WhiteVariantRelationLocalPkReferrerDbm.getInstance().columnReversefkSuppressedId());
-        return cfi("FK_WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER", "whiteVariantRelationLocalPkReferrerAsOne", this, WhiteVariantRelationLocalPkReferrerDbm.getInstance(), mp, 1, null, true, true, true, true, "$$localAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne");
+        return cfi("FK_WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER", "whiteVariantRelationLocalPkReferrerAsOne", this, WhiteVariantRelationLocalPkReferrerDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, true, true, true, true, "$$localAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne", false);
     }
 
     // -----------------------------------------------------

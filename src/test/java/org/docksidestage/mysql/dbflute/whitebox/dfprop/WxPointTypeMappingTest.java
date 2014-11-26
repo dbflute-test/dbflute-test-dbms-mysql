@@ -1,5 +1,6 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.dbflute.helper.HandyDate;
@@ -27,7 +28,7 @@ public class WxPointTypeMappingTest extends UnitContainerTestCase {
         inserted.setPointTypeMappingPriceCount(new MyPriceCount().setup(3));
         Date saleDate = new HandyDate("2014/03/21").getDate();
         inserted.setPointTypeMappingSaleDate(new MySaleDate().setup(saleDate.getTime()));
-        Date wantedDate = new HandyDate("1992/01/01 12:34:56").getDate();
+        LocalDate wantedDate = new HandyDate("1992/01/01 12:34:56").getLocalDate();
         inserted.setPointTypeMappingWantedDatetime(wantedDate);
         whitePointTypeMappingBhv.insert(inserted);
 

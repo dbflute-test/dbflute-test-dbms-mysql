@@ -52,7 +52,8 @@ public class WhiteQuotedDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteQuoted)et).getSelect(), (et, vl) -> ((WhiteQuoted)et).setSelect(cti(vl)), "select");
         setupEpg(_epgMap, et -> ((WhiteQuoted)et).getFrom(), (et, vl) -> ((WhiteQuoted)et).setFrom((String)vl), "from");
     }
@@ -73,8 +74,8 @@ public class WhiteQuotedDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSelect = cci("SELECT", "`SELECT`", null, null, Integer.class, "select", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteQuotedRefList", null);
-    protected final ColumnInfo _columnFrom = cci("FROM", "`FROM`", null, null, String.class, "from", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnSelect = cci("SELECT", "`SELECT`", null, null, Integer.class, "select", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteQuotedRefList", null, false);
+    protected final ColumnInfo _columnFrom = cci("FROM", "`FROM`", null, null, String.class, "from", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * SELECT: {PK, NotNull, INT(10)}

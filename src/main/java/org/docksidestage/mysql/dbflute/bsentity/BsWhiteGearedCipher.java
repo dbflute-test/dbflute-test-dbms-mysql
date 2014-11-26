@@ -59,8 +59,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * Long cipherId = entity.getCipherId();
  * Integer cipherInteger = entity.getCipherInteger();
  * String cipherVarchar = entity.getCipherVarchar();
- * java.util.Date cipherDate = entity.getCipherDate();
- * java.sql.Timestamp cipherDatetime = entity.getCipherDatetime();
+ * java.time.LocalDate cipherDate = entity.getCipherDate();
+ * java.time.LocalDateTime cipherDatetime = entity.getCipherDatetime();
  * entity.setCipherId(cipherId);
  * entity.setCipherInteger(cipherInteger);
  * entity.setCipherVarchar(cipherVarchar);
@@ -91,30 +91,22 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
     protected String _cipherVarchar;
 
     /** CIPHER_DATE: {VARCHAR(100)} */
-    protected java.util.Date _cipherDate;
+    protected java.time.LocalDate _cipherDate;
 
     /** CIPHER_DATETIME: {VARCHAR(100)} */
-    protected java.sql.Timestamp _cipherDatetime;
+    protected java.time.LocalDateTime _cipherDatetime;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_geared_cipher";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteGearedCipher";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -153,7 +145,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _cipherId);
         return hs;
     }
@@ -169,7 +161,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
         sb.append(dm).append(xfND(_cipherId));
         sb.append(dm).append(xfND(_cipherInteger));
         sb.append(dm).append(xfND(_cipherVarchar));
-        sb.append(dm).append(xfUD(_cipherDate));
+        sb.append(dm).append(xfND(_cipherDate));
         sb.append(dm).append(xfND(_cipherDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -249,7 +241,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
      * [get] CIPHER_DATE: {VARCHAR(100)} <br>
      * @return The value of the column 'CIPHER_DATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getCipherDate() {
+    public java.time.LocalDate getCipherDate() {
         checkSpecifiedProperty("cipherDate");
         return _cipherDate;
     }
@@ -258,7 +250,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
      * [set] CIPHER_DATE: {VARCHAR(100)} <br>
      * @param cipherDate The value of the column 'CIPHER_DATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setCipherDate(java.util.Date cipherDate) {
+    public void setCipherDate(java.time.LocalDate cipherDate) {
         registerModifiedProperty("cipherDate");
         _cipherDate = cipherDate;
     }
@@ -267,7 +259,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
      * [get] CIPHER_DATETIME: {VARCHAR(100)} <br>
      * @return The value of the column 'CIPHER_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getCipherDatetime() {
+    public java.time.LocalDateTime getCipherDatetime() {
         checkSpecifiedProperty("cipherDatetime");
         return _cipherDatetime;
     }
@@ -276,7 +268,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
      * [set] CIPHER_DATETIME: {VARCHAR(100)} <br>
      * @param cipherDatetime The value of the column 'CIPHER_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setCipherDatetime(java.sql.Timestamp cipherDatetime) {
+    public void setCipherDatetime(java.time.LocalDateTime cipherDatetime) {
         registerModifiedProperty("cipherDatetime");
         _cipherDatetime = cipherDatetime;
     }

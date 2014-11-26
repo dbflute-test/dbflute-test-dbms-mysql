@@ -58,10 +58,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long productId = entity.getProductId();
  * String productName = entity.getProductName();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
  * String registerProcess = entity.getRegisterProcess();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
  * String updateProcess = entity.getUpdateProcess();
  * entity.setProductId(productId);
@@ -94,7 +94,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
     protected String _productName;
 
     /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
@@ -103,7 +103,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
     protected String _registerProcess;
 
     /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
@@ -112,24 +112,16 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
     protected String _updateProcess;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "next_schema_product";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "nextSchemaProduct";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -168,7 +160,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productId);
         return hs;
     }
@@ -249,7 +241,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
      * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
@@ -258,7 +250,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
      * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
@@ -303,7 +295,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
      * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
@@ -312,7 +304,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
      * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }

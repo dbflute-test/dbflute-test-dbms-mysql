@@ -25,7 +25,7 @@ import org.seasar.extension.datasource.impl.SelectableDataSourceProxy;
 public class MasterBasisSelectableDataSource extends SelectableDataSourceProxy {
 
     /**
-     * Get the real data-source selected. <br />
+     * Get the real data-source selected. <br>
      * This overrides to return data-source for MasterDB as default. 
      * @return The instance of real data-source. (NotNull)
      */

@@ -2,7 +2,6 @@ package org.docksidestage.mysql.dbflute.whitebox;
 
 import java.util.List;
 
-import org.dbflute.bhv.referrer.ConditionBeanSetupper;
 import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.mysql.dbflute.cbean.WhitePgReservCB;
 import org.docksidestage.mysql.dbflute.cbean.WhitePgReservRefCB;
@@ -39,7 +38,7 @@ public class WxPgReservColumnTest extends UnitContainerTestCase {
         // ## Assert ##
         boolean exists = false;
         for (WhitePgReservRef ref : refList) {
-            WhitePgReserv reserv = ref.getWhitePgReserv();
+            WhitePgReserv reserv = ref.getWhitePgReserv().orElse(null);
             if (reserv != null) {
                 exists = true;
             }
@@ -108,10 +107,7 @@ public class WxPgReservColumnTest extends UnitContainerTestCase {
 
         // ## Act ##
         ListResultBean<WhitePgReserv> reservList = whitePgReservBhv.selectList(cb);
-        whitePgReservBhv.loadWhitePgReservRefList(reservList, new ConditionBeanSetupper<WhitePgReservRefCB>() {
-            public void setup(WhitePgReservRefCB cb) {
-            }
-        });
+        whitePgReservBhv.loadWhitePgReservRef(reservList, refCB -> {});
 
         // ## Assert ##
         boolean exists = false;

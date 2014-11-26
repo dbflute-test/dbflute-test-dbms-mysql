@@ -89,7 +89,7 @@ public class WxSqlStringFilterProcedureTest extends UnitContainerTestCase {
             {
                 // ## Act ##
                 MemberCB cb = new MemberCB();
-                cb.query().setMemberName_PrefixSearch("S");
+                cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
                 ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
                 // ## Assert ##
@@ -224,7 +224,7 @@ public class WxSqlStringFilterProcedureTest extends UnitContainerTestCase {
         // ## Act & Assert ##
         {
             MemberCB cb = new MemberCB();
-            cb.query().setMemberName_PrefixSearch("S");
+            cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
             assertFalse(memberBhv.selectList(cb).isEmpty());
             assertEquals(1, markList.size());
             assertEquals("filterSelectCB", markList.get(0));
@@ -252,7 +252,7 @@ public class WxSqlStringFilterProcedureTest extends UnitContainerTestCase {
         {
             SimpleMemberPmb pmb = new SimpleMemberPmb();
             pmb.setMemberId(3);
-            SimpleMember member = memberBhv.outsideSql().entityHandling().selectEntityWithDeletedCheck(pmb);
+            SimpleMember member = memberBhv.outsideSql().selectEntity(pmb).get();
             assertEquals("filterQuery", member.getMemberName());
             assertEquals(6, markList.size());
             assertEquals("filterOutsideSql", markList.get(5));

@@ -52,7 +52,8 @@ public class WhiteLoadDataDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteLoadData)et).getLoadDataId(), (et, vl) -> ((WhiteLoadData)et).setLoadDataId(ctl(vl)), "loadDataId");
         setupEpg(_epgMap, et -> ((WhiteLoadData)et).getLoadDataName(), (et, vl) -> ((WhiteLoadData)et).setLoadDataName((String)vl), "loadDataName");
     }
@@ -73,8 +74,8 @@ public class WhiteLoadDataDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnLoadDataId = cci("LOAD_DATA_ID", "LOAD_DATA_ID", null, null, Long.class, "loadDataId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnLoadDataName = cci("LOAD_DATA_NAME", "LOAD_DATA_NAME", null, null, String.class, "loadDataName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnLoadDataId = cci("LOAD_DATA_ID", "LOAD_DATA_ID", null, null, Long.class, "loadDataId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnLoadDataName = cci("LOAD_DATA_NAME", "LOAD_DATA_NAME", null, null, String.class, "loadDataName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}

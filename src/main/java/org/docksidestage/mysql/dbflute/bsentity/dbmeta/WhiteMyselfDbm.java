@@ -52,7 +52,8 @@ public class WhiteMyselfDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteMyself)et).getMyselfId(), (et, vl) -> ((WhiteMyself)et).setMyselfId(cti(vl)), "myselfId");
         setupEpg(_epgMap, et -> ((WhiteMyself)et).getMyselfName(), (et, vl) -> ((WhiteMyself)et).setMyselfName((String)vl), "myselfName");
     }
@@ -73,8 +74,8 @@ public class WhiteMyselfDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMyselfId = cci("MYSELF_ID", "MYSELF_ID", null, null, Integer.class, "myselfId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteMyselfCheckList", null);
-    protected final ColumnInfo _columnMyselfName = cci("MYSELF_NAME", "MYSELF_NAME", null, null, String.class, "myselfName", null, false, false, true, "VARCHAR", 80, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnMyselfId = cci("MYSELF_ID", "MYSELF_ID", null, null, Integer.class, "myselfId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteMyselfCheckList", null, false);
+    protected final ColumnInfo _columnMyselfName = cci("MYSELF_NAME", "MYSELF_NAME", null, null, String.class, "myselfName", null, false, false, true, "VARCHAR", 80, 0, null, false, null, null, null, null, null, false);
 
     /**
      * MYSELF_ID: {PK, NotNull, INT(10)}

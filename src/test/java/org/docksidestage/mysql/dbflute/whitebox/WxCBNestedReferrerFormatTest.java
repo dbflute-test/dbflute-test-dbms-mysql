@@ -17,37 +17,37 @@ public class WxCBNestedReferrerFormatTest extends UnitContainerTestCase {
     public void test_NestedReferrer_onParade() throws Exception {
         // ## Arrange ##
         ServiceRankCB cb = new ServiceRankCB();
-        cb.specify().derivedMemberServiceList().count(new SubQuery<MemberServiceCB>() {
+        cb.specify().derivedMemberService().count(new SubQuery<MemberServiceCB>() {
             public void query(MemberServiceCB subCB) {
                 subCB.specify().columnMemberServiceId();
             }
         }, ServiceRank.ALIAS_memberCount);
-        cb.specify().derivedMemberServiceList().sum(new SubQuery<MemberServiceCB>() {
+        cb.specify().derivedMemberService().sum(new SubQuery<MemberServiceCB>() {
             public void query(MemberServiceCB subCB) {
-                subCB.specify().specifyMember().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                subCB.specify().specifyMember().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchasePrice();
                     }
                 }, null);
             }
         }, ServiceRank.ALIAS_maxPurchasePrice);
-        cb.specify().derivedMemberServiceList().avg(new SubQuery<MemberServiceCB>() {
+        cb.specify().derivedMemberService().avg(new SubQuery<MemberServiceCB>() {
             public void query(MemberServiceCB subCB) {
-                subCB.specify().specifyMember().derivedPurchaseList().avg(new SubQuery<PurchaseCB>() {
+                subCB.specify().specifyMember().derivedPurchase().avg(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchasePrice();
                     }
                 }, null);
             }
         }, ServiceRank.ALIAS_avgPurchasePrice);
-        cb.specify().derivedMemberServiceList().avg(new SubQuery<MemberServiceCB>() {
+        cb.specify().derivedMemberService().avg(new SubQuery<MemberServiceCB>() {
             public void query(MemberServiceCB subCB) {
                 subCB.specify().columnServicePointCount();
             }
         }, ServiceRank.ALIAS_sumPointCount);
-        cb.specify().derivedMemberServiceList().count(new SubQuery<MemberServiceCB>() {
+        cb.specify().derivedMemberService().count(new SubQuery<MemberServiceCB>() {
             public void query(MemberServiceCB subCB) {
-                subCB.specify().specifyMember().derivedMemberLoginList().count(new SubQuery<MemberLoginCB>() {
+                subCB.specify().specifyMember().derivedMemberLogin().count(new SubQuery<MemberLoginCB>() {
 
                     public void query(MemberLoginCB subCB) {
                         subCB.specify().columnMemberLoginId();
@@ -61,7 +61,7 @@ public class WxCBNestedReferrerFormatTest extends UnitContainerTestCase {
             }
         }).greaterThan(new SpecifyQuery<ServiceRankCB>() {
             public void specify(ServiceRankCB cb) {
-                cb.specify().derivedMemberServiceList().avg(new SubQuery<MemberServiceCB>() {
+                cb.specify().derivedMemberService().avg(new SubQuery<MemberServiceCB>() {
                     public void query(MemberServiceCB subCB) {
                         subCB.specify().columnServicePointCount();
                         subCB.query().setUpdateUser_Equal("ColumnQueryUser");
@@ -69,7 +69,7 @@ public class WxCBNestedReferrerFormatTest extends UnitContainerTestCase {
                 }, null, op -> op.coalesce(123).round(8));
             }
         });
-        cb.query().existsMemberServiceList(new SubQuery<MemberServiceCB>() {
+        cb.query().existsMemberService(new SubQuery<MemberServiceCB>() {
             public void query(MemberServiceCB subCB) {
                 subCB.columnQuery(new SpecifyQuery<MemberServiceCB>() {
                     public void specify(MemberServiceCB cb) {
@@ -77,24 +77,22 @@ public class WxCBNestedReferrerFormatTest extends UnitContainerTestCase {
                     }
                 }).greaterThan(new SpecifyQuery<MemberServiceCB>() {
                     public void specify(MemberServiceCB cb) {
-                        cb.specify().specifyServiceRank().derivedMemberServiceList()
-                                .avg(new SubQuery<MemberServiceCB>() {
-                                    public void query(MemberServiceCB subCB) {
-                                        subCB.specify().columnServicePointCount();
-                                        subCB.query().setUpdateUser_Equal("ColumnQueryUser");
-                                    }
-                                }, null, op -> op.coalesce(123));
+                        cb.specify().specifyServiceRank().derivedMemberService().avg(new SubQuery<MemberServiceCB>() {
+                            public void query(MemberServiceCB subCB) {
+                                subCB.specify().columnServicePointCount();
+                                subCB.query().setUpdateUser_Equal("ColumnQueryUser");
+                            }
+                        }, null, op -> op.coalesce(123));
                     }
                 });
                 subCB.columnQuery(new SpecifyQuery<MemberServiceCB>() {
                     public void specify(MemberServiceCB cb) {
-                        cb.specify().specifyServiceRank().derivedMemberServiceList()
-                                .avg(new SubQuery<MemberServiceCB>() {
-                                    public void query(MemberServiceCB subCB) {
-                                        subCB.specify().columnServicePointCount();
-                                        subCB.query().setUpdateUser_Equal("@ServicePointCount");
-                                    }
-                                }, null, op -> op.coalesce(789));
+                        cb.specify().specifyServiceRank().derivedMemberService().avg(new SubQuery<MemberServiceCB>() {
+                            public void query(MemberServiceCB subCB) {
+                                subCB.specify().columnServicePointCount();
+                                subCB.query().setUpdateUser_Equal("@ServicePointCount");
+                            }
+                        }, null, op -> op.coalesce(789));
                     }
                 }).greaterThan(new SpecifyQuery<MemberServiceCB>() {
                     public void specify(MemberServiceCB cb) {
@@ -103,7 +101,7 @@ public class WxCBNestedReferrerFormatTest extends UnitContainerTestCase {
                 });
                 subCB.columnQuery(new SpecifyQuery<MemberServiceCB>() {
                     public void specify(MemberServiceCB cb) {
-                        cb.specify().specifyMember().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                        cb.specify().specifyMember().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                             public void query(PurchaseCB subCB) {
                                 subCB.specify().columnPurchasePrice();
                             }
@@ -111,12 +109,11 @@ public class WxCBNestedReferrerFormatTest extends UnitContainerTestCase {
                     }
                 }).greaterThan(new SpecifyQuery<MemberServiceCB>() {
                     public void specify(MemberServiceCB cb) {
-                        cb.specify().specifyServiceRank().derivedMemberServiceList()
-                                .avg(new SubQuery<MemberServiceCB>() {
-                                    public void query(MemberServiceCB subCB) {
-                                        subCB.specify().columnServicePointCount();
-                                    }
-                                }, null, op -> op.coalesce(456));
+                        cb.specify().specifyServiceRank().derivedMemberService().avg(new SubQuery<MemberServiceCB>() {
+                            public void query(MemberServiceCB subCB) {
+                                subCB.specify().columnServicePointCount();
+                            }
+                        }, null, op -> op.coalesce(456));
                     }
                 }).plus(999);
             }

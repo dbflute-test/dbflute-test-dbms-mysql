@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_implicit_conv_string";
     }
 
@@ -158,26 +155,17 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)}
-     * @param implicitConvStringId The value of implicitConvStringId as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setImplicitConvStringId_PrefixSearch(String implicitConvStringId) {
-        setImplicitConvStringId_LikeSearch(implicitConvStringId, xcLSOPPre());
-    }
-
-    /**
      * Set up ExistsReferrer (correlated sub-query). <br>
      * {exists (select IMPLICIT_CONV_STRING_ID from white_implicit_conv_integer where ...)} <br>
      * white_implicit_conv_integer by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvIntegerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteImplicitConvIntegerList</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteImplicitConvInteger</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     integerCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteImplicitConvIntegerList for 'exists'. (NotNull)
      */
-    public void existsWhiteImplicitConvIntegerList(SubQuery<WhiteImplicitConvIntegerCB> subCBLambda) {
+    public void existsWhiteImplicitConvInteger(SubQuery<WhiteImplicitConvIntegerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepImplicitConvStringId_ExistsReferrer_WhiteImplicitConvIntegerList(cb.query());
@@ -190,13 +178,13 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * {exists (select IMPLICIT_CONV_STRING_ID from white_implicit_conv_numeric where ...)} <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvNumericAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteImplicitConvNumericList</span>(numericCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteImplicitConvNumeric</span>(numericCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     numericCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteImplicitConvNumericList for 'exists'. (NotNull)
      */
-    public void existsWhiteImplicitConvNumericList(SubQuery<WhiteImplicitConvNumericCB> subCBLambda) {
+    public void existsWhiteImplicitConvNumeric(SubQuery<WhiteImplicitConvNumericCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvNumericCB cb = new WhiteImplicitConvNumericCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepImplicitConvStringId_ExistsReferrer_WhiteImplicitConvNumericList(cb.query());
@@ -209,13 +197,13 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * {not exists (select IMPLICIT_CONV_STRING_ID from white_implicit_conv_integer where ...)} <br>
      * white_implicit_conv_integer by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvIntegerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteImplicitConvIntegerList</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteImplicitConvInteger</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     integerCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ImplicitConvStringId_NotExistsReferrer_WhiteImplicitConvIntegerList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteImplicitConvIntegerList(SubQuery<WhiteImplicitConvIntegerCB> subCBLambda) {
+    public void notExistsWhiteImplicitConvInteger(SubQuery<WhiteImplicitConvIntegerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvIntegerCB cb = new WhiteImplicitConvIntegerCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepImplicitConvStringId_NotExistsReferrer_WhiteImplicitConvIntegerList(cb.query());
@@ -228,13 +216,13 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * {not exists (select IMPLICIT_CONV_STRING_ID from white_implicit_conv_numeric where ...)} <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvNumericAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteImplicitConvNumericList</span>(numericCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteImplicitConvNumeric</span>(numericCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     numericCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ImplicitConvStringId_NotExistsReferrer_WhiteImplicitConvNumericList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteImplicitConvNumericList(SubQuery<WhiteImplicitConvNumericCB> subCBLambda) {
+    public void notExistsWhiteImplicitConvNumeric(SubQuery<WhiteImplicitConvNumericCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteImplicitConvNumericCB cb = new WhiteImplicitConvNumericCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepImplicitConvStringId_NotExistsReferrer_WhiteImplicitConvNumericList(cb.query());
@@ -263,14 +251,14 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * {FOO &lt;= (select max(BAR) from white_implicit_conv_integer where ...)} <br>
      * white_implicit_conv_integer by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvIntegerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteImplicitConvIntegerList()</span>.<span style="color: #CC4747">max</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteImplicitConvInteger()</span>.<span style="color: #CC4747">max</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     integerCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     integerCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteImplicitConvIntegerCB> derivedWhiteImplicitConvIntegerList() {
+    public HpQDRFunction<WhiteImplicitConvIntegerCB> derivedWhiteImplicitConvInteger() {
         return xcreateQDRFunctionWhiteImplicitConvIntegerList();
     }
     protected HpQDRFunction<WhiteImplicitConvIntegerCB> xcreateQDRFunctionWhiteImplicitConvIntegerList() {
@@ -290,14 +278,14 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * {FOO &lt;= (select max(BAR) from white_implicit_conv_numeric where ...)} <br>
      * white_implicit_conv_numeric by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvNumericAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteImplicitConvNumericList()</span>.<span style="color: #CC4747">max</span>(numericCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteImplicitConvNumeric()</span>.<span style="color: #CC4747">max</span>(numericCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     numericCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     numericCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteImplicitConvNumericCB> derivedWhiteImplicitConvNumericList() {
+    public HpQDRFunction<WhiteImplicitConvNumericCB> derivedWhiteImplicitConvNumeric() {
         return xcreateQDRFunctionWhiteImplicitConvNumericList();
     }
     protected HpQDRFunction<WhiteImplicitConvNumericCB> xcreateQDRFunctionWhiteImplicitConvNumericList() {
@@ -423,15 +411,6 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(implicitConvIntegerId), xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setImplicitConvIntegerId_PrefixSearch(String implicitConvIntegerId) {
-        setImplicitConvIntegerId_LikeSearch(implicitConvIntegerId, xcLSOPPre());
-    }
-
     protected void regImplicitConvIntegerId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvIntegerId(), "IMPLICIT_CONV_INTEGER_ID"); }
     protected abstract ConditionValue xgetCValueImplicitConvIntegerId();
 
@@ -531,15 +510,6 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(implicitConvNumericId), xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setImplicitConvNumericId_PrefixSearch(String implicitConvNumericId) {
-        setImplicitConvNumericId_LikeSearch(implicitConvNumericId, xcLSOPPre());
-    }
-
     protected void regImplicitConvNumericId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvNumericId(), "IMPLICIT_CONV_NUMERIC_ID"); }
     protected abstract ConditionValue xgetCValueImplicitConvNumericId();
 
@@ -637,15 +607,6 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      */
     public void setImplicitConvName_NotLikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(implicitConvName), xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setImplicitConvName_PrefixSearch(String implicitConvName) {
-        setImplicitConvName_LikeSearch(implicitConvName, xcLSOPPre());
     }
 
     protected void regImplicitConvName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueImplicitConvName(), "IMPLICIT_CONV_NAME"); }
@@ -884,39 +845,6 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

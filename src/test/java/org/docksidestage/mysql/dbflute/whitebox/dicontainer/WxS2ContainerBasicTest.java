@@ -78,7 +78,7 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
         }
         { // Execute SQL
             final MemberCB cb = new MemberCB();
-            cb.query().setMemberName_PrefixSearch("Sto");
+            cb.query().setMemberName_LikeSearch("Sto", op -> op.likePrefix());
             memberBhv.selectList(cb);
         }
         final String firstSql;

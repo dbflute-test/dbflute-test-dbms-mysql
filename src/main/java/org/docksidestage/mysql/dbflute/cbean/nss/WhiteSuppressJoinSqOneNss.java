@@ -26,7 +26,7 @@ public class WhiteSuppressJoinSqOneNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteSuppressJoinSqOneCQ _query;
+    protected final WhiteSuppressJoinSqOneCQ _query;
     public WhiteSuppressJoinSqOneNss(WhiteSuppressJoinSqOneCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

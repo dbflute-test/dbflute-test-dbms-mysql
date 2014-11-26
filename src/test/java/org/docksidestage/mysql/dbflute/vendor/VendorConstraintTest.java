@@ -145,7 +145,7 @@ public class VendorConstraintTest extends UnitContainerTestCase {
         member.setMemberAccount("Pixy");
 
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_PrefixSearch("S");
+        cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
 
         // ## Act & Assert ##
         try {

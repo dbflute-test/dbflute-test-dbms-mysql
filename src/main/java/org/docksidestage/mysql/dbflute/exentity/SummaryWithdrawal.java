@@ -3,7 +3,7 @@
  */
 package org.docksidestage.mysql.dbflute.exentity;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import org.docksidestage.mysql.dbflute.bsentity.BsSummaryWithdrawal;
 
@@ -28,7 +28,7 @@ public class SummaryWithdrawal extends BsSummaryWithdrawal {
         return _memberStatusCode;
     }
 
-    public Timestamp xznocheckGetWithdrawalDatetime() {
+    public LocalDateTime xznocheckGetWithdrawalDatetime() {
         return _withdrawalDatetime;
     }
 }

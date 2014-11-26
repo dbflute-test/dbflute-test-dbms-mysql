@@ -76,14 +76,14 @@ public class LoaderOfWhiteSuppressJoinSqManyOneOne {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteSuppressJoinSqManyOne> _referrerWhiteSuppressJoinSqManyOneList;
+    protected List<WhiteSuppressJoinSqManyOne> _referrerWhiteSuppressJoinSqManyOne;
 
     /**
      * Load referrer of whiteSuppressJoinSqManyOneList by the set-upper of referrer. <br>
      * white_suppress_join_sq_many_one by MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqManyOneOneBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSuppressJoinSqManyOneOneList</span>, <span style="color: #553000">oneLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">oneLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqManyOneList</span>(<span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">oneLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqManyOne</span>(<span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">oneCB</span>.setupSelect...
      *         <span style="color: #553000">oneCB</span>.query().set...
      *         <span style="color: #553000">oneCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteSuppressJoinSqManyOneOne {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqManyOne> loadWhiteSuppressJoinSqManyOneList(ConditionBeanSetupper<WhiteSuppressJoinSqManyOneCB> refCBLambda) {
-        myBhv().loadWhiteSuppressJoinSqManyOneList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqManyOneList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqManyOne().ready(_referrerWhiteSuppressJoinSqManyOneList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqManyOne> loadWhiteSuppressJoinSqManyOne(ConditionBeanSetupper<WhiteSuppressJoinSqManyOneCB> refCBLambda) {
+        myBhv().loadWhiteSuppressJoinSqManyOne(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqManyOne = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqManyOne().ready(_referrerWhiteSuppressJoinSqManyOne, _selector));
     }
 
     // ===================================================================================

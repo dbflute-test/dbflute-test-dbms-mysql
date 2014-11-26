@@ -1,6 +1,6 @@
 package org.docksidestage.mysql.friends.seasar.batch.controller;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -46,7 +46,7 @@ public class ExampleBatchController implements BatchController {
 
     protected void transferMember(String memberNamePrefix) {
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_PrefixSearch(memberNamePrefix);
+        cb.query().setMemberName_LikeSearch(memberNamePrefix, op -> op.likePrefix());
         cb.query().setMemberStatusCode_Equal_Formalized();
         memberBhv.selectCursor(cb, new EntityRowHandler<Member>() {
             public void handle(Member entity) {
@@ -63,7 +63,7 @@ public class ExampleBatchController implements BatchController {
         // Actually you should implement real business logic.
         Integer memberId = entity.getMemberId();
         String memberName = entity.getMemberName();
-        Date birthdate = entity.getBirthdate();
+        LocalDate birthdate = entity.getBirthdate();
         _log.debug("/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
         _log.debug("entity: " + memberId + ", " + memberName + ", " + birthdate);
         _log.debug("- - - - - - - - - -/");

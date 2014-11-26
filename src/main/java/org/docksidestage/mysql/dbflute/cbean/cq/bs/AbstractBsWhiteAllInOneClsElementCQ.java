@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_all_in_one_cls_element";
     }
 
@@ -155,15 +152,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      */
     public void setClsCategoryCode_NotLikeSearch(String clsCategoryCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(clsCategoryCode), xgetCValueClsCategoryCode(), "CLS_CATEGORY_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
-     * @param clsCategoryCode The value of clsCategoryCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setClsCategoryCode_PrefixSearch(String clsCategoryCode) {
-        setClsCategoryCode_LikeSearch(clsCategoryCode, xcLSOPPre());
     }
 
     /**
@@ -278,15 +266,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsElementCode The value of clsElementCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setClsElementCode_PrefixSearch(String clsElementCode) {
-        setClsElementCode_LikeSearch(clsElementCode, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      */
@@ -397,15 +376,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(clsElementName), xgetCValueClsElementName(), "CLS_ELEMENT_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
-     * @param clsElementName The value of clsElementName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setClsElementName_PrefixSearch(String clsElementName) {
-        setClsElementName_LikeSearch(clsElementName, xcLSOPPre());
-    }
-
     protected void regClsElementName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueClsElementName(), "CLS_ELEMENT_NAME"); }
     protected abstract ConditionValue xgetCValueClsElementName();
 
@@ -503,15 +473,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      */
     public void setAttributeExp_NotLikeSearch(String attributeExp, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(attributeExp), xgetCValueAttributeExp(), "ATTRIBUTE_EXP", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
-     * @param attributeExp The value of attributeExp as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setAttributeExp_PrefixSearch(String attributeExp) {
-        setAttributeExp_LikeSearch(attributeExp, xcLSOPPre());
     }
 
     protected void regAttributeExp(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAttributeExp(), "ATTRIBUTE_EXP"); }
@@ -705,39 +666,6 @@ public abstract class AbstractBsWhiteAllInOneClsElementCQ extends AbstractCondit
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

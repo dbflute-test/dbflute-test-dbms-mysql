@@ -26,7 +26,7 @@ public class WhiteQuotedRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteQuotedRefCQ _query;
+    protected final WhiteQuotedRefCQ _query;
     public WhiteQuotedRefNss(WhiteQuotedRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

@@ -52,7 +52,8 @@ public class WhiteColumnExceptGenOnlyDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteColumnExceptGenOnly)et).getGenOnlyId(), (et, vl) -> ((WhiteColumnExceptGenOnly)et).setGenOnlyId(ctl(vl)), "genOnlyId");
         setupEpg(_epgMap, et -> ((WhiteColumnExceptGenOnly)et).getGenOnlyName(), (et, vl) -> ((WhiteColumnExceptGenOnly)et).setGenOnlyName((String)vl), "genOnlyName");
     }
@@ -73,8 +74,8 @@ public class WhiteColumnExceptGenOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnGenOnlyId = cci("GEN_ONLY_ID", "GEN_ONLY_ID", null, null, Long.class, "genOnlyId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnGenOnlyName = cci("GEN_ONLY_NAME", "GEN_ONLY_NAME", null, null, String.class, "genOnlyName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnGenOnlyId = cci("GEN_ONLY_ID", "GEN_ONLY_ID", null, null, Long.class, "genOnlyId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnGenOnlyName = cci("GEN_ONLY_NAME", "GEN_ONLY_NAME", null, null, String.class, "genOnlyName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}

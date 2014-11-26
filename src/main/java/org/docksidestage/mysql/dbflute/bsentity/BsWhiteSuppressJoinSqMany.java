@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -92,24 +94,16 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity implement
     protected Integer _manyOneId;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_suppress_join_sq_many";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteSuppressJoinSqMany";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -125,13 +119,15 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity implement
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_suppress_join_sq_many_one by my MANY_ONE_ID, named 'whiteSuppressJoinSqManyOne'. */
-    protected WhiteSuppressJoinSqManyOne _whiteSuppressJoinSqManyOne;
+    protected OptionalEntity<WhiteSuppressJoinSqManyOne> _whiteSuppressJoinSqManyOne;
 
     /**
      * [get] white_suppress_join_sq_many_one by my MANY_ONE_ID, named 'whiteSuppressJoinSqManyOne'. <br>
-     * @return The entity of foreign property 'whiteSuppressJoinSqManyOne'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSuppressJoinSqManyOne'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSuppressJoinSqManyOne getWhiteSuppressJoinSqManyOne() {
+    public OptionalEntity<WhiteSuppressJoinSqManyOne> getWhiteSuppressJoinSqManyOne() {
+        if (_whiteSuppressJoinSqManyOne == null) { _whiteSuppressJoinSqManyOne = OptionalEntity.relationEmpty(this, "whiteSuppressJoinSqManyOne"); }
         return _whiteSuppressJoinSqManyOne;
     }
 
@@ -139,18 +135,20 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity implement
      * [set] white_suppress_join_sq_many_one by my MANY_ONE_ID, named 'whiteSuppressJoinSqManyOne'.
      * @param whiteSuppressJoinSqManyOne The entity of foreign property 'whiteSuppressJoinSqManyOne'. (NullAllowed)
      */
-    public void setWhiteSuppressJoinSqManyOne(WhiteSuppressJoinSqManyOne whiteSuppressJoinSqManyOne) {
+    public void setWhiteSuppressJoinSqManyOne(OptionalEntity<WhiteSuppressJoinSqManyOne> whiteSuppressJoinSqManyOne) {
         _whiteSuppressJoinSqManyOne = whiteSuppressJoinSqManyOne;
     }
 
     /** white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'. */
-    protected WhiteSuppressJoinSq _whiteSuppressJoinSq;
+    protected OptionalEntity<WhiteSuppressJoinSq> _whiteSuppressJoinSq;
 
     /**
      * [get] white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'. <br>
-     * @return The entity of foreign property 'whiteSuppressJoinSq'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSuppressJoinSq'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSuppressJoinSq getWhiteSuppressJoinSq() {
+    public OptionalEntity<WhiteSuppressJoinSq> getWhiteSuppressJoinSq() {
+        if (_whiteSuppressJoinSq == null) { _whiteSuppressJoinSq = OptionalEntity.relationEmpty(this, "whiteSuppressJoinSq"); }
         return _whiteSuppressJoinSq;
     }
 
@@ -158,7 +156,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity implement
      * [set] white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'.
      * @param whiteSuppressJoinSq The entity of foreign property 'whiteSuppressJoinSq'. (NullAllowed)
      */
-    public void setWhiteSuppressJoinSq(WhiteSuppressJoinSq whiteSuppressJoinSq) {
+    public void setWhiteSuppressJoinSq(OptionalEntity<WhiteSuppressJoinSq> whiteSuppressJoinSq) {
         _whiteSuppressJoinSq = whiteSuppressJoinSq;
     }
 
@@ -186,7 +184,7 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity implement
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _manyId);
         return hs;
     }
@@ -194,11 +192,14 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity implement
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSuppressJoinSqManyOne != null)
+        if (_whiteSuppressJoinSqManyOne != null && _whiteSuppressJoinSqManyOne.isPresent())
         { sb.append(li).append(xbRDS(_whiteSuppressJoinSqManyOne, "whiteSuppressJoinSqManyOne")); }
-        if (_whiteSuppressJoinSq != null)
+        if (_whiteSuppressJoinSq != null && _whiteSuppressJoinSq.isPresent())
         { sb.append(li).append(xbRDS(_whiteSuppressJoinSq, "whiteSuppressJoinSq")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -218,9 +219,9 @@ public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity implement
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSuppressJoinSqManyOne != null)
+        if (_whiteSuppressJoinSqManyOne != null && _whiteSuppressJoinSqManyOne.isPresent())
         { sb.append(dm).append("whiteSuppressJoinSqManyOne"); }
-        if (_whiteSuppressJoinSq != null)
+        if (_whiteSuppressJoinSq != null && _whiteSuppressJoinSq.isPresent())
         { sb.append(dm).append("whiteSuppressJoinSq"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

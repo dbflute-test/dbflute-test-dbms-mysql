@@ -40,6 +40,8 @@ import org.dbflute.outsidesql.factory.DefaultOutsideSqlExecutorFactory;
 import org.dbflute.outsidesql.factory.OutsideSqlExecutorFactory;
 import org.dbflute.helper.beans.factory.DfBeanDescFactory;
 import org.dbflute.s2dao.extension.TnBeanMetaDataFactoryExtension;
+import org.dbflute.s2dao.jdbc.TnResultSetHandlerFactory;
+import org.dbflute.s2dao.jdbc.TnResultSetHandlerFactoryImpl;
 import org.dbflute.s2dao.jdbc.TnStatementFactoryImpl;
 import org.dbflute.s2dao.metadata.TnBeanMetaDataFactory;
 import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
@@ -79,11 +81,12 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     protected volatile SqlClauseCreator _sqlClauseCreator;
     protected volatile StatementFactory _statementFactory;
     protected volatile TnBeanMetaDataFactory _beanMetaDataFactory;
+    protected volatile TnResultSetHandlerFactory _resultSetHandlerFactory;
+    protected volatile RelationOptionalFactory _relationOptionalFactory;
     protected volatile SqlAnalyzerFactory _sqlAnalyzerFactory;
     protected volatile OutsideSqlExecutorFactory _outsideSqlExecutorFactory;
     protected volatile SQLExceptionHandlerFactory _sqlExceptionHandlerFactory;
     protected volatile SequenceCacheHandler _sequenceCacheHandler;
-    protected volatile RelationOptionalFactory _relationOptionalFactory;
 
     // -----------------------------------------------------
     //                                       Disposable Flag
@@ -183,8 +186,12 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     protected StatementFactory createStatementFactory() {
         final TnStatementFactoryImpl factory = newStatementFactoryImpl();
         factory.setDefaultStatementConfig(assistDefaultStatementConfig());
-        factory.setInternalDebug(DBFluteConfig.getInstance().isInternalDebug());
-        factory.setCursorSelectFetchSize(DBFluteConfig.getInstance().getCursorSelectFetchSize());
+        DBFluteConfig config = DBFluteConfig.getInstance();
+        factory.setInternalDebug(config.isInternalDebug());
+        factory.setCursorSelectFetchSize(config.getCursorSelectFetchSize());
+        factory.setEntitySelectFetchSize(config.getEntitySelectFetchSize());
+        factory.setUsePagingByCursorSkipSynchronizedFetchSize(config.isUsePagingByCursorSkipSynchronizedFetchSize());
+        factory.setFixedPagingByCursorSkipSynchronizedFetchSize(config.getFixedPagingByCursorSkipSynchronizedFetchSize());
         return factory;
     }
 
@@ -219,6 +226,31 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
 
     protected TnBeanMetaDataFactoryExtension newBeanMetaDataFactoryExtension(RelationOptionalFactory relationOptionalFactory) {
         return new TnBeanMetaDataFactoryExtension(relationOptionalFactory);
+    }
+
+    // -----------------------------------------------------
+    //                            Result Set Handler Factory
+    //                            --------------------------
+    /** {@inheritDoc} */
+    public TnResultSetHandlerFactory assistResultSetHandlerFactory() { // lazy component
+        if (_resultSetHandlerFactory != null) {
+            return _resultSetHandlerFactory;
+        }
+        synchronized (this) {
+            if (_resultSetHandlerFactory != null) {
+                return _resultSetHandlerFactory;
+            }
+            _resultSetHandlerFactory = createResultSetHandlerFactory();
+        }
+        return _resultSetHandlerFactory;
+    }
+
+    protected TnResultSetHandlerFactory createResultSetHandlerFactory() {
+        return newResultSetHandlerFactoryImpl();
+    }
+
+    protected TnResultSetHandlerFactoryImpl newResultSetHandlerFactoryImpl() {
+        return new TnResultSetHandlerFactoryImpl();
     }
 
     // -----------------------------------------------------
@@ -275,11 +307,16 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     //                               First OutsideSql Option
     //                               -----------------------
     /** {@inheritDoc} */
-    public OutsideSqlOption assistFirstOutsideSqlOption() {
-        return prepareFirstOutsideSqlOption();
+    public OutsideSqlOption assistFirstOutsideSqlOption(String tableDbName) {
+        return prepareFirstOutsideSqlOption(tableDbName);
     }
 
-    protected OutsideSqlOption prepareFirstOutsideSqlOption() {
+    protected OutsideSqlOption prepareFirstOutsideSqlOption(String tableDbName) {
+        if (DBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
+            OutsideSqlOption option = new OutsideSqlOption();
+            option.setTableDbName(tableDbName);
+            return option.enableNonSpecifiedColumnAccess();
+        }
         return null; // no instance (lazy-loaded) as default
     }
 

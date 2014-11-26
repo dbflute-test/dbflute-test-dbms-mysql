@@ -52,10 +52,11 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getXlsManId(), (et, vl) -> ((WhiteXlsMan)et).setXlsManId(ctl(vl)), "xlsManId");
         setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getStringConverted(), (et, vl) -> ((WhiteXlsMan)et).setStringConverted((String)vl), "stringConverted");
-        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampConverted(), (et, vl) -> ((WhiteXlsMan)et).setTimestampConverted((java.sql.Timestamp)vl), "timestampConverted");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampConverted(), (et, vl) -> ((WhiteXlsMan)et).setTimestampConverted((java.time.LocalDateTime)vl), "timestampConverted");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -74,9 +75,9 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnXlsManId = cci("XLS_MAN_ID", "XLS_MAN_ID", null, null, Long.class, "xlsManId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnStringConverted = cci("STRING_CONVERTED", "STRING_CONVERTED", null, null, String.class, "stringConverted", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTimestampConverted = cci("TIMESTAMP_CONVERTED", "TIMESTAMP_CONVERTED", null, null, java.sql.Timestamp.class, "timestampConverted", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnXlsManId = cci("XLS_MAN_ID", "XLS_MAN_ID", null, null, Long.class, "xlsManId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStringConverted = cci("STRING_CONVERTED", "STRING_CONVERTED", null, null, String.class, "stringConverted", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTimestampConverted = cci("TIMESTAMP_CONVERTED", "TIMESTAMP_CONVERTED", null, null, java.time.LocalDateTime.class, "timestampConverted", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
 
     /**
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}

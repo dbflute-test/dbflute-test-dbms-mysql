@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_compound_pk_ref_many";
     }
 
@@ -597,15 +594,6 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
         regLSQ(CK_NLS, fRES(refManyCode), xgetCValueRefManyCode(), "REF_MANY_CODE", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REF_MANY_CODE: {NotNull, CHAR(3)}
-     * @param refManyCode The value of refManyCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setRefManyCode_PrefixSearch(String refManyCode) {
-        setRefManyCode_LikeSearch(refManyCode, xcLSOPPre());
-    }
-
     protected void regRefManyCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefManyCode(), "REF_MANY_CODE"); }
     protected abstract ConditionValue xgetCValueRefManyCode();
 
@@ -705,15 +693,6 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
         regLSQ(CK_NLS, fRES(refManyName), xgetCValueRefManyName(), "REF_MANY_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REF_MANY_NAME: {NotNull, VARCHAR(50)}
-     * @param refManyName The value of refManyName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setRefManyName_PrefixSearch(String refManyName) {
-        setRefManyName_LikeSearch(refManyName, xcLSOPPre());
-    }
-
     protected void regRefManyName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefManyName(), "REF_MANY_NAME"); }
     protected abstract ConditionValue xgetCValueRefManyName();
 
@@ -722,7 +701,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
      * @param refManyDatetime The value of refManyDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRefManyDatetime_Equal(java.sql.Timestamp refManyDatetime) {
+    public void setRefManyDatetime_Equal(java.time.LocalDateTime refManyDatetime) {
         regRefManyDatetime(CK_EQ,  refManyDatetime);
     }
 
@@ -731,7 +710,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
      * @param refManyDatetime The value of refManyDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setRefManyDatetime_GreaterThan(java.sql.Timestamp refManyDatetime) {
+    public void setRefManyDatetime_GreaterThan(java.time.LocalDateTime refManyDatetime) {
         regRefManyDatetime(CK_GT,  refManyDatetime);
     }
 
@@ -740,7 +719,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
      * @param refManyDatetime The value of refManyDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setRefManyDatetime_LessThan(java.sql.Timestamp refManyDatetime) {
+    public void setRefManyDatetime_LessThan(java.time.LocalDateTime refManyDatetime) {
         regRefManyDatetime(CK_LT,  refManyDatetime);
     }
 
@@ -749,7 +728,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
      * @param refManyDatetime The value of refManyDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setRefManyDatetime_GreaterEqual(java.sql.Timestamp refManyDatetime) {
+    public void setRefManyDatetime_GreaterEqual(java.time.LocalDateTime refManyDatetime) {
         regRefManyDatetime(CK_GE,  refManyDatetime);
     }
 
@@ -758,7 +737,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
      * @param refManyDatetime The value of refManyDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setRefManyDatetime_LessEqual(java.sql.Timestamp refManyDatetime) {
+    public void setRefManyDatetime_LessEqual(java.time.LocalDateTime refManyDatetime) {
         regRefManyDatetime(CK_LE, refManyDatetime);
     }
 
@@ -771,7 +750,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of refManyDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setRefManyDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setRefManyDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setRefManyDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -784,23 +763,9 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of refManyDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setRefManyDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueRefManyDatetime(), "REF_MANY_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of refManyDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of refManyDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setRefManyDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setRefManyDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setRefManyDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "REF_MANY_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueRefManyDatetime(), nm, op);
     }
 
     protected void regRefManyDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefManyDatetime(), "REF_MANY_DATETIME"); }
@@ -994,39 +959,6 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

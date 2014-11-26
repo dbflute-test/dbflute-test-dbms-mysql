@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_delimiter";
     }
 
@@ -390,15 +387,6 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * STRING_CONVERTED: {VARCHAR(200)}
-     * @param stringConverted The value of stringConverted as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setStringConverted_PrefixSearch(String stringConverted) {
-        setStringConverted_LikeSearch(stringConverted, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * STRING_CONVERTED: {VARCHAR(200)}
      */
@@ -516,15 +504,6 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * STRING_NON_CONVERTED: {VARCHAR(200)}
-     * @param stringNonConverted The value of stringNonConverted as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setStringNonConverted_PrefixSearch(String stringNonConverted) {
-        setStringNonConverted_LikeSearch(stringNonConverted, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * STRING_NON_CONVERTED: {VARCHAR(200)}
      */
@@ -550,8 +529,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * DATE_DEFAULT: {NotNull, DATE(10)}
      * @param dateDefault The value of dateDefault as equal. (NullAllowed: if null, no condition)
      */
-    public void setDateDefault_Equal(java.util.Date dateDefault) {
-        regDateDefault(CK_EQ,  fCTPD(dateDefault));
+    public void setDateDefault_Equal(java.time.LocalDate dateDefault) {
+        regDateDefault(CK_EQ,  dateDefault);
     }
 
     /**
@@ -559,8 +538,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * DATE_DEFAULT: {NotNull, DATE(10)}
      * @param dateDefault The value of dateDefault as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setDateDefault_GreaterThan(java.util.Date dateDefault) {
-        regDateDefault(CK_GT,  fCTPD(dateDefault));
+    public void setDateDefault_GreaterThan(java.time.LocalDate dateDefault) {
+        regDateDefault(CK_GT,  dateDefault);
     }
 
     /**
@@ -568,8 +547,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * DATE_DEFAULT: {NotNull, DATE(10)}
      * @param dateDefault The value of dateDefault as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setDateDefault_LessThan(java.util.Date dateDefault) {
-        regDateDefault(CK_LT,  fCTPD(dateDefault));
+    public void setDateDefault_LessThan(java.time.LocalDate dateDefault) {
+        regDateDefault(CK_LT,  dateDefault);
     }
 
     /**
@@ -577,8 +556,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * DATE_DEFAULT: {NotNull, DATE(10)}
      * @param dateDefault The value of dateDefault as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setDateDefault_GreaterEqual(java.util.Date dateDefault) {
-        regDateDefault(CK_GE,  fCTPD(dateDefault));
+    public void setDateDefault_GreaterEqual(java.time.LocalDate dateDefault) {
+        regDateDefault(CK_GE,  dateDefault);
     }
 
     /**
@@ -586,8 +565,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * DATE_DEFAULT: {NotNull, DATE(10)}
      * @param dateDefault The value of dateDefault as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setDateDefault_LessEqual(java.util.Date dateDefault) {
-        regDateDefault(CK_LE, fCTPD(dateDefault));
+    public void setDateDefault_LessEqual(java.time.LocalDate dateDefault) {
+        regDateDefault(CK_LE, dateDefault);
     }
 
     /**
@@ -599,7 +578,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setDateDefault_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setDateDefault_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setDateDefault_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -612,23 +591,9 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setDateDefault_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueDateDefault(), "DATE_DEFAULT", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * DATE_DEFAULT: {NotNull, DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of dateDefault. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of dateDefault. (NullAllowed: if null, no to-condition)
-     */
-    public void setDateDefault_DateFromTo(Date fromDate, Date toDate) {
-        setDateDefault_FromTo(fromDate, toDate, xcDFTOP());
+    public void setDateDefault_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "DATE_DEFAULT"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueDateDefault(), nm, op);
     }
 
     protected void regDateDefault(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDateDefault(), "DATE_DEFAULT"); }
@@ -867,39 +832,6 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

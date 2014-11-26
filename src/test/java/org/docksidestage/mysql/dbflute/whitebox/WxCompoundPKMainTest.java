@@ -86,7 +86,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         StringBuilder logSb = new StringBuilder();
         for (WhiteCompoundPkRef ref : refList) {
             logSb.append(ln() + ref.toStringWithRelation());
-            WhiteCompoundPk main = ref.getWhiteCompoundPk();
+            WhiteCompoundPk main = ref.getWhiteCompoundPk().get();
             assertNotNull(main);
             assertEquals(ref.getRefFirstId(), main.getPkFirstId());
             assertEquals(ref.getRefSecondId(), main.getPkSecondId());
@@ -114,12 +114,12 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.query().existsWhiteCompoundPkRefList(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.query().existsWhiteCompoundPkRef(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.query().setRefSecondId_GreaterThan(1);
             }
         });
-        cb.query().notExistsWhiteCompoundPkRefManyToPKList(new SubQuery<WhiteCompoundPkRefManyCB>() {
+        cb.query().notExistsWhiteCompoundPkRefManyToPK(new SubQuery<WhiteCompoundPkRefManyCB>() {
             public void query(WhiteCompoundPkRefManyCB subCB) {
                 subCB.query().setMultipleFirstId_Equal(99999999);
             }
@@ -149,7 +149,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.query().existsWhiteCompoundPkRefManyToPKList(new SubQuery<WhiteCompoundPkRefManyCB>() {
+        cb.query().existsWhiteCompoundPkRefManyToPK(new SubQuery<WhiteCompoundPkRefManyCB>() {
             public void query(WhiteCompoundPkRefManyCB subCB) {
             }
         });
@@ -169,7 +169,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.query().existsWhiteCompoundPkRefList(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.query().existsWhiteCompoundPkRef(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.query().setRefSecondId_GreaterThan(1);
                 subCB.union(new UnionQuery<WhiteCompoundPkRefCB>() {
@@ -201,7 +201,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.query().existsWhiteCompoundPkRefManyToPKList(new SubQuery<WhiteCompoundPkRefManyCB>() {
+        cb.query().existsWhiteCompoundPkRefManyToPK(new SubQuery<WhiteCompoundPkRefManyCB>() {
             public void query(WhiteCompoundPkRefManyCB subCB) {
                 subCB.union(new UnionQuery<WhiteCompoundPkRefManyCB>() {
                     public void query(WhiteCompoundPkRefManyCB unionCB) {
@@ -228,19 +228,19 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.specify().derivedWhiteCompoundPkRefList().max(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.specify().derivedWhiteCompoundPkRef().max(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.specify().columnRefFirstId();
                 subCB.query().setRefSecondId_GreaterThan(3);
             }
         }, WhiteCompoundPk.ALIAS_maxId, op -> op.coalesce(0));
-        cb.query().derivedWhiteCompoundPkRefList().min(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.query().derivedWhiteCompoundPkRef().min(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.specify().columnRefFirstId();
                 subCB.query().setRefSecondId_GreaterThan(2);
             }
         }, op -> op.coalesce(0)).greaterEqual(0);
-        cb.query().existsWhiteCompoundPkRefList(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.query().existsWhiteCompoundPkRef(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.query().setRefSecondId_GreaterThan(1);
             }
@@ -267,7 +267,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.query().notExistsWhiteCompoundPkRefList(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.query().notExistsWhiteCompoundPkRef(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.query().setRefSecondId_LessThan(0);
             }
@@ -294,7 +294,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.specify().derivedWhiteCompoundPkRefList().max(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.specify().derivedWhiteCompoundPkRef().max(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.specify().columnRefFirstId();
                 subCB.query().setRefSecondId_GreaterThan(1);
@@ -319,7 +319,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.specify().derivedWhiteCompoundPkRefManyToPKList().max(new SubQuery<WhiteCompoundPkRefManyCB>() {
+        cb.specify().derivedWhiteCompoundPkRefManyToPK().max(new SubQuery<WhiteCompoundPkRefManyCB>() {
             public void query(WhiteCompoundPkRefManyCB subCB) {
                 subCB.specify().columnRefManyName();
             }
@@ -343,7 +343,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.specify().derivedWhiteCompoundPkRefList().max(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.specify().derivedWhiteCompoundPkRef().max(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.specify().columnRefFirstId();
                 subCB.query().setRefSecondId_GreaterThan(1);
@@ -374,7 +374,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.specify().derivedWhiteCompoundPkRefManyToPKList().count(new SubQuery<WhiteCompoundPkRefManyCB>() {
+        cb.specify().derivedWhiteCompoundPkRefManyToPK().count(new SubQuery<WhiteCompoundPkRefManyCB>() {
             public void query(WhiteCompoundPkRefManyCB subCB) {
                 subCB.specify().columnMultipleFirstId();
                 subCB.union(new UnionQuery<WhiteCompoundPkRefManyCB>() {
@@ -401,7 +401,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
     public void test_CompoundPK_SpecifyDerivedReferrer_referredNormally() {
         // ## Arrange ##
         WhiteCompoundReferredNormallyCB cb = new WhiteCompoundReferredNormallyCB();
-        cb.specify().derivedWhiteCompoundPkList().max(new SubQuery<WhiteCompoundPkCB>() {
+        cb.specify().derivedWhiteCompoundPk().max(new SubQuery<WhiteCompoundPkCB>() {
             public void query(WhiteCompoundPkCB subCB) {
                 subCB.specify().columnPkFirstId();
             }
@@ -417,7 +417,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
     public void test_CompoundPK_SpecifyDerivedReferrer_referredPrimary() {
         // ## Arrange ##
         WhiteCompoundReferredPrimaryCB cb = new WhiteCompoundReferredPrimaryCB();
-        cb.specify().derivedWhiteCompoundPkList().max(new SubQuery<WhiteCompoundPkCB>() {
+        cb.specify().derivedWhiteCompoundPk().max(new SubQuery<WhiteCompoundPkCB>() {
             public void query(WhiteCompoundPkCB subCB) {
                 subCB.specify().columnPkFirstId();
             }
@@ -437,7 +437,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.query().derivedWhiteCompoundPkRefList().max(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.query().derivedWhiteCompoundPkRef().max(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
                 subCB.specify().columnRefFirstId();
                 subCB.query().setRefSecondId_GreaterThan(1);
@@ -463,7 +463,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         // ## Arrange ##
         registerTestData();
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.query().derivedWhiteCompoundPkRefManyToPKList().max(new SubQuery<WhiteCompoundPkRefManyCB>() {
+        cb.query().derivedWhiteCompoundPkRefManyToPK().max(new SubQuery<WhiteCompoundPkRefManyCB>() {
             public void query(WhiteCompoundPkRefManyCB subCB) {
                 subCB.specify().columnRefManyName();
             }
@@ -499,7 +499,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
 
         // ## Act ##
         ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
-        whiteCompoundPkBhv.loadWhiteCompoundPkRefList(mainList, new ConditionBeanSetupper<WhiteCompoundPkRefCB>() {
+        whiteCompoundPkBhv.loadWhiteCompoundPkRef(mainList, new ConditionBeanSetupper<WhiteCompoundPkRefCB>() {
             public void setup(WhiteCompoundPkRefCB cb) {
             }
         });
@@ -537,14 +537,14 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         });
         option.setEntityListSetupper(new EntityListSetupper<WhiteCompoundPkRef>() {
             public void setup(List<WhiteCompoundPkRef> entityList) {
-                whiteCompoundPkRefBhv.loadWhiteCompoundPkRefNestByFooMultipleIdList(entityList,
+                whiteCompoundPkRefBhv.loadWhiteCompoundPkRefNestByFooMultipleId(entityList,
                         new ConditionBeanSetupper<WhiteCompoundPkRefNestCB>() {
                             public void setup(WhiteCompoundPkRefNestCB cb) {
                             }
                         });
             }
         });
-        whiteCompoundPkBhv.loadWhiteCompoundPkRefList(mainList, option);
+        whiteCompoundPkBhv.loadWhiteCompoundPkRef(mainList, option);
 
         // ## Assert ##
         assertNotSame(0, mainList.size());
@@ -582,7 +582,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
 
         // ## Act ##
         ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
-        whiteCompoundPkBhv.loadWhiteCompoundPkRefList(mainList, new ConditionBeanSetupper<WhiteCompoundPkRefCB>() {
+        whiteCompoundPkBhv.loadWhiteCompoundPkRef(mainList, new ConditionBeanSetupper<WhiteCompoundPkRefCB>() {
             public void setup(WhiteCompoundPkRefCB cb) {
                 cb.specify().columnRefFirstId();
             }

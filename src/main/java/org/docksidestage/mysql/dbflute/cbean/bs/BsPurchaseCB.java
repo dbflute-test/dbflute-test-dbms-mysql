@@ -77,17 +77,14 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider(); // as default
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "purchase";
     }
 
@@ -113,7 +110,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      * @param purchaseDatetime (購入日時): +UQ, IX+, NotNull, DATETIME(19). (NotNull)
      * @return this. (NotNull)
      */
-    public PurchaseCB acceptUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    public PurchaseCB acceptUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         assertObjectNotNull("memberId", memberId);assertObjectNotNull("productId", productId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
         BsPurchaseCB cb = this;
         cb.query().setMemberId_Equal(memberId);cb.query().setProductId_Equal(productId);cb.query().setPurchaseDatetime_Equal(purchaseDatetime);
@@ -439,7 +436,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberAddressNss setupSelect_MemberAddressAsSkipRelation(final java.util.Date targetDate) {
+    public MemberAddressNss setupSelect_MemberAddressAsSkipRelation(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberAddressAsSkipRelation");
         if (hasSpecifiedColumn()) { // if reverse call
             specify().columnMemberId();
@@ -772,7 +769,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberAddressCB.HpSpecification specifyMemberAddressAsSkipRelation(final java.util.Date targetDate) {
+        public MemberAddressCB.HpSpecification specifyMemberAddressAsSkipRelation(final java.time.LocalDate targetDate) {
             assertRelation("memberAddressAsSkipRelation");
             if (_memberAddressAsSkipRelation == null) {
                 _memberAddressAsSkipRelation = new MemberAddressCB.HpSpecification(_baseCB
@@ -860,9 +857,10 @@ public class BsPurchaseCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchasePaymentCB, PurchaseCQ> derivedPurchasePaymentList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchasePaymentCB, PurchaseCQ> derivedPurchasePayment() {
             assertDerived("purchasePaymentList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderivePurchasePaymentList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<PurchasePaymentCB> sq, PurchaseCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderivePurchasePaymentList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -870,7 +868,8 @@ public class BsPurchaseCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchaseCB, PurchaseCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<PurchaseCB> sq, PurchaseCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -880,39 +879,6 @@ public class BsPurchaseCB extends AbstractConditionBean {
             , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
             , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
-    }
-
-    // [DBFlute-0.9.5.3]
-    // ===================================================================================
-    //                                                                        Column Query
-    //                                                                        ============
-    /**
-     * Set up column-query. {column1 = column2}
-     * <pre>
-     * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;PurchaseCB&gt;() {
-     *     public void query(PurchaseCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
-     *     }
-     * }).lessThan(new SpecifyQuery&lt;PurchaseCB&gt;() {
-     *     public void query(PurchaseCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
-     *     }
-     * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
-     * </pre>
-     * @param colCBLambda The callback for specify-query of left column. (NotNull)
-     * @return The object for setting up operand and right column. (NotNull)
-     */
-    public HpColQyOperand.HpExtendedColQyOperandMySql<PurchaseCB> columnQuery(final SpecifyQuery<PurchaseCB> colCBLambda) {
-        return xcreateColQyOperandMySql((rightSp, operand) -> {
-            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-        });
-    }
-
-    protected PurchaseCB xcreateColumnQueryCB() {
-        PurchaseCB cb = new PurchaseCB();
-        cb.xsetupForColumnQuery((PurchaseCB)this);
-        return cb;
     }
 
     // ===================================================================================
@@ -933,6 +899,35 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return dreamCruiseCB();
     }
 
+    // [DBFlute-0.9.5.3]
+    // ===================================================================================
+    //                                                                        Column Query
+    //                                                                        ============
+    /**
+     * Set up column-query. {column1 = column2}
+     * <pre>
+     * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
+     * cb.<span style="color: #CC4747">columnQuery</span>(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     * }).lessThan(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
+     * </pre>
+     * @param colCBLambda The callback for specify-query of left column. (NotNull)
+     * @return The object for setting up operand and right column. (NotNull)
+     */
+    public HpColQyOperand.HpExtendedColQyOperandMySql<PurchaseCB> columnQuery(final SpecifyQuery<PurchaseCB> colCBLambda) {
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
+        });
+    }
+
+    protected PurchaseCB xcreateColumnQueryCB() {
+        PurchaseCB cb = new PurchaseCB();
+        cb.xsetupForColumnQuery((PurchaseCB)this);
+        return cb;
+    }
+
     // [DBFlute-0.9.6.3]
     // ===================================================================================
     //                                                                       OrScope Query
@@ -942,11 +937,9 @@ public class BsPurchaseCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;PurchaseCB&gt;() {
-     *     public void query(PurchaseCB orCB) {
-     *         orCB.query().setFOO_Equal...
-     *         orCB.query().setBAR_Equal...
-     *     }
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(<span style="color: #553000">orCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">orCB</span>.query().setFoo...
+     *     <span style="color: #553000">orCB</span>.query().setBar...
      * });
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
@@ -960,16 +953,12 @@ public class BsPurchaseCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;PurchaseCB&gt;() {
-     *     public void query(PurchaseCB orCB) {
-     *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;PurchaseCB&gt;() {
-     *             public void query(PurchaseCB andCB) {
-     *                 andCB.query().setBar_...
-     *                 andCB.query().setQux_...
-     *             }
-     *         });
-     *     }
+     * cb.<span style="color: #994747">orScopeQuery</span>(<span style="color: #553000">orCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">orCB</span>.query().setFoo...
+     *     <span style="color: #553000">orCB</span>.<span style="color: #CC4747">orScopeQueryAndPart</span>(<span style="color: #553000">andCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">andCB</span>.query().setBar...
+     *         <span style="color: #553000">andCB</span>.query().setQux...
+     *     });
      * });
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)

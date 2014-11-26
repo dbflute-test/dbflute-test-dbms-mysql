@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -82,24 +84,16 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainE
     protected Integer _order;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_quoted_ref";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteQuotedRef";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -115,13 +109,15 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainE
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_quoted by my ORDER, named 'whiteQuoted'. */
-    protected WhiteQuoted _whiteQuoted;
+    protected OptionalEntity<WhiteQuoted> _whiteQuoted;
 
     /**
      * [get] white_quoted by my ORDER, named 'whiteQuoted'. <br>
-     * @return The entity of foreign property 'whiteQuoted'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteQuoted'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteQuoted getWhiteQuoted() {
+    public OptionalEntity<WhiteQuoted> getWhiteQuoted() {
+        if (_whiteQuoted == null) { _whiteQuoted = OptionalEntity.relationEmpty(this, "whiteQuoted"); }
         return _whiteQuoted;
     }
 
@@ -129,7 +125,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainE
      * [set] white_quoted by my ORDER, named 'whiteQuoted'.
      * @param whiteQuoted The entity of foreign property 'whiteQuoted'. (NullAllowed)
      */
-    public void setWhiteQuoted(WhiteQuoted whiteQuoted) {
+    public void setWhiteQuoted(OptionalEntity<WhiteQuoted> whiteQuoted) {
         _whiteQuoted = whiteQuoted;
     }
 
@@ -157,7 +153,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainE
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _where);
         return hs;
     }
@@ -165,9 +161,12 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainE
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteQuoted != null)
+        if (_whiteQuoted != null && _whiteQuoted.isPresent())
         { sb.append(li).append(xbRDS(_whiteQuoted, "whiteQuoted")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -185,7 +184,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainE
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteQuoted != null)
+        if (_whiteQuoted != null && _whiteQuoted.isPresent())
         { sb.append(dm).append("whiteQuoted"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

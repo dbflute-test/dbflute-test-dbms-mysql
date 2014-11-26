@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -92,24 +94,16 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity implement
     protected String _implicitConvName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_implicit_conv_string";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteImplicitConvString";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -125,13 +119,15 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity implement
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'. */
-    protected WhiteImplicitConvInteger _whiteImplicitConvInteger;
+    protected OptionalEntity<WhiteImplicitConvInteger> _whiteImplicitConvInteger;
 
     /**
      * [get] white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'. <br>
-     * @return The entity of foreign property 'whiteImplicitConvInteger'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteImplicitConvInteger'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteImplicitConvInteger getWhiteImplicitConvInteger() {
+    public OptionalEntity<WhiteImplicitConvInteger> getWhiteImplicitConvInteger() {
+        if (_whiteImplicitConvInteger == null) { _whiteImplicitConvInteger = OptionalEntity.relationEmpty(this, "whiteImplicitConvInteger"); }
         return _whiteImplicitConvInteger;
     }
 
@@ -139,18 +135,20 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity implement
      * [set] white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
      * @param whiteImplicitConvInteger The entity of foreign property 'whiteImplicitConvInteger'. (NullAllowed)
      */
-    public void setWhiteImplicitConvInteger(WhiteImplicitConvInteger whiteImplicitConvInteger) {
+    public void setWhiteImplicitConvInteger(OptionalEntity<WhiteImplicitConvInteger> whiteImplicitConvInteger) {
         _whiteImplicitConvInteger = whiteImplicitConvInteger;
     }
 
     /** white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'. */
-    protected WhiteImplicitConvNumeric _whiteImplicitConvNumeric;
+    protected OptionalEntity<WhiteImplicitConvNumeric> _whiteImplicitConvNumeric;
 
     /**
      * [get] white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'. <br>
-     * @return The entity of foreign property 'whiteImplicitConvNumeric'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteImplicitConvNumeric'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteImplicitConvNumeric getWhiteImplicitConvNumeric() {
+    public OptionalEntity<WhiteImplicitConvNumeric> getWhiteImplicitConvNumeric() {
+        if (_whiteImplicitConvNumeric == null) { _whiteImplicitConvNumeric = OptionalEntity.relationEmpty(this, "whiteImplicitConvNumeric"); }
         return _whiteImplicitConvNumeric;
     }
 
@@ -158,7 +156,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity implement
      * [set] white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
      * @param whiteImplicitConvNumeric The entity of foreign property 'whiteImplicitConvNumeric'. (NullAllowed)
      */
-    public void setWhiteImplicitConvNumeric(WhiteImplicitConvNumeric whiteImplicitConvNumeric) {
+    public void setWhiteImplicitConvNumeric(OptionalEntity<WhiteImplicitConvNumeric> whiteImplicitConvNumeric) {
         _whiteImplicitConvNumeric = whiteImplicitConvNumeric;
     }
 
@@ -226,7 +224,7 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity implement
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _implicitConvStringId);
         return hs;
     }
@@ -234,15 +232,18 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity implement
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteImplicitConvInteger != null)
+        if (_whiteImplicitConvInteger != null && _whiteImplicitConvInteger.isPresent())
         { sb.append(li).append(xbRDS(_whiteImplicitConvInteger, "whiteImplicitConvInteger")); }
-        if (_whiteImplicitConvNumeric != null)
+        if (_whiteImplicitConvNumeric != null && _whiteImplicitConvNumeric.isPresent())
         { sb.append(li).append(xbRDS(_whiteImplicitConvNumeric, "whiteImplicitConvNumeric")); }
         if (_whiteImplicitConvIntegerList != null) { for (WhiteImplicitConvInteger et : _whiteImplicitConvIntegerList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteImplicitConvIntegerList")); } } }
         if (_whiteImplicitConvNumericList != null) { for (WhiteImplicitConvNumeric et : _whiteImplicitConvNumericList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteImplicitConvNumericList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -262,9 +263,9 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity implement
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteImplicitConvInteger != null)
+        if (_whiteImplicitConvInteger != null && _whiteImplicitConvInteger.isPresent())
         { sb.append(dm).append("whiteImplicitConvInteger"); }
-        if (_whiteImplicitConvNumeric != null)
+        if (_whiteImplicitConvNumeric != null && _whiteImplicitConvNumeric.isPresent())
         { sb.append(dm).append("whiteImplicitConvNumeric"); }
         if (_whiteImplicitConvIntegerList != null && !_whiteImplicitConvIntegerList.isEmpty())
         { sb.append(dm).append("whiteImplicitConvIntegerList"); }

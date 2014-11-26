@@ -59,8 +59,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * Long includeQueryId = entity.getIncludeQueryId();
  * String includeQueryVarchar = entity.getIncludeQueryVarchar();
  * Integer includeQueryInteger = entity.getIncludeQueryInteger();
- * java.util.Date includeQueryDate = entity.getIncludeQueryDate();
- * java.sql.Timestamp includeQueryDatetime = entity.getIncludeQueryDatetime();
+ * java.time.LocalDate includeQueryDate = entity.getIncludeQueryDate();
+ * java.time.LocalDateTime includeQueryDatetime = entity.getIncludeQueryDatetime();
  * entity.setIncludeQueryId(includeQueryId);
  * entity.setIncludeQueryVarchar(includeQueryVarchar);
  * entity.setIncludeQueryInteger(includeQueryInteger);
@@ -91,30 +91,22 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity implements Doma
     protected Integer _includeQueryInteger;
 
     /** INCLUDE_QUERY_DATE: {DATE(10)} */
-    protected java.util.Date _includeQueryDate;
+    protected java.time.LocalDate _includeQueryDate;
 
     /** INCLUDE_QUERY_DATETIME: {DATETIME(19)} */
-    protected java.sql.Timestamp _includeQueryDatetime;
+    protected java.time.LocalDateTime _includeQueryDatetime;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_include_query";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteIncludeQuery";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -153,7 +145,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity implements Doma
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _includeQueryId);
         return hs;
     }
@@ -169,7 +161,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity implements Doma
         sb.append(dm).append(xfND(_includeQueryId));
         sb.append(dm).append(xfND(_includeQueryVarchar));
         sb.append(dm).append(xfND(_includeQueryInteger));
-        sb.append(dm).append(xfUD(_includeQueryDate));
+        sb.append(dm).append(xfND(_includeQueryDate));
         sb.append(dm).append(xfND(_includeQueryDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -249,7 +241,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity implements Doma
      * [get] INCLUDE_QUERY_DATE: {DATE(10)} <br>
      * @return The value of the column 'INCLUDE_QUERY_DATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getIncludeQueryDate() {
+    public java.time.LocalDate getIncludeQueryDate() {
         checkSpecifiedProperty("includeQueryDate");
         return _includeQueryDate;
     }
@@ -258,7 +250,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity implements Doma
      * [set] INCLUDE_QUERY_DATE: {DATE(10)} <br>
      * @param includeQueryDate The value of the column 'INCLUDE_QUERY_DATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setIncludeQueryDate(java.util.Date includeQueryDate) {
+    public void setIncludeQueryDate(java.time.LocalDate includeQueryDate) {
         registerModifiedProperty("includeQueryDate");
         _includeQueryDate = includeQueryDate;
     }
@@ -267,7 +259,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity implements Doma
      * [get] INCLUDE_QUERY_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'INCLUDE_QUERY_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getIncludeQueryDatetime() {
+    public java.time.LocalDateTime getIncludeQueryDatetime() {
         checkSpecifiedProperty("includeQueryDatetime");
         return _includeQueryDatetime;
     }
@@ -276,7 +268,7 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity implements Doma
      * [set] INCLUDE_QUERY_DATETIME: {DATETIME(19)} <br>
      * @param includeQueryDatetime The value of the column 'INCLUDE_QUERY_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setIncludeQueryDatetime(java.sql.Timestamp includeQueryDatetime) {
+    public void setIncludeQueryDatetime(java.time.LocalDateTime includeQueryDatetime) {
         registerModifiedProperty("includeQueryDatetime");
         _includeQueryDatetime = includeQueryDatetime;
     }

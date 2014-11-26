@@ -44,17 +44,14 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_perrotta_over_member";
     }
 
@@ -273,15 +270,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(memberName), xgetCValueMemberName(), "MEMBER_NAME", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
-     * @param memberName The value of memberName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMemberName_PrefixSearch(String memberName) {
-        setMemberName_LikeSearch(memberName, xcLSOPPre());
-    }
-
     protected void regMemberName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberName(), "MEMBER_NAME"); }
     protected abstract ConditionValue xgetCValueMemberName();
 
@@ -485,15 +473,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
         regLSQ(CK_NLS, fRES(traceTypeCode), xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE", likeSearchOption);
     }
 
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setTraceTypeCode_PrefixSearch(String traceTypeCode) {
-        setTraceTypeCode_LikeSearch(traceTypeCode, xcLSOPPre());
-    }
-
     protected void regTraceTypeCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTraceTypeCode(), "TRACE_TYPE_CODE"); }
     protected abstract ConditionValue xgetCValueTraceTypeCode();
 
@@ -591,15 +570,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      */
     public void setMachoCode_NotLikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(machoCode), xgetCValueMachoCode(), "MACHO_CODE", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
-     * @param machoCode The value of machoCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMachoCode_PrefixSearch(String machoCode) {
-        setMachoCode_LikeSearch(machoCode, xcLSOPPre());
     }
 
     protected void regMachoCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMachoCode(), "MACHO_CODE"); }
@@ -838,39 +808,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

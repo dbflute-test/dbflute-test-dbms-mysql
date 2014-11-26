@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberId(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberId(ctl(vl)), "memberId");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberName(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getProductId(), (et, vl) -> ((WhitePerrottaOverMember)et).setProductId(ctl(vl)), "productId");
@@ -67,9 +69,10 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverMemberMacho(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverMemberMacho((WhitePerrottaOverMemberMacho)vl), "whitePerrottaOverMemberMacho");
-        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverProduct(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverProduct((WhitePerrottaOverProduct)vl), "whitePerrottaOverProduct");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverMemberMacho(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverMemberMacho((OptionalEntity<WhitePerrottaOverMemberMacho>)vl), "whitePerrottaOverMemberMacho");
+        setupEfpg(_efpgMap, et -> ((WhitePerrottaOverMember)et).getWhitePerrottaOverProduct(), (et, vl) -> ((WhitePerrottaOverMember)et).setWhitePerrottaOverProduct((OptionalEntity<WhitePerrottaOverProduct>)vl), "whitePerrottaOverProduct");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -88,11 +91,11 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, Long.class, "memberId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, null, String.class, "memberName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Long.class, "productId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverProduct", null, null);
-    protected final ColumnInfo _columnTraceTypeCode = cci("TRACE_TYPE_CODE", "TRACE_TYPE_CODE", null, null, String.class, "traceTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnMachoCode = cci("MACHO_CODE", "MACHO_CODE", null, null, String.class, "machoCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "whitePerrottaOverMemberMacho", null, null);
+    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, Long.class, "memberId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, null, String.class, "memberName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Long.class, "productId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverProduct", null, null, false);
+    protected final ColumnInfo _columnTraceTypeCode = cci("TRACE_TYPE_CODE", "TRACE_TYPE_CODE", null, null, String.class, "traceTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMachoCode = cci("MACHO_CODE", "MACHO_CODE", null, null, String.class, "machoCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "whitePerrottaOverMemberMacho", null, null, false);
 
     /**
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
@@ -156,7 +159,7 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverMemberMacho() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMachoCode(), WhitePerrottaOverMemberMachoDbm.getInstance().columnMachoCode());
-        return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_MACHO", "whitePerrottaOverMemberMacho", this, WhitePerrottaOverMemberMachoDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whitePerrottaOverMemberList");
+        return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_MACHO", "whitePerrottaOverMemberMacho", this, WhitePerrottaOverMemberMachoDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverMemberList", false);
     }
     /**
      * white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
@@ -164,7 +167,7 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePerrottaOverProduct() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), WhitePerrottaOverProductDbm.getInstance().columnProductId());
-        return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_PRODUCT", "whitePerrottaOverProduct", this, WhitePerrottaOverProductDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "whitePerrottaOverMemberList");
+        return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_PRODUCT", "whitePerrottaOverProduct", this, WhitePerrottaOverProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverMemberList", false);
     }
 
     // -----------------------------------------------------

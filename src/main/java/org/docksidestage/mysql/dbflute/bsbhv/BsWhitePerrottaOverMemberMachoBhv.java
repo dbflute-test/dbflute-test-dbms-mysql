@@ -75,10 +75,12 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhitePerrottaOverMemberMachoDbm getDBMeta() { return WhitePerrottaOverMemberMachoDbm.getInstance(); }
+    public WhitePerrottaOverMemberMachoDbm asDBMeta() { return WhitePerrottaOverMemberMachoDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_perrotta_over_member_macho"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhitePerrottaOverMemberMachoCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhitePerrottaOverMemberMachoCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * Load referrer of whitePerrottaOverMemberList by the set-upper of referrer. <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverMemberList</span>(<span style="color: #553000">whitePerrottaOverMemberMachoList</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverMember</span>(<span style="color: #553000">whitePerrottaOverMemberMachoList</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberCB</span>.setupSelect...
      *     <span style="color: #553000">memberCB</span>.query().set...
      *     <span style="color: #553000">memberCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMemberList(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMember(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
         xassLRArg(whitePerrottaOverMemberMachoList, refCBLambda);
-        return doLoadWhitePerrottaOverMemberList(whitePerrottaOverMemberMachoList, new LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember>().xinit(refCBLambda));
+        return doLoadWhitePerrottaOverMember(whitePerrottaOverMemberMachoList, new LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whitePerrottaOverMemberList by the set-upper of referrer. <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverMemberList</span>(<span style="color: #553000">whitePerrottaOverMemberMacho</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverMember</span>(<span style="color: #553000">whitePerrottaOverMemberMacho</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberCB</span>.setupSelect...
      *     <span style="color: #553000">memberCB</span>.query().set...
      *     <span style="color: #553000">memberCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMemberList(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho, ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMember(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho, ConditionBeanSetupper<WhitePerrottaOverMemberCB> refCBLambda) {
         xassLRArg(whitePerrottaOverMemberMacho, refCBLambda);
-        return doLoadWhitePerrottaOverMemberList(xnewLRLs(whitePerrottaOverMemberMacho), new LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember>().xinit(refCBLambda));
+        return doLoadWhitePerrottaOverMember(xnewLRLs(whitePerrottaOverMemberMacho), new LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMemberList(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMember(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> loadReferrerOption) {
         xassLRArg(whitePerrottaOverMemberMacho, loadReferrerOption);
-        return loadWhitePerrottaOverMemberList(xnewLRLs(whitePerrottaOverMemberMacho), loadReferrerOption);
+        return loadWhitePerrottaOverMember(xnewLRLs(whitePerrottaOverMemberMacho), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMemberList(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePerrottaOverMember> loadWhitePerrottaOverMember(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> loadReferrerOption) {
         xassLRArg(whitePerrottaOverMemberMachoList, loadReferrerOption);
         if (whitePerrottaOverMemberMachoList.isEmpty()) { return (NestedReferrerListGateway<WhitePerrottaOverMember>)EMPTY_NREF_LGWAY; }
-        return doLoadWhitePerrottaOverMemberList(whitePerrottaOverMemberMachoList, loadReferrerOption);
+        return doLoadWhitePerrottaOverMember(whitePerrottaOverMemberMachoList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhitePerrottaOverMember> doLoadWhitePerrottaOverMemberList(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> option) {
+    protected NestedReferrerListGateway<WhitePerrottaOverMember> doLoadWhitePerrottaOverMember(List<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMachoList, LoadReferrerOption<WhitePerrottaOverMemberCB, WhitePerrottaOverMember> option) {
         return helpLoadReferrerInternally(whitePerrottaOverMemberMachoList, option, "whitePerrottaOverMemberList");
     }
 
@@ -637,11 +639,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">//whitePerrottaOverMemberMacho.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whitePerrottaOverMemberMacho.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">update</span>(whitePerrottaOverMemberMacho);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">update</span>(whitePerrottaOverMemberMacho);
      * </pre>
      * @param whitePerrottaOverMemberMacho The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -802,9 +800,9 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whitePerrottaOverMemberMacho.setVersionNo(value);</span>
-     * WhitePerrottaOverMemberMachoCB cb = <span style="color: #70226C">new</span> WhitePerrottaOverMemberMachoCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whitePerrottaOverMemberMacho, cb);
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whitePerrottaOverMemberMacho, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whitePerrottaOverMemberMacho The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMemberMacho. (NotNull)
@@ -844,9 +842,9 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhitePerrottaOverMemberMachoCB cb = new WhitePerrottaOverMemberMachoCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverMemberMacho, cb);
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverMemberMacho, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMemberMacho. (NotNull)
      * @return The deleted count.
@@ -886,10 +884,10 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whitePerrottaOverMemberMacho.setFoo...(value);
      * whitePerrottaOverMemberMacho.setBar...(value);
-     * InsertOption&lt;WhitePerrottaOverMemberMachoCB&gt; option = new InsertOption&lt;WhitePerrottaOverMemberMachoCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whitePerrottaOverMemberMacho, option);
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whitePerrottaOverMemberMacho, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whitePerrottaOverMemberMacho.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whitePerrottaOverMemberMacho The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -910,18 +908,12 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * whitePerrottaOverMemberMacho.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whitePerrottaOverMemberMacho.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhitePerrottaOverMemberMachoCB&gt; option = new UpdateOption&lt;WhitePerrottaOverMemberMachoCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
-     *         public void specify(WhitePerrottaOverMemberMachoCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whitePerrottaOverMemberMacho, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whitePerrottaOverMemberMacho, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whitePerrottaOverMemberMacho The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1030,15 +1022,13 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whitePerrottaOverMemberMacho.setVersionNo(value);</span>
-     * WhitePerrottaOverMemberMachoCB cb = new WhitePerrottaOverMemberMachoCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhitePerrottaOverMemberMachoCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhitePerrottaOverMemberMachoCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
-     *     public void specify(WhitePerrottaOverMemberMachoCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverMemberMacho, cb, option);
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverMemberMacho, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whitePerrottaOverMemberMacho The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMemberMacho. (NotNull)
@@ -1066,13 +1056,11 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * <span style="color: #3F7E5E">//whitePerrottaOverMemberMacho.setVersionNo(value);</span>
      * WhitePerrottaOverMemberMachoCB cb = <span style="color: #70226C">new</span> WhitePerrottaOverMemberMachoCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhitePerrottaOverMemberMachoCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhitePerrottaOverMemberMachoCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhitePerrottaOverMemberMachoCB&gt;() {
-     *     public void specify(WhitePerrottaOverMemberMachoCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverMemberMacho, cb, option);
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverMemberMacho, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whitePerrottaOverMemberMacho The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhitePerrottaOverMemberMacho. (NotNull)
@@ -1087,7 +1075,14 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverMemberMacho, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverMemberMacho. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1100,7 +1095,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhitePerrottaOverMemberMacho. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1141,9 +1136,8 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhitePerrottaOverMemberMachoBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhitePerrottaOverMemberMachoBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhitePerrottaOverMemberMachoBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_variant_relation_master_foo";
     }
 
@@ -167,13 +164,13 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * {exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteVariantRelationReferrerAsVariant</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referrerCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteVariantRelationReferrerAsVariantList for 'exists'. (NotNull)
      */
-    public void existsWhiteVariantRelationReferrerAsVariantList(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
+    public void existsWhiteVariantRelationReferrerAsVariant(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMasterFooId_ExistsReferrer_WhiteVariantRelationReferrerAsVariantList(cb.query());
@@ -186,13 +183,13 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * {not exists (select VARIANT_MASTER_ID from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerAsVariantList</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteVariantRelationReferrerAsVariant</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referrerCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MasterFooId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteVariantRelationReferrerAsVariantList(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
+    public void notExistsWhiteVariantRelationReferrerAsVariant(SubQuery<WhiteVariantRelationReferrerCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteVariantRelationReferrerCB cb = new WhiteVariantRelationReferrerCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMasterFooId_NotExistsReferrer_WhiteVariantRelationReferrerAsVariantList(cb.query());
@@ -213,14 +210,14 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * {FOO &lt;= (select max(BAR) from white_variant_relation_referrer where ...)} <br>
      * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerAsVariantList()</span>.<span style="color: #CC4747">max</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteVariantRelationReferrerAsVariant()</span>.<span style="color: #CC4747">max</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referrerCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     referrerCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteVariantRelationReferrerCB> derivedWhiteVariantRelationReferrerAsVariantList() {
+    public HpQDRFunction<WhiteVariantRelationReferrerCB> derivedWhiteVariantRelationReferrerAsVariant() {
         return xcreateQDRFunctionWhiteVariantRelationReferrerAsVariantList();
     }
     protected HpQDRFunction<WhiteVariantRelationReferrerCB> xcreateQDRFunctionWhiteVariantRelationReferrerAsVariantList() {
@@ -344,15 +341,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      */
     public void setMasterFooName_NotLikeSearch(String masterFooName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(masterFooName), xgetCValueMasterFooName(), "MASTER_FOO_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MASTER_FOO_NAME: {NotNull, VARCHAR(200)}
-     * @param masterFooName The value of masterFooName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMasterFooName_PrefixSearch(String masterFooName) {
-        setMasterFooName_LikeSearch(masterFooName, xcLSOPPre());
     }
 
     protected void regMasterFooName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMasterFooName(), "MASTER_FOO_NAME"); }
@@ -591,39 +579,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

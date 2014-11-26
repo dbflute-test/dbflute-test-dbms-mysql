@@ -1,8 +1,7 @@
 package org.docksidestage.mysql.dbflute.freegen.json.bean.bs;
 
 import java.io.Serializable;
-
-import org.docksidestage.mysql.dbflute.freegen.json.bean.ex.JsonMember;
+import org.docksidestage.mysql.dbflute.freegen.json.bean.ex.*;
 
 /**
  * purchase table

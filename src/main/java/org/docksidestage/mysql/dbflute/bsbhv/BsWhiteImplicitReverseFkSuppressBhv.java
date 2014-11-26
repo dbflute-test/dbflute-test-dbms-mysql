@@ -75,10 +75,12 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteImplicitReverseFkSuppressDbm getDBMeta() { return WhiteImplicitReverseFkSuppressDbm.getInstance(); }
+    public WhiteImplicitReverseFkSuppressDbm asDBMeta() { return WhiteImplicitReverseFkSuppressDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_implicit_reverse_fk_suppress"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -273,19 +275,19 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhiteImplicitReverseFkSuppress> selectByUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate) {
+    public OptionalEntity<WhiteImplicitReverseFkSuppress> selectByUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate) {
         return facadeSelectByUniqueOf(whiteImplicitReverseFkId, validBeginDate);
     }
 
-    protected OptionalEntity<WhiteImplicitReverseFkSuppress> facadeSelectByUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate) {
+    protected OptionalEntity<WhiteImplicitReverseFkSuppress> facadeSelectByUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate) {
         return doSelectByUniqueOf(whiteImplicitReverseFkId, validBeginDate, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhiteImplicitReverseFkSuppress> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhiteImplicitReverseFkSuppress> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(whiteImplicitReverseFkId, validBeginDate), tp), whiteImplicitReverseFkId, validBeginDate);
     }
 
-    protected WhiteImplicitReverseFkSuppressCB xprepareCBAsUniqueOf(Integer whiteImplicitReverseFkId, java.util.Date validBeginDate) {
+    protected WhiteImplicitReverseFkSuppressCB xprepareCBAsUniqueOf(Integer whiteImplicitReverseFkId, java.time.LocalDate validBeginDate) {
         assertObjectNotNull("whiteImplicitReverseFkId", whiteImplicitReverseFkId);assertObjectNotNull("validBeginDate", validBeginDate);
         return newConditionBean().acceptUniqueOf(whiteImplicitReverseFkId, validBeginDate);
     }
@@ -431,7 +433,7 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -440,7 +442,7 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteImplicitReverseFkSuppressCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteImplicitReverseFkSuppressCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -449,7 +451,7 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -575,11 +577,7 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">//whiteImplicitReverseFkSuppress.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteImplicitReverseFkSuppress.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">update</span>(whiteImplicitReverseFkSuppress);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">update</span>(whiteImplicitReverseFkSuppress);
      * </pre>
      * @param whiteImplicitReverseFkSuppress The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -740,9 +738,9 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteImplicitReverseFkSuppress.setVersionNo(value);</span>
-     * WhiteImplicitReverseFkSuppressCB cb = <span style="color: #70226C">new</span> WhiteImplicitReverseFkSuppressCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitReverseFkSuppress, cb);
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteImplicitReverseFkSuppress, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteImplicitReverseFkSuppress The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFkSuppress. (NotNull)
@@ -782,9 +780,9 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteImplicitReverseFkSuppressCB cb = new WhiteImplicitReverseFkSuppressCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitReverseFkSuppress, cb);
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitReverseFkSuppress, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFkSuppress. (NotNull)
      * @return The deleted count.
@@ -824,10 +822,10 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteImplicitReverseFkSuppress.setFoo...(value);
      * whiteImplicitReverseFkSuppress.setBar...(value);
-     * InsertOption&lt;WhiteImplicitReverseFkSuppressCB&gt; option = new InsertOption&lt;WhiteImplicitReverseFkSuppressCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteImplicitReverseFkSuppress, option);
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteImplicitReverseFkSuppress, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteImplicitReverseFkSuppress.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteImplicitReverseFkSuppress The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -848,18 +846,12 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * whiteImplicitReverseFkSuppress.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteImplicitReverseFkSuppress.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteImplicitReverseFkSuppressCB&gt; option = new UpdateOption&lt;WhiteImplicitReverseFkSuppressCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteImplicitReverseFkSuppressCB&gt;() {
-     *         public void specify(WhiteImplicitReverseFkSuppressCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteImplicitReverseFkSuppress, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteImplicitReverseFkSuppress, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteImplicitReverseFkSuppress The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -968,15 +960,13 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteImplicitReverseFkSuppress.setVersionNo(value);</span>
-     * WhiteImplicitReverseFkSuppressCB cb = new WhiteImplicitReverseFkSuppressCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteImplicitReverseFkSuppressCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteImplicitReverseFkSuppressCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteImplicitReverseFkSuppressCB&gt;() {
-     *     public void specify(WhiteImplicitReverseFkSuppressCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitReverseFkSuppress, cb, option);
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitReverseFkSuppress, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteImplicitReverseFkSuppress The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFkSuppress. (NotNull)
@@ -1004,13 +994,11 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">//whiteImplicitReverseFkSuppress.setVersionNo(value);</span>
      * WhiteImplicitReverseFkSuppressCB cb = <span style="color: #70226C">new</span> WhiteImplicitReverseFkSuppressCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteImplicitReverseFkSuppressCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteImplicitReverseFkSuppressCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteImplicitReverseFkSuppressCB&gt;() {
-     *     public void specify(WhiteImplicitReverseFkSuppressCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitReverseFkSuppress, cb, option);
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteImplicitReverseFkSuppress, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteImplicitReverseFkSuppress The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteImplicitReverseFkSuppress. (NotNull)
@@ -1025,7 +1013,14 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitReverseFkSuppress, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteImplicitReverseFkSuppress. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1038,7 +1033,7 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteImplicitReverseFkSuppress. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1079,9 +1074,8 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteImplicitReverseFkSuppressBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteImplicitReverseFkSuppressBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteImplicitReverseFkSuppressBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

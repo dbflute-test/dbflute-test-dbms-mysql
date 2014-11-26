@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.dbflute.bhv.referrer.ConditionBeanSetupper;
 import org.dbflute.cbean.result.ListResultBean;
+import org.dbflute.exception.NonSetupSelectRelationAccessException;
 import org.dbflute.util.DfTraceViewUtil;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.cbean.MemberLoginCB;
@@ -52,7 +53,7 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         Set<String> statusCodeSet = newHashSet();
         Set<String> instanceHashSet = newHashSet();
         for (Member member : memberList) {
-            MemberStatus status = member.getMemberStatus();
+            MemberStatus status = member.getMemberStatus().get();
             String statusCode = member.getMemberStatusCode();
             assertEquals(statusCode, status.getMemberStatusCode());
             statusCodeSet.add(statusCode);
@@ -79,7 +80,7 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         Set<String> statusCodeSet = newHashSet();
         Set<String> instanceHashSet = newHashSet();
         for (Member member : memberList) {
-            MemberStatus status = member.getMemberStatus();
+            MemberStatus status = member.getMemberStatus().get();
             String statusCode = member.getMemberStatusCode();
             assertEquals(statusCode, status.getMemberStatusCode());
             statusCodeSet.add(statusCode);
@@ -100,7 +101,7 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         // ## Act ##
         List<Member> memberList = memberBhv.selectList(cb);
         List<MemberStatus> statusList = memberBhv.pulloutMemberStatus(memberList);
-        memberStatusBhv.loadMemberLoginList(statusList, new ConditionBeanSetupper<MemberLoginCB>() {
+        memberStatusBhv.loadMemberLogin(statusList, new ConditionBeanSetupper<MemberLoginCB>() {
             public void setup(MemberLoginCB cb) {
             }
         });
@@ -111,7 +112,7 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         boolean exists = false;
         for (Member member : memberList) {
             String statusCode = member.getMemberStatusCode();
-            MemberStatus status = member.getMemberStatus();
+            MemberStatus status = member.getMemberStatus().get();
             List<MemberLogin> prevoiusLoginList = statusLoginMap.get(statusCode);
             List<MemberLogin> mappedLoginList = status.getMemberLoginList();
             log(member.getMemberName(), statusCode, mappedLoginList.size());
@@ -149,14 +150,14 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         Set<String> statusCodeSet = newHashSet();
         Set<String> statusHashSet = newHashSet();
         for (Purchase purchase : purchaseList) {
-            Member member = purchase.getMember();
+            Member member = purchase.getMember().get();
             Integer memberId = purchase.getMemberId();
             assertEquals(memberId, member.getMemberId());
             memberIdSet.add(memberId);
             String memberHash = Integer.toHexString(member.instanceHash());
             memberHashSet.add(memberHash);
 
-            MemberStatus status = member.getMemberStatus();
+            MemberStatus status = member.getMemberStatus().get();
             String statusCode = member.getMemberStatusCode();
             assertEquals(statusCode, status.getMemberStatusCode());
             statusCodeSet.add(statusCode);
@@ -189,14 +190,14 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         Set<String> statusCodeSet = newHashSet();
         Set<String> statusHashSet = newHashSet();
         for (Purchase purchase : purchaseList) {
-            Member member = purchase.getMember();
+            Member member = purchase.getMember().get();
             Integer memberId = purchase.getMemberId();
             assertEquals(memberId, member.getMemberId());
             memberIdSet.add(memberId);
             String memberHash = Integer.toHexString(member.instanceHash());
             memberHashSet.add(memberHash);
 
-            MemberStatus status = member.getMemberStatus();
+            MemberStatus status = member.getMemberStatus().get();
             String statusCode = member.getMemberStatusCode();
             assertEquals(statusCode, status.getMemberStatusCode());
             statusCodeSet.add(statusCode);
@@ -222,7 +223,7 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         ListResultBean<Purchase> purchaseList = purchaseBhv.selectList(cb);
         List<Member> memberList = purchaseBhv.pulloutMember(purchaseList);
         List<MemberStatus> statusList = memberBhv.pulloutMemberStatus(memberList);
-        memberStatusBhv.loadMemberLoginList(statusList, new ConditionBeanSetupper<MemberLoginCB>() {
+        memberStatusBhv.loadMemberLogin(statusList, new ConditionBeanSetupper<MemberLoginCB>() {
             public void setup(MemberLoginCB cb) {
             }
         });
@@ -232,9 +233,9 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         Map<String, List<MemberLogin>> statusLoginMap = newHashMap();
         boolean exists = false;
         for (Purchase purchase : purchaseList) {
-            Member member = purchase.getMember();
+            Member member = purchase.getMember().get();
             String statusCode = member.getMemberStatusCode();
-            MemberStatus status = member.getMemberStatus();
+            MemberStatus status = member.getMemberStatus().get();
             List<MemberLogin> previousLoginList = statusLoginMap.get(statusCode);
             List<MemberLogin> mappedLoginList = status.getMemberLoginList();
             log(member.getMemberName(), statusCode, mappedLoginList.size());
@@ -260,7 +261,7 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         PurchaseCB cb = new PurchaseCB();
         cb.setupSelect_Member().withMemberStatus();
-        cb.setupSelect_Member().withMemberAddressAsValid(currentDate());
+        cb.setupSelect_Member().withMemberAddressAsValid(currentLocalDate());
         cb.setupSelect_Member().withMemberLoginAsLatest().withMemberStatus();
         cb.setupSelect_Member().withMemberSecurityAsOne().withMember().withMemberStatus();
         cb.setupSelect_Member().withMemberWithdrawalAsOne().withWithdrawalReason();
@@ -286,21 +287,21 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         boolean existsLoginStatus = false;
         boolean existsWithdrawal = false;
         for (Purchase purchase : purchaseList) {
-            Member member = purchase.getMember();
+            Member member = purchase.getMember().get();
             assertNotNull(member);
             assertEquals(member.getMemberId(), purchase.getMemberId());
             firstMemberIdSet.add(member.getMemberId());
             firstMemberHashSet.add(Integer.toHexString(member.instanceHash()));
 
-            MemberStatus firstStatus = member.getMemberStatus();
+            MemberStatus firstStatus = member.getMemberStatus().get();
             assertNotNull(firstStatus);
             assertEquals(firstStatus.getMemberStatusCode(), member.getMemberStatusCode());
             firstStatusCodeSet.add(firstStatus.getMemberStatusCode());
             firstStatusHashSet.add(Integer.toHexString(firstStatus.instanceHash()));
 
-            MemberLogin loginAsLatest = member.getMemberLoginAsLatest();
+            MemberLogin loginAsLatest = member.getMemberLoginAsLatest().orElse(null);
             if (loginAsLatest != null) {
-                MemberStatus loginStatus = loginAsLatest.getMemberStatus();
+                MemberStatus loginStatus = loginAsLatest.getMemberStatus().get();
                 assertNotNull(loginStatus);
                 if (firstStatus.getMemberStatusCode().equals(loginStatus.getMemberStatusCode())) {
                     assertNotSame(firstStatus.instanceHash(), loginStatus.instanceHash());
@@ -308,28 +309,28 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
                 }
             }
 
-            MemberSecurity security = member.getMemberSecurityAsOne();
+            MemberSecurity security = member.getMemberSecurityAsOne().get();
             assertNotNull(security);
             assertEquals(member.getMemberId(), security.getMemberId());
             assertNotNull(security.getMember());
-            assertEquals(member.getMemberId(), security.getMember().getMemberId());
-            assertNotSame(member.instanceHash(), security.getMember().instanceHash());
-            assertNotNull(security.getMember().getMemberStatus());
-            MemberStatus securityStatus = security.getMember().getMemberStatus();
+            assertEquals(member.getMemberId(), security.getMember().get().getMemberId());
+            assertNotSame(member.instanceHash(), security.getMember().get().instanceHash());
+            assertNotNull(security.getMember().get().getMemberStatus().get());
+            MemberStatus securityStatus = security.getMember().get().getMemberStatus().get();
 
             assertEquals(securityStatus.getMemberStatusCode(), member.getMemberStatusCode());
             securityStatusCodeSet.add(securityStatus.getMemberStatusCode());
             securityStatusHashSet.add(Integer.toHexString(securityStatus.instanceHash()));
 
-            MemberWithdrawal withdrawal = member.getMemberWithdrawalAsOne();
+            MemberWithdrawal withdrawal = member.getMemberWithdrawalAsOne().orElse(null);
             if (withdrawal != null) {
                 assertEquals(member.getMemberId(), withdrawal.getMemberId());
-                assertNotNull(withdrawal.getMember());
-                assertNull(withdrawal.getMember().getMemberStatus());
+                assertTrue(withdrawal.getMember().isPresent());
+                assertException(NonSetupSelectRelationAccessException.class, () -> withdrawal.getMember().get().getMemberStatus().get());
                 existsWithdrawal = true;
             }
 
-            Product product = purchase.getProduct();
+            Product product = purchase.getProduct().get();
             assertNotNull(product);
             assertEquals(purchase.getProductId(), product.getProductId());
             firstProductIdSet.add(product.getProductId());
@@ -403,7 +404,7 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         PurchaseCB cb = new PurchaseCB();
         cb.setupSelect_Member().withMemberStatus();
-        cb.setupSelect_Member().withMemberAddressAsValid(currentDate());
+        cb.setupSelect_Member().withMemberAddressAsValid(currentLocalDate());
         cb.setupSelect_Member().withMemberLoginAsLatest().withMemberStatus();
         cb.setupSelect_Member().withMemberSecurityAsOne().withMember().withMemberStatus();
         cb.setupSelect_Member().withMemberWithdrawalAsOne().withWithdrawalReason();
@@ -437,7 +438,7 @@ public class WxCBRelationMappingMySQLTest extends UnitContainerTestCase {
         PurchaseCB cb = new PurchaseCB();
         cb.disableRelationMappingCache();
         cb.setupSelect_Member().withMemberStatus();
-        cb.setupSelect_Member().withMemberAddressAsValid(currentDate());
+        cb.setupSelect_Member().withMemberAddressAsValid(currentLocalDate());
         cb.setupSelect_Member().withMemberLoginAsLatest().withMemberStatus();
         cb.setupSelect_Member().withMemberSecurityAsOne().withMember().withMemberStatus();
         cb.setupSelect_Member().withMemberWithdrawalAsOne().withWithdrawalReason();

@@ -75,10 +75,12 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteSplitMultipleFkChildDbm getDBMeta() { return WhiteSplitMultipleFkChildDbm.getInstance(); }
+    public WhiteSplitMultipleFkChildDbm asDBMeta() { return WhiteSplitMultipleFkChildDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_split_multiple_fk_child"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteSplitMultipleFkChildCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteSplitMultipleFkChildCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -557,11 +559,7 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkChild.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSplitMultipleFkChild.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">update</span>(whiteSplitMultipleFkChild);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">update</span>(whiteSplitMultipleFkChild);
      * </pre>
      * @param whiteSplitMultipleFkChild The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -722,9 +720,9 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkChild.setVersionNo(value);</span>
-     * WhiteSplitMultipleFkChildCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkChildCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkChild, cb);
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSplitMultipleFkChild, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteSplitMultipleFkChild The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkChild. (NotNull)
@@ -764,9 +762,9 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteSplitMultipleFkChildCB cb = new WhiteSplitMultipleFkChildCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkChild, cb);
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkChild, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkChild. (NotNull)
      * @return The deleted count.
@@ -806,10 +804,10 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteSplitMultipleFkChild.setFoo...(value);
      * whiteSplitMultipleFkChild.setBar...(value);
-     * InsertOption&lt;WhiteSplitMultipleFkChildCB&gt; option = new InsertOption&lt;WhiteSplitMultipleFkChildCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSplitMultipleFkChild, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSplitMultipleFkChild, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteSplitMultipleFkChild.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteSplitMultipleFkChild The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -830,18 +828,12 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * whiteSplitMultipleFkChild.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSplitMultipleFkChild.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteSplitMultipleFkChildCB&gt; option = new UpdateOption&lt;WhiteSplitMultipleFkChildCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
-     *         public void specify(WhiteSplitMultipleFkChildCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSplitMultipleFkChild, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSplitMultipleFkChild, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteSplitMultipleFkChild The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -950,15 +942,13 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkChild.setVersionNo(value);</span>
-     * WhiteSplitMultipleFkChildCB cb = new WhiteSplitMultipleFkChildCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSplitMultipleFkChildCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSplitMultipleFkChildCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
-     *     public void specify(WhiteSplitMultipleFkChildCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkChild, cb, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkChild, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteSplitMultipleFkChild The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkChild. (NotNull)
@@ -986,13 +976,11 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * <span style="color: #3F7E5E">//whiteSplitMultipleFkChild.setVersionNo(value);</span>
      * WhiteSplitMultipleFkChildCB cb = <span style="color: #70226C">new</span> WhiteSplitMultipleFkChildCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSplitMultipleFkChildCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSplitMultipleFkChildCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteSplitMultipleFkChildCB&gt;() {
-     *     public void specify(WhiteSplitMultipleFkChildCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkChild, cb, option);
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSplitMultipleFkChild, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteSplitMultipleFkChild The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteSplitMultipleFkChild. (NotNull)
@@ -1007,7 +995,14 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkChild, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSplitMultipleFkChild. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1020,7 +1015,7 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteSplitMultipleFkChild. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1061,9 +1056,8 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteSplitMultipleFkChildBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteSplitMultipleFkChildBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteSplitMultipleFkChildBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

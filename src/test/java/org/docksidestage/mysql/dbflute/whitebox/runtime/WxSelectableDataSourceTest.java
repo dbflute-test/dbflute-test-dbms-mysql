@@ -20,7 +20,7 @@ public class WxSelectableDataSourceTest extends UnitContainerTestCase {
     public void test_accessFixedly_select_Tx() {
         // ## Arrange ##
         final MemberCB cb = new MemberCB();
-        cb.query().setMemberName_PrefixSearch("S");
+        cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
 
         // ## Act ##
         List<Member> memberList = slaveDBAccessor.accessFixedly(new SlaveDBCallback<List<Member>>() {

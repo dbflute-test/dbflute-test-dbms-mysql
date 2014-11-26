@@ -6,6 +6,7 @@
  This SQL is cursor select.
 */
 -- #df:entity#
+-- ##Long PURCHASE_SUMMARY##
 -- +cursor+
 
 -- !df:pmb!

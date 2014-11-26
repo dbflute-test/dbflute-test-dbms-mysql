@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_myself";
     }
 
@@ -167,13 +164,13 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * {exists (select MYSELF_ID from white_myself_check where ...)} <br>
      * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteMyselfCheckList</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteMyselfCheck</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     checkCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteMyselfCheckList for 'exists'. (NotNull)
      */
-    public void existsWhiteMyselfCheckList(SubQuery<WhiteMyselfCheckCB> subCBLambda) {
+    public void existsWhiteMyselfCheck(SubQuery<WhiteMyselfCheckCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfId_ExistsReferrer_WhiteMyselfCheckList(cb.query());
@@ -186,13 +183,13 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * {not exists (select MYSELF_ID from white_myself_check where ...)} <br>
      * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteMyselfCheckList</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteMyselfCheck</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     checkCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MyselfId_NotExistsReferrer_WhiteMyselfCheckList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteMyselfCheckList(SubQuery<WhiteMyselfCheckCB> subCBLambda) {
+    public void notExistsWhiteMyselfCheck(SubQuery<WhiteMyselfCheckCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteMyselfCheckCB cb = new WhiteMyselfCheckCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfId_NotExistsReferrer_WhiteMyselfCheckList(cb.query());
@@ -213,14 +210,14 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from white_myself_check where ...)} <br>
      * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteMyselfCheckList()</span>.<span style="color: #CC4747">max</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteMyselfCheck()</span>.<span style="color: #CC4747">max</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     checkCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     checkCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteMyselfCheckCB> derivedWhiteMyselfCheckList() {
+    public HpQDRFunction<WhiteMyselfCheckCB> derivedWhiteMyselfCheck() {
         return xcreateQDRFunctionWhiteMyselfCheckList();
     }
     protected HpQDRFunction<WhiteMyselfCheckCB> xcreateQDRFunctionWhiteMyselfCheckList() {
@@ -344,15 +341,6 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      */
     public void setMyselfName_NotLikeSearch(String myselfName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(myselfName), xgetCValueMyselfName(), "MYSELF_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MYSELF_NAME: {NotNull, VARCHAR(80)}
-     * @param myselfName The value of myselfName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMyselfName_PrefixSearch(String myselfName) {
-        setMyselfName_LikeSearch(myselfName, xcLSOPPre());
     }
 
     protected void regMyselfName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMyselfName(), "MYSELF_NAME"); }
@@ -591,39 +579,6 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

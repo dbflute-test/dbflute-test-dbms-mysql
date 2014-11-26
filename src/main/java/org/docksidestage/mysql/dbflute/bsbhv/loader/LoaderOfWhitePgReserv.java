@@ -76,14 +76,14 @@ public class LoaderOfWhitePgReserv {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhitePgReservRef> _referrerWhitePgReservRefList;
+    protected List<WhitePgReservRef> _referrerWhitePgReservRef;
 
     /**
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
      * <pre>
      * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whitePgReservList</span>, <span style="color: #553000">reservLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">reservLoader</span>.<span style="color: #CC4747">loadWhitePgReservRefList</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">reservLoader</span>.<span style="color: #CC4747">loadWhitePgReservRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">refCB</span>.setupSelect...
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhitePgReserv {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhitePgReservRef> loadWhitePgReservRefList(ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
-        myBhv().loadWhitePgReservRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePgReservRefList = refLs);
-        return hd -> hd.handle(new LoaderOfWhitePgReservRef().ready(_referrerWhitePgReservRefList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhitePgReservRef> loadWhitePgReservRef(ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
+        myBhv().loadWhitePgReservRef(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhitePgReservRef = refLs);
+        return hd -> hd.handle(new LoaderOfWhitePgReservRef().ready(_referrerWhitePgReservRef, _selector));
     }
 
     // ===================================================================================

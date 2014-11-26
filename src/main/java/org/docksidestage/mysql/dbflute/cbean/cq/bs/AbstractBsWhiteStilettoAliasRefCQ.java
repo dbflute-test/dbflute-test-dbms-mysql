@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_stiletto_alias_ref";
     }
 
@@ -274,15 +271,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO0: {VARCHAR(200)}
-     * @param foo0 The value of foo0 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo0_PrefixSearch(String foo0) {
-        setFoo0_LikeSearch(foo0, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * FOO0: {VARCHAR(200)}
      */
@@ -397,15 +385,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      */
     public void setFoo1_NotLikeSearch(String foo1, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(foo1), xgetCValueFoo1(), "FOO_1", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO_1: {VARCHAR(200)}
-     * @param foo1 The value of foo1 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo1_PrefixSearch(String foo1) {
-        setFoo1_LikeSearch(foo1, xcLSOPPre());
     }
 
     /**
@@ -526,15 +505,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO2: {VARCHAR(200)}
-     * @param foo2 The value of foo2 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo2_PrefixSearch(String foo2) {
-        setFoo2_LikeSearch(foo2, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * FOO2: {VARCHAR(200)}
      */
@@ -649,15 +619,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      */
     public void setFoo3_NotLikeSearch(String foo3, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(foo3), xgetCValueFoo3(), "FOO3", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO3: {VARCHAR(200)}
-     * @param foo3 The value of foo3 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo3_PrefixSearch(String foo3) {
-        setFoo3_LikeSearch(foo3, xcLSOPPre());
     }
 
     /**
@@ -778,15 +739,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * FOO_4: {VARCHAR(200)}
-     * @param foo4 The value of foo4 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setFoo4_PrefixSearch(String foo4) {
-        setFoo4_LikeSearch(foo4, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * FOO_4: {VARCHAR(200)}
      */
@@ -901,15 +853,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      */
     public void setBar0_NotLikeSearch(String bar0, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(bar0), xgetCValueBar0(), "BAR_0", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * BAR_0: {VARCHAR(200)}
-     * @param bar0 The value of bar0 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setBar0_PrefixSearch(String bar0) {
-        setBar0_LikeSearch(bar0, xcLSOPPre());
     }
 
     /**
@@ -1030,15 +973,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * QUX_0: {VARCHAR(200)}
-     * @param qux0 The value of qux0 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setQux0_PrefixSearch(String qux0) {
-        setQux0_LikeSearch(qux0, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * QUX_0: {VARCHAR(200)}
      */
@@ -1153,15 +1087,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      */
     public void setC21_NotLikeSearch(String c21, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(c21), xgetCValueC21(), "c21", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * c21: {VARCHAR(200)}
-     * @param c21 The value of c21 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setC21_PrefixSearch(String c21) {
-        setC21_LikeSearch(c21, xcLSOPPre());
     }
 
     /**
@@ -1282,15 +1207,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * c22: {VARCHAR(200)}
-     * @param c22 The value of c22 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setC22_PrefixSearch(String c22) {
-        setC22_LikeSearch(c22, xcLSOPPre());
-    }
-
-    /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
      * c22: {VARCHAR(200)}
      */
@@ -1405,15 +1321,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      */
     public void setC23_NotLikeSearch(String c23, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(c23), xgetCValueC23(), "c23", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * c23: {VARCHAR(200)}
-     * @param c23 The value of c23 as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setC23_PrefixSearch(String c23) {
-        setC23_LikeSearch(c23, xcLSOPPre());
     }
 
     /**
@@ -1786,39 +1693,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

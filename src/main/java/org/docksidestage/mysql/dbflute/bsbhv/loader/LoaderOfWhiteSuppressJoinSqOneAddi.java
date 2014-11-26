@@ -76,14 +76,14 @@ public class LoaderOfWhiteSuppressJoinSqOneAddi {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteSuppressJoinSqOne> _referrerWhiteSuppressJoinSqOneList;
+    protected List<WhiteSuppressJoinSqOne> _referrerWhiteSuppressJoinSqOne;
 
     /**
      * Load referrer of whiteSuppressJoinSqOneList by the set-upper of referrer. <br>
      * white_suppress_join_sq_one by ONE_ADDI_ID, named 'whiteSuppressJoinSqOneList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSuppressJoinSqOneAddiList</span>, <span style="color: #553000">addiLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">addiLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqOneList</span>(<span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">addiLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqOne</span>(<span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">oneCB</span>.setupSelect...
      *         <span style="color: #553000">oneCB</span>.query().set...
      *         <span style="color: #553000">oneCB</span>.query().addOrderBy...
@@ -105,9 +105,9 @@ public class LoaderOfWhiteSuppressJoinSqOneAddi {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOneList(ConditionBeanSetupper<WhiteSuppressJoinSqOneCB> refCBLambda) {
-        myBhv().loadWhiteSuppressJoinSqOneList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqOneList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqOne().ready(_referrerWhiteSuppressJoinSqOneList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteSuppressJoinSqOne> loadWhiteSuppressJoinSqOne(ConditionBeanSetupper<WhiteSuppressJoinSqOneCB> refCBLambda) {
+        myBhv().loadWhiteSuppressJoinSqOne(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSuppressJoinSqOne = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSuppressJoinSqOne().ready(_referrerWhiteSuppressJoinSqOne, _selector));
     }
 
     // ===================================================================================

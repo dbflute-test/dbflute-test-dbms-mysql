@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteUqFkWithoutPkRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteUqFkWithoutPkRef)et).getUqFkRefId(), (et, vl) -> ((WhiteUqFkWithoutPkRef)et).setUqFkRefId(ctl(vl)), "uqFkRefId");
         setupEpg(_epgMap, et -> ((WhiteUqFkWithoutPkRef)et).getFkToUqCode(), (et, vl) -> ((WhiteUqFkWithoutPkRef)et).setFkToUqCode((String)vl), "fkToUqCode");
     }
@@ -64,8 +66,9 @@ public class WhiteUqFkWithoutPkRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteUqFkWithoutPkRef)et).getWhiteUqFkWithoutPk(), (et, vl) -> ((WhiteUqFkWithoutPkRef)et).setWhiteUqFkWithoutPk((WhiteUqFkWithoutPk)vl), "whiteUqFkWithoutPk");
+        setupEfpg(_efpgMap, et -> ((WhiteUqFkWithoutPkRef)et).getWhiteUqFkWithoutPk(), (et, vl) -> ((WhiteUqFkWithoutPkRef)et).setWhiteUqFkWithoutPk((OptionalEntity<WhiteUqFkWithoutPk>)vl), "whiteUqFkWithoutPk");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -84,8 +87,8 @@ public class WhiteUqFkWithoutPkRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnUqFkRefId = cci("UQ_FK_REF_ID", "UQ_FK_REF_ID", null, null, Long.class, "uqFkRefId", null, false, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFkToUqCode = cci("FK_TO_UQ_CODE", "FK_TO_UQ_CODE", null, null, String.class, "fkToUqCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "whiteUqFkWithoutPk", null, null);
+    protected final ColumnInfo _columnUqFkRefId = cci("UQ_FK_REF_ID", "UQ_FK_REF_ID", null, null, Long.class, "uqFkRefId", null, false, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFkToUqCode = cci("FK_TO_UQ_CODE", "FK_TO_UQ_CODE", null, null, String.class, "fkToUqCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "whiteUqFkWithoutPk", null, null, false);
 
     /**
      * UQ_FK_REF_ID: {NotNull, DECIMAL(16)}
@@ -133,7 +136,7 @@ public class WhiteUqFkWithoutPkRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteUqFkWithoutPk() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnFkToUqCode(), WhiteUqFkWithoutPkDbm.getInstance().columnUqFkCode());
-        return cfi("FK_WHITE_UQ_FK_WITHOUT_PK_REF", "whiteUqFkWithoutPk", this, WhiteUqFkWithoutPkDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteUqFkWithoutPkRefList");
+        return cfi("FK_WHITE_UQ_FK_WITHOUT_PK_REF", "whiteUqFkWithoutPk", this, WhiteUqFkWithoutPkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteUqFkWithoutPkRefList", false);
     }
 
     // -----------------------------------------------------

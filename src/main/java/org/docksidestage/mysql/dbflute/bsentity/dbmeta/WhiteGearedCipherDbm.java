@@ -52,12 +52,13 @@ public class WhiteGearedCipherDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherId(), (et, vl) -> ((WhiteGearedCipher)et).setCipherId(ctl(vl)), "cipherId");
         setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherInteger(), (et, vl) -> ((WhiteGearedCipher)et).setCipherInteger(cti(vl)), "cipherInteger");
         setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherVarchar(), (et, vl) -> ((WhiteGearedCipher)et).setCipherVarchar((String)vl), "cipherVarchar");
-        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDate(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDate((java.util.Date)vl), "cipherDate");
-        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDatetime(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDatetime((java.sql.Timestamp)vl), "cipherDatetime");
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDate(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDate((java.time.LocalDate)vl), "cipherDate");
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDatetime(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDatetime((java.time.LocalDateTime)vl), "cipherDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,11 +77,11 @@ public class WhiteGearedCipherDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnCipherId = cci("CIPHER_ID", "CIPHER_ID", null, null, Long.class, "cipherId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCipherInteger = cci("CIPHER_INTEGER", "CIPHER_INTEGER", null, null, Integer.class, "cipherInteger", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCipherVarchar = cci("CIPHER_VARCHAR", "CIPHER_VARCHAR", null, null, String.class, "cipherVarchar", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCipherDate = cci("CIPHER_DATE", "CIPHER_DATE", null, null, java.util.Date.class, "cipherDate", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCipherDatetime = cci("CIPHER_DATETIME", "CIPHER_DATETIME", null, null, java.sql.Timestamp.class, "cipherDatetime", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnCipherId = cci("CIPHER_ID", "CIPHER_ID", null, null, Long.class, "cipherId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCipherInteger = cci("CIPHER_INTEGER", "CIPHER_INTEGER", null, null, Integer.class, "cipherInteger", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCipherVarchar = cci("CIPHER_VARCHAR", "CIPHER_VARCHAR", null, null, String.class, "cipherVarchar", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCipherDate = cci("CIPHER_DATE", "CIPHER_DATE", null, null, java.time.LocalDate.class, "cipherDate", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCipherDatetime = cci("CIPHER_DATETIME", "CIPHER_DATETIME", null, null, java.time.LocalDateTime.class, "cipherDatetime", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
 
     /**
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}

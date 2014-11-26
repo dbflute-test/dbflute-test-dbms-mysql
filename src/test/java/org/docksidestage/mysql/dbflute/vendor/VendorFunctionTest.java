@@ -1,8 +1,7 @@
 package org.docksidestage.mysql.dbflute.vendor;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Calendar;
-import java.util.Date;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
@@ -39,7 +38,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         }
         {
             MemberCB cb = new MemberCB();
-            cb.query().derivedMemberLoginList().count(new SubQuery<MemberLoginCB>() {
+            cb.query().derivedMemberLogin().count(new SubQuery<MemberLoginCB>() {
                 public void query(MemberLoginCB subCB) {
                     subCB.specify().columnMemberLoginId();
                 }
@@ -47,7 +46,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             assertNotSame(0, memberBhv.selectCount(cb));
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedMemberLoginList().max(new SubQuery<MemberLoginCB>() {
+        cb.specify().derivedMemberLogin().max(new SubQuery<MemberLoginCB>() {
             public void query(MemberLoginCB subCB) {
                 subCB.specify().columnLoginDatetime();
             }
@@ -62,7 +61,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         assertEquals(countAll, memberList.size());
         boolean exists = false;
         for (Member member : memberList) {
-            Date latestLoginDatetime = member.getLatestLoginDatetime();
+            LocalDateTime latestLoginDatetime = member.getLatestLoginDatetime();
             String loginDateView = DfTypeUtil.toString(latestLoginDatetime, "yyyy-MM-dd");
             log(member.getMemberName() + ": " + loginDateView);
             if ("1970-01-01".equals(loginDateView)) {
@@ -83,7 +82,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             countAll = memberBhv.selectCount(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().avg(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().avg(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -121,7 +120,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             countAll = memberBhv.selectCount(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().avg(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().avg(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -151,7 +150,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_SpecifyDerivedReferrer_option_trunc_date() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -173,7 +172,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_ColumnQuery_truncMonth_right() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -195,7 +194,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         assertFalse(memberList.isEmpty());
         boolean exists = false;
         for (Member member : memberList) {
-            Timestamp loginDatetime = member.getLatestLoginDatetime();
+            LocalDateTime loginDatetime = member.getLatestLoginDatetime();
             log(member.getMemberName() + ", " + loginDatetime);
             if (loginDatetime != null) {
                 assertEquals("0101 00:00:00", DfTypeUtil.toString(loginDatetime, "MMdd HH:mm:ss"));
@@ -212,7 +211,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_ColumnQuery_truncDay_right() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -234,7 +233,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         assertFalse(memberList.isEmpty());
         boolean exists = false;
         for (Member member : memberList) {
-            Timestamp loginDatetime = member.getLatestLoginDatetime();
+            LocalDateTime loginDatetime = member.getLatestLoginDatetime();
             log(member.getMemberName() + ", " + loginDatetime);
             if (loginDatetime != null) {
                 assertEquals("01 00:00:00", DfTypeUtil.toString(loginDatetime, "dd HH:mm:ss"));
@@ -271,7 +270,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_ColumnQuery_truncTime_right() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -293,7 +292,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         assertFalse(memberList.isEmpty());
         boolean exists = false;
         for (Member member : memberList) {
-            Timestamp loginDatetime = member.getLatestLoginDatetime();
+            LocalDateTime loginDatetime = member.getLatestLoginDatetime();
             log(member.getMemberName() + ", " + loginDatetime);
             if (loginDatetime != null) {
                 assertEquals("00:00:00", DfTypeUtil.toString(loginDatetime, "HH:mm:ss"));
@@ -318,7 +317,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         ListResultBean<Member> plainList;
         {
             MemberCB cb = new MemberCB();
-            cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+            cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                 public void query(PurchaseCB subCB) {
                     subCB.specify().columnPurchaseDatetime();
                 }
@@ -326,7 +325,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             plainList = memberBhv.selectList(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -341,20 +340,20 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         for (int i = 0; i < memberList.size(); i++) {
             Member member = memberList.get(i);
             Member plain = plainList.get(i);
-            Timestamp latestTime = member.getLatestLoginDatetime();
-            Timestamp plainTime = plain.getLatestLoginDatetime();
+            LocalDateTime latestTime = member.getLatestLoginDatetime();
+            LocalDateTime plainTime = plain.getLatestLoginDatetime();
             log(member.getMemberName() + ", " + latestTime + ", " + plainTime);
             if (latestTime != null) {
                 exists = true;
                 Calendar cal = Calendar.getInstance();
-                cal.setTime(plainTime);
+                cal.setTime(toDate(plainTime));
                 cal.add(Calendar.YEAR, 10);
                 cal.add(Calendar.MONTH, 3);
                 cal.add(Calendar.DAY_OF_MONTH, 7);
                 cal.add(Calendar.HOUR_OF_DAY, 5);
                 cal.add(Calendar.MINUTE, 20);
                 cal.add(Calendar.SECOND, 50);
-                Timestamp moved = new Timestamp(cal.getTimeInMillis());
+                LocalDateTime moved = toLocalDateTime(cal);
                 assertEquals(moved, latestTime);
             }
         }
@@ -370,7 +369,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         ListResultBean<Member> plainList;
         {
             MemberCB cb = new MemberCB();
-            cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+            cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                 public void query(PurchaseCB subCB) {
                     subCB.specify().columnPurchaseDatetime();
                 }
@@ -378,7 +377,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             plainList = memberBhv.selectList(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -393,19 +392,19 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         for (int i = 0; i < memberList.size(); i++) {
             Member member = memberList.get(i);
             Member plain = plainList.get(i);
-            Timestamp latestTime = member.getLatestLoginDatetime();
-            Timestamp plainTime = plain.getLatestLoginDatetime();
+            LocalDateTime latestTime = member.getLatestLoginDatetime();
+            LocalDateTime plainTime = plain.getLatestLoginDatetime();
             log(member.getMemberName() + ", " + latestTime + ", " + plainTime);
             if (latestTime != null) {
                 exists = true;
                 Calendar cal = Calendar.getInstance();
-                cal.setTime(plainTime);
+                cal.setTime(toDate(plainTime));
                 cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
                 cal.set(Calendar.HOUR_OF_DAY, 0);
                 cal.set(Calendar.MINUTE, 0);
                 cal.set(Calendar.SECOND, 0);
                 cal.set(Calendar.MILLISECOND, 0);
-                Timestamp moved = new Timestamp(cal.getTimeInMillis());
+                LocalDateTime moved = toLocalDateTime(cal);
                 assertEquals(moved, latestTime);
             }
         }
@@ -418,11 +417,12 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_QueryDerivedReferrer_dateAdd_right() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.query().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.query().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
-        }, op -> op.addYear(-80).addMonth(3).addDay(7).addHour(5).addMinute(20).addSecond(50)).lessThan(DfTypeUtil.toDate("1970/06/25"));
+        }, op -> op.addYear(-80).addMonth(3).addDay(7).addHour(5).addMinute(20).addSecond(50))
+                .lessThan(DfTypeUtil.toLocalDate("1970/06/25"));
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb); // expect no exception
@@ -516,7 +516,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             }
         }).greaterEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchaseDatetime();
                     }
@@ -536,14 +536,14 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_ColumnQuery_dateAdd_derived_bothSide() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
         }, Member.ALIAS_latestLoginDatetime, op -> op.addYear(1000));
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchaseDatetime();
                     }
@@ -551,7 +551,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             }
         }).equal(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchaseDatetime();
                     }
@@ -565,7 +565,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         // ## Assert ##
         assertFalse(memberList.isEmpty());
         for (Member member : memberList) {
-            Timestamp maxPurchaseDatetime = member.getLatestLoginDatetime();
+            LocalDateTime maxPurchaseDatetime = member.getLatestLoginDatetime();
             log(member.getMemberName() + ", " + maxPurchaseDatetime);
         }
         String sql = cb.toDisplaySql();
@@ -584,15 +584,15 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             countAll = memberBhv.selectCount(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().groupConcat(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().groupConcat(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
         }, Member.ALIAS_groupExpression);
-    
+
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
-    
+
         // ## Assert ##
         assertNotSame(0, memberList.size());
         assertEquals(countAll, memberList.size());

@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_suppress_join_sq_many_one";
     }
 
@@ -167,13 +164,13 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {exists (select MANY_ONE_ID from white_suppress_join_sq_many where ...)} <br>
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSuppressJoinSqManyList</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteSuppressJoinSqMany</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     manyCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteSuppressJoinSqManyList for 'exists'. (NotNull)
      */
-    public void existsWhiteSuppressJoinSqManyList(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
+    public void existsWhiteSuppressJoinSqMany(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepManyOneId_ExistsReferrer_WhiteSuppressJoinSqManyList(cb.query());
@@ -186,13 +183,13 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {not exists (select MANY_ONE_ID from white_suppress_join_sq_many where ...)} <br>
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSuppressJoinSqManyList</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSuppressJoinSqMany</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     manyCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteSuppressJoinSqManyList(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
+    public void notExistsWhiteSuppressJoinSqMany(SubQuery<WhiteSuppressJoinSqManyCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSuppressJoinSqManyCB cb = new WhiteSuppressJoinSqManyCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepManyOneId_NotExistsReferrer_WhiteSuppressJoinSqManyList(cb.query());
@@ -213,14 +210,14 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {FOO &lt;= (select max(BAR) from white_suppress_join_sq_many where ...)} <br>
      * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSuppressJoinSqManyList()</span>.<span style="color: #CC4747">max</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSuppressJoinSqMany()</span>.<span style="color: #CC4747">max</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     manyCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     manyCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteSuppressJoinSqManyCB> derivedWhiteSuppressJoinSqManyList() {
+    public HpQDRFunction<WhiteSuppressJoinSqManyCB> derivedWhiteSuppressJoinSqMany() {
         return xcreateQDRFunctionWhiteSuppressJoinSqManyList();
     }
     protected HpQDRFunction<WhiteSuppressJoinSqManyCB> xcreateQDRFunctionWhiteSuppressJoinSqManyList() {
@@ -344,15 +341,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      */
     public void setManyOneName_NotLikeSearch(String manyOneName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(manyOneName), xgetCValueManyOneName(), "MANY_ONE_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneName The value of manyOneName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setManyOneName_PrefixSearch(String manyOneName) {
-        setManyOneName_LikeSearch(manyOneName, xcLSOPPre());
     }
 
     protected void regManyOneName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueManyOneName(), "MANY_ONE_NAME"); }
@@ -695,39 +683,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

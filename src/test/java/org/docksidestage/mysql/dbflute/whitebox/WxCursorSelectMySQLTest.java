@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.exception.SQLFailureException;
-import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.mysql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
@@ -38,16 +37,21 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         DBFluteConfig.getInstance().unlock();
         DBFluteConfig.getInstance().setCursorSelectFetchSize(Integer.MIN_VALUE);
         super.setUp();
-        memberBhv.getFetchSizeMap().clear();
-        memberBhv.getRowDataClassMap().clear();
     }
 
     @Override
     public void tearDown() throws Exception {
+        memberBhv.getFetchSizeMap().clear();
+        memberBhv.getRowDataClassMap().clear();
         super.tearDown();
         DBFluteConfig.getInstance().unlock();
         DBFluteConfig.getInstance().setCursorSelectFetchSize(null);
         DBFluteConfig.getInstance().lock();
+    }
+
+    @Override
+    protected boolean isUseOneTimeContainer() {
+        return true;
     }
 
     @Override
@@ -56,8 +60,8 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
     }
 
     // ===================================================================================
-    //                                                                               Basic
-    //                                                                               =====
+    //                                                                          Fetch Size
+    //                                                                          ==========
     public void test_cursorSelectFetchSize_basic() {
         // ## Arrange ##
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
@@ -80,7 +84,7 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         };
 
         // ## Act ##
-        memberBhv.outsideSql().cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().selectCursor(pmb, handler);
     }
 
     public void test_cursorSelectFetchSize_default() {
@@ -107,7 +111,7 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         };
 
         // ## Act ##
-        memberBhv.outsideSql().cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().selectCursor(pmb, handler);
     }
 
     protected void assertDbAccess() {
@@ -125,8 +129,6 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         assertEquals(Integer.MIN_VALUE, DBFluteConfig.getInstance().getCursorSelectFetchSize());
         final int countAll = memberBhv.selectCount(new MemberCB());
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        StatementConfig config = new StatementConfig();
-        config.fetchSize(1);
 
         PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
             @Override
@@ -150,13 +152,10 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         };
 
         // ## Act ##
-        memberBhv.outsideSql().configure(config).cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().configure(conf -> conf.fetchSize(1)).selectCursor(pmb, handler);
     }
 
-    // ===================================================================================
-    //                                                                         List Select
-    //                                                                         ===========
-    public void test_cursorSelectFetchSize_selectList_success() {
+    public void test_cursorSelectFetchSize_selectList_static() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         int countAll = memberBhv.selectCount(cb);

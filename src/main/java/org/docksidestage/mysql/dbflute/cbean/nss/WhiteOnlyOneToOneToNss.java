@@ -26,7 +26,7 @@ public class WhiteOnlyOneToOneToNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteOnlyOneToOneToCQ _query;
+    protected final WhiteOnlyOneToOneToCQ _query;
     public WhiteOnlyOneToOneToNss(WhiteOnlyOneToOneToCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

@@ -38,10 +38,6 @@ import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.jdbc.ValueType;
 import org.dbflute.outsidesql.factory.OutsideSqlExecutorFactory;
 import org.dbflute.s2dao.valuetype.TnValueTypes;
-import org.dbflute.s2dao.valuetype.plugin.OracleAgent;
-import org.dbflute.s2dao.valuetype.plugin.OracleDateType;
-import org.dbflute.s2dao.valuetype.plugin.OracleArrayType;
-import org.dbflute.s2dao.valuetype.plugin.OracleStructType;
 import org.dbflute.system.QLog;
 import org.dbflute.system.XLog;
 import org.dbflute.twowaysql.DisplaySqlBuilder;
@@ -76,10 +72,12 @@ public class DBFluteConfig {
     protected boolean _innerJoinAutoDetect = true;
     protected boolean _thatsBadTimingDetect = true;
     protected boolean _nullOrEmptyQueryAllowed = false;
-    protected boolean _emptyStringQueryAllowed;
-    protected boolean _emptyStringParameterAllowed;
+    protected boolean _emptyStringQueryAllowed = false;
+    protected boolean _emptyStringParameterAllowed = false;
     protected boolean _overridingQueryAllowed = false;
     protected boolean _nonSpecifiedColumnAccessAllowed = false;
+    protected boolean _columnNullObjectAllowed = false;
+    protected boolean _columnNullObjectGearedToSpecify = false;
     protected boolean _disableSelectIndex;
     protected boolean _queryUpdateCountPreCheck = true;
 
@@ -93,11 +91,14 @@ public class DBFluteConfig {
 
     // environment
     protected StatementConfig _defaultStatementConfig;
-    protected Integer _cursorSelectFetchSize;
+    protected Integer _cursorSelectFetchSize = null;
+    protected Integer _entitySelectFetchSize = Integer.MIN_VALUE;
+    protected boolean _usePagingByCursorSkipSynchronizedFetchSize = true;
+    protected Integer _fixedPagingByCursorSkipSynchronizedFetchSize = Integer.MIN_VALUE;
     protected DataSourceHandler _dataSourceHandler;
     protected PhysicalConnectionDigger _physicalConnectionDigger;
     protected SQLExceptionDigger _sqlExceptionDigger;
-    protected String _outsideSqlPackage;
+    protected String _outsideSqlPackage = null;
     protected boolean _useSqlLogRegistry = false;
     protected MappingDateTimeZoneProvider _mappingDateTimeZoneProvider;
 
@@ -129,14 +130,6 @@ public class DBFluteConfig {
     private DBFluteConfig() { // adjusts default settings
         _physicalConnectionDigger = new ImplementedPhysicalConnectionDigger();
         _sqlExceptionDigger = new ImplementedSQLExceptionDigger();
-
-        if (isCurrentDBDef(DBDef.Oracle)) {
-            // date formatting has two points:
-            //   o the DATE type of Oracle has seconds  
-            //   o it uses a date literal of Oracle
-            _logDatePattern = "timestamp $df:{yyyy-MM-dd HH:mm:ss}";
-            _logTimestampPattern = "timestamp $df:{" + DisplaySqlBuilder.DEFAULT_TIMESTAMP_FORMAT + "}";
-        }
     }
 
     // ===================================================================================
@@ -299,6 +292,43 @@ public class DBFluteConfig {
     }
 
     // ===================================================================================
+    //                                                                  Column Null Object
+    //                                                                  ==================
+    public boolean isColumnNullObjectAllowed() {
+        return _columnNullObjectAllowed;
+    }
+
+    /**
+     * Set whether column null object is allowed or not. <br>
+     * This configuration is only for ConditionBean.
+     * @param columnNullObjectAllowed The determination, true or false.
+     */
+    public void setColumnNullObjectAllowed(boolean columnNullObjectAllowed) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting columnNullObjectAllowed: " + columnNullObjectAllowed);
+        }
+        _columnNullObjectAllowed = columnNullObjectAllowed;
+    }
+
+    public boolean isColumnNullObjectGearedToSpecify() {
+        return _columnNullObjectGearedToSpecify;
+    }
+
+    /**
+     * Set whether column null object is geared to specify or not. <br>
+     * This configuration is only for ConditionBean.
+     * @param columnNullObjectGearedToSpecify The determination, true or false.
+     */
+    public void setColumnNullObjectGearedToSpecify(boolean columnNullObjectGearedToSpecify) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting columnNullObjectGearedToSpecify: " + columnNullObjectGearedToSpecify);
+        }
+        _columnNullObjectGearedToSpecify = columnNullObjectGearedToSpecify;
+    }
+
+    // ===================================================================================
     //                                                                        Select Index
     //                                                                        ============
     public boolean isDisableSelectIndex() {
@@ -433,6 +463,48 @@ public class DBFluteConfig {
             _log.info("...Setting cursorSelectFetchSize: " + cursorSelectFetchSize);
         }
         _cursorSelectFetchSize = cursorSelectFetchSize;
+    }
+
+    // ===================================================================================
+    //                                                              EntitySelect FetchSize
+    //                                                              ======================
+    public Integer getEntitySelectFetchSize() {
+        return _entitySelectFetchSize;
+    }
+
+    public void setEntitySelectFetchSize(Integer entitySelectFetchSize) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting entitySelectFetchSize: " + entitySelectFetchSize);
+        }
+        _entitySelectFetchSize = entitySelectFetchSize;
+    }
+
+    // ===================================================================================
+    //                                                              PagingSelect FetchSize
+    //                                                              ======================
+    public boolean isUsePagingByCursorSkipSynchronizedFetchSize() {
+        return _usePagingByCursorSkipSynchronizedFetchSize;
+    }
+
+    public void setUsePagingByCursorSkipSynchronizedFetchSize(boolean usePagingByCursorSkipSynchronizedFetchSize) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting usePagingByCursorSkipSynchronizedFetchSize: " + usePagingByCursorSkipSynchronizedFetchSize);
+        }
+        _usePagingByCursorSkipSynchronizedFetchSize = usePagingByCursorSkipSynchronizedFetchSize;
+    }
+
+    public Integer getFixedPagingByCursorSkipSynchronizedFetchSize() {
+        return _fixedPagingByCursorSkipSynchronizedFetchSize;
+    }
+
+    public void setFixedPagingByCursorSkipSynchronizedFetchSize(Integer fixedPagingByCursorSkipSynchronizedFetchSize) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting fixedPagingByCursorSkipSynchronizedFetchSize: " + fixedPagingByCursorSkipSynchronizedFetchSize);
+        }
+        _fixedPagingByCursorSkipSynchronizedFetchSize = fixedPagingByCursorSkipSynchronizedFetchSize;
     }
 
     // [DBFlute-0.9.0]
@@ -776,99 +848,6 @@ public class DBFluteConfig {
     //                                                                   Implemented Class
     //                                                                   =================
     // -----------------------------------------------------
-    //                                                Spring
-    //                                                ------
-    public static class SpringTransactionalDataSourceHandler implements DataSourceHandler {
-
-        public Connection getConnection(DataSource ds) throws SQLException {
-            final Connection conn = getConnectionFromUtils(ds);
-            if (isConnectionTransactional(conn, ds)) {
-                return new NotClosingConnectionWrapper(conn);
-            } else {
-                return conn;
-            }
-        }
-
-        public Connection getConnectionFromUtils(DataSource ds) {
-            throw new IllegalStateException("This method is only for Spring Framework.");
-        }
-
-        public boolean isConnectionTransactional(Connection conn, DataSource ds) {
-            throw new IllegalStateException("This method is only for Spring Framework.");
-        }
-    }
-
-    // -----------------------------------------------------
-    //                                                Oracle
-    //                                                ------
-    public static class ImplementedOracleAgent implements OracleAgent {
-
-        public Object toOracleDate(Timestamp timestamp) {
-            throw new UnsupportedOperationException("This method is only for Oracle.");
-        }
-
-        public Object toOracleArray(Connection conn, String arrayTypeName, Object arrayValue) throws SQLException {
-            throw new UnsupportedOperationException("This method is only for Oracle.");
-        }
-
-        public Object toStandardArray(Object oracleArray) throws SQLException {
-            throw new UnsupportedOperationException("This method is only for Oracle.");
-        }
-
-        public boolean isOracleArray(Object obj) {
-            throw new UnsupportedOperationException("This method is only for Oracle.");
-        }
-
-        public Object toOracleStruct(Connection conn, String structTypeName, Object[] attrs) throws SQLException {
-            throw new UnsupportedOperationException("This method is only for Oracle.");
-        }
-
-        public Object[] toStandardStructAttributes(Object oracleStruct) throws SQLException {
-            throw new UnsupportedOperationException("This method is only for Oracle.");
-        }
-
-        public boolean isOracleStruct(Object obj) {
-            throw new UnsupportedOperationException("This method is only for Oracle.");
-        }
-
-        public PhysicalConnectionDigger getPhysicalConnectionDigger() {
-            return DBFluteConfig.getInstance().getPhysicalConnectionDigger();
-        }
-    }
-
-    public static class ImplementedOracleDateType extends OracleDateType {
-
-        @Override
-        protected OracleAgent createOracleAgent() {
-            return new ImplementedOracleAgent();
-        }
-    }
-
-    public static class ImplementedOracleArrayType extends OracleArrayType {
-
-        public ImplementedOracleArrayType(String arrayTypeName, Class<?> elementType) {
-            super(arrayTypeName, elementType);
-        }
-
-        @Override
-        protected OracleAgent createOracleAgent() {
-            return new ImplementedOracleAgent();
-        }
-    }
-
-    public static class ImplementedOracleStructType extends OracleStructType {
-
-        public ImplementedOracleStructType(String structTypeName, Class<?> entityType) {
-            super(structTypeName, entityType);
-        }
-
-        @Override
-        protected OracleAgent createOracleAgent() {
-            return new ImplementedOracleAgent();
-        }
-    }
-
-    // -----------------------------------------------------
     //                                   Physical Connection
     //                                   -------------------
     public static class ImplementedPhysicalConnectionDigger implements PhysicalConnectionDigger {
@@ -917,13 +896,13 @@ public class DBFluteConfig {
     public static class ImplementedSQLExceptionDigger implements SQLExceptionDigger {
 
         public SQLException digUp(Throwable cause) {
-            SQLException found = resolveS2DBCP(cause);
-            if (found != null) {
-                return found;
+            SQLException s2found = resolveS2DBCP(cause);
+            if (s2found != null) {
+                return s2found;
             }
-            found = resolveDefault(cause);
-            if (found != null) {
-                return found;
+            SQLException defaultFound = resolveDefault(cause);
+            if (defaultFound != null) {
+                return defaultFound;
             }
             return null;
         }
@@ -946,4 +925,13 @@ public class DBFluteConfig {
             return null;
         }
     }
+
+    // ===================================================================================
+    //                                                                       Very Internal
+    //                                                                       =============
+    // very internal (for suppressing warn about 'Not Use Import')
+    protected String xTms() { return Timestamp.class.getName(); }
+    protected String xDSc() { return DataSource.class.getName(); }
+    protected String xSQLEx() { return SQLException.class.getName(); }
+    protected String xDSqB() { return DisplaySqlBuilder.class.getName(); }
 }

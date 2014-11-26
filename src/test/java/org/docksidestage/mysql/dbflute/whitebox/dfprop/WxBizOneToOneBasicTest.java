@@ -29,29 +29,32 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
         // ## Arrange ##
         int countAll = memberBhv.selectCount(new MemberCB());
         MemberCB cb = new MemberCB();
-        cb.setupSelect_MemberAddressAsValid(DfTypeUtil.toDate("2009/12/12"));
-        cb.setupSelect_MemberAddressAsValidBefore(DfTypeUtil.toDate("2009/12/12"));
+        cb.setupSelect_MemberAddressAsValid(toLocalDate("2009/12/12"));
+        cb.setupSelect_MemberAddressAsValidBefore(toLocalDate("2009/12/12"));
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
         // ## Assert ##
-        assertNotSame(0, memberList.size());
+        assertHasAnyElement(memberList);
         for (Member member : memberList) {
-            MemberAddress addressAsValid = member.getMemberAddressAsValid();
-            MemberAddress addressAsValidBefore = member.getMemberAddressAsValidBefore();
-            log(member.getMemberName() + ", " + addressAsValid);
-            assertEquals(addressAsValid, addressAsValidBefore);
+            member.getMemberAddressAsValid().ifPresent(address -> {
+                log(member.getMemberName() + ", " + address);
+                MemberAddress addressBefore = member.getMemberAddressAsValidBefore().get();
+                assertEquals(address, addressBefore);
+                markHere("exists");
+            });
         }
         assertEquals(countAll, memberList.size());
+        assertMarked("exists");
     }
 
     public void test_secondRelation_diff() {
         // ## Arrange ##
         int countAll = memberBhv.selectCount(new MemberCB());
         MemberCB cb = new MemberCB();
-        cb.setupSelect_MemberAddressAsValid(DfTypeUtil.toDate("2009/12/12"));
-        cb.setupSelect_MemberAddressAsValidBefore(DfTypeUtil.toDate("2001/04/28"));
+        cb.setupSelect_MemberAddressAsValid(DfTypeUtil.toLocalDate("2009/12/12"));
+        cb.setupSelect_MemberAddressAsValidBefore(DfTypeUtil.toLocalDate("2001/04/28"));
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -60,8 +63,8 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
         assertNotSame(0, memberList.size());
         boolean exists = false;
         for (Member member : memberList) {
-            MemberAddress addressAsValid = member.getMemberAddressAsValid();
-            MemberAddress addressAsValidBefore = member.getMemberAddressAsValidBefore();
+            MemberAddress addressAsValid = member.getMemberAddressAsValid().orElse(null);
+            MemberAddress addressAsValidBefore = member.getMemberAddressAsValidBefore().orElse(null);
             if (addressAsValid != null) {
                 if (!addressAsValid.equals(addressAsValidBefore)) {
                     log(member.getMemberName() + ", " + addressAsValid.getAddress() + ", "
@@ -109,7 +112,7 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
     public void test_IfComment_basic() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.setupSelect_MemberAddressAsIfComment(currentDate(), CDef.Region.千葉).withRegion();
+        cb.setupSelect_MemberAddressAsIfComment(currentLocalDate(), CDef.Region.千葉).withRegion();
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -118,9 +121,9 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
         assertHasAnyElement(memberList);
         boolean exists = false;
         for (Member member : memberList) {
-            MemberAddress address = member.getMemberAddressAsIfComment();
+            MemberAddress address = member.getMemberAddressAsIfComment().orElse(null);
             if (address != null) {
-                log(address + ", " + address.getRegion().getRegionName());
+                log(address + ", " + address.getRegion().get().getRegionName());
                 assertTrue(address.isRegionId千葉());
                 exists = true;
             }
@@ -133,7 +136,7 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
     public void test_IfComment_false() throws Exception {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.setupSelect_MemberAddressAsIfComment(currentDate(), null).withRegion();
+        cb.setupSelect_MemberAddressAsIfComment(currentLocalDate(), null).withRegion();
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -144,9 +147,9 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
         boolean existsMainRegion = false;
         boolean existsOtherRegion = false;
         for (Member member : memberList) {
-            MemberAddress address = member.getMemberAddressAsIfComment();
+            MemberAddress address = member.getMemberAddressAsIfComment().orElse(null);
             if (address != null) {
-                log(address + ", " + address.getRegion().getRegionName());
+                log(address + ", " + address.getRegion().get().getRegionName());
                 if (address.isRegionId千葉()) {
                     existsMainRegion = true;
                 } else {

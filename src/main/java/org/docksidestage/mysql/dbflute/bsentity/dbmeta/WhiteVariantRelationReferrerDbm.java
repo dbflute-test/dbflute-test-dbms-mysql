@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getReferrerId(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setReferrerId(ctl(vl)), "referrerId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getVariantMasterId(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setVariantMasterId(ctl(vl)), "variantMasterId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getMasterTypeCode(), (et, vl) -> {
@@ -74,11 +76,12 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterFooAsVariant(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterFooAsVariant((WhiteVariantRelationMasterFoo)vl), "whiteVariantRelationMasterFooAsVariant");
-        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterBarAsVariant(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterBarAsVariant((WhiteVariantRelationMasterBar)vl), "whiteVariantRelationMasterBarAsVariant");
-        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterQuxAsVariantByQue(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterQuxAsVariantByQue((WhiteVariantRelationMasterQux)vl), "whiteVariantRelationMasterQuxAsVariantByQue");
-        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterCorgeAsVariantByQuxType(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterCorgeAsVariantByQuxType((WhiteVariantRelationMasterCorge)vl), "whiteVariantRelationMasterCorgeAsVariantByQuxType");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterFooAsVariant(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterFooAsVariant((OptionalEntity<WhiteVariantRelationMasterFoo>)vl), "whiteVariantRelationMasterFooAsVariant");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterBarAsVariant(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterBarAsVariant((OptionalEntity<WhiteVariantRelationMasterBar>)vl), "whiteVariantRelationMasterBarAsVariant");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterQuxAsVariantByQue(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterQuxAsVariantByQue((OptionalEntity<WhiteVariantRelationMasterQux>)vl), "whiteVariantRelationMasterQuxAsVariantByQue");
+        setupEfpg(_efpgMap, et -> ((WhiteVariantRelationReferrer)et).getWhiteVariantRelationMasterCorgeAsVariantByQuxType(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setWhiteVariantRelationMasterCorgeAsVariantByQuxType((OptionalEntity<WhiteVariantRelationMasterCorge>)vl), "whiteVariantRelationMasterCorgeAsVariantByQuxType");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -97,9 +100,9 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnReferrerId = cci("REFERRER_ID", "REFERRER_ID", null, null, Long.class, "referrerId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "whiteVariantRelationReferrerRefList", null);
-    protected final ColumnInfo _columnVariantMasterId = cci("VARIANT_MASTER_ID", "VARIANT_MASTER_ID", null, null, Long.class, "variantMasterId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationMasterFooAsVariant,whiteVariantRelationMasterBarAsVariant,whiteVariantRelationMasterQuxAsVariantByQue,whiteVariantRelationMasterCorgeAsVariantByQuxType", null, null);
-    protected final ColumnInfo _columnMasterTypeCode = cci("MASTER_TYPE_CODE", "MASTER_TYPE_CODE", null, null, String.class, "masterTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.VariantRelationMasterType);
+    protected final ColumnInfo _columnReferrerId = cci("REFERRER_ID", "REFERRER_ID", null, null, Long.class, "referrerId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "whiteVariantRelationReferrerRefList", null, false);
+    protected final ColumnInfo _columnVariantMasterId = cci("VARIANT_MASTER_ID", "VARIANT_MASTER_ID", null, null, Long.class, "variantMasterId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationMasterFooAsVariant,whiteVariantRelationMasterBarAsVariant,whiteVariantRelationMasterQuxAsVariantByQue,whiteVariantRelationMasterCorgeAsVariantByQuxType", null, null, false);
+    protected final ColumnInfo _columnMasterTypeCode = cci("MASTER_TYPE_CODE", "MASTER_TYPE_CODE", null, null, String.class, "masterTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.VariantRelationMasterType, false);
 
     /**
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
@@ -151,7 +154,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationMasterFooAsVariant() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnVariantMasterId(), WhiteVariantRelationMasterFooDbm.getInstance().columnMasterFooId());
-        return cfi("FK_WHITE_VARIANT_RELATION_FOO", "whiteVariantRelationMasterFooAsVariant", this, WhiteVariantRelationMasterFooDbm.getInstance(), mp, 0, null, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, "whiteVariantRelationReferrerAsVariantList");
+        return cfi("FK_WHITE_VARIANT_RELATION_FOO", "whiteVariantRelationMasterFooAsVariant", this, WhiteVariantRelationMasterFooDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, "whiteVariantRelationReferrerAsVariantList", false);
     }
     /**
      * white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
@@ -159,7 +162,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationMasterBarAsVariant() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnVariantMasterId(), WhiteVariantRelationMasterBarDbm.getInstance().columnMasterBarId());
-        return cfi("FK_WHITE_VARIANT_RELATION_BAR", "whiteVariantRelationMasterBarAsVariant", this, WhiteVariantRelationMasterBarDbm.getInstance(), mp, 1, null, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'BAR'", null, false, "whiteVariantRelationReferrerAsVariantList");
+        return cfi("FK_WHITE_VARIANT_RELATION_BAR", "whiteVariantRelationMasterBarAsVariant", this, WhiteVariantRelationMasterBarDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'BAR'", null, false, "whiteVariantRelationReferrerAsVariantList", false);
     }
     /**
      * white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
@@ -167,7 +170,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationMasterQuxAsVariantByQue() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnVariantMasterId(), WhiteVariantRelationMasterQuxDbm.getInstance().columnMasterQuxId());
-        return cfi("FK_WHITE_VARIANT_RELATION_QUX", "whiteVariantRelationMasterQuxAsVariantByQue", this, WhiteVariantRelationMasterQuxDbm.getInstance(), mp, 2, null, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'QUX'\n     and $$foreignAlias$$.QUX_TYPE_CODE = 'Que'", null, false, null);
+        return cfi("FK_WHITE_VARIANT_RELATION_QUX", "whiteVariantRelationMasterQuxAsVariantByQue", this, WhiteVariantRelationMasterQuxDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'QUX'\n     and $$foreignAlias$$.QUX_TYPE_CODE = 'Que'", null, false, null, false);
     }
     /**
      * white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
@@ -175,7 +178,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteVariantRelationMasterCorgeAsVariantByQuxType() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnVariantMasterId(), WhiteVariantRelationMasterCorgeDbm.getInstance().columnMasterCorgeId());
-        return cfi("FK_WHITE_VARIANT_RELATION_CORGE", "whiteVariantRelationMasterCorgeAsVariantByQuxType", this, WhiteVariantRelationMasterCorgeDbm.getInstance(), mp, 3, null, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'CORGE'\n     and $$foreignAlias$$.CORGE_TYPE_CODE = /*$$locationBase$$.parameterMapWhiteVariantRelationMasterCorgeAsVariantByQuxType.quxType*/null", newArrayList("quxType"), false, null);
+        return cfi("FK_WHITE_VARIANT_RELATION_CORGE", "whiteVariantRelationMasterCorgeAsVariantByQuxType", this, WhiteVariantRelationMasterCorgeDbm.getInstance(), mp, 3, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'CORGE'\n     and $$foreignAlias$$.CORGE_TYPE_CODE = /*$$locationBase$$.parameterMapWhiteVariantRelationMasterCorgeAsVariantByQuxType.quxType*/null", newArrayList("quxType"), false, null, false);
     }
 
     // -----------------------------------------------------

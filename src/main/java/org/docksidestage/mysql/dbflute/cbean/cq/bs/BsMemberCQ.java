@@ -515,9 +515,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberAddressCQ queryMemberAddressAsValid(java.util.Date targetDate) {
+    public MemberAddressCQ queryMemberAddressAsValid(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsValid();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("memberAddressAsValid", parameterMap);
         return xdfgetConditionQueryMemberAddressAsValid();
     }
@@ -545,9 +545,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberAddressCQ queryMemberAddressAsValidBefore(java.util.Date targetDate) {
+    public MemberAddressCQ queryMemberAddressAsValidBefore(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsValidBefore();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("memberAddressAsValidBefore", parameterMap);
         return xdfgetConditionQueryMemberAddressAsValidBefore();
     }
@@ -606,9 +606,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberAddressCQ queryMemberAddressAsIfComment(java.util.Date targetDate, org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
+    public MemberAddressCQ queryMemberAddressAsIfComment(java.time.LocalDate targetDate, org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
         Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsIfComment();
-        parameterMap.put("targetDate", fCTPD(targetDate));parameterMap.put("region", region);
+        parameterMap.put("targetDate", targetDate);parameterMap.put("region", region);
         xassertFCDP("memberAddressAsIfComment", parameterMap);
         return xdfgetConditionQueryMemberAddressAsIfComment();
     }
@@ -636,9 +636,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberAddressCQ queryMemberAddressAsOnlyOneDate(java.util.Date targetDate) {
+    public MemberAddressCQ queryMemberAddressAsOnlyOneDate(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsOnlyOneDate();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("memberAddressAsOnlyOneDate", parameterMap);
         return xdfgetConditionQueryMemberAddressAsOnlyOneDate();
     }
@@ -868,9 +868,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberLoginCQ queryMemberLoginAsForeignForeignParameterOverTest(java.util.Date targetDate) {
+    public MemberLoginCQ queryMemberLoginAsForeignForeignParameterOverTest(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapMemberLoginAsForeignForeignParameterOverTest();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("memberLoginAsForeignForeignParameterOverTest", parameterMap);
         return xdfgetConditionQueryMemberLoginAsForeignForeignParameterOverTest();
     }
@@ -998,9 +998,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberAddressCQ queryMemberAddressAsFormattedBasic(java.util.Date targetDate) {
+    public MemberAddressCQ queryMemberAddressAsFormattedBasic(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsFormattedBasic();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("memberAddressAsFormattedBasic", parameterMap);
         return xdfgetConditionQueryMemberAddressAsFormattedBasic();
     }
@@ -1028,9 +1028,9 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
-    public MemberAddressCQ queryMemberAddressAsFormattedLong(java.util.Date targetDate) {
+    public MemberAddressCQ queryMemberAddressAsFormattedLong(java.time.LocalDate targetDate) {
         Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsFormattedLong();
-        parameterMap.put("targetDate", fCTPD(targetDate));
+        parameterMap.put("targetDate", targetDate);
         xassertFCDP("memberAddressAsFormattedLong", parameterMap);
         return xdfgetConditionQueryMemberAddressAsFormattedLong();
     }

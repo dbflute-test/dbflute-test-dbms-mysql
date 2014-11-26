@@ -52,7 +52,8 @@ public class WhiteUqFkWithoutPkDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteUqFkWithoutPk)et).getUqFkCode(), (et, vl) -> ((WhiteUqFkWithoutPk)et).setUqFkCode((String)vl), "uqFkCode");
         setupEpg(_epgMap, et -> ((WhiteUqFkWithoutPk)et).getUqFkName(), (et, vl) -> ((WhiteUqFkWithoutPk)et).setUqFkName((String)vl), "uqFkName");
     }
@@ -73,8 +74,8 @@ public class WhiteUqFkWithoutPkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnUqFkCode = cci("UQ_FK_CODE", "UQ_FK_CODE", null, null, String.class, "uqFkCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, "whiteUqFkWithoutPkRefList", null);
-    protected final ColumnInfo _columnUqFkName = cci("UQ_FK_NAME", "UQ_FK_NAME", null, null, String.class, "uqFkName", null, false, false, true, "VARCHAR", 64, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnUqFkCode = cci("UQ_FK_CODE", "UQ_FK_CODE", null, null, String.class, "uqFkCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, "whiteUqFkWithoutPkRefList", null, false);
+    protected final ColumnInfo _columnUqFkName = cci("UQ_FK_NAME", "UQ_FK_NAME", null, null, String.class, "uqFkName", null, false, false, true, "VARCHAR", 64, 0, null, false, null, null, null, null, null, false);
 
     /**
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}

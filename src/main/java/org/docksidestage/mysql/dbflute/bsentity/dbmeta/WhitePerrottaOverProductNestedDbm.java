@@ -52,7 +52,8 @@ public class WhitePerrottaOverProductNestedDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePerrottaOverProductNested)et).getProductNestedCode(), (et, vl) -> ((WhitePerrottaOverProductNested)et).setProductNestedCode((String)vl), "productNestedCode");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverProductNested)et).getProductNestedName(), (et, vl) -> ((WhitePerrottaOverProductNested)et).setProductNestedName((String)vl), "productNestedName");
     }
@@ -73,8 +74,8 @@ public class WhitePerrottaOverProductNestedDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductNestedCode = cci("PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", null, null, String.class, "productNestedCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, "whitePerrottaOverProductList", null);
-    protected final ColumnInfo _columnProductNestedName = cci("PRODUCT_NESTED_NAME", "PRODUCT_NESTED_NAME", null, null, String.class, "productNestedName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnProductNestedCode = cci("PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", null, null, String.class, "productNestedCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, "whitePerrottaOverProductList", null, false);
+    protected final ColumnInfo _columnProductNestedName = cci("PRODUCT_NESTED_NAME", "PRODUCT_NESTED_NAME", null, null, String.class, "productNestedName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}

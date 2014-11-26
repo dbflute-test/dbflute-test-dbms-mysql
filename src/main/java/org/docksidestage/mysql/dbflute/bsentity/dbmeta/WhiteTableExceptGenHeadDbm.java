@@ -52,7 +52,8 @@ public class WhiteTableExceptGenHeadDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteTableExceptGenHead)et).getGenHeadId(), (et, vl) -> ((WhiteTableExceptGenHead)et).setGenHeadId(ctl(vl)), "genHeadId");
         setupEpg(_epgMap, et -> ((WhiteTableExceptGenHead)et).getGenHeadName(), (et, vl) -> ((WhiteTableExceptGenHead)et).setGenHeadName((String)vl), "genHeadName");
         setupEpg(_epgMap, et -> ((WhiteTableExceptGenHead)et).getNometaId(), (et, vl) -> ((WhiteTableExceptGenHead)et).setNometaId(ctl(vl)), "nometaId");
@@ -74,9 +75,9 @@ public class WhiteTableExceptGenHeadDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnGenHeadId = cci("GEN_HEAD_ID", "GEN_HEAD_ID", null, null, Long.class, "genHeadId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnGenHeadName = cci("GEN_HEAD_NAME", "GEN_HEAD_NAME", null, null, String.class, "genHeadName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNometaId = cci("NOMETA_ID", "NOMETA_ID", null, null, Long.class, "nometaId", null, false, false, false, "DECIMAL", 16, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnGenHeadId = cci("GEN_HEAD_ID", "GEN_HEAD_ID", null, null, Long.class, "genHeadId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnGenHeadName = cci("GEN_HEAD_NAME", "GEN_HEAD_NAME", null, null, String.class, "genHeadName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNometaId = cci("NOMETA_ID", "NOMETA_ID", null, null, Long.class, "nometaId", null, false, false, false, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
 
     /**
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}

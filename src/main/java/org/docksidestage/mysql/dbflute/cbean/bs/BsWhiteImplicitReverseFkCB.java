@@ -76,17 +76,14 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider(); // as default
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_implicit_reverse_fk";
     }
 
@@ -265,7 +262,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
-    public void setupSelect_WhiteImplicitReverseFkRefWithImplicitReverseFK(final java.util.Date targetDate) {
+    public void setupSelect_WhiteImplicitReverseFkRefWithImplicitReverseFK(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("whiteImplicitReverseFkRefWithImplicitReverseFK");
         doSetupSelect(() -> query().queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate));
     }
@@ -283,7 +280,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
      * </pre>
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
-    public void setupSelect_WhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.util.Date targetDate) {
+    public void setupSelect_WhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK");
         doSetupSelect(() -> query().queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate));
     }
@@ -359,7 +356,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public WhiteImplicitReverseFkRefCB.HpSpecification specifyWhiteImplicitReverseFkRefWithImplicitReverseFK(final java.util.Date targetDate) {
+        public WhiteImplicitReverseFkRefCB.HpSpecification specifyWhiteImplicitReverseFkRefWithImplicitReverseFK(final java.time.LocalDate targetDate) {
             assertRelation("whiteImplicitReverseFkRefWithImplicitReverseFK");
             if (_whiteImplicitReverseFkRefWithImplicitReverseFK == null) {
                 _whiteImplicitReverseFkRefWithImplicitReverseFK = new WhiteImplicitReverseFkRefCB.HpSpecification(_baseCB
@@ -401,7 +398,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public WhiteImplicitReverseFkSuppressCB.HpSpecification specifyWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.util.Date targetDate) {
+        public WhiteImplicitReverseFkSuppressCB.HpSpecification specifyWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.time.LocalDate targetDate) {
             assertRelation("whiteImplicitReverseFkSuppressSuppressImplicitReverseFK");
             if (_whiteImplicitReverseFkSuppressSuppressImplicitReverseFK == null) {
                 _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK = new WhiteImplicitReverseFkSuppressCB.HpSpecification(_baseCB
@@ -443,7 +440,8 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<WhiteImplicitReverseFkCB, WhiteImplicitReverseFkCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteImplicitReverseFkCB> sq, WhiteImplicitReverseFkCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -453,39 +451,6 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
             , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
             , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
-    }
-
-    // [DBFlute-0.9.5.3]
-    // ===================================================================================
-    //                                                                        Column Query
-    //                                                                        ============
-    /**
-     * Set up column-query. {column1 = column2}
-     * <pre>
-     * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteImplicitReverseFkCB&gt;() {
-     *     public void query(WhiteImplicitReverseFkCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
-     *     }
-     * }).lessThan(new SpecifyQuery&lt;WhiteImplicitReverseFkCB&gt;() {
-     *     public void query(WhiteImplicitReverseFkCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
-     *     }
-     * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
-     * </pre>
-     * @param colCBLambda The callback for specify-query of left column. (NotNull)
-     * @return The object for setting up operand and right column. (NotNull)
-     */
-    public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteImplicitReverseFkCB> columnQuery(final SpecifyQuery<WhiteImplicitReverseFkCB> colCBLambda) {
-        return xcreateColQyOperandMySql((rightSp, operand) -> {
-            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-        });
-    }
-
-    protected WhiteImplicitReverseFkCB xcreateColumnQueryCB() {
-        WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
-        cb.xsetupForColumnQuery((WhiteImplicitReverseFkCB)this);
-        return cb;
     }
 
     // ===================================================================================
@@ -506,6 +471,35 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         return dreamCruiseCB();
     }
 
+    // [DBFlute-0.9.5.3]
+    // ===================================================================================
+    //                                                                        Column Query
+    //                                                                        ============
+    /**
+     * Set up column-query. {column1 = column2}
+     * <pre>
+     * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
+     * cb.<span style="color: #CC4747">columnQuery</span>(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     * }).lessThan(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
+     * </pre>
+     * @param colCBLambda The callback for specify-query of left column. (NotNull)
+     * @return The object for setting up operand and right column. (NotNull)
+     */
+    public HpColQyOperand.HpExtendedColQyOperandMySql<WhiteImplicitReverseFkCB> columnQuery(final SpecifyQuery<WhiteImplicitReverseFkCB> colCBLambda) {
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
+        });
+    }
+
+    protected WhiteImplicitReverseFkCB xcreateColumnQueryCB() {
+        WhiteImplicitReverseFkCB cb = new WhiteImplicitReverseFkCB();
+        cb.xsetupForColumnQuery((WhiteImplicitReverseFkCB)this);
+        return cb;
+    }
+
     // [DBFlute-0.9.6.3]
     // ===================================================================================
     //                                                                       OrScope Query
@@ -515,11 +509,9 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteImplicitReverseFkCB&gt;() {
-     *     public void query(WhiteImplicitReverseFkCB orCB) {
-     *         orCB.query().setFOO_Equal...
-     *         orCB.query().setBAR_Equal...
-     *     }
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(<span style="color: #553000">orCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">orCB</span>.query().setFoo...
+     *     <span style="color: #553000">orCB</span>.query().setBar...
      * });
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
@@ -533,16 +525,12 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteImplicitReverseFkCB&gt;() {
-     *     public void query(WhiteImplicitReverseFkCB orCB) {
-     *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteImplicitReverseFkCB&gt;() {
-     *             public void query(WhiteImplicitReverseFkCB andCB) {
-     *                 andCB.query().setBar_...
-     *                 andCB.query().setQux_...
-     *             }
-     *         });
-     *     }
+     * cb.<span style="color: #994747">orScopeQuery</span>(<span style="color: #553000">orCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">orCB</span>.query().setFoo...
+     *     <span style="color: #553000">orCB</span>.<span style="color: #CC4747">orScopeQueryAndPart</span>(<span style="color: #553000">andCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">andCB</span>.query().setBar...
+     *         <span style="color: #553000">andCB</span>.query().setQux...
+     *     });
      * });
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)

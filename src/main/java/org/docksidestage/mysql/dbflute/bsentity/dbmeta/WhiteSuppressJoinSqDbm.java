@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSq)et).getSuppressJoinSqId(), (et, vl) -> ((WhiteSuppressJoinSq)et).setSuppressJoinSqId(cti(vl)), "suppressJoinSqId");
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSq)et).getSuppressJoinSqName(), (et, vl) -> ((WhiteSuppressJoinSq)et).setSuppressJoinSqName((String)vl), "suppressJoinSqName");
     }
@@ -64,8 +66,9 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSq)et).getWhiteSuppressJoinSqOneAsOne(), (et, vl) -> ((WhiteSuppressJoinSq)et).setWhiteSuppressJoinSqOneAsOne((WhiteSuppressJoinSqOne)vl), "whiteSuppressJoinSqOneAsOne");
+        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSq)et).getWhiteSuppressJoinSqOneAsOne(), (et, vl) -> ((WhiteSuppressJoinSq)et).setWhiteSuppressJoinSqOneAsOne((OptionalEntity<WhiteSuppressJoinSqOne>)vl), "whiteSuppressJoinSqOneAsOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -84,8 +87,8 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqManyList", null);
-    protected final ColumnInfo _columnSuppressJoinSqName = cci("SUPPRESS_JOIN_SQ_NAME", "SUPPRESS_JOIN_SQ_NAME", null, null, String.class, "suppressJoinSqName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqManyList", null, false);
+    protected final ColumnInfo _columnSuppressJoinSqName = cci("SUPPRESS_JOIN_SQ_NAME", "SUPPRESS_JOIN_SQ_NAME", null, null, String.class, "suppressJoinSqName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
@@ -131,7 +134,7 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSuppressJoinSqOneAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSuppressJoinSqId(), WhiteSuppressJoinSqOneDbm.getInstance().columnSuppressJoinSqId());
-        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE", "whiteSuppressJoinSqOneAsOne", this, WhiteSuppressJoinSqOneDbm.getInstance(), mp, 0, null, true, false, true, false, null, null, false, "whiteSuppressJoinSq");
+        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE", "whiteSuppressJoinSqOneAsOne", this, WhiteSuppressJoinSqOneDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "whiteSuppressJoinSq", false);
     }
 
     // -----------------------------------------------------

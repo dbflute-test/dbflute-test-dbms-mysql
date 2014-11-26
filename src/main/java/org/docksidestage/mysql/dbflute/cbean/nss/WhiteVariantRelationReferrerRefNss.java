@@ -26,7 +26,7 @@ public class WhiteVariantRelationReferrerRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteVariantRelationReferrerRefCQ _query;
+    protected final WhiteVariantRelationReferrerRefCQ _query;
     public WhiteVariantRelationReferrerRefNss(WhiteVariantRelationReferrerRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

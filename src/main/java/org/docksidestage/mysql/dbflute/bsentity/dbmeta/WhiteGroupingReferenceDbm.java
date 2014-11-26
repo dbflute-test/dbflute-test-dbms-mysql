@@ -52,7 +52,8 @@ public class WhiteGroupingReferenceDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteGroupingReference)et).getGroupingReferenceId(), (et, vl) -> ((WhiteGroupingReference)et).setGroupingReferenceId(ctl(vl)), "groupingReferenceId");
         setupEpg(_epgMap, et -> ((WhiteGroupingReference)et).getGroupingReferenceCode(), (et, vl) -> {
             ColumnInfo col = columnGroupingReferenceCode();
@@ -82,8 +83,8 @@ public class WhiteGroupingReferenceDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnGroupingReferenceId = cci("GROUPING_REFERENCE_ID", "GROUPING_REFERENCE_ID", null, null, Long.class, "groupingReferenceId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnGroupingReferenceCode = cci("GROUPING_REFERENCE_CODE", "GROUPING_REFERENCE_CODE", null, null, String.class, "groupingReferenceCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.GroupingReference);
+    protected final ColumnInfo _columnGroupingReferenceId = cci("GROUPING_REFERENCE_ID", "GROUPING_REFERENCE_ID", null, null, Long.class, "groupingReferenceId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnGroupingReferenceCode = cci("GROUPING_REFERENCE_CODE", "GROUPING_REFERENCE_CODE", null, null, String.class, "groupingReferenceCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.GroupingReference, false);
 
     /**
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}

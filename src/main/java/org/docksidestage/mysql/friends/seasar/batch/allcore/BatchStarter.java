@@ -7,7 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Batch main class for executing batch controllers. <br />
+ * Batch main class for executing batch controllers. <br>
  * This doesn't have scheduling system. Executing only.
  * @author jflute
  * @since 0.9.1 (2009/02/07 Saturday)

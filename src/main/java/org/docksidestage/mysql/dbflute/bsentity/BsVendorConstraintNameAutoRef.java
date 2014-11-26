@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -102,24 +104,16 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     protected String _constraintNameAutoUnique;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "vendor_constraint_name_auto_ref";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorConstraintNameAutoRef";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -146,13 +140,15 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     //                                                                    Foreign Property
     //                                                                    ================
     /** vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'. */
-    protected VendorConstraintNameAutoBar _vendorConstraintNameAutoBar;
+    protected OptionalEntity<VendorConstraintNameAutoBar> _vendorConstraintNameAutoBar;
 
     /**
      * [get] vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'. <br>
-     * @return The entity of foreign property 'vendorConstraintNameAutoBar'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendorConstraintNameAutoBar'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public VendorConstraintNameAutoBar getVendorConstraintNameAutoBar() {
+    public OptionalEntity<VendorConstraintNameAutoBar> getVendorConstraintNameAutoBar() {
+        if (_vendorConstraintNameAutoBar == null) { _vendorConstraintNameAutoBar = OptionalEntity.relationEmpty(this, "vendorConstraintNameAutoBar"); }
         return _vendorConstraintNameAutoBar;
     }
 
@@ -160,18 +156,20 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
      * [set] vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      * @param vendorConstraintNameAutoBar The entity of foreign property 'vendorConstraintNameAutoBar'. (NullAllowed)
      */
-    public void setVendorConstraintNameAutoBar(VendorConstraintNameAutoBar vendorConstraintNameAutoBar) {
+    public void setVendorConstraintNameAutoBar(OptionalEntity<VendorConstraintNameAutoBar> vendorConstraintNameAutoBar) {
         _vendorConstraintNameAutoBar = vendorConstraintNameAutoBar;
     }
 
     /** vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'. */
-    protected VendorConstraintNameAutoFoo _vendorConstraintNameAutoFoo;
+    protected OptionalEntity<VendorConstraintNameAutoFoo> _vendorConstraintNameAutoFoo;
 
     /**
      * [get] vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'. <br>
-     * @return The entity of foreign property 'vendorConstraintNameAutoFoo'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendorConstraintNameAutoFoo'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public VendorConstraintNameAutoFoo getVendorConstraintNameAutoFoo() {
+    public OptionalEntity<VendorConstraintNameAutoFoo> getVendorConstraintNameAutoFoo() {
+        if (_vendorConstraintNameAutoFoo == null) { _vendorConstraintNameAutoFoo = OptionalEntity.relationEmpty(this, "vendorConstraintNameAutoFoo"); }
         return _vendorConstraintNameAutoFoo;
     }
 
@@ -179,18 +177,20 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
      * [set] vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      * @param vendorConstraintNameAutoFoo The entity of foreign property 'vendorConstraintNameAutoFoo'. (NullAllowed)
      */
-    public void setVendorConstraintNameAutoFoo(VendorConstraintNameAutoFoo vendorConstraintNameAutoFoo) {
+    public void setVendorConstraintNameAutoFoo(OptionalEntity<VendorConstraintNameAutoFoo> vendorConstraintNameAutoFoo) {
         _vendorConstraintNameAutoFoo = vendorConstraintNameAutoFoo;
     }
 
     /** vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'. */
-    protected VendorConstraintNameAutoQux _vendorConstraintNameAutoQux;
+    protected OptionalEntity<VendorConstraintNameAutoQux> _vendorConstraintNameAutoQux;
 
     /**
      * [get] vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'. <br>
-     * @return The entity of foreign property 'vendorConstraintNameAutoQux'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendorConstraintNameAutoQux'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public VendorConstraintNameAutoQux getVendorConstraintNameAutoQux() {
+    public OptionalEntity<VendorConstraintNameAutoQux> getVendorConstraintNameAutoQux() {
+        if (_vendorConstraintNameAutoQux == null) { _vendorConstraintNameAutoQux = OptionalEntity.relationEmpty(this, "vendorConstraintNameAutoQux"); }
         return _vendorConstraintNameAutoQux;
     }
 
@@ -198,7 +198,7 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
      * [set] vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      * @param vendorConstraintNameAutoQux The entity of foreign property 'vendorConstraintNameAutoQux'. (NullAllowed)
      */
-    public void setVendorConstraintNameAutoQux(VendorConstraintNameAutoQux vendorConstraintNameAutoQux) {
+    public void setVendorConstraintNameAutoQux(OptionalEntity<VendorConstraintNameAutoQux> vendorConstraintNameAutoQux) {
         _vendorConstraintNameAutoQux = vendorConstraintNameAutoQux;
     }
 
@@ -226,7 +226,7 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _constraintNameAutoRefId);
         return hs;
     }
@@ -234,13 +234,16 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorConstraintNameAutoBar != null)
+        if (_vendorConstraintNameAutoBar != null && _vendorConstraintNameAutoBar.isPresent())
         { sb.append(li).append(xbRDS(_vendorConstraintNameAutoBar, "vendorConstraintNameAutoBar")); }
-        if (_vendorConstraintNameAutoFoo != null)
+        if (_vendorConstraintNameAutoFoo != null && _vendorConstraintNameAutoFoo.isPresent())
         { sb.append(li).append(xbRDS(_vendorConstraintNameAutoFoo, "vendorConstraintNameAutoFoo")); }
-        if (_vendorConstraintNameAutoQux != null)
+        if (_vendorConstraintNameAutoQux != null && _vendorConstraintNameAutoQux.isPresent())
         { sb.append(li).append(xbRDS(_vendorConstraintNameAutoQux, "vendorConstraintNameAutoQux")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -262,11 +265,11 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorConstraintNameAutoBar != null)
+        if (_vendorConstraintNameAutoBar != null && _vendorConstraintNameAutoBar.isPresent())
         { sb.append(dm).append("vendorConstraintNameAutoBar"); }
-        if (_vendorConstraintNameAutoFoo != null)
+        if (_vendorConstraintNameAutoFoo != null && _vendorConstraintNameAutoFoo.isPresent())
         { sb.append(dm).append("vendorConstraintNameAutoFoo"); }
-        if (_vendorConstraintNameAutoQux != null)
+        if (_vendorConstraintNameAutoQux != null && _vendorConstraintNameAutoQux.isPresent())
         { sb.append(dm).append("vendorConstraintNameAutoQux"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

@@ -77,17 +77,14 @@ public class BsMemberCB extends AbstractConditionBean {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider(); // as default
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "member";
     }
 
@@ -304,7 +301,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberAddressNss setupSelect_MemberAddressAsValid(final java.util.Date targetDate) {
+    public MemberAddressNss setupSelect_MemberAddressAsValid(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberAddressAsValid");
         doSetupSelect(() -> query().queryMemberAddressAsValid(targetDate));
         if (_nssMemberAddressAsValid == null || !_nssMemberAddressAsValid.hasConditionQuery())
@@ -331,7 +328,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberAddressNss setupSelect_MemberAddressAsValidBefore(final java.util.Date targetDate) {
+    public MemberAddressNss setupSelect_MemberAddressAsValidBefore(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberAddressAsValidBefore");
         doSetupSelect(() -> query().queryMemberAddressAsValidBefore(targetDate));
         if (_nssMemberAddressAsValidBefore == null || !_nssMemberAddressAsValidBefore.hasConditionQuery())
@@ -386,7 +383,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberAddressNss setupSelect_MemberAddressAsIfComment(final java.util.Date targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
+    public MemberAddressNss setupSelect_MemberAddressAsIfComment(final java.time.LocalDate targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
         assertSetupSelectPurpose("memberAddressAsIfComment");
         doSetupSelect(() -> query().queryMemberAddressAsIfComment(targetDate, region));
         if (_nssMemberAddressAsIfComment == null || !_nssMemberAddressAsIfComment.hasConditionQuery())
@@ -413,7 +410,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberAddressNss setupSelect_MemberAddressAsOnlyOneDate(final java.util.Date targetDate) {
+    public MemberAddressNss setupSelect_MemberAddressAsOnlyOneDate(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberAddressAsOnlyOneDate");
         doSetupSelect(() -> query().queryMemberAddressAsOnlyOneDate(targetDate));
         if (_nssMemberAddressAsOnlyOneDate == null || !_nssMemberAddressAsOnlyOneDate.hasConditionQuery())
@@ -654,7 +651,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberLoginNss setupSelect_MemberLoginAsForeignForeignParameterOverTest(final java.util.Date targetDate) {
+    public MemberLoginNss setupSelect_MemberLoginAsForeignForeignParameterOverTest(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberLoginAsForeignForeignParameterOverTest");
         doSetupSelect(() -> query().queryMemberLoginAsForeignForeignParameterOverTest(targetDate));
         if (_nssMemberLoginAsForeignForeignParameterOverTest == null || !_nssMemberLoginAsForeignForeignParameterOverTest.hasConditionQuery())
@@ -811,7 +808,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberAddressNss setupSelect_MemberAddressAsFormattedBasic(final java.util.Date targetDate) {
+    public MemberAddressNss setupSelect_MemberAddressAsFormattedBasic(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberAddressAsFormattedBasic");
         doSetupSelect(() -> query().queryMemberAddressAsFormattedBasic(targetDate));
         if (_nssMemberAddressAsFormattedBasic == null || !_nssMemberAddressAsFormattedBasic.hasConditionQuery())
@@ -838,7 +835,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberAddressNss setupSelect_MemberAddressAsFormattedLong(final java.util.Date targetDate) {
+    public MemberAddressNss setupSelect_MemberAddressAsFormattedLong(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberAddressAsFormattedLong");
         doSetupSelect(() -> query().queryMemberAddressAsFormattedLong(targetDate));
         if (_nssMemberAddressAsFormattedLong == null || !_nssMemberAddressAsFormattedLong.hasConditionQuery())
@@ -1138,7 +1135,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberAddressCB.HpSpecification specifyMemberAddressAsValid(final java.util.Date targetDate) {
+        public MemberAddressCB.HpSpecification specifyMemberAddressAsValid(final java.time.LocalDate targetDate) {
             assertRelation("memberAddressAsValid");
             if (_memberAddressAsValid == null) {
                 _memberAddressAsValid = new MemberAddressCB.HpSpecification(_baseCB
@@ -1180,7 +1177,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberAddressCB.HpSpecification specifyMemberAddressAsValidBefore(final java.util.Date targetDate) {
+        public MemberAddressCB.HpSpecification specifyMemberAddressAsValidBefore(final java.time.LocalDate targetDate) {
             assertRelation("memberAddressAsValidBefore");
             if (_memberAddressAsValidBefore == null) {
                 _memberAddressAsValidBefore = new MemberAddressCB.HpSpecification(_baseCB
@@ -1265,7 +1262,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberAddressCB.HpSpecification specifyMemberAddressAsIfComment(final java.util.Date targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
+        public MemberAddressCB.HpSpecification specifyMemberAddressAsIfComment(final java.time.LocalDate targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
             assertRelation("memberAddressAsIfComment");
             if (_memberAddressAsIfComment == null) {
                 _memberAddressAsIfComment = new MemberAddressCB.HpSpecification(_baseCB
@@ -1307,7 +1304,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberAddressCB.HpSpecification specifyMemberAddressAsOnlyOneDate(final java.util.Date targetDate) {
+        public MemberAddressCB.HpSpecification specifyMemberAddressAsOnlyOneDate(final java.time.LocalDate targetDate) {
             assertRelation("memberAddressAsOnlyOneDate");
             if (_memberAddressAsOnlyOneDate == null) {
                 _memberAddressAsOnlyOneDate = new MemberAddressCB.HpSpecification(_baseCB
@@ -1599,7 +1596,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignParameterOverTest(final java.util.Date targetDate) {
+        public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignParameterOverTest(final java.time.LocalDate targetDate) {
             assertRelation("memberLoginAsForeignForeignParameterOverTest");
             if (_memberLoginAsForeignForeignParameterOverTest == null) {
                 _memberLoginAsForeignForeignParameterOverTest = new MemberLoginCB.HpSpecification(_baseCB
@@ -1741,7 +1738,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedBasic(final java.util.Date targetDate) {
+        public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedBasic(final java.time.LocalDate targetDate) {
             assertRelation("memberAddressAsFormattedBasic");
             if (_memberAddressAsFormattedBasic == null) {
                 _memberAddressAsFormattedBasic = new MemberAddressCB.HpSpecification(_baseCB
@@ -1783,7 +1780,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedLong(final java.util.Date targetDate) {
+        public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedLong(final java.time.LocalDate targetDate) {
             assertRelation("memberAddressAsFormattedLong");
             if (_memberAddressAsFormattedLong == null) {
                 _memberAddressAsFormattedLong = new MemberAddressCB.HpSpecification(_baseCB
@@ -1931,9 +1928,10 @@ public class BsMemberCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberAddressCB, MemberCQ> derivedMemberAddressList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberAddressCB, MemberCQ> derivedMemberAddress() {
             assertDerived("memberAddressList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberAddressList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<MemberAddressCB> sq, MemberCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveMemberAddressList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
@@ -1947,9 +1945,10 @@ public class BsMemberCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberLoginCB, MemberCQ> derivedMemberLoginList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberLoginCB, MemberCQ> derivedMemberLogin() {
             assertDerived("memberLoginList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberLoginList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<MemberLoginCB> sq, MemberCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveMemberLoginList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
@@ -1963,9 +1962,10 @@ public class BsMemberCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchaseCB, MemberCQ> derivedPurchaseList() {
+        public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<PurchaseCB, MemberCQ> derivedPurchase() {
             assertDerived("purchaseList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderivePurchaseList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<PurchaseCB> sq, MemberCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderivePurchaseList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -1973,7 +1973,8 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<MemberCB, MemberCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<MemberCB> sq, MemberCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -1983,39 +1984,6 @@ public class BsMemberCB extends AbstractConditionBean {
             , HpSDRSetupper<REFERRER_CB, LOCAL_CQ> querySetupper
             , DBMetaProvider dbmetaProvider, DerivedReferrerOptionFactory optionFactory) {
         return new org.dbflute.cbean.chelper.dbms.HpSDRFunctionMySql<REFERRER_CB, LOCAL_CQ>(baseCB, localCQ, querySetupper, dbmetaProvider, optionFactory);
-    }
-
-    // [DBFlute-0.9.5.3]
-    // ===================================================================================
-    //                                                                        Column Query
-    //                                                                        ============
-    /**
-     * Set up column-query. {column1 = column2}
-     * <pre>
-     * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;MemberCB&gt;() {
-     *     public void query(MemberCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
-     *     }
-     * }).lessThan(new SpecifyQuery&lt;MemberCB&gt;() {
-     *     public void query(MemberCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
-     *     }
-     * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
-     * </pre>
-     * @param colCBLambda The callback for specify-query of left column. (NotNull)
-     * @return The object for setting up operand and right column. (NotNull)
-     */
-    public HpColQyOperand.HpExtendedColQyOperandMySql<MemberCB> columnQuery(final SpecifyQuery<MemberCB> colCBLambda) {
-        return xcreateColQyOperandMySql((rightSp, operand) -> {
-            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
-        });
-    }
-
-    protected MemberCB xcreateColumnQueryCB() {
-        MemberCB cb = new MemberCB();
-        cb.xsetupForColumnQuery((MemberCB)this);
-        return cb;
     }
 
     // ===================================================================================
@@ -2036,6 +2004,35 @@ public class BsMemberCB extends AbstractConditionBean {
         return dreamCruiseCB();
     }
 
+    // [DBFlute-0.9.5.3]
+    // ===================================================================================
+    //                                                                        Column Query
+    //                                                                        ============
+    /**
+     * Set up column-query. {column1 = column2}
+     * <pre>
+     * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
+     * cb.<span style="color: #CC4747">columnQuery</span>(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     * }).lessThan(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
+     * </pre>
+     * @param colCBLambda The callback for specify-query of left column. (NotNull)
+     * @return The object for setting up operand and right column. (NotNull)
+     */
+    public HpColQyOperand.HpExtendedColQyOperandMySql<MemberCB> columnQuery(final SpecifyQuery<MemberCB> colCBLambda) {
+        return xcreateColQyOperandMySql((rightSp, operand) -> {
+            return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
+        });
+    }
+
+    protected MemberCB xcreateColumnQueryCB() {
+        MemberCB cb = new MemberCB();
+        cb.xsetupForColumnQuery((MemberCB)this);
+        return cb;
+    }
+
     // [DBFlute-0.9.6.3]
     // ===================================================================================
     //                                                                       OrScope Query
@@ -2045,11 +2042,9 @@ public class BsMemberCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;MemberCB&gt;() {
-     *     public void query(MemberCB orCB) {
-     *         orCB.query().setFOO_Equal...
-     *         orCB.query().setBAR_Equal...
-     *     }
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(<span style="color: #553000">orCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">orCB</span>.query().setFoo...
+     *     <span style="color: #553000">orCB</span>.query().setBar...
      * });
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
@@ -2063,16 +2058,12 @@ public class BsMemberCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;MemberCB&gt;() {
-     *     public void query(MemberCB orCB) {
-     *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;MemberCB&gt;() {
-     *             public void query(MemberCB andCB) {
-     *                 andCB.query().setBar_...
-     *                 andCB.query().setQux_...
-     *             }
-     *         });
-     *     }
+     * cb.<span style="color: #994747">orScopeQuery</span>(<span style="color: #553000">orCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">orCB</span>.query().setFoo...
+     *     <span style="color: #553000">orCB</span>.<span style="color: #CC4747">orScopeQueryAndPart</span>(<span style="color: #553000">andCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">andCB</span>.query().setBar...
+     *         <span style="color: #553000">andCB</span>.query().setQux...
+     *     });
      * });
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)

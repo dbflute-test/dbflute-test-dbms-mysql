@@ -45,14 +45,13 @@ public class WxImplicitConversionFKTest extends UnitContainerTestCase {
         // ## Assert ##
         assertHasAnyElement(integerList);
         for (WhiteImplicitConvInteger integer : integerList) {
-            WhiteImplicitConvNumeric numeric = integer.getWhiteImplicitConvNumeric();
+            WhiteImplicitConvNumeric numeric = integer.getWhiteImplicitConvNumeric().get();
             assertNotNull(numeric);
             assertNotNull(numeric.getImplicitConvNumericId());
-            WhiteImplicitConvString string = integer.getWhiteImplicitConvString();
+            WhiteImplicitConvString string = integer.getWhiteImplicitConvString().get();
             assertNotNull(string);
             assertNotNull(string.getImplicitConvStringId());
-            log(integer.getImplicitConvIntegerId() + ", " + numeric.getImplicitConvNumericId() + ", "
-                    + string.getImplicitConvStringId());
+            log(integer.getImplicitConvIntegerId() + ", " + numeric.getImplicitConvNumericId() + ", " + string.getImplicitConvStringId());
         }
     }
 
@@ -69,14 +68,13 @@ public class WxImplicitConversionFKTest extends UnitContainerTestCase {
         // ## Assert ##
         assertHasAnyElement(numericList);
         for (WhiteImplicitConvNumeric numeric : numericList) {
-            WhiteImplicitConvInteger integer = numeric.getWhiteImplicitConvInteger();
+            WhiteImplicitConvInteger integer = numeric.getWhiteImplicitConvInteger().get();
             assertNotNull(integer);
             assertNotNull(integer.getImplicitConvIntegerId());
-            WhiteImplicitConvString string = numeric.getWhiteImplicitConvString();
+            WhiteImplicitConvString string = numeric.getWhiteImplicitConvString().get();
             assertNotNull(string);
             assertNotNull(string.getImplicitConvStringId());
-            log(numeric.getImplicitConvNumericId() + ", " + integer.getImplicitConvIntegerId() + ", "
-                    + string.getImplicitConvStringId());
+            log(numeric.getImplicitConvNumericId() + ", " + integer.getImplicitConvIntegerId() + ", " + string.getImplicitConvStringId());
         }
     }
 
@@ -93,14 +91,13 @@ public class WxImplicitConversionFKTest extends UnitContainerTestCase {
         // ## Assert ##
         assertHasAnyElement(stringList);
         for (WhiteImplicitConvString string : stringList) {
-            WhiteImplicitConvInteger integer = string.getWhiteImplicitConvInteger();
+            WhiteImplicitConvInteger integer = string.getWhiteImplicitConvInteger().get();
             assertNotNull(integer);
             assertNotNull(integer.getImplicitConvIntegerId());
-            WhiteImplicitConvNumeric numeric = string.getWhiteImplicitConvNumeric();
+            WhiteImplicitConvNumeric numeric = string.getWhiteImplicitConvNumeric().get();
             assertNotNull(numeric);
             assertNotNull(numeric.getImplicitConvNumericId());
-            log(string.getImplicitConvStringId() + ", " + numeric.getImplicitConvNumericId() + ", "
-                    + integer.getImplicitConvIntegerId());
+            log(string.getImplicitConvStringId() + ", " + numeric.getImplicitConvNumericId() + ", " + integer.getImplicitConvIntegerId());
         }
     }
 
@@ -117,16 +114,14 @@ public class WxImplicitConversionFKTest extends UnitContainerTestCase {
 
         // ## Assert ##
         assertHasAnyElement(integerList);
-        whiteImplicitConvIntegerBhv.loadWhiteImplicitConvNumericList(integerList,
-                new ConditionBeanSetupper<WhiteImplicitConvNumericCB>() {
-                    public void setup(WhiteImplicitConvNumericCB cb) {
-                    }
-                });
-        whiteImplicitConvIntegerBhv.loadWhiteImplicitConvStringList(integerList,
-                new ConditionBeanSetupper<WhiteImplicitConvStringCB>() {
-                    public void setup(WhiteImplicitConvStringCB cb) {
-                    }
-                });
+        whiteImplicitConvIntegerBhv.loadWhiteImplicitConvNumeric(integerList, new ConditionBeanSetupper<WhiteImplicitConvNumericCB>() {
+            public void setup(WhiteImplicitConvNumericCB cb) {
+            }
+        });
+        whiteImplicitConvIntegerBhv.loadWhiteImplicitConvString(integerList, new ConditionBeanSetupper<WhiteImplicitConvStringCB>() {
+            public void setup(WhiteImplicitConvStringCB cb) {
+            }
+        });
         boolean existsNumeric = false;
         boolean existsString = false;
         for (WhiteImplicitConvInteger integer : integerList) {
@@ -159,16 +154,14 @@ public class WxImplicitConversionFKTest extends UnitContainerTestCase {
 
         // ## Assert ##
         assertHasAnyElement(numericList);
-        whiteImplicitConvNumericBhv.loadWhiteImplicitConvIntegerList(numericList,
-                new ConditionBeanSetupper<WhiteImplicitConvIntegerCB>() {
-                    public void setup(WhiteImplicitConvIntegerCB cb) {
-                    }
-                });
-        whiteImplicitConvNumericBhv.loadWhiteImplicitConvStringList(numericList,
-                new ConditionBeanSetupper<WhiteImplicitConvStringCB>() {
-                    public void setup(WhiteImplicitConvStringCB cb) {
-                    }
-                });
+        whiteImplicitConvNumericBhv.loadWhiteImplicitConvInteger(numericList, new ConditionBeanSetupper<WhiteImplicitConvIntegerCB>() {
+            public void setup(WhiteImplicitConvIntegerCB cb) {
+            }
+        });
+        whiteImplicitConvNumericBhv.loadWhiteImplicitConvString(numericList, new ConditionBeanSetupper<WhiteImplicitConvStringCB>() {
+            public void setup(WhiteImplicitConvStringCB cb) {
+            }
+        });
         boolean existsInteger = false;
         boolean existsString = false;
         for (WhiteImplicitConvNumeric numeric : numericList) {
@@ -201,16 +194,14 @@ public class WxImplicitConversionFKTest extends UnitContainerTestCase {
 
         // ## Assert ##
         assertHasAnyElement(stringList);
-        whiteImplicitConvStringBhv.loadWhiteImplicitConvIntegerList(stringList,
-                new ConditionBeanSetupper<WhiteImplicitConvIntegerCB>() {
-                    public void setup(WhiteImplicitConvIntegerCB cb) {
-                    }
-                });
-        whiteImplicitConvStringBhv.loadWhiteImplicitConvNumericList(stringList,
-                new ConditionBeanSetupper<WhiteImplicitConvNumericCB>() {
-                    public void setup(WhiteImplicitConvNumericCB cb) {
-                    }
-                });
+        whiteImplicitConvStringBhv.loadWhiteImplicitConvInteger(stringList, new ConditionBeanSetupper<WhiteImplicitConvIntegerCB>() {
+            public void setup(WhiteImplicitConvIntegerCB cb) {
+            }
+        });
+        whiteImplicitConvStringBhv.loadWhiteImplicitConvNumeric(stringList, new ConditionBeanSetupper<WhiteImplicitConvNumericCB>() {
+            public void setup(WhiteImplicitConvNumericCB cb) {
+            }
+        });
         boolean existsInteger = false;
         boolean existsNumeric = false;
         for (WhiteImplicitConvString string : stringList) {
@@ -275,8 +266,7 @@ public class WxImplicitConversionFKTest extends UnitContainerTestCase {
         return mainList;
     }
 
-    private WhiteImplicitConvInteger xdoRegisterImplicitConvInteger(Integer integerId, Integer numeridId,
-            Integer stringId) {
+    private WhiteImplicitConvInteger xdoRegisterImplicitConvInteger(Integer integerId, Integer numeridId, Integer stringId) {
         WhiteImplicitConvInteger main = new WhiteImplicitConvInteger();
         main.setImplicitConvIntegerId(integerId);
         main.setImplicitConvNumericId(numeridId);

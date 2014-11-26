@@ -75,10 +75,12 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteSelfReferenceDbm getDBMeta() { return WhiteSelfReferenceDbm.getInstance(); }
+    public WhiteSelfReferenceDbm asDBMeta() { return WhiteSelfReferenceDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_self_reference"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteSelfReferenceCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteSelfReferenceCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * Load referrer of whiteSelfReferenceSelfList by the set-upper of referrer. <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelfList</span>(<span style="color: #553000">whiteSelfReferenceList</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelf</span>(<span style="color: #553000">whiteSelfReferenceList</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">referenceCB</span>.setupSelect...
      *     <span style="color: #553000">referenceCB</span>.query().set...
      *     <span style="color: #553000">referenceCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelfList(List<WhiteSelfReference> whiteSelfReferenceList, ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelf(List<WhiteSelfReference> whiteSelfReferenceList, ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
         xassLRArg(whiteSelfReferenceList, refCBLambda);
-        return doLoadWhiteSelfReferenceSelfList(whiteSelfReferenceList, new LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference>().xinit(refCBLambda));
+        return doLoadWhiteSelfReferenceSelf(whiteSelfReferenceList, new LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteSelfReferenceSelfList by the set-upper of referrer. <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelfList</span>(<span style="color: #553000">whiteSelfReference</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelf</span>(<span style="color: #553000">whiteSelfReference</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">referenceCB</span>.setupSelect...
      *     <span style="color: #553000">referenceCB</span>.query().set...
      *     <span style="color: #553000">referenceCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelfList(WhiteSelfReference whiteSelfReference, ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelf(WhiteSelfReference whiteSelfReference, ConditionBeanSetupper<WhiteSelfReferenceCB> refCBLambda) {
         xassLRArg(whiteSelfReference, refCBLambda);
-        return doLoadWhiteSelfReferenceSelfList(xnewLRLs(whiteSelfReference), new LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference>().xinit(refCBLambda));
+        return doLoadWhiteSelfReferenceSelf(xnewLRLs(whiteSelfReference), new LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelfList(WhiteSelfReference whiteSelfReference, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelf(WhiteSelfReference whiteSelfReference, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> loadReferrerOption) {
         xassLRArg(whiteSelfReference, loadReferrerOption);
-        return loadWhiteSelfReferenceSelfList(xnewLRLs(whiteSelfReference), loadReferrerOption);
+        return loadWhiteSelfReferenceSelf(xnewLRLs(whiteSelfReference), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelfList(List<WhiteSelfReference> whiteSelfReferenceList, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSelfReference> loadWhiteSelfReferenceSelf(List<WhiteSelfReference> whiteSelfReferenceList, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> loadReferrerOption) {
         xassLRArg(whiteSelfReferenceList, loadReferrerOption);
         if (whiteSelfReferenceList.isEmpty()) { return (NestedReferrerListGateway<WhiteSelfReference>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteSelfReferenceSelfList(whiteSelfReferenceList, loadReferrerOption);
+        return doLoadWhiteSelfReferenceSelf(whiteSelfReferenceList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteSelfReference> doLoadWhiteSelfReferenceSelfList(List<WhiteSelfReference> whiteSelfReferenceList, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> option) {
+    protected NestedReferrerListGateway<WhiteSelfReference> doLoadWhiteSelfReferenceSelf(List<WhiteSelfReference> whiteSelfReferenceList, LoadReferrerOption<WhiteSelfReferenceCB, WhiteSelfReference> option) {
         return helpLoadReferrerInternally(whiteSelfReferenceList, option, "whiteSelfReferenceSelfList");
     }
 
@@ -653,11 +655,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteSelfReference.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSelfReference.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">update</span>(whiteSelfReference);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">update</span>(whiteSelfReference);
      * </pre>
      * @param whiteSelfReference The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -818,9 +816,9 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSelfReference.setVersionNo(value);</span>
-     * WhiteSelfReferenceCB cb = <span style="color: #70226C">new</span> WhiteSelfReferenceCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSelfReference, cb);
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteSelfReference, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteSelfReference The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteSelfReference. (NotNull)
@@ -860,9 +858,9 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSelfReference, cb);
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSelfReference, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSelfReference. (NotNull)
      * @return The deleted count.
@@ -902,10 +900,10 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteSelfReference.setFoo...(value);
      * whiteSelfReference.setBar...(value);
-     * InsertOption&lt;WhiteSelfReferenceCB&gt; option = new InsertOption&lt;WhiteSelfReferenceCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSelfReference, option);
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteSelfReference, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteSelfReference.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteSelfReference The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -926,18 +924,12 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * whiteSelfReference.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteSelfReference.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteSelfReferenceCB&gt; option = new UpdateOption&lt;WhiteSelfReferenceCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteSelfReferenceCB&gt;() {
-     *         public void specify(WhiteSelfReferenceCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSelfReference, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteSelfReference, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteSelfReference The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1046,15 +1038,13 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteSelfReference.setVersionNo(value);</span>
-     * WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSelfReferenceCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSelfReferenceCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteSelfReferenceCB&gt;() {
-     *     public void specify(WhiteSelfReferenceCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSelfReference, cb, option);
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSelfReference, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteSelfReference The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteSelfReference. (NotNull)
@@ -1082,13 +1072,11 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteSelfReference.setVersionNo(value);</span>
      * WhiteSelfReferenceCB cb = <span style="color: #70226C">new</span> WhiteSelfReferenceCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteSelfReferenceCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteSelfReferenceCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteSelfReferenceCB&gt;() {
-     *     public void specify(WhiteSelfReferenceCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSelfReference, cb, option);
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSelfReference, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteSelfReference The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteSelfReference. (NotNull)
@@ -1103,7 +1091,14 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSelfReference, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSelfReference. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1116,7 +1111,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteSelfReference. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1157,9 +1152,8 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteSelfReferenceBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteSelfReferenceBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteSelfReferenceBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

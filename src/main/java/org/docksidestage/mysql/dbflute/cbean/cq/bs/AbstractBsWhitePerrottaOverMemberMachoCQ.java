@@ -44,17 +44,14 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_perrotta_over_member_macho";
     }
 
@@ -158,26 +155,17 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MACHO_CODE: {PK, NotNull, CHAR(3)}
-     * @param machoCode The value of machoCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMachoCode_PrefixSearch(String machoCode) {
-        setMachoCode_LikeSearch(machoCode, xcLSOPPre());
-    }
-
-    /**
      * Set up ExistsReferrer (correlated sub-query). <br>
      * {exists (select MACHO_CODE from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhitePerrottaOverMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhitePerrottaOverMemberList for 'exists'. (NotNull)
      */
-    public void existsWhitePerrottaOverMemberList(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
+    public void existsWhitePerrottaOverMember(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMachoCode_ExistsReferrer_WhitePerrottaOverMemberList(cb.query());
@@ -190,13 +178,13 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * {not exists (select MACHO_CODE from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMemberList</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhitePerrottaOverMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MachoCode_NotExistsReferrer_WhitePerrottaOverMemberList for 'not exists'. (NotNull)
      */
-    public void notExistsWhitePerrottaOverMemberList(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
+    public void notExistsWhitePerrottaOverMember(SubQuery<WhitePerrottaOverMemberCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhitePerrottaOverMemberCB cb = new WhitePerrottaOverMemberCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMachoCode_NotExistsReferrer_WhitePerrottaOverMemberList(cb.query());
@@ -217,14 +205,14 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * {FOO &lt;= (select max(BAR) from white_perrotta_over_member where ...)} <br>
      * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMemberList()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhitePerrottaOverMember()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     memberCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhitePerrottaOverMemberCB> derivedWhitePerrottaOverMemberList() {
+    public HpQDRFunction<WhitePerrottaOverMemberCB> derivedWhitePerrottaOverMember() {
         return xcreateQDRFunctionWhitePerrottaOverMemberList();
     }
     protected HpQDRFunction<WhitePerrottaOverMemberCB> xcreateQDRFunctionWhitePerrottaOverMemberList() {
@@ -348,15 +336,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      */
     public void setMachoName_NotLikeSearch(String machoName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(machoName), xgetCValueMachoName(), "MACHO_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MACHO_NAME: {NotNull, VARCHAR(200)}
-     * @param machoName The value of machoName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setMachoName_PrefixSearch(String machoName) {
-        setMachoName_LikeSearch(machoName, xcLSOPPre());
     }
 
     protected void regMachoName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMachoName(), "MACHO_NAME"); }
@@ -595,39 +574,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

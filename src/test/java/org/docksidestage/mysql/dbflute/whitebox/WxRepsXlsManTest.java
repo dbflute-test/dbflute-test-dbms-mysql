@@ -1,11 +1,9 @@
 package org.docksidestage.mysql.dbflute.whitebox;
 
-import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.helper.HandyDate;
-import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.mysql.dbflute.cbean.WhiteXlsManCB;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteXlsManBhv;
 import org.docksidestage.mysql.dbflute.exentity.WhiteXlsMan;
@@ -49,24 +47,24 @@ public class WxRepsXlsManTest extends UnitContainerTestCase {
         assertEquals("before\nafter", xlsManList.get(8).getStringConverted()); // "\n" to line
         assertEquals("before\nafter", xlsManList.get(9).getStringConverted()); // no changed
 
-        Timestamp implementedTime = DfTypeUtil.toTimestamp("2011-07-30 12:30:00.0");
-        assertTrue(xlsManList.get(0).getTimestampConverted().before(implementedTime));
-        assertTrue(xlsManList.get(1).getTimestampConverted().before(implementedTime));
-        assertTrue(xlsManList.get(2).getTimestampConverted().before(implementedTime));
-        assertTrue(xlsManList.get(3).getTimestampConverted().before(implementedTime));
-        assertTrue(xlsManList.get(4).getTimestampConverted().after(implementedTime)); // sysdate
-        assertTrue(xlsManList.get(5).getTimestampConverted().before(implementedTime));
+        LocalDateTime implementedTime = toLocalDateTime("2011-07-30 12:30:00.0");
+        assertTrue(xlsManList.get(0).getTimestampConverted().isBefore(implementedTime));
+        assertTrue(xlsManList.get(1).getTimestampConverted().isBefore(implementedTime));
+        assertTrue(xlsManList.get(2).getTimestampConverted().isBefore(implementedTime));
+        assertTrue(xlsManList.get(3).getTimestampConverted().isBefore(implementedTime));
+        assertTrue(xlsManList.get(4).getTimestampConverted().isAfter(implementedTime)); // sysdate
+        assertTrue(xlsManList.get(5).getTimestampConverted().isBefore(implementedTime));
 
-        Timestamp timestampPlusWeek = xlsManList.get(10).getTimestampConverted();
+        LocalDateTime timestampPlusWeek = xlsManList.get(10).getTimestampConverted();
         log("timestampPlusWeek: " + timestampPlusWeek);
-        Timestamp timestampPast = xlsManList.get(11).getTimestampConverted();
+        LocalDateTime timestampPast = xlsManList.get(11).getTimestampConverted();
         log("timestampPast: " + timestampPast);
-        Date currentDate = currentDate();
-        assertTrue(currentDate.after(timestampPast));
-        Timestamp timestampFuture = xlsManList.get(12).getTimestampConverted();
+        LocalDateTime currentDate = currentLocalDateTime();
+        assertTrue(currentDate.isAfter(timestampPast));
+        LocalDateTime timestampFuture = xlsManList.get(12).getTimestampConverted();
         log("timestampFuture: " + timestampFuture);
-        assertTrue(currentDate.before(timestampFuture));
-        Timestamp timestampLastDay = xlsManList.get(13).getTimestampConverted();
+        assertTrue(currentDate.isBefore(timestampFuture));
+        LocalDateTime timestampLastDay = xlsManList.get(13).getTimestampConverted();
         log("timestampLastDay: " + timestampLastDay);
         assertTrue(new HandyDate(timestampLastDay).isDay_MonthLastDay());
 

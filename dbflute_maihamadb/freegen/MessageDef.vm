@@ -23,7 +23,7 @@ public class ${request.className} implements Serializable {
      * value=
 #end
 #foreach ($variableNumber in $column.variableNumberList)
-     * @param arg${variableNumber}
+     * @param arg${variableNumber} The parameter ${variableNumber} for message. (NotNull)
 #end
      * @return The formatted message. (NotNull)
      */

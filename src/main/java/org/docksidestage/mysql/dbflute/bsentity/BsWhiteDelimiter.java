@@ -60,7 +60,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * Integer numberNullable = entity.getNumberNullable();
  * String stringConverted = entity.getStringConverted();
  * String stringNonConverted = entity.getStringNonConverted();
- * java.util.Date dateDefault = entity.getDateDefault();
+ * java.time.LocalDate dateDefault = entity.getDateDefault();
  * entity.setDelimiterId(delimiterId);
  * entity.setNumberNullable(numberNullable);
  * entity.setStringConverted(stringConverted);
@@ -94,27 +94,19 @@ public abstract class BsWhiteDelimiter extends AbstractEntity implements DomainE
     protected String _stringNonConverted;
 
     /** DATE_DEFAULT: {NotNull, DATE(10)} */
-    protected java.util.Date _dateDefault;
+    protected java.time.LocalDate _dateDefault;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_delimiter";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteDelimiter";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -153,7 +145,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity implements DomainE
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _delimiterId);
         return hs;
     }
@@ -170,7 +162,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity implements DomainE
         sb.append(dm).append(xfND(_numberNullable));
         sb.append(dm).append(xfND(_stringConverted));
         sb.append(dm).append(xfND(_stringNonConverted));
-        sb.append(dm).append(xfUD(_dateDefault));
+        sb.append(dm).append(xfND(_dateDefault));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -267,7 +259,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity implements DomainE
      * [get] DATE_DEFAULT: {NotNull, DATE(10)} <br>
      * @return The value of the column 'DATE_DEFAULT'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getDateDefault() {
+    public java.time.LocalDate getDateDefault() {
         checkSpecifiedProperty("dateDefault");
         return _dateDefault;
     }
@@ -276,7 +268,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity implements DomainE
      * [set] DATE_DEFAULT: {NotNull, DATE(10)} <br>
      * @param dateDefault The value of the column 'DATE_DEFAULT'. (basically NotNull if update: for the constraint)
      */
-    public void setDateDefault(java.util.Date dateDefault) {
+    public void setDateDefault(java.time.LocalDate dateDefault) {
         registerModifiedProperty("dateDefault");
         _dateDefault = dateDefault;
     }

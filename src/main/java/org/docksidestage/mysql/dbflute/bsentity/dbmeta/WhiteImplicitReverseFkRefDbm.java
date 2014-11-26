@@ -52,11 +52,12 @@ public class WhiteImplicitReverseFkRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getWhiteImplicitReverseFkRefId(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setWhiteImplicitReverseFkRefId(cti(vl)), "whiteImplicitReverseFkRefId");
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getWhiteImplicitReverseFkId(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setWhiteImplicitReverseFkId(cti(vl)), "whiteImplicitReverseFkId");
-        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidBeginDate((java.util.Date)vl), "validBeginDate");
-        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidEndDate((java.util.Date)vl), "validEndDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidBeginDate((java.time.LocalDate)vl), "validBeginDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidEndDate((java.time.LocalDate)vl), "validEndDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -75,10 +76,10 @@ public class WhiteImplicitReverseFkRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnWhiteImplicitReverseFkRefId = cci("WHITE_IMPLICIT_REVERSE_FK_REF_ID", "WHITE_IMPLICIT_REVERSE_FK_REF_ID", null, null, Integer.class, "whiteImplicitReverseFkRefId", null, true, true, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnWhiteImplicitReverseFkId = cci("WHITE_IMPLICIT_REVERSE_FK_ID", "WHITE_IMPLICIT_REVERSE_FK_ID", null, null, Integer.class, "whiteImplicitReverseFkId", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnValidBeginDate = cci("VALID_BEGIN_DATE", "VALID_BEGIN_DATE", null, null, java.util.Date.class, "validBeginDate", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnValidEndDate = cci("VALID_END_DATE", "VALID_END_DATE", null, null, java.util.Date.class, "validEndDate", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnWhiteImplicitReverseFkRefId = cci("WHITE_IMPLICIT_REVERSE_FK_REF_ID", "WHITE_IMPLICIT_REVERSE_FK_REF_ID", null, null, Integer.class, "whiteImplicitReverseFkRefId", null, true, true, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnWhiteImplicitReverseFkId = cci("WHITE_IMPLICIT_REVERSE_FK_ID", "WHITE_IMPLICIT_REVERSE_FK_ID", null, null, Integer.class, "whiteImplicitReverseFkId", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnValidBeginDate = cci("VALID_BEGIN_DATE", "VALID_BEGIN_DATE", null, null, java.time.LocalDate.class, "validBeginDate", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnValidEndDate = cci("VALID_END_DATE", "VALID_END_DATE", null, null, java.time.LocalDate.class, "validEndDate", null, false, false, true, "DATE", 10, 0, null, false, null, null, null, null, null, false);
 
     /**
      * WHITE_IMPLICIT_REVERSE_FK_REF_ID: {PK, ID, NotNull, INT(10)}

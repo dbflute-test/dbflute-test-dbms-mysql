@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getSelfReferenceId(), (et, vl) -> ((WhiteSelfReference)et).setSelfReferenceId(ctl(vl)), "selfReferenceId");
         setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getSelfReferenceName(), (et, vl) -> ((WhiteSelfReference)et).setSelfReferenceName((String)vl), "selfReferenceName");
         setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getParentId(), (et, vl) -> ((WhiteSelfReference)et).setParentId(ctl(vl)), "parentId");
@@ -65,9 +67,10 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteSelfReference)et).getWhiteSelfReferenceSelf(), (et, vl) -> ((WhiteSelfReference)et).setWhiteSelfReferenceSelf((WhiteSelfReference)vl), "whiteSelfReferenceSelf");
-        setupEfpg(_efpgMap, et -> ((WhiteSelfReference)et).getWhiteSelfReferenceRefOneAsOne(), (et, vl) -> ((WhiteSelfReference)et).setWhiteSelfReferenceRefOneAsOne((WhiteSelfReferenceRefOne)vl), "whiteSelfReferenceRefOneAsOne");
+        setupEfpg(_efpgMap, et -> ((WhiteSelfReference)et).getWhiteSelfReferenceSelf(), (et, vl) -> ((WhiteSelfReference)et).setWhiteSelfReferenceSelf((OptionalEntity<WhiteSelfReference>)vl), "whiteSelfReferenceSelf");
+        setupEfpg(_efpgMap, et -> ((WhiteSelfReference)et).getWhiteSelfReferenceRefOneAsOne(), (et, vl) -> ((WhiteSelfReference)et).setWhiteSelfReferenceRefOneAsOne((OptionalEntity<WhiteSelfReferenceRefOne>)vl), "whiteSelfReferenceRefOneAsOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -86,9 +89,9 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSelfReferenceId = cci("SELF_REFERENCE_ID", "SELF_REFERENCE_ID", null, null, Long.class, "selfReferenceId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, "whiteSelfReferenceSelfList", null);
-    protected final ColumnInfo _columnSelfReferenceName = cci("SELF_REFERENCE_NAME", "SELF_REFERENCE_NAME", null, null, String.class, "selfReferenceName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnParentId = cci("PARENT_ID", "PARENT_ID", null, null, Long.class, "parentId", null, false, false, false, "DECIMAL", 16, 0, null, false, null, null, "whiteSelfReferenceSelf", null, null);
+    protected final ColumnInfo _columnSelfReferenceId = cci("SELF_REFERENCE_ID", "SELF_REFERENCE_ID", null, null, Long.class, "selfReferenceId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, "whiteSelfReferenceSelfList", null, false);
+    protected final ColumnInfo _columnSelfReferenceName = cci("SELF_REFERENCE_NAME", "SELF_REFERENCE_NAME", null, null, String.class, "selfReferenceName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnParentId = cci("PARENT_ID", "PARENT_ID", null, null, Long.class, "parentId", null, false, false, false, "DECIMAL", 16, 0, null, false, null, null, "whiteSelfReferenceSelf", null, null, false);
 
     /**
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
@@ -140,7 +143,7 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSelfReferenceSelf() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnParentId(), WhiteSelfReferenceDbm.getInstance().columnSelfReferenceId());
-        return cfi("FK_WHITE_SELF_REFERENCE_PARENT", "whiteSelfReferenceSelf", this, WhiteSelfReferenceDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteSelfReferenceSelfList");
+        return cfi("FK_WHITE_SELF_REFERENCE_PARENT", "whiteSelfReferenceSelf", this, WhiteSelfReferenceDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSelfReferenceSelfList", false);
     }
     /**
      * white_self_reference_ref_one by SELF_REFERENCE_ID, named 'whiteSelfReferenceRefOneAsOne'.
@@ -148,7 +151,7 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSelfReferenceRefOneAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSelfReferenceId(), WhiteSelfReferenceRefOneDbm.getInstance().columnSelfReferenceId());
-        return cfi("FK_WHITE_SELF_REFERENCE_REF_ONE", "whiteSelfReferenceRefOneAsOne", this, WhiteSelfReferenceRefOneDbm.getInstance(), mp, 1, null, true, false, true, false, null, null, false, "whiteSelfReference");
+        return cfi("FK_WHITE_SELF_REFERENCE_REF_ONE", "whiteSelfReferenceRefOneAsOne", this, WhiteSelfReferenceRefOneDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "whiteSelfReference", false);
     }
 
     // -----------------------------------------------------

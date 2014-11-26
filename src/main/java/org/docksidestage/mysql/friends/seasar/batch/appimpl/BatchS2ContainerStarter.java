@@ -8,7 +8,7 @@ import org.seasar.framework.container.SingletonS2Container;
 import org.seasar.framework.container.factory.SingletonS2ContainerFactory;
 
 /**
- * Batch starter for executing batch controllers using S2Container. <br />
+ * Batch starter for executing batch controllers using S2Container. <br>
  * This doesn't have scheduling system. Executing only.
  * @author jflute
  * @since 0.9.1 (2009/02/07 Saturday)

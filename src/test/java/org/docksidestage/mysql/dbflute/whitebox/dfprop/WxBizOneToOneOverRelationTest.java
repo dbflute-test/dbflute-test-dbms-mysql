@@ -1,7 +1,7 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.dbflute.cbean.ConditionBean;
@@ -90,7 +90,7 @@ public class WxBizOneToOneOverRelationTest extends UnitContainerTestCase {
     public void test_OverRelation_LocalForeign_subQuery() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().queryMember().queryMemberLoginAsLocalForeignOverTest().setMobileLoginFlg_Equal_True();
             }
@@ -116,8 +116,7 @@ public class WxBizOneToOneOverRelationTest extends UnitContainerTestCase {
         cb.setupSelect_Member().withMemberLoginAsLocalForeignOverTest();
         cb.setupSelect_Member().withMemberLoginAsReferrerForeignOverTest().withMemberStatus();
         cb.setupSelect_Product().withProductStatus();
-        cb.setupSelect_Member().withMemberLoginAsForeignForeignParameterOverTest(DfTypeUtil.toDate("2010/10/12"))
-                .withMemberStatus();
+        cb.setupSelect_Member().withMemberLoginAsForeignForeignParameterOverTest(DfTypeUtil.toLocalDate("2010/10/12")).withMemberStatus();
 
         // ## Act ##
         purchaseBhv.selectList(cb); // expect no exception
@@ -401,7 +400,7 @@ public class WxBizOneToOneOverRelationTest extends UnitContainerTestCase {
     public void test_OverRelation_ForeignForeignParameter_useSecondArg() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.setupSelect_MemberLoginAsForeignForeignParameterOverTest(DfTypeUtil.toDate("2010/10/12"));
+        cb.setupSelect_MemberLoginAsForeignForeignParameterOverTest(DfTypeUtil.toLocalDate("2010/10/12"));
 
         // ## Act ##
         cb.paging(1, 1);
@@ -424,7 +423,7 @@ public class WxBizOneToOneOverRelationTest extends UnitContainerTestCase {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberLoginAsForeignForeignEachOverTest();
-        cb.setupSelect_MemberLoginAsForeignForeignParameterOverTest(DfTypeUtil.toDate("2010/10/12"));
+        cb.setupSelect_MemberLoginAsForeignForeignParameterOverTest(DfTypeUtil.toLocalDate("2010/10/12"));
 
         // ## Act ##
         memberBhv.selectList(cb); // expect no exception
@@ -568,7 +567,7 @@ public class WxBizOneToOneOverRelationTest extends UnitContainerTestCase {
     public void test_OverRelation_ForeignForeignParameter_PagingCountLeastJoin_hasQuery() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        Date targetDate = DfTypeUtil.toDate("2010/10/12");
+        LocalDate targetDate = DfTypeUtil.toLocalDate("2010/10/12");
         cb.setupSelect_MemberLoginAsForeignForeignParameterOverTest(targetDate);
         cb.query().queryMemberLoginAsForeignForeignParameterOverTest(targetDate).setMemberId_GreaterEqual(0);
         cb.paging(3, 1);
@@ -598,7 +597,7 @@ public class WxBizOneToOneOverRelationTest extends UnitContainerTestCase {
     public void test_OverRelation_ForeignForeignParameter_PagingCountLeastJoin_noQuery() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        Date targetDate = DfTypeUtil.toDate("2010/10/12");
+        LocalDate targetDate = toLocalDate("2010/10/12");
         cb.setupSelect_MemberLoginAsForeignForeignParameterOverTest(targetDate);
         cb.paging(3, 1);
         cb.disablePagingCountLater();

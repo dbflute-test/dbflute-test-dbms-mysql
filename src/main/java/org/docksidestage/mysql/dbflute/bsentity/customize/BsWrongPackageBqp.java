@@ -57,7 +57,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
- * java.util.Date birthdate = entity.getBirthdate();
+ * java.time.LocalDate birthdate = entity.getBirthdate();
  * String memberStatusName = entity.getMemberStatusName();
  * entity.setMemberId(memberId);
  * entity.setMemberName(memberName);
@@ -85,30 +85,22 @@ public abstract class BsWrongPackageBqp extends AbstractEntity implements Custom
     protected String _memberName;
 
     /** (生年月日)BIRTHDATE: {DATE(10), refers to member.BIRTHDATE} */
-    protected java.util.Date _birthdate;
+    protected java.time.LocalDate _birthdate;
 
     /** (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} */
     protected String _memberStatusName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "WrongPackageBqp";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "wrongPackageBqp";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.mysql.dbflute.bsentity.customize.dbmeta.WrongPackageBqpDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "WrongPackageBqp";
     }
 
     // ===================================================================================
@@ -149,7 +141,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity implements Custom
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _birthdate);
@@ -167,7 +159,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity implements Custom
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_memberId));
         sb.append(dm).append(xfND(_memberName));
-        sb.append(dm).append(xfUD(_birthdate));
+        sb.append(dm).append(xfND(_birthdate));
         sb.append(dm).append(xfND(_memberStatusName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -236,7 +228,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity implements Custom
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getBirthdate() {
+    public java.time.LocalDate getBirthdate() {
         checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
@@ -246,7 +238,7 @@ public abstract class BsWrongPackageBqp extends AbstractEntity implements Custom
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBirthdate(java.util.Date birthdate) {
+    public void setBirthdate(java.time.LocalDate birthdate) {
         registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }

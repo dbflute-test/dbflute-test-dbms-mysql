@@ -52,7 +52,8 @@ public class WhiteVariantRelationMasterCorgeDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getMasterCorgeId(), (et, vl) -> ((WhiteVariantRelationMasterCorge)et).setMasterCorgeId(ctl(vl)), "masterCorgeId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getMasterCorgeName(), (et, vl) -> ((WhiteVariantRelationMasterCorge)et).setMasterCorgeName((String)vl), "masterCorgeName");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getCorgeTypeCode(), (et, vl) -> {
@@ -83,9 +84,9 @@ public class WhiteVariantRelationMasterCorgeDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMasterCorgeId = cci("MASTER_CORGE_ID", "MASTER_CORGE_ID", null, null, Long.class, "masterCorgeId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnMasterCorgeName = cci("MASTER_CORGE_NAME", "MASTER_CORGE_NAME", null, null, String.class, "masterCorgeName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnCorgeTypeCode = cci("CORGE_TYPE_CODE", "CORGE_TYPE_CODE", null, null, String.class, "corgeTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.VariantRelationQuxType);
+    protected final ColumnInfo _columnMasterCorgeId = cci("MASTER_CORGE_ID", "MASTER_CORGE_ID", null, null, Long.class, "masterCorgeId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMasterCorgeName = cci("MASTER_CORGE_NAME", "MASTER_CORGE_NAME", null, null, String.class, "masterCorgeName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCorgeTypeCode = cci("CORGE_TYPE_CODE", "CORGE_TYPE_CODE", null, null, String.class, "corgeTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.VariantRelationQuxType, false);
 
     /**
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}

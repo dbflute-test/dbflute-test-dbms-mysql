@@ -1,6 +1,6 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;
@@ -31,9 +31,9 @@ public class WxBizManyToOnePlainRelationTest extends UnitContainerTestCase {
         assertHasAnyElement(purchaseList);
         boolean exists = false;
         for (Purchase purchase : purchaseList) {
-            SummaryWithdrawal withdrawal = purchase.getSummaryWithdrawal();
+            SummaryWithdrawal withdrawal = purchase.getSummaryWithdrawal().orElse(null);
             Integer memberId = withdrawal != null ? withdrawal.getMemberId() : null;
-            Timestamp withdrawalDatetime = withdrawal != null ? withdrawal.getWithdrawalDatetime() : null;
+            LocalDateTime withdrawalDatetime = withdrawal != null ? withdrawal.getWithdrawalDatetime() : null;
             log(purchase.getPurchaseId(), purchase.getPurchaseDatetime(), memberId, withdrawalDatetime);
             if (withdrawalDatetime != null) {
                 assertNotNull(withdrawal.getMemberId());
@@ -63,9 +63,9 @@ public class WxBizManyToOnePlainRelationTest extends UnitContainerTestCase {
         assertHasAnyElement(purchaseList);
         boolean exists = false;
         for (Purchase purchase : purchaseList) {
-            SummaryWithdrawal withdrawal = purchase.getSummaryWithdrawal();
+            SummaryWithdrawal withdrawal = purchase.getSummaryWithdrawal().orElse(null);
             Integer memberId = withdrawal != null ? withdrawal.getMemberId() : null;
-            Timestamp withdrawalDatetime = withdrawal != null ? withdrawal.getWithdrawalDatetime() : null;
+            LocalDateTime withdrawalDatetime = withdrawal != null ? withdrawal.getWithdrawalDatetime() : null;
             log(purchase.getPurchaseId(), purchase.getPurchaseDatetime(), memberId, withdrawalDatetime);
             if (withdrawalDatetime != null) {
                 assertNotNull(withdrawal.getMemberId());

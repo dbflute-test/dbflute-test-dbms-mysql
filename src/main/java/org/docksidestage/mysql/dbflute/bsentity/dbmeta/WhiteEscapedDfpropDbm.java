@@ -52,7 +52,8 @@ public class WhiteEscapedDfpropDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteEscapedDfprop)et).getEscapedDfpropCode(), (et, vl) -> {
             ColumnInfo col = columnEscapedDfpropCode();
             ccls(col, vl);
@@ -82,8 +83,8 @@ public class WhiteEscapedDfpropDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnEscapedDfpropCode = cci("ESCAPED_DFPROP_CODE", "ESCAPED_DFPROP_CODE", null, null, String.class, "escapedDfpropCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.EscapedDfpropCls);
-    protected final ColumnInfo _columnEscapedDfpropName = cci("ESCAPED_DFPROP_NAME", "ESCAPED_DFPROP_NAME", null, null, String.class, "escapedDfpropName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnEscapedDfpropCode = cci("ESCAPED_DFPROP_CODE", "ESCAPED_DFPROP_CODE", null, null, String.class, "escapedDfpropCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.EscapedDfpropCls, false);
+    protected final ColumnInfo _columnEscapedDfpropName = cci("ESCAPED_DFPROP_NAME", "ESCAPED_DFPROP_NAME", null, null, String.class, "escapedDfpropName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null, false);
 
     /**
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}

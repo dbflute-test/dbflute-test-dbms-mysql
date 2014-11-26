@@ -26,7 +26,7 @@ public class WhitePerrottaOverTraceNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhitePerrottaOverTraceCQ _query;
+    protected final WhitePerrottaOverTraceCQ _query;
     public WhitePerrottaOverTraceNss(WhitePerrottaOverTraceCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -92,24 +94,16 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     protected String _attributeExp;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_all_in_one_cls_element";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteAllInOneClsElement";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -126,13 +120,15 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'. */
-    protected WhiteAllInOneClsCategory _whiteAllInOneClsCategory;
+    protected OptionalEntity<WhiteAllInOneClsCategory> _whiteAllInOneClsCategory;
 
     /**
      * [get] white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'. <br>
-     * @return The entity of foreign property 'whiteAllInOneClsCategory'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteAllInOneClsCategory'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteAllInOneClsCategory getWhiteAllInOneClsCategory() {
+    public OptionalEntity<WhiteAllInOneClsCategory> getWhiteAllInOneClsCategory() {
+        if (_whiteAllInOneClsCategory == null) { _whiteAllInOneClsCategory = OptionalEntity.relationEmpty(this, "whiteAllInOneClsCategory"); }
         return _whiteAllInOneClsCategory;
     }
 
@@ -140,7 +136,7 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
      * [set] white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
      * @param whiteAllInOneClsCategory The entity of foreign property 'whiteAllInOneClsCategory'. (NullAllowed)
      */
-    public void setWhiteAllInOneClsCategory(WhiteAllInOneClsCategory whiteAllInOneClsCategory) {
+    public void setWhiteAllInOneClsCategory(OptionalEntity<WhiteAllInOneClsCategory> whiteAllInOneClsCategory) {
         _whiteAllInOneClsCategory = whiteAllInOneClsCategory;
     }
 
@@ -169,7 +165,7 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _clsCategoryCode);
         hs = xCH(hs, _clsElementCode);
         return hs;
@@ -178,9 +174,12 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteAllInOneClsCategory != null)
+        if (_whiteAllInOneClsCategory != null && _whiteAllInOneClsCategory.isPresent())
         { sb.append(li).append(xbRDS(_whiteAllInOneClsCategory, "whiteAllInOneClsCategory")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -200,7 +199,7 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteAllInOneClsCategory != null)
+        if (_whiteAllInOneClsCategory != null && _whiteAllInOneClsCategory.isPresent())
         { sb.append(dm).append("whiteAllInOneClsCategory"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

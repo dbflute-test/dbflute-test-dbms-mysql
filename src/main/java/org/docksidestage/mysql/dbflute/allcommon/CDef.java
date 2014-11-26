@@ -1258,16 +1258,16 @@ public interface CDef extends Classification {
     }
 
     /**
-     * delimiter; & endBrace} & path\foo\bar
+     * delimiter; &amp; endBrace} &amp; path\foo\bar
      */
     public enum EscapedDfpropCls implements CDef {
-        /** First: delimiter & rear escape char */
+        /** First: delimiter &amp; rear escape char */
         First(";@\\", "First", EMPTY_SISTERS)
         ,
-        /** Second: escape char & endBrace & delimiter */
+        /** Second: escape char &amp; endBrace &amp; delimiter */
         Second("\\};", "Second", EMPTY_SISTERS)
         ,
-        /** Third: startBrace & equal & endBrace */
+        /** Third: startBrace &amp; equal &amp; endBrace */
         Third("{=}", "Third", EMPTY_SISTERS)
         ;
         private static final Map<String, EscapedDfpropCls> _codeValueMap = new HashMap<String, EscapedDfpropCls>();
@@ -1331,13 +1331,13 @@ public interface CDef extends Classification {
     }
 
     /**
-     * /*IF pmb.yourTop&#42;/&gt;&lt;&
+     * /*IF pmb.yourTop&#42;/&gt;&lt;&amp;
      */
     public enum EscapedJavaDocCls implements CDef {
-        /** First: /*IF pmb.yourFooComment&#42;/&gt;&lt;& */
+        /** First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&amp; */
         First("FOO", "First", EMPTY_SISTERS)
         ,
-        /** Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;& */
+        /** Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&amp; */
         Second("BAR", "Second", EMPTY_SISTERS)
         ;
         private static final Map<String, EscapedJavaDocCls> _codeValueMap = new HashMap<String, EscapedJavaDocCls>();
@@ -1357,7 +1357,7 @@ public interface CDef extends Classification {
 
         /**
          * Is the classification in the group? <br>
-         * /*IF pmb.yourGroup&#42;/&gt;&lt;& <br>
+         * /*IF pmb.yourGroup&#42;/&gt;&lt;&amp; <br>
          * The group elements:[First, Second]
          * @return The determination, true or false.
          */
@@ -1401,7 +1401,7 @@ public interface CDef extends Classification {
 
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
-         * /*IF pmb.yourGroup&#42;/&gt;&lt;& <br>
+         * /*IF pmb.yourGroup&#42;/&gt;&lt;&amp; <br>
          * The group elements:[First, Second]
          * @return The list of classification elements in the group. (NotNull)
          */
@@ -2311,10 +2311,10 @@ public interface CDef extends Classification {
         /** merged */
         QuxCls
         ,
-        /** delimiter; & endBrace} & path\foo\bar */
+        /** delimiter; &amp; endBrace} &amp; path\foo\bar */
         EscapedDfpropCls
         ,
-        /** /*IF pmb.yourTop&#42;/&gt;&lt;& */
+        /** /*IF pmb.yourTop&#42;/&gt;&lt;&amp; */
         EscapedJavaDocCls
         ,
         /** 6 */

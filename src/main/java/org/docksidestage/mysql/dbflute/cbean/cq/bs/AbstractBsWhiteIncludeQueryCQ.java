@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_include_query";
     }
 
@@ -271,8 +268,8 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      * INCLUDE_QUERY_DATE: {DATE(10)}
      * @param includeQueryDate The value of includeQueryDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setIncludeQueryDate_Equal(java.util.Date includeQueryDate) {
-        regIncludeQueryDate(CK_EQ,  fCTPD(includeQueryDate));
+    public void setIncludeQueryDate_Equal(java.time.LocalDate includeQueryDate) {
+        regIncludeQueryDate(CK_EQ,  includeQueryDate);
     }
 
     protected void regIncludeQueryDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueIncludeQueryDate(), "INCLUDE_QUERY_DATE"); }
@@ -283,7 +280,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      * INCLUDE_QUERY_DATETIME: {DATETIME(19)}
      * @param includeQueryDatetime The value of includeQueryDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setIncludeQueryDatetime_Equal(java.sql.Timestamp includeQueryDatetime) {
+    public void setIncludeQueryDatetime_Equal(java.time.LocalDateTime includeQueryDatetime) {
         regIncludeQueryDatetime(CK_EQ,  includeQueryDatetime);
     }
 
@@ -296,7 +293,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of includeQueryDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setIncludeQueryDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setIncludeQueryDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setIncludeQueryDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -309,23 +306,9 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of includeQueryDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setIncludeQueryDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueIncludeQueryDatetime(), "INCLUDE_QUERY_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * INCLUDE_QUERY_DATETIME: {DATETIME(19)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of includeQueryDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of includeQueryDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setIncludeQueryDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setIncludeQueryDatetime_FromTo(fromDate, toDate, xcDFTOP());
+    public void setIncludeQueryDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "INCLUDE_QUERY_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueIncludeQueryDatetime(), nm, op);
     }
 
     /**
@@ -576,39 +559,6 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

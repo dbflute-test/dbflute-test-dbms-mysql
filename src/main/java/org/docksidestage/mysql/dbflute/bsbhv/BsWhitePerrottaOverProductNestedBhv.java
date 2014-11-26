@@ -75,10 +75,12 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhitePerrottaOverProductNestedDbm getDBMeta() { return WhitePerrottaOverProductNestedDbm.getInstance(); }
+    public WhitePerrottaOverProductNestedDbm asDBMeta() { return WhitePerrottaOverProductNestedDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_perrotta_over_product_nested"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhitePerrottaOverProductNestedCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhitePerrottaOverProductNestedCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * Load referrer of whitePerrottaOverProductList by the set-upper of referrer. <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProductList</span>(<span style="color: #553000">whitePerrottaOverProductNestedList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProduct</span>(<span style="color: #553000">whitePerrottaOverProductNestedList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
      *     <span style="color: #553000">productCB</span>.query().set...
      *     <span style="color: #553000">productCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProductList(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProduct(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
         xassLRArg(whitePerrottaOverProductNestedList, refCBLambda);
-        return doLoadWhitePerrottaOverProductList(whitePerrottaOverProductNestedList, new LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct>().xinit(refCBLambda));
+        return doLoadWhitePerrottaOverProduct(whitePerrottaOverProductNestedList, new LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whitePerrottaOverProductList by the set-upper of referrer. <br>
      * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProductList</span>(<span style="color: #553000">whitePerrottaOverProductNested</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProduct</span>(<span style="color: #553000">whitePerrottaOverProductNested</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
      *     <span style="color: #553000">productCB</span>.query().set...
      *     <span style="color: #553000">productCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProductList(WhitePerrottaOverProductNested whitePerrottaOverProductNested, ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProduct(WhitePerrottaOverProductNested whitePerrottaOverProductNested, ConditionBeanSetupper<WhitePerrottaOverProductCB> refCBLambda) {
         xassLRArg(whitePerrottaOverProductNested, refCBLambda);
-        return doLoadWhitePerrottaOverProductList(xnewLRLs(whitePerrottaOverProductNested), new LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct>().xinit(refCBLambda));
+        return doLoadWhitePerrottaOverProduct(xnewLRLs(whitePerrottaOverProductNested), new LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProductList(WhitePerrottaOverProductNested whitePerrottaOverProductNested, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProduct(WhitePerrottaOverProductNested whitePerrottaOverProductNested, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> loadReferrerOption) {
         xassLRArg(whitePerrottaOverProductNested, loadReferrerOption);
-        return loadWhitePerrottaOverProductList(xnewLRLs(whitePerrottaOverProductNested), loadReferrerOption);
+        return loadWhitePerrottaOverProduct(xnewLRLs(whitePerrottaOverProductNested), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProductList(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePerrottaOverProduct> loadWhitePerrottaOverProduct(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> loadReferrerOption) {
         xassLRArg(whitePerrottaOverProductNestedList, loadReferrerOption);
         if (whitePerrottaOverProductNestedList.isEmpty()) { return (NestedReferrerListGateway<WhitePerrottaOverProduct>)EMPTY_NREF_LGWAY; }
-        return doLoadWhitePerrottaOverProductList(whitePerrottaOverProductNestedList, loadReferrerOption);
+        return doLoadWhitePerrottaOverProduct(whitePerrottaOverProductNestedList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhitePerrottaOverProduct> doLoadWhitePerrottaOverProductList(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> option) {
+    protected NestedReferrerListGateway<WhitePerrottaOverProduct> doLoadWhitePerrottaOverProduct(List<WhitePerrottaOverProductNested> whitePerrottaOverProductNestedList, LoadReferrerOption<WhitePerrottaOverProductCB, WhitePerrottaOverProduct> option) {
         return helpLoadReferrerInternally(whitePerrottaOverProductNestedList, option, "whitePerrottaOverProductList");
     }
 
@@ -637,11 +639,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">//whitePerrottaOverProductNested.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whitePerrottaOverProductNested.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">update</span>(whitePerrottaOverProductNested);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">update</span>(whitePerrottaOverProductNested);
      * </pre>
      * @param whitePerrottaOverProductNested The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -802,9 +800,9 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whitePerrottaOverProductNested.setVersionNo(value);</span>
-     * WhitePerrottaOverProductNestedCB cb = <span style="color: #70226C">new</span> WhitePerrottaOverProductNestedCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whitePerrottaOverProductNested, cb);
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whitePerrottaOverProductNested, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whitePerrottaOverProductNested The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverProductNested. (NotNull)
@@ -844,9 +842,9 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhitePerrottaOverProductNestedCB cb = new WhitePerrottaOverProductNestedCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverProductNested, cb);
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverProductNested, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverProductNested. (NotNull)
      * @return The deleted count.
@@ -886,10 +884,10 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whitePerrottaOverProductNested.setFoo...(value);
      * whitePerrottaOverProductNested.setBar...(value);
-     * InsertOption&lt;WhitePerrottaOverProductNestedCB&gt; option = new InsertOption&lt;WhitePerrottaOverProductNestedCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whitePerrottaOverProductNested, option);
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whitePerrottaOverProductNested, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whitePerrottaOverProductNested.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whitePerrottaOverProductNested The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -910,18 +908,12 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * whitePerrottaOverProductNested.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whitePerrottaOverProductNested.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhitePerrottaOverProductNestedCB&gt; option = new UpdateOption&lt;WhitePerrottaOverProductNestedCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
-     *         public void specify(WhitePerrottaOverProductNestedCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whitePerrottaOverProductNested, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whitePerrottaOverProductNested, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whitePerrottaOverProductNested The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1030,15 +1022,13 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whitePerrottaOverProductNested.setVersionNo(value);</span>
-     * WhitePerrottaOverProductNestedCB cb = new WhitePerrottaOverProductNestedCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhitePerrottaOverProductNestedCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhitePerrottaOverProductNestedCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
-     *     public void specify(WhitePerrottaOverProductNestedCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverProductNested, cb, option);
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverProductNested, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whitePerrottaOverProductNested The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverProductNested. (NotNull)
@@ -1066,13 +1056,11 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * <span style="color: #3F7E5E">//whitePerrottaOverProductNested.setVersionNo(value);</span>
      * WhitePerrottaOverProductNestedCB cb = <span style="color: #70226C">new</span> WhitePerrottaOverProductNestedCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhitePerrottaOverProductNestedCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhitePerrottaOverProductNestedCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhitePerrottaOverProductNestedCB&gt;() {
-     *     public void specify(WhitePerrottaOverProductNestedCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverProductNested, cb, option);
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePerrottaOverProductNested, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whitePerrottaOverProductNested The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhitePerrottaOverProductNested. (NotNull)
@@ -1087,7 +1075,14 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverProductNested, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhitePerrottaOverProductNested. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1100,7 +1095,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhitePerrottaOverProductNested. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1141,9 +1136,8 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhitePerrottaOverProductNestedBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhitePerrottaOverProductNestedBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhitePerrottaOverProductNestedBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

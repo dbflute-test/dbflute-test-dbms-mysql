@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -97,24 +99,16 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     protected String _machoCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_perrotta_over_member";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whitePerrottaOverMember";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -130,13 +124,15 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'. */
-    protected WhitePerrottaOverMemberMacho _whitePerrottaOverMemberMacho;
+    protected OptionalEntity<WhitePerrottaOverMemberMacho> _whitePerrottaOverMemberMacho;
 
     /**
      * [get] white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'. <br>
-     * @return The entity of foreign property 'whitePerrottaOverMemberMacho'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whitePerrottaOverMemberMacho'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhitePerrottaOverMemberMacho getWhitePerrottaOverMemberMacho() {
+    public OptionalEntity<WhitePerrottaOverMemberMacho> getWhitePerrottaOverMemberMacho() {
+        if (_whitePerrottaOverMemberMacho == null) { _whitePerrottaOverMemberMacho = OptionalEntity.relationEmpty(this, "whitePerrottaOverMemberMacho"); }
         return _whitePerrottaOverMemberMacho;
     }
 
@@ -144,18 +140,20 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
      * [set] white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
      * @param whitePerrottaOverMemberMacho The entity of foreign property 'whitePerrottaOverMemberMacho'. (NullAllowed)
      */
-    public void setWhitePerrottaOverMemberMacho(WhitePerrottaOverMemberMacho whitePerrottaOverMemberMacho) {
+    public void setWhitePerrottaOverMemberMacho(OptionalEntity<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMacho) {
         _whitePerrottaOverMemberMacho = whitePerrottaOverMemberMacho;
     }
 
     /** white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'. */
-    protected WhitePerrottaOverProduct _whitePerrottaOverProduct;
+    protected OptionalEntity<WhitePerrottaOverProduct> _whitePerrottaOverProduct;
 
     /**
      * [get] white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'. <br>
-     * @return The entity of foreign property 'whitePerrottaOverProduct'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whitePerrottaOverProduct'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhitePerrottaOverProduct getWhitePerrottaOverProduct() {
+    public OptionalEntity<WhitePerrottaOverProduct> getWhitePerrottaOverProduct() {
+        if (_whitePerrottaOverProduct == null) { _whitePerrottaOverProduct = OptionalEntity.relationEmpty(this, "whitePerrottaOverProduct"); }
         return _whitePerrottaOverProduct;
     }
 
@@ -163,7 +161,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
      * [set] white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
      * @param whitePerrottaOverProduct The entity of foreign property 'whitePerrottaOverProduct'. (NullAllowed)
      */
-    public void setWhitePerrottaOverProduct(WhitePerrottaOverProduct whitePerrottaOverProduct) {
+    public void setWhitePerrottaOverProduct(OptionalEntity<WhitePerrottaOverProduct> whitePerrottaOverProduct) {
         _whitePerrottaOverProduct = whitePerrottaOverProduct;
     }
 
@@ -191,7 +189,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         return hs;
     }
@@ -199,11 +197,14 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePerrottaOverMemberMacho != null)
+        if (_whitePerrottaOverMemberMacho != null && _whitePerrottaOverMemberMacho.isPresent())
         { sb.append(li).append(xbRDS(_whitePerrottaOverMemberMacho, "whitePerrottaOverMemberMacho")); }
-        if (_whitePerrottaOverProduct != null)
+        if (_whitePerrottaOverProduct != null && _whitePerrottaOverProduct.isPresent())
         { sb.append(li).append(xbRDS(_whitePerrottaOverProduct, "whitePerrottaOverProduct")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -224,9 +225,9 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whitePerrottaOverMemberMacho != null)
+        if (_whitePerrottaOverMemberMacho != null && _whitePerrottaOverMemberMacho.isPresent())
         { sb.append(dm).append("whitePerrottaOverMemberMacho"); }
-        if (_whitePerrottaOverProduct != null)
+        if (_whitePerrottaOverProduct != null && _whitePerrottaOverProduct.isPresent())
         { sb.append(dm).append("whitePerrottaOverProduct"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

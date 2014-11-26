@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhitePgReservRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePgReservRef)et).getRefId(), (et, vl) -> ((WhitePgReservRef)et).setRefId(cti(vl)), "refId");
         setupEpg(_epgMap, et -> ((WhitePgReservRef)et).getClassSynonym(), (et, vl) -> ((WhitePgReservRef)et).setClassSynonym(cti(vl)), "classSynonym");
     }
@@ -64,8 +66,9 @@ public class WhitePgReservRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhitePgReservRef)et).getWhitePgReserv(), (et, vl) -> ((WhitePgReservRef)et).setWhitePgReserv((WhitePgReserv)vl), "whitePgReserv");
+        setupEfpg(_efpgMap, et -> ((WhitePgReservRef)et).getWhitePgReserv(), (et, vl) -> ((WhitePgReservRef)et).setWhitePgReserv((OptionalEntity<WhitePgReserv>)vl), "whitePgReserv");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -84,8 +87,8 @@ public class WhitePgReservRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Integer.class, "refId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnClassSynonym = cci("CLASS", "CLASS", "CLASS_SYNONYM", "(using DBFlute synonym)", Integer.class, "classSynonym", null, false, false, false, "INT", 10, 0, null, false, null, null, "whitePgReserv", null, null);
+    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Integer.class, "refId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnClassSynonym = cci("CLASS", "CLASS", "CLASS_SYNONYM", "(using DBFlute synonym)", Integer.class, "classSynonym", null, false, false, false, "INT", 10, 0, null, false, null, null, "whitePgReserv", null, null, false);
 
     /**
      * REF_ID: {PK, NotNull, INT(10)}
@@ -131,7 +134,7 @@ public class WhitePgReservRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePgReserv() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnClassSynonym(), WhitePgReservDbm.getInstance().columnClassSynonym());
-        return cfi("FK_WHITE_PG_RESERV_REF_CLASS", "whitePgReserv", this, WhitePgReservDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whitePgReservRefList");
+        return cfi("FK_WHITE_PG_RESERV_REF_CLASS", "whitePgReserv", this, WhitePgReservDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePgReservRefList", false);
     }
 
     // -----------------------------------------------------

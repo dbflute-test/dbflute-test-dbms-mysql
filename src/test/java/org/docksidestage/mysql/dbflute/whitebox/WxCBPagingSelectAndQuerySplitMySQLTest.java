@@ -35,7 +35,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberServiceAsOne().withServiceRank();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -43,7 +43,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         cb.orScopeQuery(new OrQuery<MemberCB>() {
             public void query(MemberCB orCB) {
                 orCB.query().setMemberStatusCode_Equal_Formalized();
-                orCB.query().setMemberName_PrefixSearch("S");
+                orCB.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
             }
         });
         cb.query().queryMemberStatus().addOrderBy_DisplayOrder_Asc();
@@ -90,7 +90,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberServiceAsOne().withServiceRank();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -98,7 +98,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         cb.orScopeQuery(new OrQuery<MemberCB>() {
             public void query(MemberCB orCB) {
                 orCB.query().setMemberStatusCode_Equal_Formalized();
-                orCB.query().setMemberName_PrefixSearch("S");
+                orCB.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
             }
         });
         cb.query().queryMemberStatus().addOrderBy_DisplayOrder_Asc();
@@ -154,7 +154,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberServiceAsOne().withServiceRank();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -162,10 +162,10 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         cb.orScopeQuery(new OrQuery<MemberCB>() {
             public void query(MemberCB orCB) {
                 orCB.query().setMemberStatusCode_Equal_Formalized();
-                orCB.query().setMemberName_PrefixSearch("S");
+                orCB.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
             }
         });
-        cb.query().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.query().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -228,7 +228,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
             }
         };
         cb.setupSelect_MemberServiceAsOne().withServiceRank();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -236,7 +236,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         cb.orScopeQuery(new OrQuery<MemberCB>() {
             public void query(MemberCB orCB) {
                 orCB.query().setMemberStatusCode_Equal_Formalized();
-                orCB.query().setMemberName_PrefixSearch("S");
+                orCB.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
             }
         });
         cb.query().setMemberId_Equal(99999);
@@ -299,7 +299,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         int countAll = memberBhv.selectCount(new MemberCB());
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberServiceAsOne().withServiceRank();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -334,7 +334,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberServiceAsOne().withServiceRank();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -342,7 +342,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         cb.orScopeQuery(new OrQuery<MemberCB>() {
             public void query(MemberCB orCB) {
                 orCB.query().setMemberStatusCode_Equal_Formalized();
-                orCB.query().setMemberName_PrefixSearch("S");
+                orCB.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
             }
         });
         cb.query().queryMemberStatus().addOrderBy_DisplayOrder_Asc();
@@ -397,7 +397,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberServiceAsOne().withServiceRank();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -405,7 +405,7 @@ public class WxCBPagingSelectAndQuerySplitMySQLTest extends UnitContainerTestCas
         cb.orScopeQuery(new OrQuery<MemberCB>() {
             public void query(MemberCB orCB) {
                 orCB.query().setMemberStatusCode_Equal_Formalized();
-                orCB.query().setMemberName_PrefixSearch("S");
+                orCB.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
             }
         });
         cb.query().queryMemberStatus().addOrderBy_DisplayOrder_Asc();

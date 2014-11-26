@@ -33,7 +33,7 @@ public interface SlaveDBAccessor {
     //                                               Fixedly
     //                                               -------
     /**
-     * Access to SlaveDB fixedly, which means it always selects SlaveDB in the call-back. <br />
+     * Access to SlaveDB fixedly, which means it always selects SlaveDB in the call-back. <br>
      * But if you have update accesses in the call-back, only the accesses are executed
      * to MasterDB forcedly because update statements should be executed to MasterDB.
      * And procedure calls are contained to update statements even if the procedure
@@ -48,11 +48,11 @@ public interface SlaveDBAccessor {
     //                                         Random Access
     //                                         -------------
     /**
-     * Access to SlaveDB randomly, which means it selects SlaveDB fifty-fifty in the call-back. <br />
+     * Access to SlaveDB randomly, which means it selects SlaveDB fifty-fifty in the call-back. <br>
      * But if you have update accesses in the call-back, only the accesses are executed
      * to MasterDB forcedly because update statements should be executed to MasterDB.
      * And procedure calls are contained to update statements even if the procedure
-     * has only select statements because of no determination factor. <br />
+     * has only select statements because of no determination factor. <br>
      * Random access depends on whether specified determination number is even number or not.
      * It means same number provides same DB access.
      * @param <RESULT> The type of result of call-back process

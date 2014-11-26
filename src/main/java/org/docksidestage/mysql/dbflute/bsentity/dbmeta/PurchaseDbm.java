@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,11 +53,12 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseId(), (et, vl) -> ((Purchase)et).setPurchaseId(ctl(vl)), "purchaseId");
         setupEpg(_epgMap, et -> ((Purchase)et).getMemberId(), (et, vl) -> ((Purchase)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((Purchase)et).getProductId(), (et, vl) -> ((Purchase)et).setProductId(cti(vl)), "productId");
-        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseDatetime(), (et, vl) -> ((Purchase)et).setPurchaseDatetime((java.sql.Timestamp)vl), "purchaseDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseDatetime(), (et, vl) -> ((Purchase)et).setPurchaseDatetime((java.time.LocalDateTime)vl), "purchaseDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseCount(), (et, vl) -> ((Purchase)et).setPurchaseCount(cti(vl)), "purchaseCount");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchasePrice(), (et, vl) -> ((Purchase)et).setPurchasePrice(cti(vl)), "purchasePrice");
         setupEpg(_epgMap, et -> ((Purchase)et).getPaymentCompleteFlg(), (et, vl) -> {
@@ -69,9 +71,9 @@ public class PurchaseDbm extends AbstractDBMeta {
                 ((Purchase)et).mynativeMappingPaymentCompleteFlg(ctn(vl, Integer.class));
             }
         }, "paymentCompleteFlg");
-        setupEpg(_epgMap, et -> ((Purchase)et).getRegisterDatetime(), (et, vl) -> ((Purchase)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getRegisterDatetime(), (et, vl) -> ((Purchase)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getRegisterUser(), (et, vl) -> ((Purchase)et).setRegisterUser((String)vl), "registerUser");
-        setupEpg(_epgMap, et -> ((Purchase)et).getUpdateDatetime(), (et, vl) -> ((Purchase)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getUpdateDatetime(), (et, vl) -> ((Purchase)et).setUpdateDatetime((java.time.LocalDateTime)vl), "updateDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getUpdateUser(), (et, vl) -> ((Purchase)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((Purchase)et).getVersionNo(), (et, vl) -> ((Purchase)et).setVersionNo(ctl(vl)), "versionNo");
     }
@@ -83,16 +85,17 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getMember(), (et, vl) -> ((Purchase)et).setMember((Member)vl), "member");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getProduct(), (et, vl) -> ((Purchase)et).setProduct((Product)vl), "product");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getSummaryProduct(), (et, vl) -> ((Purchase)et).setSummaryProduct((SummaryProduct)vl), "summaryProduct");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getSummaryWithdrawal(), (et, vl) -> ((Purchase)et).setSummaryWithdrawal((SummaryWithdrawal)vl), "summaryWithdrawal");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getWhiteNoPkRelation(), (et, vl) -> ((Purchase)et).setWhiteNoPkRelation((WhiteNoPkRelation)vl), "whiteNoPkRelation");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getPurchaseSelf(), (et, vl) -> ((Purchase)et).setPurchaseSelf((Purchase)vl), "purchaseSelf");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getMemberAddressAsSkipRelation(), (et, vl) -> ((Purchase)et).setMemberAddressAsSkipRelation((MemberAddress)vl), "memberAddressAsSkipRelation");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getWhitePurchaseReferrerAsOne(), (et, vl) -> ((Purchase)et).setWhitePurchaseReferrerAsOne((WhitePurchaseReferrer)vl), "whitePurchaseReferrerAsOne");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getPurchaseSelfAsOne(), (et, vl) -> ((Purchase)et).setPurchaseSelfAsOne((Purchase)vl), "purchaseSelfAsOne");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getMember(), (et, vl) -> ((Purchase)et).setMember((OptionalEntity<Member>)vl), "member");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getProduct(), (et, vl) -> ((Purchase)et).setProduct((OptionalEntity<Product>)vl), "product");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getSummaryProduct(), (et, vl) -> ((Purchase)et).setSummaryProduct((OptionalEntity<SummaryProduct>)vl), "summaryProduct");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getSummaryWithdrawal(), (et, vl) -> ((Purchase)et).setSummaryWithdrawal((OptionalEntity<SummaryWithdrawal>)vl), "summaryWithdrawal");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getWhiteNoPkRelation(), (et, vl) -> ((Purchase)et).setWhiteNoPkRelation((OptionalEntity<WhiteNoPkRelation>)vl), "whiteNoPkRelation");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getPurchaseSelf(), (et, vl) -> ((Purchase)et).setPurchaseSelf((OptionalEntity<Purchase>)vl), "purchaseSelf");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getMemberAddressAsSkipRelation(), (et, vl) -> ((Purchase)et).setMemberAddressAsSkipRelation((OptionalEntity<MemberAddress>)vl), "memberAddressAsSkipRelation");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getWhitePurchaseReferrerAsOne(), (et, vl) -> ((Purchase)et).setWhitePurchaseReferrerAsOne((OptionalEntity<WhitePurchaseReferrer>)vl), "whitePurchaseReferrerAsOne");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getPurchaseSelfAsOne(), (et, vl) -> ((Purchase)et).setPurchaseSelfAsOne((OptionalEntity<Purchase>)vl), "purchaseSelfAsOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -115,18 +118,18 @@ public class PurchaseDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnPurchaseId = cci("PURCHASE_ID", "PURCHASE_ID", null, "購入ID", Long.class, "purchaseId", null, true, true, true, "BIGINT", 19, 0, null, false, null, "連番", "purchaseSelf,whitePurchaseReferrerAsOne,purchaseSelfAsOne", "purchasePaymentList", null);
-    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, false, false, true, "INT", 10, 0, null, false, null, "会員を参照するID。\n購入を識別する自然キー（複合ユニーク制約）の筆頭要素。", "member,summaryWithdrawal,memberAddressAsSkipRelation", null, null);
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, "商品ID", Integer.class, "productId", null, false, false, true, "INT", 10, 0, null, false, null, "商品を参照するID。", "product,summaryProduct,whiteNoPkRelation", null, null);
-    protected final ColumnInfo _columnPurchaseDatetime = cci("PURCHASE_DATETIME", "PURCHASE_DATETIME", null, "購入日時", java.sql.Timestamp.class, "purchaseDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, "購入した瞬間の日時。", null, null, null);
-    protected final ColumnInfo _columnPurchaseCount = cci("PURCHASE_COUNT", "PURCHASE_COUNT", null, "購入数量", Integer.class, "purchaseCount", null, false, false, true, "INT", 10, 0, null, false, null, "購入した商品の（一回の購入における）数量。", null, null, null);
-    protected final ColumnInfo _columnPurchasePrice = cci("PURCHASE_PRICE", "PURCHASE_PRICE", null, "購入価格", Integer.class, "purchasePrice", null, false, false, true, "INT", 10, 0, null, false, null, "購入によって実際に会員が支払った（支払う予定の）価格。\n基本は商品の定価に購入数量を掛けたものになるが、\nポイント利用や割引があったりと必ずしもそうはならない。", null, null, null);
-    protected final ColumnInfo _columnPaymentCompleteFlg = cci("PAYMENT_COMPLETE_FLG", "PAYMENT_COMPLETE_FLG", null, "支払完了フラグ", Integer.class, "paymentCompleteFlg", null, false, false, true, "INT", 10, 0, null, false, null, "この購入に関しての支払いが完了しているか否か。", null, null, CDef.DefMeta.Flg);
-    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, null, java.sql.Timestamp.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, null, String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, null, java.sql.Timestamp.class, "updateDatetime", null, false, false, true, "DATETIME", 19, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateUser = cci("UPDATE_USER", "UPDATE_USER", null, null, String.class, "updateUser", null, false, false, true, "VARCHAR", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnVersionNo = cci("VERSION_NO", "VERSION_NO", null, null, Long.class, "versionNo", null, false, false, true, "BIGINT", 19, 0, null, false, OptimisticLockType.VERSION_NO, null, null, null, null);
+    protected final ColumnInfo _columnPurchaseId = cci("PURCHASE_ID", "PURCHASE_ID", null, "購入ID", Long.class, "purchaseId", null, true, true, true, "BIGINT", 19, 0, null, false, null, "連番", "purchaseSelf,whitePurchaseReferrerAsOne,purchaseSelfAsOne", "purchasePaymentList", null, false);
+    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, false, false, true, "INT", 10, 0, null, false, null, "会員を参照するID。\n購入を識別する自然キー（複合ユニーク制約）の筆頭要素。", "member,summaryWithdrawal,memberAddressAsSkipRelation", null, null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, "商品ID", Integer.class, "productId", null, false, false, true, "INT", 10, 0, null, false, null, "商品を参照するID。", "product,summaryProduct,whiteNoPkRelation", null, null, false);
+    protected final ColumnInfo _columnPurchaseDatetime = cci("PURCHASE_DATETIME", "PURCHASE_DATETIME", null, "購入日時", java.time.LocalDateTime.class, "purchaseDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, "購入した瞬間の日時。", null, null, null, false);
+    protected final ColumnInfo _columnPurchaseCount = cci("PURCHASE_COUNT", "PURCHASE_COUNT", null, "購入数量", Integer.class, "purchaseCount", null, false, false, true, "INT", 10, 0, null, false, null, "購入した商品の（一回の購入における）数量。", null, null, null, false);
+    protected final ColumnInfo _columnPurchasePrice = cci("PURCHASE_PRICE", "PURCHASE_PRICE", null, "購入価格", Integer.class, "purchasePrice", null, false, false, true, "INT", 10, 0, null, false, null, "購入によって実際に会員が支払った（支払う予定の）価格。\n基本は商品の定価に購入数量を掛けたものになるが、\nポイント利用や割引があったりと必ずしもそうはならない。", null, null, null, false);
+    protected final ColumnInfo _columnPaymentCompleteFlg = cci("PAYMENT_COMPLETE_FLG", "PAYMENT_COMPLETE_FLG", null, "支払完了フラグ", Integer.class, "paymentCompleteFlg", null, false, false, true, "INT", 10, 0, null, false, null, "この購入に関しての支払いが完了しているか否か。", null, null, CDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, null, String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, null, java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "DATETIME", 19, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdateUser = cci("UPDATE_USER", "UPDATE_USER", null, null, String.class, "updateUser", null, false, false, true, "VARCHAR", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnVersionNo = cci("VERSION_NO", "VERSION_NO", null, null, Long.class, "versionNo", null, false, false, true, "BIGINT", 19, 0, null, false, OptimisticLockType.VERSION_NO, null, null, null, null, false);
 
     /**
      * (購入ID)PURCHASE_ID: {PK, ID, NotNull, BIGINT(19), FK to PURCHASE}
@@ -232,7 +235,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMember() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("FK_PURCHASE_MEMBER", "member", this, MemberDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "purchaseList");
+        return cfi("FK_PURCHASE_MEMBER", "member", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "purchaseList", false);
     }
     /**
      * (商品)product by my PRODUCT_ID, named 'product'.
@@ -240,7 +243,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignProduct() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), ProductDbm.getInstance().columnProductId());
-        return cfi("FK_PURCHASE_PRODUCT", "product", this, ProductDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "purchaseList");
+        return cfi("FK_PURCHASE_PRODUCT", "product", this, ProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "purchaseList", false);
     }
     /**
      * (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'.
@@ -248,7 +251,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignSummaryProduct() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), SummaryProductDbm.getInstance().columnProductId());
-        return cfi("FK_PURCHASE_SUMMARY_PRODUCT", "summaryProduct", this, SummaryProductDbm.getInstance(), mp, 2, null, false, false, false, true, null, null, false, "purchaseList");
+        return cfi("FK_PURCHASE_SUMMARY_PRODUCT", "summaryProduct", this, SummaryProductDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "purchaseList", false);
     }
     /**
      * (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
@@ -256,7 +259,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignSummaryWithdrawal() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), SummaryWithdrawalDbm.getInstance().columnMemberId());
-        return cfi("FK_PURCHASE_SUMMARY_WITHDRAWAL", "summaryWithdrawal", this, SummaryWithdrawalDbm.getInstance(), mp, 3, null, false, false, false, true, null, null, false, null);
+        return cfi("FK_PURCHASE_SUMMARY_WITHDRAWAL", "summaryWithdrawal", this, SummaryWithdrawalDbm.getInstance(), mp, 3, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, null, false);
     }
     /**
      * (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
@@ -264,7 +267,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteNoPkRelation() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), WhiteNoPkRelationDbm.getInstance().columnProductId());
-        return cfi("FK_PURCHASE_NO_PK_RELATION", "whiteNoPkRelation", this, WhiteNoPkRelationDbm.getInstance(), mp, 4, null, false, false, false, true, null, null, false, null);
+        return cfi("FK_PURCHASE_NO_PK_RELATION", "whiteNoPkRelation", this, WhiteNoPkRelationDbm.getInstance(), mp, 4, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, null, false);
     }
     /**
      * (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'.
@@ -272,7 +275,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignPurchaseSelf() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnPurchaseId(), PurchaseDbm.getInstance().columnPurchaseId());
-        return cfi("FK_PURCHASE_PURCHASE_SELF", "purchaseSelf", this, PurchaseDbm.getInstance(), mp, 5, null, true, false, false, true, null, null, false, "purchaseSelfAsOne");
+        return cfi("FK_PURCHASE_PURCHASE_SELF", "purchaseSelf", this, PurchaseDbm.getInstance(), mp, 5, org.dbflute.optional.OptionalEntity.class, true, false, false, true, null, null, false, "purchaseSelfAsOne", false);
     }
     /**
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
@@ -280,7 +283,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberAddressAsSkipRelation() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberAddressDbm.getInstance().columnMemberId());
-        return cfi("FK_PURCHASE_MEMBER_ADDRESS_VALID", "memberAddressAsSkipRelation", this, MemberAddressDbm.getInstance(), mp, 6, null, false, false, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsSkipRelation.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsSkipRelation.targetDate*/null", newArrayList("targetDate"), false, null);
+        return cfi("FK_PURCHASE_MEMBER_ADDRESS_VALID", "memberAddressAsSkipRelation", this, MemberAddressDbm.getInstance(), mp, 6, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsSkipRelation.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsSkipRelation.targetDate*/null", newArrayList("targetDate"), false, null, false);
     }
     /**
      * white_purchase_referrer by PURCHASE_REFERRER_ID, named 'whitePurchaseReferrerAsOne'.
@@ -288,7 +291,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhitePurchaseReferrerAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnPurchaseId(), WhitePurchaseReferrerDbm.getInstance().columnPurchaseReferrerId());
-        return cfi("FK_WHITE_PURCHASE_REFERRER", "whitePurchaseReferrerAsOne", this, WhitePurchaseReferrerDbm.getInstance(), mp, 7, null, true, false, true, false, null, null, false, "purchase");
+        return cfi("FK_WHITE_PURCHASE_REFERRER", "whitePurchaseReferrerAsOne", this, WhitePurchaseReferrerDbm.getInstance(), mp, 7, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "purchase", false);
     }
     /**
      * (購入)purchase by PURCHASE_ID, named 'purchaseSelfAsOne'.
@@ -296,7 +299,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignPurchaseSelfAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnPurchaseId(), PurchaseDbm.getInstance().columnPurchaseId());
-        return cfi("FK_PURCHASE_PURCHASE_SELF", "purchaseSelfAsOne", this, PurchaseDbm.getInstance(), mp, 8, null, true, false, true, true, null, null, false, "purchaseSelf");
+        return cfi("FK_PURCHASE_PURCHASE_SELF", "purchaseSelfAsOne", this, PurchaseDbm.getInstance(), mp, 8, org.dbflute.optional.OptionalEntity.class, true, false, true, true, null, null, false, "purchaseSelf", false);
     }
 
     // -----------------------------------------------------

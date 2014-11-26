@@ -52,7 +52,8 @@ public class WhiteSuppressJoinSqManyOneOneDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOneOne)et).getManyOneOneId(), (et, vl) -> ((WhiteSuppressJoinSqManyOneOne)et).setManyOneOneId(cti(vl)), "manyOneOneId");
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqManyOneOne)et).getManyOneOneName(), (et, vl) -> ((WhiteSuppressJoinSqManyOneOne)et).setManyOneOneName((String)vl), "manyOneOneName");
     }
@@ -73,8 +74,8 @@ public class WhiteSuppressJoinSqManyOneOneDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnManyOneOneId = cci("MANY_ONE_ONE_ID", "MANY_ONE_ONE_ID", null, null, Integer.class, "manyOneOneId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqManyOneList", null);
-    protected final ColumnInfo _columnManyOneOneName = cci("MANY_ONE_ONE_NAME", "MANY_ONE_ONE_NAME", null, null, String.class, "manyOneOneName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnManyOneOneId = cci("MANY_ONE_ONE_ID", "MANY_ONE_ONE_ID", null, null, Integer.class, "manyOneOneId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqManyOneList", null, false);
+    protected final ColumnInfo _columnManyOneOneName = cci("MANY_ONE_ONE_NAME", "MANY_ONE_ONE_NAME", null, null, String.class, "manyOneOneName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * MANY_ONE_ONE_ID: {PK, NotNull, INT(10)}

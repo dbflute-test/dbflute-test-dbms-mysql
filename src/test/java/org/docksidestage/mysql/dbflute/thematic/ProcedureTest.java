@@ -1,8 +1,8 @@
 package org.docksidestage.mysql.dbflute.thematic;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
@@ -81,7 +81,7 @@ public class ProcedureTest extends UnitContainerTestCase {
         pmb.setVvInoutInteger(2345);
         pmb.setVvOutBigint(3456L);
         pmb.setVvInoutBigint(4567L);
-        pmb.setVvvInDate(currentDate());
+        pmb.setVvvInDate(currentLocalDate());
         assertNull(pmb.getVvvOutDatetime());
 
         // ## Act ##
@@ -121,11 +121,11 @@ public class ProcedureTest extends UnitContainerTestCase {
             log(member);
             Integer memberId = member.getMemberId();
             String memberName = member.getMemberName();
-            Date birthdate = member.getBirthdate();
+            LocalDate birthdate = member.getBirthdate();
             if (birthdate != null) {
                 existsBirthdate = true;
             }
-            Timestamp formalizedDatetime = member.getFormalizedDatetime();
+            LocalDateTime formalizedDatetime = member.getFormalizedDatetime();
             if (formalizedDatetime != null) {
                 existsFormalizedDatetime = true;
             }

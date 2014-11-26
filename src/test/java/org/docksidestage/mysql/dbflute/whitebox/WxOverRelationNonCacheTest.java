@@ -53,10 +53,10 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         // land(2) -> CupRamen(21) -(over)-> {21, BAR}
         // iks (3) -> Coffee  (21) -(over)-> null
         for (WhitePerrottaOverMember member : memberList) {
-            WhitePerrottaOverProduct product = member.getWhitePerrottaOverProduct();
+            WhitePerrottaOverProduct product = member.getWhitePerrottaOverProduct().get();
             Long productId = product.getProductId();
             String productName = product.getProductName();
-            WhitePerrottaOverTrace trace = product.getWhitePerrottaOverTraceAsPerrotta();
+            WhitePerrottaOverTrace trace = product.getWhitePerrottaOverTraceAsPerrotta().orElse(null);
             Long previousProductId = trace != null ? trace.getPreviousProductId() : null;
             Long nextProductId = trace != null ? trace.getNextProductId() : null;
             String traceType = trace != null ? trace.getTraceTypeCode() : null;
@@ -77,9 +77,9 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         assertNotSame(firstMember, secondMember);
         assertNotSame(firstMember.instanceHash(), secondMember.instanceHash());
 
-        WhitePerrottaOverProduct firstProduct = firstMember.getWhitePerrottaOverProduct();
-        WhitePerrottaOverProduct secondProduct = secondMember.getWhitePerrottaOverProduct();
-        WhitePerrottaOverProduct thirdProduct = thirdMember.getWhitePerrottaOverProduct();
+        WhitePerrottaOverProduct firstProduct = firstMember.getWhitePerrottaOverProduct().get();
+        WhitePerrottaOverProduct secondProduct = secondMember.getWhitePerrottaOverProduct().get();
+        WhitePerrottaOverProduct thirdProduct = thirdMember.getWhitePerrottaOverProduct().get();
         assertEquals(Long.valueOf(21), firstProduct.getProductId());
         assertEquals(firstProduct.getProductId(), secondProduct.getProductId());
         assertEquals("CupRamen", firstProduct.getProductName());
@@ -87,22 +87,22 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         assertNotSame(firstProduct, secondProduct);
         assertNotSame(firstProduct.instanceHash(), secondProduct.instanceHash());
 
-        WhitePerrottaOverTrace firstTrace = firstProduct.getWhitePerrottaOverTraceAsPerrotta();
-        WhitePerrottaOverTrace secondTrace = secondProduct.getWhitePerrottaOverTraceAsPerrotta();
-        assertNull(thirdProduct.getWhitePerrottaOverTraceAsPerrotta());
+        WhitePerrottaOverTrace firstTrace = firstProduct.getWhitePerrottaOverTraceAsPerrotta().get();
+        WhitePerrottaOverTrace secondTrace = secondProduct.getWhitePerrottaOverTraceAsPerrotta().get();
+        assertNull(thirdProduct.getWhitePerrottaOverTraceAsPerrotta().orElse(null));
         assertEquals(Long.valueOf(301), firstTrace.getTraceId());
         assertEquals(Long.valueOf(302), secondTrace.getTraceId());
         assertNotSame(firstTrace, secondTrace);
         assertNotSame(firstTrace.instanceHash(), secondTrace.instanceHash());
 
-        WhitePerrottaOverProductNested firstNested = firstProduct.getWhitePerrottaOverProductNested();
-        WhitePerrottaOverProductNested secondNested = secondProduct.getWhitePerrottaOverProductNested();
+        WhitePerrottaOverProductNested firstNested = firstProduct.getWhitePerrottaOverProductNested().get();
+        WhitePerrottaOverProductNested secondNested = secondProduct.getWhitePerrottaOverProductNested().get();
         assertSame(firstNested, secondNested);
         assertEquals(firstNested.instanceHash(), secondNested.instanceHash());
 
-        WhitePerrottaOverMemberMacho firstMacho = firstMember.getWhitePerrottaOverMemberMacho();
-        WhitePerrottaOverMemberMacho secondMacho = secondMember.getWhitePerrottaOverMemberMacho();
-        WhitePerrottaOverMemberMacho thirdMacho = thirdMember.getWhitePerrottaOverMemberMacho();
+        WhitePerrottaOverMemberMacho firstMacho = firstMember.getWhitePerrottaOverMemberMacho().get();
+        WhitePerrottaOverMemberMacho secondMacho = secondMember.getWhitePerrottaOverMemberMacho().get();
+        WhitePerrottaOverMemberMacho thirdMacho = thirdMember.getWhitePerrottaOverMemberMacho().get();
         assertEquals("AAA", firstMacho.getMachoCode());
         assertEquals("BBB", secondMacho.getMachoCode());
         assertEquals("AAA", thirdMacho.getMachoCode());
@@ -126,14 +126,14 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         Map<Integer, Member> memberMap = newHashMap();
         Map<Long, MemberLogin> loginMap = newHashMap();
         for (Purchase purchase : purchaseList) {
-            Member member = purchase.getMember();
+            Member member = purchase.getMember().get();
             Member existingMember = memberMap.get(member.getMemberId());
             if (existingMember != null) {
                 assertNotSame(member.instanceHash(), existingMember.instanceHash());
                 markHere("existsMember");
             }
             memberMap.put(member.getMemberId(), member);
-            MemberLogin login = member.getMemberLoginAsForeignForeignBindOverTest();
+            MemberLogin login = member.getMemberLoginAsForeignForeignBindOverTest().orElse(null);
             if (login != null) {
                 MemberLogin existingLogin = loginMap.get(login.getMemberLoginId());
                 if (existingLogin != null) {
@@ -161,14 +161,14 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         Map<Long, MemberLogin> loginMap = newHashMap();
         Map<String, MemberStatus> statusMap = newHashMap();
         for (Purchase purchase : purchaseList) {
-            Member member = purchase.getMember();
+            Member member = purchase.getMember().get();
             Member existingMember = memberMap.get(member.getMemberId());
             if (existingMember != null) {
                 assertNotSame(member.instanceHash(), existingMember.instanceHash());
                 markHere("existsMember");
             }
             memberMap.put(member.getMemberId(), member);
-            MemberLogin login = member.getMemberLoginAsForeignForeignBindOverTest();
+            MemberLogin login = member.getMemberLoginAsForeignForeignBindOverTest().orElse(null);
             if (login != null) {
                 MemberLogin existingLogin = loginMap.get(login.getMemberLoginId());
                 if (existingLogin != null) {
@@ -176,7 +176,7 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
                     markHere("existsLogin");
                 }
                 loginMap.put(login.getMemberLoginId(), login);
-                MemberStatus status = login.getMemberStatus();
+                MemberStatus status = login.getMemberStatus().orElse(null);
                 if (status != null) {
                     MemberStatus existingStatus = statusMap.get(status.getMemberStatusCode());
                     if (existingStatus != null) {
@@ -205,14 +205,14 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         Map<Integer, Member> memberMap = newHashMap();
         Map<String, MemberStatus> statusMap = newHashMap();
         for (Purchase purchase : purchaseList) {
-            Member member = purchase.getMember();
+            Member member = purchase.getMember().get();
             Member existingMember = memberMap.get(member.getMemberId());
             if (existingMember != null) {
                 assertEquals(member.instanceHash(), existingMember.instanceHash());
                 markHere("existsMember");
             }
             memberMap.put(member.getMemberId(), member);
-            MemberStatus status = member.getMemberStatus();
+            MemberStatus status = member.getMemberStatus().orElse(null);
             if (status != null) {
                 MemberStatus existingStatus = statusMap.get(status.getMemberStatusCode());
                 if (existingStatus != null) {

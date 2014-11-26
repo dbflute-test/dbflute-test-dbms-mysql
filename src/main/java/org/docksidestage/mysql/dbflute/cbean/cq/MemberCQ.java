@@ -38,4 +38,18 @@ public class MemberCQ extends BsMemberCQ {
 	// public void arrangeXxx() {
 	//     ...
 	// }
+    /**
+     * Arrange the query for selecting service members.
+     * o starts 'S'
+     * o status 'Formalized'
+     * o exists the special product
+     */
+    public void arrangeServiceMember() {
+        final Integer specialProductId = 3;
+        setMemberName_LikeSearch("S", op -> op.likePrefix());
+        setMemberStatusCode_Equal_Formalized();
+        existsPurchase(purCB -> {
+            purCB.query().setProductId_Equal(specialProductId);
+        });
+    }
 }

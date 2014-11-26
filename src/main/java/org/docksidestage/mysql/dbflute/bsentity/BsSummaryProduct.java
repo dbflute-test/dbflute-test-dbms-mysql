@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
@@ -61,7 +63,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * String productName = entity.getProductName();
  * String productHandleCode = entity.getProductHandleCode();
  * String productStatusCode = entity.getProductStatusCode();
- * java.sql.Timestamp latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
+ * java.time.LocalDateTime latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
  * entity.setProductId(productId);
  * entity.setProductName(productName);
  * entity.setProductHandleCode(productHandleCode);
@@ -95,27 +97,19 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     protected String _productStatusCode;
 
     /** LATEST_PURCHASE_DATETIME: {DATETIME(19)} */
-    protected java.sql.Timestamp _latestPurchaseDatetime;
+    protected java.time.LocalDateTime _latestPurchaseDatetime;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "summary_product";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "summaryProduct";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -250,13 +244,15 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     //                                                                    Foreign Property
     //                                                                    ================
     /** (商品ステータス)product_status by my PRODUCT_STATUS_CODE, named 'productStatus'. */
-    protected ProductStatus _productStatus;
+    protected OptionalEntity<ProductStatus> _productStatus;
 
     /**
      * [get] (商品ステータス)product_status by my PRODUCT_STATUS_CODE, named 'productStatus'. <br>
-     * @return The entity of foreign property 'productStatus'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'productStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public ProductStatus getProductStatus() {
+    public OptionalEntity<ProductStatus> getProductStatus() {
+        if (_productStatus == null) { _productStatus = OptionalEntity.relationEmpty(this, "productStatus"); }
         return _productStatus;
     }
 
@@ -264,7 +260,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
      * [set] (商品ステータス)product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
      * @param productStatus The entity of foreign property 'productStatus'. (NullAllowed)
      */
-    public void setProductStatus(ProductStatus productStatus) {
+    public void setProductStatus(OptionalEntity<ProductStatus> productStatus) {
         _productStatus = productStatus;
     }
 
@@ -312,7 +308,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productId);
         return hs;
     }
@@ -320,11 +316,14 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_productStatus != null)
+        if (_productStatus != null && _productStatus.isPresent())
         { sb.append(li).append(xbRDS(_productStatus, "productStatus")); }
         if (_purchaseList != null) { for (Purchase et : _purchaseList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "purchaseList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -345,7 +344,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_productStatus != null)
+        if (_productStatus != null && _productStatus.isPresent())
         { sb.append(dm).append("productStatus"); }
         if (_purchaseList != null && !_purchaseList.isEmpty())
         { sb.append(dm).append("purchaseList"); }
@@ -442,7 +441,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
      * [get] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br>
      * @return The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getLatestPurchaseDatetime() {
+    public java.time.LocalDateTime getLatestPurchaseDatetime() {
         checkSpecifiedProperty("latestPurchaseDatetime");
         return _latestPurchaseDatetime;
     }
@@ -451,7 +450,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
      * [set] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br>
      * @param latestPurchaseDatetime The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setLatestPurchaseDatetime(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime(java.time.LocalDateTime latestPurchaseDatetime) {
         registerModifiedProperty("latestPurchaseDatetime");
         _latestPurchaseDatetime = latestPurchaseDatetime;
     }

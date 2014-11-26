@@ -2,11 +2,18 @@ package org.docksidestage.mysql.dbflute.vendor;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.dbflute.bhv.core.BehaviorCommandMeta;
 import org.dbflute.bhv.proposal.callback.SimpleTraceableSqlStringFilter;
@@ -17,16 +24,13 @@ import org.dbflute.exception.SQLFailureException;
 import org.dbflute.hook.CallbackContext;
 import org.dbflute.hook.SqlLogHandler;
 import org.dbflute.hook.SqlLogInfo;
-import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballFinalizer;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
 import org.dbflute.utflute.core.cannonball.CannonballRun;
-import org.dbflute.utflute.core.thread.ThreadFireExecution;
-import org.dbflute.utflute.core.thread.ThreadFireOption;
-import org.dbflute.utflute.core.thread.ThreadFireResource;
 import org.dbflute.utflute.core.transaction.TransactionPerformer;
 import org.dbflute.util.DfReflectionUtil;
+import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;
@@ -56,8 +60,6 @@ public class VendorJDBCTest extends UnitContainerTestCase {
         // ## Arrange ##
         final int countAll = memberBhv.selectCount(new MemberCB());
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        StatementConfig config = new StatementConfig();
-        config.fetchSize(1);
 
         // ## Act ##
         PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
@@ -76,14 +78,13 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                 return null;
             }
         };
-        memberBhv.outsideSql().configure(config).cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().configure(conf -> conf.fetchSize(1)).selectCursor(pmb, handler);
     }
 
     public void test_ResultSet_rowData_specialFetchSize() {
         // ## Arrange ##
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        StatementConfig config = new StatementConfig();
-        config.fetchSize(Integer.MIN_VALUE); // MySQL's special fetchSize
+        int fetchSize = Integer.MIN_VALUE; // MySQL's special fetchSize
 
         // ## Act ##
         PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
@@ -102,7 +103,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                 return null;
             }
         };
-        memberBhv.outsideSql().configure(config).cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().configure(conf -> conf.fetchSize(fetchSize)).selectCursor(pmb, handler);
     }
 
     protected void assertDbAccess() {
@@ -143,7 +144,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     public void doTest_ResultSet_sensitiveOrNot(final TestingResultSetType resultSetType) {
         // ## Arrange ##
         final ListResultBean<Member> beforeList = memberBhv.selectList(new MemberCB());
-        final Date updateDate = toDate("3123/09/26");
+        final LocalDate updateDate = toLocalDate("3123/09/26");
         final boolean sensitive = TestingResultSetType.SCROLL_SENSITIVE.equals(resultSetType);
 
         // ## Act ##
@@ -162,26 +163,27 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                             log(cursor.getMemberName(), cursor.getBirthdate());
                             sleep(2000);
                             while (cursor.next()) {
-                                Date birthdate = cursor.getBirthdate();
+                                LocalDate birthdate = cursor.getBirthdate();
                                 log(cursor.getMemberName(), birthdate);
                                 if (birthdate != null) {
-                                    assertTrue(updateDate.getTime() != birthdate.getTime()); // always insensitive on MySQL
+                                    assertNotSame(updateDate, birthdate); // always insensitive on MySQL
                                 }
                             }
                             return null;
                         }
                     };
-                    StatementConfig config = new StatementConfig().fetchSize(Integer.MIN_VALUE);
-                    if (TestingResultSetType.FORWARD_ONLY.equals(resultSetType)) {
-                        config.typeForwardOnly();
-                    } else if (TestingResultSetType.SCROLL_INSENSITIVE.equals(resultSetType)) {
-                        config.typeScrollInsensitive();
-                    } else if (sensitive) {
-                        config.typeScrollSensitive();
-                    } else {
-                        fail();
-                    }
-                    memberBhv.outsideSql().configure(config).cursorHandling().selectCursor(pmb, handler);
+                    memberBhv.outsideSql().configure(conf -> {
+                        conf.fetchSize(Integer.MIN_VALUE);
+                        if (TestingResultSetType.FORWARD_ONLY.equals(resultSetType)) {
+                            conf.typeForwardOnly();
+                        } else if (TestingResultSetType.SCROLL_INSENSITIVE.equals(resultSetType)) {
+                            conf.typeScrollInsensitive();
+                        } else if (sensitive) {
+                            conf.typeScrollSensitive();
+                        } else {
+                            fail();
+                        }
+                    }).selectCursor(pmb, handler);
                 } else {
                     sleep(500);
                     MemberCB cb = new MemberCB();
@@ -194,14 +196,13 @@ public class VendorJDBCTest extends UnitContainerTestCase {
             public void run() {
                 performNewTransaction(new TransactionPerformer() {
                     public boolean perform() {
-                        memberBhv.varyingBatchUpdateNonstrict(beforeList,
-                                op -> op.specify(new SpecifyQuery<MemberCB>() {
-                                    public void specify(MemberCB cb) {
-                                        cb.specify().columnBirthdate();
-                                        cb.specify().columnUpdateUser();
-                                        cb.specify().columnUpdateDatetime();
-                                    }
-                                }));
+                        memberBhv.varyingBatchUpdateNonstrict(beforeList, op -> op.specify(new SpecifyQuery<MemberCB>() {
+                            public void specify(MemberCB cb) {
+                                cb.specify().columnBirthdate();
+                                cb.specify().columnUpdateUser();
+                                cb.specify().columnUpdateDatetime();
+                            }
+                        }));
                         return true;
                     }
                 });
@@ -227,8 +228,8 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     //                                                                       Query Timeout
     //                                                                       =============
     public void test_QueryTimeout_insert() throws Exception {
-        threadFire(new ThreadFireExecution<Void>() {
-            public Void execute(ThreadFireResource resource) {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
                 final long threadId = Thread.currentThread().getId();
                 if (threadId % 2 == 0) {
                     Member member = new Member();
@@ -243,11 +244,10 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                     member.setMemberAccount("same"); // same value to wait for lock
                     member.setMemberStatusCode_Formalized();
                     sleep(1000);
-                    memberBhv.varyingInsert(member, op -> op.configure(new StatementConfig().queryTimeout(1)));
+                    memberBhv.varyingInsert(member, op -> op.configure(conf -> conf.queryTimeout(1)));
                 }
-                return null;
             }
-        }, new ThreadFireOption().threadCount(2).repeatCount(1).expectExceptionAny("timeout"));
+        }, new CannonballOption().threadCount(2).repeatCount(1).expectExceptionAny("timeout"));
     }
 
     // ===================================================================================
@@ -270,12 +270,11 @@ public class VendorJDBCTest extends UnitContainerTestCase {
             }
         });
         Method actionMethod = MemberDbm.getInstance().columnBirthdate().getWriteMethod();
-        SimpleTraceableSqlStringFilter filter = new SimpleTraceableSqlStringFilter(actionMethod,
-                new TraceableSqlAdditionalInfoProvider() {
-                    public String provide() {
-                        return "marks:{?*@;+()[]'&%$#\"!\\>=<_^~-|.,}1234567890";
-                    }
-                }) {
+        SimpleTraceableSqlStringFilter filter = new SimpleTraceableSqlStringFilter(actionMethod, new TraceableSqlAdditionalInfoProvider() {
+            public String provide() {
+                return "marks:{?*@;+()[]'&%$#\"!\\>=<_^~-|.,}1234567890";
+            }
+        }) {
 
             public String filterOutsideSql(BehaviorCommandMeta meta, String executedSql) {
                 return markingSql(executedSql);
@@ -299,7 +298,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
             {
                 Member member = new Member();
                 member.setMemberId(3);
-                member.setBirthdate(currentDate());
+                member.setBirthdate(currentLocalDate());
                 memberBhv.updateNonstrict(member);
             }
             {
@@ -311,7 +310,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
             {
                 PurchaseMaxPriceMemberPmb pmb = new PurchaseMaxPriceMemberPmb();
                 pmb.paging(3, 2);
-                memberBhv.outsideSql().manualPaging().selectPage(pmb);
+                memberBhv.outsideSql().selectPage(pmb);
             }
             {
                 SpInOutParameterPmb spPmb = new SpInOutParameterPmb();
@@ -331,6 +330,192 @@ public class VendorJDBCTest extends UnitContainerTestCase {
             // ## Assert ##
         } finally {
             CallbackContext.clearSqlStringFilterOnThread();
+        }
+    }
+
+    // ===================================================================================
+    //                                                                  Plain ENUM Binding
+    //                                                                  ==================
+    public void test_plain_enum_binding() throws SQLException {
+        // ## Arrange ##
+        List<Integer> prepared = executeEnumBindSql(CDef.MemberStatus.Formalized.code());
+        assertFalse(prepared.isEmpty());
+        log(prepared);
+
+        // ## Act ##
+        List<Integer> resultList = executeEnumBindSql(TestPlainStatus.FML);
+
+        // ## Assert ##
+        log(resultList);
+        assertTrue(resultList.isEmpty());
+    }
+
+    private List<Integer> executeEnumBindSql(Object value) throws SQLException {
+        DataSource ds = getDataSource();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            conn = ds.getConnection();
+            String sql = "select * from MEMBER where MEMBER_STATUS_CODE = ?";
+            log(sql);
+            ps = conn.prepareStatement(sql);
+            ps.setObject(1, value);
+            rs = ps.executeQuery();
+            List<Integer> idList = new ArrayList<Integer>();
+            while (rs.next()) {
+                idList.add(rs.getInt("MEMBER_ID"));
+            }
+            return idList;
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
+    private static enum TestPlainStatus {
+        FML, PRV, WDL
+    }
+
+    // ===================================================================================
+    //                                                                   CallableStatement
+    //                                                                   =================
+    public void test_CallableStatement_ResultSet_returnValue() throws SQLException {
+        doTest_CallableResultSet("{call SP_RETURN_RESULT_SET()}", new CallableResultSetCallback() {
+            public ResultSet call(CallableStatement cs) throws SQLException {
+                boolean executed = cs.execute();
+                log("executed = " + executed);
+                assertTrue(executed);
+                return cs.getResultSet();
+            }
+
+            public void post(CallableStatement cs, ResultSet rs) throws SQLException {
+                assertFalse(cs.getMoreResults());
+                assertNull(cs.getResultSet());
+            }
+        });
+    }
+
+    public void test_CallableStatement_ResultSet_returnValue_more() throws SQLException {
+        doTest_CallableResultSet("{call SP_RETURN_RESULT_SET_MORE()}", new CallableResultSetCallback() {
+            public ResultSet call(CallableStatement cs) throws SQLException {
+                boolean executed = cs.execute();
+                log("executed = " + executed);
+                assertTrue(executed);
+                return cs.getResultSet();
+            }
+
+            public void post(CallableStatement cs, ResultSet rs) throws SQLException {
+                assertTrue(cs.getMoreResults());
+                assertNotNull(cs.getResultSet());
+                assertFalse(cs.getMoreResults());
+            }
+        });
+    }
+
+    public void test_CallableStatement_ResultSet_returnValue_with() throws SQLException {
+        doTest_CallableResultSet("{call SP_RETURN_RESULT_SET_WITH(?, ?, ?)}", new CallableResultSetCallback() {
+            public ResultSet call(CallableStatement cs) throws SQLException {
+                cs.setString(1, CDef.MemberStatus.Formalized.code());
+                cs.registerOutParameter(2, Types.VARCHAR);
+                cs.setString(3, "ccc");
+                boolean executed = cs.execute();
+                log("executed = " + executed);
+                assertTrue(executed);
+                return cs.getResultSet();
+            }
+
+            public void post(CallableStatement cs, ResultSet rs) throws SQLException {
+                assertTrue(cs.getMoreResults());
+                assertNotNull(cs.getResultSet());
+                assertFalse(cs.getMoreResults());
+                assertNull(cs.getResultSet());
+            }
+        });
+    }
+
+    private void doTest_CallableResultSet(String sql, CallableResultSetCallback callback) throws SQLException {
+        Connection conn = null;
+        CallableStatement cs = null;
+        ResultSet rs = null;
+        try {
+            conn = getDataSource().getConnection();
+            cs = conn.prepareCall(sql);
+            rs = callback.call(cs);
+            assertNotNull(rs);
+            boolean exists = false;
+            StringBuilder sb = new StringBuilder();
+            while (rs.next()) {
+                if (sb.length() > 0) {
+                    sb.append(",");
+                }
+                sb.append(rs.getString(1));
+                exists = true;
+            }
+            log("first columns = " + sb);
+            assertTrue(exists);
+            callback.post(cs, rs);
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (cs != null) {
+                cs.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
+    private static interface CallableResultSetCallback {
+        ResultSet call(CallableStatement cs) throws SQLException;
+
+        void post(CallableStatement cs, ResultSet rs) throws SQLException;
+    }
+
+    // ===================================================================================
+    //                                                                           ResultSet
+    //                                                                           =========
+    public void test_ResultSet_defaultResultSetType() throws SQLException {
+        String sql = "select * from VENDOR_CHECK";
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            conn = getDataSource().getConnection();
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            int resultSetType = rs.getType();
+            log("/* * * * * * * * * * * * * * * * * *");
+            if (resultSetType == ResultSet.TYPE_FORWARD_ONLY) {
+                log("resultSetType=TYPE_FORWARD_ONLY");
+            } else if (resultSetType == ResultSet.TYPE_SCROLL_INSENSITIVE) {
+                log("resultSetType=TYPE_SCROLL_INSENSITIVE");
+            } else if (resultSetType == ResultSet.TYPE_SCROLL_SENSITIVE) {
+                log("resultSetType=TYPE_SCROLL_SENSITIVE");
+            } else {
+                log("resultSetType=UNKNOWN:" + resultSetType);
+            }
+            log("* * * * * * * * * */");
+            assertEquals(ResultSet.TYPE_FORWARD_ONLY, resultSetType);
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ public class WhiteSplitMultipleFkChildNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteSplitMultipleFkChildCQ _query;
+    protected final WhiteSplitMultipleFkChildCQ _query;
     public WhiteSplitMultipleFkChildNss(WhiteSplitMultipleFkChildCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

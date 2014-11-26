@@ -95,10 +95,10 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
     protected Long _vvInoutBigint;
 
     /** The parameter of vvvInDate: {DATE(10) as In}. */
-    protected java.util.Date _vvvInDate;
+    protected java.time.LocalDate _vvvInDate;
 
     /** The parameter of vvvOutDatetime: {DATETIME(19) as Out}. */
-    protected java.sql.Timestamp _vvvOutDatetime;
+    protected java.time.LocalDateTime _vvvOutDatetime;
 
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
@@ -165,6 +165,16 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
     //                                                  Date
     //                                                  ----
     protected Date toUtilDate(Object date) { return PmbCustodial.toUtilDate(date, _timeZone); }
+    protected <DATE> DATE toLocalDate(Date date, Class<DATE> localType) { return PmbCustodial.toLocalDate(date, localType, chooseRealTimeZone()); }
+    protected TimeZone chooseRealTimeZone() { return PmbCustodial.chooseRealTimeZone(_timeZone); }
+
+    /**
+     * Set time-zone, basically for LocalDate conversion. <br>
+     * Normally you don't need to set this, you can adjust other ways. <br>
+     * (DBFlute system's time-zone is used as default)
+     * @param timeZone The time-zone for filtering. (NullAllowed: if null, default zone)
+     */
+    public void zone(TimeZone timeZone) { _timeZone = timeZone; }
 
     // -----------------------------------------------------
     //                                    by Option Handling
@@ -204,7 +214,7 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
         sb.append(dm).append(_vvInoutInteger);
         sb.append(dm).append(_vvOutBigint);
         sb.append(dm).append(_vvInoutBigint);
-        sb.append(dm).append(PmbCustodial.formatUtilDate(_vvvInDate, "yyyy-MM-dd", _timeZone));
+        sb.append(dm).append(_vvvInDate);
         sb.append(dm).append(_vvvOutDatetime);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
@@ -426,15 +436,15 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
      * [get] vvvInDate: {DATE(10) as In} <br>
      * @return The value of vvvInDate. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public java.util.Date getVvvInDate() {
-        return toUtilDate(_vvvInDate);
+    public java.time.LocalDate getVvvInDate() {
+        return _vvvInDate;
     }
 
     /**
      * [set] vvvInDate: {DATE(10) as In} <br>
      * @param vvvInDate The value of vvvInDate. (NullAllowed)
      */
-    public void setVvvInDate(java.util.Date vvvInDate) {
+    public void setVvvInDate(java.time.LocalDate vvvInDate) {
         _vvvInDate = vvvInDate;
     }
 
@@ -442,7 +452,7 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
      * [get] vvvOutDatetime: {DATETIME(19) as Out} <br>
      * @return The value of vvvOutDatetime. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public java.sql.Timestamp getVvvOutDatetime() {
+    public java.time.LocalDateTime getVvvOutDatetime() {
         return _vvvOutDatetime;
     }
 
@@ -450,7 +460,7 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
      * [set] vvvOutDatetime: {DATETIME(19) as Out} <br>
      * @param vvvOutDatetime The value of vvvOutDatetime. (NullAllowed)
      */
-    public void setVvvOutDatetime(java.sql.Timestamp vvvOutDatetime) {
+    public void setVvvOutDatetime(java.time.LocalDateTime vvvOutDatetime) {
         _vvvOutDatetime = vvvOutDatetime;
     }
 }

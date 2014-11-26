@@ -35,7 +35,7 @@ public class WxAllInOneTableClassificationTest extends UnitContainerTestCase {
         assertNotSame(0, refList.size());
         StringBuilder logSb = new StringBuilder();
         for (WhiteAllInOneClsCompoundPkRef ref : refList) {
-            WhiteAllInOneClsElement asFoo = ref.getWhiteAllInOneClsElementAsFoo();
+            WhiteAllInOneClsElement asFoo = ref.getWhiteAllInOneClsElementAsFoo().get();
             assertEquals("FOO", asFoo.getClsCategoryCode());
             assertEquals(ref.getFooCode(), asFoo.getClsElementCode());
         }

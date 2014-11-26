@@ -52,11 +52,12 @@ public class WhiteAdditionalDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooId(), (et, vl) -> ((WhiteAdditional)et).setFooId(cti(vl)), "fooId");
         setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooName(), (et, vl) -> ((WhiteAdditional)et).setFooName((String)vl), "fooName");
-        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooDate(), (et, vl) -> ((WhiteAdditional)et).setFooDate((java.util.Date)vl), "fooDate");
-        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getRegisterDatetime(), (et, vl) -> ((WhiteAdditional)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooDate(), (et, vl) -> ((WhiteAdditional)et).setFooDate((java.time.LocalDate)vl), "fooDate");
+        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getRegisterDatetime(), (et, vl) -> ((WhiteAdditional)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -79,10 +80,10 @@ public class WhiteAdditionalDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnFooId = cci("foo_id", "foo_id", null, null, Integer.class, "fooId", null, true, true, true, "INTEGER", null, null, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnFooName = cci("foo_name", "foo_name", null, "Mr.FOO's name", String.class, "fooName", null, false, false, true, "UnknownType", 123, 0, null, false, null, "It's joke!", null, null, null);
-    protected final ColumnInfo _columnFooDate = cci("foo_date", "foo_date", null, null, java.util.Date.class, "fooDate", null, false, false, false, "UnknownType", null, null, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.sql.Timestamp.class, "registerDatetime", null, false, false, false, "DATETIME", null, null, "CURRENT_TIMESTAMP", false, null, null, null, null, null);
+    protected final ColumnInfo _columnFooId = cci("foo_id", "foo_id", null, null, Integer.class, "fooId", null, true, true, true, "INTEGER", null, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFooName = cci("foo_name", "foo_name", null, "Mr.FOO's name", String.class, "fooName", null, false, false, true, "UnknownType", 123, 0, null, false, null, "It's joke!", null, null, null, false);
+    protected final ColumnInfo _columnFooDate = cci("foo_date", "foo_date", null, null, java.time.LocalDate.class, "fooDate", null, false, false, false, "UnknownType", null, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, false, "DATETIME", null, null, "CURRENT_TIMESTAMP", false, null, null, null, null, null, false);
 
     /**
      * foo_id: {PK, ID, NotNull, INTEGER}

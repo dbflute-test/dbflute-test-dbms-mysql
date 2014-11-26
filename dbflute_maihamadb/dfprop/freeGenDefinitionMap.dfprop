@@ -7,7 +7,7 @@ map:{
         ; outputMap = map:{
             ; templateFile = MessageDef.vm
             ; outputDirectory = ../src/main/java
-            ; package = com.example.dbflute.mysql.dbflute.freegen
+            ; package = org.docksidestage.mysql.dbflute.freegen
             ; className = MessageDef
         }
     }
@@ -19,7 +19,7 @@ map:{
         ; outputMap = map:{
             ; templateFile = CsvDto.vm
             ; outputDirectory = ../src/main/java
-            ; package = com.example.dbflute.mysql.dbflute.freegen
+            ; package = org.docksidestage.mysql.dbflute.freegen
             ; className = FooDto
         }
         ; tableMap = map:{
@@ -42,7 +42,7 @@ map:{
         ; outputMap = map:{
             ; templateFile = unused
             ; outputDirectory = ../src/main/java
-            ; package = com.example.dbflute.mysql.dbflute.freegen.json
+            ; package = org.docksidestage.mysql.dbflute.freegen.json
             ; className = unused
         }
         ; tableMap = map:{
@@ -60,7 +60,7 @@ map:{
         ; outputMap = map:{
             ; templateFile = unused
             ; outputDirectory = ../src/main/java
-            ; package = com.example.dbflute.mysql.dbflute.freegen.solr
+            ; package = org.docksidestage.mysql.dbflute.freegen.solr
             ; className = unused
         }
         ; tableMap = map:{

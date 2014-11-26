@@ -75,10 +75,12 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteAllInOneClsCategoryDbm getDBMeta() { return WhiteAllInOneClsCategoryDbm.getInstance(); }
+    public WhiteAllInOneClsCategoryDbm asDBMeta() { return WhiteAllInOneClsCategoryDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_all_in_one_cls_category"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteAllInOneClsCategoryCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteAllInOneClsCategoryCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * Load referrer of whiteAllInOneClsElementList by the set-upper of referrer. <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * <pre>
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElementList</span>(<span style="color: #553000">whiteAllInOneClsCategoryList</span>, <span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElement</span>(<span style="color: #553000">whiteAllInOneClsCategoryList</span>, <span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">elementCB</span>.setupSelect...
      *     <span style="color: #553000">elementCB</span>.query().set...
      *     <span style="color: #553000">elementCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElement(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
         xassLRArg(whiteAllInOneClsCategoryList, refCBLambda);
-        return doLoadWhiteAllInOneClsElementList(whiteAllInOneClsCategoryList, new LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement>().xinit(refCBLambda));
+        return doLoadWhiteAllInOneClsElement(whiteAllInOneClsCategoryList, new LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteAllInOneClsElementList by the set-upper of referrer. <br>
      * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * <pre>
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElementList</span>(<span style="color: #553000">whiteAllInOneClsCategory</span>, <span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElement</span>(<span style="color: #553000">whiteAllInOneClsCategory</span>, <span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">elementCB</span>.setupSelect...
      *     <span style="color: #553000">elementCB</span>.query().set...
      *     <span style="color: #553000">elementCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(WhiteAllInOneClsCategory whiteAllInOneClsCategory, ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElement(WhiteAllInOneClsCategory whiteAllInOneClsCategory, ConditionBeanSetupper<WhiteAllInOneClsElementCB> refCBLambda) {
         xassLRArg(whiteAllInOneClsCategory, refCBLambda);
-        return doLoadWhiteAllInOneClsElementList(xnewLRLs(whiteAllInOneClsCategory), new LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement>().xinit(refCBLambda));
+        return doLoadWhiteAllInOneClsElement(xnewLRLs(whiteAllInOneClsCategory), new LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(WhiteAllInOneClsCategory whiteAllInOneClsCategory, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElement(WhiteAllInOneClsCategory whiteAllInOneClsCategory, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> loadReferrerOption) {
         xassLRArg(whiteAllInOneClsCategory, loadReferrerOption);
-        return loadWhiteAllInOneClsElementList(xnewLRLs(whiteAllInOneClsCategory), loadReferrerOption);
+        return loadWhiteAllInOneClsElement(xnewLRLs(whiteAllInOneClsCategory), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElementList(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteAllInOneClsElement> loadWhiteAllInOneClsElement(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> loadReferrerOption) {
         xassLRArg(whiteAllInOneClsCategoryList, loadReferrerOption);
         if (whiteAllInOneClsCategoryList.isEmpty()) { return (NestedReferrerListGateway<WhiteAllInOneClsElement>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteAllInOneClsElementList(whiteAllInOneClsCategoryList, loadReferrerOption);
+        return doLoadWhiteAllInOneClsElement(whiteAllInOneClsCategoryList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteAllInOneClsElement> doLoadWhiteAllInOneClsElementList(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> option) {
+    protected NestedReferrerListGateway<WhiteAllInOneClsElement> doLoadWhiteAllInOneClsElement(List<WhiteAllInOneClsCategory> whiteAllInOneClsCategoryList, LoadReferrerOption<WhiteAllInOneClsElementCB, WhiteAllInOneClsElement> option) {
         return helpLoadReferrerInternally(whiteAllInOneClsCategoryList, option, "whiteAllInOneClsElementList");
     }
 
@@ -637,11 +639,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">//whiteAllInOneClsCategory.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteAllInOneClsCategory.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">update</span>(whiteAllInOneClsCategory);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">update</span>(whiteAllInOneClsCategory);
      * </pre>
      * @param whiteAllInOneClsCategory The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -802,9 +800,9 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteAllInOneClsCategory.setVersionNo(value);</span>
-     * WhiteAllInOneClsCategoryCB cb = <span style="color: #70226C">new</span> WhiteAllInOneClsCategoryCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteAllInOneClsCategory, cb);
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteAllInOneClsCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteAllInOneClsCategory The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsCategory. (NotNull)
@@ -844,9 +842,9 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteAllInOneClsCategoryCB cb = new WhiteAllInOneClsCategoryCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsCategory, cb);
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsCategory. (NotNull)
      * @return The deleted count.
@@ -886,10 +884,10 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteAllInOneClsCategory.setFoo...(value);
      * whiteAllInOneClsCategory.setBar...(value);
-     * InsertOption&lt;WhiteAllInOneClsCategoryCB&gt; option = new InsertOption&lt;WhiteAllInOneClsCategoryCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteAllInOneClsCategory, option);
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteAllInOneClsCategory, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteAllInOneClsCategory.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteAllInOneClsCategory The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -910,18 +908,12 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * whiteAllInOneClsCategory.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteAllInOneClsCategory.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteAllInOneClsCategoryCB&gt; option = new UpdateOption&lt;WhiteAllInOneClsCategoryCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
-     *         public void specify(WhiteAllInOneClsCategoryCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteAllInOneClsCategory, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteAllInOneClsCategory, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteAllInOneClsCategory The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1030,15 +1022,13 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteAllInOneClsCategory.setVersionNo(value);</span>
-     * WhiteAllInOneClsCategoryCB cb = new WhiteAllInOneClsCategoryCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteAllInOneClsCategoryCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteAllInOneClsCategoryCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
-     *     public void specify(WhiteAllInOneClsCategoryCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsCategory, cb, option);
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteAllInOneClsCategory The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsCategory. (NotNull)
@@ -1066,13 +1056,11 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * <span style="color: #3F7E5E">//whiteAllInOneClsCategory.setVersionNo(value);</span>
      * WhiteAllInOneClsCategoryCB cb = <span style="color: #70226C">new</span> WhiteAllInOneClsCategoryCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteAllInOneClsCategoryCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteAllInOneClsCategoryCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteAllInOneClsCategoryCB&gt;() {
-     *     public void specify(WhiteAllInOneClsCategoryCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsCategory, cb, option);
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteAllInOneClsCategory, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteAllInOneClsCategory The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteAllInOneClsCategory. (NotNull)
@@ -1087,7 +1075,14 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsCategory. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1100,7 +1095,7 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteAllInOneClsCategory. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1141,9 +1136,8 @@ public abstract class BsWhiteAllInOneClsCategoryBhv extends AbstractBehaviorWrit
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteAllInOneClsCategoryBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteAllInOneClsCategoryBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteAllInOneClsCategoryBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_implicit_reverse_fk_suppress";
     }
 
@@ -286,8 +283,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
      * @param validBeginDate The value of validBeginDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_Equal(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_EQ,  fCTPD(validBeginDate));
+    public void setValidBeginDate_Equal(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_EQ,  validBeginDate);
     }
 
     /**
@@ -295,8 +292,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
      * @param validBeginDate The value of validBeginDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_GreaterThan(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_GT,  fCTPD(validBeginDate));
+    public void setValidBeginDate_GreaterThan(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_GT,  validBeginDate);
     }
 
     /**
@@ -304,8 +301,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
      * @param validBeginDate The value of validBeginDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_LessThan(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_LT,  fCTPD(validBeginDate));
+    public void setValidBeginDate_LessThan(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_LT,  validBeginDate);
     }
 
     /**
@@ -313,8 +310,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
      * @param validBeginDate The value of validBeginDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_GreaterEqual(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_GE,  fCTPD(validBeginDate));
+    public void setValidBeginDate_GreaterEqual(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_GE,  validBeginDate);
     }
 
     /**
@@ -322,8 +319,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
      * @param validBeginDate The value of validBeginDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_LessEqual(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_LE, fCTPD(validBeginDate));
+    public void setValidBeginDate_LessEqual(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_LE, validBeginDate);
     }
 
     /**
@@ -335,7 +332,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of validBeginDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setValidBeginDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setValidBeginDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setValidBeginDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -348,23 +345,9 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of validBeginDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setValidBeginDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueValidBeginDate(), "VALID_BEGIN_DATE", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of validBeginDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of validBeginDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setValidBeginDate_DateFromTo(Date fromDate, Date toDate) {
-        setValidBeginDate_FromTo(fromDate, toDate, xcDFTOP());
+    public void setValidBeginDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "VALID_BEGIN_DATE"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueValidBeginDate(), nm, op);
     }
 
     protected void regValidBeginDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueValidBeginDate(), "VALID_BEGIN_DATE"); }
@@ -375,8 +358,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_END_DATE: {NotNull, DATE(10)}
      * @param validEndDate The value of validEndDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_Equal(java.util.Date validEndDate) {
-        regValidEndDate(CK_EQ,  fCTPD(validEndDate));
+    public void setValidEndDate_Equal(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_EQ,  validEndDate);
     }
 
     /**
@@ -384,8 +367,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_END_DATE: {NotNull, DATE(10)}
      * @param validEndDate The value of validEndDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_GreaterThan(java.util.Date validEndDate) {
-        regValidEndDate(CK_GT,  fCTPD(validEndDate));
+    public void setValidEndDate_GreaterThan(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_GT,  validEndDate);
     }
 
     /**
@@ -393,8 +376,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_END_DATE: {NotNull, DATE(10)}
      * @param validEndDate The value of validEndDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_LessThan(java.util.Date validEndDate) {
-        regValidEndDate(CK_LT,  fCTPD(validEndDate));
+    public void setValidEndDate_LessThan(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_LT,  validEndDate);
     }
 
     /**
@@ -402,8 +385,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_END_DATE: {NotNull, DATE(10)}
      * @param validEndDate The value of validEndDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_GreaterEqual(java.util.Date validEndDate) {
-        regValidEndDate(CK_GE,  fCTPD(validEndDate));
+    public void setValidEndDate_GreaterEqual(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_GE,  validEndDate);
     }
 
     /**
@@ -411,8 +394,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * VALID_END_DATE: {NotNull, DATE(10)}
      * @param validEndDate The value of validEndDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_LessEqual(java.util.Date validEndDate) {
-        regValidEndDate(CK_LE, fCTPD(validEndDate));
+    public void setValidEndDate_LessEqual(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_LE, validEndDate);
     }
 
     /**
@@ -424,7 +407,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of validEndDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setValidEndDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setValidEndDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setValidEndDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -437,23 +420,9 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of validEndDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setValidEndDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueValidEndDate(), "VALID_END_DATE", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * VALID_END_DATE: {NotNull, DATE(10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of validEndDate. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of validEndDate. (NullAllowed: if null, no to-condition)
-     */
-    public void setValidEndDate_DateFromTo(Date fromDate, Date toDate) {
-        setValidEndDate_FromTo(fromDate, toDate, xcDFTOP());
+    public void setValidEndDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "VALID_END_DATE"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueValidEndDate(), nm, op);
     }
 
     protected void regValidEndDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueValidEndDate(), "VALID_END_DATE"); }
@@ -692,39 +661,6 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================

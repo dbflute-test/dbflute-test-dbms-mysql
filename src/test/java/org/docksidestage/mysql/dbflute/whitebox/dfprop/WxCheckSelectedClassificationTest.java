@@ -41,8 +41,8 @@ public class WxCheckSelectedClassificationTest extends UnitContainerTestCase {
         // ## Assert ##
         assertNotNull(actual.getPaymentCompleteFlg());
         assertTrue(actual.isPaymentCompleteFlgTrue());
-        assertNotNull(actual.getMember().getMemberStatusCode());
-        assertNotNull(actual.getMember().getMemberStatusCodeAsMemberStatus());
+        assertNotNull(actual.getMember().get().getMemberStatusCode());
+        assertNotNull(actual.getMember().get().getMemberStatusCodeAsMemberStatus());
     }
 
     public void test_select_illegal_classification() throws Exception {

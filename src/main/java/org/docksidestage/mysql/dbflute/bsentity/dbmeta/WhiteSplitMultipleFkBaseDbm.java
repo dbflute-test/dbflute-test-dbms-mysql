@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkBase)et).getBaseId(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setBaseId(ctl(vl)), "baseId");
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkBase)et).getFirstId(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setFirstId(cti(vl)), "firstId");
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkBase)et).getNextId(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setNextId(ctl(vl)), "nextId");
@@ -66,9 +68,10 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteSplitMultipleFkBase)et).getWhiteSplitMultipleFkNext(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setWhiteSplitMultipleFkNext((WhiteSplitMultipleFkNext)vl), "whiteSplitMultipleFkNext");
-        setupEfpg(_efpgMap, et -> ((WhiteSplitMultipleFkBase)et).getWhiteSplitMultipleFkRefAsSplitMultipleFkTest(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setWhiteSplitMultipleFkRefAsSplitMultipleFkTest((WhiteSplitMultipleFkRef)vl), "whiteSplitMultipleFkRefAsSplitMultipleFkTest");
+        setupEfpg(_efpgMap, et -> ((WhiteSplitMultipleFkBase)et).getWhiteSplitMultipleFkNext(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setWhiteSplitMultipleFkNext((OptionalEntity<WhiteSplitMultipleFkNext>)vl), "whiteSplitMultipleFkNext");
+        setupEfpg(_efpgMap, et -> ((WhiteSplitMultipleFkBase)et).getWhiteSplitMultipleFkRefAsSplitMultipleFkTest(), (et, vl) -> ((WhiteSplitMultipleFkBase)et).setWhiteSplitMultipleFkRefAsSplitMultipleFkTest((OptionalEntity<WhiteSplitMultipleFkRef>)vl), "whiteSplitMultipleFkRefAsSplitMultipleFkTest");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -87,10 +90,10 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBaseId = cci("BASE_ID", "BASE_ID", null, null, Long.class, "baseId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "whiteSplitMultipleFkChildList", null);
-    protected final ColumnInfo _columnFirstId = cci("FIRST_ID", "FIRST_ID", null, null, Integer.class, "firstId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSplitMultipleFkRefAsSplitMultipleFkTest", null, null);
-    protected final ColumnInfo _columnNextId = cci("NEXT_ID", "NEXT_ID", null, null, Long.class, "nextId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteSplitMultipleFkNext", null, null);
-    protected final ColumnInfo _columnSplitName = cci("SPLIT_NAME", "SPLIT_NAME", null, null, String.class, "splitName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnBaseId = cci("BASE_ID", "BASE_ID", null, null, Long.class, "baseId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "whiteSplitMultipleFkChildList", null, false);
+    protected final ColumnInfo _columnFirstId = cci("FIRST_ID", "FIRST_ID", null, null, Integer.class, "firstId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSplitMultipleFkRefAsSplitMultipleFkTest", null, null, false);
+    protected final ColumnInfo _columnNextId = cci("NEXT_ID", "NEXT_ID", null, null, Long.class, "nextId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteSplitMultipleFkNext", null, null, false);
+    protected final ColumnInfo _columnSplitName = cci("SPLIT_NAME", "SPLIT_NAME", null, null, String.class, "splitName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * BASE_ID: {PK, NotNull, BIGINT(19)}
@@ -148,7 +151,7 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSplitMultipleFkNext() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnNextId(), WhiteSplitMultipleFkNextDbm.getInstance().columnNextId());
-        return cfi("FK_WHITE_SPLIT_MULTIPLE_FK_NEXT", "whiteSplitMultipleFkNext", this, WhiteSplitMultipleFkNextDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteSplitMultipleFkBaseList");
+        return cfi("FK_WHITE_SPLIT_MULTIPLE_FK_NEXT", "whiteSplitMultipleFkNext", this, WhiteSplitMultipleFkNextDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSplitMultipleFkBaseList", false);
     }
     /**
      * white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
@@ -156,7 +159,7 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnFirstId(), WhiteSplitMultipleFkRefDbm.getInstance().columnFirstId());
-        return cfi("FK_WHITE_SPLIT_MULTIPLE_FK", "whiteSplitMultipleFkRefAsSplitMultipleFkTest", this, WhiteSplitMultipleFkRefDbm.getInstance(), mp, 1, null, false, false, false, true, "$$over($localTable.whiteSplitMultipleFkNext)$$.SECOND_CODE = $$foreignAlias$$.SECOND_CODE", null, false, null);
+        return cfi("FK_WHITE_SPLIT_MULTIPLE_FK", "whiteSplitMultipleFkRefAsSplitMultipleFkTest", this, WhiteSplitMultipleFkRefDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$over($localTable.whiteSplitMultipleFkNext)$$.SECOND_CODE = $$foreignAlias$$.SECOND_CODE", null, false, null, false);
     }
 
     // -----------------------------------------------------

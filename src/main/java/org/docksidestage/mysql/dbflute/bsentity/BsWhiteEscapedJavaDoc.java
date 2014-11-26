@@ -83,24 +83,16 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
     protected String _escapedJavaDocName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_escaped_java_doc";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteEscapedJavaDoc";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -118,7 +110,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
     /**
      * Get the value of escapedJavaDocCode as the classification of EscapedJavaDocCls. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
-     * /*IF pmb.yourTop&#42;/&gt;&lt;&
+     * /*IF pmb.yourTop&#42;/&gt;&lt;&amp;
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
@@ -129,7 +121,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
     /**
      * Set the value of escapedJavaDocCode as the classification of EscapedJavaDocCls. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
-     * /*IF pmb.yourTop&#42;/&gt;&lt;&
+     * /*IF pmb.yourTop&#42;/&gt;&lt;&amp;
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
     public void setEscapedJavaDocCodeAsEscapedJavaDocCls(CDef.EscapedJavaDocCls cdef) {
@@ -141,7 +133,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
     //                                                              ======================
     /**
      * Set the value of escapedJavaDocCode as First (FOO). <br>
-     * First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&
+     * First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&amp;
      */
     public void setEscapedJavaDocCode_First() {
         setEscapedJavaDocCodeAsEscapedJavaDocCls(CDef.EscapedJavaDocCls.First);
@@ -149,7 +141,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
 
     /**
      * Set the value of escapedJavaDocCode as Second (BAR). <br>
-     * Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&
+     * Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&amp;
      */
     public void setEscapedJavaDocCode_Second() {
         setEscapedJavaDocCodeAsEscapedJavaDocCls(CDef.EscapedJavaDocCls.Second);
@@ -160,7 +152,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
     //                                                        ============================
     /**
      * Is the value of escapedJavaDocCode First? <br>
-     * First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&
+     * First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&amp;
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */
@@ -171,7 +163,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
 
     /**
      * Is the value of escapedJavaDocCode Second? <br>
-     * Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&
+     * Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&amp;
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */
@@ -181,7 +173,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
     }
 
     /**
-     * /*IF pmb.yourGroup&#42;/&gt;&lt;& <br>
+     * /*IF pmb.yourGroup&#42;/&gt;&lt;&amp; <br>
      * The group elements:[First, Second]
      * @return The determination, true or false.
      */
@@ -229,7 +221,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _escapedJavaDocCode);
         return hs;
     }

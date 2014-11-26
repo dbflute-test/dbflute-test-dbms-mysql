@@ -89,7 +89,7 @@ public class DatabaseDependencyTest extends UnitContainerTestCase {
         textColumnList.add(dbm.columnMemberAccount());
 
         // ## Act ##
-        cb.query().setBirthdate_LessEqual(currentDate());
+        cb.query().setBirthdate_LessEqual(currentLocalDate());
         cb.query().match(textColumnList, "foo", WayOfMySQL.FullTextSearchModifier.WithQueryExpansion);
 
         // ## Assert ##

@@ -75,10 +75,12 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhitePgReservDbm getDBMeta() { return WhitePgReservDbm.getInstance(); }
+    public WhitePgReservDbm asDBMeta() { return WhitePgReservDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_pg_reserv"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhitePgReservCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhitePgReservCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
      * <pre>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRefList</span>(<span style="color: #553000">whitePgReservList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRef</span>(<span style="color: #553000">whitePgReservList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRefList(List<WhitePgReserv> whitePgReservList, ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRef(List<WhitePgReserv> whitePgReservList, ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
         xassLRArg(whitePgReservList, refCBLambda);
-        return doLoadWhitePgReservRefList(whitePgReservList, new LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef>().xinit(refCBLambda));
+        return doLoadWhitePgReservRef(whitePgReservList, new LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br>
      * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
      * <pre>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRefList</span>(<span style="color: #553000">whitePgReserv</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRef</span>(<span style="color: #553000">whitePgReserv</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRefList(WhitePgReserv whitePgReserv, ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRef(WhitePgReserv whitePgReserv, ConditionBeanSetupper<WhitePgReservRefCB> refCBLambda) {
         xassLRArg(whitePgReserv, refCBLambda);
-        return doLoadWhitePgReservRefList(xnewLRLs(whitePgReserv), new LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef>().xinit(refCBLambda));
+        return doLoadWhitePgReservRef(xnewLRLs(whitePgReserv), new LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRefList(WhitePgReserv whitePgReserv, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRef(WhitePgReserv whitePgReserv, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> loadReferrerOption) {
         xassLRArg(whitePgReserv, loadReferrerOption);
-        return loadWhitePgReservRefList(xnewLRLs(whitePgReserv), loadReferrerOption);
+        return loadWhitePgReservRef(xnewLRLs(whitePgReserv), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRefList(List<WhitePgReserv> whitePgReservList, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhitePgReservRef> loadWhitePgReservRef(List<WhitePgReserv> whitePgReservList, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> loadReferrerOption) {
         xassLRArg(whitePgReservList, loadReferrerOption);
         if (whitePgReservList.isEmpty()) { return (NestedReferrerListGateway<WhitePgReservRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhitePgReservRefList(whitePgReservList, loadReferrerOption);
+        return doLoadWhitePgReservRef(whitePgReservList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhitePgReservRef> doLoadWhitePgReservRefList(List<WhitePgReserv> whitePgReservList, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> option) {
+    protected NestedReferrerListGateway<WhitePgReservRef> doLoadWhitePgReservRef(List<WhitePgReserv> whitePgReservList, LoadReferrerOption<WhitePgReservRefCB, WhitePgReservRef> option) {
         return helpLoadReferrerInternally(whitePgReservList, option, "whitePgReservRefList");
     }
 
@@ -637,11 +639,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">//whitePgReserv.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whitePgReserv.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">update</span>(whitePgReserv);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">update</span>(whitePgReserv);
      * </pre>
      * @param whitePgReserv The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -802,9 +800,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whitePgReserv.setVersionNo(value);</span>
-     * WhitePgReservCB cb = <span style="color: #70226C">new</span> WhitePgReservCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whitePgReserv, cb);
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whitePgReserv, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whitePgReserv The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
@@ -844,9 +842,9 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhitePgReservCB cb = new WhitePgReservCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePgReserv, cb);
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePgReserv, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
      * @return The deleted count.
@@ -886,10 +884,10 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whitePgReserv.setFoo...(value);
      * whitePgReserv.setBar...(value);
-     * InsertOption&lt;WhitePgReservCB&gt; option = new InsertOption&lt;WhitePgReservCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whitePgReserv, option);
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whitePgReserv, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whitePgReserv.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whitePgReserv The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -910,18 +908,12 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * whitePgReserv.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whitePgReserv.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhitePgReservCB&gt; option = new UpdateOption&lt;WhitePgReservCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhitePgReservCB&gt;() {
-     *         public void specify(WhitePgReservCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whitePgReserv, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whitePgReserv, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whitePgReserv The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1030,15 +1022,13 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whitePgReserv.setVersionNo(value);</span>
-     * WhitePgReservCB cb = new WhitePgReservCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhitePgReservCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhitePgReservCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhitePgReservCB&gt;() {
-     *     public void specify(WhitePgReservCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePgReserv, cb, option);
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePgReserv, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whitePgReserv The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
@@ -1066,13 +1056,11 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <span style="color: #3F7E5E">//whitePgReserv.setVersionNo(value);</span>
      * WhitePgReservCB cb = <span style="color: #70226C">new</span> WhitePgReservCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhitePgReservCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhitePgReservCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhitePgReservCB&gt;() {
-     *     public void specify(WhitePgReservCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePgReserv, cb, option);
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whitePgReserv, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whitePgReserv The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhitePgReserv. (NotNull)
@@ -1087,7 +1075,14 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePgReserv, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhitePgReserv. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1100,7 +1095,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhitePgReserv. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1141,9 +1136,8 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhitePgReservBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhitePgReservBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhitePgReservBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

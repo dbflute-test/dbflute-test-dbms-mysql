@@ -1,6 +1,6 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.mysql.dbflute.cbean.MemberAddressCB;
@@ -21,7 +21,7 @@ public class WxBizOneToOneOnlyOneDateTest extends UnitContainerTestCase {
 
     public void test_OnlyOneDate_basic() throws Exception {
         // ## Arrange ##
-        Date currentDate = currentDate();
+        LocalDate currentDate = currentLocalDate();
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberAddressAsOnlyOneDate(currentDate);
         cb.query().addOrderBy_MemberId_Asc();
@@ -41,10 +41,10 @@ public class WxBizOneToOneOnlyOneDateTest extends UnitContainerTestCase {
         for (int i = 0; i < memberList.size(); i++) {
             Member expected = expectedList.get(i);
             Member member = memberList.get(i);
-            MemberAddress address = member.getMemberAddressAsOnlyOneDate();
+            MemberAddress address = member.getMemberAddressAsOnlyOneDate().orElse(null);
             log(member.getMemberName() + ", " + address);
             assertEquals(expected, member);
-            MemberAddress expectedAddress = expected.getMemberAddressAsValid();
+            MemberAddress expectedAddress = expected.getMemberAddressAsValid().orElse(null);
             if (!(expectedAddress == null && address != null)) {
                 // if e.g. only 2003-2007 exists, different result
                 exists = true;
@@ -57,7 +57,7 @@ public class WxBizOneToOneOnlyOneDateTest extends UnitContainerTestCase {
 
     public void test_OnlyOneDate_query() throws Exception {
         // ## Arrange ##
-        Date currentDate = currentDate();
+        LocalDate currentDate = currentLocalDate();
         MemberAddressCB cb = new MemberAddressCB();
         cb.setupSelect_Member().withMemberAddressAsOnlyOneDate(currentDate);
         cb.query().queryMember().queryMemberAddressAsOnlyOneDate(currentDate).setMemberAddressId_IsNotNull();
@@ -68,7 +68,7 @@ public class WxBizOneToOneOnlyOneDateTest extends UnitContainerTestCase {
         // ## Assert ##
         assertHasAnyElement(addressList);
         for (MemberAddress address : addressList) {
-            log(address.getMember().getMemberAddressAsOnlyOneDate());
+            log(address.getMember().get().getMemberAddressAsOnlyOneDate());
         }
     }
 }

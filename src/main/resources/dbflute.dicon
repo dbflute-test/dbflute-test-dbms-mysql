@@ -49,6 +49,7 @@
     <component name="whiteCompoundPkRefBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkRefBhv"/>
     <component name="whiteCompoundPkRefManyBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkRefManyBhv"/>
     <component name="whiteCompoundPkRefNestBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkRefNestBhv"/>
+    <component name="whiteCompoundPkWrongOrderBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkWrongOrderBhv"/>
     <component name="whiteCompoundReferredNormallyBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundReferredNormallyBhv"/>
     <component name="whiteCompoundReferredPrimaryBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundReferredPrimaryBhv"/>
     <component name="whiteDateAdjustmentBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteDateAdjustmentBhv"/>

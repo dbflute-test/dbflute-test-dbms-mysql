@@ -52,7 +52,8 @@ public class WhiteSplitMultipleFkRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getFirstId(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setFirstId(cti(vl)), "firstId");
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getSecondCode(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setSecondCode((String)vl), "secondCode");
         setupEpg(_epgMap, et -> ((WhiteSplitMultipleFkRef)et).getRefName(), (et, vl) -> ((WhiteSplitMultipleFkRef)et).setRefName((String)vl), "refName");
@@ -74,9 +75,9 @@ public class WhiteSplitMultipleFkRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnFirstId = cci("FIRST_ID", "FIRST_ID", null, null, Integer.class, "firstId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnSecondCode = cci("SECOND_CODE", "SECOND_CODE", null, null, String.class, "secondCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnRefName = cci("REF_NAME", "REF_NAME", null, null, String.class, "refName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnFirstId = cci("FIRST_ID", "FIRST_ID", null, null, Integer.class, "firstId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSecondCode = cci("SECOND_CODE", "SECOND_CODE", null, null, String.class, "secondCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRefName = cci("REF_NAME", "REF_NAME", null, null, String.class, "refName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * FIRST_ID: {PK, NotNull, INT(10)}

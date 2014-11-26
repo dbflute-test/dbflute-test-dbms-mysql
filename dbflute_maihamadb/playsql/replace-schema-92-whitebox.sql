@@ -169,6 +169,14 @@ create table WHITE_COMPOUND_PK_REF_MANY (
 	PRIMARY KEY (MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID)
 ) ;
 
+create table WHITE_COMPOUND_PK_WRONG_ORDER (
+	FIRST_ID INTEGER NOT NULL,
+	SECOND_ID INTEGER NOT NULL,
+	THIRD_ID INTEGER NOT NULL,
+	WRONG_NAME VARCHAR(200) NOT NULL,
+	PRIMARY KEY (SECOND_ID, THIRD_ID, FIRST_ID)
+) ;
+
 -- /= = = = = = = = = = = = = = = 
 -- for the test of unique-key FK
 -- = = = = = = = = = =/
@@ -745,7 +753,7 @@ create table WHITE_DEPRECATED_CLS_ELEMENT (
 -- = = = = = = = = = =/
 create table WHITE_DB_COMMENT (
 	DB_COMMENT_CODE CHAR(3) NOT NULL COMMENT 'Normal: this is normal comment.',
-	DB_COMMENT_NAME VARCHAR(20) COMMENT 'JavaDocHeadache: e.g. /*BEGIN*/, @ @foo <br />',
+	DB_COMMENT_NAME VARCHAR(20) COMMENT 'JavaDocHeadache: e.g. /*BEGIN*/, @ @foo <br>',
 	PRIMARY KEY (DB_COMMENT_CODE)
 ) ;
 

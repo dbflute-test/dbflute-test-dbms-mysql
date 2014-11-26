@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -89,24 +91,16 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     protected String _parentCategoryCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "product_category";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "productCategory";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -122,13 +116,15 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     //                                                                    Foreign Property
     //                                                                    ================
     /** (商品カテゴリ)product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'. */
-    protected ProductCategory _productCategorySelf;
+    protected OptionalEntity<ProductCategory> _productCategorySelf;
 
     /**
      * [get] (商品カテゴリ)product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'. <br>
-     * @return The entity of foreign property 'productCategorySelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'productCategorySelf'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public ProductCategory getProductCategorySelf() {
+    public OptionalEntity<ProductCategory> getProductCategorySelf() {
+        if (_productCategorySelf == null) { _productCategorySelf = OptionalEntity.relationEmpty(this, "productCategorySelf"); }
         return _productCategorySelf;
     }
 
@@ -136,7 +132,7 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
      * [set] (商品カテゴリ)product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
      * @param productCategorySelf The entity of foreign property 'productCategorySelf'. (NullAllowed)
      */
-    public void setProductCategorySelf(ProductCategory productCategorySelf) {
+    public void setProductCategorySelf(OptionalEntity<ProductCategory> productCategorySelf) {
         _productCategorySelf = productCategorySelf;
     }
 
@@ -204,7 +200,7 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productCategoryCode);
         return hs;
     }
@@ -212,13 +208,16 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_productCategorySelf != null)
+        if (_productCategorySelf != null && _productCategorySelf.isPresent())
         { sb.append(li).append(xbRDS(_productCategorySelf, "productCategorySelf")); }
         if (_productList != null) { for (Product et : _productList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "productList")); } } }
         if (_productCategorySelfList != null) { for (ProductCategory et : _productCategorySelfList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "productCategorySelfList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -237,7 +236,7 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_productCategorySelf != null)
+        if (_productCategorySelf != null && _productCategorySelf.isPresent())
         { sb.append(dm).append("productCategorySelf"); }
         if (_productList != null && !_productList.isEmpty())
         { sb.append(dm).append("productList"); }

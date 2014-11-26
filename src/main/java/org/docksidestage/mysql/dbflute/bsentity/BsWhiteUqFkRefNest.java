@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -87,24 +89,16 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
     protected String _compoundUqSecondCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_uq_fk_ref_nest";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteUqFkRefNest";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -120,13 +114,15 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'. */
-    protected WhiteUqFkRef _whiteUqFkRef;
+    protected OptionalEntity<WhiteUqFkRef> _whiteUqFkRef;
 
     /**
      * [get] white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'. <br>
-     * @return The entity of foreign property 'whiteUqFkRef'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteUqFkRef'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteUqFkRef getWhiteUqFkRef() {
+    public OptionalEntity<WhiteUqFkRef> getWhiteUqFkRef() {
+        if (_whiteUqFkRef == null) { _whiteUqFkRef = OptionalEntity.relationEmpty(this, "whiteUqFkRef"); }
         return _whiteUqFkRef;
     }
 
@@ -134,7 +130,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
      * [set] white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
      * @param whiteUqFkRef The entity of foreign property 'whiteUqFkRef'. (NullAllowed)
      */
-    public void setWhiteUqFkRef(WhiteUqFkRef whiteUqFkRef) {
+    public void setWhiteUqFkRef(OptionalEntity<WhiteUqFkRef> whiteUqFkRef) {
         _whiteUqFkRef = whiteUqFkRef;
     }
 
@@ -162,7 +158,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _uqFkRefNestId);
         return hs;
     }
@@ -170,9 +166,12 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteUqFkRef != null)
+        if (_whiteUqFkRef != null && _whiteUqFkRef.isPresent())
         { sb.append(li).append(xbRDS(_whiteUqFkRef, "whiteUqFkRef")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -191,7 +190,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteUqFkRef != null)
+        if (_whiteUqFkRef != null && _whiteUqFkRef.isPresent())
         { sb.append(dm).append("whiteUqFkRef"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

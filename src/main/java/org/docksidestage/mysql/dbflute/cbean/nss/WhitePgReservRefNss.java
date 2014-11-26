@@ -26,7 +26,7 @@ public class WhitePgReservRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhitePgReservRefCQ _query;
+    protected final WhitePgReservRefCQ _query;
     public WhitePgReservRefNss(WhitePgReservRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

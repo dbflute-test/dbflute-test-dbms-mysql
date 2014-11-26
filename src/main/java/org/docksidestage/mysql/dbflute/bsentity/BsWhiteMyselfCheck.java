@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -87,24 +89,16 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
     protected Integer _myselfId;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_myself_check";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteMyselfCheck";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -120,13 +114,15 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_myself by my MYSELF_ID, named 'whiteMyself'. */
-    protected WhiteMyself _whiteMyself;
+    protected OptionalEntity<WhiteMyself> _whiteMyself;
 
     /**
      * [get] white_myself by my MYSELF_ID, named 'whiteMyself'. <br>
-     * @return The entity of foreign property 'whiteMyself'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteMyself'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteMyself getWhiteMyself() {
+    public OptionalEntity<WhiteMyself> getWhiteMyself() {
+        if (_whiteMyself == null) { _whiteMyself = OptionalEntity.relationEmpty(this, "whiteMyself"); }
         return _whiteMyself;
     }
 
@@ -134,7 +130,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
      * [set] white_myself by my MYSELF_ID, named 'whiteMyself'.
      * @param whiteMyself The entity of foreign property 'whiteMyself'. (NullAllowed)
      */
-    public void setWhiteMyself(WhiteMyself whiteMyself) {
+    public void setWhiteMyself(OptionalEntity<WhiteMyself> whiteMyself) {
         _whiteMyself = whiteMyself;
     }
 
@@ -162,7 +158,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _myselfCheckId);
         return hs;
     }
@@ -170,9 +166,12 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteMyself != null)
+        if (_whiteMyself != null && _whiteMyself.isPresent())
         { sb.append(li).append(xbRDS(_whiteMyself, "whiteMyself")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -191,7 +190,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteMyself != null)
+        if (_whiteMyself != null && _whiteMyself.isPresent())
         { sb.append(dm).append("whiteMyself"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

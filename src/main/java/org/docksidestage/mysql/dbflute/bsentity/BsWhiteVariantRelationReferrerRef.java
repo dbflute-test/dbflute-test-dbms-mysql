@@ -18,9 +18,11 @@ package org.docksidestage.mysql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
@@ -82,24 +84,16 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
     protected Long _referrerId;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_variant_relation_referrer_ref";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteVariantRelationReferrerRef";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -115,13 +109,15 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'. */
-    protected WhiteVariantRelationReferrer _whiteVariantRelationReferrer;
+    protected OptionalEntity<WhiteVariantRelationReferrer> _whiteVariantRelationReferrer;
 
     /**
      * [get] white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'. <br>
-     * @return The entity of foreign property 'whiteVariantRelationReferrer'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteVariantRelationReferrer'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteVariantRelationReferrer getWhiteVariantRelationReferrer() {
+    public OptionalEntity<WhiteVariantRelationReferrer> getWhiteVariantRelationReferrer() {
+        if (_whiteVariantRelationReferrer == null) { _whiteVariantRelationReferrer = OptionalEntity.relationEmpty(this, "whiteVariantRelationReferrer"); }
         return _whiteVariantRelationReferrer;
     }
 
@@ -129,7 +125,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
      * [set] white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
      * @param whiteVariantRelationReferrer The entity of foreign property 'whiteVariantRelationReferrer'. (NullAllowed)
      */
-    public void setWhiteVariantRelationReferrer(WhiteVariantRelationReferrer whiteVariantRelationReferrer) {
+    public void setWhiteVariantRelationReferrer(OptionalEntity<WhiteVariantRelationReferrer> whiteVariantRelationReferrer) {
         _whiteVariantRelationReferrer = whiteVariantRelationReferrer;
     }
 
@@ -157,7 +153,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _refId);
         return hs;
     }
@@ -165,9 +161,12 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationReferrer != null)
+        if (_whiteVariantRelationReferrer != null && _whiteVariantRelationReferrer.isPresent())
         { sb.append(li).append(xbRDS(_whiteVariantRelationReferrer, "whiteVariantRelationReferrer")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -185,7 +184,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteVariantRelationReferrer != null)
+        if (_whiteVariantRelationReferrer != null && _whiteVariantRelationReferrer.isPresent())
         { sb.append(dm).append("whiteVariantRelationReferrer"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

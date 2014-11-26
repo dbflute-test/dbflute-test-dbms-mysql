@@ -26,7 +26,7 @@ public class WhiteCompoundPkRefManyNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteCompoundPkRefManyCQ _query;
+    protected final WhiteCompoundPkRefManyCQ _query;
     public WhiteCompoundPkRefManyNss(WhiteCompoundPkRefManyCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

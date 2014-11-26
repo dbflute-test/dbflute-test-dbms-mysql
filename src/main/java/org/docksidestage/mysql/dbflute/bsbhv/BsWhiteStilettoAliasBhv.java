@@ -75,10 +75,12 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteStilettoAliasDbm getDBMeta() { return WhiteStilettoAliasDbm.getInstance(); }
+    public WhiteStilettoAliasDbm asDBMeta() { return WhiteStilettoAliasDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_stiletto_alias"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -197,7 +199,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElseNull(); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -405,7 +407,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -414,7 +416,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteStilettoAliasCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteStilettoAliasCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -423,7 +425,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -504,7 +506,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * Load referrer of whiteStilettoAliasRefList by the set-upper of referrer. <br>
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRefList</span>(<span style="color: #553000">whiteStilettoAliasList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRef</span>(<span style="color: #553000">whiteStilettoAliasList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -526,16 +528,16 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(List<WhiteStilettoAlias> whiteStilettoAliasList, ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRef(List<WhiteStilettoAlias> whiteStilettoAliasList, ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
         xassLRArg(whiteStilettoAliasList, refCBLambda);
-        return doLoadWhiteStilettoAliasRefList(whiteStilettoAliasList, new LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef>().xinit(refCBLambda));
+        return doLoadWhiteStilettoAliasRef(whiteStilettoAliasList, new LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteStilettoAliasRefList by the set-upper of referrer. <br>
      * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRefList</span>(<span style="color: #553000">whiteStilettoAlias</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRef</span>(<span style="color: #553000">whiteStilettoAlias</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -555,9 +557,9 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(WhiteStilettoAlias whiteStilettoAlias, ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRef(WhiteStilettoAlias whiteStilettoAlias, ConditionBeanSetupper<WhiteStilettoAliasRefCB> refCBLambda) {
         xassLRArg(whiteStilettoAlias, refCBLambda);
-        return doLoadWhiteStilettoAliasRefList(xnewLRLs(whiteStilettoAlias), new LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef>().xinit(refCBLambda));
+        return doLoadWhiteStilettoAliasRef(xnewLRLs(whiteStilettoAlias), new LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef>().xinit(refCBLambda));
     }
 
     /**
@@ -566,9 +568,9 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(WhiteStilettoAlias whiteStilettoAlias, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRef(WhiteStilettoAlias whiteStilettoAlias, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> loadReferrerOption) {
         xassLRArg(whiteStilettoAlias, loadReferrerOption);
-        return loadWhiteStilettoAliasRefList(xnewLRLs(whiteStilettoAlias), loadReferrerOption);
+        return loadWhiteStilettoAliasRef(xnewLRLs(whiteStilettoAlias), loadReferrerOption);
     }
 
     /**
@@ -578,13 +580,13 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRefList(List<WhiteStilettoAlias> whiteStilettoAliasList, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteStilettoAliasRef> loadWhiteStilettoAliasRef(List<WhiteStilettoAlias> whiteStilettoAliasList, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> loadReferrerOption) {
         xassLRArg(whiteStilettoAliasList, loadReferrerOption);
         if (whiteStilettoAliasList.isEmpty()) { return (NestedReferrerListGateway<WhiteStilettoAliasRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteStilettoAliasRefList(whiteStilettoAliasList, loadReferrerOption);
+        return doLoadWhiteStilettoAliasRef(whiteStilettoAliasList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteStilettoAliasRef> doLoadWhiteStilettoAliasRefList(List<WhiteStilettoAlias> whiteStilettoAliasList, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> option) {
+    protected NestedReferrerListGateway<WhiteStilettoAliasRef> doLoadWhiteStilettoAliasRef(List<WhiteStilettoAlias> whiteStilettoAliasList, LoadReferrerOption<WhiteStilettoAliasRefCB, WhiteStilettoAliasRef> option) {
         return helpLoadReferrerInternally(whiteStilettoAliasList, option, "whiteStilettoAliasRefList");
     }
 
@@ -637,11 +639,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteStilettoAlias.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteStilettoAlias.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">update</span>(whiteStilettoAlias);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">update</span>(whiteStilettoAlias);
      * </pre>
      * @param whiteStilettoAlias The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -802,9 +800,9 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteStilettoAlias.setVersionNo(value);</span>
-     * WhiteStilettoAliasCB cb = <span style="color: #70226C">new</span> WhiteStilettoAliasCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteStilettoAlias, cb);
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteStilettoAlias, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteStilettoAlias The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteStilettoAlias. (NotNull)
@@ -844,9 +842,9 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteStilettoAliasCB cb = new WhiteStilettoAliasCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteStilettoAlias, cb);
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteStilettoAlias, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteStilettoAlias. (NotNull)
      * @return The deleted count.
@@ -886,10 +884,10 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteStilettoAlias.setFoo...(value);
      * whiteStilettoAlias.setBar...(value);
-     * InsertOption&lt;WhiteStilettoAliasCB&gt; option = new InsertOption&lt;WhiteStilettoAliasCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteStilettoAlias, option);
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteStilettoAlias, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteStilettoAlias.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteStilettoAlias The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -910,18 +908,12 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * whiteStilettoAlias.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteStilettoAlias.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteStilettoAliasCB&gt; option = new UpdateOption&lt;WhiteStilettoAliasCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteStilettoAliasCB&gt;() {
-     *         public void specify(WhiteStilettoAliasCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteStilettoAlias, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteStilettoAlias, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteStilettoAlias The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1030,15 +1022,13 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteStilettoAlias.setVersionNo(value);</span>
-     * WhiteStilettoAliasCB cb = new WhiteStilettoAliasCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteStilettoAliasCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteStilettoAliasCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteStilettoAliasCB&gt;() {
-     *     public void specify(WhiteStilettoAliasCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteStilettoAlias, cb, option);
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteStilettoAlias, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteStilettoAlias The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteStilettoAlias. (NotNull)
@@ -1066,13 +1056,11 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteStilettoAlias.setVersionNo(value);</span>
      * WhiteStilettoAliasCB cb = <span style="color: #70226C">new</span> WhiteStilettoAliasCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteStilettoAliasCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteStilettoAliasCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteStilettoAliasCB&gt;() {
-     *     public void specify(WhiteStilettoAliasCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteStilettoAlias, cb, option);
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteStilettoAlias, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteStilettoAlias The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteStilettoAlias. (NotNull)
@@ -1087,7 +1075,14 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteStilettoAlias, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteStilettoAlias. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1100,7 +1095,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteStilettoAlias. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1141,9 +1136,8 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteStilettoAliasBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteStilettoAliasBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteStilettoAliasBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

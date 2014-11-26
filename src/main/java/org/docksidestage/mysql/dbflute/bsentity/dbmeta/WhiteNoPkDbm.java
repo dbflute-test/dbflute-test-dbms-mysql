@@ -52,7 +52,8 @@ public class WhiteNoPkDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkId(), (et, vl) -> ((WhiteNoPk)et).setNoPkId(ctl(vl)), "noPkId");
         setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkName(), (et, vl) -> ((WhiteNoPk)et).setNoPkName((String)vl), "noPkName");
         setupEpg(_epgMap, et -> ((WhiteNoPk)et).getNoPkInteger(), (et, vl) -> ((WhiteNoPk)et).setNoPkInteger(cti(vl)), "noPkInteger");
@@ -74,9 +75,9 @@ public class WhiteNoPkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnNoPkId = cci("NO_PK_ID", "NO_PK_ID", null, null, Long.class, "noPkId", null, false, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNoPkName = cci("NO_PK_NAME", "NO_PK_NAME", null, null, String.class, "noPkName", null, false, false, false, "VARCHAR", 32, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNoPkInteger = cci("NO_PK_INTEGER", "NO_PK_INTEGER", null, null, Integer.class, "noPkInteger", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnNoPkId = cci("NO_PK_ID", "NO_PK_ID", null, null, Long.class, "noPkId", null, false, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNoPkName = cci("NO_PK_NAME", "NO_PK_NAME", null, null, String.class, "noPkName", null, false, false, false, "VARCHAR", 32, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNoPkInteger = cci("NO_PK_INTEGER", "NO_PK_INTEGER", null, null, Integer.class, "noPkInteger", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null, false);
 
     /**
      * NO_PK_ID: {NotNull, DECIMAL(16)}

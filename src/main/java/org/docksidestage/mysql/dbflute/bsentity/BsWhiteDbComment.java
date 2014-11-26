@@ -82,24 +82,16 @@ public abstract class BsWhiteDbComment extends AbstractEntity implements DomainE
     protected String _dbCommentName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_db_comment";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteDbComment";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -138,7 +130,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity implements DomainE
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _dbCommentCode);
         return hs;
     }
@@ -195,7 +187,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity implements DomainE
 
     /**
      * [get] (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br>
-     * e.g. /*BEGIN&#42;/, @ @foo &lt;br /&gt;
+     * e.g. /*BEGIN&#42;/, @ @foo &lt;br&gt;
      * @return The value of the column 'DB_COMMENT_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getDbCommentName() {
@@ -205,7 +197,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity implements DomainE
 
     /**
      * [set] (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br>
-     * e.g. /*BEGIN&#42;/, @ @foo &lt;br /&gt;
+     * e.g. /*BEGIN&#42;/, @ @foo &lt;br&gt;
      * @param dbCommentName The value of the column 'DB_COMMENT_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDbCommentName(String dbCommentName) {

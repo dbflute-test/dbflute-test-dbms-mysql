@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -52,7 +53,8 @@ public class WhiteSuppressJoinSqManyDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqMany)et).getManyId(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setManyId(cti(vl)), "manyId");
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqMany)et).getManyName(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setManyName((String)vl), "manyName");
         setupEpg(_epgMap, et -> ((WhiteSuppressJoinSqMany)et).getSuppressJoinSqId(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setSuppressJoinSqId(cti(vl)), "suppressJoinSqId");
@@ -66,9 +68,10 @@ public class WhiteSuppressJoinSqManyDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqMany)et).getWhiteSuppressJoinSqManyOne(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setWhiteSuppressJoinSqManyOne((WhiteSuppressJoinSqManyOne)vl), "whiteSuppressJoinSqManyOne");
-        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqMany)et).getWhiteSuppressJoinSq(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setWhiteSuppressJoinSq((WhiteSuppressJoinSq)vl), "whiteSuppressJoinSq");
+        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqMany)et).getWhiteSuppressJoinSqManyOne(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setWhiteSuppressJoinSqManyOne((OptionalEntity<WhiteSuppressJoinSqManyOne>)vl), "whiteSuppressJoinSqManyOne");
+        setupEfpg(_efpgMap, et -> ((WhiteSuppressJoinSqMany)et).getWhiteSuppressJoinSq(), (et, vl) -> ((WhiteSuppressJoinSqMany)et).setWhiteSuppressJoinSq((OptionalEntity<WhiteSuppressJoinSq>)vl), "whiteSuppressJoinSq");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -87,10 +90,10 @@ public class WhiteSuppressJoinSqManyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnManyId = cci("MANY_ID", "MANY_ID", null, null, Integer.class, "manyId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnManyName = cci("MANY_NAME", "MANY_NAME", null, null, String.class, "manyName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSq", null, null);
-    protected final ColumnInfo _columnManyOneId = cci("MANY_ONE_ID", "MANY_ONE_ID", null, null, Integer.class, "manyOneId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSqManyOne", null, null);
+    protected final ColumnInfo _columnManyId = cci("MANY_ID", "MANY_ID", null, null, Integer.class, "manyId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnManyName = cci("MANY_NAME", "MANY_NAME", null, null, String.class, "manyName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSq", null, null, false);
+    protected final ColumnInfo _columnManyOneId = cci("MANY_ONE_ID", "MANY_ONE_ID", null, null, Integer.class, "manyOneId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSqManyOne", null, null, false);
 
     /**
      * MANY_ID: {PK, NotNull, INT(10)}
@@ -148,7 +151,7 @@ public class WhiteSuppressJoinSqManyDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSuppressJoinSqManyOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnManyOneId(), WhiteSuppressJoinSqManyOneDbm.getInstance().columnManyOneId());
-        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE", "whiteSuppressJoinSqManyOne", this, WhiteSuppressJoinSqManyOneDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteSuppressJoinSqManyList");
+        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_MANY_ONE", "whiteSuppressJoinSqManyOne", this, WhiteSuppressJoinSqManyOneDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSuppressJoinSqManyList", false);
     }
     /**
      * white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'.
@@ -156,7 +159,7 @@ public class WhiteSuppressJoinSqManyDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSuppressJoinSq() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSuppressJoinSqId(), WhiteSuppressJoinSqDbm.getInstance().columnSuppressJoinSqId());
-        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_MANY", "whiteSuppressJoinSq", this, WhiteSuppressJoinSqDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "whiteSuppressJoinSqManyList");
+        return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_MANY", "whiteSuppressJoinSq", this, WhiteSuppressJoinSqDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSuppressJoinSqManyList", false);
     }
 
     // -----------------------------------------------------

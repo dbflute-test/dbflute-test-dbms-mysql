@@ -44,17 +44,14 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_self_reference";
     }
 
@@ -167,13 +164,13 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * {exists (select PARENT_ID from white_self_reference where ...)} <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSelfReferenceSelfList</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteSelfReferenceSelf</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referenceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteSelfReferenceSelfList for 'exists'. (NotNull)
      */
-    public void existsWhiteSelfReferenceSelfList(SubQuery<WhiteSelfReferenceCB> subCBLambda) {
+    public void existsWhiteSelfReferenceSelf(SubQuery<WhiteSelfReferenceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepSelfReferenceId_ExistsReferrer_WhiteSelfReferenceSelfList(cb.query());
@@ -186,13 +183,13 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * {not exists (select PARENT_ID from white_self_reference where ...)} <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSelfReferenceSelfList</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSelfReferenceSelf</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referenceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of SelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteSelfReferenceSelfList(SubQuery<WhiteSelfReferenceCB> subCBLambda) {
+    public void notExistsWhiteSelfReferenceSelf(SubQuery<WhiteSelfReferenceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSelfReferenceCB cb = new WhiteSelfReferenceCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepSelfReferenceId_NotExistsReferrer_WhiteSelfReferenceSelfList(cb.query());
@@ -213,14 +210,14 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      * {FOO &lt;= (select max(BAR) from white_self_reference where ...)} <br>
      * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSelfReferenceSelfList()</span>.<span style="color: #CC4747">max</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSelfReferenceSelf()</span>.<span style="color: #CC4747">max</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     referenceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     referenceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteSelfReferenceCB> derivedWhiteSelfReferenceSelfList() {
+    public HpQDRFunction<WhiteSelfReferenceCB> derivedWhiteSelfReferenceSelf() {
         return xcreateQDRFunctionWhiteSelfReferenceSelfList();
     }
     protected HpQDRFunction<WhiteSelfReferenceCB> xcreateQDRFunctionWhiteSelfReferenceSelfList() {
@@ -344,15 +341,6 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      */
     public void setSelfReferenceName_NotLikeSearch(String selfReferenceName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(selfReferenceName), xgetCValueSelfReferenceName(), "SELF_REFERENCE_NAME", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
-     * @param selfReferenceName The value of selfReferenceName as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setSelfReferenceName_PrefixSearch(String selfReferenceName) {
-        setSelfReferenceName_LikeSearch(selfReferenceName, xcLSOPPre());
     }
 
     protected void regSelfReferenceName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSelfReferenceName(), "SELF_REFERENCE_NAME"); }
@@ -707,39 +695,6 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
      */
     public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
-    }
-
-    /**
-     * Order along manual ordering information.
-     * <pre>
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
-     * <span style="color: #3F7E5E">//     else 1</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     *
-     * ManualOrderOption mop = new ManualOrderOption();
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mop.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mop)</span>;
-     * <span style="color: #3F7E5E">// order by </span>
-     * <span style="color: #3F7E5E">//   case</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'FML' then 1</span>
-     * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'PRV' then 2</span>
-     * <span style="color: #3F7E5E">//     else 3</span>
-     * <span style="color: #3F7E5E">//   end asc, ...</span>
-     * </pre>
-     * <p>This function with Union is unsupported!</p>
-     * <p>The order values are bound (treated as bind parameter).</p>
-     * @param option The option of manual-order containing order values. (NotNull)
-     */
-    public void withManualOrder(ManualOrderOption option) { // is user public!
-        xdoWithManualOrder(option);
     }
 
     // ===================================================================================
