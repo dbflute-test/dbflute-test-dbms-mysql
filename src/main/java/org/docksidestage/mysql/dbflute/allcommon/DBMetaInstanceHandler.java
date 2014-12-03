@@ -48,6 +48,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         final Map<String, String> tmpMap = newHashMap();
         tmpMap.put("member", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberDbm");
         tmpMap.put("member_address", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberAddressDbm");
+        tmpMap.put("member_following", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberFollowingDbm");
         tmpMap.put("member_login", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberLoginDbm");
         tmpMap.put("member_security", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberSecurityDbm");
         tmpMap.put("member_service", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberServiceDbm");

@@ -158,6 +158,22 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity implements Cu
     }
 
     /**
+     * (会員フォローイング)member_following by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
+     * @return The entity list of referrer property 'memberFollowingByMyMemberIdList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
+     */
+    public List<MemberFollowing> getMemberFollowingByMyMemberIdList() {
+        return innerDomain().getMemberFollowingByMyMemberIdList();
+    }
+
+    /**
+     * (会員フォローイング)member_following by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
+     * @return The entity list of referrer property 'memberFollowingByYourMemberIdList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
+     */
+    public List<MemberFollowing> getMemberFollowingByYourMemberIdList() {
+        return innerDomain().getMemberFollowingByYourMemberIdList();
+    }
+
+    /**
      * (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
      * @return The entity list of referrer property 'memberLoginList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
