@@ -43,6 +43,9 @@ public class WhiteDelimiterDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -58,7 +61,7 @@ public class WhiteDelimiterDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getNumberNullable(), (et, vl) -> ((WhiteDelimiter)et).setNumberNullable(cti(vl)), "numberNullable");
         setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getStringConverted(), (et, vl) -> ((WhiteDelimiter)et).setStringConverted((String)vl), "stringConverted");
         setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getStringNonConverted(), (et, vl) -> ((WhiteDelimiter)et).setStringNonConverted((String)vl), "stringNonConverted");
-        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getDateDefault(), (et, vl) -> ((WhiteDelimiter)et).setDateDefault((java.time.LocalDate)vl), "dateDefault");
+        setupEpg(_epgMap, et -> ((WhiteDelimiter)et).getDateDefault(), (et, vl) -> ((WhiteDelimiter)et).setDateDefault(ctld(vl)), "dateDefault");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

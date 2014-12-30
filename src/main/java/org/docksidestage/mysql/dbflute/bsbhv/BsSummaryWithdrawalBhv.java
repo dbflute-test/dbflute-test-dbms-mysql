@@ -106,21 +106,6 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
         return facadeSelectCount(createCB(cbLambda));
     }
 
-    /**
-     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
-     * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
-     * <pre>
-     * SummaryWithdrawalCB cb = <span style="color: #70226C">new</span> SummaryWithdrawalCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">summaryWithdrawalBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
-     * </pre>
-     * @param cb The condition-bean of SummaryWithdrawal. (NotNull)
-     * @return The count for the condition. (NotMinus)
-     */
-    public int selectCount(SummaryWithdrawalCB cb) {
-        return facadeSelectCount(cb);
-    }
-
     // ===================================================================================
     //                                                                       Entity Select
     //                                                                       =============
@@ -158,39 +143,6 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
         return facadeSelectEntity(createCB(cbLambda));
     }
 
-    /**
-     * Select the entity by the condition-bean. <br>
-     * It returns not-null optional entity, so you should ... <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
-     * <pre>
-     * SummaryWithdrawalCB cb = <span style="color: #70226C">new</span> SummaryWithdrawalCB();
-     * cb.query().set...
-     * 
-     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * <span style="color: #0000C0">summaryWithdrawalBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(summaryWithdrawal <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = summaryWithdrawal.get...
-     * });
-     * 
-     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * <span style="color: #0000C0">summaryWithdrawalBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(summaryWithdrawal <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = summaryWithdrawal.get...
-     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #3F7E5E">// called if not present</span>
-     * });
-     * </pre>
-     * @param cb The condition-bean of SummaryWithdrawal. (NotNull)
-     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<SummaryWithdrawal> selectEntity(SummaryWithdrawalCB cb) {
-        return facadeSelectEntity(cb);
-    }
-
     protected OptionalEntity<SummaryWithdrawal> facadeSelectEntity(SummaryWithdrawalCB cb) {
         return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
@@ -218,25 +170,6 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
-    /**
-     * Select the entity by the condition-bean with deleted check. <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
-     * <pre>
-     * SummaryWithdrawalCB cb = <span style="color: #70226C">new</span> SummaryWithdrawalCB();
-     * cb.query().set...;
-     * SummaryWithdrawal summaryWithdrawal = <span style="color: #0000C0">summaryWithdrawalBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = summaryWithdrawal.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
-     * </pre>
-     * @param cb The condition-bean of SummaryWithdrawal. (NotNull)
-     * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public SummaryWithdrawal selectEntityWithDeletedCheck(SummaryWithdrawalCB cb) {
-        return facadeSelectEntityWithDeletedCheck(cb);
-    }
-
     // ===================================================================================
     //                                                                         List Select
     //                                                                         ===========
@@ -257,25 +190,6 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
      */
     public ListResultBean<SummaryWithdrawal> selectList(CBCall<SummaryWithdrawalCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
-    }
-
-    /**
-     * Select the list as result bean.
-     * <pre>
-     * SummaryWithdrawalCB cb = <span style="color: #70226C">new</span> SummaryWithdrawalCB();
-     * cb.query().set...;
-     * cb.query().addOrderBy...;
-     * ListResultBean&lt;SummaryWithdrawal&gt; <span style="color: #553000">summaryWithdrawalList</span> = <span style="color: #0000C0">summaryWithdrawalBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
-     * <span style="color: #70226C">for</span> (SummaryWithdrawal summaryWithdrawal : <span style="color: #553000">summaryWithdrawalList</span>) {
-     *     ... = summaryWithdrawal.get...;
-     * }
-     * </pre>
-     * @param cb The condition-bean of SummaryWithdrawal. (NotNull)
-     * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @throws DangerousResultSizeException When the result size is over the specified safety size.
-     */
-    public ListResultBean<SummaryWithdrawal> selectList(SummaryWithdrawalCB cb) {
-        return facadeSelectList(cb);
     }
 
     @Override
@@ -310,32 +224,6 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
         return facadeSelectPage(createCB(cbLambda));
     }
 
-    /**
-     * Select the page as result bean. <br>
-     * (both count-select and paging-select are executed)
-     * <pre>
-     * SummaryWithdrawalCB cb = <span style="color: #70226C">new</span> SummaryWithdrawalCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;SummaryWithdrawal&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">summaryWithdrawalBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
-     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
-     * ...
-     * <span style="color: #70226C">for</span> (SummaryWithdrawal summaryWithdrawal : <span style="color: #553000">page</span>) {
-     *     ... = summaryWithdrawal.get...();
-     * }
-     * </pre>
-     * @param cb The condition-bean of SummaryWithdrawal. (NotNull)
-     * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @throws DangerousResultSizeException When the result size is over the specified safety size.
-     */
-    public PagingResultBean<SummaryWithdrawal> selectPage(SummaryWithdrawalCB cb) {
-        return facadeSelectPage(cb);
-    }
-
     // ===================================================================================
     //                                                                       Cursor Select
     //                                                                       =============
@@ -353,22 +241,6 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
      */
     public void selectCursor(CBCall<SummaryWithdrawalCB> cbLambda, EntityRowHandler<SummaryWithdrawal> entityLambda) {
         facadeSelectCursor(createCB(cbLambda), entityLambda);
-    }
-
-    /**
-     * Select the cursor by the condition-bean.
-     * <pre>
-     * SummaryWithdrawalCB cb = <span style="color: #70226C">new</span> SummaryWithdrawalCB();
-     * cb.query().set...
-     * <span style="color: #0000C0">summaryWithdrawalBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">member</span>.getMemberName();
-     * });
-     * </pre>
-     * @param cb The condition-bean of SummaryWithdrawal. (NotNull)
-     * @param entityRowHandler The handler of entity row of SummaryWithdrawal. (NotNull)
-     */
-    public void selectCursor(SummaryWithdrawalCB cb, EntityRowHandler<SummaryWithdrawal> entityRowHandler) {
-        facadeSelectCursor(cb, entityRowHandler);
     }
 
     // ===================================================================================

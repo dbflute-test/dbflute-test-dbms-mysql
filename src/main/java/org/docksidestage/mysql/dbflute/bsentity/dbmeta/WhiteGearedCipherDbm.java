@@ -43,6 +43,9 @@ public class WhiteGearedCipherDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -57,8 +60,8 @@ public class WhiteGearedCipherDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherId(), (et, vl) -> ((WhiteGearedCipher)et).setCipherId(ctl(vl)), "cipherId");
         setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherInteger(), (et, vl) -> ((WhiteGearedCipher)et).setCipherInteger(cti(vl)), "cipherInteger");
         setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherVarchar(), (et, vl) -> ((WhiteGearedCipher)et).setCipherVarchar((String)vl), "cipherVarchar");
-        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDate(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDate((java.time.LocalDate)vl), "cipherDate");
-        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDatetime(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDatetime((java.time.LocalDateTime)vl), "cipherDatetime");
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDate(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDate(ctld(vl)), "cipherDate");
+        setupEpg(_epgMap, et -> ((WhiteGearedCipher)et).getCipherDatetime(), (et, vl) -> ((WhiteGearedCipher)et).setCipherDatetime(ctldt(vl)), "cipherDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

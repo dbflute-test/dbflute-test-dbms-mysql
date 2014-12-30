@@ -32,7 +32,5 @@
 		<destroyMethod name="close"/>
 	</component>
 
-	<component name="masterDataSource"
-		class="org.seasar.extension.dbcp.impl.DataSourceImpl"
-	/>
+	<component name="masterDataSource" class="org.seasar.extension.dbcp.impl.DataSourceImpl"/>
 </components>

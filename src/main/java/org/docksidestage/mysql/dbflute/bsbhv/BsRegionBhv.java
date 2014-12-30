@@ -107,21 +107,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
         return facadeSelectCount(createCB(cbLambda));
     }
 
-    /**
-     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
-     * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
-     * <pre>
-     * RegionCB cb = <span style="color: #70226C">new</span> RegionCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
-     * </pre>
-     * @param cb The condition-bean of Region. (NotNull)
-     * @return The count for the condition. (NotMinus)
-     */
-    public int selectCount(RegionCB cb) {
-        return facadeSelectCount(cb);
-    }
-
     // ===================================================================================
     //                                                                       Entity Select
     //                                                                       =============
@@ -159,39 +144,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
         return facadeSelectEntity(createCB(cbLambda));
     }
 
-    /**
-     * Select the entity by the condition-bean. <br>
-     * It returns not-null optional entity, so you should ... <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
-     * <pre>
-     * RegionCB cb = <span style="color: #70226C">new</span> RegionCB();
-     * cb.query().set...
-     * 
-     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(region <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = region.get...
-     * });
-     * 
-     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(region <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = region.get...
-     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #3F7E5E">// called if not present</span>
-     * });
-     * </pre>
-     * @param cb The condition-bean of Region. (NotNull)
-     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<Region> selectEntity(RegionCB cb) {
-        return facadeSelectEntity(cb);
-    }
-
     protected OptionalEntity<Region> facadeSelectEntity(RegionCB cb) {
         return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
@@ -217,25 +169,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      */
     public Region selectEntityWithDeletedCheck(CBCall<RegionCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
-    }
-
-    /**
-     * Select the entity by the condition-bean with deleted check. <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
-     * <pre>
-     * RegionCB cb = <span style="color: #70226C">new</span> RegionCB();
-     * cb.query().set...;
-     * Region region = <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = region.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
-     * </pre>
-     * @param cb The condition-bean of Region. (NotNull)
-     * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public Region selectEntityWithDeletedCheck(RegionCB cb) {
-        return facadeSelectEntityWithDeletedCheck(cb);
     }
 
     /**
@@ -289,25 +222,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
         return facadeSelectList(createCB(cbLambda));
     }
 
-    /**
-     * Select the list as result bean.
-     * <pre>
-     * RegionCB cb = <span style="color: #70226C">new</span> RegionCB();
-     * cb.query().set...;
-     * cb.query().addOrderBy...;
-     * ListResultBean&lt;Region&gt; <span style="color: #553000">regionList</span> = <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
-     * <span style="color: #70226C">for</span> (Region region : <span style="color: #553000">regionList</span>) {
-     *     ... = region.get...;
-     * }
-     * </pre>
-     * @param cb The condition-bean of Region. (NotNull)
-     * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @throws DangerousResultSizeException When the result size is over the specified safety size.
-     */
-    public ListResultBean<Region> selectList(RegionCB cb) {
-        return facadeSelectList(cb);
-    }
-
     @Override
     protected boolean isEntityDerivedMappable() { return true; }
 
@@ -340,32 +254,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
         return facadeSelectPage(createCB(cbLambda));
     }
 
-    /**
-     * Select the page as result bean. <br>
-     * (both count-select and paging-select are executed)
-     * <pre>
-     * RegionCB cb = <span style="color: #70226C">new</span> RegionCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;Region&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
-     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
-     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
-     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
-     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
-     * ...
-     * <span style="color: #70226C">for</span> (Region region : <span style="color: #553000">page</span>) {
-     *     ... = region.get...();
-     * }
-     * </pre>
-     * @param cb The condition-bean of Region. (NotNull)
-     * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @throws DangerousResultSizeException When the result size is over the specified safety size.
-     */
-    public PagingResultBean<Region> selectPage(RegionCB cb) {
-        return facadeSelectPage(cb);
-    }
-
     // ===================================================================================
     //                                                                       Cursor Select
     //                                                                       =============
@@ -383,22 +271,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      */
     public void selectCursor(CBCall<RegionCB> cbLambda, EntityRowHandler<Region> entityLambda) {
         facadeSelectCursor(createCB(cbLambda), entityLambda);
-    }
-
-    /**
-     * Select the cursor by the condition-bean.
-     * <pre>
-     * RegionCB cb = <span style="color: #70226C">new</span> RegionCB();
-     * cb.query().set...
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">member</span>.getMemberName();
-     * });
-     * </pre>
-     * @param cb The condition-bean of Region. (NotNull)
-     * @param entityRowHandler The handler of entity row of Region. (NotNull)
-     */
-    public void selectCursor(RegionCB cb, EntityRowHandler<Region> entityRowHandler) {
-        facadeSelectCursor(cb, entityRowHandler);
     }
 
     // ===================================================================================
@@ -630,7 +502,8 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
     }
 
     /**
-     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl)
+     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
+     * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
      * Region region = <span style="color: #70226C">new</span> Region();
      * region.setPK...(value); <span style="color: #3F7E5E">// required</span>
@@ -654,7 +527,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
-     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
      * @param region The entity of insert or update. (NotNull, ...depends on insert or update)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -665,7 +538,8 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
     }
 
     /**
-     * Delete the entity. (ZeroUpdateException, NonExclusiveControl)
+     * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
+     * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
      * Region region = <span style="color: #70226C">new</span> Region();
      * region.setPK...(value); <span style="color: #3F7E5E">// required</span>
@@ -815,32 +689,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
     }
 
     /**
-     * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
-     * <pre>
-     * Region region = <span style="color: #70226C">new</span> Region();
-     * <span style="color: #3F7E5E">// you don't need to set PK value</span>
-     * <span style="color: #3F7E5E">//region.setPK...(value);</span>
-     * region.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//region.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//region.set...;</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//region.setVersionNo(value);</span>
-     * RegionCB cb = <span style="color: #70226C">new</span> RegionCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">queryUpdate</span>(region, cb);
-     * </pre>
-     * @param region The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
-     * @param cb The condition-bean of Region. (NotNull)
-     * @return The updated count.
-     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
-     */
-    public int queryUpdate(Region region, RegionCB cb) {
-        return doQueryUpdate(region, cb, null);
-    }
-
-    /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
      * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">queryDelete</span>(region, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -853,21 +701,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      */
     public int queryDelete(CBCall<RegionCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
-    }
-
-    /**
-     * Delete the several entities by query. (NonExclusiveControl)
-     * <pre>
-     * RegionCB cb = new RegionCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">queryDelete</span>(region, cb);
-     * </pre>
-     * @param cb The condition-bean of Region. (NotNull)
-     * @return The deleted count.
-     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
-     */
-    public int queryDelete(RegionCB cb) {
-        return doQueryDelete(cb, null);
     }
 
     // ===================================================================================
@@ -1042,38 +875,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
     }
 
     /**
-     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br>
-     * Other specifications are same as queryUpdate(entity, cb).
-     * <pre>
-     * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * Region region = <span style="color: #70226C">new</span> Region();
-     * <span style="color: #3F7E5E">// you don't need to set PK value</span>
-     * <span style="color: #3F7E5E">//region.setPK...(value);</span>
-     * region.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//region.setVersionNo(value);</span>
-     * RegionCB cb = <span style="color: #70226C">new</span> RegionCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(region, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * });
-     * </pre>
-     * @param region The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
-     * @param cb The condition-bean of Region. (NotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @return The updated count.
-     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
-     */
-    public int varyingQueryUpdate(Region region, RegionCB cb, WritableOptionCall<RegionCB, UpdateOption<RegionCB>> opLambda) {
-        return doQueryUpdate(region, cb, createUpdateOption(opLambda));
-    }
-
-    /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
      * Other specifications are same as queryDelete(cb).
@@ -1091,19 +892,6 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      */
     public int varyingQueryDelete(CBCall<RegionCB> cbLambda, WritableOptionCall<RegionCB, DeleteOption<RegionCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
-    }
-
-    /**
-     * Delete the several entities by query with varying requests non-strictly. <br>
-     * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as queryDelete(cb).
-     * @param cb The condition-bean of Region. (NotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @return The deleted count.
-     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
-     */
-    public int varyingQueryDelete(RegionCB cb, WritableOptionCall<RegionCB, DeleteOption<RegionCB>> opLambda) {
-        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================

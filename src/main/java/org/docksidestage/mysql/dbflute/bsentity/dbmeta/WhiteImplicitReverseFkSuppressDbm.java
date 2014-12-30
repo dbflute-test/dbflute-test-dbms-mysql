@@ -43,6 +43,9 @@ public class WhiteImplicitReverseFkSuppressDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -56,8 +59,8 @@ public class WhiteImplicitReverseFkSuppressDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getWhiteImplicitReverseFkSuppressId(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setWhiteImplicitReverseFkSuppressId(cti(vl)), "whiteImplicitReverseFkSuppressId");
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getWhiteImplicitReverseFkId(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setWhiteImplicitReverseFkId(cti(vl)), "whiteImplicitReverseFkId");
-        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setValidBeginDate((java.time.LocalDate)vl), "validBeginDate");
-        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setValidEndDate((java.time.LocalDate)vl), "validEndDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setValidBeginDate(ctld(vl)), "validBeginDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setValidEndDate(ctld(vl)), "validEndDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

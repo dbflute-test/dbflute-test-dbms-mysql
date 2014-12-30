@@ -12,7 +12,6 @@ import org.dbflute.hook.SqlLogHandler;
 import org.dbflute.hook.SqlLogInfo;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;
-import org.docksidestage.mysql.dbflute.cbean.PurchasePaymentCB;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.mysql.dbflute.exbhv.PurchaseBhv;
 import org.docksidestage.mysql.dbflute.exbhv.PurchasePaymentBhv;
@@ -185,9 +184,6 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
         Purchase purchase = new Purchase();
         purchase.setPaymentCompleteFlg_True();
 
-        PurchaseCB cb = new PurchaseCB();
-        cb.query().queryMember().setMemberStatusCode_Equal_Provisional();
-
         try {
             final List<SqlLogInfo> infoList = new ArrayList<SqlLogInfo>();
             CallbackContext.setSqlLogHandlerOnThread(new SqlLogHandler() {
@@ -196,7 +192,9 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
                 }
             });
             // ## Act ##
-            int updatedCount = purchaseBhv.varyingQueryUpdate(purchase, cb, op -> op.self(colCB -> {
+            int updatedCount = purchaseBhv.varyingQueryUpdate(purchase, cb -> {
+                cb.query().queryMember().setMemberStatusCode_Equal_Provisional();
+            }, op -> op.self(colCB -> {
                 colCB.specify().columnPurchasePrice();
             }).multiply(10));
 
@@ -300,15 +298,17 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
 
     public void test_queryDelete_outerJoin() {
         // ## Arrange ##
-        purchasePaymentBhv.varyingQueryDelete(new PurchasePaymentCB(), op -> op.allowNonQueryDelete());
-        PurchaseCB cb = new PurchaseCB();
-        cb.query().queryMember().setMemberStatusCode_Equal_Formalized();
+        purchasePaymentBhv.varyingQueryDelete(cb -> {}, op -> op.allowNonQueryDelete());
 
         // ## Act ##
-        purchaseBhv.queryDelete(cb); // supported since 1.0.4C
+        purchaseBhv.queryDelete(cb -> {
+            cb.query().queryMember().setMemberStatusCode_Equal_Formalized();
+        }); // supported since 1.0.4C
 
         // ## Assert ##
-        assertEquals(0, purchaseBhv.selectCount(cb));
+        assertEquals(0, purchaseBhv.selectCount(cb -> {
+            cb.query().queryMember().setMemberStatusCode_Equal_Formalized();
+        }));
     }
 
     public void test_queryDelete_Union() {

@@ -44,6 +44,9 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -61,7 +64,7 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManySecondId(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManySecondId(cti(vl)), "refManySecondId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyCode(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyCode((String)vl), "refManyCode");
         setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyName(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyName((String)vl), "refManyName");
-        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyDatetime(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyDatetime((java.time.LocalDateTime)vl), "refManyDatetime");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefMany)et).getRefManyDatetime(), (et, vl) -> ((WhiteCompoundPkRefMany)et).setRefManyDatetime(ctldt(vl)), "refManyDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
