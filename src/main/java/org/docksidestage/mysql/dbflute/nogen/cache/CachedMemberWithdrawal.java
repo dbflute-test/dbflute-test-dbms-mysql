@@ -25,7 +25,7 @@ public class CachedMemberWithdrawal {
         if (status != null) {
             return columnInfo.read(status);
         }
-        // TODO jflute test: cache synchronizer
+        // TODO jflute test: Hanger, cache synchronizer
         loadCache(entity, columnName, memberId);
         final MemberWithdrawal reloaded = _cacheMap.get(memberId);
         if (reloaded == null) {
