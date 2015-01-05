@@ -15,11 +15,11 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-	; driver		= com.mysql.jdbc.Driver
-	; url			= jdbc:mysql://localhost:43306/maihamadb?characterEncoding=UTF-8
-	; schema		= 
-	; user			= maihamadb
-	; password		= maihamadb
+	; driver   = com.mysql.jdbc.Driver
+	; url      = jdbc:mysql://localhost:43306/maihamadb?characterEncoding=UTF-8
+	; schema   = 
+	; user     = maihamadb
+	; password = maihamadb
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o propertiesMap: (NotRequired - Default map:{})
