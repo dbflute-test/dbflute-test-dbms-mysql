@@ -54,7 +54,6 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
      * InternalDebugは「DBFluteの内部的なデバッグログ出力を有効にするか否か」を示すが、
      * よほどのことがない限り開発中でもtrueにする必要はない。
      * </p>
-     * @throws Throwable
      */
     @Override
     public void setUp() throws Exception {
@@ -82,7 +81,6 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
     /**
      * JUnit上だけの話ではあるが、最後にクリアすること。
      * でないと、一括実行時に他のテストに影響してしまうため。
-     * @throws Exception 
      */
     @Override
     public void tearDown() throws Exception {
