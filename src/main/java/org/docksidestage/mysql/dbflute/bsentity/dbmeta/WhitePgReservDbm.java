@@ -85,10 +85,12 @@ public class WhitePgReservDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_pg_reserv";
+    protected final String _tableDispName = "WHITE_PG_RESERV";
     protected final String _tablePropertyName = "whitePgReserv";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_PG_RESERV", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

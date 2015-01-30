@@ -97,8 +97,8 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity implements 
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_fromId == null) { return false; }

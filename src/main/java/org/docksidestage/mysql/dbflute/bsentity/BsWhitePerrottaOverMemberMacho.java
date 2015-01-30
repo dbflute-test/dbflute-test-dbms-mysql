@@ -95,8 +95,8 @@ public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity impl
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_machoCode == null) { return false; }

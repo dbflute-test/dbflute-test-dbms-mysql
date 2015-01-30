@@ -97,8 +97,8 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_purchaseReferrerId == null) { return false; }

@@ -96,8 +96,8 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity implements Do
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_lineSepCommentCode == null) { return false; }

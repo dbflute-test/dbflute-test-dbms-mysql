@@ -79,10 +79,12 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_no_pk_relation";
+    protected final String _tableDispName = "WHITE_NO_PK_RELATION";
     protected final String _tablePropertyName = "whiteNoPkRelation";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_NO_PK_RELATION", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "VIEW";

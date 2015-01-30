@@ -105,8 +105,8 @@ public abstract class BsWhiteCompoundPkWrongOrder extends AbstractEntity impleme
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_secondId == null) { return false; }

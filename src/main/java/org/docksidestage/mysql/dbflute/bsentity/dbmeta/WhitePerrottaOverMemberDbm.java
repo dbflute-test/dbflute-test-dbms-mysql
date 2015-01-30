@@ -84,10 +84,12 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_perrotta_over_member";
+    protected final String _tableDispName = "WHITE_PERROTTA_OVER_MEMBER";
     protected final String _tablePropertyName = "whitePerrottaOverMember";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_PERROTTA_OVER_MEMBER", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

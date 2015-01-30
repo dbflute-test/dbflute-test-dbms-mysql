@@ -67,10 +67,12 @@ public class VendorConstraintNameAutoBarDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "vendor_constraint_name_auto_bar";
+    protected final String _tableDispName = "VENDOR_CONSTRAINT_NAME_AUTO_BAR";
     protected final String _tablePropertyName = "vendorConstraintNameAutoBar";
     protected final TableSqlName _tableSqlName = new TableSqlName("VENDOR_CONSTRAINT_NAME_AUTO_BAR", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -109,6 +111,11 @@ public class VendorConstraintNameAutoBarDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnConstraintNameAutoBarId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnConstraintNameAutoBarName()); }
 
     // ===================================================================================
     //                                                                       Relation Info

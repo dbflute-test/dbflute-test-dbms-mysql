@@ -112,8 +112,8 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_multipleFirstId == null) { return false; }

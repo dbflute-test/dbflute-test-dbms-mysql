@@ -110,8 +110,8 @@ public abstract class BsWhiteIncludeQuery extends AbstractEntity implements Doma
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_includeQueryId == null) { return false; }

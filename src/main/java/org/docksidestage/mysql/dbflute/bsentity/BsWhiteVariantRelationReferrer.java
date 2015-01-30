@@ -103,8 +103,8 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_referrerId == null) { return false; }

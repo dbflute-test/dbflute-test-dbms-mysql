@@ -102,8 +102,8 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_productId == null) { return false; }

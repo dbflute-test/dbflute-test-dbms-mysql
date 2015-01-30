@@ -76,10 +76,12 @@ public class WhiteEscapedNumberInitialDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_escaped_number_initial";
+    protected final String _tableDispName = "WHITE_ESCAPED_NUMBER_INITIAL";
     protected final String _tablePropertyName = "whiteEscapedNumberInitial";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_ESCAPED_NUMBER_INITIAL", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

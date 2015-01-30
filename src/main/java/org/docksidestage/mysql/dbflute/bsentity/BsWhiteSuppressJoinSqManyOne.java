@@ -102,8 +102,8 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_manyOneId == null) { return false; }

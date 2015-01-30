@@ -67,10 +67,12 @@ public class WhiteCompoundReferredNormallyDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_compound_referred_normally";
+    protected final String _tableDispName = "WHITE_COMPOUND_REFERRED_NORMALLY";
     protected final String _tablePropertyName = "whiteCompoundReferredNormally";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_COMPOUND_REFERRED_NORMALLY", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

@@ -76,10 +76,12 @@ public class WhiteEscapedDfpropDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_escaped_dfprop";
+    protected final String _tableDispName = "WHITE_ESCAPED_DFPROP";
     protected final String _tablePropertyName = "whiteEscapedDfprop";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_ESCAPED_DFPROP", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

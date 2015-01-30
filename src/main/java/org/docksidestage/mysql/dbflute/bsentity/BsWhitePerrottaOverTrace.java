@@ -107,8 +107,8 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_traceId == null) { return false; }

@@ -102,8 +102,8 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements Do
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_toId == null) { return false; }

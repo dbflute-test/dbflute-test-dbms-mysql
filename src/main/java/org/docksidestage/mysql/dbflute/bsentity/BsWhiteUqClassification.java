@@ -96,8 +96,8 @@ public abstract class BsWhiteUqClassification extends AbstractEntity implements 
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_uqClsId == null) { return false; }

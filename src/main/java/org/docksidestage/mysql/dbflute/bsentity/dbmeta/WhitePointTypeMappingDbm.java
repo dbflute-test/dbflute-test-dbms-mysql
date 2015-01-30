@@ -70,10 +70,12 @@ public class WhitePointTypeMappingDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_point_type_mapping";
+    protected final String _tableDispName = "WHITE_POINT_TYPE_MAPPING";
     protected final String _tablePropertyName = "whitePointTypeMapping";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_POINT_TYPE_MAPPING", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

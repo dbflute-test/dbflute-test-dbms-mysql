@@ -95,8 +95,8 @@ public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity imp
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_masterBarId == null) { return false; }

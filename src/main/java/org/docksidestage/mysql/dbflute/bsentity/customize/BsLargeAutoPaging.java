@@ -129,8 +129,8 @@ public abstract class BsLargeAutoPaging extends AbstractEntity implements Custom
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         return false;

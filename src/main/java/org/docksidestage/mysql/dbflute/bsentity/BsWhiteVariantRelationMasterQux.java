@@ -101,8 +101,8 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity imp
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_masterQuxId == null) { return false; }

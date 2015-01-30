@@ -100,8 +100,8 @@ public abstract class BsWhiteTableExceptGenHead extends AbstractEntity implement
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_genHeadId == null) { return false; }

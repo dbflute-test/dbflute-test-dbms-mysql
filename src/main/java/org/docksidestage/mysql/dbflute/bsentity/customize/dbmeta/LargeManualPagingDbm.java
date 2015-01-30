@@ -74,10 +74,12 @@ public class LargeManualPagingDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "LargeManualPaging";
+    protected final String _tableDispName = "LargeManualPaging";
     protected final String _tablePropertyName = "largeManualPaging";
     protected final TableSqlName _tableSqlName = new TableSqlName("LargeManualPaging", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

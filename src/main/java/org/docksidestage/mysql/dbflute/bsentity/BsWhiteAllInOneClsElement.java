@@ -107,8 +107,8 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_clsCategoryCode == null) { return false; }

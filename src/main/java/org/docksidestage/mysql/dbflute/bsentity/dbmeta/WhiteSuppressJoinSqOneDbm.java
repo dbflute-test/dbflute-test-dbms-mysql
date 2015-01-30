@@ -83,10 +83,12 @@ public class WhiteSuppressJoinSqOneDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_suppress_join_sq_one";
+    protected final String _tableDispName = "WHITE_SUPPRESS_JOIN_SQ_ONE";
     protected final String _tablePropertyName = "whiteSuppressJoinSqOne";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_SUPPRESS_JOIN_SQ_ONE", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -139,6 +141,11 @@ public class WhiteSuppressJoinSqOneDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnOneId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnSuppressJoinSqId()); }
 
     // ===================================================================================
     //                                                                       Relation Info

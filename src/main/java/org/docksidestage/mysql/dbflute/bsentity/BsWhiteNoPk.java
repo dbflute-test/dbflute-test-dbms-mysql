@@ -100,8 +100,8 @@ public abstract class BsWhiteNoPk extends AbstractEntity implements DomainEntity
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         return false;

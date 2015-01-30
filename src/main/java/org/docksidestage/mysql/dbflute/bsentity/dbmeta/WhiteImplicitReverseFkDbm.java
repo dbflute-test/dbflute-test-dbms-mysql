@@ -81,10 +81,12 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_implicit_reverse_fk";
+    protected final String _tableDispName = "WHITE_IMPLICIT_REVERSE_FK";
     protected final String _tablePropertyName = "whiteImplicitReverseFk";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_IMPLICIT_REVERSE_FK", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

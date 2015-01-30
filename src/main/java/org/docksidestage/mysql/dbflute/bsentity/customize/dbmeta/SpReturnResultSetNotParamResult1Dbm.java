@@ -79,10 +79,12 @@ public class SpReturnResultSetNotParamResult1Dbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "SpReturnResultSetNotParamResult1";
+    protected final String _tableDispName = "SpReturnResultSetNotParamResult1";
     protected final String _tablePropertyName = "spReturnResultSetNotParamResult1";
     protected final TableSqlName _tableSqlName = new TableSqlName("SpReturnResultSetNotParamResult1", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

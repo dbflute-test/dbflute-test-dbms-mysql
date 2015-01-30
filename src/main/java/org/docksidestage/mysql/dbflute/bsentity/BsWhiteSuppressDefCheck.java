@@ -95,8 +95,8 @@ public abstract class BsWhiteSuppressDefCheck extends AbstractEntity implements 
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_defCheckId == null) { return false; }

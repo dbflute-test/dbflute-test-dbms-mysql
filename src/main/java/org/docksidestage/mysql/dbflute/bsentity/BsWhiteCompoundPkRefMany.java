@@ -122,8 +122,8 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_multipleFirstId == null) { return false; }

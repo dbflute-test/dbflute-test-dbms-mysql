@@ -97,8 +97,8 @@ public abstract class BsWhitePgReservRef extends AbstractEntity implements Domai
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_refId == null) { return false; }

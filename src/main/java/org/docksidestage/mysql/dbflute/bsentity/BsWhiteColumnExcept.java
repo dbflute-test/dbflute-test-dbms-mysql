@@ -95,8 +95,8 @@ public abstract class BsWhiteColumnExcept extends AbstractEntity implements Doma
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_exceptColumnId == null) { return false; }

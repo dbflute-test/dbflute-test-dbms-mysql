@@ -67,10 +67,12 @@ public class WhiteMyselfDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_myself";
+    protected final String _tableDispName = "WHITE_MYSELF";
     protected final String _tablePropertyName = "whiteMyself";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_MYSELF", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

@@ -96,8 +96,8 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_escapedJavaDocCode == null) { return false; }

@@ -96,8 +96,8 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity impleme
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_deprecatedClsElementCode == null) { return false; }

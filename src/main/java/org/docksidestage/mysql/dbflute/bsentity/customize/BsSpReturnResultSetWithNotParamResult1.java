@@ -110,8 +110,8 @@ public abstract class BsSpReturnResultSetWithNotParamResult1 extends AbstractEnt
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         return false;

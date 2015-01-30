@@ -81,10 +81,12 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_only_one_to_one_to";
+    protected final String _tableDispName = "WHITE_ONLY_ONE_TO_ONE_TO";
     protected final String _tablePropertyName = "whiteOnlyOneToOneTo";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_ONLY_ONE_TO_ONE_TO", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -130,6 +132,11 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnToId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnFromId()); }
 
     // ===================================================================================
     //                                                                       Relation Info

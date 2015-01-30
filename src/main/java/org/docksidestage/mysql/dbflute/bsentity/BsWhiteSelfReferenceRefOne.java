@@ -97,8 +97,8 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_selfReferenceId == null) { return false; }

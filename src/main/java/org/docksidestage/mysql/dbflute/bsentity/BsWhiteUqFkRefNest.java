@@ -102,8 +102,8 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_uqFkRefNestId == null) { return false; }

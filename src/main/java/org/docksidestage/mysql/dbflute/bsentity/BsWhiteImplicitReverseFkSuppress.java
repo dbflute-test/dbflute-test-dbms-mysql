@@ -105,8 +105,8 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_whiteImplicitReverseFkSuppressId == null) { return false; }

@@ -125,8 +125,8 @@ public abstract class BsNextSchemaProduct extends AbstractEntity implements Doma
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_productId == null) { return false; }

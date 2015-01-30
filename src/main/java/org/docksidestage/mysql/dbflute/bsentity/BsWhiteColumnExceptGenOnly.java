@@ -95,8 +95,8 @@ public abstract class BsWhiteColumnExceptGenOnly extends AbstractEntity implemen
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_genOnlyId == null) { return false; }

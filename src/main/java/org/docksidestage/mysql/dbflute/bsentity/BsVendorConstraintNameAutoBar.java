@@ -95,8 +95,8 @@ public abstract class BsVendorConstraintNameAutoBar extends AbstractEntity imple
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_constraintNameAutoBarId == null) { return false; }

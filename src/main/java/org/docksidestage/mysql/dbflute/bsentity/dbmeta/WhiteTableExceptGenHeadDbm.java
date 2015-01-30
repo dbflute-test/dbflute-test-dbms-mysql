@@ -68,10 +68,12 @@ public class WhiteTableExceptGenHeadDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_table_except_gen_head";
+    protected final String _tableDispName = "WHITE_TABLE_EXCEPT_GEN_HEAD";
     protected final String _tablePropertyName = "whiteTableExceptGenHead";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_TABLE_EXCEPT_GEN_HEAD", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

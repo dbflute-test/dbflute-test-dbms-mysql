@@ -77,10 +77,12 @@ public class WhiteVariantRelationMasterQuxDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_variant_relation_master_qux";
+    protected final String _tableDispName = "WHITE_VARIANT_RELATION_MASTER_QUX";
     protected final String _tablePropertyName = "whiteVariantRelationMasterQux";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_VARIANT_RELATION_MASTER_QUX", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

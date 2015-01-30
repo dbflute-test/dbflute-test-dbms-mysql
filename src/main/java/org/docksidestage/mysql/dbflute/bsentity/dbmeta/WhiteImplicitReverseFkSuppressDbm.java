@@ -69,10 +69,12 @@ public class WhiteImplicitReverseFkSuppressDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_implicit_reverse_fk_suppress";
+    protected final String _tableDispName = "WHITE_IMPLICIT_REVERSE_FK_SUPPRESS";
     protected final String _tablePropertyName = "whiteImplicitReverseFkSuppress";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_IMPLICIT_REVERSE_FK_SUPPRESS", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -125,6 +127,16 @@ public class WhiteImplicitReverseFkSuppressDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnWhiteImplicitReverseFkSuppressId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() {
+        List<ColumnInfo> ls = newArrayListSized(4);
+        ls.add(columnWhiteImplicitReverseFkId());
+        ls.add(columnValidBeginDate());
+        return hpcui(ls);
+    }
 
     // ===================================================================================
     //                                                                       Relation Info

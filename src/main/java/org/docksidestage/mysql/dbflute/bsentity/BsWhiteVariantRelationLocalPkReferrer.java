@@ -97,8 +97,8 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_reversefkSuppressedId == null) { return false; }

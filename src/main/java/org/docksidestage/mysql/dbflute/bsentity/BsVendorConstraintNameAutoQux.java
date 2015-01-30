@@ -95,8 +95,8 @@ public abstract class BsVendorConstraintNameAutoQux extends AbstractEntity imple
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_constraintNameAutoQuxId == null) { return false; }

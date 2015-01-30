@@ -67,10 +67,12 @@ public class VendorConstraintNameAutoFooDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "vendor_constraint_name_auto_foo";
+    protected final String _tableDispName = "VENDOR_CONSTRAINT_NAME_AUTO_FOO";
     protected final String _tablePropertyName = "vendorConstraintNameAutoFoo";
     protected final TableSqlName _tableSqlName = new TableSqlName("VENDOR_CONSTRAINT_NAME_AUTO_FOO", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -109,6 +111,11 @@ public class VendorConstraintNameAutoFooDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnConstraintNameAutoFooId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnConstraintNameAutoFooName()); }
 
     // ===================================================================================
     //                                                                       Relation Info

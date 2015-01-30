@@ -102,8 +102,8 @@ public abstract class BsWhiteAllInOneClsCompoundPkRef extends AbstractEntity imp
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_fooCode == null) { return false; }

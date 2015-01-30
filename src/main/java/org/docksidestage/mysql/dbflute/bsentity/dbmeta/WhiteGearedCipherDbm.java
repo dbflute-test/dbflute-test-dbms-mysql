@@ -70,10 +70,12 @@ public class WhiteGearedCipherDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_geared_cipher";
+    protected final String _tableDispName = "WHITE_GEARED_CIPHER";
     protected final String _tablePropertyName = "whiteGearedCipher";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_GEARED_CIPHER", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

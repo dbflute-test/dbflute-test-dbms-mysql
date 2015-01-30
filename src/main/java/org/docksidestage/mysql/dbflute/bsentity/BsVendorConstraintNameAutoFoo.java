@@ -95,8 +95,8 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity imple
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_constraintNameAutoFooId == null) { return false; }

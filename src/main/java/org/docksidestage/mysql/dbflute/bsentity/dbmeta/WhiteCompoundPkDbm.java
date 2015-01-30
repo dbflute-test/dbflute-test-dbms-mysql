@@ -85,10 +85,12 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_compound_pk";
+    protected final String _tableDispName = "WHITE_COMPOUND_PK";
     protected final String _tablePropertyName = "whiteCompoundPk";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_COMPOUND_PK", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -146,6 +148,22 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return true; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOfPkSecondIdReferredId() {
+        List<ColumnInfo> ls = newArrayListSized(4);
+        ls.add(columnPkSecondId());
+        ls.add(columnReferredId());
+        return hpcui(ls);
+    }
+    public UniqueInfo uniqueOfPkSecondIdPkFirstId() {
+        List<ColumnInfo> ls = newArrayListSized(4);
+        ls.add(columnPkSecondId());
+        ls.add(columnPkFirstId());
+        return hpcui(ls);
+    }
 
     // ===================================================================================
     //                                                                       Relation Info
