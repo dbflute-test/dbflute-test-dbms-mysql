@@ -95,8 +95,8 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity implemen
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_nextId == null) { return false; }

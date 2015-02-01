@@ -21,8 +21,6 @@ import org.dbflute.utflute.core.transaction.TransactionResource;
 import org.dbflute.util.DfCollectionUtil;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
-import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;
-import org.docksidestage.mysql.dbflute.cbean.PurchasePaymentCB;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.mysql.dbflute.exbhv.MemberLoginBhv;
 import org.docksidestage.mysql.dbflute.exbhv.MemberStatusBhv;
@@ -278,7 +276,7 @@ public class VendorLockTest extends UnitContainerTestCase {
     //                                  --------------------
     public void test_insert_NextKeyLockDeadlock_for_FK() {
         ListResultBean<PurchasePayment> removedPaymentList = purchasePaymentBhv.selectList(cb -> {});
-        purchasePaymentBhv.varyingQueryDelete(new PurchasePaymentCB(), op -> op.allowNonQueryDelete());
+        purchasePaymentBhv.varyingQueryDelete(op -> {}, op -> op.allowNonQueryDelete());
         // {3, 6, 7} no deadlock (if no data since first, deadlock)
         // if unique index removed, {3, 6, 9} no deadlock but {3, 3} deadlock
         final Map<Integer, Integer> parameterMap = new HashMap<Integer, Integer>();
@@ -299,10 +297,10 @@ public class VendorLockTest extends UnitContainerTestCase {
 
                 // empty delete (update, for update) locks new record
                 // (if it deletes existing records, second threads waits here)
-                PurchaseCB cb = new PurchaseCB();
-                cb.query().setMemberId_Equal(memberId);
-                cb.disableQueryUpdateCountPreCheck();
-                purchaseBhv.queryDelete(cb);
+                purchaseBhv.queryDelete(cb -> {
+                    cb.query().setMemberId_Equal(memberId);
+                    cb.disableQueryUpdateCountPreCheck();
+                });
 
                 Purchase inserted = source.clone();
                 inserted.setMemberId(memberId);
@@ -327,9 +325,9 @@ public class VendorLockTest extends UnitContainerTestCase {
             List<Purchase> resultList = newArrayList();
             for (Object object : parameters) {
                 Integer memberId = (Integer) object;
-                PurchaseCB cb = new PurchaseCB();
-                cb.query().setMemberId_Equal(memberId);
-                ListResultBean<Purchase> purchaseList = purchaseBhv.selectList(cb);
+                ListResultBean<Purchase> purchaseList = purchaseBhv.selectList(cb -> {
+                    cb.query().setMemberId_Equal(memberId);
+                });
                 purchaseBhv.batchDeleteNonstrict(purchaseList);
                 resultList.addAll(purchaseList);
             }
@@ -608,9 +606,9 @@ public class VendorLockTest extends UnitContainerTestCase {
     //                                                                              Delete
     //                                                                              ======
     public void test_delete_nonDeadlock() throws Exception {
-        PurchaseCB cb = new PurchaseCB();
-        cb.query().setMemberId_Equal(3);
-        ListResultBean<Purchase> purchaseList = purchaseBhv.selectList(cb);
+        ListResultBean<Purchase> purchaseList = purchaseBhv.selectList(cb -> {
+            cb.query().setMemberId_Equal(3);
+        });
         List<Long> purchaseIdList = purchaseBhv.extractPurchaseIdList(purchaseList);
         assertTrue(purchaseIdList.size() > 2);
         final Stack<Long> stack = new Stack<Long>();
@@ -628,6 +626,47 @@ public class VendorLockTest extends UnitContainerTestCase {
                 memberBhv.updateNonstrict(member);
             }
         }, new CannonballOption().threadCount(3)); // no deadlock
+    }
+
+    // ===================================================================================
+    //                                                                          For Update
+    //                                                                          ==========
+    public void test_forUpdate_existingValue() throws Exception {
+        cannonball(car -> {
+            car.projectA(dragon -> {
+                dragon.expectNormallyDone();
+                memberBhv.selectEntity(cb -> {
+                    cb.query().setMemberId_Equal(3);
+                    cb.lockForUpdate();
+                });
+            }, 1);
+            car.projectA(dragon -> {
+                dragon.expectOvertime();
+                memberBhv.selectEntity(cb -> {
+                    cb.query().setMemberId_Equal(3);
+                    cb.lockForUpdate();
+                });
+            }, 2);
+        }, new CannonballOption().threadCount(2));
+    }
+
+    public void test_forUpdate_notExistingValue() throws Exception {
+        cannonball(car -> {
+            car.projectA(dragon -> {
+                dragon.expectNormallyDone();
+                memberBhv.selectEntity(cb -> {
+                    cb.query().setMemberId_Equal(99999);
+                    cb.lockForUpdate();
+                });
+            }, 1);
+            car.projectA(dragon -> {
+                dragon.expectNormallyDone(); /* no wait */
+                memberBhv.selectEntity(cb -> {
+                    cb.query().setMemberId_Equal(99999);
+                    cb.lockForUpdate();
+                });
+            }, 2);
+        }, new CannonballOption().threadCount(2));
     }
 
     // ===================================================================================

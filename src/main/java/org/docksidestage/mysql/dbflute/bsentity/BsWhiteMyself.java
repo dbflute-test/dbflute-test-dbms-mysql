@@ -95,8 +95,8 @@ public abstract class BsWhiteMyself extends AbstractEntity implements DomainEnti
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_myselfId == null) { return false; }

@@ -95,8 +95,8 @@ public abstract class BsWhiteSuppressJoinSqOneAddi extends AbstractEntity implem
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_oneAddiId == null) { return false; }

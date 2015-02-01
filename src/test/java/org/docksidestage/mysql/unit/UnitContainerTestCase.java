@@ -14,6 +14,7 @@ import org.dbflute.cbean.scoping.ModeQuery;
 import org.dbflute.exception.NonSpecifiedColumnAccessException;
 import org.dbflute.utflute.seasar.ContainerTestCase;
 import org.docksidestage.mysql.dbflute.exbhv.MemberAddressBhv;
+import org.docksidestage.mysql.dbflute.exbhv.MemberFollowingBhv;
 import org.docksidestage.mysql.dbflute.exbhv.MemberLoginBhv;
 import org.docksidestage.mysql.dbflute.exbhv.MemberSecurityBhv;
 import org.docksidestage.mysql.dbflute.exbhv.MemberServiceBhv;
@@ -44,6 +45,7 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
     protected void deleteMemberReferrer() {
         deleteAll(MemberServiceBhv.class);
         deleteAll(MemberAddressBhv.class);
+        deleteAll(MemberFollowingBhv.class);
         deleteAll(MemberLoginBhv.class);
         deleteAll(MemberSecurityBhv.class);
         deleteAll(MemberWithdrawalBhv.class);
@@ -85,14 +87,12 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
             if (st != null) {
                 try {
                     st.close();
-                } catch (SQLException ignored) {
-                }
+                } catch (SQLException ignored) {}
             }
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException ignored) {
-                }
+                } catch (SQLException ignored) {}
             }
         }
     }

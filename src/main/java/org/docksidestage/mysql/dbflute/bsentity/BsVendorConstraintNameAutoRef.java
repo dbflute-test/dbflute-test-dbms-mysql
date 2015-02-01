@@ -117,8 +117,8 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_constraintNameAutoRefId == null) { return false; }

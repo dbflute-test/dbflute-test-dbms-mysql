@@ -100,8 +100,8 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_xlsManId == null) { return false; }

@@ -43,6 +43,9 @@ public class LargeAutoPagingDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -56,10 +59,10 @@ public class LargeAutoPagingDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getLargeDataRefId(), (et, vl) -> ((LargeAutoPaging)et).setLargeDataRefId(ctl(vl)), "largeDataRefId");
         setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getLargeDataId(), (et, vl) -> ((LargeAutoPaging)et).setLargeDataId(ctl(vl)), "largeDataId");
-        setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getDateIndex(), (et, vl) -> ((LargeAutoPaging)et).setDateIndex((java.time.LocalDate)vl), "dateIndex");
-        setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getDateNoIndex(), (et, vl) -> ((LargeAutoPaging)et).setDateNoIndex((java.time.LocalDate)vl), "dateNoIndex");
-        setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getTimestampIndex(), (et, vl) -> ((LargeAutoPaging)et).setTimestampIndex((java.time.LocalDateTime)vl), "timestampIndex");
-        setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getTimestampNoIndex(), (et, vl) -> ((LargeAutoPaging)et).setTimestampNoIndex((java.time.LocalDateTime)vl), "timestampNoIndex");
+        setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getDateIndex(), (et, vl) -> ((LargeAutoPaging)et).setDateIndex(ctld(vl)), "dateIndex");
+        setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getDateNoIndex(), (et, vl) -> ((LargeAutoPaging)et).setDateNoIndex(ctld(vl)), "dateNoIndex");
+        setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getTimestampIndex(), (et, vl) -> ((LargeAutoPaging)et).setTimestampIndex(ctldt(vl)), "timestampIndex");
+        setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getTimestampNoIndex(), (et, vl) -> ((LargeAutoPaging)et).setTimestampNoIndex(ctldt(vl)), "timestampNoIndex");
         setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getNullableDecimalIndex(), (et, vl) -> ((LargeAutoPaging)et).setNullableDecimalIndex(ctb(vl)), "nullableDecimalIndex");
         setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getNullableDecimalNoIndex(), (et, vl) -> ((LargeAutoPaging)et).setNullableDecimalNoIndex(ctb(vl)), "nullableDecimalNoIndex");
         setupEpg(_epgMap, et -> ((LargeAutoPaging)et).getSelfParentId(), (et, vl) -> ((LargeAutoPaging)et).setSelfParentId(ctl(vl)), "selfParentId");
@@ -71,10 +74,12 @@ public class LargeAutoPagingDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "LargeAutoPaging";
+    protected final String _tableDispName = "LargeAutoPaging";
     protected final String _tablePropertyName = "largeAutoPaging";
     protected final TableSqlName _tableSqlName = new TableSqlName("LargeAutoPaging", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

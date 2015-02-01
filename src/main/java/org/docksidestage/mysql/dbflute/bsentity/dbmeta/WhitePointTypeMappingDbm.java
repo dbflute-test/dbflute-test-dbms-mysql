@@ -43,6 +43,9 @@ public class WhitePointTypeMappingDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -58,7 +61,7 @@ public class WhitePointTypeMappingDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingMemberName(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingMemberName((org.docksidestage.mysql.mytype.MyMemberName)vl), "pointTypeMappingMemberName");
         setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingPriceCount(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingPriceCount((org.docksidestage.mysql.mytype.MyPriceCount)vl), "pointTypeMappingPriceCount");
         setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingSaleDate(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingSaleDate((org.docksidestage.mysql.mytype.MySaleDate)vl), "pointTypeMappingSaleDate");
-        setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingWantedDatetime(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingWantedDatetime((java.time.LocalDate)vl), "pointTypeMappingWantedDatetime");
+        setupEpg(_epgMap, et -> ((WhitePointTypeMapping)et).getPointTypeMappingWantedDatetime(), (et, vl) -> ((WhitePointTypeMapping)et).setPointTypeMappingWantedDatetime(ctld(vl)), "pointTypeMappingWantedDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -67,10 +70,12 @@ public class WhitePointTypeMappingDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_point_type_mapping";
+    protected final String _tableDispName = "WHITE_POINT_TYPE_MAPPING";
     protected final String _tablePropertyName = "whitePointTypeMapping";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_POINT_TYPE_MAPPING", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

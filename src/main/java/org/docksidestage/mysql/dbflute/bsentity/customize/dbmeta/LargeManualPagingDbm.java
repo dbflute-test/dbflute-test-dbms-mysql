@@ -43,6 +43,9 @@ public class LargeManualPagingDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -56,10 +59,10 @@ public class LargeManualPagingDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((LargeManualPaging)et).getLargeDataRefId(), (et, vl) -> ((LargeManualPaging)et).setLargeDataRefId(ctl(vl)), "largeDataRefId");
         setupEpg(_epgMap, et -> ((LargeManualPaging)et).getLargeDataId(), (et, vl) -> ((LargeManualPaging)et).setLargeDataId(ctl(vl)), "largeDataId");
-        setupEpg(_epgMap, et -> ((LargeManualPaging)et).getDateIndex(), (et, vl) -> ((LargeManualPaging)et).setDateIndex((java.time.LocalDate)vl), "dateIndex");
-        setupEpg(_epgMap, et -> ((LargeManualPaging)et).getDateNoIndex(), (et, vl) -> ((LargeManualPaging)et).setDateNoIndex((java.time.LocalDate)vl), "dateNoIndex");
-        setupEpg(_epgMap, et -> ((LargeManualPaging)et).getTimestampIndex(), (et, vl) -> ((LargeManualPaging)et).setTimestampIndex((java.time.LocalDateTime)vl), "timestampIndex");
-        setupEpg(_epgMap, et -> ((LargeManualPaging)et).getTimestampNoIndex(), (et, vl) -> ((LargeManualPaging)et).setTimestampNoIndex((java.time.LocalDateTime)vl), "timestampNoIndex");
+        setupEpg(_epgMap, et -> ((LargeManualPaging)et).getDateIndex(), (et, vl) -> ((LargeManualPaging)et).setDateIndex(ctld(vl)), "dateIndex");
+        setupEpg(_epgMap, et -> ((LargeManualPaging)et).getDateNoIndex(), (et, vl) -> ((LargeManualPaging)et).setDateNoIndex(ctld(vl)), "dateNoIndex");
+        setupEpg(_epgMap, et -> ((LargeManualPaging)et).getTimestampIndex(), (et, vl) -> ((LargeManualPaging)et).setTimestampIndex(ctldt(vl)), "timestampIndex");
+        setupEpg(_epgMap, et -> ((LargeManualPaging)et).getTimestampNoIndex(), (et, vl) -> ((LargeManualPaging)et).setTimestampNoIndex(ctldt(vl)), "timestampNoIndex");
         setupEpg(_epgMap, et -> ((LargeManualPaging)et).getNullableDecimalIndex(), (et, vl) -> ((LargeManualPaging)et).setNullableDecimalIndex(ctb(vl)), "nullableDecimalIndex");
         setupEpg(_epgMap, et -> ((LargeManualPaging)et).getNullableDecimalNoIndex(), (et, vl) -> ((LargeManualPaging)et).setNullableDecimalNoIndex(ctb(vl)), "nullableDecimalNoIndex");
         setupEpg(_epgMap, et -> ((LargeManualPaging)et).getSelfParentId(), (et, vl) -> ((LargeManualPaging)et).setSelfParentId(ctl(vl)), "selfParentId");
@@ -71,10 +74,12 @@ public class LargeManualPagingDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "LargeManualPaging";
+    protected final String _tableDispName = "LargeManualPaging";
     protected final String _tablePropertyName = "largeManualPaging";
     protected final TableSqlName _tableSqlName = new TableSqlName("LargeManualPaging", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

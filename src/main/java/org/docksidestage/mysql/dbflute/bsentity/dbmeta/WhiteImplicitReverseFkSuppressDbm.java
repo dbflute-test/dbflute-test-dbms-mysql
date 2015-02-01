@@ -43,6 +43,9 @@ public class WhiteImplicitReverseFkSuppressDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -56,8 +59,8 @@ public class WhiteImplicitReverseFkSuppressDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getWhiteImplicitReverseFkSuppressId(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setWhiteImplicitReverseFkSuppressId(cti(vl)), "whiteImplicitReverseFkSuppressId");
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getWhiteImplicitReverseFkId(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setWhiteImplicitReverseFkId(cti(vl)), "whiteImplicitReverseFkId");
-        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setValidBeginDate((java.time.LocalDate)vl), "validBeginDate");
-        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setValidEndDate((java.time.LocalDate)vl), "validEndDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setValidBeginDate(ctld(vl)), "validBeginDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkSuppress)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkSuppress)et).setValidEndDate(ctld(vl)), "validEndDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -66,10 +69,12 @@ public class WhiteImplicitReverseFkSuppressDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_implicit_reverse_fk_suppress";
+    protected final String _tableDispName = "WHITE_IMPLICIT_REVERSE_FK_SUPPRESS";
     protected final String _tablePropertyName = "whiteImplicitReverseFkSuppress";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_IMPLICIT_REVERSE_FK_SUPPRESS", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -122,6 +127,16 @@ public class WhiteImplicitReverseFkSuppressDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnWhiteImplicitReverseFkSuppressId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() {
+        List<ColumnInfo> ls = newArrayListSized(4);
+        ls.add(columnWhiteImplicitReverseFkId());
+        ls.add(columnValidBeginDate());
+        return hpcui(ls);
+    }
 
     // ===================================================================================
     //                                                                       Relation Info

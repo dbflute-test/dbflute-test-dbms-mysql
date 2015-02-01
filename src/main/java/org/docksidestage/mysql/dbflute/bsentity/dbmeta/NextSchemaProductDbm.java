@@ -43,6 +43,9 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -56,10 +59,10 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductId(), (et, vl) -> ((NextSchemaProduct)et).setProductId(ctl(vl)), "productId");
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductName(), (et, vl) -> ((NextSchemaProduct)et).setProductName((String)vl), "productName");
-        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getRegisterDatetime(), (et, vl) -> ((NextSchemaProduct)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getRegisterDatetime(), (et, vl) -> ((NextSchemaProduct)et).setRegisterDatetime(ctldt(vl)), "registerDatetime");
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getRegisterUser(), (et, vl) -> ((NextSchemaProduct)et).setRegisterUser((String)vl), "registerUser");
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getRegisterProcess(), (et, vl) -> ((NextSchemaProduct)et).setRegisterProcess((String)vl), "registerProcess");
-        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getUpdateDatetime(), (et, vl) -> ((NextSchemaProduct)et).setUpdateDatetime((java.time.LocalDateTime)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getUpdateDatetime(), (et, vl) -> ((NextSchemaProduct)et).setUpdateDatetime(ctldt(vl)), "updateDatetime");
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getUpdateUser(), (et, vl) -> ((NextSchemaProduct)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getUpdateProcess(), (et, vl) -> ((NextSchemaProduct)et).setUpdateProcess((String)vl), "updateProcess");
     }
@@ -70,10 +73,12 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "next_schema_product";
+    protected final String _tableDispName = "NEXT_SCHEMA_PRODUCT";
     protected final String _tablePropertyName = "nextSchemaProduct";
     protected final TableSqlName _tableSqlName = new TableSqlName("nextexampledb.NEXT_SCHEMA_PRODUCT", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "隣の商品";

@@ -107,8 +107,8 @@ public abstract class BsWhiteImplicitConvString extends AbstractEntity implement
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_implicitConvStringId == null) { return false; }

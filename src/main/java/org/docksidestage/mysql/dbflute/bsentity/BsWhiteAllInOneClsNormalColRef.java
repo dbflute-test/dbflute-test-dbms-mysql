@@ -107,8 +107,8 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_fooCode == null) { return false; }

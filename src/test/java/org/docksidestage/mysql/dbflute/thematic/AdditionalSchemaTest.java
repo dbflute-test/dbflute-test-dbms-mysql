@@ -5,7 +5,6 @@ import org.dbflute.util.DfReflectionUtil;
 import org.dbflute.util.DfReflectionUtil.ReflectionFailureException;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.NextSchemaProductDbm;
-import org.docksidestage.mysql.dbflute.cbean.NextSchemaProductCB;
 import org.docksidestage.mysql.dbflute.exbhv.NextSchemaProductBhv;
 import org.docksidestage.mysql.dbflute.exentity.NextSchemaProduct;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
@@ -40,10 +39,10 @@ public class AdditionalSchemaTest extends UnitContainerTestCase {
         nextSchemaProductBhv.insert(nextSchemaProduct);
 
         // ## Assert ##
-        NextSchemaProductCB cb = new NextSchemaProductCB();
-        cb.query().setProductId_Equal(nextSchemaProduct.getProductId());
-        cb.query().setProductName_Equal("TEST");
-        NextSchemaProduct actual = nextSchemaProductBhv.selectEntityWithDeletedCheck(cb);
+        NextSchemaProduct actual = nextSchemaProductBhv.selectEntityWithDeletedCheck(cb -> {
+            cb.query().setProductId_Equal(nextSchemaProduct.getProductId());
+            cb.query().setProductName_Equal("TEST");
+        });
         assertEquals("TEST", actual.getProductName());
     }
 

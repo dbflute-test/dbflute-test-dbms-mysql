@@ -120,8 +120,8 @@ public abstract class BsVendorLargeData extends AbstractEntity implements Domain
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_largeDataId == null) { return false; }

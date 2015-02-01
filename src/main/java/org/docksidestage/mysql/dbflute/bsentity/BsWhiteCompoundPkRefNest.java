@@ -112,8 +112,8 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_compoundPkRefNestId == null) { return false; }

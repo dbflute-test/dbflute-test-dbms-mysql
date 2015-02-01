@@ -43,6 +43,9 @@ public class WhiteIncludeQueryDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -57,8 +60,8 @@ public class WhiteIncludeQueryDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryId(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryId(ctl(vl)), "includeQueryId");
         setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryVarchar(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryVarchar((String)vl), "includeQueryVarchar");
         setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryInteger(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryInteger(cti(vl)), "includeQueryInteger");
-        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDate(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDate((java.time.LocalDate)vl), "includeQueryDate");
-        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDatetime(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDatetime((java.time.LocalDateTime)vl), "includeQueryDatetime");
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDate(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDate(ctld(vl)), "includeQueryDate");
+        setupEpg(_epgMap, et -> ((WhiteIncludeQuery)et).getIncludeQueryDatetime(), (et, vl) -> ((WhiteIncludeQuery)et).setIncludeQueryDatetime(ctldt(vl)), "includeQueryDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -67,10 +70,12 @@ public class WhiteIncludeQueryDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_include_query";
+    protected final String _tableDispName = "WHITE_INCLUDE_QUERY";
     protected final String _tablePropertyName = "whiteIncludeQuery";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_INCLUDE_QUERY", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

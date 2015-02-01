@@ -95,8 +95,8 @@ public abstract class BsWhiteQuoted extends AbstractEntity implements DomainEnti
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_select == null) { return false; }

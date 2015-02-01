@@ -95,8 +95,8 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity imp
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_referredId == null) { return false; }

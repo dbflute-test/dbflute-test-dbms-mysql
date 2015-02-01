@@ -102,8 +102,8 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_childId == null) { return false; }

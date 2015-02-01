@@ -26,7 +26,5 @@
 		<destroyMethod name="close"/>
 	</component>
 
-	<component name="slaveDataSource"
-		class="org.seasar.extension.dbcp.impl.DataSourceImpl"
-	/>
+	<component name="slaveDataSource" class="org.seasar.extension.dbcp.impl.DataSourceImpl"/>
 </components>

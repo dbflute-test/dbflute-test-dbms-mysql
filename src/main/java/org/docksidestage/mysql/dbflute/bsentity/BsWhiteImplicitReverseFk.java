@@ -97,8 +97,8 @@ public abstract class BsWhiteImplicitReverseFk extends AbstractEntity implements
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_whiteImplicitReverseFkId == null) { return false; }

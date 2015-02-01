@@ -43,6 +43,9 @@ public class WhiteImplicitReverseFkRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -56,8 +59,8 @@ public class WhiteImplicitReverseFkRefDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getWhiteImplicitReverseFkRefId(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setWhiteImplicitReverseFkRefId(cti(vl)), "whiteImplicitReverseFkRefId");
         setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getWhiteImplicitReverseFkId(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setWhiteImplicitReverseFkId(cti(vl)), "whiteImplicitReverseFkId");
-        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidBeginDate((java.time.LocalDate)vl), "validBeginDate");
-        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidEndDate((java.time.LocalDate)vl), "validEndDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidBeginDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidBeginDate(ctld(vl)), "validBeginDate");
+        setupEpg(_epgMap, et -> ((WhiteImplicitReverseFkRef)et).getValidEndDate(), (et, vl) -> ((WhiteImplicitReverseFkRef)et).setValidEndDate(ctld(vl)), "validEndDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -66,10 +69,12 @@ public class WhiteImplicitReverseFkRefDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_implicit_reverse_fk_ref";
+    protected final String _tableDispName = "WHITE_IMPLICIT_REVERSE_FK_REF";
     protected final String _tablePropertyName = "whiteImplicitReverseFkRef";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_IMPLICIT_REVERSE_FK_REF", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -122,6 +127,16 @@ public class WhiteImplicitReverseFkRefDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnWhiteImplicitReverseFkRefId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() {
+        List<ColumnInfo> ls = newArrayListSized(4);
+        ls.add(columnWhiteImplicitReverseFkId());
+        ls.add(columnValidBeginDate());
+        return hpcui(ls);
+    }
 
     // ===================================================================================
     //                                                                       Relation Info

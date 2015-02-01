@@ -105,8 +105,8 @@ public abstract class BsWhiteImplicitReverseFkRef extends AbstractEntity impleme
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_whiteImplicitReverseFkRefId == null) { return false; }

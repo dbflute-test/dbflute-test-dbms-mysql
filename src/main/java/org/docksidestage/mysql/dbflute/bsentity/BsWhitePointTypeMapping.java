@@ -110,8 +110,8 @@ public abstract class BsWhitePointTypeMapping extends AbstractEntity implements 
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_pointTypeMappingId == null) { return false; }

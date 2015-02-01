@@ -101,8 +101,8 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity i
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_masterCorgeId == null) { return false; }

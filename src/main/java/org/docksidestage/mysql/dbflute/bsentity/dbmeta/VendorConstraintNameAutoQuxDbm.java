@@ -43,6 +43,9 @@ public class VendorConstraintNameAutoQuxDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -64,10 +67,12 @@ public class VendorConstraintNameAutoQuxDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "vendor_constraint_name_auto_qux";
+    protected final String _tableDispName = "VENDOR_CONSTRAINT_NAME_AUTO_QUX";
     protected final String _tablePropertyName = "vendorConstraintNameAutoQux";
     protected final TableSqlName _tableSqlName = new TableSqlName("VENDOR_CONSTRAINT_NAME_AUTO_QUX", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -106,6 +111,11 @@ public class VendorConstraintNameAutoQuxDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnConstraintNameAutoQuxId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnConstraintNameAutoQuxName()); }
 
     // ===================================================================================
     //                                                                       Relation Info

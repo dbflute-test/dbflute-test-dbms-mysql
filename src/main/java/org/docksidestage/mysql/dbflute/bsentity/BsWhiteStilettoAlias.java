@@ -130,8 +130,8 @@ public abstract class BsWhiteStilettoAlias extends AbstractEntity implements Dom
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_stilettoAliasId == null) { return false; }

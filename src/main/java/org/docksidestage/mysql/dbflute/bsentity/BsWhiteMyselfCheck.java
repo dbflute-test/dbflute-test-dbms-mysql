@@ -102,8 +102,8 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_myselfCheckId == null) { return false; }

@@ -96,8 +96,8 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity implements
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_groupingReferenceId == null) { return false; }

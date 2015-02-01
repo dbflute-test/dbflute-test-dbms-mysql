@@ -434,7 +434,7 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
     //                                                                       Load Referrer
     //                                                                       =============
     /**
-     * Load referrer for the list by the the referrer loader.
+     * Load referrer for the list by the referrer loader.
      * <pre>
      * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -542,7 +542,8 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
     }
 
     /**
-     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl)
+     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
+     * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
      * WhiteCompoundPkRefMany whiteCompoundPkRefMany = <span style="color: #70226C">new</span> WhiteCompoundPkRefMany();
      * whiteCompoundPkRefMany.setPK...(value); <span style="color: #3F7E5E">// required</span>
@@ -566,7 +567,7 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
-     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
      * @param whiteCompoundPkRefMany The entity of insert or update. (NotNull, ...depends on insert or update)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -577,7 +578,8 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
     }
 
     /**
-     * Delete the entity. (ZeroUpdateException, NonExclusiveControl)
+     * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
+     * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
      * WhiteCompoundPkRefMany whiteCompoundPkRefMany = <span style="color: #70226C">new</span> WhiteCompoundPkRefMany();
      * whiteCompoundPkRefMany.setPK...(value); <span style="color: #3F7E5E">// required</span>

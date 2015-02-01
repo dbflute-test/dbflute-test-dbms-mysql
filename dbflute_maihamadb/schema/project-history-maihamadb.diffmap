@@ -1,4 +1,30 @@
 map:{
+    ; 2015/02/01 20:56:21 = map:{
+        ; diffDate = 2015/02/01 20:56:21
+        ; tableCount = map:{
+            ; next = 110
+            ; previous = 111
+        }
+        ; tableDiff = map:{
+            ; white_xxxxx_fk = map:{
+                ; tableName = white_xxxxx_fk
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2014/12/03 13:39:43 = map:{
+        ; diffDate = 2014/12/03 13:39:43
+        ; tableCount = map:{
+            ; next = 110
+            ; previous = 109
+        }
+        ; tableDiff = map:{
+            ; member_following = map:{
+                ; tableName = member_following
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2014/11/16 16:51:15 = map:{
         ; diffDate = 2014/11/16 16:51:15
         ; tableCount = map:{

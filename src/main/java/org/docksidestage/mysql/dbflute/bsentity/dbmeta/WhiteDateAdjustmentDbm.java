@@ -43,6 +43,9 @@ public class WhiteDateAdjustmentDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -55,9 +58,9 @@ public class WhiteDateAdjustmentDbm extends AbstractDBMeta {
     { xsetupEpg(); }
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getDateAdjustmentId(), (et, vl) -> ((WhiteDateAdjustment)et).setDateAdjustmentId(ctl(vl)), "dateAdjustmentId");
-        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedDate(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedDate((java.time.LocalDate)vl), "adjustedDate");
-        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedDatetime(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedDatetime((java.time.LocalDateTime)vl), "adjustedDatetime");
-        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedTime(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedTime((java.time.LocalTime)vl), "adjustedTime");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedDate(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedDate(ctld(vl)), "adjustedDate");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedDatetime(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedDatetime(ctldt(vl)), "adjustedDatetime");
+        setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedTime(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedTime(ctlt(vl)), "adjustedTime");
         setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedInteger(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedInteger(cti(vl)), "adjustedInteger");
         setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedNamedStringLong(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedNamedStringLong(ctl(vl)), "adjustedNamedStringLong");
         setupEpg(_epgMap, et -> ((WhiteDateAdjustment)et).getAdjustedNamedTypedLong(), (et, vl) -> ((WhiteDateAdjustment)et).setAdjustedNamedTypedLong(ctl(vl)), "adjustedNamedTypedLong");
@@ -73,10 +76,12 @@ public class WhiteDateAdjustmentDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_date_adjustment";
+    protected final String _tableDispName = "WHITE_DATE_ADJUSTMENT";
     protected final String _tablePropertyName = "whiteDateAdjustment";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_DATE_ADJUSTMENT", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

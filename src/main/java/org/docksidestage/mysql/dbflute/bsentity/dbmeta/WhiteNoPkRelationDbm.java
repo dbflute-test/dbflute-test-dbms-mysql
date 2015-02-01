@@ -43,6 +43,9 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -67,7 +70,7 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
                 ((WhiteNoPkRelation)et).mynativeMappingProductStatusCode((String)vl);
             }
         }, "productStatusCode");
-        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getLatestPurchaseDatetime(), (et, vl) -> ((WhiteNoPkRelation)et).setLatestPurchaseDatetime((java.time.LocalDateTime)vl), "latestPurchaseDatetime");
+        setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getLatestPurchaseDatetime(), (et, vl) -> ((WhiteNoPkRelation)et).setLatestPurchaseDatetime(ctldt(vl)), "latestPurchaseDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -76,10 +79,12 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_no_pk_relation";
+    protected final String _tableDispName = "WHITE_NO_PK_RELATION";
     protected final String _tablePropertyName = "whiteNoPkRelation";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_NO_PK_RELATION", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "VIEW";

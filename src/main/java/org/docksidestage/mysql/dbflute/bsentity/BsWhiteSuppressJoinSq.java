@@ -97,8 +97,8 @@ public abstract class BsWhiteSuppressJoinSq extends AbstractEntity implements Do
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_suppressJoinSqId == null) { return false; }

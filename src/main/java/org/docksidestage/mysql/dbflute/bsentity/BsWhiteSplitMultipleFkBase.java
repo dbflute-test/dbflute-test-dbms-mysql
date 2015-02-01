@@ -107,8 +107,8 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_baseId == null) { return false; }

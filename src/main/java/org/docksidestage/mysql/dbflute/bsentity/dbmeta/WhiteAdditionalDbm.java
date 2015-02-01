@@ -43,6 +43,9 @@ public class WhiteAdditionalDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -56,8 +59,8 @@ public class WhiteAdditionalDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooId(), (et, vl) -> ((WhiteAdditional)et).setFooId(cti(vl)), "fooId");
         setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooName(), (et, vl) -> ((WhiteAdditional)et).setFooName((String)vl), "fooName");
-        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooDate(), (et, vl) -> ((WhiteAdditional)et).setFooDate((java.time.LocalDate)vl), "fooDate");
-        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getRegisterDatetime(), (et, vl) -> ((WhiteAdditional)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getFooDate(), (et, vl) -> ((WhiteAdditional)et).setFooDate(ctld(vl)), "fooDate");
+        setupEpg(_epgMap, et -> ((WhiteAdditional)et).getRegisterDatetime(), (et, vl) -> ((WhiteAdditional)et).setRegisterDatetime(ctldt(vl)), "registerDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -66,10 +69,12 @@ public class WhiteAdditionalDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_additional";
+    protected final String _tableDispName = "WHITE_ADDITIONAL";
     protected final String _tablePropertyName = "whiteAdditional";
     protected final TableSqlName _tableSqlName = new TableSqlName("WHITE_ADDITIONAL", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "WXADD";

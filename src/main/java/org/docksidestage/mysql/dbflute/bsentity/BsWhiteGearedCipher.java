@@ -110,8 +110,8 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_cipherId == null) { return false; }

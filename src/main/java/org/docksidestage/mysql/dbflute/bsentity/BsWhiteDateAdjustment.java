@@ -140,8 +140,8 @@ public abstract class BsWhiteDateAdjustment extends AbstractEntity implements Do
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_dateAdjustmentId == null) { return false; }

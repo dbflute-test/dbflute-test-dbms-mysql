@@ -97,8 +97,8 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity imp
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_masterFooId == null) { return false; }
