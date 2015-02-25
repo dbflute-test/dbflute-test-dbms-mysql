@@ -391,6 +391,58 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberAddressAsIfComment;
     }
 
+    protected MemberLoginNss _nssMemberLoginAsLoginStatusFixedCls;
+    public MemberLoginNss xdfgetNssMemberLoginAsLoginStatusFixedCls() {
+        if (_nssMemberLoginAsLoginStatusFixedCls == null) { _nssMemberLoginAsLoginStatusFixedCls = new MemberLoginNss(null); }
+        return _nssMemberLoginAsLoginStatusFixedCls;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLoginStatusFixedCls()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsLoginStatusFixedCls()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public MemberLoginNss setupSelect_MemberLoginAsLoginStatusFixedCls() {
+        assertSetupSelectPurpose("memberLoginAsLoginStatusFixedCls");
+        doSetupSelect(() -> query().queryMemberLoginAsLoginStatusFixedCls());
+        if (_nssMemberLoginAsLoginStatusFixedCls == null || !_nssMemberLoginAsLoginStatusFixedCls.hasConditionQuery())
+        { _nssMemberLoginAsLoginStatusFixedCls = new MemberLoginNss(query().queryMemberLoginAsLoginStatusFixedCls()); }
+        return _nssMemberLoginAsLoginStatusFixedCls;
+    }
+
+    protected MemberLoginNss _nssMemberLoginAsLoginStatusFixedClsGrouping;
+    public MemberLoginNss xdfgetNssMemberLoginAsLoginStatusFixedClsGrouping() {
+        if (_nssMemberLoginAsLoginStatusFixedClsGrouping == null) { _nssMemberLoginAsLoginStatusFixedClsGrouping = new MemberLoginNss(null); }
+        return _nssMemberLoginAsLoginStatusFixedClsGrouping;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLoginStatusFixedClsGrouping()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginAsLoginStatusFixedClsGrouping()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public MemberLoginNss setupSelect_MemberLoginAsLoginStatusFixedClsGrouping() {
+        assertSetupSelectPurpose("memberLoginAsLoginStatusFixedClsGrouping");
+        doSetupSelect(() -> query().queryMemberLoginAsLoginStatusFixedClsGrouping());
+        if (_nssMemberLoginAsLoginStatusFixedClsGrouping == null || !_nssMemberLoginAsLoginStatusFixedClsGrouping.hasConditionQuery())
+        { _nssMemberLoginAsLoginStatusFixedClsGrouping = new MemberLoginNss(query().queryMemberLoginAsLoginStatusFixedClsGrouping()); }
+        return _nssMemberLoginAsLoginStatusFixedClsGrouping;
+    }
+
     protected MemberAddressNss _nssMemberAddressAsOnlyOneDate;
     public MemberAddressNss xdfgetNssMemberAddressAsOnlyOneDate() {
         if (_nssMemberAddressAsOnlyOneDate == null) { _nssMemberAddressAsOnlyOneDate = new MemberAddressNss(null); }
@@ -1016,6 +1068,8 @@ public class BsMemberCB extends AbstractConditionBean {
         protected MemberAddressCB.HpSpecification _memberAddressAsValidBefore;
         protected MemberLoginCB.HpSpecification _memberLoginAsLoginStatus;
         protected MemberAddressCB.HpSpecification _memberAddressAsIfComment;
+        protected MemberLoginCB.HpSpecification _memberLoginAsLoginStatusFixedCls;
+        protected MemberLoginCB.HpSpecification _memberLoginAsLoginStatusFixedClsGrouping;
         protected MemberAddressCB.HpSpecification _memberAddressAsOnlyOneDate;
         protected MemberLoginCB.HpSpecification _memberLoginAsLocalBindOverTest;
         protected MemberLoginCB.HpSpecification _memberLoginAsLocalForeignOverTest;
@@ -1297,6 +1351,46 @@ public class BsMemberCB extends AbstractConditionBean {
                 }
             }
             return _memberAddressAsIfComment;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public MemberLoginCB.HpSpecification specifyMemberLoginAsLoginStatusFixedCls() {
+            assertRelation("memberLoginAsLoginStatusFixedCls");
+            if (_memberLoginAsLoginStatusFixedCls == null) {
+                _memberLoginAsLoginStatusFixedCls = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLoginStatusFixedCls()
+                                    , () -> _qyCall.qy().queryMemberLoginAsLoginStatusFixedCls())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _memberLoginAsLoginStatusFixedCls.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLoginStatusFixedCls()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsLoginStatusFixedCls()));
+                }
+            }
+            return _memberLoginAsLoginStatusFixedCls;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public MemberLoginCB.HpSpecification specifyMemberLoginAsLoginStatusFixedClsGrouping() {
+            assertRelation("memberLoginAsLoginStatusFixedClsGrouping");
+            if (_memberLoginAsLoginStatusFixedClsGrouping == null) {
+                _memberLoginAsLoginStatusFixedClsGrouping = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsLoginStatusFixedClsGrouping()
+                                    , () -> _qyCall.qy().queryMemberLoginAsLoginStatusFixedClsGrouping())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _memberLoginAsLoginStatusFixedClsGrouping.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsLoginStatusFixedClsGrouping()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsLoginStatusFixedClsGrouping()));
+                }
+            }
+            return _memberLoginAsLoginStatusFixedClsGrouping;
         }
         /**
          * Prepare to specify functions about relation table. <br>

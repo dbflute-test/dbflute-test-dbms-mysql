@@ -83,6 +83,24 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
+     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
+     */
+    public MemberLoginNss withMemberLoginAsLoginStatusFixedCls() {
+        _query.xdoNss(() -> _query.queryMemberLoginAsLoginStatusFixedCls());
+        return new MemberLoginNss(_query.queryMemberLoginAsLoginStatusFixedCls());
+    }
+    /**
+     * With nested relation columns to select clause. <br>
+     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
+     */
+    public MemberLoginNss withMemberLoginAsLoginStatusFixedClsGrouping() {
+        _query.xdoNss(() -> _query.queryMemberLoginAsLoginStatusFixedClsGrouping());
+        return new MemberLoginNss(_query.queryMemberLoginAsLoginStatusFixedClsGrouping());
+    }
+    /**
+     * With nested relation columns to select clause. <br>
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)

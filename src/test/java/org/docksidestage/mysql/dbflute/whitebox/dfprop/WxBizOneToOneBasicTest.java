@@ -1,6 +1,7 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.hook.CallbackContext;
@@ -104,6 +105,47 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
         } finally {
             CallbackContext.clearSqlLogHandlerOnThread();
         }
+    }
+
+    // ===================================================================================
+    //                                                                Fixed Classification
+    //                                                                ====================
+    public void test_FixedCls_basic() throws Exception {
+        // ## Arrange ##
+        final Set<String> displaySqlSet = new HashSet<String>();
+        CallbackContext.setSqlLogHandlerOnThread(new SqlLogHandler() {
+            public void handle(SqlLogInfo info) {
+                displaySqlSet.add(info.getDisplaySql());
+            }
+        });
+
+        // ## Act ##
+        memberBhv.selectList(cb -> {
+            cb.setupSelect_MemberLoginAsLoginStatusFixedCls();
+        });
+
+        // ## Assert ##
+        String sql = displaySqlSet.iterator().next();
+        assertContains(sql, ".LOGIN_MEMBER_STATUS_CODE = 'SEA'");
+    }
+
+    public void test_FixedCls_grouping() throws Exception {
+        // ## Arrange ##
+        final Set<String> displaySqlSet = new HashSet<String>();
+        CallbackContext.setSqlLogHandlerOnThread(new SqlLogHandler() {
+            public void handle(SqlLogInfo info) {
+                displaySqlSet.add(info.getDisplaySql());
+            }
+        });
+
+        // ## Act ##
+        memberBhv.selectList(cb -> {
+            cb.setupSelect_MemberLoginAsLoginStatusFixedClsGrouping();
+        });
+
+        // ## Assert ##
+        String sql = displaySqlSet.iterator().next();
+        assertContains(sql, ".LOGIN_MEMBER_STATUS_CODE in ('LND', 'SEA')");
     }
 
     // ===================================================================================

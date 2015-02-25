@@ -57,7 +57,7 @@ import org.docksidestage.mysql.dbflute.nogen.cache.*;
  *     member_address, member_following, member_login, purchase, member_security, member_service, member_withdrawal
  * 
  * [foreign property]
- *     memberStatus, memberAddressAsValid, memberAddressAsValidBefore, memberLoginAsLoginStatus, memberAddressAsIfComment, memberAddressAsOnlyOneDate, memberLoginAsLocalBindOverTest, memberLoginAsLocalForeignOverTest, memberLoginAsForeignForeignBindOverTest, memberLoginAsForeignForeignEachOverTest, memberLoginAsForeignForeignOptimizedBasicOverTest, memberLoginAsForeignForeignOptimizedMarkOverTest, memberLoginAsForeignForeignOptimizedPartOverTest, memberLoginAsForeignForeignOptimizedWholeOverTest, memberLoginAsForeignForeignParameterOverTest, memberLoginAsForeignForeignVariousOverTest, memberLoginAsReferrerOverTest, memberLoginAsReferrerForeignOverTest, memberLoginAsLatest, memberLoginAsOldest, memberAddressAsFormattedBasic, memberAddressAsFormattedLong, memberLoginAsFormattedMany, memberLoginAsEmbeddedCommentClassificationTest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberStatus, memberAddressAsValid, memberAddressAsValidBefore, memberLoginAsLoginStatus, memberAddressAsIfComment, memberLoginAsLoginStatusFixedCls, memberLoginAsLoginStatusFixedClsGrouping, memberAddressAsOnlyOneDate, memberLoginAsLocalBindOverTest, memberLoginAsLocalForeignOverTest, memberLoginAsForeignForeignBindOverTest, memberLoginAsForeignForeignEachOverTest, memberLoginAsForeignForeignOptimizedBasicOverTest, memberLoginAsForeignForeignOptimizedMarkOverTest, memberLoginAsForeignForeignOptimizedPartOverTest, memberLoginAsForeignForeignOptimizedWholeOverTest, memberLoginAsForeignForeignParameterOverTest, memberLoginAsForeignForeignVariousOverTest, memberLoginAsReferrerOverTest, memberLoginAsReferrerForeignOverTest, memberLoginAsLatest, memberLoginAsOldest, memberAddressAsFormattedBasic, memberAddressAsFormattedLong, memberLoginAsFormattedMany, memberLoginAsEmbeddedCommentClassificationTest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
  * 
  * [referrer property]
  *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
@@ -382,6 +382,48 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      */
     public void setMemberAddressAsIfComment(OptionalEntity<MemberAddress> memberAddressAsIfComment) {
         _memberAddressAsIfComment = memberAddressAsIfComment;
+    }
+
+    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'. */
+    protected OptionalEntity<MemberLogin> _memberLoginAsLoginStatusFixedCls;
+
+    /**
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'memberLoginAsLoginStatusFixedCls'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<MemberLogin> getMemberLoginAsLoginStatusFixedCls() {
+        if (_memberLoginAsLoginStatusFixedCls == null) { _memberLoginAsLoginStatusFixedCls = OptionalEntity.relationEmpty(this, "memberLoginAsLoginStatusFixedCls"); }
+        return _memberLoginAsLoginStatusFixedCls;
+    }
+
+    /**
+     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * @param memberLoginAsLoginStatusFixedCls The entity of foreign property 'memberLoginAsLoginStatusFixedCls'. (NullAllowed)
+     */
+    public void setMemberLoginAsLoginStatusFixedCls(OptionalEntity<MemberLogin> memberLoginAsLoginStatusFixedCls) {
+        _memberLoginAsLoginStatusFixedCls = memberLoginAsLoginStatusFixedCls;
+    }
+
+    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'. */
+    protected OptionalEntity<MemberLogin> _memberLoginAsLoginStatusFixedClsGrouping;
+
+    /**
+     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'memberLoginAsLoginStatusFixedClsGrouping'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<MemberLogin> getMemberLoginAsLoginStatusFixedClsGrouping() {
+        if (_memberLoginAsLoginStatusFixedClsGrouping == null) { _memberLoginAsLoginStatusFixedClsGrouping = OptionalEntity.relationEmpty(this, "memberLoginAsLoginStatusFixedClsGrouping"); }
+        return _memberLoginAsLoginStatusFixedClsGrouping;
+    }
+
+    /**
+     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * @param memberLoginAsLoginStatusFixedClsGrouping The entity of foreign property 'memberLoginAsLoginStatusFixedClsGrouping'. (NullAllowed)
+     */
+    public void setMemberLoginAsLoginStatusFixedClsGrouping(OptionalEntity<MemberLogin> memberLoginAsLoginStatusFixedClsGrouping) {
+        _memberLoginAsLoginStatusFixedClsGrouping = memberLoginAsLoginStatusFixedClsGrouping;
     }
 
     /** (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'. */
@@ -989,6 +1031,10 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
         { sb.append(li).append(xbRDS(_memberLoginAsLoginStatus, "memberLoginAsLoginStatus")); }
         if (_memberAddressAsIfComment != null && _memberAddressAsIfComment.isPresent())
         { sb.append(li).append(xbRDS(_memberAddressAsIfComment, "memberAddressAsIfComment")); }
+        if (_memberLoginAsLoginStatusFixedCls != null && _memberLoginAsLoginStatusFixedCls.isPresent())
+        { sb.append(li).append(xbRDS(_memberLoginAsLoginStatusFixedCls, "memberLoginAsLoginStatusFixedCls")); }
+        if (_memberLoginAsLoginStatusFixedClsGrouping != null && _memberLoginAsLoginStatusFixedClsGrouping.isPresent())
+        { sb.append(li).append(xbRDS(_memberLoginAsLoginStatusFixedClsGrouping, "memberLoginAsLoginStatusFixedClsGrouping")); }
         if (_memberAddressAsOnlyOneDate != null && _memberAddressAsOnlyOneDate.isPresent())
         { sb.append(li).append(xbRDS(_memberAddressAsOnlyOneDate, "memberAddressAsOnlyOneDate")); }
         if (_memberLoginAsLocalBindOverTest != null && _memberLoginAsLocalBindOverTest.isPresent())
@@ -1083,6 +1129,10 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
         { sb.append(dm).append("memberLoginAsLoginStatus"); }
         if (_memberAddressAsIfComment != null && _memberAddressAsIfComment.isPresent())
         { sb.append(dm).append("memberAddressAsIfComment"); }
+        if (_memberLoginAsLoginStatusFixedCls != null && _memberLoginAsLoginStatusFixedCls.isPresent())
+        { sb.append(dm).append("memberLoginAsLoginStatusFixedCls"); }
+        if (_memberLoginAsLoginStatusFixedClsGrouping != null && _memberLoginAsLoginStatusFixedClsGrouping.isPresent())
+        { sb.append(dm).append("memberLoginAsLoginStatusFixedClsGrouping"); }
         if (_memberAddressAsOnlyOneDate != null && _memberAddressAsOnlyOneDate.isPresent())
         { sb.append(dm).append("memberAddressAsOnlyOneDate"); }
         if (_memberLoginAsLocalBindOverTest != null && _memberLoginAsLocalBindOverTest.isPresent())

@@ -94,6 +94,8 @@ public class MemberDbm extends AbstractDBMeta {
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsValidBefore(), (et, vl) -> ((Member)et).setMemberAddressAsValidBefore((OptionalEntity<MemberAddress>)vl), "memberAddressAsValidBefore");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLoginStatus(), (et, vl) -> ((Member)et).setMemberLoginAsLoginStatus((OptionalEntity<MemberLogin>)vl), "memberLoginAsLoginStatus");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsIfComment(), (et, vl) -> ((Member)et).setMemberAddressAsIfComment((OptionalEntity<MemberAddress>)vl), "memberAddressAsIfComment");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLoginStatusFixedCls(), (et, vl) -> ((Member)et).setMemberLoginAsLoginStatusFixedCls((OptionalEntity<MemberLogin>)vl), "memberLoginAsLoginStatusFixedCls");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLoginStatusFixedClsGrouping(), (et, vl) -> ((Member)et).setMemberLoginAsLoginStatusFixedClsGrouping((OptionalEntity<MemberLogin>)vl), "memberLoginAsLoginStatusFixedClsGrouping");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsOnlyOneDate(), (et, vl) -> ((Member)et).setMemberAddressAsOnlyOneDate((OptionalEntity<MemberAddress>)vl), "memberAddressAsOnlyOneDate");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLocalBindOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsLocalBindOverTest((OptionalEntity<MemberLogin>)vl), "memberLoginAsLocalBindOverTest");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLocalForeignOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsLocalForeignOverTest((OptionalEntity<MemberLogin>)vl), "memberLoginAsLocalForeignOverTest");
@@ -140,7 +142,7 @@ public class MemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, true, true, true, "INT", 10, 0, null, false, null, "会員を識別するID。連番として基本的に自動採番される。\n（会員IDだけに限らず）採番方法はDBMSによって変わる。", "memberAddressAsValid,memberAddressAsValidBefore,memberLoginAsLoginStatus,memberAddressAsIfComment,memberAddressAsOnlyOneDate,memberLoginAsLocalBindOverTest,memberLoginAsLocalForeignOverTest,memberLoginAsForeignForeignBindOverTest,memberLoginAsForeignForeignEachOverTest,memberLoginAsForeignForeignOptimizedBasicOverTest,memberLoginAsForeignForeignOptimizedMarkOverTest,memberLoginAsForeignForeignOptimizedPartOverTest,memberLoginAsForeignForeignOptimizedWholeOverTest,memberLoginAsForeignForeignParameterOverTest,memberLoginAsForeignForeignVariousOverTest,memberLoginAsReferrerOverTest,memberLoginAsReferrerForeignOverTest,memberLoginAsLatest,memberLoginAsOldest,memberAddressAsFormattedBasic,memberAddressAsFormattedLong,memberLoginAsFormattedMany,memberLoginAsEmbeddedCommentClassificationTest,memberSecurityAsOne,memberServiceAsOne,memberWithdrawalAsOne", "memberAddressList,memberFollowingByMyMemberIdList,memberFollowingByYourMemberIdList,memberLoginList,purchaseList", null, false);
+    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, true, true, true, "INT", 10, 0, null, false, null, "会員を識別するID。連番として基本的に自動採番される。\n（会員IDだけに限らず）採番方法はDBMSによって変わる。", "memberAddressAsValid,memberAddressAsValidBefore,memberLoginAsLoginStatus,memberAddressAsIfComment,memberLoginAsLoginStatusFixedCls,memberLoginAsLoginStatusFixedClsGrouping,memberAddressAsOnlyOneDate,memberLoginAsLocalBindOverTest,memberLoginAsLocalForeignOverTest,memberLoginAsForeignForeignBindOverTest,memberLoginAsForeignForeignEachOverTest,memberLoginAsForeignForeignOptimizedBasicOverTest,memberLoginAsForeignForeignOptimizedMarkOverTest,memberLoginAsForeignForeignOptimizedPartOverTest,memberLoginAsForeignForeignOptimizedWholeOverTest,memberLoginAsForeignForeignParameterOverTest,memberLoginAsForeignForeignVariousOverTest,memberLoginAsReferrerOverTest,memberLoginAsReferrerForeignOverTest,memberLoginAsLatest,memberLoginAsOldest,memberAddressAsFormattedBasic,memberAddressAsFormattedLong,memberLoginAsFormattedMany,memberLoginAsEmbeddedCommentClassificationTest,memberSecurityAsOne,memberServiceAsOne,memberWithdrawalAsOne", "memberAddressList,memberFollowingByMyMemberIdList,memberFollowingByYourMemberIdList,memberLoginList,purchaseList", null, false);
     protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, "会員名称", String.class, "memberName", null, false, false, true, "VARCHAR", 180, 0, null, false, null, "会員のフルネームの名称。", null, null, null, false);
     protected final ColumnInfo _columnMemberAccount = cci("MEMBER_ACCOUNT", "MEMBER_ACCOUNT", null, "会員アカウント", String.class, "memberAccount", null, false, false, true, "VARCHAR", 50, 0, null, false, null, "会員がログイン時に利用するアカウントNO。", null, null, null, false);
     protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "memberStatus", null, CDef.DefMeta.MemberStatus, false);
@@ -290,12 +292,28 @@ public class MemberDbm extends AbstractDBMeta {
         return cfi("FK_MEMBER_MEMBER_ADDRESS_IF_COMMENT", "memberAddressAsIfComment", this, MemberAddressDbm.getInstance(), mp, 4, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsIfComment.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsIfComment.targetDate*/null\n     /*IF $$locationBase$$.parameterMapMemberAddressAsIfComment.region != null*/and $$foreignAlias$$.REGION_ID = /*$$locationBase$$.parameterMapMemberAddressAsIfComment.region*/null/*END*/", newArrayList("targetDate, region"), false, null, false);
     }
     /**
+     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * @return The information object of foreign property. (NotNull)
+     */
+    public ForeignInfo foreignMemberLoginAsLoginStatusFixedCls() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
+        return cfi("FK_MEMBER_MEMBER_LOGIN_STATUS_FIXED_CLS", "memberLoginAsLoginStatusFixedCls", this, MemberLoginDbm.getInstance(), mp, 5, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = 'SEA'", null, false, null, false);
+    }
+    /**
+     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * @return The information object of foreign property. (NotNull)
+     */
+    public ForeignInfo foreignMemberLoginAsLoginStatusFixedClsGrouping() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
+        return cfi("FK_MEMBER_MEMBER_LOGIN_STATUS_FIXED_CLS_GROUPING", "memberLoginAsLoginStatusFixedClsGrouping", this, MemberLoginDbm.getInstance(), mp, 6, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('LND', 'SEA')", null, false, null, false);
+    }
+    /**
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMemberAddressAsOnlyOneDate() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberAddressDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_ADDRESS_ONLY_ONE_DATE", "memberAddressAsOnlyOneDate", this, MemberAddressDbm.getInstance(), mp, 5, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE = ($$sqbegin$$\nselect max(address.VALID_BEGIN_DATE)\n  from MEMBER_ADDRESS address\n where address.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n   and address.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsOnlyOneDate.targetDate*/null\n)$$sqend$$", newArrayList("targetDate"), false, null, false);
+        return cfi("FK_MEMBER_MEMBER_ADDRESS_ONLY_ONE_DATE", "memberAddressAsOnlyOneDate", this, MemberAddressDbm.getInstance(), mp, 7, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE = ($$sqbegin$$\nselect max(address.VALID_BEGIN_DATE)\n  from MEMBER_ADDRESS address\n where address.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n   and address.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsOnlyOneDate.targetDate*/null\n)$$sqend$$", newArrayList("targetDate"), false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
@@ -303,7 +321,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsLocalBindOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_LOCAL_BIND_OVER_TEST", "memberLoginAsLocalBindOverTest", this, MemberLoginDbm.getInstance(), mp, 6, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($localTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsLocalBindOverTest.displayOrder*/", newArrayList("displayOrder"), false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_LOCAL_BIND_OVER_TEST", "memberLoginAsLocalBindOverTest", this, MemberLoginDbm.getInstance(), mp, 8, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($localTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsLocalBindOverTest.displayOrder*/", newArrayList("displayOrder"), false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
@@ -311,7 +329,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsLocalForeignOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_LOCAL_FOREIGN_OVER_TEST", "memberLoginAsLocalForeignOverTest", this, MemberLoginDbm.getInstance(), mp, 7, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over($localTable.memberStatus)$$.MEMBER_STATUS_NAME", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_LOCAL_FOREIGN_OVER_TEST", "memberLoginAsLocalForeignOverTest", this, MemberLoginDbm.getInstance(), mp, 9, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over($localTable.memberStatus)$$.MEMBER_STATUS_NAME", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
@@ -319,7 +337,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsForeignForeignBindOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_BIND_OVER_TEST", "memberLoginAsForeignForeignBindOverTest", this, MemberLoginDbm.getInstance(), mp, 8, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignBindOverTest.displayOrder*/", newArrayList("displayOrder"), false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_BIND_OVER_TEST", "memberLoginAsForeignForeignBindOverTest", this, MemberLoginDbm.getInstance(), mp, 10, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignBindOverTest.displayOrder*/", newArrayList("displayOrder"), false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
@@ -327,7 +345,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsForeignForeignEachOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_EACH_OVER_TEST", "memberLoginAsForeignForeignEachOverTest", this, MemberLoginDbm.getInstance(), mp, 9, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_EACH_OVER_TEST", "memberLoginAsForeignForeignEachOverTest", this, MemberLoginDbm.getInstance(), mp, 11, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
@@ -335,7 +353,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsForeignForeignOptimizedBasicOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_BASIC_OVER_TEST", "memberLoginAsForeignForeignOptimizedBasicOverTest", this, MemberLoginDbm.getInstance(), mp, 10, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = 3", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_BASIC_OVER_TEST", "memberLoginAsForeignForeignOptimizedBasicOverTest", this, MemberLoginDbm.getInstance(), mp, 12, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = 3", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
@@ -343,7 +361,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsForeignForeignOptimizedMarkOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_MARK_OVER_TEST", "memberLoginAsForeignForeignOptimizedMarkOverTest", this, MemberLoginDbm.getInstance(), mp, 11, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = 3\n$$inline$$\n     and $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n     and $$foreignAlias$$.MEMBER_ID >= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_MARK_OVER_TEST", "memberLoginAsForeignForeignOptimizedMarkOverTest", this, MemberLoginDbm.getInstance(), mp, 13, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = 3\n$$inline$$\n     and $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n     and $$foreignAlias$$.MEMBER_ID >= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
@@ -351,7 +369,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsForeignForeignOptimizedPartOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_PART_OVER_TEST", "memberLoginAsForeignForeignOptimizedPartOverTest", this, MemberLoginDbm.getInstance(), mp, 12, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest.displayOrder*/\n     and $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\n     and $$localAlias$$.BIRTHDATE is not null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n     and $$localAlias$$.MEMBER_NAME like /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest.memberName*/null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = (\n             select 'Y'\n         )\n     and $$foreignAlias$$.LOGIN_DATETIME >= now()\n       or $$foreignAlias$$.LOGIN_DATETIME <= now()\n     and $$foreignAlias$$.MEMBER_ID >= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER", newArrayList("displayOrder, memberName"), false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_PART_OVER_TEST", "memberLoginAsForeignForeignOptimizedPartOverTest", this, MemberLoginDbm.getInstance(), mp, 14, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest.displayOrder*/\n     and $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\n     and $$localAlias$$.BIRTHDATE is not null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n     and $$localAlias$$.MEMBER_NAME like /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedPartOverTest.memberName*/null\n     and $$foreignAlias$$.MOBILE_LOGIN_FLG = (\n             select 'Y'\n         )\n     and $$foreignAlias$$.LOGIN_DATETIME >= now()\n       or $$foreignAlias$$.LOGIN_DATETIME <= now()\n     and $$foreignAlias$$.MEMBER_ID >= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER", newArrayList("displayOrder, memberName"), false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
@@ -359,7 +377,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsForeignForeignOptimizedWholeOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_WHOLE_OVER_TEST", "memberLoginAsForeignForeignOptimizedWholeOverTest", this, MemberLoginDbm.getInstance(), mp, 13, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest.displayOrder*/\nand $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\nand $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\nand $$foreignAlias$$.MEMBER_ID >= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER\nand $$foreignAlias$$.LOGIN_DATETIME < ($$sqbegin$$\nselect max(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$\nand $$foreignAlias$$.LOGIN_DATETIME > ($$sqbegin$$\nselect min(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$", newArrayList("displayOrder"), false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_WHOLE_OVER_TEST", "memberLoginAsForeignForeignOptimizedWholeOverTest", this, MemberLoginDbm.getInstance(), mp, 15, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignOptimizedWholeOverTest.displayOrder*/\nand $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null\nand $$foreignAlias$$.MOBILE_LOGIN_FLG = 1\nand $$foreignAlias$$.MEMBER_ID >= $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER\nand $$foreignAlias$$.LOGIN_DATETIME < ($$sqbegin$$\nselect max(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$\nand $$foreignAlias$$.LOGIN_DATETIME > ($$sqbegin$$\nselect min(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$", newArrayList("displayOrder"), false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
@@ -367,7 +385,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsForeignForeignParameterOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_PARAMETER_OVER_TEST", "memberLoginAsForeignForeignParameterOverTest", this, MemberLoginDbm.getInstance(), mp, 14, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus, MEMBER_STATUS_CODE)$$.MEMBER_STATUS_CODE is not null\n     and $$over($foreignTable.memberStatus, MEMBER_STATUS_NAME)$$.MEMBER_STATUS_NAME is not null\n     and $$localAlias$$.BIRTHDATE > /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignParameterOverTest.targetDate*/null", newArrayList("targetDate"), false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_PARAMETER_OVER_TEST", "memberLoginAsForeignForeignParameterOverTest", this, MemberLoginDbm.getInstance(), mp, 16, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER\n     and $$over($foreignTable.memberStatus, MEMBER_STATUS_CODE)$$.MEMBER_STATUS_CODE is not null\n     and $$over($foreignTable.memberStatus, MEMBER_STATUS_NAME)$$.MEMBER_STATUS_NAME is not null\n     and $$localAlias$$.BIRTHDATE > /*$$locationBase$$.parameterMapMemberLoginAsForeignForeignParameterOverTest.targetDate*/null", newArrayList("targetDate"), false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
@@ -375,7 +393,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsForeignForeignVariousOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_VARIOUS_OVER_TEST", "memberLoginAsForeignForeignVariousOverTest", this, MemberLoginDbm.getInstance(), mp, 15, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null\n     and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne.withdrawalReason, DISPLAY_ORDER)$$.REASON_ORDER is not null\n     and $$over($foreignTable.memberStatus)$$.MEMBER_STATUS_NAME is not null\n     and $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME is not null\n     $$inline$$", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_VARIOUS_OVER_TEST", "memberLoginAsForeignForeignVariousOverTest", this, MemberLoginDbm.getInstance(), mp, 17, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null\n     and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne.withdrawalReason, DISPLAY_ORDER)$$.REASON_ORDER is not null\n     and $$over($foreignTable.memberStatus)$$.MEMBER_STATUS_NAME is not null\n     and $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME is not null\n     $$inline$$", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
@@ -383,7 +401,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsReferrerOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_REFERRER_OVER_TEST", "memberLoginAsReferrerOverTest", this, MemberLoginDbm.getInstance(), mp, 16, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_DATETIME > $$over(PURCHASE)$$.PURCHASE_DATETIME", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_REFERRER_OVER_TEST", "memberLoginAsReferrerOverTest", this, MemberLoginDbm.getInstance(), mp, 18, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_DATETIME > $$over(PURCHASE)$$.PURCHASE_DATETIME", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
@@ -391,7 +409,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsReferrerForeignOverTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_REFERRER_FOREIGN_OVER_TEST", "memberLoginAsReferrerForeignOverTest", this, MemberLoginDbm.getInstance(), mp, 17, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_REFERRER_FOREIGN_OVER_TEST", "memberLoginAsReferrerForeignOverTest", this, MemberLoginDbm.getInstance(), mp, 19, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
@@ -399,7 +417,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsLatest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_LATEST", "memberLoginAsLatest", this, MemberLoginDbm.getInstance(), mp, 18, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$\nselect max(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_LATEST", "memberLoginAsLatest", this, MemberLoginDbm.getInstance(), mp, 20, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$\nselect max(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
@@ -407,7 +425,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsOldest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_OLDEST", "memberLoginAsOldest", this, MemberLoginDbm.getInstance(), mp, 19, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$\nselect min(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_OLDEST", "memberLoginAsOldest", this, MemberLoginDbm.getInstance(), mp, 21, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$\nselect min(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$", null, false, null, false);
     }
     /**
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
@@ -415,7 +433,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberAddressAsFormattedBasic() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberAddressDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_ADDRESS_FORMATTED_BASIC", "memberAddressAsFormattedBasic", this, MemberAddressDbm.getInstance(), mp, 20, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsFormattedBasic.targetDate*/\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsFormattedBasic.targetDate*/", newArrayList("targetDate"), false, null, false);
+        return cfi("FK_MEMBER_MEMBER_ADDRESS_FORMATTED_BASIC", "memberAddressAsFormattedBasic", this, MemberAddressDbm.getInstance(), mp, 22, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsFormattedBasic.targetDate*/\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsFormattedBasic.targetDate*/", newArrayList("targetDate"), false, null, false);
     }
     /**
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
@@ -423,7 +441,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberAddressAsFormattedLong() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberAddressDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_ADDRESS_FORMATTED_LONG", "memberAddressAsFormattedLong", this, MemberAddressDbm.getInstance(), mp, 21, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsFormattedLong.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE\n >= /*$$locationBase$$.parameterMapMemberAddressAsFormattedLong.targetDate*/null", newArrayList("targetDate"), false, null, false);
+        return cfi("FK_MEMBER_MEMBER_ADDRESS_FORMATTED_LONG", "memberAddressAsFormattedLong", this, MemberAddressDbm.getInstance(), mp, 23, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsFormattedLong.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE\n >= /*$$locationBase$$.parameterMapMemberAddressAsFormattedLong.targetDate*/null", newArrayList("targetDate"), false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
@@ -431,7 +449,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsFormattedMany() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_FORMATTED_MANY", "memberLoginAsFormattedMany", this, MemberLoginDbm.getInstance(), mp, 22, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null\n     and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne.withdrawalReason, DISPLAY_ORDER)$$.REASON_ORDER is not null\n     and $$over($foreignTable.memberStatus)$$.MEMBER_STATUS_NAME is not null\n     and $$over($localTable.memberSecurityAsOne)$$.REMINDER_QUESTION is not null\n     and $$over($localTable.memberServiceAsOne)$$.SERVICE_POINT_COUNT is not null", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_FORMATTED_MANY", "memberLoginAsFormattedMany", this, MemberLoginDbm.getInstance(), mp, 24, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null\n     and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null\n     and $$over($foreignTable.member.memberWithdrawalAsOne.withdrawalReason, DISPLAY_ORDER)$$.REASON_ORDER is not null\n     and $$over($foreignTable.memberStatus)$$.MEMBER_STATUS_NAME is not null\n     and $$over($localTable.memberSecurityAsOne)$$.REMINDER_QUESTION is not null\n     and $$over($localTable.memberServiceAsOne)$$.SERVICE_POINT_COUNT is not null", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
@@ -439,7 +457,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsEmbeddedCommentClassificationTest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_EMBEDDED_COMMENT_CLASSIFICATION", "memberLoginAsEmbeddedCommentClassificationTest", this, MemberLoginDbm.getInstance(), mp, 23, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n      or $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('FML', 'PRV')\n      or $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('WDL')", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_EMBEDDED_COMMENT_CLASSIFICATION", "memberLoginAsEmbeddedCommentClassificationTest", this, MemberLoginDbm.getInstance(), mp, 25, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.MOBILE_LOGIN_FLG = 1\n      or $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('FML', 'PRV')\n      or $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('WDL')", null, false, null, false);
     }
     /**
      * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
@@ -447,7 +465,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberSecurityAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberSecurityDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_SECURITY_MEMBER", "memberSecurityAsOne", this, MemberSecurityDbm.getInstance(), mp, 24, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
+        return cfi("FK_MEMBER_SECURITY_MEMBER", "memberSecurityAsOne", this, MemberSecurityDbm.getInstance(), mp, 26, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
     }
     /**
      * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
@@ -455,7 +473,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberServiceAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberServiceDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_SERVICE_MEMBER", "memberServiceAsOne", this, MemberServiceDbm.getInstance(), mp, 25, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
+        return cfi("FK_MEMBER_SERVICE_MEMBER", "memberServiceAsOne", this, MemberServiceDbm.getInstance(), mp, 27, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
     }
     /**
      * (会員退会情報)member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
@@ -463,7 +481,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberWithdrawalAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberWithdrawalDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_WITHDRAWAL_MEMBER", "memberWithdrawalAsOne", this, MemberWithdrawalDbm.getInstance(), mp, 26, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
+        return cfi("FK_MEMBER_WITHDRAWAL_MEMBER", "memberWithdrawalAsOne", this, MemberWithdrawalDbm.getInstance(), mp, 28, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
     }
 
     // -----------------------------------------------------

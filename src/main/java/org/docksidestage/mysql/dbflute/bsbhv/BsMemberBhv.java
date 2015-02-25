@@ -59,7 +59,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     member_address, member_following, member_login, purchase, member_security, member_service, member_withdrawal
  *
  * [foreign property]
- *     memberStatus, memberAddressAsValid, memberAddressAsValidBefore, memberLoginAsLoginStatus, memberAddressAsIfComment, memberAddressAsOnlyOneDate, memberLoginAsLocalBindOverTest, memberLoginAsLocalForeignOverTest, memberLoginAsForeignForeignBindOverTest, memberLoginAsForeignForeignEachOverTest, memberLoginAsForeignForeignOptimizedBasicOverTest, memberLoginAsForeignForeignOptimizedMarkOverTest, memberLoginAsForeignForeignOptimizedPartOverTest, memberLoginAsForeignForeignOptimizedWholeOverTest, memberLoginAsForeignForeignParameterOverTest, memberLoginAsForeignForeignVariousOverTest, memberLoginAsReferrerOverTest, memberLoginAsReferrerForeignOverTest, memberLoginAsLatest, memberLoginAsOldest, memberAddressAsFormattedBasic, memberAddressAsFormattedLong, memberLoginAsFormattedMany, memberLoginAsEmbeddedCommentClassificationTest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberStatus, memberAddressAsValid, memberAddressAsValidBefore, memberLoginAsLoginStatus, memberAddressAsIfComment, memberLoginAsLoginStatusFixedCls, memberLoginAsLoginStatusFixedClsGrouping, memberAddressAsOnlyOneDate, memberLoginAsLocalBindOverTest, memberLoginAsLocalForeignOverTest, memberLoginAsForeignForeignBindOverTest, memberLoginAsForeignForeignEachOverTest, memberLoginAsForeignForeignOptimizedBasicOverTest, memberLoginAsForeignForeignOptimizedMarkOverTest, memberLoginAsForeignForeignOptimizedPartOverTest, memberLoginAsForeignForeignOptimizedWholeOverTest, memberLoginAsForeignForeignParameterOverTest, memberLoginAsForeignForeignVariousOverTest, memberLoginAsReferrerOverTest, memberLoginAsReferrerForeignOverTest, memberLoginAsLatest, memberLoginAsOldest, memberAddressAsFormattedBasic, memberAddressAsFormattedLong, memberLoginAsFormattedMany, memberLoginAsEmbeddedCommentClassificationTest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
  *
  * [referrer property]
  *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
@@ -1047,6 +1047,22 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      */
     public List<MemberAddress> pulloutMemberAddressAsIfComment(List<Member> memberList)
     { return helpPulloutInternally(memberList, "memberAddressAsIfComment"); }
+
+    /**
+     * Pull out the list of foreign table 'MemberLogin'.
+     * @param memberList The list of member. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<MemberLogin> pulloutMemberLoginAsLoginStatusFixedCls(List<Member> memberList)
+    { return helpPulloutInternally(memberList, "memberLoginAsLoginStatusFixedCls"); }
+
+    /**
+     * Pull out the list of foreign table 'MemberLogin'.
+     * @param memberList The list of member. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<MemberLogin> pulloutMemberLoginAsLoginStatusFixedClsGrouping(List<Member> memberList)
+    { return helpPulloutInternally(memberList, "memberLoginAsLoginStatusFixedClsGrouping"); }
 
     /**
      * Pull out the list of foreign table 'MemberAddress'.

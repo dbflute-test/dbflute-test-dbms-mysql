@@ -438,6 +438,12 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
             uq.xsetParameterMapMemberAddressAsIfComment(bq.xdfgetParameterMapMemberAddressAsIfComment());
             uq.xdfgetConditionQueryMemberAddressAsIfComment().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsIfComment(), uq.xdfgetConditionQueryMemberAddressAsIfComment());
         }
+        if (bq.hasConditionQueryMemberLoginAsLoginStatusFixedCls()) {
+            uq.queryMemberLoginAsLoginStatusFixedCls().reflectRelationOnUnionQuery(bq.queryMemberLoginAsLoginStatusFixedCls(), uq.queryMemberLoginAsLoginStatusFixedCls());
+        }
+        if (bq.hasConditionQueryMemberLoginAsLoginStatusFixedClsGrouping()) {
+            uq.queryMemberLoginAsLoginStatusFixedClsGrouping().reflectRelationOnUnionQuery(bq.queryMemberLoginAsLoginStatusFixedClsGrouping(), uq.queryMemberLoginAsLoginStatusFixedClsGrouping());
+        }
         if (bq.hasConditionQueryMemberAddressAsOnlyOneDate()) {
             uq.xsetParameterMapMemberAddressAsOnlyOneDate(bq.xdfgetParameterMapMemberAddressAsOnlyOneDate());
             uq.xdfgetConditionQueryMemberAddressAsOnlyOneDate().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsOnlyOneDate(), uq.xdfgetConditionQueryMemberAddressAsOnlyOneDate());
@@ -657,6 +663,46 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     }
     protected void xsetupOuterJoinMemberAddressAsIfComment() { xregOutJo("memberAddressAsIfComment"); }
     public boolean hasConditionQueryMemberAddressAsIfComment() { return xhasQueRlMap("memberAddressAsIfComment"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public MemberLoginCQ queryMemberLoginAsLoginStatusFixedCls() {
+        return xdfgetConditionQueryMemberLoginAsLoginStatusFixedCls();
+    }
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsLoginStatusFixedCls() {
+        String prop = "memberLoginAsLoginStatusFixedCls";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsLoginStatusFixedCls()); xsetupOuterJoinMemberLoginAsLoginStatusFixedCls(); }
+        return xgetQueRlMap(prop);
+    }
+    protected MemberLoginCQ xcreateQueryMemberLoginAsLoginStatusFixedCls() {
+        String nrp = xresolveNRP("member", "memberLoginAsLoginStatusFixedCls"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new MemberLoginCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberLoginAsLoginStatusFixedCls", nrp);
+    }
+    protected void xsetupOuterJoinMemberLoginAsLoginStatusFixedCls() { xregOutJo("memberLoginAsLoginStatusFixedCls"); }
+    public boolean hasConditionQueryMemberLoginAsLoginStatusFixedCls() { return xhasQueRlMap("memberLoginAsLoginStatusFixedCls"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public MemberLoginCQ queryMemberLoginAsLoginStatusFixedClsGrouping() {
+        return xdfgetConditionQueryMemberLoginAsLoginStatusFixedClsGrouping();
+    }
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsLoginStatusFixedClsGrouping() {
+        String prop = "memberLoginAsLoginStatusFixedClsGrouping";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsLoginStatusFixedClsGrouping()); xsetupOuterJoinMemberLoginAsLoginStatusFixedClsGrouping(); }
+        return xgetQueRlMap(prop);
+    }
+    protected MemberLoginCQ xcreateQueryMemberLoginAsLoginStatusFixedClsGrouping() {
+        String nrp = xresolveNRP("member", "memberLoginAsLoginStatusFixedClsGrouping"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new MemberLoginCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberLoginAsLoginStatusFixedClsGrouping", nrp);
+    }
+    protected void xsetupOuterJoinMemberLoginAsLoginStatusFixedClsGrouping() { xregOutJo("memberLoginAsLoginStatusFixedClsGrouping"); }
+    public boolean hasConditionQueryMemberLoginAsLoginStatusFixedClsGrouping() { return xhasQueRlMap("memberLoginAsLoginStatusFixedClsGrouping"); }
 
     /**
      * Get the condition-query for relation table. <br>

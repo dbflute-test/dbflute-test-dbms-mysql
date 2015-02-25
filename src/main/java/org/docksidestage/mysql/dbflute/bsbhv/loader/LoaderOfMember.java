@@ -48,7 +48,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     member_address, member_following, member_login, purchase, member_security, member_service, member_withdrawal
  *
  * [foreign property]
- *     memberStatus, memberAddressAsValid, memberAddressAsValidBefore, memberLoginAsLoginStatus, memberAddressAsIfComment, memberAddressAsOnlyOneDate, memberLoginAsLocalBindOverTest, memberLoginAsLocalForeignOverTest, memberLoginAsForeignForeignBindOverTest, memberLoginAsForeignForeignEachOverTest, memberLoginAsForeignForeignOptimizedBasicOverTest, memberLoginAsForeignForeignOptimizedMarkOverTest, memberLoginAsForeignForeignOptimizedPartOverTest, memberLoginAsForeignForeignOptimizedWholeOverTest, memberLoginAsForeignForeignParameterOverTest, memberLoginAsForeignForeignVariousOverTest, memberLoginAsReferrerOverTest, memberLoginAsReferrerForeignOverTest, memberLoginAsLatest, memberLoginAsOldest, memberAddressAsFormattedBasic, memberAddressAsFormattedLong, memberLoginAsFormattedMany, memberLoginAsEmbeddedCommentClassificationTest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberStatus, memberAddressAsValid, memberAddressAsValidBefore, memberLoginAsLoginStatus, memberAddressAsIfComment, memberLoginAsLoginStatusFixedCls, memberLoginAsLoginStatusFixedClsGrouping, memberAddressAsOnlyOneDate, memberLoginAsLocalBindOverTest, memberLoginAsLocalForeignOverTest, memberLoginAsForeignForeignBindOverTest, memberLoginAsForeignForeignEachOverTest, memberLoginAsForeignForeignOptimizedBasicOverTest, memberLoginAsForeignForeignOptimizedMarkOverTest, memberLoginAsForeignForeignOptimizedPartOverTest, memberLoginAsForeignForeignOptimizedWholeOverTest, memberLoginAsForeignForeignParameterOverTest, memberLoginAsForeignForeignVariousOverTest, memberLoginAsReferrerOverTest, memberLoginAsReferrerForeignOverTest, memberLoginAsLatest, memberLoginAsOldest, memberAddressAsFormattedBasic, memberAddressAsFormattedLong, memberLoginAsFormattedMany, memberLoginAsEmbeddedCommentClassificationTest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
  *
  * [referrer property]
  *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
@@ -282,6 +282,20 @@ public class LoaderOfMember {
         if (_foreignMemberAddressAsIfCommentLoader == null)
         { _foreignMemberAddressAsIfCommentLoader = new LoaderOfMemberAddress().ready(myBhv().pulloutMemberAddressAsIfComment(_selectedList), _selector); }
         return _foreignMemberAddressAsIfCommentLoader;
+    }
+
+    protected LoaderOfMemberLogin _foreignMemberLoginAsLoginStatusFixedClsLoader;
+    public LoaderOfMemberLogin pulloutMemberLoginAsLoginStatusFixedCls() {
+        if (_foreignMemberLoginAsLoginStatusFixedClsLoader == null)
+        { _foreignMemberLoginAsLoginStatusFixedClsLoader = new LoaderOfMemberLogin().ready(myBhv().pulloutMemberLoginAsLoginStatusFixedCls(_selectedList), _selector); }
+        return _foreignMemberLoginAsLoginStatusFixedClsLoader;
+    }
+
+    protected LoaderOfMemberLogin _foreignMemberLoginAsLoginStatusFixedClsGroupingLoader;
+    public LoaderOfMemberLogin pulloutMemberLoginAsLoginStatusFixedClsGrouping() {
+        if (_foreignMemberLoginAsLoginStatusFixedClsGroupingLoader == null)
+        { _foreignMemberLoginAsLoginStatusFixedClsGroupingLoader = new LoaderOfMemberLogin().ready(myBhv().pulloutMemberLoginAsLoginStatusFixedClsGrouping(_selectedList), _selector); }
+        return _foreignMemberLoginAsLoginStatusFixedClsGroupingLoader;
     }
 
     protected LoaderOfMemberAddress _foreignMemberAddressAsOnlyOneDateLoader;
