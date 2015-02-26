@@ -33,4 +33,9 @@ map:{
         ; MEMBER_ADDRESS = map:{ $$ALL$$ = addDay(0) }
         ; WHITE_XLS_MAN = map:{ $$ALL$$ = addDay(0) }
     }
+
+    # outside file for large text 
+    ; largeTextFileMap = map:{
+        ; WHITE_LARGE_TEXT_FILE = list:{ suffix:_TEXT }
+    }
 }

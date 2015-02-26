@@ -102,6 +102,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("white_implicit_reverse_fk_ref", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteImplicitReverseFkRefDbm");
         tmpMap.put("white_implicit_reverse_fk_suppress", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteImplicitReverseFkSuppressDbm");
         tmpMap.put("white_include_query", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteIncludeQueryDbm");
+        tmpMap.put("white_large_text_file", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteLargeTextFileDbm");
         tmpMap.put("white_line_sep_comment", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteLineSepCommentDbm");
         tmpMap.put("white_load_data", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteLoadDataDbm");
         tmpMap.put("white_myself", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteMyselfDbm");

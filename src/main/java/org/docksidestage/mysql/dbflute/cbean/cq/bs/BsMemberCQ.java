@@ -434,15 +434,15 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
             uq.xsetParameterMapMemberLoginAsLoginStatus(bq.xdfgetParameterMapMemberLoginAsLoginStatus());
             uq.xdfgetConditionQueryMemberLoginAsLoginStatus().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberLoginAsLoginStatus(), uq.xdfgetConditionQueryMemberLoginAsLoginStatus());
         }
-        if (bq.hasConditionQueryMemberAddressAsIfComment()) {
-            uq.xsetParameterMapMemberAddressAsIfComment(bq.xdfgetParameterMapMemberAddressAsIfComment());
-            uq.xdfgetConditionQueryMemberAddressAsIfComment().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsIfComment(), uq.xdfgetConditionQueryMemberAddressAsIfComment());
-        }
         if (bq.hasConditionQueryMemberLoginAsLoginStatusFixedCls()) {
             uq.queryMemberLoginAsLoginStatusFixedCls().reflectRelationOnUnionQuery(bq.queryMemberLoginAsLoginStatusFixedCls(), uq.queryMemberLoginAsLoginStatusFixedCls());
         }
         if (bq.hasConditionQueryMemberLoginAsLoginStatusFixedClsGrouping()) {
             uq.queryMemberLoginAsLoginStatusFixedClsGrouping().reflectRelationOnUnionQuery(bq.queryMemberLoginAsLoginStatusFixedClsGrouping(), uq.queryMemberLoginAsLoginStatusFixedClsGrouping());
+        }
+        if (bq.hasConditionQueryMemberAddressAsIfComment()) {
+            uq.xsetParameterMapMemberAddressAsIfComment(bq.xdfgetParameterMapMemberAddressAsIfComment());
+            uq.xdfgetConditionQueryMemberAddressAsIfComment().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsIfComment(), uq.xdfgetConditionQueryMemberAddressAsIfComment());
         }
         if (bq.hasConditionQueryMemberAddressAsOnlyOneDate()) {
             uq.xsetParameterMapMemberAddressAsOnlyOneDate(bq.xdfgetParameterMapMemberAddressAsOnlyOneDate());
@@ -635,37 +635,6 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
-     * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
-     * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
-     * @return The instance of condition-query. (NotNull)
-     */
-    public MemberAddressCQ queryMemberAddressAsIfComment(java.time.LocalDate targetDate, org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
-        Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsIfComment();
-        parameterMap.put("targetDate", targetDate);parameterMap.put("region", region);
-        xassertFCDP("memberAddressAsIfComment", parameterMap);
-        return xdfgetConditionQueryMemberAddressAsIfComment();
-    }
-    public MemberAddressCQ xdfgetConditionQueryMemberAddressAsIfComment() {
-        String prop = "memberAddressAsIfComment";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberAddressAsIfComment()); xsetupOuterJoinMemberAddressAsIfComment(); }
-        return xgetQueRlMap(prop);
-    }
-    protected Map<String, Object> _parameterMapMemberAddressAsIfComment;
-    public Map<String, Object> xdfgetParameterMapMemberAddressAsIfComment()
-    { if (_parameterMapMemberAddressAsIfComment == null) { _parameterMapMemberAddressAsIfComment = newLinkedHashMapSized(4); }
-      return _parameterMapMemberAddressAsIfComment; }
-    public void xsetParameterMapMemberAddressAsIfComment(Map<String, Object> parameterMap)
-    { _parameterMapMemberAddressAsIfComment = parameterMap; } // for UnionQuery
-    protected MemberAddressCQ xcreateQueryMemberAddressAsIfComment() {
-        String nrp = xresolveNRP("member", "memberAddressAsIfComment"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new MemberAddressCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberAddressAsIfComment", nrp);
-    }
-    protected void xsetupOuterJoinMemberAddressAsIfComment() { xregOutJo("memberAddressAsIfComment"); }
-    public boolean hasConditionQueryMemberAddressAsIfComment() { return xhasQueRlMap("memberAddressAsIfComment"); }
-
-    /**
-     * Get the condition-query for relation table. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -703,6 +672,37 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     }
     protected void xsetupOuterJoinMemberLoginAsLoginStatusFixedClsGrouping() { xregOutJo("memberLoginAsLoginStatusFixedClsGrouping"); }
     public boolean hasConditionQueryMemberLoginAsLoginStatusFixedClsGrouping() { return xhasQueRlMap("memberLoginAsLoginStatusFixedClsGrouping"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+     * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
+     * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
+     * @return The instance of condition-query. (NotNull)
+     */
+    public MemberAddressCQ queryMemberAddressAsIfComment(java.time.LocalDate targetDate, org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberAddressAsIfComment();
+        parameterMap.put("targetDate", targetDate);parameterMap.put("region", region);
+        xassertFCDP("memberAddressAsIfComment", parameterMap);
+        return xdfgetConditionQueryMemberAddressAsIfComment();
+    }
+    public MemberAddressCQ xdfgetConditionQueryMemberAddressAsIfComment() {
+        String prop = "memberAddressAsIfComment";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberAddressAsIfComment()); xsetupOuterJoinMemberAddressAsIfComment(); }
+        return xgetQueRlMap(prop);
+    }
+    protected Map<String, Object> _parameterMapMemberAddressAsIfComment;
+    public Map<String, Object> xdfgetParameterMapMemberAddressAsIfComment()
+    { if (_parameterMapMemberAddressAsIfComment == null) { _parameterMapMemberAddressAsIfComment = newLinkedHashMapSized(4); }
+      return _parameterMapMemberAddressAsIfComment; }
+    public void xsetParameterMapMemberAddressAsIfComment(Map<String, Object> parameterMap)
+    { _parameterMapMemberAddressAsIfComment = parameterMap; } // for UnionQuery
+    protected MemberAddressCQ xcreateQueryMemberAddressAsIfComment() {
+        String nrp = xresolveNRP("member", "memberAddressAsIfComment"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new MemberAddressCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberAddressAsIfComment", nrp);
+    }
+    protected void xsetupOuterJoinMemberAddressAsIfComment() { xregOutJo("memberAddressAsIfComment"); }
+    public boolean hasConditionQueryMemberAddressAsIfComment() { return xhasQueRlMap("memberAddressAsIfComment"); }
 
     /**
      * Get the condition-query for relation table. <br>

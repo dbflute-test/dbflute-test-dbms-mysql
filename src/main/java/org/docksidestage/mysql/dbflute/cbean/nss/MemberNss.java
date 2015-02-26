@@ -72,17 +72,6 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
-     * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
-     * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
-     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
-     */
-    public MemberAddressNss withMemberAddressAsIfComment(final java.time.LocalDate targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
-        _query.xdoNss(() -> _query.queryMemberAddressAsIfComment(targetDate, region));
-        return new MemberAddressNss(_query.queryMemberAddressAsIfComment(targetDate, region));
-    }
-    /**
-     * With nested relation columns to select clause. <br>
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -98,6 +87,17 @@ public class MemberNss {
     public MemberLoginNss withMemberLoginAsLoginStatusFixedClsGrouping() {
         _query.xdoNss(() -> _query.queryMemberLoginAsLoginStatusFixedClsGrouping());
         return new MemberLoginNss(_query.queryMemberLoginAsLoginStatusFixedClsGrouping());
+    }
+    /**
+     * With nested relation columns to select clause. <br>
+     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+     * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
+     * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
+     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
+     */
+    public MemberAddressNss withMemberAddressAsIfComment(final java.time.LocalDate targetDate, final org.docksidestage.mysql.dbflute.allcommon.CDef.Region region) {
+        _query.xdoNss(() -> _query.queryMemberAddressAsIfComment(targetDate, region));
+        return new MemberAddressNss(_query.queryMemberAddressAsIfComment(targetDate, region));
     }
     /**
      * With nested relation columns to select clause. <br>

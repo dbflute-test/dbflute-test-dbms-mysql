@@ -69,6 +69,7 @@
     <component name="whiteImplicitReverseFkRefBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteImplicitReverseFkRefBhv"/>
     <component name="whiteImplicitReverseFkSuppressBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteImplicitReverseFkSuppressBhv"/>
     <component name="whiteIncludeQueryBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteIncludeQueryBhv"/>
+    <component name="whiteLargeTextFileBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteLargeTextFileBhv"/>
     <component name="whiteLineSepCommentBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteLineSepCommentBhv"/>
     <component name="whiteLoadDataBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteLoadDataBhv"/>
     <component name="whiteMyselfBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteMyselfBhv"/>

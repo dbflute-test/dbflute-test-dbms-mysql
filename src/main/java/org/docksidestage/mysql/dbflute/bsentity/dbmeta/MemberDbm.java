@@ -93,9 +93,9 @@ public class MemberDbm extends AbstractDBMeta {
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsValid(), (et, vl) -> ((Member)et).setMemberAddressAsValid((OptionalEntity<MemberAddress>)vl), "memberAddressAsValid");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsValidBefore(), (et, vl) -> ((Member)et).setMemberAddressAsValidBefore((OptionalEntity<MemberAddress>)vl), "memberAddressAsValidBefore");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLoginStatus(), (et, vl) -> ((Member)et).setMemberLoginAsLoginStatus((OptionalEntity<MemberLogin>)vl), "memberLoginAsLoginStatus");
-        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsIfComment(), (et, vl) -> ((Member)et).setMemberAddressAsIfComment((OptionalEntity<MemberAddress>)vl), "memberAddressAsIfComment");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLoginStatusFixedCls(), (et, vl) -> ((Member)et).setMemberLoginAsLoginStatusFixedCls((OptionalEntity<MemberLogin>)vl), "memberLoginAsLoginStatusFixedCls");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLoginStatusFixedClsGrouping(), (et, vl) -> ((Member)et).setMemberLoginAsLoginStatusFixedClsGrouping((OptionalEntity<MemberLogin>)vl), "memberLoginAsLoginStatusFixedClsGrouping");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsIfComment(), (et, vl) -> ((Member)et).setMemberAddressAsIfComment((OptionalEntity<MemberAddress>)vl), "memberAddressAsIfComment");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsOnlyOneDate(), (et, vl) -> ((Member)et).setMemberAddressAsOnlyOneDate((OptionalEntity<MemberAddress>)vl), "memberAddressAsOnlyOneDate");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLocalBindOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsLocalBindOverTest((OptionalEntity<MemberLogin>)vl), "memberLoginAsLocalBindOverTest");
         setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLocalForeignOverTest(), (et, vl) -> ((Member)et).setMemberLoginAsLocalForeignOverTest((OptionalEntity<MemberLogin>)vl), "memberLoginAsLocalForeignOverTest");
@@ -142,7 +142,7 @@ public class MemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, true, true, true, "INT", 10, 0, null, false, null, "会員を識別するID。連番として基本的に自動採番される。\n（会員IDだけに限らず）採番方法はDBMSによって変わる。", "memberAddressAsValid,memberAddressAsValidBefore,memberLoginAsLoginStatus,memberAddressAsIfComment,memberLoginAsLoginStatusFixedCls,memberLoginAsLoginStatusFixedClsGrouping,memberAddressAsOnlyOneDate,memberLoginAsLocalBindOverTest,memberLoginAsLocalForeignOverTest,memberLoginAsForeignForeignBindOverTest,memberLoginAsForeignForeignEachOverTest,memberLoginAsForeignForeignOptimizedBasicOverTest,memberLoginAsForeignForeignOptimizedMarkOverTest,memberLoginAsForeignForeignOptimizedPartOverTest,memberLoginAsForeignForeignOptimizedWholeOverTest,memberLoginAsForeignForeignParameterOverTest,memberLoginAsForeignForeignVariousOverTest,memberLoginAsReferrerOverTest,memberLoginAsReferrerForeignOverTest,memberLoginAsLatest,memberLoginAsOldest,memberAddressAsFormattedBasic,memberAddressAsFormattedLong,memberLoginAsFormattedMany,memberLoginAsEmbeddedCommentClassificationTest,memberSecurityAsOne,memberServiceAsOne,memberWithdrawalAsOne", "memberAddressList,memberFollowingByMyMemberIdList,memberFollowingByYourMemberIdList,memberLoginList,purchaseList", null, false);
+    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, true, true, true, "INT", 10, 0, null, false, null, "会員を識別するID。連番として基本的に自動採番される。\n（会員IDだけに限らず）採番方法はDBMSによって変わる。", "memberAddressAsValid,memberAddressAsValidBefore,memberLoginAsLoginStatus,memberLoginAsLoginStatusFixedCls,memberLoginAsLoginStatusFixedClsGrouping,memberAddressAsIfComment,memberAddressAsOnlyOneDate,memberLoginAsLocalBindOverTest,memberLoginAsLocalForeignOverTest,memberLoginAsForeignForeignBindOverTest,memberLoginAsForeignForeignEachOverTest,memberLoginAsForeignForeignOptimizedBasicOverTest,memberLoginAsForeignForeignOptimizedMarkOverTest,memberLoginAsForeignForeignOptimizedPartOverTest,memberLoginAsForeignForeignOptimizedWholeOverTest,memberLoginAsForeignForeignParameterOverTest,memberLoginAsForeignForeignVariousOverTest,memberLoginAsReferrerOverTest,memberLoginAsReferrerForeignOverTest,memberLoginAsLatest,memberLoginAsOldest,memberAddressAsFormattedBasic,memberAddressAsFormattedLong,memberLoginAsFormattedMany,memberLoginAsEmbeddedCommentClassificationTest,memberSecurityAsOne,memberServiceAsOne,memberWithdrawalAsOne", "memberAddressList,memberFollowingByMyMemberIdList,memberFollowingByYourMemberIdList,memberLoginList,purchaseList", null, false);
     protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, "会員名称", String.class, "memberName", null, false, false, true, "VARCHAR", 180, 0, null, false, null, "会員のフルネームの名称。", null, null, null, false);
     protected final ColumnInfo _columnMemberAccount = cci("MEMBER_ACCOUNT", "MEMBER_ACCOUNT", null, "会員アカウント", String.class, "memberAccount", null, false, false, true, "VARCHAR", 50, 0, null, false, null, "会員がログイン時に利用するアカウントNO。", null, null, null, false);
     protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "memberStatus", null, CDef.DefMeta.MemberStatus, false);
@@ -284,20 +284,12 @@ public class MemberDbm extends AbstractDBMeta {
         return cfi("FK_MEMBER_MEMBER_LOGIN_STATUS", "memberLoginAsLoginStatus", this, MemberLoginDbm.getInstance(), mp, 3, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = /*$$locationBase$$.parameterMapMemberLoginAsLoginStatus.statusCode*/null", newArrayList("statusCode"), false, null, false);
     }
     /**
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
-     * @return The information object of foreign property. (NotNull)
-     */
-    public ForeignInfo foreignMemberAddressAsIfComment() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberAddressDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_ADDRESS_IF_COMMENT", "memberAddressAsIfComment", this, MemberAddressDbm.getInstance(), mp, 4, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsIfComment.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsIfComment.targetDate*/null\n     /*IF $$locationBase$$.parameterMapMemberAddressAsIfComment.region != null*/and $$foreignAlias$$.REGION_ID = /*$$locationBase$$.parameterMapMemberAddressAsIfComment.region*/null/*END*/", newArrayList("targetDate, region"), false, null, false);
-    }
-    /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMemberLoginAsLoginStatusFixedCls() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_STATUS_FIXED_CLS", "memberLoginAsLoginStatusFixedCls", this, MemberLoginDbm.getInstance(), mp, 5, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = 'SEA'", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_STATUS_FIXED_CLS", "memberLoginAsLoginStatusFixedCls", this, MemberLoginDbm.getInstance(), mp, 4, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = 'SEA'", null, false, null, false);
     }
     /**
      * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
@@ -305,7 +297,15 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsLoginStatusFixedClsGrouping() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_STATUS_FIXED_CLS_GROUPING", "memberLoginAsLoginStatusFixedClsGrouping", this, MemberLoginDbm.getInstance(), mp, 6, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('LND', 'SEA')", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_STATUS_FIXED_CLS_GROUPING", "memberLoginAsLoginStatusFixedClsGrouping", this, MemberLoginDbm.getInstance(), mp, 5, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in ('LND', 'SEA')", null, false, null, false);
+    }
+    /**
+     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+     * @return The information object of foreign property. (NotNull)
+     */
+    public ForeignInfo foreignMemberAddressAsIfComment() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberAddressDbm.getInstance().columnMemberId());
+        return cfi("FK_MEMBER_MEMBER_ADDRESS_IF_COMMENT", "memberAddressAsIfComment", this, MemberAddressDbm.getInstance(), mp, 6, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsIfComment.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsIfComment.targetDate*/null\n     /*IF $$locationBase$$.parameterMapMemberAddressAsIfComment.region != null*/and $$foreignAlias$$.REGION_ID = /*$$locationBase$$.parameterMapMemberAddressAsIfComment.region*/null/*END*/", newArrayList("targetDate, region"), false, null, false);
     }
     /**
      * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.

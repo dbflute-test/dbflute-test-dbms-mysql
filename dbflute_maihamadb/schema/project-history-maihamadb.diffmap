@@ -1,4 +1,17 @@
 map:{
+    ; 2015/02/26 23:10:55 = map:{
+        ; diffDate = 2015/02/26 23:10:55
+        ; tableCount = map:{
+            ; next = 111
+            ; previous = 110
+        }
+        ; tableDiff = map:{
+            ; white_large_text_file = map:{
+                ; tableName = white_large_text_file
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2015/02/01 20:56:21 = map:{
         ; diffDate = 2015/02/01 20:56:21
         ; tableCount = map:{
