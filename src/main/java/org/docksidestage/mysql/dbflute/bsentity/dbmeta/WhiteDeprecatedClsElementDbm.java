@@ -59,8 +59,8 @@ public class WhiteDeprecatedClsElementDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteDeprecatedClsElement)et).getDeprecatedClsElementCode(), (et, vl) -> {
             ColumnInfo col = columnDeprecatedClsElementCode();
-            ccls(col, vl);
-            CDef.DeprecatedMapCollaborationType cls = (CDef.DeprecatedMapCollaborationType)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.DeprecatedMapCollaborationType cls = (CDef.DeprecatedMapCollaborationType)gcls(et, col, vl);
             if (cls != null) {
                 ((WhiteDeprecatedClsElement)et).setDeprecatedClsElementCodeAsDeprecatedMapCollaborationType(cls);
             } else {

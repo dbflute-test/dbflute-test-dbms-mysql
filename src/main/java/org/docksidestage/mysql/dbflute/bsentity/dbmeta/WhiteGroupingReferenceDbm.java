@@ -60,8 +60,8 @@ public class WhiteGroupingReferenceDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteGroupingReference)et).getGroupingReferenceId(), (et, vl) -> ((WhiteGroupingReference)et).setGroupingReferenceId(ctl(vl)), "groupingReferenceId");
         setupEpg(_epgMap, et -> ((WhiteGroupingReference)et).getGroupingReferenceCode(), (et, vl) -> {
             ColumnInfo col = columnGroupingReferenceCode();
-            ccls(col, vl);
-            CDef.GroupingReference cls = (CDef.GroupingReference)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.GroupingReference cls = (CDef.GroupingReference)gcls(et, col, vl);
             if (cls != null) {
                 ((WhiteGroupingReference)et).setGroupingReferenceCodeAsGroupingReference(cls);
             } else {

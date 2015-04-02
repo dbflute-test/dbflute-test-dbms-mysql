@@ -62,8 +62,8 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getVariantMasterId(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setVariantMasterId(ctl(vl)), "variantMasterId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getMasterTypeCode(), (et, vl) -> {
             ColumnInfo col = columnMasterTypeCode();
-            ccls(col, vl);
-            CDef.VariantRelationMasterType cls = (CDef.VariantRelationMasterType)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.VariantRelationMasterType cls = (CDef.VariantRelationMasterType)gcls(et, col, vl);
             if (cls != null) {
                 ((WhiteVariantRelationReferrer)et).setMasterTypeCodeAsVariantRelationMasterType(cls);
             } else {

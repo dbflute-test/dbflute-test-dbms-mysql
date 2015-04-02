@@ -59,8 +59,8 @@ public class WhiteEscapedNumberInitialDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteEscapedNumberInitial)et).getNumberInitialCode(), (et, vl) -> {
             ColumnInfo col = columnNumberInitialCode();
-            ccls(col, vl);
-            CDef.EscapedNumberInitialCls cls = (CDef.EscapedNumberInitialCls)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.EscapedNumberInitialCls cls = (CDef.EscapedNumberInitialCls)gcls(et, col, vl);
             if (cls != null) {
                 ((WhiteEscapedNumberInitial)et).setNumberInitialCodeAsEscapedNumberInitialCls(cls);
             } else {

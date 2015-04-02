@@ -63,8 +63,8 @@ public class OptionMemberDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((OptionMember)et).getFormalizedDatetime(), (et, vl) -> ((OptionMember)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((OptionMember)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
-            ccls(col, vl);
-            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, col, vl);
             if (cls != null) {
                 ((OptionMember)et).setMemberStatusCodeAsMemberStatus(cls);
             } else {
@@ -75,8 +75,8 @@ public class OptionMemberDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((OptionMember)et).getMemberStatusName(), (et, vl) -> ((OptionMember)et).setMemberStatusName((String)vl), "memberStatusName");
         setupEpg(_epgMap, et -> ((OptionMember)et).getDummyFlg(), (et, vl) -> {
             ColumnInfo col = columnDummyFlg();
-            ccls(col, vl);
-            CDef.Flg cls = (CDef.Flg)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.Flg cls = (CDef.Flg)gcls(et, col, vl);
             if (cls != null) {
                 ((OptionMember)et).setDummyFlgAsFlg(cls);
             } else {

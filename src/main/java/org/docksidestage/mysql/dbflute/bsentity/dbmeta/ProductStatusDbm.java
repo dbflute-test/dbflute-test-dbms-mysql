@@ -59,8 +59,8 @@ public class ProductStatusDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((ProductStatus)et).getProductStatusCode(), (et, vl) -> {
             ColumnInfo col = columnProductStatusCode();
-            ccls(col, vl);
-            CDef.ProductStatus cls = (CDef.ProductStatus)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.ProductStatus cls = (CDef.ProductStatus)gcls(et, col, vl);
             if (cls != null) {
                 ((ProductStatus)et).setProductStatusCodeAsProductStatus(cls);
             } else {

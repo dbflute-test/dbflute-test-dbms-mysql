@@ -63,8 +63,8 @@ public class SpReturnResultSetWithNotParamResult1Dbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
-            ccls(col, vl);
-            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, col, vl);
             if (cls != null) {
                 ((SpReturnResultSetWithNotParamResult1)et).setMemberStatusCodeAsMemberStatus(cls);
             } else {

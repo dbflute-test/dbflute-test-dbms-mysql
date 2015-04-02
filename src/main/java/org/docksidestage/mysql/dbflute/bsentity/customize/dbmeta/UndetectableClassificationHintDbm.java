@@ -60,8 +60,8 @@ public class UndetectableClassificationHintDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((UndetectableClassificationHint)et).getMemberId(), (et, vl) -> ((UndetectableClassificationHint)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((UndetectableClassificationHint)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
-            ccls(col, vl);
-            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, col, vl);
             if (cls != null) {
                 ((UndetectableClassificationHint)et).setMemberStatusCodeAsMemberStatus(cls);
             } else {

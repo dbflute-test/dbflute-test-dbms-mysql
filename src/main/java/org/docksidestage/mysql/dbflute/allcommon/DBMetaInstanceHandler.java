@@ -63,6 +63,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("service_rank", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.ServiceRankDbm");
         tmpMap.put("summary_product", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.SummaryProductDbm");
         tmpMap.put("summary_withdrawal", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.SummaryWithdrawalDbm");
+        tmpMap.put("vendor_$_dollar", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.Vendor$DollarDbm");
         tmpMap.put("vendor_check", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.VendorCheckDbm");
         tmpMap.put("vendor_constraint_name_auto_bar", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.VendorConstraintNameAutoBarDbm");
         tmpMap.put("vendor_constraint_name_auto_foo", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.VendorConstraintNameAutoFooDbm");

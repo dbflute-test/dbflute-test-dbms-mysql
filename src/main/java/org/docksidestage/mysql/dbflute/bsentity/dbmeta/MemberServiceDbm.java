@@ -63,8 +63,8 @@ public class MemberServiceDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((MemberService)et).getServicePointCount(), (et, vl) -> ((MemberService)et).setServicePointCount(cti(vl)), "servicePointCount");
         setupEpg(_epgMap, et -> ((MemberService)et).getServiceRankCode(), (et, vl) -> {
             ColumnInfo col = columnServiceRankCode();
-            ccls(col, vl);
-            CDef.ServiceRank cls = (CDef.ServiceRank)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.ServiceRank cls = (CDef.ServiceRank)gcls(et, col, vl);
             if (cls != null) {
                 ((MemberService)et).setServiceRankCodeAsServiceRank(cls);
             } else {
