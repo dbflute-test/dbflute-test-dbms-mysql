@@ -160,7 +160,7 @@ public class ImplementedBehaviorSelector implements BehaviorSelector {
 		} catch (ComponentNotFoundRuntimeException e) { // normally it doesn't come.
 		    final COMPONENT component;
 		    try {
-		        component = (COMPONENT)_container.getRoot().getComponent(componentType); // for HotDeploy mode
+		        component = (COMPONENT)_container.getRoot().getComponent(componentType); // retry for HotDeploy mode
 		    } catch (ComponentNotFoundRuntimeException ignored) {
 		        throw e;
 		    }
