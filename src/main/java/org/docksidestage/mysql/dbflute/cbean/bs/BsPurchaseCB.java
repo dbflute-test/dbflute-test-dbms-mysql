@@ -284,7 +284,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public MemberNss setupSelect_Member() {
         assertSetupSelectPurpose("member");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMemberId();
         }
         doSetupSelect(() -> query().queryMember());
@@ -313,7 +313,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public ProductNss setupSelect_Product() {
         assertSetupSelectPurpose("product");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnProductId();
         }
         doSetupSelect(() -> query().queryProduct());
@@ -342,7 +342,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public SummaryProductNss setupSelect_SummaryProduct() {
         assertSetupSelectPurpose("summaryProduct");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnProductId();
         }
         doSetupSelect(() -> query().querySummaryProduct());
@@ -365,7 +365,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public void setupSelect_SummaryWithdrawal() {
         assertSetupSelectPurpose("summaryWithdrawal");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMemberId();
         }
         doSetupSelect(() -> query().querySummaryWithdrawal());
@@ -385,7 +385,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteNoPkRelation() {
         assertSetupSelectPurpose("whiteNoPkRelation");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnProductId();
         }
         doSetupSelect(() -> query().queryWhiteNoPkRelation());
@@ -438,7 +438,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      */
     public MemberAddressNss setupSelect_MemberAddressAsSkipRelation(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberAddressAsSkipRelation");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMemberId();
         }
         doSetupSelect(() -> query().queryMemberAddressAsSkipRelation(targetDate));
@@ -468,7 +468,8 @@ public class BsPurchaseCB extends AbstractConditionBean {
     public WhitePurchaseReferrerNss setupSelect_WhitePurchaseReferrerAsOne() {
         assertSetupSelectPurpose("whitePurchaseReferrerAsOne");
         doSetupSelect(() -> query().queryWhitePurchaseReferrerAsOne());
-        if (_nssWhitePurchaseReferrerAsOne == null || !_nssWhitePurchaseReferrerAsOne.hasConditionQuery()) { _nssWhitePurchaseReferrerAsOne = new WhitePurchaseReferrerNss(query().queryWhitePurchaseReferrerAsOne()); }
+        if (_nssWhitePurchaseReferrerAsOne == null || !_nssWhitePurchaseReferrerAsOne.hasConditionQuery())
+        { _nssWhitePurchaseReferrerAsOne = new WhitePurchaseReferrerNss(query().queryWhitePurchaseReferrerAsOne()); }
         return _nssWhitePurchaseReferrerAsOne;
     }
 
@@ -493,7 +494,8 @@ public class BsPurchaseCB extends AbstractConditionBean {
     public PurchaseNss setupSelect_PurchaseSelfAsOne() {
         assertSetupSelectPurpose("purchaseSelfAsOne");
         doSetupSelect(() -> query().queryPurchaseSelfAsOne());
-        if (_nssPurchaseSelfAsOne == null || !_nssPurchaseSelfAsOne.hasConditionQuery()) { _nssPurchaseSelfAsOne = new PurchaseNss(query().queryPurchaseSelfAsOne()); }
+        if (_nssPurchaseSelfAsOne == null || !_nssPurchaseSelfAsOne.hasConditionQuery())
+        { _nssPurchaseSelfAsOne = new PurchaseNss(query().queryPurchaseSelfAsOne()); }
         return _nssPurchaseSelfAsOne;
     }
 
@@ -533,8 +535,8 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<PurchaseCQ> {
@@ -777,10 +779,9 @@ public class BsPurchaseCB extends AbstractConditionBean {
                                     , () -> _qyCall.qy().queryMemberAddressAsSkipRelation(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberAddressAsSkipRelation.xsetSyncQyCall(new HpSpQyCall<MemberAddressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsSkipRelation(); }
-                        public MemberAddressCQ qy() { return xsyncQyCall().qy().queryMemberAddressAsSkipRelation(targetDate); }
-                    });
+                    _memberAddressAsSkipRelation.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberAddressAsSkipRelation()
+                      , () -> xsyncQyCall().qy().queryMemberAddressAsSkipRelation(targetDate)));
                 }
             }
             return _memberAddressAsSkipRelation;

@@ -297,7 +297,8 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
     public WhiteVariantRelationLocalPkReferrerNss setupSelect_WhiteVariantRelationLocalPkReferrerAsOne() {
         assertSetupSelectPurpose("whiteVariantRelationLocalPkReferrerAsOne");
         doSetupSelect(() -> query().queryWhiteVariantRelationLocalPkReferrerAsOne());
-        if (_nssWhiteVariantRelationLocalPkReferrerAsOne == null || !_nssWhiteVariantRelationLocalPkReferrerAsOne.hasConditionQuery()) { _nssWhiteVariantRelationLocalPkReferrerAsOne = new WhiteVariantRelationLocalPkReferrerNss(query().queryWhiteVariantRelationLocalPkReferrerAsOne()); }
+        if (_nssWhiteVariantRelationLocalPkReferrerAsOne == null || !_nssWhiteVariantRelationLocalPkReferrerAsOne.hasConditionQuery())
+        { _nssWhiteVariantRelationLocalPkReferrerAsOne = new WhiteVariantRelationLocalPkReferrerNss(query().queryWhiteVariantRelationLocalPkReferrerAsOne()); }
         return _nssWhiteVariantRelationLocalPkReferrerAsOne;
     }
 
@@ -337,8 +338,8 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteVariantRelationMasterFooCQ> {

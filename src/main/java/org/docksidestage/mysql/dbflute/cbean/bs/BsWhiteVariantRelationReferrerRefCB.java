@@ -270,7 +270,7 @@ public class BsWhiteVariantRelationReferrerRefCB extends AbstractConditionBean {
      */
     public WhiteVariantRelationReferrerNss setupSelect_WhiteVariantRelationReferrer() {
         assertSetupSelectPurpose("whiteVariantRelationReferrer");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnReferrerId();
         }
         doSetupSelect(() -> query().queryWhiteVariantRelationReferrer());
@@ -315,8 +315,8 @@ public class BsWhiteVariantRelationReferrerRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteVariantRelationReferrerRefCQ> {

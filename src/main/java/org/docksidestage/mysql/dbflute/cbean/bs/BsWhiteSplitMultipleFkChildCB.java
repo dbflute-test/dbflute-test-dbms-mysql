@@ -270,7 +270,7 @@ public class BsWhiteSplitMultipleFkChildCB extends AbstractConditionBean {
      */
     public WhiteSplitMultipleFkBaseNss setupSelect_WhiteSplitMultipleFkBase() {
         assertSetupSelectPurpose("whiteSplitMultipleFkBase");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnBaseId();
         }
         doSetupSelect(() -> query().queryWhiteSplitMultipleFkBase());
@@ -315,8 +315,8 @@ public class BsWhiteSplitMultipleFkChildCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteSplitMultipleFkChildCQ> {

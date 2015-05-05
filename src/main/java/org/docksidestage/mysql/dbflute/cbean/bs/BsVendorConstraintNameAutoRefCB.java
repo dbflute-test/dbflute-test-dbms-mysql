@@ -275,7 +275,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      */
     public void setupSelect_VendorConstraintNameAutoBar() {
         assertSetupSelectPurpose("vendorConstraintNameAutoBar");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnConstraintNameAutoBarId();
         }
         doSetupSelect(() -> query().queryVendorConstraintNameAutoBar());
@@ -295,7 +295,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      */
     public void setupSelect_VendorConstraintNameAutoFoo() {
         assertSetupSelectPurpose("vendorConstraintNameAutoFoo");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnConstraintNameAutoFooId();
         }
         doSetupSelect(() -> query().queryVendorConstraintNameAutoFoo());
@@ -315,7 +315,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      */
     public void setupSelect_VendorConstraintNameAutoQux() {
         assertSetupSelectPurpose("vendorConstraintNameAutoQux");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnConstraintNameAutoQuxId();
         }
         doSetupSelect(() -> query().queryVendorConstraintNameAutoQux());
@@ -357,8 +357,8 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<VendorConstraintNameAutoRefCQ> {

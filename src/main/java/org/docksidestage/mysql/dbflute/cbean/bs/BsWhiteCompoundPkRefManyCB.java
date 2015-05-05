@@ -273,7 +273,7 @@ public class BsWhiteCompoundPkRefManyCB extends AbstractConditionBean {
      */
     public WhiteCompoundPkNss setupSelect_WhiteCompoundPkToPK() {
         assertSetupSelectPurpose("whiteCompoundPkToPK");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnRefManyFirstId();
             specify().columnRefManySecondId();
         }
@@ -319,8 +319,8 @@ public class BsWhiteCompoundPkRefManyCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteCompoundPkRefManyCQ> {

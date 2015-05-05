@@ -263,7 +263,7 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
      */
     public void setupSelect_WhitePgReserv() {
         assertSetupSelectPurpose("whitePgReserv");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnClassSynonym();
         }
         doSetupSelect(() -> query().queryWhitePgReserv());
@@ -305,8 +305,8 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhitePgReservRefCQ> {

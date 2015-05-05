@@ -270,7 +270,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      */
     public WhiteCompoundPkRefNss setupSelect_WhiteCompoundPkRefByQuxMultipleId() {
         assertSetupSelectPurpose("whiteCompoundPkRefByQuxMultipleId");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnBarMultipleId();
             specify().columnQuxMultipleId();
         }
@@ -300,7 +300,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
      */
     public WhiteCompoundPkRefNss setupSelect_WhiteCompoundPkRefByFooMultipleId() {
         assertSetupSelectPurpose("whiteCompoundPkRefByFooMultipleId");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnFooMultipleId();
             specify().columnBarMultipleId();
         }
@@ -346,8 +346,8 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteCompoundPkRefNestCQ> {

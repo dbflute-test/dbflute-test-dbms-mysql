@@ -263,7 +263,7 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteSuppressJoinSqManyOneOne() {
         assertSetupSelectPurpose("whiteSuppressJoinSqManyOneOne");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnManyOneOneId();
         }
         doSetupSelect(() -> query().queryWhiteSuppressJoinSqManyOneOne());
@@ -305,8 +305,8 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteSuppressJoinSqManyOneCQ> {

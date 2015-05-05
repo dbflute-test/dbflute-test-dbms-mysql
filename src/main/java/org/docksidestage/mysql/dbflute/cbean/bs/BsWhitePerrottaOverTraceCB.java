@@ -283,7 +283,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
      */
     public WhitePerrottaOverProductNss setupSelect_WhitePerrottaOverProductByNextProductId() {
         assertSetupSelectPurpose("whitePerrottaOverProductByNextProductId");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnNextProductId();
         }
         doSetupSelect(() -> query().queryWhitePerrottaOverProductByNextProductId());
@@ -312,7 +312,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
      */
     public WhitePerrottaOverProductNss setupSelect_WhitePerrottaOverProductByPreviousProductId() {
         assertSetupSelectPurpose("whitePerrottaOverProductByPreviousProductId");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnPreviousProductId();
         }
         doSetupSelect(() -> query().queryWhitePerrottaOverProductByPreviousProductId());
@@ -357,8 +357,8 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhitePerrottaOverTraceCQ> {

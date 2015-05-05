@@ -270,7 +270,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      */
     public WhiteVariantRelationMasterFooNss setupSelect_WhiteVariantRelationMasterFooAsVariant() {
         assertSetupSelectPurpose("whiteVariantRelationMasterFooAsVariant");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnVariantMasterId();
         }
         doSetupSelect(() -> query().queryWhiteVariantRelationMasterFooAsVariant());
@@ -293,7 +293,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteVariantRelationMasterBarAsVariant() {
         assertSetupSelectPurpose("whiteVariantRelationMasterBarAsVariant");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnVariantMasterId();
         }
         doSetupSelect(() -> query().queryWhiteVariantRelationMasterBarAsVariant());
@@ -313,7 +313,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteVariantRelationMasterQuxAsVariantByQue() {
         assertSetupSelectPurpose("whiteVariantRelationMasterQuxAsVariantByQue");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnVariantMasterId();
         }
         doSetupSelect(() -> query().queryWhiteVariantRelationMasterQuxAsVariantByQue());
@@ -334,7 +334,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteVariantRelationMasterCorgeAsVariantByQuxType(final org.docksidestage.mysql.dbflute.allcommon.CDef.VariantRelationQuxType quxType) {
         assertSetupSelectPurpose("whiteVariantRelationMasterCorgeAsVariantByQuxType");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnVariantMasterId();
         }
         doSetupSelect(() -> query().queryWhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType));
@@ -376,8 +376,8 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteVariantRelationReferrerCQ> {
@@ -502,10 +502,9 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
                                     , () -> _qyCall.qy().queryWhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteVariantRelationMasterCorgeAsVariantByQuxType.xsetSyncQyCall(new HpSpQyCall<WhiteVariantRelationMasterCorgeCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType(); }
-                        public WhiteVariantRelationMasterCorgeCQ qy() { return xsyncQyCall().qy().queryWhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType); }
-                    });
+                    _whiteVariantRelationMasterCorgeAsVariantByQuxType.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteVariantRelationMasterCorgeAsVariantByQuxType()
+                      , () -> xsyncQyCall().qy().queryWhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType)));
                 }
             }
             return _whiteVariantRelationMasterCorgeAsVariantByQuxType;

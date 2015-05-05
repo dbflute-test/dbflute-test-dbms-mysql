@@ -270,7 +270,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      */
     public WhiteImplicitConvNumericNss setupSelect_WhiteImplicitConvNumeric() {
         assertSetupSelectPurpose("whiteImplicitConvNumeric");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnImplicitConvNumericId();
         }
         doSetupSelect(() -> query().queryWhiteImplicitConvNumeric());
@@ -299,7 +299,7 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
      */
     public WhiteImplicitConvStringNss setupSelect_WhiteImplicitConvString() {
         assertSetupSelectPurpose("whiteImplicitConvString");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnImplicitConvStringId();
         }
         doSetupSelect(() -> query().queryWhiteImplicitConvString());
@@ -344,8 +344,8 @@ public class BsWhiteImplicitConvIntegerCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteImplicitConvIntegerCQ> {

@@ -263,7 +263,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteSplitMultipleFkNext() {
         assertSetupSelectPurpose("whiteSplitMultipleFkNext");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnNextId();
         }
         doSetupSelect(() -> query().queryWhiteSplitMultipleFkNext());
@@ -283,7 +283,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
         assertSetupSelectPurpose("whiteSplitMultipleFkRefAsSplitMultipleFkTest");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnFirstId();
         }
         doSetupSelect(() -> query().queryWhiteSplitMultipleFkRefAsSplitMultipleFkTest());
@@ -325,8 +325,8 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteSplitMultipleFkBaseCQ> {

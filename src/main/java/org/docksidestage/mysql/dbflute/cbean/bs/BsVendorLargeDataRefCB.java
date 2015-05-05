@@ -264,7 +264,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      */
     public void setupSelect_VendorLargeData() {
         assertSetupSelectPurpose("vendorLargeData");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnLargeDataId();
         }
         doSetupSelect(() -> query().queryVendorLargeData());
@@ -290,7 +290,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      */
     public VendorLargeDataRefNss setupSelect_VendorLargeDataRefSelf() {
         assertSetupSelectPurpose("vendorLargeDataRefSelf");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnSelfParentId();
         }
         doSetupSelect(() -> query().queryVendorLargeDataRefSelf());
@@ -335,8 +335,8 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<VendorLargeDataRefCQ> {

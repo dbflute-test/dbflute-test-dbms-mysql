@@ -270,7 +270,7 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
      */
     public WhiteSelfReferenceNss setupSelect_WhiteSelfReferenceSelf() {
         assertSetupSelectPurpose("whiteSelfReferenceSelf");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnParentId();
         }
         doSetupSelect(() -> query().queryWhiteSelfReferenceSelf());
@@ -300,7 +300,8 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
     public WhiteSelfReferenceRefOneNss setupSelect_WhiteSelfReferenceRefOneAsOne() {
         assertSetupSelectPurpose("whiteSelfReferenceRefOneAsOne");
         doSetupSelect(() -> query().queryWhiteSelfReferenceRefOneAsOne());
-        if (_nssWhiteSelfReferenceRefOneAsOne == null || !_nssWhiteSelfReferenceRefOneAsOne.hasConditionQuery()) { _nssWhiteSelfReferenceRefOneAsOne = new WhiteSelfReferenceRefOneNss(query().queryWhiteSelfReferenceRefOneAsOne()); }
+        if (_nssWhiteSelfReferenceRefOneAsOne == null || !_nssWhiteSelfReferenceRefOneAsOne.hasConditionQuery())
+        { _nssWhiteSelfReferenceRefOneAsOne = new WhiteSelfReferenceRefOneNss(query().queryWhiteSelfReferenceRefOneAsOne()); }
         return _nssWhiteSelfReferenceRefOneAsOne;
     }
 
@@ -340,8 +341,8 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteSelfReferenceCQ> {

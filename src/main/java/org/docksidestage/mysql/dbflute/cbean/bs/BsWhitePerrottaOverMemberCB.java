@@ -264,7 +264,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
      */
     public void setupSelect_WhitePerrottaOverMemberMacho() {
         assertSetupSelectPurpose("whitePerrottaOverMemberMacho");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMachoCode();
         }
         doSetupSelect(() -> query().queryWhitePerrottaOverMemberMacho());
@@ -290,7 +290,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
      */
     public WhitePerrottaOverProductNss setupSelect_WhitePerrottaOverProduct() {
         assertSetupSelectPurpose("whitePerrottaOverProduct");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnProductId();
         }
         doSetupSelect(() -> query().queryWhitePerrottaOverProduct());
@@ -335,8 +335,8 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhitePerrottaOverMemberCQ> {

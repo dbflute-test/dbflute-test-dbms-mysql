@@ -263,7 +263,7 @@ public class BsWhiteQuotedRefCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteQuoted() {
         assertSetupSelectPurpose("whiteQuoted");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnOrder();
         }
         doSetupSelect(() -> query().queryWhiteQuoted());
@@ -305,8 +305,8 @@ public class BsWhiteQuotedRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteQuotedRefCQ> {

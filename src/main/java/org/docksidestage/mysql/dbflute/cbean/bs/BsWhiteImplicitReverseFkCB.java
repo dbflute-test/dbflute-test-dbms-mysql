@@ -321,8 +321,8 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteImplicitReverseFkCQ> {
@@ -364,10 +364,9 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
                                     , () -> _qyCall.qy().queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteImplicitReverseFkRefWithImplicitReverseFK.xsetSyncQyCall(new HpSpQyCall<WhiteImplicitReverseFkRefCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK(); }
-                        public WhiteImplicitReverseFkRefCQ qy() { return xsyncQyCall().qy().queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate); }
-                    });
+                    _whiteImplicitReverseFkRefWithImplicitReverseFK.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitReverseFkRefWithImplicitReverseFK()
+                      , () -> xsyncQyCall().qy().queryWhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate)));
                 }
             }
             return _whiteImplicitReverseFkRefWithImplicitReverseFK;
@@ -406,10 +405,9 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
                                     , () -> _qyCall.qy().queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate))
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK.xsetSyncQyCall(new HpSpQyCall<WhiteImplicitReverseFkSuppressCQ>() {
-                        public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(); }
-                        public WhiteImplicitReverseFkSuppressCQ qy() { return xsyncQyCall().qy().queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate); }
-                    });
+                    _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK()
+                      , () -> xsyncQyCall().qy().queryWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate)));
                 }
             }
             return _whiteImplicitReverseFkSuppressSuppressImplicitReverseFK;

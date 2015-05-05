@@ -263,7 +263,7 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteMyself() {
         assertSetupSelectPurpose("whiteMyself");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMyselfId();
         }
         doSetupSelect(() -> query().queryWhiteMyself());
@@ -305,8 +305,8 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteMyselfCheckCQ> {
