@@ -4,11 +4,9 @@ import java.util.Calendar;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.jdbc.StatementConfig;
-import org.dbflute.s2dao.extension.TnSqlLogRegistry;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.mysql.dbflute.exentity.Member;
-import org.docksidestage.mysql.dbflute.resola.allcommon.ResolaDBFluteConfig;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
 
 /**
@@ -68,12 +66,6 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
         // InternalDebug(テストということでここではtrue)
         DBFluteConfig.getInstance().setInternalDebug(true);
 
-        // UseSqlLogRegistry(テストということでここではtrue)
-        DBFluteConfig.getInstance().setUseSqlLogRegistry(true);
-        ResolaDBFluteConfig.getInstance().unlock();
-        ResolaDBFluteConfig.getInstance().setUseSqlLogRegistry(true); // 連動してるのでこっちも
-        ResolaDBFluteConfig.getInstance().lock();
-
         // Containerの初期化が始まり、再度ロックが掛かる
         super.setUp();
     }
@@ -88,10 +80,6 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
         DBFluteConfig.getInstance().unlock();
         DBFluteConfig.getInstance().setDefaultStatementConfig(null);
         DBFluteConfig.getInstance().setInternalDebug(false);
-        DBFluteConfig.getInstance().setUseSqlLogRegistry(false);
-        ResolaDBFluteConfig.getInstance().unlock();
-        ResolaDBFluteConfig.getInstance().setUseSqlLogRegistry(false);
-        ResolaDBFluteConfig.getInstance().lock();
         DBFluteConfig.getInstance().lock();
     }
 
@@ -111,27 +99,6 @@ public class DBFluteConfigTest extends UnitContainerTestCase {
     public void test_setInternalDebug_Locked() throws Exception {
         // ## Arrange & Act & Assert ##
         assertTrue(DBFluteConfig.getInstance().isInternalDebug());
-    }
-
-    /**
-     * DBFluteConfigで設定することで利用可能なはず
-     */
-    public void test_SqlLogRegistry() {
-        // ## Arrange ##
-        MemberCB cb = new MemberCB();
-        cb.query().setMemberName_LikeSearch("S", op -> op.likePrefix());
-        memberBhv.selectList(cb);
-        memberBhv.selectCount(cb);
-        cb.fetchFirst(3);
-        memberBhv.selectList(cb);
-        memberBhv.selectCount(cb);
-
-        // ## Act ##
-        String displaySql = TnSqlLogRegistry.peekCompleteSql();
-
-        // ## Assert ##
-        log(displaySql);
-        assertNotNull(displaySql);
     }
 
     // ===================================================================================
