@@ -35,14 +35,14 @@ public class MemberNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
+     * (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
      */
     public void withMemberStatus() {
         _query.xdoNss(() -> _query.queryMemberStatus());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -52,7 +52,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValidBefore'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -62,7 +62,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
      * @param statusCode The bind parameter of fixed condition for statusCode. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -72,7 +72,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsLoginStatusFixedCls() {
@@ -81,7 +81,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsLoginStatusFixedClsGrouping() {
@@ -90,7 +90,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsIfComment'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
      * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
@@ -101,7 +101,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -111,7 +111,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      * @deprecated the test of dep
@@ -123,7 +123,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsLocalForeignOverTest() {
@@ -132,7 +132,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -142,7 +142,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignEachOverTest() {
@@ -151,7 +151,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignOptimizedBasicOverTest() {
@@ -160,7 +160,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignOptimizedMarkOverTest() {
@@ -169,7 +169,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @param memberName The bind parameter of fixed condition for memberName. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
@@ -180,7 +180,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -190,7 +190,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -200,7 +200,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsForeignForeignVariousOverTest() {
@@ -209,7 +209,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsReferrerOverTest() {
@@ -218,7 +218,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsReferrerForeignOverTest() {
@@ -227,7 +227,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLatest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsLatest() {
@@ -236,7 +236,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsOldest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsOldest() {
@@ -245,7 +245,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -255,7 +255,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -265,7 +265,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsFormattedMany() {
@@ -274,7 +274,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsEmbeddedCommentClassificationTest() {

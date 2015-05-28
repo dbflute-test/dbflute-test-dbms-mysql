@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     product, summary_product
+ *     PRODUCT, SUMMARY_PRODUCT
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfProductStatus {
 
     /**
      * Load referrer of productList by the set-upper of referrer. <br>
-     * (商品)product by PRODUCT_STATUS_CODE, named 'productList'.
+     * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * <pre>
      * <span style="color: #0000C0">productStatusBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productStatusList</span>, <span style="color: #553000">statusLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">statusLoader</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -114,7 +114,7 @@ public class LoaderOfProductStatus {
 
     /**
      * Load referrer of summaryProductList by the set-upper of referrer. <br>
-     * (VIEW)summary_product by PRODUCT_STATUS_CODE, named 'summaryProductList'.
+     * (VIEW)SUMMARY_PRODUCT by PRODUCT_STATUS_CODE, named 'summaryProductList'.
      * <pre>
      * <span style="color: #0000C0">productStatusBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productStatusList</span>, <span style="color: #553000">statusLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">statusLoader</span>.<span style="color: #CC4747">loadSummaryProduct</span>(<span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

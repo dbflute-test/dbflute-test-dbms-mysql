@@ -219,7 +219,7 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCQ extends AbstractBsVend
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
+     * VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
      * @return The instance of condition-query. (NotNull)
      */
     public VendorTheLongAndWindingTableAndColumnCQ queryVendorTheLongAndWindingTableAndColumn() {

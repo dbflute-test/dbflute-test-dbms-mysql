@@ -108,11 +108,11 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. */
+    /** WHITE_VARIANT_RELATION_MASTER_FOO by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. */
     protected OptionalEntity<WhiteVariantRelationMasterFoo> _whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne;
 
     /**
-     * [get] white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. <br>
+     * [get] WHITE_VARIANT_RELATION_MASTER_FOO by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -122,7 +122,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEnti
     }
 
     /**
-     * [set] white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
+     * [set] WHITE_VARIANT_RELATION_MASTER_FOO by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
      * @param whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne The entity of foreign property 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'. (NullAllowed)
      */
     public void setWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne(OptionalEntity<WhiteVariantRelationMasterFoo> whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne) {

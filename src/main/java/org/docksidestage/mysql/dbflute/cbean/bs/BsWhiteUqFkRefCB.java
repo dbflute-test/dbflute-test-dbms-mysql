@@ -264,7 +264,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
+     * WHITE_UQ_FK by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteUqFkByFkToPkId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -284,7 +284,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
+     * WHITE_UQ_FK by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteUqFkByFkToUqCode()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -396,7 +396,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_uq_fk_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
+         * WHITE_UQ_FK by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteUqFkCB.HpSpecification specifyWhiteUqFkByFkToPkId() {
@@ -416,7 +416,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
+         * WHITE_UQ_FK by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteUqFkCB.HpSpecification specifyWhiteUqFkByFkToUqCode() {
@@ -437,7 +437,7 @@ public class BsWhiteUqFkRefCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_uq_fk_ref_nest where ...) as FOO_MAX} <br>
-         * white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
+         * WHITE_UQ_FK_REF_NEST by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(nestCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     nestCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

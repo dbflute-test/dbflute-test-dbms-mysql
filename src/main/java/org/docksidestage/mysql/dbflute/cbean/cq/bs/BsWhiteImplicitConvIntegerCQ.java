@@ -250,7 +250,7 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
+     * WHITE_IMPLICIT_CONV_NUMERIC by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteImplicitConvNumericCQ queryWhiteImplicitConvNumeric() {
@@ -270,7 +270,7 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
+     * WHITE_IMPLICIT_CONV_STRING by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteImplicitConvStringCQ queryWhiteImplicitConvString() {

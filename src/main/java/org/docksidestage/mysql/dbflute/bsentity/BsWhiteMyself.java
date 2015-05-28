@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_myself_check
+ *     WHITE_MYSELF_CHECK
  * 
  * [foreign property]
  *     
@@ -109,11 +109,11 @@ public abstract class BsWhiteMyself extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_myself_check by MYSELF_ID, named 'whiteMyselfCheckList'. */
+    /** WHITE_MYSELF_CHECK by MYSELF_ID, named 'whiteMyselfCheckList'. */
     protected List<WhiteMyselfCheck> _whiteMyselfCheckList;
 
     /**
-     * [get] white_myself_check by MYSELF_ID, named 'whiteMyselfCheckList'.
+     * [get] WHITE_MYSELF_CHECK by MYSELF_ID, named 'whiteMyselfCheckList'.
      * @return The entity list of referrer property 'whiteMyselfCheckList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteMyselfCheck> getWhiteMyselfCheckList() {
@@ -122,7 +122,7 @@ public abstract class BsWhiteMyself extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] white_myself_check by MYSELF_ID, named 'whiteMyselfCheckList'.
+     * [set] WHITE_MYSELF_CHECK by MYSELF_ID, named 'whiteMyselfCheckList'.
      * @param whiteMyselfCheckList The entity list of referrer property 'whiteMyselfCheckList'. (NullAllowed)
      */
     public void setWhiteMyselfCheckList(List<WhiteMyselfCheck> whiteMyselfCheckList) {

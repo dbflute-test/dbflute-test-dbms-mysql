@@ -179,7 +179,7 @@ public class BsWhiteQuotedRefCQ extends AbstractBsWhiteQuotedRefCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_quoted by my ORDER, named 'whiteQuoted'.
+     * WHITE_QUOTED by my ORDER, named 'whiteQuoted'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteQuotedCQ queryWhiteQuoted() {

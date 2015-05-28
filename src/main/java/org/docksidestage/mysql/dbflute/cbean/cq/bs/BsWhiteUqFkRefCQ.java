@@ -243,7 +243,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
+     * WHITE_UQ_FK by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteUqFkCQ queryWhiteUqFkByFkToPkId() {
@@ -263,7 +263,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
+     * WHITE_UQ_FK by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteUqFkCQ queryWhiteUqFkByFkToUqCode() {

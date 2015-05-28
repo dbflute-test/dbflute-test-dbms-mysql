@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     purchase
+ *     PURCHASE
  * 
  * [referrer table]
  *     
@@ -108,11 +108,11 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'. */
+    /** (購入)PURCHASE by my PURCHASE_REFERRER_ID, named 'purchase'. */
     protected OptionalEntity<Purchase> _purchase;
 
     /**
-     * [get] (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'. <br>
+     * [get] (購入)PURCHASE by my PURCHASE_REFERRER_ID, named 'purchase'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'purchase'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -122,7 +122,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     }
 
     /**
-     * [set] (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'.
+     * [set] (購入)PURCHASE by my PURCHASE_REFERRER_ID, named 'purchase'.
      * @param purchase The entity of foreign property 'purchase'. (NullAllowed)
      */
     public void setPurchase(OptionalEntity<Purchase> purchase) {

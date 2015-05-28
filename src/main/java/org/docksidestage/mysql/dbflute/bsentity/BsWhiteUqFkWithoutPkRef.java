@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_uq_fk_without_pk
+ *     WHITE_UQ_FK_WITHOUT_PK
  * 
  * [referrer table]
  *     
@@ -107,11 +107,11 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity implements 
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'. */
+    /** WHITE_UQ_FK_WITHOUT_PK by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'. */
     protected OptionalEntity<WhiteUqFkWithoutPk> _whiteUqFkWithoutPk;
 
     /**
-     * [get] white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'. <br>
+     * [get] WHITE_UQ_FK_WITHOUT_PK by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteUqFkWithoutPk'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -121,7 +121,7 @@ public abstract class BsWhiteUqFkWithoutPkRef extends AbstractEntity implements 
     }
 
     /**
-     * [set] white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
+     * [set] WHITE_UQ_FK_WITHOUT_PK by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
      * @param whiteUqFkWithoutPk The entity of foreign property 'whiteUqFkWithoutPk'. (NullAllowed)
      */
     public void setWhiteUqFkWithoutPk(OptionalEntity<WhiteUqFkWithoutPk> whiteUqFkWithoutPk) {

@@ -216,7 +216,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'.
+     * WHITE_SELF_REFERENCE by my PARENT_ID, named 'whiteSelfReferenceSelf'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSelfReferenceCQ queryWhiteSelfReferenceSelf() {

@@ -229,7 +229,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
+     * WHITE_COMPOUND_REFERRED_NORMALLY by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundReferredNormallyCQ queryWhiteCompoundReferredNormally() {
@@ -249,7 +249,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
+     * WHITE_COMPOUND_REFERRED_PRIMARY by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundReferredPrimaryCQ queryWhiteCompoundReferredPrimary() {
@@ -269,7 +269,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
+     * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundPkRefManyCQ queryWhiteCompoundPkRefManyAsMax() {
@@ -289,7 +289,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
+     * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundPkRefManyCQ queryWhiteCompoundPkRefManyAsMin() {

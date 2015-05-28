@@ -169,7 +169,7 @@ public class WhiteUqFkRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
+     * WHITE_UQ_FK by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteUqFkByFkToPkId() {
@@ -177,7 +177,7 @@ public class WhiteUqFkRefDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_UQ_FK_REF_PK", "whiteUqFkByFkToPkId", this, WhiteUqFkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteUqFkRefByFkToPkIdList", false);
     }
     /**
-     * white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
+     * WHITE_UQ_FK by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteUqFkByFkToUqCode() {
@@ -189,7 +189,7 @@ public class WhiteUqFkRefDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
+     * WHITE_UQ_FK_REF_NEST by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteUqFkRefNestList() {

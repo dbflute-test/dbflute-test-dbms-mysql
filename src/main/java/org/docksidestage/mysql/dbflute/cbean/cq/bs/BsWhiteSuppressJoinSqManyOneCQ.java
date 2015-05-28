@@ -213,7 +213,7 @@ public class BsWhiteSuppressJoinSqManyOneCQ extends AbstractBsWhiteSuppressJoinS
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
+     * WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSuppressJoinSqManyOneOneCQ queryWhiteSuppressJoinSqManyOneOne() {

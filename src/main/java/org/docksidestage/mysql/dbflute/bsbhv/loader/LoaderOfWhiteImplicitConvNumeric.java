@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     WHITE_IMPLICIT_CONV_INTEGER, WHITE_IMPLICIT_CONV_STRING
  *
  * [referrer table]
- *     white_implicit_conv_integer, white_implicit_conv_string
+ *     WHITE_IMPLICIT_CONV_INTEGER, WHITE_IMPLICIT_CONV_STRING
  *
  * [foreign property]
  *     whiteImplicitConvInteger, whiteImplicitConvString
@@ -80,7 +80,7 @@ public class LoaderOfWhiteImplicitConvNumeric {
 
     /**
      * Load referrer of whiteImplicitConvIntegerList by the set-upper of referrer. <br>
-     * white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
+     * WHITE_IMPLICIT_CONV_INTEGER by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteImplicitConvNumericList</span>, <span style="color: #553000">numericLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">numericLoader</span>.<span style="color: #CC4747">loadWhiteImplicitConvInteger</span>(<span style="color: #553000">integerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -114,7 +114,7 @@ public class LoaderOfWhiteImplicitConvNumeric {
 
     /**
      * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br>
-     * white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
+     * WHITE_IMPLICIT_CONV_STRING by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteImplicitConvNumericList</span>, <span style="color: #553000">numericLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">numericLoader</span>.<span style="color: #CC4747">loadWhiteImplicitConvString</span>(<span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

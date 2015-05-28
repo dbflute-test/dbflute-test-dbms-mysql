@@ -240,7 +240,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
+     * WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteCompoundPkCQ queryWhiteCompoundPk() {

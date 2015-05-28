@@ -149,7 +149,7 @@ public class ProductStatusDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (商品)product by PRODUCT_STATUS_CODE, named 'productList'.
+     * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerProductList() {
@@ -157,7 +157,7 @@ public class ProductStatusDbm extends AbstractDBMeta {
         return cri("FK_PRODUCT_PRODUCT_STATUS", "productList", this, ProductDbm.getInstance(), mp, false, "productStatus");
     }
     /**
-     * (VIEW)summary_product by PRODUCT_STATUS_CODE, named 'summaryProductList'.
+     * (VIEW)SUMMARY_PRODUCT by PRODUCT_STATUS_CODE, named 'summaryProductList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerSummaryProductList() {

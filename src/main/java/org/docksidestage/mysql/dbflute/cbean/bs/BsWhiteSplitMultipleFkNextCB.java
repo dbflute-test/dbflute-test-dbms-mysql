@@ -315,7 +315,7 @@ public class BsWhiteSplitMultipleFkNextCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_split_multiple_fk_base where ...) as FOO_MAX} <br>
-         * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
+         * WHITE_SPLIT_MULTIPLE_FK_BASE by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(baseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     baseCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

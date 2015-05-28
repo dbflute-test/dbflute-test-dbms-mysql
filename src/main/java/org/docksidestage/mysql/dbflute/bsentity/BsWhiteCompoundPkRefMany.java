@@ -134,11 +134,11 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'. */
+    /** WHITE_COMPOUND_PK by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'. */
     protected OptionalEntity<WhiteCompoundPk> _whiteCompoundPkToPK;
 
     /**
-     * [get] white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'. <br>
+     * [get] WHITE_COMPOUND_PK by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteCompoundPkToPK'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -148,7 +148,7 @@ public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements
     }
 
     /**
-     * [set] white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
+     * [set] WHITE_COMPOUND_PK by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
      * @param whiteCompoundPkToPK The entity of foreign property 'whiteCompoundPkToPK'. (NullAllowed)
      */
     public void setWhiteCompoundPkToPK(OptionalEntity<WhiteCompoundPk> whiteCompoundPkToPK) {

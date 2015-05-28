@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_variant_relation_referrer
+ *     WHITE_VARIANT_RELATION_REFERRER
  * 
  * [foreign property]
  *     
@@ -109,11 +109,11 @@ public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity imp
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'. */
+    /** WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'. */
     protected List<WhiteVariantRelationReferrer> _whiteVariantRelationReferrerAsVariantList;
 
     /**
-     * [get] white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
+     * [get] WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * @return The entity list of referrer property 'whiteVariantRelationReferrerAsVariantList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteVariantRelationReferrer> getWhiteVariantRelationReferrerAsVariantList() {
@@ -122,7 +122,7 @@ public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity imp
     }
 
     /**
-     * [set] white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
+     * [set] WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * @param whiteVariantRelationReferrerAsVariantList The entity list of referrer property 'whiteVariantRelationReferrerAsVariantList'. (NullAllowed)
      */
     public void setWhiteVariantRelationReferrerAsVariantList(List<WhiteVariantRelationReferrer> whiteVariantRelationReferrerAsVariantList) {

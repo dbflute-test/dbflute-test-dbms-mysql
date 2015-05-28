@@ -257,7 +257,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
+     * WHITE_COMPOUND_PK_REF by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefNestBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundPkRefByQuxMultipleId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -287,7 +287,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
+     * WHITE_COMPOUND_PK_REF by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefNestBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundPkRefByFooMultipleId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -402,7 +402,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_compound_pk_ref_nest"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
+         * WHITE_COMPOUND_PK_REF by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteCompoundPkRefCB.HpSpecification specifyWhiteCompoundPkRefByQuxMultipleId() {
@@ -422,7 +422,7 @@ public class BsWhiteCompoundPkRefNestCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
+         * WHITE_COMPOUND_PK_REF by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteCompoundPkRefCB.HpSpecification specifyWhiteCompoundPkRefByFooMultipleId() {

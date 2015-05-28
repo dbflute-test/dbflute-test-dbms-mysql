@@ -257,7 +257,7 @@ public class BsWhiteSplitMultipleFkChildCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'.
+     * WHITE_SPLIT_MULTIPLE_FK_BASE by my BASE_ID, named 'whiteSplitMultipleFkBase'.
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteSplitMultipleFkBase()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -354,7 +354,7 @@ public class BsWhiteSplitMultipleFkChildCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_split_multiple_fk_child"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'.
+         * WHITE_SPLIT_MULTIPLE_FK_BASE by my BASE_ID, named 'whiteSplitMultipleFkBase'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteSplitMultipleFkBaseCB.HpSpecification specifyWhiteSplitMultipleFkBase() {

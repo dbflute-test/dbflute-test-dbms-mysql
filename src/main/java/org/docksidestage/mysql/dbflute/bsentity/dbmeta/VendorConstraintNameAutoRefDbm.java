@@ -173,7 +173,7 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_BAR by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignVendorConstraintNameAutoBar() {
@@ -181,7 +181,7 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
         return cfi("vendor_constraint_name_auto_ref_ibfk_2", "vendorConstraintNameAutoBar", this, VendorConstraintNameAutoBarDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorConstraintNameAutoRefList", false);
     }
     /**
-     * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_FOO by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignVendorConstraintNameAutoFoo() {
@@ -189,7 +189,7 @@ public class VendorConstraintNameAutoRefDbm extends AbstractDBMeta {
         return cfi("vendor_constraint_name_auto_ref_ibfk_1", "vendorConstraintNameAutoFoo", this, VendorConstraintNameAutoFooDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorConstraintNameAutoRefList", false);
     }
     /**
-     * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_QUX by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignVendorConstraintNameAutoQux() {

@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_stiletto_alias_ref
+ *     WHITE_STILETTO_ALIAS_REF
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfWhiteStilettoAlias {
 
     /**
      * Load referrer of whiteStilettoAliasRefList by the set-upper of referrer. <br>
-     * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
+     * WHITE_STILETTO_ALIAS_REF by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteStilettoAliasList</span>, <span style="color: #553000">aliasLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">aliasLoader</span>.<span style="color: #CC4747">loadWhiteStilettoAliasRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

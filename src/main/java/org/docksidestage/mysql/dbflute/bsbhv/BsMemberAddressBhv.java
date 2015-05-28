@@ -53,7 +53,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     member, region
+ *     MEMBER, REGION
  *
  * [referrer table]
  *     

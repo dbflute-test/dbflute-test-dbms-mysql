@@ -42,10 +42,10 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_perrotta_over_product_nested, WHITE_PERROTTA_OVER_TRACE(AsPerrotta)
+ *     WHITE_PERROTTA_OVER_PRODUCT_NESTED, WHITE_PERROTTA_OVER_TRACE(AsPerrotta)
  *
  * [referrer table]
- *     white_perrotta_over_member, white_perrotta_over_trace
+ *     WHITE_PERROTTA_OVER_MEMBER, WHITE_PERROTTA_OVER_TRACE
  *
  * [foreign property]
  *     whitePerrottaOverProductNested, whitePerrottaOverTraceAsPerrotta
@@ -80,7 +80,7 @@ public class LoaderOfWhitePerrottaOverProduct {
 
     /**
      * Load referrer of whitePerrottaOverMemberList by the set-upper of referrer. <br>
-     * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
+     * WHITE_PERROTTA_OVER_MEMBER by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverProductBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whitePerrottaOverProductList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadWhitePerrottaOverMember</span>(<span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -114,7 +114,7 @@ public class LoaderOfWhitePerrottaOverProduct {
 
     /**
      * Load referrer of whitePerrottaOverTraceByNextProductIdList by the set-upper of referrer. <br>
-     * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
+     * WHITE_PERROTTA_OVER_TRACE by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverProductBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whitePerrottaOverProductList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadWhitePerrottaOverTraceByNextProductId</span>(<span style="color: #553000">traceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -148,7 +148,7 @@ public class LoaderOfWhitePerrottaOverProduct {
 
     /**
      * Load referrer of whitePerrottaOverTraceByPreviousProductIdList by the set-upper of referrer. <br>
-     * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
+     * WHITE_PERROTTA_OVER_TRACE by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverProductBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whitePerrottaOverProductList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadWhitePerrottaOverTraceByPreviousProductId</span>(<span style="color: #553000">traceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

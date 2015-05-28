@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_quoted
+ *     WHITE_QUOTED
  * 
  * [referrer table]
  *     
@@ -108,11 +108,11 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainE
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_quoted by my ORDER, named 'whiteQuoted'. */
+    /** WHITE_QUOTED by my ORDER, named 'whiteQuoted'. */
     protected OptionalEntity<WhiteQuoted> _whiteQuoted;
 
     /**
-     * [get] white_quoted by my ORDER, named 'whiteQuoted'. <br>
+     * [get] WHITE_QUOTED by my ORDER, named 'whiteQuoted'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteQuoted'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -122,7 +122,7 @@ public abstract class BsWhiteQuotedRef extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] white_quoted by my ORDER, named 'whiteQuoted'.
+     * [set] WHITE_QUOTED by my ORDER, named 'whiteQuoted'.
      * @param whiteQuoted The entity of foreign property 'whiteQuoted'. (NullAllowed)
      */
     public void setWhiteQuoted(OptionalEntity<WhiteQuoted> whiteQuoted) {

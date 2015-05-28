@@ -135,7 +135,7 @@ public class WhiteVariantRelationMasterFooDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
+     * WHITE_VARIANT_RELATION_REFERRER by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
@@ -155,7 +155,7 @@ public class WhiteVariantRelationMasterFooDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
+     * WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteVariantRelationReferrerAsVariantList() {

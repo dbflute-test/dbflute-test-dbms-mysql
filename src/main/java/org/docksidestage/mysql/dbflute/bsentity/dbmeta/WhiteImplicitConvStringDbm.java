@@ -151,7 +151,7 @@ public class WhiteImplicitConvStringDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
+     * WHITE_IMPLICIT_CONV_INTEGER by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteImplicitConvInteger() {
@@ -159,7 +159,7 @@ public class WhiteImplicitConvStringDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_IMPLICIT_CONV_STRING_INTEGER", "whiteImplicitConvInteger", this, WhiteImplicitConvIntegerDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteImplicitConvStringList", false);
     }
     /**
-     * white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
+     * WHITE_IMPLICIT_CONV_NUMERIC by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteImplicitConvNumeric() {
@@ -171,7 +171,7 @@ public class WhiteImplicitConvStringDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_implicit_conv_integer by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvIntegerList'.
+     * WHITE_IMPLICIT_CONV_INTEGER by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvIntegerList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteImplicitConvIntegerList() {
@@ -179,7 +179,7 @@ public class WhiteImplicitConvStringDbm extends AbstractDBMeta {
         return cri("FK_WHITE_IMPLICIT_CONV_INTEGER_STRING", "whiteImplicitConvIntegerList", this, WhiteImplicitConvIntegerDbm.getInstance(), mp, false, "whiteImplicitConvString");
     }
     /**
-     * white_implicit_conv_numeric by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvNumericList'.
+     * WHITE_IMPLICIT_CONV_NUMERIC by IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvNumericList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteImplicitConvNumericList() {

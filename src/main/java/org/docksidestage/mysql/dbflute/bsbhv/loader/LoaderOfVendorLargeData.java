@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     vendor_large_data_ref
+ *     VENDOR_LARGE_DATA_REF
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfVendorLargeData {
 
     /**
      * Load referrer of vendorLargeDataRefList by the set-upper of referrer. <br>
-     * vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
+     * VENDOR_LARGE_DATA_REF by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
      * <pre>
      * <span style="color: #0000C0">vendorLargeDataBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorLargeDataList</span>, <span style="color: #553000">dataLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">dataLoader</span>.<span style="color: #CC4747">loadVendorLargeDataRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

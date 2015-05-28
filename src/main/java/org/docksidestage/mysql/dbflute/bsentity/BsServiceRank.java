@@ -49,7 +49,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     member_service
+ *     MEMBER_SERVICE
  * 
  * [foreign property]
  *     
@@ -350,11 +350,11 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceList'. */
+    /** (会員サービス)MEMBER_SERVICE by SERVICE_RANK_CODE, named 'memberServiceList'. */
     protected List<MemberService> _memberServiceList;
 
     /**
-     * [get] (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
+     * [get] (会員サービス)MEMBER_SERVICE by SERVICE_RANK_CODE, named 'memberServiceList'.
      * @return The entity list of referrer property 'memberServiceList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberService> getMemberServiceList() {
@@ -363,7 +363,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
+     * [set] (会員サービス)MEMBER_SERVICE by SERVICE_RANK_CODE, named 'memberServiceList'.
      * @param memberServiceList The entity list of referrer property 'memberServiceList'. (NullAllowed)
      */
     public void setMemberServiceList(List<MemberService> memberServiceList) {

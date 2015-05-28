@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_suppress_join_sq_one
+ *     WHITE_SUPPRESS_JOIN_SQ_ONE
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfWhiteSuppressJoinSqOneAddi {
 
     /**
      * Load referrer of whiteSuppressJoinSqOneList by the set-upper of referrer. <br>
-     * white_suppress_join_sq_one by ONE_ADDI_ID, named 'whiteSuppressJoinSqOneList'.
+     * WHITE_SUPPRESS_JOIN_SQ_ONE by ONE_ADDI_ID, named 'whiteSuppressJoinSqOneList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqOneAddiBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSuppressJoinSqOneAddiList</span>, <span style="color: #553000">addiLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addiLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqOne</span>(<span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

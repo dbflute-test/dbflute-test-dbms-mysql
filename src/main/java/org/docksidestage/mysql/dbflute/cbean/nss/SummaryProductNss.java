@@ -35,7 +35,7 @@ public class SummaryProductNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (商品ステータス)product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
+     * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
      */
     public void withProductStatus() {
         _query.xdoNss(() -> _query.queryProductStatus());

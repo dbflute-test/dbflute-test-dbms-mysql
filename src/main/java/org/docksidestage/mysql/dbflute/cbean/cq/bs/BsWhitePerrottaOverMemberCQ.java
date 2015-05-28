@@ -242,7 +242,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
+     * WHITE_PERROTTA_OVER_MEMBER_MACHO by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverMemberMachoCQ queryWhitePerrottaOverMemberMacho() {
@@ -262,7 +262,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverProductCQ queryWhitePerrottaOverProduct() {

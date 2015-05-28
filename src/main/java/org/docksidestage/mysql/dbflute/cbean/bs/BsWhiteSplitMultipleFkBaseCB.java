@@ -251,7 +251,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
+     * WHITE_SPLIT_MULTIPLE_FK_NEXT by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkBaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteSplitMultipleFkNext()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -271,7 +271,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
+     * WHITE_SPLIT_MULTIPLE_FK_REF by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkBaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteSplitMultipleFkRefAsSplitMultipleFkTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -374,7 +374,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_split_multiple_fk_base"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
+         * WHITE_SPLIT_MULTIPLE_FK_NEXT by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteSplitMultipleFkNextCB.HpSpecification specifyWhiteSplitMultipleFkNext() {
@@ -394,7 +394,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
+         * WHITE_SPLIT_MULTIPLE_FK_REF by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteSplitMultipleFkRefCB.HpSpecification specifyWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
@@ -415,7 +415,7 @@ public class BsWhiteSplitMultipleFkBaseCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_split_multiple_fk_child where ...) as FOO_MAX} <br>
-         * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
+         * WHITE_SPLIT_MULTIPLE_FK_CHILD by BASE_ID, named 'whiteSplitMultipleFkChildList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(childCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     childCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

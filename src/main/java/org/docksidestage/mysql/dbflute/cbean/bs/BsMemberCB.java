@@ -264,7 +264,7 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
+     * (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -289,7 +289,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsValid(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -316,7 +316,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValidBefore'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsValidBefore(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -343,7 +343,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLoginStatus(statusCode)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -370,7 +370,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLoginStatusFixedCls()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -396,7 +396,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLoginStatusFixedClsGrouping()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -422,7 +422,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsIfComment'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsIfComment(targetDate, region)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -450,7 +450,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsOnlyOneDate(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -477,7 +477,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLocalBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -505,7 +505,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLocalForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -531,7 +531,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignBindOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -558,7 +558,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignEachOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -584,7 +584,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedBasicOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -610,7 +610,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedMarkOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -636,7 +636,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedPartOverTest(displayOrder, memberName)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -664,7 +664,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignOptimizedWholeOverTest(displayOrder)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -691,7 +691,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignParameterOverTest(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -718,7 +718,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsForeignForeignVariousOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -744,7 +744,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsReferrerOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -770,7 +770,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsReferrerForeignOverTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -796,7 +796,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLatest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsLatest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -822,7 +822,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsOldest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsOldest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -848,7 +848,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsFormattedBasic(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -875,7 +875,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsFormattedLong(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -902,7 +902,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsFormattedMany()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -928,7 +928,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberLoginAsEmbeddedCommentClassificationTest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -1168,7 +1168,7 @@ public class BsMemberCB extends AbstractConditionBean {
         protected String getTableDbName() { return "member"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
+         * (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberStatusCB.HpSpecification specifyMemberStatus() {
@@ -1188,7 +1188,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1209,7 +1209,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberAddressCB.HpSpecification specifyMemberAddressAsValid() {
@@ -1229,7 +1229,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValidBefore'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1250,7 +1250,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValidBefore'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberAddressCB.HpSpecification specifyMemberAddressAsValidBefore() {
@@ -1270,7 +1270,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
          * @param statusCode The bind parameter of fixed condition for statusCode. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1291,7 +1291,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLoginStatus() {
@@ -1311,7 +1311,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLoginStatusFixedCls() {
@@ -1331,7 +1331,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLoginStatusFixedClsGrouping() {
@@ -1351,7 +1351,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsIfComment'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
          * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1373,7 +1373,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsIfComment'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberAddressCB.HpSpecification specifyMemberAddressAsIfComment() {
@@ -1393,7 +1393,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1414,7 +1414,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberAddressCB.HpSpecification specifyMemberAddressAsOnlyOneDate() {
@@ -1434,7 +1434,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
          * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          * @deprecated the test of dep
@@ -1456,7 +1456,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLocalBindOverTest() {
@@ -1476,7 +1476,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLocalForeignOverTest() {
@@ -1496,7 +1496,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
          * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1517,7 +1517,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignBindOverTest() {
@@ -1537,7 +1537,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignEachOverTest() {
@@ -1557,7 +1557,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedBasicOverTest() {
@@ -1577,7 +1577,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedMarkOverTest() {
@@ -1597,7 +1597,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
          * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
          * @param memberName The bind parameter of fixed condition for memberName. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
@@ -1619,7 +1619,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedPartOverTest() {
@@ -1639,7 +1639,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
          * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1660,7 +1660,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignOptimizedWholeOverTest() {
@@ -1680,7 +1680,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1701,7 +1701,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignParameterOverTest() {
@@ -1721,7 +1721,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsForeignForeignVariousOverTest() {
@@ -1741,7 +1741,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsReferrerOverTest() {
@@ -1761,7 +1761,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsReferrerForeignOverTest() {
@@ -1781,7 +1781,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLatest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsLatest() {
@@ -1801,7 +1801,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsOldest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsOldest() {
@@ -1821,7 +1821,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1842,7 +1842,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedBasic() {
@@ -1862,7 +1862,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -1883,7 +1883,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
+         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberAddressCB.HpSpecification specifyMemberAddressAsFormattedLong() {
@@ -1903,7 +1903,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsFormattedMany() {
@@ -1923,7 +1923,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
+         * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberLoginCB.HpSpecification specifyMemberLoginAsEmbeddedCommentClassificationTest() {
@@ -2004,7 +2004,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from member_address where ...) as FOO_MAX} <br>
-         * (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
+         * (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     addressCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -2021,7 +2021,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from member_following where ...) as FOO_MAX} <br>
-         * (会員フォローイング)member_following by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
+         * (会員フォローイング)MEMBER_FOLLOWING by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(followingCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     followingCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -2038,7 +2038,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from member_following where ...) as FOO_MAX} <br>
-         * (会員フォローイング)member_following by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
+         * (会員フォローイング)MEMBER_FOLLOWING by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(followingCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     followingCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -2055,7 +2055,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from member_login where ...) as FOO_MAX} <br>
-         * (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
+         * (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     loginCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -2072,7 +2072,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from purchase where ...) as FOO_MAX} <br>
-         * (購入)purchase by MEMBER_ID, named 'purchaseList'.
+         * (購入)PURCHASE by MEMBER_ID, named 'purchaseList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     purchaseCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

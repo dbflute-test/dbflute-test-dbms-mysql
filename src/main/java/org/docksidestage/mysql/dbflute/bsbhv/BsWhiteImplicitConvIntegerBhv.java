@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     WHITE_IMPLICIT_CONV_NUMERIC, WHITE_IMPLICIT_CONV_STRING
  *
  * [referrer table]
- *     white_implicit_conv_numeric, white_implicit_conv_string
+ *     WHITE_IMPLICIT_CONV_NUMERIC, WHITE_IMPLICIT_CONV_STRING
  *
  * [foreign property]
  *     whiteImplicitConvNumeric, whiteImplicitConvString
@@ -504,7 +504,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
 
     /**
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br>
-     * white_implicit_conv_numeric by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
+     * WHITE_IMPLICIT_CONV_NUMERIC by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumeric</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">numericCB</span>.setupSelect...
@@ -535,7 +535,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
 
     /**
      * Load referrer of whiteImplicitConvNumericList by the set-upper of referrer. <br>
-     * white_implicit_conv_numeric by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
+     * WHITE_IMPLICIT_CONV_NUMERIC by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvNumericList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvNumeric</span>(<span style="color: #553000">whiteImplicitConvInteger</span>, <span style="color: #553000">numericCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">numericCB</span>.setupSelect...
@@ -592,7 +592,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
 
     /**
      * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br>
-     * white_implicit_conv_string by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
+     * WHITE_IMPLICIT_CONV_STRING by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvString</span>(<span style="color: #553000">whiteImplicitConvIntegerList</span>, <span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">stringCB</span>.setupSelect...
@@ -623,7 +623,7 @@ public abstract class BsWhiteImplicitConvIntegerBhv extends AbstractBehaviorWrit
 
     /**
      * Load referrer of whiteImplicitConvStringList by the set-upper of referrer. <br>
-     * white_implicit_conv_string by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
+     * WHITE_IMPLICIT_CONV_STRING by IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvStringList'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvIntegerBhv</span>.<span style="color: #CC4747">loadWhiteImplicitConvString</span>(<span style="color: #553000">whiteImplicitConvInteger</span>, <span style="color: #553000">stringCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">stringCB</span>.setupSelect...

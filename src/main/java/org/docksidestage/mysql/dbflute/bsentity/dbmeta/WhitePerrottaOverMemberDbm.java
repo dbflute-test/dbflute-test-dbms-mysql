@@ -159,7 +159,7 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
+     * WHITE_PERROTTA_OVER_MEMBER_MACHO by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhitePerrottaOverMemberMacho() {
@@ -167,7 +167,7 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_PERROTTA_OVER_MEMBER_MACHO", "whitePerrottaOverMemberMacho", this, WhitePerrottaOverMemberMachoDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverMemberList", false);
     }
     /**
-     * white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhitePerrottaOverProduct() {

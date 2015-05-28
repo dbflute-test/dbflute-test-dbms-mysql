@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_myself_check
+ *     WHITE_MYSELF_CHECK
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfWhiteMyself {
 
     /**
      * Load referrer of whiteMyselfCheckList by the set-upper of referrer. <br>
-     * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckList'.
+     * WHITE_MYSELF_CHECK by MYSELF_ID, named 'whiteMyselfCheckList'.
      * <pre>
      * <span style="color: #0000C0">whiteMyselfBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteMyselfList</span>, <span style="color: #553000">myselfLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">myselfLoader</span>.<span style="color: #CC4747">loadWhiteMyselfCheck</span>(<span style="color: #553000">checkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

@@ -191,7 +191,7 @@ public class MemberLoginDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員ステータス)member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
+     * (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMemberStatus() {
@@ -199,7 +199,7 @@ public class MemberLoginDbm extends AbstractDBMeta {
         return cfi("FK_MEMBER_LOGIN_MEMBER_STATUS", "memberStatus", this, MemberStatusDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberLoginList", true);
     }
     /**
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMember() {

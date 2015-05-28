@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_perrotta_over_product
+ *     WHITE_PERROTTA_OVER_PRODUCT
  * 
  * [foreign property]
  *     
@@ -109,11 +109,11 @@ public abstract class BsWhitePerrottaOverProductNested extends AbstractEntity im
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'. */
+    /** WHITE_PERROTTA_OVER_PRODUCT by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'. */
     protected List<WhitePerrottaOverProduct> _whitePerrottaOverProductList;
 
     /**
-     * [get] white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
+     * [get] WHITE_PERROTTA_OVER_PRODUCT by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * @return The entity list of referrer property 'whitePerrottaOverProductList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhitePerrottaOverProduct> getWhitePerrottaOverProductList() {
@@ -122,7 +122,7 @@ public abstract class BsWhitePerrottaOverProductNested extends AbstractEntity im
     }
 
     /**
-     * [set] white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
+     * [set] WHITE_PERROTTA_OVER_PRODUCT by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * @param whitePerrottaOverProductList The entity list of referrer property 'whitePerrottaOverProductList'. (NullAllowed)
      */
     public void setWhitePerrottaOverProductList(List<WhitePerrottaOverProduct> whitePerrottaOverProductList) {

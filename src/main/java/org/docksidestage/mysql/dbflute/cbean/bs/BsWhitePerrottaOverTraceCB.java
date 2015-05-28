@@ -270,7 +270,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverTraceBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhitePerrottaOverProductByNextProductId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -299,7 +299,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverTraceBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhitePerrottaOverProductByPreviousProductId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -406,7 +406,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_perrotta_over_trace"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
+         * WHITE_PERROTTA_OVER_PRODUCT by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhitePerrottaOverProductCB.HpSpecification specifyWhitePerrottaOverProductByNextProductId() {
@@ -426,7 +426,7 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
+         * WHITE_PERROTTA_OVER_PRODUCT by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhitePerrottaOverProductCB.HpSpecification specifyWhitePerrottaOverProductByPreviousProductId() {

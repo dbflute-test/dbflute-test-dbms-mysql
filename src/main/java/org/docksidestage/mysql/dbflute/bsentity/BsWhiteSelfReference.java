@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_self_reference, white_self_reference_ref_one(AsOne)
+ *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE(AsOne)
  * 
  * [referrer table]
- *     white_self_reference, white_self_reference_ref_one
+ *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE
  * 
  * [foreign property]
  *     whiteSelfReferenceSelf, whiteSelfReferenceRefOneAsOne
@@ -113,11 +113,11 @@ public abstract class BsWhiteSelfReference extends AbstractEntity implements Dom
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'. */
+    /** WHITE_SELF_REFERENCE by my PARENT_ID, named 'whiteSelfReferenceSelf'. */
     protected OptionalEntity<WhiteSelfReference> _whiteSelfReferenceSelf;
 
     /**
-     * [get] white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'. <br>
+     * [get] WHITE_SELF_REFERENCE by my PARENT_ID, named 'whiteSelfReferenceSelf'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSelfReferenceSelf'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -127,7 +127,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'.
+     * [set] WHITE_SELF_REFERENCE by my PARENT_ID, named 'whiteSelfReferenceSelf'.
      * @param whiteSelfReferenceSelf The entity of foreign property 'whiteSelfReferenceSelf'. (NullAllowed)
      */
     public void setWhiteSelfReferenceSelf(OptionalEntity<WhiteSelfReference> whiteSelfReferenceSelf) {
@@ -158,11 +158,11 @@ public abstract class BsWhiteSelfReference extends AbstractEntity implements Dom
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'. */
+    /** WHITE_SELF_REFERENCE by PARENT_ID, named 'whiteSelfReferenceSelfList'. */
     protected List<WhiteSelfReference> _whiteSelfReferenceSelfList;
 
     /**
-     * [get] white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
+     * [get] WHITE_SELF_REFERENCE by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * @return The entity list of referrer property 'whiteSelfReferenceSelfList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteSelfReference> getWhiteSelfReferenceSelfList() {
@@ -171,7 +171,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
+     * [set] WHITE_SELF_REFERENCE by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * @param whiteSelfReferenceSelfList The entity list of referrer property 'whiteSelfReferenceSelfList'. (NullAllowed)
      */
     public void setWhiteSelfReferenceSelfList(List<WhiteSelfReference> whiteSelfReferenceSelfList) {

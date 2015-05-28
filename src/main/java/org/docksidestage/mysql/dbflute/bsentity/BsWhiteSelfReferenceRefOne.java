@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_self_reference, WHITE_SELF_REFERENCE(AsDirectParent)
+ *     WHITE_SELF_REFERENCE
  * 
  * [referrer table]
  *     
@@ -108,11 +108,11 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'. */
+    /** WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReference'. */
     protected OptionalEntity<WhiteSelfReference> _whiteSelfReference;
 
     /**
-     * [get] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'. <br>
+     * [get] WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReference'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSelfReference'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -122,18 +122,18 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
+     * [set] WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
      * @param whiteSelfReference The entity of foreign property 'whiteSelfReference'. (NullAllowed)
      */
     public void setWhiteSelfReference(OptionalEntity<WhiteSelfReference> whiteSelfReference) {
         _whiteSelfReference = whiteSelfReference;
     }
 
-    /** white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'. */
+    /** WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'. */
     protected OptionalEntity<WhiteSelfReference> _whiteSelfReferenceAsDirectParent;
 
     /**
-     * [get] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'. <br>
+     * [get] WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSelfReferenceAsDirectParent'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -143,7 +143,7 @@ public abstract class BsWhiteSelfReferenceRefOne extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
+     * [set] WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
      * @param whiteSelfReferenceAsDirectParent The entity of foreign property 'whiteSelfReferenceAsDirectParent'. (NullAllowed)
      */
     public void setWhiteSelfReferenceAsDirectParent(OptionalEntity<WhiteSelfReference> whiteSelfReferenceAsDirectParent) {

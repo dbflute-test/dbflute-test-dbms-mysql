@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_split_multiple_fk_base
+ *     WHITE_SPLIT_MULTIPLE_FK_BASE
  * 
  * [foreign property]
  *     
@@ -109,11 +109,11 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity implemen
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'. */
+    /** WHITE_SPLIT_MULTIPLE_FK_BASE by NEXT_ID, named 'whiteSplitMultipleFkBaseList'. */
     protected List<WhiteSplitMultipleFkBase> _whiteSplitMultipleFkBaseList;
 
     /**
-     * [get] white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
+     * [get] WHITE_SPLIT_MULTIPLE_FK_BASE by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
      * @return The entity list of referrer property 'whiteSplitMultipleFkBaseList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteSplitMultipleFkBase> getWhiteSplitMultipleFkBaseList() {
@@ -122,7 +122,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
+     * [set] WHITE_SPLIT_MULTIPLE_FK_BASE by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
      * @param whiteSplitMultipleFkBaseList The entity list of referrer property 'whiteSplitMultipleFkBaseList'. (NullAllowed)
      */
     public void setWhiteSplitMultipleFkBaseList(List<WhiteSplitMultipleFkBase> whiteSplitMultipleFkBaseList) {

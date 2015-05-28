@@ -35,7 +35,7 @@ public class WhiteImplicitConvIntegerNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_implicit_conv_numeric by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
+     * WHITE_IMPLICIT_CONV_NUMERIC by my IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvNumeric'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteImplicitConvNumericNss withWhiteImplicitConvNumeric() {
@@ -44,7 +44,7 @@ public class WhiteImplicitConvIntegerNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
+     * WHITE_IMPLICIT_CONV_STRING by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteImplicitConvStringNss withWhiteImplicitConvString() {

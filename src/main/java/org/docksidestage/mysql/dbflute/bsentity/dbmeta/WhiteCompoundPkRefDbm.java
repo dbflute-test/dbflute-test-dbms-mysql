@@ -163,7 +163,7 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
+     * WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteCompoundPk() {
@@ -177,7 +177,7 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
+     * WHITE_COMPOUND_PK_REF_NEST by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteCompoundPkRefNestByQuxMultipleIdList() {
@@ -187,7 +187,7 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
         return cri("FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX", "whiteCompoundPkRefNestByQuxMultipleIdList", this, WhiteCompoundPkRefNestDbm.getInstance(), mp, false, "whiteCompoundPkRefByQuxMultipleId");
     }
     /**
-     * white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
+     * WHITE_COMPOUND_PK_REF_NEST by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteCompoundPkRefNestByFooMultipleIdList() {

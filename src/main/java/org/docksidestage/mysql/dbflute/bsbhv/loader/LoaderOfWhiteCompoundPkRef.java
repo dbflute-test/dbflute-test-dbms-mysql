@@ -42,10 +42,10 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_compound_pk
+ *     WHITE_COMPOUND_PK
  *
  * [referrer table]
- *     white_compound_pk_ref_nest
+ *     WHITE_COMPOUND_PK_REF_NEST
  *
  * [foreign property]
  *     whiteCompoundPk
@@ -80,7 +80,7 @@ public class LoaderOfWhiteCompoundPkRef {
 
     /**
      * Load referrer of whiteCompoundPkRefNestByQuxMultipleIdList by the set-upper of referrer. <br>
-     * white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
+     * WHITE_COMPOUND_PK_REF_NEST by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteCompoundPkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefNestByQuxMultipleId</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -114,7 +114,7 @@ public class LoaderOfWhiteCompoundPkRef {
 
     /**
      * Load referrer of whiteCompoundPkRefNestByFooMultipleIdList by the set-upper of referrer. <br>
-     * white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
+     * WHITE_COMPOUND_PK_REF_NEST by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteCompoundPkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefNestByFooMultipleId</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

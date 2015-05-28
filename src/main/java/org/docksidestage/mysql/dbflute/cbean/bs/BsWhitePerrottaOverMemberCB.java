@@ -252,7 +252,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
+     * WHITE_PERROTTA_OVER_MEMBER_MACHO by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhitePerrottaOverMemberMacho()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -277,7 +277,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhitePerrottaOverProduct()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -389,7 +389,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_perrotta_over_member"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
+         * WHITE_PERROTTA_OVER_MEMBER_MACHO by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhitePerrottaOverMemberMachoCB.HpSpecification specifyWhitePerrottaOverMemberMacho() {
@@ -409,7 +409,7 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
+         * WHITE_PERROTTA_OVER_PRODUCT by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhitePerrottaOverProductCB.HpSpecification specifyWhitePerrottaOverProduct() {

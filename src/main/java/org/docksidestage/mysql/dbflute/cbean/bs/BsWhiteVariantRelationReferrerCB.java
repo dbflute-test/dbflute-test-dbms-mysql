@@ -257,7 +257,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
+     * WHITE_VARIANT_RELATION_MASTER_FOO by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationReferrerBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterFooAsVariant()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -281,7 +281,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
+     * WHITE_VARIANT_RELATION_MASTER_BAR by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationReferrerBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterBarAsVariant()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -301,7 +301,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
+     * WHITE_VARIANT_RELATION_MASTER_QUX by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationReferrerBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterQuxAsVariantByQue()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -321,7 +321,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
+     * WHITE_VARIANT_RELATION_MASTER_CORGE by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationReferrerBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterCorgeAsVariantByQuxType(quxType)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -430,7 +430,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_variant_relation_referrer"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
+         * WHITE_VARIANT_RELATION_MASTER_FOO by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteVariantRelationMasterFooCB.HpSpecification specifyWhiteVariantRelationMasterFooAsVariant() {
@@ -450,7 +450,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
+         * WHITE_VARIANT_RELATION_MASTER_BAR by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteVariantRelationMasterBarCB.HpSpecification specifyWhiteVariantRelationMasterBarAsVariant() {
@@ -470,7 +470,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
+         * WHITE_VARIANT_RELATION_MASTER_QUX by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteVariantRelationMasterQuxCB.HpSpecification specifyWhiteVariantRelationMasterQuxAsVariantByQue() {
@@ -490,7 +490,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
+         * WHITE_VARIANT_RELATION_MASTER_CORGE by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
          * @param quxType The bind parameter of fixed condition for quxType. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -511,7 +511,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
+         * WHITE_VARIANT_RELATION_MASTER_CORGE by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteVariantRelationMasterCorgeCB.HpSpecification specifyWhiteVariantRelationMasterCorgeAsVariantByQuxType() {
@@ -532,7 +532,7 @@ public class BsWhiteVariantRelationReferrerCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_variant_relation_referrer_ref where ...) as FOO_MAX} <br>
-         * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
+         * WHITE_VARIANT_RELATION_REFERRER_REF by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     refCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

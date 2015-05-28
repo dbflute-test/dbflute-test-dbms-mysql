@@ -336,7 +336,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'.
+     * VENDOR_LARGE_DATA by my LARGE_DATA_ID, named 'vendorLargeData'.
      * @return The instance of condition-query. (NotNull)
      */
     public VendorLargeDataCQ queryVendorLargeData() {
@@ -356,7 +356,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
+     * VENDOR_LARGE_DATA_REF by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
      * @return The instance of condition-query. (NotNull)
      */
     public VendorLargeDataRefCQ queryVendorLargeDataRefSelf() {

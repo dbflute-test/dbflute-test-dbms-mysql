@@ -35,7 +35,7 @@ public class VendorTheLongAndWindingTableAndColumnRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
+     * VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
      */
     public void withVendorTheLongAndWindingTableAndColumn() {
         _query.xdoNss(() -> _query.queryVendorTheLongAndWindingTableAndColumn());

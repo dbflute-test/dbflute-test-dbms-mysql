@@ -125,7 +125,7 @@ public class WhiteMyselfDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckList'.
+     * WHITE_MYSELF_CHECK by MYSELF_ID, named 'whiteMyselfCheckList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteMyselfCheckList() {

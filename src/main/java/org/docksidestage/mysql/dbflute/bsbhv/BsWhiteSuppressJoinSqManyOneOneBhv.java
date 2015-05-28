@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_suppress_join_sq_many_one
+ *     WHITE_SUPPRESS_JOIN_SQ_MANY_ONE
  *
  * [foreign property]
  *     
@@ -504,7 +504,7 @@ public abstract class BsWhiteSuppressJoinSqManyOneOneBhv extends AbstractBehavio
 
     /**
      * Load referrer of whiteSuppressJoinSqManyOneList by the set-upper of referrer. <br>
-     * white_suppress_join_sq_many_one by MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneList'.
+     * WHITE_SUPPRESS_JOIN_SQ_MANY_ONE by MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqManyOneOneBhv</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqManyOne</span>(<span style="color: #553000">whiteSuppressJoinSqManyOneOneList</span>, <span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">oneCB</span>.setupSelect...
@@ -535,7 +535,7 @@ public abstract class BsWhiteSuppressJoinSqManyOneOneBhv extends AbstractBehavio
 
     /**
      * Load referrer of whiteSuppressJoinSqManyOneList by the set-upper of referrer. <br>
-     * white_suppress_join_sq_many_one by MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneList'.
+     * WHITE_SUPPRESS_JOIN_SQ_MANY_ONE by MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqManyOneOneBhv</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqManyOne</span>(<span style="color: #553000">whiteSuppressJoinSqManyOneOne</span>, <span style="color: #553000">oneCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">oneCB</span>.setupSelect...

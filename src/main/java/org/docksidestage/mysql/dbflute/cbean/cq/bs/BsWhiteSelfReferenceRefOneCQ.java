@@ -182,7 +182,7 @@ public class BsWhiteSelfReferenceRefOneCQ extends AbstractBsWhiteSelfReferenceRe
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
+     * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSelfReferenceCQ queryWhiteSelfReference() {
@@ -202,7 +202,7 @@ public class BsWhiteSelfReferenceRefOneCQ extends AbstractBsWhiteSelfReferenceRe
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
+     * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSelfReferenceCQ queryWhiteSelfReferenceAsDirectParent() {

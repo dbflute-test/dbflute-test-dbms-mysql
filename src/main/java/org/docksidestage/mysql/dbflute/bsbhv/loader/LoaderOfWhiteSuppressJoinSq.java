@@ -42,10 +42,10 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_suppress_join_sq_one(AsOne)
+ *     WHITE_SUPPRESS_JOIN_SQ_ONE(AsOne)
  *
  * [referrer table]
- *     white_suppress_join_sq_many, white_suppress_join_sq_one
+ *     WHITE_SUPPRESS_JOIN_SQ_MANY, WHITE_SUPPRESS_JOIN_SQ_ONE
  *
  * [foreign property]
  *     whiteSuppressJoinSqOneAsOne
@@ -80,7 +80,7 @@ public class LoaderOfWhiteSuppressJoinSq {
 
     /**
      * Load referrer of whiteSuppressJoinSqManyList by the set-upper of referrer. <br>
-     * white_suppress_join_sq_many by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
+     * WHITE_SUPPRESS_JOIN_SQ_MANY by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSuppressJoinSqList</span>, <span style="color: #553000">sqLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">sqLoader</span>.<span style="color: #CC4747">loadWhiteSuppressJoinSqMany</span>(<span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

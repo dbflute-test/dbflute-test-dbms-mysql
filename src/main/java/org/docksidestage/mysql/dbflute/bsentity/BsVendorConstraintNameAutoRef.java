@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     vendor_constraint_name_auto_bar, vendor_constraint_name_auto_foo, vendor_constraint_name_auto_qux
+ *     VENDOR_CONSTRAINT_NAME_AUTO_BAR, VENDOR_CONSTRAINT_NAME_AUTO_FOO, VENDOR_CONSTRAINT_NAME_AUTO_QUX
  * 
  * [referrer table]
  *     
@@ -139,11 +139,11 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'. */
+    /** VENDOR_CONSTRAINT_NAME_AUTO_BAR by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'. */
     protected OptionalEntity<VendorConstraintNameAutoBar> _vendorConstraintNameAutoBar;
 
     /**
-     * [get] vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'. <br>
+     * [get] VENDOR_CONSTRAINT_NAME_AUTO_BAR by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'vendorConstraintNameAutoBar'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -153,18 +153,18 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     }
 
     /**
-     * [set] vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
+     * [set] VENDOR_CONSTRAINT_NAME_AUTO_BAR by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      * @param vendorConstraintNameAutoBar The entity of foreign property 'vendorConstraintNameAutoBar'. (NullAllowed)
      */
     public void setVendorConstraintNameAutoBar(OptionalEntity<VendorConstraintNameAutoBar> vendorConstraintNameAutoBar) {
         _vendorConstraintNameAutoBar = vendorConstraintNameAutoBar;
     }
 
-    /** vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'. */
+    /** VENDOR_CONSTRAINT_NAME_AUTO_FOO by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'. */
     protected OptionalEntity<VendorConstraintNameAutoFoo> _vendorConstraintNameAutoFoo;
 
     /**
-     * [get] vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'. <br>
+     * [get] VENDOR_CONSTRAINT_NAME_AUTO_FOO by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'vendorConstraintNameAutoFoo'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -174,18 +174,18 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     }
 
     /**
-     * [set] vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
+     * [set] VENDOR_CONSTRAINT_NAME_AUTO_FOO by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      * @param vendorConstraintNameAutoFoo The entity of foreign property 'vendorConstraintNameAutoFoo'. (NullAllowed)
      */
     public void setVendorConstraintNameAutoFoo(OptionalEntity<VendorConstraintNameAutoFoo> vendorConstraintNameAutoFoo) {
         _vendorConstraintNameAutoFoo = vendorConstraintNameAutoFoo;
     }
 
-    /** vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'. */
+    /** VENDOR_CONSTRAINT_NAME_AUTO_QUX by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'. */
     protected OptionalEntity<VendorConstraintNameAutoQux> _vendorConstraintNameAutoQux;
 
     /**
-     * [get] vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'. <br>
+     * [get] VENDOR_CONSTRAINT_NAME_AUTO_QUX by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'vendorConstraintNameAutoQux'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -195,7 +195,7 @@ public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity imple
     }
 
     /**
-     * [set] vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
+     * [set] VENDOR_CONSTRAINT_NAME_AUTO_QUX by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      * @param vendorConstraintNameAutoQux The entity of foreign property 'vendorConstraintNameAutoQux'. (NullAllowed)
      */
     public void setVendorConstraintNameAutoQux(OptionalEntity<VendorConstraintNameAutoQux> vendorConstraintNameAutoQux) {

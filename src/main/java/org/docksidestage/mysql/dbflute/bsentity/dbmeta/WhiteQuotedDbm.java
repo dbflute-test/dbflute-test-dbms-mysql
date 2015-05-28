@@ -125,7 +125,7 @@ public class WhiteQuotedDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
+     * WHITE_QUOTED_REF by ORDER, named 'whiteQuotedRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteQuotedRefList() {

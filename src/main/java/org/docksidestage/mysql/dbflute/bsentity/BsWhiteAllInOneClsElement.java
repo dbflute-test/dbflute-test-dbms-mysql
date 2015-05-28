@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_all_in_one_cls_category
+ *     WHITE_ALL_IN_ONE_CLS_CATEGORY
  * 
  * [referrer table]
  *     
@@ -119,11 +119,11 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'. */
+    /** WHITE_ALL_IN_ONE_CLS_CATEGORY by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'. */
     protected OptionalEntity<WhiteAllInOneClsCategory> _whiteAllInOneClsCategory;
 
     /**
-     * [get] white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'. <br>
+     * [get] WHITE_ALL_IN_ONE_CLS_CATEGORY by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteAllInOneClsCategory'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -133,7 +133,7 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     }
 
     /**
-     * [set] white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
+     * [set] WHITE_ALL_IN_ONE_CLS_CATEGORY by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
      * @param whiteAllInOneClsCategory The entity of foreign property 'whiteAllInOneClsCategory'. (NullAllowed)
      */
     public void setWhiteAllInOneClsCategory(OptionalEntity<WhiteAllInOneClsCategory> whiteAllInOneClsCategory) {

@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_perrotta_over_product
+ *     WHITE_PERROTTA_OVER_PRODUCT
  *
  * [foreign property]
  *     
@@ -504,7 +504,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
 
     /**
      * Load referrer of whitePerrottaOverProductList by the set-upper of referrer. <br>
-     * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
+     * WHITE_PERROTTA_OVER_PRODUCT by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProduct</span>(<span style="color: #553000">whitePerrottaOverProductNestedList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
@@ -535,7 +535,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
 
     /**
      * Load referrer of whitePerrottaOverProductList by the set-upper of referrer. <br>
-     * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
+     * WHITE_PERROTTA_OVER_PRODUCT by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">loadWhitePerrottaOverProduct</span>(<span style="color: #553000">whitePerrottaOverProductNested</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...

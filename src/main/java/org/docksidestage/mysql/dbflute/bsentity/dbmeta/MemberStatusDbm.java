@@ -157,7 +157,7 @@ public class MemberStatusDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員)member by MEMBER_STATUS_CODE, named 'memberList'.
+     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberList() {
@@ -165,7 +165,7 @@ public class MemberStatusDbm extends AbstractDBMeta {
         return cri("FK_MEMBER_MEMBER_STATUS", "memberList", this, MemberDbm.getInstance(), mp, false, "memberStatus");
     }
     /**
-     * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
+     * (会員ログイン情報)MEMBER_LOGIN by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberLoginList() {

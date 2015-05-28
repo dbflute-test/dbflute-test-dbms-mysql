@@ -196,7 +196,7 @@ public class MemberWithdrawalDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMember() {
@@ -204,7 +204,7 @@ public class MemberWithdrawalDbm extends AbstractDBMeta {
         return cfi("FK_MEMBER_WITHDRAWAL_MEMBER", "member", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, false, null, null, false, "memberWithdrawalAsOne", false);
     }
     /**
-     * (退会理由)withdrawal_reason by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+     * (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWithdrawalReason() {

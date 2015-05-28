@@ -35,7 +35,7 @@ public class WhiteUqFkWithoutPkRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
+     * WHITE_UQ_FK_WITHOUT_PK by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
      */
     public void withWhiteUqFkWithoutPk() {
         _query.xdoNss(() -> _query.queryWhiteUqFkWithoutPk());

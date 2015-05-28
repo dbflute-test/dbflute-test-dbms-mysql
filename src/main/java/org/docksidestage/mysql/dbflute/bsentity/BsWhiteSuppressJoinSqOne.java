@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_suppress_join_sq, WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI
+ *     WHITE_SUPPRESS_JOIN_SQ, WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI
  * 
  * [referrer table]
  *     
@@ -129,11 +129,11 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity implements
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'. */
+    /** WHITE_SUPPRESS_JOIN_SQ by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'. */
     protected OptionalEntity<WhiteSuppressJoinSq> _whiteSuppressJoinSq;
 
     /**
-     * [get] white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'. <br>
+     * [get] WHITE_SUPPRESS_JOIN_SQ by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSuppressJoinSq'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -143,18 +143,18 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity implements
     }
 
     /**
-     * [set] white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'.
+     * [set] WHITE_SUPPRESS_JOIN_SQ by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'.
      * @param whiteSuppressJoinSq The entity of foreign property 'whiteSuppressJoinSq'. (NullAllowed)
      */
     public void setWhiteSuppressJoinSq(OptionalEntity<WhiteSuppressJoinSq> whiteSuppressJoinSq) {
         _whiteSuppressJoinSq = whiteSuppressJoinSq;
     }
 
-    /** white_suppress_join_sq_one_addi by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'. */
+    /** WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'. */
     protected OptionalEntity<WhiteSuppressJoinSqOneAddi> _whiteSuppressJoinSqOneAddi;
 
     /**
-     * [get] white_suppress_join_sq_one_addi by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'. <br>
+     * [get] WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSuppressJoinSqOneAddi'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -164,7 +164,7 @@ public abstract class BsWhiteSuppressJoinSqOne extends AbstractEntity implements
     }
 
     /**
-     * [set] white_suppress_join_sq_one_addi by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'.
+     * [set] WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'.
      * @param whiteSuppressJoinSqOneAddi The entity of foreign property 'whiteSuppressJoinSqOneAddi'. (NullAllowed)
      */
     public void setWhiteSuppressJoinSqOneAddi(OptionalEntity<WhiteSuppressJoinSqOneAddi> whiteSuppressJoinSqOneAddi) {

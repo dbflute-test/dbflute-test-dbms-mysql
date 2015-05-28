@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_compound_pk
+ *     WHITE_COMPOUND_PK
  * 
  * [referrer table]
- *     white_compound_pk_ref_nest
+ *     WHITE_COMPOUND_PK_REF_NEST
  * 
  * [foreign property]
  *     whiteCompoundPk
@@ -124,11 +124,11 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'. */
+    /** WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'. */
     protected OptionalEntity<WhiteCompoundPk> _whiteCompoundPk;
 
     /**
-     * [get] white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'. <br>
+     * [get] WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteCompoundPk'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -138,7 +138,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
+     * [set] WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
      * @param whiteCompoundPk The entity of foreign property 'whiteCompoundPk'. (NullAllowed)
      */
     public void setWhiteCompoundPk(OptionalEntity<WhiteCompoundPk> whiteCompoundPk) {
@@ -148,11 +148,11 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'. */
+    /** WHITE_COMPOUND_PK_REF_NEST by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'. */
     protected List<WhiteCompoundPkRefNest> _whiteCompoundPkRefNestByQuxMultipleIdList;
 
     /**
-     * [get] white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
+     * [get] WHITE_COMPOUND_PK_REF_NEST by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
      * @return The entity list of referrer property 'whiteCompoundPkRefNestByQuxMultipleIdList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteCompoundPkRefNest> getWhiteCompoundPkRefNestByQuxMultipleIdList() {
@@ -161,18 +161,18 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
+     * [set] WHITE_COMPOUND_PK_REF_NEST by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
      * @param whiteCompoundPkRefNestByQuxMultipleIdList The entity list of referrer property 'whiteCompoundPkRefNestByQuxMultipleIdList'. (NullAllowed)
      */
     public void setWhiteCompoundPkRefNestByQuxMultipleIdList(List<WhiteCompoundPkRefNest> whiteCompoundPkRefNestByQuxMultipleIdList) {
         _whiteCompoundPkRefNestByQuxMultipleIdList = whiteCompoundPkRefNestByQuxMultipleIdList;
     }
 
-    /** white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'. */
+    /** WHITE_COMPOUND_PK_REF_NEST by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'. */
     protected List<WhiteCompoundPkRefNest> _whiteCompoundPkRefNestByFooMultipleIdList;
 
     /**
-     * [get] white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
+     * [get] WHITE_COMPOUND_PK_REF_NEST by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
      * @return The entity list of referrer property 'whiteCompoundPkRefNestByFooMultipleIdList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteCompoundPkRefNest> getWhiteCompoundPkRefNestByFooMultipleIdList() {
@@ -181,7 +181,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
+     * [set] WHITE_COMPOUND_PK_REF_NEST by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
      * @param whiteCompoundPkRefNestByFooMultipleIdList The entity list of referrer property 'whiteCompoundPkRefNestByFooMultipleIdList'. (NullAllowed)
      */
     public void setWhiteCompoundPkRefNestByFooMultipleIdList(List<WhiteCompoundPkRefNest> whiteCompoundPkRefNestByFooMultipleIdList) {

@@ -157,7 +157,7 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteAllInOneClsElementAsFoo() {
@@ -165,7 +165,7 @@ public class WhiteAllInOneClsNormalColRefDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF_FOO_TEST", "whiteAllInOneClsElementAsFoo", this, WhiteAllInOneClsElementDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.CLS_CATEGORY_CODE = 'FOO'", null, false, null, false);
     }
     /**
-     * white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteAllInOneClsElementAsBar() {

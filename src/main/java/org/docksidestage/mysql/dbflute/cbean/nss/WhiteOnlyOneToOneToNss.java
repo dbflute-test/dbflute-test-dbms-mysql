@@ -35,7 +35,7 @@ public class WhiteOnlyOneToOneToNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
+     * WHITE_ONLY_ONE_TO_ONE_FROM by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteOnlyOneToOneFromNss withWhiteOnlyOneToOneFrom() {

@@ -196,7 +196,7 @@ public class BsWhiteVariantRelationMasterFooCQ extends AbstractBsWhiteVariantRel
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
+     * WHITE_VARIANT_RELATION_REFERRER by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteVariantRelationReferrerCQ queryWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {

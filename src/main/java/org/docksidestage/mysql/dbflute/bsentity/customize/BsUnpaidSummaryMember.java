@@ -150,7 +150,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity implements Cu
     }
 
     /**
-     * (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
+     * (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
      * @return The entity list of referrer property 'memberAddressList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<MemberAddress> getMemberAddressList() {
@@ -158,7 +158,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity implements Cu
     }
 
     /**
-     * (会員フォローイング)member_following by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
+     * (会員フォローイング)MEMBER_FOLLOWING by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
      * @return The entity list of referrer property 'memberFollowingByMyMemberIdList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<MemberFollowing> getMemberFollowingByMyMemberIdList() {
@@ -166,7 +166,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity implements Cu
     }
 
     /**
-     * (会員フォローイング)member_following by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
+     * (会員フォローイング)MEMBER_FOLLOWING by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
      * @return The entity list of referrer property 'memberFollowingByYourMemberIdList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<MemberFollowing> getMemberFollowingByYourMemberIdList() {
@@ -174,7 +174,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity implements Cu
     }
 
     /**
-     * (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
+     * (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
      * @return The entity list of referrer property 'memberLoginList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<MemberLogin> getMemberLoginList() {
@@ -182,7 +182,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity implements Cu
     }
 
     /**
-     * (購入)purchase by MEMBER_ID, named 'purchaseList'.
+     * (購入)PURCHASE by MEMBER_ID, named 'purchaseList'.
      * @return The entity list of referrer property 'purchaseList'. (NotNull: If it's not loaded yet, initializes the list instance of referrer as empty and returns it.)
      */
     public List<Purchase> getPurchaseList() {

@@ -35,7 +35,7 @@ public class WhiteAllInOneClsElementNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
+     * WHITE_ALL_IN_ONE_CLS_CATEGORY by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
      */
     public void withWhiteAllInOneClsCategory() {
         _query.xdoNss(() -> _query.queryWhiteAllInOneClsCategory());

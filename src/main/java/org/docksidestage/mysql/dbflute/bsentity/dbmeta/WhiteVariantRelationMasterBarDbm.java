@@ -125,7 +125,7 @@ public class WhiteVariantRelationMasterBarDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
+     * WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteVariantRelationReferrerAsVariantList() {

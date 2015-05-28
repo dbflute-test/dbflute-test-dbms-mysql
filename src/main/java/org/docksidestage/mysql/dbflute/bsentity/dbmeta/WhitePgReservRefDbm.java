@@ -134,7 +134,7 @@ public class WhitePgReservRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_pg_reserv by my CLASS, named 'whitePgReserv'.
+     * WHITE_PG_RESERV by my CLASS, named 'whitePgReserv'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhitePgReserv() {

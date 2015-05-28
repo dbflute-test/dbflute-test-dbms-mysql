@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_suppress_join_sq_one(AsOne)
+ *     WHITE_SUPPRESS_JOIN_SQ_ONE(AsOne)
  * 
  * [referrer table]
- *     white_suppress_join_sq_many, white_suppress_join_sq_one
+ *     WHITE_SUPPRESS_JOIN_SQ_MANY, WHITE_SUPPRESS_JOIN_SQ_ONE
  * 
  * [foreign property]
  *     whiteSuppressJoinSqOneAsOne
@@ -132,11 +132,11 @@ public abstract class BsWhiteSuppressJoinSq extends AbstractEntity implements Do
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_suppress_join_sq_many by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'. */
+    /** WHITE_SUPPRESS_JOIN_SQ_MANY by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'. */
     protected List<WhiteSuppressJoinSqMany> _whiteSuppressJoinSqManyList;
 
     /**
-     * [get] white_suppress_join_sq_many by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
+     * [get] WHITE_SUPPRESS_JOIN_SQ_MANY by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
      * @return The entity list of referrer property 'whiteSuppressJoinSqManyList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteSuppressJoinSqMany> getWhiteSuppressJoinSqManyList() {
@@ -145,7 +145,7 @@ public abstract class BsWhiteSuppressJoinSq extends AbstractEntity implements Do
     }
 
     /**
-     * [set] white_suppress_join_sq_many by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
+     * [set] WHITE_SUPPRESS_JOIN_SQ_MANY by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
      * @param whiteSuppressJoinSqManyList The entity list of referrer property 'whiteSuppressJoinSqManyList'. (NullAllowed)
      */
     public void setWhiteSuppressJoinSqManyList(List<WhiteSuppressJoinSqMany> whiteSuppressJoinSqManyList) {

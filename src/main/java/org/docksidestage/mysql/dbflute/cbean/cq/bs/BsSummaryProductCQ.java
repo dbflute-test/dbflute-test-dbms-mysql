@@ -253,7 +253,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (商品ステータス)product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
+     * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductStatusCQ queryProductStatus() {

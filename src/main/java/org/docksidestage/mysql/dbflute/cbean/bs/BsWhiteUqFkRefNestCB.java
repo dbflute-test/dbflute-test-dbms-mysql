@@ -257,7 +257,7 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
+     * WHITE_UQ_FK_REF by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkRefNestBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteUqFkRef()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -356,7 +356,7 @@ public class BsWhiteUqFkRefNestCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_uq_fk_ref_nest"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
+         * WHITE_UQ_FK_REF by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteUqFkRefCB.HpSpecification specifyWhiteUqFkRef() {

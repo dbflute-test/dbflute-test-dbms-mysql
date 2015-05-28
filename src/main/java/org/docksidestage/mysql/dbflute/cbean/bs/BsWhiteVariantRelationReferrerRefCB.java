@@ -257,7 +257,7 @@ public class BsWhiteVariantRelationReferrerRefCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
+     * WHITE_VARIANT_RELATION_REFERRER by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationReferrerRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteVariantRelationReferrer()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -349,7 +349,7 @@ public class BsWhiteVariantRelationReferrerRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_variant_relation_referrer_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
+         * WHITE_VARIANT_RELATION_REFERRER by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteVariantRelationReferrerCB.HpSpecification specifyWhiteVariantRelationReferrer() {

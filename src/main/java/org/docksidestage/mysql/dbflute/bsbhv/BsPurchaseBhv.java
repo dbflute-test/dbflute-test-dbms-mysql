@@ -53,10 +53,10 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     member, product, SUMMARY_PRODUCT, SUMMARY_WITHDRAWAL, WHITE_NO_PK_RELATION, PURCHASE, MEMBER_ADDRESS(AsSkipRelation), white_purchase_referrer(AsOne), purchase(AsOne)
+ *     MEMBER, PRODUCT, SUMMARY_PRODUCT, SUMMARY_WITHDRAWAL, WHITE_NO_PK_RELATION, PURCHASE, MEMBER_ADDRESS(AsSkipRelation), WHITE_PURCHASE_REFERRER(AsOne)
  *
  * [referrer table]
- *     purchase_payment, white_purchase_referrer, purchase
+ *     PURCHASE_PAYMENT, WHITE_PURCHASE_REFERRER, PURCHASE
  *
  * [foreign property]
  *     member, product, summaryProduct, summaryWithdrawal, whiteNoPkRelation, purchaseSelf, memberAddressAsSkipRelation, whitePurchaseReferrerAsOne, purchaseSelfAsOne
@@ -531,7 +531,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
+     * (購入支払)PURCHASE_PAYMENT by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...
@@ -562,7 +562,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
+     * (購入支払)PURCHASE_PAYMENT by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchase</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...

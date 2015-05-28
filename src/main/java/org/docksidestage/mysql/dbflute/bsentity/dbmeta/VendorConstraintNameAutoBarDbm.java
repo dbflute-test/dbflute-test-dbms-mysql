@@ -130,7 +130,7 @@ public class VendorConstraintNameAutoBarDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoRefList'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_REF by CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerVendorConstraintNameAutoRefList() {

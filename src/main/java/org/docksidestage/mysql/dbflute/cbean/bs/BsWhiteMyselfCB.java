@@ -315,7 +315,7 @@ public class BsWhiteMyselfCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_myself_check where ...) as FOO_MAX} <br>
-         * white_myself_check by MYSELF_ID, named 'whiteMyselfCheckList'.
+         * WHITE_MYSELF_CHECK by MYSELF_ID, named 'whiteMyselfCheckList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(checkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     checkCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

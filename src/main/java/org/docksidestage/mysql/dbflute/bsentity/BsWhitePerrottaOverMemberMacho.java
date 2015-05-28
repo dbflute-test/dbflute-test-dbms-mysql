@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_perrotta_over_member
+ *     WHITE_PERROTTA_OVER_MEMBER
  * 
  * [foreign property]
  *     
@@ -109,11 +109,11 @@ public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity impl
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'. */
+    /** WHITE_PERROTTA_OVER_MEMBER by MACHO_CODE, named 'whitePerrottaOverMemberList'. */
     protected List<WhitePerrottaOverMember> _whitePerrottaOverMemberList;
 
     /**
-     * [get] white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
+     * [get] WHITE_PERROTTA_OVER_MEMBER by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * @return The entity list of referrer property 'whitePerrottaOverMemberList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhitePerrottaOverMember> getWhitePerrottaOverMemberList() {
@@ -122,7 +122,7 @@ public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity impl
     }
 
     /**
-     * [set] white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
+     * [set] WHITE_PERROTTA_OVER_MEMBER by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * @param whitePerrottaOverMemberList The entity list of referrer property 'whitePerrottaOverMemberList'. (NullAllowed)
      */
     public void setWhitePerrottaOverMemberList(List<WhitePerrottaOverMember> whitePerrottaOverMemberList) {

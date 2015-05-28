@@ -35,7 +35,7 @@ public class WhiteAllInOneClsCompoundPkRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteAllInOneClsElementNss withWhiteAllInOneClsElementAsFoo() {
@@ -44,7 +44,7 @@ public class WhiteAllInOneClsCompoundPkRefNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteAllInOneClsElementNss withWhiteAllInOneClsElementAsBar() {

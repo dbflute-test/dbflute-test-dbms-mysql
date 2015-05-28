@@ -135,7 +135,7 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
+     * WHITE_IMPLICIT_REVERSE_FK_REF by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteImplicitReverseFkRefWithImplicitReverseFK() {
@@ -143,7 +143,7 @@ public class WhiteImplicitReverseFkDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_IMPLICIT_REVERSE_FK_REF_WITH", "whiteImplicitReverseFkRefWithImplicitReverseFK", this, WhiteImplicitReverseFkRefDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapWhiteImplicitReverseFkRefWithImplicitReverseFK.targetDate*/null", newArrayList("targetDate"), false, null, false);
     }
     /**
-     * white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
+     * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK() {

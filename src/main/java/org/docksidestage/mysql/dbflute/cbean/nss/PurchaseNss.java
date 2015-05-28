@@ -35,7 +35,7 @@ public class PurchaseNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -44,7 +44,7 @@ public class PurchaseNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (商品)product by my PRODUCT_ID, named 'product'.
+     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductNss withProduct() {
@@ -53,7 +53,7 @@ public class PurchaseNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'.
+     * (VIEW)SUMMARY_PRODUCT by my PRODUCT_ID, named 'summaryProduct'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public SummaryProductNss withSummaryProduct() {
@@ -62,21 +62,21 @@ public class PurchaseNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
+     * (VIEW)SUMMARY_WITHDRAWAL by my MEMBER_ID, named 'summaryWithdrawal'.
      */
     public void withSummaryWithdrawal() {
         _query.xdoNss(() -> _query.querySummaryWithdrawal());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
+     * (VIEW)WHITE_NO_PK_RELATION by my PRODUCT_ID, named 'whiteNoPkRelation'.
      */
     public void withWhiteNoPkRelation() {
         _query.xdoNss(() -> _query.queryWhiteNoPkRelation());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'.
+     * (購入)PURCHASE by my PURCHASE_ID, named 'purchaseSelf'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public PurchaseNss withPurchaseSelf() {
@@ -85,7 +85,7 @@ public class PurchaseNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

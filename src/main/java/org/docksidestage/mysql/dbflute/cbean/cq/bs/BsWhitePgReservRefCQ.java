@@ -179,7 +179,7 @@ public class BsWhitePgReservRefCQ extends AbstractBsWhitePgReservRefCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_pg_reserv by my CLASS, named 'whitePgReserv'.
+     * WHITE_PG_RESERV by my CLASS, named 'whitePgReserv'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePgReservCQ queryWhitePgReserv() {

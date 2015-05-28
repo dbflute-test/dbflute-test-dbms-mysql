@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     vendor_constraint_name_auto_ref
+ *     VENDOR_CONSTRAINT_NAME_AUTO_REF
  * 
  * [foreign property]
  *     
@@ -120,11 +120,11 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity imple
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoRefList'. */
+    /** VENDOR_CONSTRAINT_NAME_AUTO_REF by CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoRefList'. */
     protected List<VendorConstraintNameAutoRef> _vendorConstraintNameAutoRefList;
 
     /**
-     * [get] vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoRefList'.
+     * [get] VENDOR_CONSTRAINT_NAME_AUTO_REF by CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoRefList'.
      * @return The entity list of referrer property 'vendorConstraintNameAutoRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<VendorConstraintNameAutoRef> getVendorConstraintNameAutoRefList() {
@@ -133,7 +133,7 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity imple
     }
 
     /**
-     * [set] vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoRefList'.
+     * [set] VENDOR_CONSTRAINT_NAME_AUTO_REF by CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoRefList'.
      * @param vendorConstraintNameAutoRefList The entity list of referrer property 'vendorConstraintNameAutoRefList'. (NullAllowed)
      */
     public void setVendorConstraintNameAutoRefList(List<VendorConstraintNameAutoRef> vendorConstraintNameAutoRefList) {

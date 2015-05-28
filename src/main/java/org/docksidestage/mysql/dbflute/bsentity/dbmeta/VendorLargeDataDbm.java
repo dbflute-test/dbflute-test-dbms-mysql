@@ -170,7 +170,7 @@ public class VendorLargeDataDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
+     * VENDOR_LARGE_DATA_REF by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerVendorLargeDataRefList() {

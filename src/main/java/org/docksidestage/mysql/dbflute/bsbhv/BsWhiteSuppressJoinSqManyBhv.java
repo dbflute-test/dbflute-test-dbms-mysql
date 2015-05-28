@@ -53,7 +53,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_suppress_join_sq_many_one, white_suppress_join_sq
+ *     WHITE_SUPPRESS_JOIN_SQ_MANY_ONE, WHITE_SUPPRESS_JOIN_SQ
  *
  * [referrer table]
  *     

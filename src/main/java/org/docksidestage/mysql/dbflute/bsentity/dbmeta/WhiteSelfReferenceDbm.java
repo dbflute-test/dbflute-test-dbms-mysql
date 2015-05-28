@@ -143,7 +143,7 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'.
+     * WHITE_SELF_REFERENCE by my PARENT_ID, named 'whiteSelfReferenceSelf'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteSelfReferenceSelf() {
@@ -163,7 +163,7 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
+     * WHITE_SELF_REFERENCE by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteSelfReferenceSelfList() {

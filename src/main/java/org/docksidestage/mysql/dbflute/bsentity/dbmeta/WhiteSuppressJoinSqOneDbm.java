@@ -156,7 +156,7 @@ public class WhiteSuppressJoinSqOneDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_suppress_join_sq by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'.
+     * WHITE_SUPPRESS_JOIN_SQ by my SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSq'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteSuppressJoinSq() {
@@ -164,7 +164,7 @@ public class WhiteSuppressJoinSqOneDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_SUPPRESS_JOIN_SQ_ONE", "whiteSuppressJoinSq", this, WhiteSuppressJoinSqDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, false, null, null, false, "whiteSuppressJoinSqOneAsOne", false);
     }
     /**
-     * white_suppress_join_sq_one_addi by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'.
+     * WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI by my ONE_ADDI_ID, named 'whiteSuppressJoinSqOneAddi'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteSuppressJoinSqOneAddi() {

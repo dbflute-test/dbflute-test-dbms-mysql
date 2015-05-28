@@ -246,7 +246,7 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMember() {
@@ -254,7 +254,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         return cfi("FK_PURCHASE_MEMBER", "member", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "purchaseList", false);
     }
     /**
-     * (商品)product by my PRODUCT_ID, named 'product'.
+     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignProduct() {
@@ -262,7 +262,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         return cfi("FK_PURCHASE_PRODUCT", "product", this, ProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "purchaseList", false);
     }
     /**
-     * (VIEW)summary_product by my PRODUCT_ID, named 'summaryProduct'.
+     * (VIEW)SUMMARY_PRODUCT by my PRODUCT_ID, named 'summaryProduct'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignSummaryProduct() {
@@ -270,7 +270,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         return cfi("FK_PURCHASE_SUMMARY_PRODUCT", "summaryProduct", this, SummaryProductDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "purchaseList", false);
     }
     /**
-     * (VIEW)summary_withdrawal by my MEMBER_ID, named 'summaryWithdrawal'.
+     * (VIEW)SUMMARY_WITHDRAWAL by my MEMBER_ID, named 'summaryWithdrawal'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignSummaryWithdrawal() {
@@ -278,7 +278,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         return cfi("FK_PURCHASE_SUMMARY_WITHDRAWAL", "summaryWithdrawal", this, SummaryWithdrawalDbm.getInstance(), mp, 3, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, null, false);
     }
     /**
-     * (VIEW)white_no_pk_relation by my PRODUCT_ID, named 'whiteNoPkRelation'.
+     * (VIEW)WHITE_NO_PK_RELATION by my PRODUCT_ID, named 'whiteNoPkRelation'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteNoPkRelation() {
@@ -286,7 +286,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         return cfi("FK_PURCHASE_NO_PK_RELATION", "whiteNoPkRelation", this, WhiteNoPkRelationDbm.getInstance(), mp, 4, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, null, false);
     }
     /**
-     * (購入)purchase by my PURCHASE_ID, named 'purchaseSelf'.
+     * (購入)PURCHASE by my PURCHASE_ID, named 'purchaseSelf'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignPurchaseSelf() {
@@ -294,7 +294,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         return cfi("FK_PURCHASE_PURCHASE_SELF", "purchaseSelf", this, PurchaseDbm.getInstance(), mp, 5, org.dbflute.optional.OptionalEntity.class, true, false, false, true, null, null, false, "purchaseSelfAsOne", false);
     }
     /**
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsSkipRelation'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMemberAddressAsSkipRelation() {
@@ -322,7 +322,7 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
+     * (購入支払)PURCHASE_PAYMENT by PURCHASE_ID, named 'purchasePaymentList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerPurchasePaymentList() {

@@ -125,7 +125,7 @@ public class WhitePerrottaOverMemberMachoDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
+     * WHITE_PERROTTA_OVER_MEMBER by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhitePerrottaOverMemberList() {

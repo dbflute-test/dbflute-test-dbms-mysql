@@ -53,7 +53,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_pg_reserv
+ *     WHITE_PG_RESERV
  *
  * [referrer table]
  *     

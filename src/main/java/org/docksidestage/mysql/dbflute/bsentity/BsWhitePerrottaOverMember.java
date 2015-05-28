@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_perrotta_over_member_macho, white_perrotta_over_product
+ *     WHITE_PERROTTA_OVER_MEMBER_MACHO, WHITE_PERROTTA_OVER_PRODUCT
  * 
  * [referrer table]
  *     
@@ -123,11 +123,11 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'. */
+    /** WHITE_PERROTTA_OVER_MEMBER_MACHO by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'. */
     protected OptionalEntity<WhitePerrottaOverMemberMacho> _whitePerrottaOverMemberMacho;
 
     /**
-     * [get] white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'. <br>
+     * [get] WHITE_PERROTTA_OVER_MEMBER_MACHO by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whitePerrottaOverMemberMacho'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -137,18 +137,18 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     }
 
     /**
-     * [set] white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
+     * [set] WHITE_PERROTTA_OVER_MEMBER_MACHO by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
      * @param whitePerrottaOverMemberMacho The entity of foreign property 'whitePerrottaOverMemberMacho'. (NullAllowed)
      */
     public void setWhitePerrottaOverMemberMacho(OptionalEntity<WhitePerrottaOverMemberMacho> whitePerrottaOverMemberMacho) {
         _whitePerrottaOverMemberMacho = whitePerrottaOverMemberMacho;
     }
 
-    /** white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'. */
+    /** WHITE_PERROTTA_OVER_PRODUCT by my PRODUCT_ID, named 'whitePerrottaOverProduct'. */
     protected OptionalEntity<WhitePerrottaOverProduct> _whitePerrottaOverProduct;
 
     /**
-     * [get] white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'. <br>
+     * [get] WHITE_PERROTTA_OVER_PRODUCT by my PRODUCT_ID, named 'whitePerrottaOverProduct'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whitePerrottaOverProduct'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -158,7 +158,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     }
 
     /**
-     * [set] white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
+     * [set] WHITE_PERROTTA_OVER_PRODUCT by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
      * @param whitePerrottaOverProduct The entity of foreign property 'whitePerrottaOverProduct'. (NullAllowed)
      */
     public void setWhitePerrottaOverProduct(OptionalEntity<WhitePerrottaOverProduct> whitePerrottaOverProduct) {

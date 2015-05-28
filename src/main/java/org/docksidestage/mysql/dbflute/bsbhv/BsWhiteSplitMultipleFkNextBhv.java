@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_split_multiple_fk_base
+ *     WHITE_SPLIT_MULTIPLE_FK_BASE
  *
  * [foreign property]
  *     
@@ -504,7 +504,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
 
     /**
      * Load referrer of whiteSplitMultipleFkBaseList by the set-upper of referrer. <br>
-     * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
+     * WHITE_SPLIT_MULTIPLE_FK_BASE by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkBase</span>(<span style="color: #553000">whiteSplitMultipleFkNextList</span>, <span style="color: #553000">baseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">baseCB</span>.setupSelect...
@@ -535,7 +535,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
 
     /**
      * Load referrer of whiteSplitMultipleFkBaseList by the set-upper of referrer. <br>
-     * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
+     * WHITE_SPLIT_MULTIPLE_FK_BASE by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkBase</span>(<span style="color: #553000">whiteSplitMultipleFkNext</span>, <span style="color: #553000">baseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">baseCB</span>.setupSelect...

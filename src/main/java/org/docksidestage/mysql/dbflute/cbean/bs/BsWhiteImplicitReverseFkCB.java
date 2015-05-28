@@ -251,7 +251,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
+     * WHITE_IMPLICIT_REVERSE_FK_REF by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitReverseFkBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteImplicitReverseFkRefWithImplicitReverseFK(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -269,7 +269,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
+     * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitReverseFkBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -352,7 +352,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_implicit_reverse_fk"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
+         * WHITE_IMPLICIT_REVERSE_FK_REF by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -373,7 +373,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
+         * WHITE_IMPLICIT_REVERSE_FK_REF by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteImplicitReverseFkRefCB.HpSpecification specifyWhiteImplicitReverseFkRefWithImplicitReverseFK() {
@@ -393,7 +393,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
+         * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -414,7 +414,7 @@ public class BsWhiteImplicitReverseFkCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
+         * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteImplicitReverseFkSuppressCB.HpSpecification specifyWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK() {

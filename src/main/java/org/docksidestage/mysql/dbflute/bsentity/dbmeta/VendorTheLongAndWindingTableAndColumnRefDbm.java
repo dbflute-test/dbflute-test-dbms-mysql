@@ -150,7 +150,7 @@ public class VendorTheLongAndWindingTableAndColumnRefDbm extends AbstractDBMeta 
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
+     * VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignVendorTheLongAndWindingTableAndColumn() {

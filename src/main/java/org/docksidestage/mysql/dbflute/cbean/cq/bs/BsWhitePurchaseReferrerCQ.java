@@ -179,7 +179,7 @@ public class BsWhitePurchaseReferrerCQ extends AbstractBsWhitePurchaseReferrerCQ
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'.
+     * (購入)PURCHASE by my PURCHASE_REFERRER_ID, named 'purchase'.
      * @return The instance of condition-query. (NotNull)
      */
     public PurchaseCQ queryPurchase() {

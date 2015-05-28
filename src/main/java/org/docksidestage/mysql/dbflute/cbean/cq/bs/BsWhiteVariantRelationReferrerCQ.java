@@ -223,7 +223,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
+     * WHITE_VARIANT_RELATION_MASTER_FOO by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteVariantRelationMasterFooCQ queryWhiteVariantRelationMasterFooAsVariant() {
@@ -243,7 +243,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
+     * WHITE_VARIANT_RELATION_MASTER_BAR by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteVariantRelationMasterBarCQ queryWhiteVariantRelationMasterBarAsVariant() {
@@ -263,7 +263,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
+     * WHITE_VARIANT_RELATION_MASTER_QUX by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteVariantRelationMasterQuxCQ queryWhiteVariantRelationMasterQuxAsVariantByQue() {
@@ -283,7 +283,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
+     * WHITE_VARIANT_RELATION_MASTER_CORGE by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
      * @param quxType The bind parameter of fixed condition for quxType. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */

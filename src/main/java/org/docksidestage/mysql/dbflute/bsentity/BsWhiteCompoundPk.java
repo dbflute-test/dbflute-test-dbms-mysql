@@ -48,7 +48,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     WHITE_COMPOUND_REFERRED_NORMALLY, WHITE_COMPOUND_REFERRED_PRIMARY, WHITE_COMPOUND_PK_REF_MANY(AsMax)
  * 
  * [referrer table]
- *     white_compound_pk_ref, white_compound_pk_ref_many
+ *     WHITE_COMPOUND_PK_REF, WHITE_COMPOUND_PK_REF_MANY
  * 
  * [foreign property]
  *     whiteCompoundReferredNormally, whiteCompoundReferredPrimary, whiteCompoundPkRefManyAsMax, whiteCompoundPkRefManyAsMin
@@ -145,11 +145,11 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'. */
+    /** WHITE_COMPOUND_REFERRED_NORMALLY by my REFERRED_ID, named 'whiteCompoundReferredNormally'. */
     protected OptionalEntity<WhiteCompoundReferredNormally> _whiteCompoundReferredNormally;
 
     /**
-     * [get] white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'. <br>
+     * [get] WHITE_COMPOUND_REFERRED_NORMALLY by my REFERRED_ID, named 'whiteCompoundReferredNormally'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteCompoundReferredNormally'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -159,18 +159,18 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
+     * [set] WHITE_COMPOUND_REFERRED_NORMALLY by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
      * @param whiteCompoundReferredNormally The entity of foreign property 'whiteCompoundReferredNormally'. (NullAllowed)
      */
     public void setWhiteCompoundReferredNormally(OptionalEntity<WhiteCompoundReferredNormally> whiteCompoundReferredNormally) {
         _whiteCompoundReferredNormally = whiteCompoundReferredNormally;
     }
 
-    /** white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'. */
+    /** WHITE_COMPOUND_REFERRED_PRIMARY by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'. */
     protected OptionalEntity<WhiteCompoundReferredPrimary> _whiteCompoundReferredPrimary;
 
     /**
-     * [get] white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'. <br>
+     * [get] WHITE_COMPOUND_REFERRED_PRIMARY by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteCompoundReferredPrimary'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -180,18 +180,18 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
+     * [set] WHITE_COMPOUND_REFERRED_PRIMARY by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
      * @param whiteCompoundReferredPrimary The entity of foreign property 'whiteCompoundReferredPrimary'. (NullAllowed)
      */
     public void setWhiteCompoundReferredPrimary(OptionalEntity<WhiteCompoundReferredPrimary> whiteCompoundReferredPrimary) {
         _whiteCompoundReferredPrimary = whiteCompoundReferredPrimary;
     }
 
-    /** white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'. */
+    /** WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'. */
     protected OptionalEntity<WhiteCompoundPkRefMany> _whiteCompoundPkRefManyAsMax;
 
     /**
-     * [get] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'. <br>
+     * [get] WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteCompoundPkRefManyAsMax'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -201,18 +201,18 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
+     * [set] WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
      * @param whiteCompoundPkRefManyAsMax The entity of foreign property 'whiteCompoundPkRefManyAsMax'. (NullAllowed)
      */
     public void setWhiteCompoundPkRefManyAsMax(OptionalEntity<WhiteCompoundPkRefMany> whiteCompoundPkRefManyAsMax) {
         _whiteCompoundPkRefManyAsMax = whiteCompoundPkRefManyAsMax;
     }
 
-    /** white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'. */
+    /** WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'. */
     protected OptionalEntity<WhiteCompoundPkRefMany> _whiteCompoundPkRefManyAsMin;
 
     /**
-     * [get] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'. <br>
+     * [get] WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteCompoundPkRefManyAsMin'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -222,7 +222,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
+     * [set] WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
      * @param whiteCompoundPkRefManyAsMin The entity of foreign property 'whiteCompoundPkRefManyAsMin'. (NullAllowed)
      */
     public void setWhiteCompoundPkRefManyAsMin(OptionalEntity<WhiteCompoundPkRefMany> whiteCompoundPkRefManyAsMin) {
@@ -232,11 +232,11 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'. */
+    /** WHITE_COMPOUND_PK_REF by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'. */
     protected List<WhiteCompoundPkRef> _whiteCompoundPkRefList;
 
     /**
-     * [get] white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
+     * [get] WHITE_COMPOUND_PK_REF by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
      * @return The entity list of referrer property 'whiteCompoundPkRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteCompoundPkRef> getWhiteCompoundPkRefList() {
@@ -245,18 +245,18 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
+     * [set] WHITE_COMPOUND_PK_REF by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
      * @param whiteCompoundPkRefList The entity list of referrer property 'whiteCompoundPkRefList'. (NullAllowed)
      */
     public void setWhiteCompoundPkRefList(List<WhiteCompoundPkRef> whiteCompoundPkRefList) {
         _whiteCompoundPkRefList = whiteCompoundPkRefList;
     }
 
-    /** white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'. */
+    /** WHITE_COMPOUND_PK_REF_MANY by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'. */
     protected List<WhiteCompoundPkRefMany> _whiteCompoundPkRefManyToPKList;
 
     /**
-     * [get] white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
+     * [get] WHITE_COMPOUND_PK_REF_MANY by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
      * @return The entity list of referrer property 'whiteCompoundPkRefManyToPKList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteCompoundPkRefMany> getWhiteCompoundPkRefManyToPKList() {
@@ -265,7 +265,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
+     * [set] WHITE_COMPOUND_PK_REF_MANY by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
      * @param whiteCompoundPkRefManyToPKList The entity list of referrer property 'whiteCompoundPkRefManyToPKList'. (NullAllowed)
      */
     public void setWhiteCompoundPkRefManyToPKList(List<WhiteCompoundPkRefMany> whiteCompoundPkRefManyToPKList) {

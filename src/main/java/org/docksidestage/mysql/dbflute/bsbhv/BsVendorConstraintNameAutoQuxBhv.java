@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     vendor_constraint_name_auto_ref
+ *     VENDOR_CONSTRAINT_NAME_AUTO_REF
  *
  * [foreign property]
  *     
@@ -529,7 +529,7 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
 
     /**
      * Load referrer of vendorConstraintNameAutoRefList by the set-upper of referrer. <br>
-     * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefList'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_REF by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefList'.
      * <pre>
      * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #CC4747">loadVendorConstraintNameAutoRef</span>(<span style="color: #553000">vendorConstraintNameAutoQuxList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -560,7 +560,7 @@ public abstract class BsVendorConstraintNameAutoQuxBhv extends AbstractBehaviorW
 
     /**
      * Load referrer of vendorConstraintNameAutoRefList by the set-upper of referrer. <br>
-     * vendor_constraint_name_auto_ref by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefList'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_REF by CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoRefList'.
      * <pre>
      * <span style="color: #0000C0">vendorConstraintNameAutoQuxBhv</span>.<span style="color: #CC4747">loadVendorConstraintNameAutoRef</span>(<span style="color: #553000">vendorConstraintNameAutoQux</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...

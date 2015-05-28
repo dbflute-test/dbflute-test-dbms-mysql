@@ -142,7 +142,7 @@ public class WhiteMyselfCheckDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_myself by my MYSELF_ID, named 'whiteMyself'.
+     * WHITE_MYSELF by my MYSELF_ID, named 'whiteMyself'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteMyself() {

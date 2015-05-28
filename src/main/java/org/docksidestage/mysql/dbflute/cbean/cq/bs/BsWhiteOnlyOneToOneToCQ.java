@@ -199,7 +199,7 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
+     * WHITE_ONLY_ONE_TO_ONE_FROM by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteOnlyOneToOneFromCQ queryWhiteOnlyOneToOneFrom() {

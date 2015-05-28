@@ -142,7 +142,7 @@ public class WhiteSplitMultipleFkChildDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'.
+     * WHITE_SPLIT_MULTIPLE_FK_BASE by my BASE_ID, named 'whiteSplitMultipleFkBase'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteSplitMultipleFkBase() {

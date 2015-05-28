@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_quoted_ref
+ *     WHITE_QUOTED_REF
  * 
  * [foreign property]
  *     
@@ -109,11 +109,11 @@ public abstract class BsWhiteQuoted extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_quoted_ref by ORDER, named 'whiteQuotedRefList'. */
+    /** WHITE_QUOTED_REF by ORDER, named 'whiteQuotedRefList'. */
     protected List<WhiteQuotedRef> _whiteQuotedRefList;
 
     /**
-     * [get] white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
+     * [get] WHITE_QUOTED_REF by ORDER, named 'whiteQuotedRefList'.
      * @return The entity list of referrer property 'whiteQuotedRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteQuotedRef> getWhiteQuotedRefList() {
@@ -122,7 +122,7 @@ public abstract class BsWhiteQuoted extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
+     * [set] WHITE_QUOTED_REF by ORDER, named 'whiteQuotedRefList'.
      * @param whiteQuotedRefList The entity list of referrer property 'whiteQuotedRefList'. (NullAllowed)
      */
     public void setWhiteQuotedRefList(List<WhiteQuotedRef> whiteQuotedRefList) {

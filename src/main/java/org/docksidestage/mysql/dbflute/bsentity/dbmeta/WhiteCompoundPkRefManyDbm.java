@@ -179,7 +179,7 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
+     * WHITE_COMPOUND_PK by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteCompoundPkToPK() {

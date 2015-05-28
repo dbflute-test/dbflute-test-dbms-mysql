@@ -219,7 +219,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
+     * WHITE_ALL_IN_ONE_CLS_CATEGORY by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteAllInOneClsCategoryCQ queryWhiteAllInOneClsCategory() {

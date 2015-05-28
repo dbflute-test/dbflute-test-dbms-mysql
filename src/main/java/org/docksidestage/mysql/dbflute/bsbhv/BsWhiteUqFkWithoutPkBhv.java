@@ -55,7 +55,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_uq_fk_without_pk_ref
+ *     WHITE_UQ_FK_WITHOUT_PK_REF
  *
  * [foreign property]
  *     

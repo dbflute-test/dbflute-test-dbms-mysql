@@ -125,7 +125,7 @@ public class WhiteSplitMultipleFkNextDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_split_multiple_fk_base by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
+     * WHITE_SPLIT_MULTIPLE_FK_BASE by NEXT_ID, named 'whiteSplitMultipleFkBaseList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteSplitMultipleFkBaseList() {

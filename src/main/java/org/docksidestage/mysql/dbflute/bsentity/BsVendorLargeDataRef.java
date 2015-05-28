@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     vendor_large_data, vendor_large_data_ref
+ *     VENDOR_LARGE_DATA, VENDOR_LARGE_DATA_REF
  * 
  * [referrer table]
- *     vendor_large_data_ref
+ *     VENDOR_LARGE_DATA_REF
  * 
  * [foreign property]
  *     vendorLargeData, vendorLargeDataRefSelf
@@ -143,11 +143,11 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'. */
+    /** VENDOR_LARGE_DATA by my LARGE_DATA_ID, named 'vendorLargeData'. */
     protected OptionalEntity<VendorLargeData> _vendorLargeData;
 
     /**
-     * [get] vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'. <br>
+     * [get] VENDOR_LARGE_DATA by my LARGE_DATA_ID, named 'vendorLargeData'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'vendorLargeData'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -157,18 +157,18 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'.
+     * [set] VENDOR_LARGE_DATA by my LARGE_DATA_ID, named 'vendorLargeData'.
      * @param vendorLargeData The entity of foreign property 'vendorLargeData'. (NullAllowed)
      */
     public void setVendorLargeData(OptionalEntity<VendorLargeData> vendorLargeData) {
         _vendorLargeData = vendorLargeData;
     }
 
-    /** vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'. */
+    /** VENDOR_LARGE_DATA_REF by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'. */
     protected OptionalEntity<VendorLargeDataRef> _vendorLargeDataRefSelf;
 
     /**
-     * [get] vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'. <br>
+     * [get] VENDOR_LARGE_DATA_REF by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'vendorLargeDataRefSelf'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -178,7 +178,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
+     * [set] VENDOR_LARGE_DATA_REF by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
      * @param vendorLargeDataRefSelf The entity of foreign property 'vendorLargeDataRefSelf'. (NullAllowed)
      */
     public void setVendorLargeDataRefSelf(OptionalEntity<VendorLargeDataRef> vendorLargeDataRefSelf) {
@@ -188,11 +188,11 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'. */
+    /** VENDOR_LARGE_DATA_REF by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'. */
     protected List<VendorLargeDataRef> _vendorLargeDataRefSelfList;
 
     /**
-     * [get] vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
+     * [get] VENDOR_LARGE_DATA_REF by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
      * @return The entity list of referrer property 'vendorLargeDataRefSelfList'. (NotNull: even if no loading, returns empty list)
      */
     public List<VendorLargeDataRef> getVendorLargeDataRefSelfList() {
@@ -201,7 +201,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
+     * [set] VENDOR_LARGE_DATA_REF by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
      * @param vendorLargeDataRefSelfList The entity list of referrer property 'vendorLargeDataRefSelfList'. (NullAllowed)
      */
     public void setVendorLargeDataRefSelfList(List<VendorLargeDataRef> vendorLargeDataRefSelfList) {

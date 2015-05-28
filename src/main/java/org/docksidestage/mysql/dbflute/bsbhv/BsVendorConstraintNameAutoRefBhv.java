@@ -53,7 +53,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     vendor_constraint_name_auto_bar, vendor_constraint_name_auto_foo, vendor_constraint_name_auto_qux
+ *     VENDOR_CONSTRAINT_NAME_AUTO_BAR, VENDOR_CONSTRAINT_NAME_AUTO_FOO, VENDOR_CONSTRAINT_NAME_AUTO_QUX
  *
  * [referrer table]
  *     

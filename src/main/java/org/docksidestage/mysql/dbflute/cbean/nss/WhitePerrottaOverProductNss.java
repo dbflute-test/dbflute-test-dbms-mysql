@@ -35,14 +35,14 @@ public class WhitePerrottaOverProductNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
+     * WHITE_PERROTTA_OVER_PRODUCT_NESTED by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
      */
     public void withWhitePerrottaOverProductNested() {
         _query.xdoNss(() -> _query.queryWhitePerrottaOverProductNested());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
+     * WHITE_PERROTTA_OVER_TRACE by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhitePerrottaOverTraceNss withWhitePerrottaOverTraceAsPerrotta() {

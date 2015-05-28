@@ -53,7 +53,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_perrotta_over_product
+ *     WHITE_PERROTTA_OVER_PRODUCT
  *
  * [referrer table]
  *     
