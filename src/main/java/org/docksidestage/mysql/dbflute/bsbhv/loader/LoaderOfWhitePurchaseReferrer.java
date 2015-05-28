@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     purchase
+ *     PURCHASE
  *
  * [referrer table]
  *     

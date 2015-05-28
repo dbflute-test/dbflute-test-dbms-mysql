@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_stiletto_alias
+ *     WHITE_STILETTO_ALIAS
  *
  * [referrer table]
  *     

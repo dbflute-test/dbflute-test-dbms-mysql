@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_suppress_join_sq, WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI
+ *     WHITE_SUPPRESS_JOIN_SQ, WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI
  *
  * [referrer table]
  *     
