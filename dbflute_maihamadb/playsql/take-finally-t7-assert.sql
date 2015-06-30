@@ -1,21 +1,30 @@
 
--- #df:assertCountZero#
-select count(*)
+-- =======================================================================================
+--                                                                     Business Constraint
+--                                                                     ===================
+-- #df:assertListZero#
+-- formalized members should have their own formalized date-times
+select MEMBER_ID, MEMBER_NAME, MEMBER_STATUS_CODE, FORMALIZED_DATETIME
   from MEMBER
  where MEMBER_STATUS_CODE = 'FML'
    and FORMALIZED_DATETIME is null
 ;
 
 -- #df:assertListZero#
-select member.MEMBER_ID, member.MEMBER_NAME
-  from MEMBER member
- where member.MEMBER_STATUS_CODE = 'WDL'
-   and not exists (select withdrawal.MEMBER_ID
-                     from MEMBER_WITHDRAWAL withdrawal
-                    where withdrawal.MEMBER_ID = member.MEMBER_ID
+-- withdrawal members should have their own withdrawal informations
+select mb.MEMBER_ID, mb.MEMBER_NAME, mb.MEMBER_STATUS_CODE
+  from MEMBER mb
+ where mb.MEMBER_STATUS_CODE = 'WDL'
+   and not exists (select wdl.MEMBER_ID
+                     from MEMBER_WITHDRAWAL wdl
+                    where wdl.MEMBER_ID = mb.MEMBER_ID
        )
 ;
 
+
+-- =======================================================================================
+--                                                                     TestData Constraint
+--                                                                     ===================
 -- #df:assertListZero#
 select member.MEMBER_ID as MEMBER_ID
      , count(member.MEMBER_ID) as SELECTED_COUNT
