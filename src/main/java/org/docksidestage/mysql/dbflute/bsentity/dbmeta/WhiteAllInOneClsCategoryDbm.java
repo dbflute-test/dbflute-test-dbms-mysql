@@ -133,7 +133,7 @@ public class WhiteAllInOneClsCategoryDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteAllInOneClsElementList() {

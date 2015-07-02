@@ -260,7 +260,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
+     * WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundPk()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -273,7 +273,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
      */
     public WhiteCompoundPkNss setupSelect_WhiteCompoundPk() {
         assertSetupSelectPurpose("whiteCompoundPk");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnRefFirstId();
             specify().columnRefSecondId();
         }
@@ -319,8 +319,8 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteCompoundPkRefCQ> {
@@ -370,7 +370,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_compound_pk_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_compound_pk by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
+         * WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteCompoundPkCB.HpSpecification specifyWhiteCompoundPk() {
@@ -391,7 +391,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_compound_pk_ref_nest where ...) as FOO_MAX} <br>
-         * white_compound_pk_ref_nest by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
+         * WHITE_COMPOUND_PK_REF_NEST by BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefNestByQuxMultipleIdList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(nestCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     nestCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -408,7 +408,7 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_compound_pk_ref_nest where ...) as FOO_MAX} <br>
-         * white_compound_pk_ref_nest by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
+         * WHITE_COMPOUND_PK_REF_NEST by FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefNestByFooMultipleIdList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(nestCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     nestCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

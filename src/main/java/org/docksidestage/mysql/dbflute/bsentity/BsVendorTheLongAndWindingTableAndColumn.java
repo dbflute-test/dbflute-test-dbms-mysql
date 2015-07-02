@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     vendor_the_long_and_winding_table_and_column_ref
+ *     VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF
  * 
  * [foreign property]
  *     
@@ -130,11 +130,11 @@ public abstract class BsVendorTheLongAndWindingTableAndColumn extends AbstractEn
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'. */
+    /** VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'. */
     protected List<VendorTheLongAndWindingTableAndColumnRef> _vendorTheLongAndWindingTableAndColumnRefList;
 
     /**
-     * [get] vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
+     * [get] VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
      * @return The entity list of referrer property 'vendorTheLongAndWindingTableAndColumnRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<VendorTheLongAndWindingTableAndColumnRef> getVendorTheLongAndWindingTableAndColumnRefList() {
@@ -143,7 +143,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumn extends AbstractEn
     }
 
     /**
-     * [set] vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
+     * [set] VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
      * @param vendorTheLongAndWindingTableAndColumnRefList The entity list of referrer property 'vendorTheLongAndWindingTableAndColumnRefList'. (NullAllowed)
      */
     public void setVendorTheLongAndWindingTableAndColumnRefList(List<VendorTheLongAndWindingTableAndColumnRef> vendorTheLongAndWindingTableAndColumnRefList) {

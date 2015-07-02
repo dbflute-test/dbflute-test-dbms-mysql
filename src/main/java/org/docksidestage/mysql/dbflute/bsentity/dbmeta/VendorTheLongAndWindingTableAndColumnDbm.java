@@ -146,7 +146,7 @@ public class VendorTheLongAndWindingTableAndColumnDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
+     * VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerVendorTheLongAndWindingTableAndColumnRefList() {

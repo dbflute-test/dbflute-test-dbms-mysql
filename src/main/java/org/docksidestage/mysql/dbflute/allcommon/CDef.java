@@ -59,14 +59,14 @@ public interface CDef extends Classification {
         static {
             for (ServiceRank value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private ServiceRank(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.ServiceRank; }
 
@@ -135,14 +135,14 @@ public interface CDef extends Classification {
         static {
             for (Region value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private Region(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.Region; }
 
@@ -211,14 +211,14 @@ public interface CDef extends Classification {
         static {
             for (WithdrawalReason value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private WithdrawalReason(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.WithdrawalReason; }
 
@@ -284,14 +284,14 @@ public interface CDef extends Classification {
         static {
             for (PaymentMethod value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private PaymentMethod(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.PaymentMethod; }
 
@@ -382,14 +382,14 @@ public interface CDef extends Classification {
         static {
             for (GroupingReference value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private GroupingReference(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.GroupingReference; }
 
@@ -566,14 +566,14 @@ public interface CDef extends Classification {
         static {
             for (SelfReference value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private SelfReference(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.SelfReference; }
 
@@ -631,14 +631,14 @@ public interface CDef extends Classification {
         static {
             for (TopCommentOnly value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private TopCommentOnly(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.TopCommentOnly; }
 
@@ -701,7 +701,7 @@ public interface CDef extends Classification {
         static {
             for (SubItemImplicit value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
@@ -724,11 +724,11 @@ public interface CDef extends Classification {
                 _subItemMapMap.put(Bar.code(), Collections.unmodifiableMap(subItemMap));
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private SubItemImplicit(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return CDef.DefMeta.SubItemImplicit; }
 
@@ -806,7 +806,7 @@ public interface CDef extends Classification {
         static {
             for (SubItemTable value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
@@ -833,11 +833,11 @@ public interface CDef extends Classification {
                 _subItemMapMap.put(仮会員.code(), Collections.unmodifiableMap(subItemMap));
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private SubItemTable(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return CDef.DefMeta.SubItemTable; }
 
@@ -954,14 +954,14 @@ public interface CDef extends Classification {
         static {
             for (BooleanFlg value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private BooleanFlg(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.BooleanFlg; }
 
@@ -1030,14 +1030,14 @@ public interface CDef extends Classification {
         static {
             for (VariantRelationMasterType value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private VariantRelationMasterType(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.VariantRelationMasterType; }
 
@@ -1125,14 +1125,14 @@ public interface CDef extends Classification {
         static {
             for (VariantRelationQuxType value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private VariantRelationQuxType(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.VariantRelationQuxType; }
 
@@ -1201,14 +1201,14 @@ public interface CDef extends Classification {
         static {
             for (QuxCls value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private QuxCls(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.QuxCls; }
 
@@ -1274,14 +1274,14 @@ public interface CDef extends Classification {
         static {
             for (EscapedDfpropCls value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private EscapedDfpropCls(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.EscapedDfpropCls; }
 
@@ -1344,14 +1344,14 @@ public interface CDef extends Classification {
         static {
             for (EscapedJavaDocCls value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private EscapedJavaDocCls(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.EscapedJavaDocCls; }
 
@@ -1442,14 +1442,14 @@ public interface CDef extends Classification {
         static {
             for (EscapedNumberInitialCls value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private EscapedNumberInitialCls(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.EscapedNumberInitialCls; }
 
@@ -1512,14 +1512,14 @@ public interface CDef extends Classification {
         static {
             for (LineSepCommentCls value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private LineSepCommentCls(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.LineSepCommentCls; }
 
@@ -1608,14 +1608,14 @@ public interface CDef extends Classification {
         static {
             for (DeprecatedTopBasicType value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private DeprecatedTopBasicType(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.DeprecatedTopBasicType; }
 
@@ -1682,14 +1682,14 @@ public interface CDef extends Classification {
         static {
             for (DeprecatedMapBasicType value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private DeprecatedMapBasicType(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.DeprecatedMapBasicType; }
 
@@ -1757,14 +1757,14 @@ public interface CDef extends Classification {
         static {
             for (DeprecatedMapCollaborationType value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private DeprecatedMapCollaborationType(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.DeprecatedMapCollaborationType; }
 
@@ -1844,14 +1844,14 @@ public interface CDef extends Classification {
         static {
             for (UQClassificationType value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private UQClassificationType(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.UQClassificationType; }
 
@@ -1923,14 +1923,14 @@ public interface CDef extends Classification {
         static {
             for (BarCls value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private BarCls(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.BarCls; }
 
@@ -1999,14 +1999,14 @@ public interface CDef extends Classification {
         static {
             for (FooCls value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private FooCls(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.FooCls; }
 
@@ -2069,14 +2069,14 @@ public interface CDef extends Classification {
         static {
             for (Flg value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private Flg(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.Flg; }
 
@@ -2142,14 +2142,14 @@ public interface CDef extends Classification {
         static {
             for (MemberStatus value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private MemberStatus(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.MemberStatus; }
 
@@ -2215,14 +2215,14 @@ public interface CDef extends Classification {
         static {
             for (ProductStatus value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private ProductStatus(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.ProductStatus; }
 

@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_all_in_one_cls_element
+ *     WHITE_ALL_IN_ONE_CLS_ELEMENT
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfWhiteAllInOneClsCategory {
 
     /**
      * Load referrer of whiteAllInOneClsElementList by the set-upper of referrer. <br>
-     * white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * <pre>
      * <span style="color: #0000C0">whiteAllInOneClsCategoryBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteAllInOneClsCategoryList</span>, <span style="color: #553000">categoryLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">categoryLoader</span>.<span style="color: #CC4747">loadWhiteAllInOneClsElement</span>(<span style="color: #553000">elementCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

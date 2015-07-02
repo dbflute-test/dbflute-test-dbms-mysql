@@ -239,7 +239,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
+     * WHITE_UQ_FK_WITHOUT_PK by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkWithoutPkRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteUqFkWithoutPk()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -251,7 +251,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteUqFkWithoutPk() {
         assertSetupSelectPurpose("whiteUqFkWithoutPk");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnFkToUqCode();
         }
         doSetupSelect(() -> query().queryWhiteUqFkWithoutPk());
@@ -293,8 +293,8 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteUqFkWithoutPkRefCQ> {
@@ -326,7 +326,7 @@ public class BsWhiteUqFkWithoutPkRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_uq_fk_without_pk_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
+         * WHITE_UQ_FK_WITHOUT_PK by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteUqFkWithoutPkCB.HpSpecification specifyWhiteUqFkWithoutPk() {

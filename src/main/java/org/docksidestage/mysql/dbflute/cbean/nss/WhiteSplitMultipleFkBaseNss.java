@@ -35,14 +35,14 @@ public class WhiteSplitMultipleFkBaseNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
+     * WHITE_SPLIT_MULTIPLE_FK_NEXT by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
      */
     public void withWhiteSplitMultipleFkNext() {
         _query.xdoNss(() -> _query.queryWhiteSplitMultipleFkNext());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
+     * WHITE_SPLIT_MULTIPLE_FK_REF by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
      */
     public void withWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
         _query.xdoNss(() -> _query.queryWhiteSplitMultipleFkRefAsSplitMultipleFkTest());

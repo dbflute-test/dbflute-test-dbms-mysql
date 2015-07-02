@@ -130,7 +130,7 @@ public class WhiteUqFkDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
+     * WHITE_UQ_FK_REF by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteUqFkRefByFkToPkIdList() {
@@ -138,7 +138,7 @@ public class WhiteUqFkDbm extends AbstractDBMeta {
         return cri("FK_WHITE_UQ_FK_REF_PK", "whiteUqFkRefByFkToPkIdList", this, WhiteUqFkRefDbm.getInstance(), mp, false, "whiteUqFkByFkToPkId");
     }
     /**
-     * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
+     * WHITE_UQ_FK_REF by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteUqFkRefByFkToUqCodeList() {

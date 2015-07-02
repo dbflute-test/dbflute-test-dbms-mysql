@@ -53,10 +53,10 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_self_reference, white_self_reference_ref_one(AsOne)
+ *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE(AsOne)
  *
  * [referrer table]
- *     white_self_reference, white_self_reference_ref_one
+ *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE
  *
  * [foreign property]
  *     whiteSelfReferenceSelf, whiteSelfReferenceRefOneAsOne
@@ -504,7 +504,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
 
     /**
      * Load referrer of whiteSelfReferenceSelfList by the set-upper of referrer. <br>
-     * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
+     * WHITE_SELF_REFERENCE by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * <pre>
      * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelf</span>(<span style="color: #553000">whiteSelfReferenceList</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">referenceCB</span>.setupSelect...
@@ -535,7 +535,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
 
     /**
      * Load referrer of whiteSelfReferenceSelfList by the set-upper of referrer. <br>
-     * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
+     * WHITE_SELF_REFERENCE by PARENT_ID, named 'whiteSelfReferenceSelfList'.
      * <pre>
      * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">loadWhiteSelfReferenceSelf</span>(<span style="color: #553000">whiteSelfReference</span>, <span style="color: #553000">referenceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">referenceCB</span>.setupSelect...

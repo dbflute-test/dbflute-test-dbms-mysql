@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_quoted_ref
+ *     WHITE_QUOTED_REF
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfWhiteQuoted {
 
     /**
      * Load referrer of whiteQuotedRefList by the set-upper of referrer. <br>
-     * white_quoted_ref by ORDER, named 'whiteQuotedRefList'.
+     * WHITE_QUOTED_REF by ORDER, named 'whiteQuotedRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteQuotedList</span>, <span style="color: #553000">quotedLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">quotedLoader</span>.<span style="color: #CC4747">loadWhiteQuotedRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

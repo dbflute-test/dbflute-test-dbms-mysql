@@ -42,10 +42,10 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_split_multiple_fk_next, WHITE_SPLIT_MULTIPLE_FK_REF(AsSplitMultipleFkTest)
+ *     WHITE_SPLIT_MULTIPLE_FK_NEXT, WHITE_SPLIT_MULTIPLE_FK_REF(AsSplitMultipleFkTest)
  *
  * [referrer table]
- *     white_split_multiple_fk_child
+ *     WHITE_SPLIT_MULTIPLE_FK_CHILD
  *
  * [foreign property]
  *     whiteSplitMultipleFkNext, whiteSplitMultipleFkRefAsSplitMultipleFkTest
@@ -80,7 +80,7 @@ public class LoaderOfWhiteSplitMultipleFkBase {
 
     /**
      * Load referrer of whiteSplitMultipleFkChildList by the set-upper of referrer. <br>
-     * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
+     * WHITE_SPLIT_MULTIPLE_FK_CHILD by BASE_ID, named 'whiteSplitMultipleFkChildList'.
      * <pre>
      * <span style="color: #0000C0">whiteSplitMultipleFkBaseBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSplitMultipleFkBaseList</span>, <span style="color: #553000">baseLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">baseLoader</span>.<span style="color: #CC4747">loadWhiteSplitMultipleFkChild</span>(<span style="color: #553000">childCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

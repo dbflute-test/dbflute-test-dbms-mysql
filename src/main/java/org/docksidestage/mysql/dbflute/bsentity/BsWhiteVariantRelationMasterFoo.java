@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne), white_variant_relation_local_pk_referrer(AsOne)
+ *     WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne), WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER(AsOne)
  * 
  * [referrer table]
- *     white_variant_relation_referrer, white_variant_relation_local_pk_referrer
+ *     WHITE_VARIANT_RELATION_REFERRER, WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER
  * 
  * [foreign property]
  *     whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne, whiteVariantRelationLocalPkReferrerAsOne
@@ -108,11 +108,11 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity imp
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. */
+    /** WHITE_VARIANT_RELATION_REFERRER by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. */
     protected OptionalEntity<WhiteVariantRelationReferrer> _whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne;
 
     /**
-     * [get] white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. <br>
+     * [get] WHITE_VARIANT_RELATION_REFERRER by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -122,7 +122,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity imp
     }
 
     /**
-     * [set] white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
+     * [set] WHITE_VARIANT_RELATION_REFERRER by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
      * @param whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne The entity of foreign property 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'. (NullAllowed)
      */
     public void setWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne(OptionalEntity<WhiteVariantRelationReferrer> whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne) {
@@ -153,11 +153,11 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity imp
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'. */
+    /** WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'. */
     protected List<WhiteVariantRelationReferrer> _whiteVariantRelationReferrerAsVariantList;
 
     /**
-     * [get] white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
+     * [get] WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * @return The entity list of referrer property 'whiteVariantRelationReferrerAsVariantList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteVariantRelationReferrer> getWhiteVariantRelationReferrerAsVariantList() {
@@ -166,7 +166,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity imp
     }
 
     /**
-     * [set] white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
+     * [set] WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * @param whiteVariantRelationReferrerAsVariantList The entity list of referrer property 'whiteVariantRelationReferrerAsVariantList'. (NullAllowed)
      */
     public void setWhiteVariantRelationReferrerAsVariantList(List<WhiteVariantRelationReferrer> whiteVariantRelationReferrerAsVariantList) {

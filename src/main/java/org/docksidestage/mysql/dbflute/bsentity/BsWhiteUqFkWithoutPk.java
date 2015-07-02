@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_uq_fk_without_pk_ref
+ *     WHITE_UQ_FK_WITHOUT_PK_REF
  * 
  * [foreign property]
  *     
@@ -119,11 +119,11 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity implements Dom
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_uq_fk_without_pk_ref by FK_TO_UQ_CODE, named 'whiteUqFkWithoutPkRefList'. */
+    /** WHITE_UQ_FK_WITHOUT_PK_REF by FK_TO_UQ_CODE, named 'whiteUqFkWithoutPkRefList'. */
     protected List<WhiteUqFkWithoutPkRef> _whiteUqFkWithoutPkRefList;
 
     /**
-     * [get] white_uq_fk_without_pk_ref by FK_TO_UQ_CODE, named 'whiteUqFkWithoutPkRefList'.
+     * [get] WHITE_UQ_FK_WITHOUT_PK_REF by FK_TO_UQ_CODE, named 'whiteUqFkWithoutPkRefList'.
      * @return The entity list of referrer property 'whiteUqFkWithoutPkRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteUqFkWithoutPkRef> getWhiteUqFkWithoutPkRefList() {
@@ -132,7 +132,7 @@ public abstract class BsWhiteUqFkWithoutPk extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] white_uq_fk_without_pk_ref by FK_TO_UQ_CODE, named 'whiteUqFkWithoutPkRefList'.
+     * [set] WHITE_UQ_FK_WITHOUT_PK_REF by FK_TO_UQ_CODE, named 'whiteUqFkWithoutPkRefList'.
      * @param whiteUqFkWithoutPkRefList The entity list of referrer property 'whiteUqFkWithoutPkRefList'. (NullAllowed)
      */
     public void setWhiteUqFkWithoutPkRefList(List<WhiteUqFkWithoutPkRef> whiteUqFkWithoutPkRefList) {

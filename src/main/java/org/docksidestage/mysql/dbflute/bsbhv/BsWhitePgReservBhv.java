@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_pg_reserv_ref
+ *     WHITE_PG_RESERV_REF
  *
  * [foreign property]
  *     
@@ -504,7 +504,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
 
     /**
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br>
-     * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
+     * WHITE_PG_RESERV_REF by CLASS, named 'whitePgReservRefList'.
      * <pre>
      * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRef</span>(<span style="color: #553000">whitePgReservList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -535,7 +535,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
 
     /**
      * Load referrer of whitePgReservRefList by the set-upper of referrer. <br>
-     * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
+     * WHITE_PG_RESERV_REF by CLASS, named 'whitePgReservRefList'.
      * <pre>
      * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">loadWhitePgReservRef</span>(<span style="color: #553000">whitePgReserv</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...

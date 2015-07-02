@@ -3,6 +3,7 @@ package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 import org.dbflute.exception.UndefinedClassificationCodeException;
 import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;
 import org.docksidestage.mysql.dbflute.exbhv.PurchaseBhv;
+import org.docksidestage.mysql.dbflute.exbhv.PurchasePaymentBhv;
 import org.docksidestage.mysql.dbflute.exentity.Purchase;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
 
@@ -13,7 +14,11 @@ import org.docksidestage.mysql.unit.UnitContainerTestCase;
 public class WxCheckSelectedClassificationTest extends UnitContainerTestCase {
 
     private PurchaseBhv purchaseBhv;
+    private PurchasePaymentBhv purchasePaymentBhv;
 
+    // ===================================================================================
+    //                                                                             Correct
+    //                                                                             =======
     public void test_select_correct_classification() throws Exception {
         // ## Arrange ##
         Purchase purchase = new Purchase();
@@ -45,7 +50,10 @@ public class WxCheckSelectedClassificationTest extends UnitContainerTestCase {
         assertNotNull(actual.getMember().get().getMemberStatusCodeAsMemberStatus());
     }
 
-    public void test_select_illegal_classification() throws Exception {
+    // ===================================================================================
+    //                                                                             Checked
+    //                                                                             =======
+    public void test_select_illegal_classification_checked_basePoint() throws Exception {
         // ## Arrange ##
         Purchase purchase = new Purchase();
         purchase.setPurchaseId(3L);
@@ -59,8 +67,74 @@ public class WxCheckSelectedClassificationTest extends UnitContainerTestCase {
             // ## Assert ##
             fail();
         } catch (UndefinedClassificationCodeException e) {
-            // OK
             log(e.getMessage());
         }
+    }
+
+    public void test_select_illegal_classification_checked_relation() throws Exception {
+        // ## Arrange ##
+        Purchase purchase = new Purchase();
+        purchase.setPurchaseId(3L);
+        purchase.xznocheckSetPaymentCompleteFlg(99999);
+        purchaseBhv.updateNonstrict(purchase);
+
+        // ## Act ##
+        try {
+            purchasePaymentBhv.selectList(cb -> {
+                cb.setupSelect_Purchase();
+                cb.query().setPurchaseId_Equal(3L);
+            });
+
+            // ## Assert ##
+            fail();
+        } catch (UndefinedClassificationCodeException e) {
+            log(e.getMessage());
+        }
+    }
+
+    // ===================================================================================
+    //                                                                              Unlock
+    //                                                                              ======
+    public void test_select_illegal_classification_unlock_basePoint() throws Exception {
+        // ## Arrange ##
+        {
+            Purchase purchase = new Purchase();
+            purchase.setPurchaseId(3L);
+            purchase.xznocheckSetPaymentCompleteFlg(99999);
+            purchaseBhv.updateNonstrict(purchase);
+        }
+
+        // ## Act ##
+        purchaseBhv.selectEntity(cb -> {
+            cb.enableUndefinedClassificationSelect();
+            cb.acceptPK(3L);
+        }).alwaysPresent(purchase -> {
+            /* ## Assert ## */
+            Integer completeFlg = purchase.getPaymentCompleteFlg();
+            assertEquals(99999, completeFlg);
+        });
+    }
+
+    public void test_select_illegal_classification_unlocked_relation() throws Exception {
+        // ## Arrange ##
+        Purchase purchase = new Purchase();
+        purchase.setPurchaseId(3L);
+        purchase.xznocheckSetPaymentCompleteFlg(99999);
+        purchaseBhv.updateNonstrict(purchase);
+
+        // ## Act ##
+        purchasePaymentBhv.selectList(cb -> {
+            cb.enableUndefinedClassificationSelect();
+            cb.setupSelect_Purchase();
+            cb.query().setPurchaseId_Equal(3L);
+        }).stream().forEach(payment -> {
+            payment.getPurchase().alwaysPresent(purchaes -> {
+                /* ## Assert ## */
+                Integer completeFlg = purchase.getPaymentCompleteFlg();
+                assertEquals(99999, completeFlg);
+                markHere("exists");
+            });
+        });
+        assertMarked("exists");
     }
 }

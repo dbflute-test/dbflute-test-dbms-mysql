@@ -643,6 +643,15 @@ create table WHITE_DATE_ADJUSTMENT (
 	PRIMARY KEY (DATE_ADJUSTMENT_ID)
 ) ;
 
+-- /= = = = = = = = = = = = = = = = = = = = = = = = =
+-- for the test of large text file
+-- = = = = = = = = = =/
+create table WHITE_LARGE_TEXT_FILE (
+	LARGE_TEXT_FILE_ID BIGINT NOT NULL,
+	LARGE_TEXT_FILE_TEXT TEXT,
+	PRIMARY KEY (LARGE_TEXT_FILE_ID)
+) ;
+
 -- /= = = = = = = = = = = = = = = = = = = =
 -- for the test of over relation non cache
 -- = = = = = = = = = =/

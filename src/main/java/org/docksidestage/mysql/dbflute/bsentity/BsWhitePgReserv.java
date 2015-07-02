@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_pg_reserv_ref
+ *     WHITE_PG_RESERV_REF
  * 
  * [foreign property]
  *     
@@ -199,11 +199,11 @@ public abstract class BsWhitePgReserv extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'. */
+    /** WHITE_PG_RESERV_REF by CLASS, named 'whitePgReservRefList'. */
     protected List<WhitePgReservRef> _whitePgReservRefList;
 
     /**
-     * [get] white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
+     * [get] WHITE_PG_RESERV_REF by CLASS, named 'whitePgReservRefList'.
      * @return The entity list of referrer property 'whitePgReservRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhitePgReservRef> getWhitePgReservRefList() {
@@ -212,7 +212,7 @@ public abstract class BsWhitePgReserv extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
+     * [set] WHITE_PG_RESERV_REF by CLASS, named 'whitePgReservRefList'.
      * @param whitePgReservRefList The entity list of referrer property 'whitePgReservRefList'. (NullAllowed)
      */
     public void setWhitePgReservRefList(List<WhitePgReservRef> whitePgReservRefList) {

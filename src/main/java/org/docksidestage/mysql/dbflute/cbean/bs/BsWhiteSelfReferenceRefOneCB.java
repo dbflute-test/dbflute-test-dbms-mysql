@@ -257,7 +257,7 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
+     * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
      * <pre>
      * <span style="color: #0000C0">whiteSelfReferenceRefOneBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteSelfReference()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -283,7 +283,7 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
+     * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
      * <pre>
      * <span style="color: #0000C0">whiteSelfReferenceRefOneBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteSelfReferenceAsDirectParent()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -338,8 +338,8 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteSelfReferenceRefOneCQ> {
@@ -369,7 +369,7 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_self_reference_ref_one"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
+         * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteSelfReferenceCB.HpSpecification specifyWhiteSelfReference() {
@@ -389,7 +389,7 @@ public class BsWhiteSelfReferenceRefOneCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
+         * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteSelfReferenceCB.HpSpecification specifyWhiteSelfReferenceAsDirectParent() {

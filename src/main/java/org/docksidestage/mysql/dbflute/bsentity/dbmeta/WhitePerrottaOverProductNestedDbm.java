@@ -125,7 +125,7 @@ public class WhitePerrottaOverProductNestedDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_perrotta_over_product by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
+     * WHITE_PERROTTA_OVER_PRODUCT by PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhitePerrottaOverProductList() {

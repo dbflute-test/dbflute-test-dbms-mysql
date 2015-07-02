@@ -59,8 +59,8 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WithdrawalReason)et).getWithdrawalReasonCode(), (et, vl) -> {
             ColumnInfo col = columnWithdrawalReasonCode();
-            ccls(col, vl);
-            CDef.WithdrawalReason cls = (CDef.WithdrawalReason)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.WithdrawalReason cls = (CDef.WithdrawalReason)gcls(et, col, vl);
             if (cls != null) {
                 ((WithdrawalReason)et).setWithdrawalReasonCodeAsWithdrawalReason(cls);
             } else {
@@ -151,7 +151,7 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員退会情報)member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
+     * (会員退会情報)MEMBER_WITHDRAWAL by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberWithdrawalList() {

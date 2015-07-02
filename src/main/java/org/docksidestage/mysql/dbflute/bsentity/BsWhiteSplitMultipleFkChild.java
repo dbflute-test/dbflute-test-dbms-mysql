@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_split_multiple_fk_base
+ *     WHITE_SPLIT_MULTIPLE_FK_BASE
  * 
  * [referrer table]
  *     
@@ -113,11 +113,11 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'. */
+    /** WHITE_SPLIT_MULTIPLE_FK_BASE by my BASE_ID, named 'whiteSplitMultipleFkBase'. */
     protected OptionalEntity<WhiteSplitMultipleFkBase> _whiteSplitMultipleFkBase;
 
     /**
-     * [get] white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'. <br>
+     * [get] WHITE_SPLIT_MULTIPLE_FK_BASE by my BASE_ID, named 'whiteSplitMultipleFkBase'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSplitMultipleFkBase'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -127,7 +127,7 @@ public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity impleme
     }
 
     /**
-     * [set] white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'.
+     * [set] WHITE_SPLIT_MULTIPLE_FK_BASE by my BASE_ID, named 'whiteSplitMultipleFkBase'.
      * @param whiteSplitMultipleFkBase The entity of foreign property 'whiteSplitMultipleFkBase'. (NullAllowed)
      */
     public void setWhiteSplitMultipleFkBase(OptionalEntity<WhiteSplitMultipleFkBase> whiteSplitMultipleFkBase) {

@@ -62,8 +62,8 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getVariantMasterId(), (et, vl) -> ((WhiteVariantRelationReferrer)et).setVariantMasterId(ctl(vl)), "variantMasterId");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationReferrer)et).getMasterTypeCode(), (et, vl) -> {
             ColumnInfo col = columnMasterTypeCode();
-            ccls(col, vl);
-            CDef.VariantRelationMasterType cls = (CDef.VariantRelationMasterType)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.VariantRelationMasterType cls = (CDef.VariantRelationMasterType)gcls(et, col, vl);
             if (cls != null) {
                 ((WhiteVariantRelationReferrer)et).setMasterTypeCodeAsVariantRelationMasterType(cls);
             } else {
@@ -154,7 +154,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
+     * WHITE_VARIANT_RELATION_MASTER_FOO by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteVariantRelationMasterFooAsVariant() {
@@ -162,7 +162,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_VARIANT_RELATION_FOO", "whiteVariantRelationMasterFooAsVariant", this, WhiteVariantRelationMasterFooDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'FOO'", null, false, "whiteVariantRelationReferrerAsVariantList", false);
     }
     /**
-     * white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
+     * WHITE_VARIANT_RELATION_MASTER_BAR by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteVariantRelationMasterBarAsVariant() {
@@ -170,7 +170,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_VARIANT_RELATION_BAR", "whiteVariantRelationMasterBarAsVariant", this, WhiteVariantRelationMasterBarDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'BAR'", null, false, "whiteVariantRelationReferrerAsVariantList", false);
     }
     /**
-     * white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
+     * WHITE_VARIANT_RELATION_MASTER_QUX by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteVariantRelationMasterQuxAsVariantByQue() {
@@ -178,7 +178,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_VARIANT_RELATION_QUX", "whiteVariantRelationMasterQuxAsVariantByQue", this, WhiteVariantRelationMasterQuxDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$localAlias$$.MASTER_TYPE_CODE = 'QUX'\n     and $$foreignAlias$$.QUX_TYPE_CODE = 'Que'", null, false, null, false);
     }
     /**
-     * white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
+     * WHITE_VARIANT_RELATION_MASTER_CORGE by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteVariantRelationMasterCorgeAsVariantByQuxType() {
@@ -190,7 +190,7 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
+     * WHITE_VARIANT_RELATION_REFERRER_REF by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteVariantRelationReferrerRefList() {

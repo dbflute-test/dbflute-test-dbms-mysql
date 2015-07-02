@@ -132,7 +132,7 @@ public class WhiteUqFkWithoutPkDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_uq_fk_without_pk_ref by FK_TO_UQ_CODE, named 'whiteUqFkWithoutPkRefList'.
+     * WHITE_UQ_FK_WITHOUT_PK_REF by FK_TO_UQ_CODE, named 'whiteUqFkWithoutPkRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteUqFkWithoutPkRefList() {

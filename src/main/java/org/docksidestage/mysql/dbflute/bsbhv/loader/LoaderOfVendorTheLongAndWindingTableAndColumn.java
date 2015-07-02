@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     vendor_the_long_and_winding_table_and_column_ref
+ *     VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfVendorTheLongAndWindingTableAndColumn {
 
     /**
      * Load referrer of vendorTheLongAndWindingTableAndColumnRefList by the set-upper of referrer. <br>
-     * vendor_the_long_and_winding_table_and_column_ref by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
+     * VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF by THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumnRefList'.
      * <pre>
      * <span style="color: #0000C0">vendorTheLongAndWindingTableAndColumnBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorTheLongAndWindingTableAndColumnList</span>, <span style="color: #553000">columnLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">columnLoader</span>.<span style="color: #CC4747">loadVendorTheLongAndWindingTableAndColumnRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

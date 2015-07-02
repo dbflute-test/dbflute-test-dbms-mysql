@@ -159,7 +159,7 @@ public class WhiteCompoundPkRefNestDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
+     * WHITE_COMPOUND_PK_REF by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteCompoundPkRefByQuxMultipleId() {
@@ -169,7 +169,7 @@ public class WhiteCompoundPkRefNestDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX", "whiteCompoundPkRefByQuxMultipleId", this, WhiteCompoundPkRefDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteCompoundPkRefNestByQuxMultipleIdList", false);
     }
     /**
-     * white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
+     * WHITE_COMPOUND_PK_REF by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteCompoundPkRefByFooMultipleId() {

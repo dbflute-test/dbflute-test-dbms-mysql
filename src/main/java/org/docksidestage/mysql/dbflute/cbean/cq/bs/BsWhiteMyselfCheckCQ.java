@@ -199,7 +199,7 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_myself by my MYSELF_ID, named 'whiteMyself'.
+     * WHITE_MYSELF by my MYSELF_ID, named 'whiteMyself'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteMyselfCQ queryWhiteMyself() {

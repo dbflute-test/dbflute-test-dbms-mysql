@@ -61,8 +61,8 @@ public class WhiteVariantRelationMasterQuxDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterQux)et).getMasterQuxName(), (et, vl) -> ((WhiteVariantRelationMasterQux)et).setMasterQuxName((String)vl), "masterQuxName");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterQux)et).getQuxTypeCode(), (et, vl) -> {
             ColumnInfo col = columnQuxTypeCode();
-            ccls(col, vl);
-            CDef.VariantRelationQuxType cls = (CDef.VariantRelationQuxType)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.VariantRelationQuxType cls = (CDef.VariantRelationQuxType)gcls(et, col, vl);
             if (cls != null) {
                 ((WhiteVariantRelationMasterQux)et).setQuxTypeCodeAsVariantRelationQuxType(cls);
             } else {

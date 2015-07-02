@@ -222,7 +222,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverProductCQ queryWhitePerrottaOverProductByNextProductId() {
@@ -242,7 +242,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhitePerrottaOverProductCQ queryWhitePerrottaOverProductByPreviousProductId() {

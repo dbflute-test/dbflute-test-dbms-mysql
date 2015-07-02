@@ -136,7 +136,7 @@ public class WhiteUqFkWithoutPkRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
+     * WHITE_UQ_FK_WITHOUT_PK by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteUqFkWithoutPk() {

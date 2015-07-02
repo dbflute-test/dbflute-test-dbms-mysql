@@ -125,7 +125,7 @@ public class WhiteCompoundReferredPrimaryDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_compound_pk by PK_SECOND_ID, named 'whiteCompoundPkList'.
+     * WHITE_COMPOUND_PK by PK_SECOND_ID, named 'whiteCompoundPkList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteCompoundPkList() {

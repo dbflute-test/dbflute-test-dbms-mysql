@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_quoted
+ *     WHITE_QUOTED
  *
  * [referrer table]
  *     

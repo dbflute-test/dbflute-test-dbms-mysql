@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_compound_pk_ref
+ *     WHITE_COMPOUND_PK_REF
  * 
  * [referrer table]
  *     
@@ -123,11 +123,11 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'. */
+    /** WHITE_COMPOUND_PK_REF by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'. */
     protected OptionalEntity<WhiteCompoundPkRef> _whiteCompoundPkRefByQuxMultipleId;
 
     /**
-     * [get] white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'. <br>
+     * [get] WHITE_COMPOUND_PK_REF by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteCompoundPkRefByQuxMultipleId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -137,18 +137,18 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
     }
 
     /**
-     * [set] white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
+     * [set] WHITE_COMPOUND_PK_REF by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
      * @param whiteCompoundPkRefByQuxMultipleId The entity of foreign property 'whiteCompoundPkRefByQuxMultipleId'. (NullAllowed)
      */
     public void setWhiteCompoundPkRefByQuxMultipleId(OptionalEntity<WhiteCompoundPkRef> whiteCompoundPkRefByQuxMultipleId) {
         _whiteCompoundPkRefByQuxMultipleId = whiteCompoundPkRefByQuxMultipleId;
     }
 
-    /** white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'. */
+    /** WHITE_COMPOUND_PK_REF by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'. */
     protected OptionalEntity<WhiteCompoundPkRef> _whiteCompoundPkRefByFooMultipleId;
 
     /**
-     * [get] white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'. <br>
+     * [get] WHITE_COMPOUND_PK_REF by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteCompoundPkRefByFooMultipleId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -158,7 +158,7 @@ public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements
     }
 
     /**
-     * [set] white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
+     * [set] WHITE_COMPOUND_PK_REF by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
      * @param whiteCompoundPkRefByFooMultipleId The entity of foreign property 'whiteCompoundPkRefByFooMultipleId'. (NullAllowed)
      */
     public void setWhiteCompoundPkRefByFooMultipleId(OptionalEntity<WhiteCompoundPkRef> whiteCompoundPkRefByFooMultipleId) {

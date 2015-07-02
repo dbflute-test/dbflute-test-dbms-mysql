@@ -35,7 +35,7 @@ public class WhiteQuotedRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_quoted by my ORDER, named 'whiteQuoted'.
+     * WHITE_QUOTED by my ORDER, named 'whiteQuoted'.
      */
     public void withWhiteQuoted() {
         _query.xdoNss(() -> _query.queryWhiteQuoted());

@@ -53,7 +53,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_stiletto_alias
+ *     WHITE_STILETTO_ALIAS
  *
  * [referrer table]
  *     

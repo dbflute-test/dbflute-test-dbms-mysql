@@ -45,18 +45,11 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
                 markSet.add("loadCoolClasses");
                 super.loadCoolClasses();
             }
-
-            @Override
-            protected void handleSqlLogRegistry() {
-                markSet.add("handleSqlLogRegistry");
-                super.handleSqlLogRegistry();
-            }
         };
 
         // ## Assert ##
         assertTrue(config.isLocked());
         assertTrue(markSet.contains("loadCoolClasses"));
-        assertTrue(markSet.contains("handleSqlLogRegistry"));
     }
 
     // ===================================================================================
@@ -65,7 +58,7 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
     public void test_SqlLogRegistry_HowToUse() {
         { // Confirm default setting at first
             final SqlLogRegistry sqlLogRegistry = SqlLogRegistryLocator.getInstance();
-            assertNull(sqlLogRegistry);
+            assertNotNull(sqlLogRegistry);
         }
         { // Initialize
             SqlLogRegistryLocator.setInstance(new SqlLogRegistryImpl());
@@ -81,21 +74,11 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
             cb.query().setMemberName_LikeSearch("Sto", op -> op.likePrefix());
             memberBhv.selectList(cb);
         }
-        final String firstSql;
         { // Get sqlLog after executing SQL
             final SqlLogRegistry sqlLogRegistry = SqlLogRegistryLocator.getInstance();
             assertNotNull(sqlLogRegistry);
             final SqlLog lastSqlLog = sqlLogRegistry.getLast();
-            assertNotNull(lastSqlLog);
-            final String completeSql = lastSqlLog.getCompleteSql();
-            final StringBuilder sb = new StringBuilder();
-            sb.append(ln());
-            sb.append("/= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ").append(ln());
-            sb.append(completeSql).append(ln());
-            sb.append("= = = = = = = = = =/");
-            log(sb);
-            assertNotNull(completeSql);
-            firstSql = completeSql;
+            assertNull(lastSqlLog);
         }
         {// Execute SQL again
             final MemberCB cb = new MemberCB();
@@ -104,23 +87,12 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
             cb.paging(3, 2);
             memberBhv.selectList(cb);
         }
-        final String secondSql;
         { // Get sqlLog again
             final SqlLogRegistry sqlLogRegistry = SqlLogRegistryLocator.getInstance();
             assertNotNull(sqlLogRegistry);
             final SqlLog lastSqlLog = sqlLogRegistry.getLast();
-            assertNotNull(lastSqlLog);
-            final String completeSql = lastSqlLog.getCompleteSql();
-            final StringBuilder sb = new StringBuilder();
-            sb.append(ln());
-            sb.append("/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ").append(ln());
-            sb.append(completeSql).append(ln());
-            sb.append("* * * * * * * * * */");
-            log(sb);
-            assertNotNull(completeSql);
-            secondSql = completeSql;
+            assertNull(lastSqlLog);
         }
-        assertNotSame(firstSql, secondSql);
     }
 
     // ===================================================================================

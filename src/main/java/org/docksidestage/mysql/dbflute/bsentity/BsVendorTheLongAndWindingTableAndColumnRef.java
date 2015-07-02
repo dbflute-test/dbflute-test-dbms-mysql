@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     vendor_the_long_and_winding_table_and_column
+ *     VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN
  * 
  * [referrer table]
  *     
@@ -118,11 +118,11 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'. */
+    /** VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'. */
     protected OptionalEntity<VendorTheLongAndWindingTableAndColumn> _vendorTheLongAndWindingTableAndColumn;
 
     /**
-     * [get] vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'. <br>
+     * [get] VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'vendorTheLongAndWindingTableAndColumn'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -132,7 +132,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRef extends Abstrac
     }
 
     /**
-     * [set] vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
+     * [set] VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
      * @param vendorTheLongAndWindingTableAndColumn The entity of foreign property 'vendorTheLongAndWindingTableAndColumn'. (NullAllowed)
      */
     public void setVendorTheLongAndWindingTableAndColumn(OptionalEntity<VendorTheLongAndWindingTableAndColumn> vendorTheLongAndWindingTableAndColumn) {

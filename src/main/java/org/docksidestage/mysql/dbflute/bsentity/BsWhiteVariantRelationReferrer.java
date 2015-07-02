@@ -49,7 +49,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     WHITE_VARIANT_RELATION_MASTER_FOO(AsVariant), WHITE_VARIANT_RELATION_MASTER_BAR(AsVariant), WHITE_VARIANT_RELATION_MASTER_QUX(AsVariantByQue), WHITE_VARIANT_RELATION_MASTER_CORGE(AsVariantByQuxType)
  * 
  * [referrer table]
- *     white_variant_relation_referrer_ref
+ *     WHITE_VARIANT_RELATION_REFERRER_REF
  * 
  * [foreign property]
  *     whiteVariantRelationMasterFooAsVariant, whiteVariantRelationMasterBarAsVariant, whiteVariantRelationMasterQuxAsVariantByQue, whiteVariantRelationMasterCorgeAsVariantByQuxType
@@ -242,11 +242,11 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'. */
+    /** WHITE_VARIANT_RELATION_MASTER_FOO by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'. */
     protected OptionalEntity<WhiteVariantRelationMasterFoo> _whiteVariantRelationMasterFooAsVariant;
 
     /**
-     * [get] white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'. <br>
+     * [get] WHITE_VARIANT_RELATION_MASTER_FOO by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteVariantRelationMasterFooAsVariant'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -256,18 +256,18 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     }
 
     /**
-     * [set] white_variant_relation_master_foo by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
+     * [set] WHITE_VARIANT_RELATION_MASTER_FOO by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterFooAsVariant'.
      * @param whiteVariantRelationMasterFooAsVariant The entity of foreign property 'whiteVariantRelationMasterFooAsVariant'. (NullAllowed)
      */
     public void setWhiteVariantRelationMasterFooAsVariant(OptionalEntity<WhiteVariantRelationMasterFoo> whiteVariantRelationMasterFooAsVariant) {
         _whiteVariantRelationMasterFooAsVariant = whiteVariantRelationMasterFooAsVariant;
     }
 
-    /** white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'. */
+    /** WHITE_VARIANT_RELATION_MASTER_BAR by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'. */
     protected OptionalEntity<WhiteVariantRelationMasterBar> _whiteVariantRelationMasterBarAsVariant;
 
     /**
-     * [get] white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'. <br>
+     * [get] WHITE_VARIANT_RELATION_MASTER_BAR by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteVariantRelationMasterBarAsVariant'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -277,18 +277,18 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     }
 
     /**
-     * [set] white_variant_relation_master_bar by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
+     * [set] WHITE_VARIANT_RELATION_MASTER_BAR by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterBarAsVariant'.
      * @param whiteVariantRelationMasterBarAsVariant The entity of foreign property 'whiteVariantRelationMasterBarAsVariant'. (NullAllowed)
      */
     public void setWhiteVariantRelationMasterBarAsVariant(OptionalEntity<WhiteVariantRelationMasterBar> whiteVariantRelationMasterBarAsVariant) {
         _whiteVariantRelationMasterBarAsVariant = whiteVariantRelationMasterBarAsVariant;
     }
 
-    /** white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'. */
+    /** WHITE_VARIANT_RELATION_MASTER_QUX by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'. */
     protected OptionalEntity<WhiteVariantRelationMasterQux> _whiteVariantRelationMasterQuxAsVariantByQue;
 
     /**
-     * [get] white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'. <br>
+     * [get] WHITE_VARIANT_RELATION_MASTER_QUX by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteVariantRelationMasterQuxAsVariantByQue'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -298,18 +298,18 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     }
 
     /**
-     * [set] white_variant_relation_master_qux by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
+     * [set] WHITE_VARIANT_RELATION_MASTER_QUX by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterQuxAsVariantByQue'.
      * @param whiteVariantRelationMasterQuxAsVariantByQue The entity of foreign property 'whiteVariantRelationMasterQuxAsVariantByQue'. (NullAllowed)
      */
     public void setWhiteVariantRelationMasterQuxAsVariantByQue(OptionalEntity<WhiteVariantRelationMasterQux> whiteVariantRelationMasterQuxAsVariantByQue) {
         _whiteVariantRelationMasterQuxAsVariantByQue = whiteVariantRelationMasterQuxAsVariantByQue;
     }
 
-    /** white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. */
+    /** WHITE_VARIANT_RELATION_MASTER_CORGE by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. */
     protected OptionalEntity<WhiteVariantRelationMasterCorge> _whiteVariantRelationMasterCorgeAsVariantByQuxType;
 
     /**
-     * [get] white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. <br>
+     * [get] WHITE_VARIANT_RELATION_MASTER_CORGE by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -319,7 +319,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     }
 
     /**
-     * [set] white_variant_relation_master_corge by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
+     * [set] WHITE_VARIANT_RELATION_MASTER_CORGE by my VARIANT_MASTER_ID, named 'whiteVariantRelationMasterCorgeAsVariantByQuxType'.
      * @param whiteVariantRelationMasterCorgeAsVariantByQuxType The entity of foreign property 'whiteVariantRelationMasterCorgeAsVariantByQuxType'. (NullAllowed)
      */
     public void setWhiteVariantRelationMasterCorgeAsVariantByQuxType(OptionalEntity<WhiteVariantRelationMasterCorge> whiteVariantRelationMasterCorgeAsVariantByQuxType) {
@@ -329,11 +329,11 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'. */
+    /** WHITE_VARIANT_RELATION_REFERRER_REF by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'. */
     protected List<WhiteVariantRelationReferrerRef> _whiteVariantRelationReferrerRefList;
 
     /**
-     * [get] white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
+     * [get] WHITE_VARIANT_RELATION_REFERRER_REF by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
      * @return The entity list of referrer property 'whiteVariantRelationReferrerRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteVariantRelationReferrerRef> getWhiteVariantRelationReferrerRefList() {
@@ -342,7 +342,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
     }
 
     /**
-     * [set] white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
+     * [set] WHITE_VARIANT_RELATION_REFERRER_REF by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
      * @param whiteVariantRelationReferrerRefList The entity list of referrer property 'whiteVariantRelationReferrerRefList'. (NullAllowed)
      */
     public void setWhiteVariantRelationReferrerRefList(List<WhiteVariantRelationReferrerRef> whiteVariantRelationReferrerRefList) {

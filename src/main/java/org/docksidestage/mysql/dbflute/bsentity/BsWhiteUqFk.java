@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_uq_fk_ref
+ *     WHITE_UQ_FK_REF
  * 
  * [foreign property]
  *     
@@ -120,11 +120,11 @@ public abstract class BsWhiteUqFk extends AbstractEntity implements DomainEntity
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'. */
+    /** WHITE_UQ_FK_REF by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'. */
     protected List<WhiteUqFkRef> _whiteUqFkRefByFkToPkIdList;
 
     /**
-     * [get] white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
+     * [get] WHITE_UQ_FK_REF by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
      * @return The entity list of referrer property 'whiteUqFkRefByFkToPkIdList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteUqFkRef> getWhiteUqFkRefByFkToPkIdList() {
@@ -133,18 +133,18 @@ public abstract class BsWhiteUqFk extends AbstractEntity implements DomainEntity
     }
 
     /**
-     * [set] white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
+     * [set] WHITE_UQ_FK_REF by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
      * @param whiteUqFkRefByFkToPkIdList The entity list of referrer property 'whiteUqFkRefByFkToPkIdList'. (NullAllowed)
      */
     public void setWhiteUqFkRefByFkToPkIdList(List<WhiteUqFkRef> whiteUqFkRefByFkToPkIdList) {
         _whiteUqFkRefByFkToPkIdList = whiteUqFkRefByFkToPkIdList;
     }
 
-    /** white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'. */
+    /** WHITE_UQ_FK_REF by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'. */
     protected List<WhiteUqFkRef> _whiteUqFkRefByFkToUqCodeList;
 
     /**
-     * [get] white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
+     * [get] WHITE_UQ_FK_REF by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
      * @return The entity list of referrer property 'whiteUqFkRefByFkToUqCodeList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteUqFkRef> getWhiteUqFkRefByFkToUqCodeList() {
@@ -153,7 +153,7 @@ public abstract class BsWhiteUqFk extends AbstractEntity implements DomainEntity
     }
 
     /**
-     * [set] white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
+     * [set] WHITE_UQ_FK_REF by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
      * @param whiteUqFkRefByFkToUqCodeList The entity list of referrer property 'whiteUqFkRefByFkToUqCodeList'. (NullAllowed)
      */
     public void setWhiteUqFkRefByFkToUqCodeList(List<WhiteUqFkRef> whiteUqFkRefByFkToUqCodeList) {

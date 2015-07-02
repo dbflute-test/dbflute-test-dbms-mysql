@@ -42,10 +42,10 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_uq_fk
+ *     WHITE_UQ_FK
  *
  * [referrer table]
- *     white_uq_fk_ref_nest
+ *     WHITE_UQ_FK_REF_NEST
  *
  * [foreign property]
  *     whiteUqFkByFkToPkId, whiteUqFkByFkToUqCode
@@ -80,7 +80,7 @@ public class LoaderOfWhiteUqFkRef {
 
     /**
      * Load referrer of whiteUqFkRefNestList by the set-upper of referrer. <br>
-     * white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
+     * WHITE_UQ_FK_REF_NEST by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteUqFkRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refLoader</span>.<span style="color: #CC4747">loadWhiteUqFkRefNest</span>(<span style="color: #553000">nestCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

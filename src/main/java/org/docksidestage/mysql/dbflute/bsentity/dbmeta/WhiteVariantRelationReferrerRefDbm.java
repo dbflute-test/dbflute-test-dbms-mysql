@@ -134,7 +134,7 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
+     * WHITE_VARIANT_RELATION_REFERRER by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteVariantRelationReferrer() {

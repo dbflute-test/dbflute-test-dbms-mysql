@@ -251,7 +251,7 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_myself by my MYSELF_ID, named 'whiteMyself'.
+     * WHITE_MYSELF by my MYSELF_ID, named 'whiteMyself'.
      * <pre>
      * <span style="color: #0000C0">whiteMyselfCheckBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteMyself()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -263,7 +263,7 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteMyself() {
         assertSetupSelectPurpose("whiteMyself");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMyselfId();
         }
         doSetupSelect(() -> query().queryWhiteMyself());
@@ -305,8 +305,8 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteMyselfCheckCQ> {
@@ -344,7 +344,7 @@ public class BsWhiteMyselfCheckCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_myself_check"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_myself by my MYSELF_ID, named 'whiteMyself'.
+         * WHITE_MYSELF by my MYSELF_ID, named 'whiteMyself'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteMyselfCB.HpSpecification specifyWhiteMyself() {

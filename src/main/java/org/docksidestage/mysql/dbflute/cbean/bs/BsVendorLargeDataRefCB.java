@@ -252,7 +252,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'.
+     * VENDOR_LARGE_DATA by my LARGE_DATA_ID, named 'vendorLargeData'.
      * <pre>
      * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_VendorLargeData()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -264,7 +264,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      */
     public void setupSelect_VendorLargeData() {
         assertSetupSelectPurpose("vendorLargeData");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnLargeDataId();
         }
         doSetupSelect(() -> query().queryVendorLargeData());
@@ -277,7 +277,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
+     * VENDOR_LARGE_DATA_REF by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
      * <pre>
      * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_VendorLargeDataRefSelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -290,7 +290,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
      */
     public VendorLargeDataRefNss setupSelect_VendorLargeDataRefSelf() {
         assertSetupSelectPurpose("vendorLargeDataRefSelf");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnSelfParentId();
         }
         doSetupSelect(() -> query().queryVendorLargeDataRefSelf());
@@ -335,8 +335,8 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<VendorLargeDataRefCQ> {
@@ -409,7 +409,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "vendor_large_data_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'.
+         * VENDOR_LARGE_DATA by my LARGE_DATA_ID, named 'vendorLargeData'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public VendorLargeDataCB.HpSpecification specifyVendorLargeData() {
@@ -429,7 +429,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
+         * VENDOR_LARGE_DATA_REF by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public VendorLargeDataRefCB.HpSpecification specifyVendorLargeDataRefSelf() {
@@ -450,7 +450,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from vendor_large_data_ref where ...) as FOO_MAX} <br>
-         * vendor_large_data_ref by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
+         * VENDOR_LARGE_DATA_REF by SELF_PARENT_ID, named 'vendorLargeDataRefSelfList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     refCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

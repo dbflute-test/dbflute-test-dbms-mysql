@@ -455,92 +455,84 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     //                                                                     ===============
     /**
      * Prepare ScalarCondition as equal. <br>
-     * {where FOO = (select max(BAR) from ...)
+     * {where FOO = (select max(BAR) from ...)}
      * <pre>
-     * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteSuppressJoinSqManyOneCB&gt;() {
-     *     public void query(WhiteSuppressJoinSqManyOneCB subCB) {
-     *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
-     *         subCB.query().setYyy...
-     *     }
+     * cb.query().scalar_Equal().<span style="color: #CC4747">avg</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
+     *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre>
+     * </pre> 
      * @return The object to set up a function. (NotNull)
      */
-    public HpSSQFunction<WhiteSuppressJoinSqManyOneCB> scalar_Equal() {
-        return xcreateSSQFunction(CK_EQ, WhiteSuppressJoinSqManyOneCB.class);
+    public HpSLCFunction<WhiteSuppressJoinSqManyOneCB> scalar_Equal() {
+        return xcreateSLCFunction(CK_EQ, WhiteSuppressJoinSqManyOneCB.class);
     }
 
     /**
      * Prepare ScalarCondition as equal. <br>
-     * {where FOO &lt;&gt; (select max(BAR) from ...)
+     * {where FOO &lt;&gt; (select max(BAR) from ...)}
      * <pre>
-     * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteSuppressJoinSqManyOneCB&gt;() {
-     *     public void query(WhiteSuppressJoinSqManyOneCB subCB) {
-     *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
-     *         subCB.query().setYyy...
-     *     }
+     * cb.query().scalar_Equal().<span style="color: #CC4747">avg</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
+     *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre>
+     * </pre> 
      * @return The object to set up a function. (NotNull)
      */
-    public HpSSQFunction<WhiteSuppressJoinSqManyOneCB> scalar_NotEqual() {
-        return xcreateSSQFunction(CK_NES, WhiteSuppressJoinSqManyOneCB.class);
+    public HpSLCFunction<WhiteSuppressJoinSqManyOneCB> scalar_NotEqual() {
+        return xcreateSLCFunction(CK_NES, WhiteSuppressJoinSqManyOneCB.class);
     }
 
     /**
      * Prepare ScalarCondition as greaterThan. <br>
-     * {where FOO &gt; (select max(BAR) from ...)
+     * {where FOO &gt; (select max(BAR) from ...)}
      * <pre>
-     * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteSuppressJoinSqManyOneCB&gt;() {
-     *     public void query(WhiteSuppressJoinSqManyOneCB subCB) {
-     *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
-     *         subCB.query().setBar...
-     *     }
+     * cb.query().scalar_Equal().<span style="color: #CC4747">avg</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
+     *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
+     * </pre> 
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSSQFunction<WhiteSuppressJoinSqManyOneCB> scalar_GreaterThan() {
-        return xcreateSSQFunction(CK_GT, WhiteSuppressJoinSqManyOneCB.class);
+    public HpSLCFunction<WhiteSuppressJoinSqManyOneCB> scalar_GreaterThan() {
+        return xcreateSLCFunction(CK_GT, WhiteSuppressJoinSqManyOneCB.class);
     }
 
     /**
      * Prepare ScalarCondition as lessThan. <br>
-     * {where FOO &lt; (select max(BAR) from ...)
+     * {where FOO &lt; (select max(BAR) from ...)}
      * <pre>
-     * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteSuppressJoinSqManyOneCB&gt;() {
-     *     public void query(WhiteSuppressJoinSqManyOneCB subCB) {
-     *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
-     *         subCB.query().setBar...
-     *     }
+     * cb.query().scalar_Equal().<span style="color: #CC4747">avg</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
+     *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
+     * </pre> 
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSSQFunction<WhiteSuppressJoinSqManyOneCB> scalar_LessThan() {
-        return xcreateSSQFunction(CK_LT, WhiteSuppressJoinSqManyOneCB.class);
+    public HpSLCFunction<WhiteSuppressJoinSqManyOneCB> scalar_LessThan() {
+        return xcreateSLCFunction(CK_LT, WhiteSuppressJoinSqManyOneCB.class);
     }
 
     /**
      * Prepare ScalarCondition as greaterEqual. <br>
-     * {where FOO &gt;= (select max(BAR) from ...)
+     * {where FOO &gt;= (select max(BAR) from ...)}
      * <pre>
-     * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteSuppressJoinSqManyOneCB&gt;() {
-     *     public void query(WhiteSuppressJoinSqManyOneCB subCB) {
-     *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
-     *         subCB.query().setBar...
-     *     }
+     * cb.query().scalar_Equal().<span style="color: #CC4747">avg</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
+     *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre>
+     * </pre> 
      * @return The object to set up a function. (NotNull)
      */
-    public HpSSQFunction<WhiteSuppressJoinSqManyOneCB> scalar_GreaterEqual() {
-        return xcreateSSQFunction(CK_GE, WhiteSuppressJoinSqManyOneCB.class);
+    public HpSLCFunction<WhiteSuppressJoinSqManyOneCB> scalar_GreaterEqual() {
+        return xcreateSLCFunction(CK_GE, WhiteSuppressJoinSqManyOneCB.class);
     }
 
     /**
      * Prepare ScalarCondition as lessEqual. <br>
-     * {where FOO &lt;= (select max(BAR) from ...)
+     * {where FOO &lt;= (select max(BAR) from ...)}
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteSuppressJoinSqManyOneCB&gt;() {
      *     public void query(WhiteSuppressJoinSqManyOneCB subCB) {
@@ -551,17 +543,17 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSSQFunction<WhiteSuppressJoinSqManyOneCB> scalar_LessEqual() {
-        return xcreateSSQFunction(CK_LE, WhiteSuppressJoinSqManyOneCB.class);
+    public HpSLCFunction<WhiteSuppressJoinSqManyOneCB> scalar_LessEqual() {
+        return xcreateSLCFunction(CK_LE, WhiteSuppressJoinSqManyOneCB.class);
     }
 
     @SuppressWarnings("unchecked")
-    protected <CB extends ConditionBean> void xscalarCondition(String fn, SubQuery<CB> sq, String rd, HpSSQOption<CB> op) {
+    protected <CB extends ConditionBean> void xscalarCondition(String fn, SubQuery<CB> sq, String rd, HpSLCCustomized<CB> cs, ScalarConditionOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSuppressJoinSqManyOneCB cb = xcreateScalarConditionCB(); sq.query((CB)cb);
         String pp = keepScalarCondition(cb.query()); // for saving query-value
-        op.setPartitionByCBean((CB)xcreateScalarConditionPartitionByCB()); // for using partition-by
-        registerScalarCondition(fn, cb.query(), pp, rd, op);
+        cs.setPartitionByCBean((CB)xcreateScalarConditionPartitionByCB()); // for using partition-by
+        registerScalarCondition(fn, cb.query(), pp, rd, cs, op);
     }
     public abstract String keepScalarCondition(WhiteSuppressJoinSqManyOneCQ sq);
 
@@ -698,6 +690,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     protected String xabUDT() { return Date.class.getName(); }
     protected String xabCQ() { return WhiteSuppressJoinSqManyOneCQ.class.getName(); }
     protected String xabLSO() { return LikeSearchOption.class.getName(); }
-    protected String xabSSQS() { return HpSSQSetupper.class.getName(); }
+    protected String xabSLCS() { return HpSLCSetupper.class.getName(); }
     protected String xabSCP() { return SubQuery.class.getName(); }
 }

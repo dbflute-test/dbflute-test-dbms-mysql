@@ -35,7 +35,7 @@ public class WhiteCompoundPkRefManyNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
+     * WHITE_COMPOUND_PK by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkNss withWhiteCompoundPkToPK() {

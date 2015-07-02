@@ -35,14 +35,14 @@ public class VendorLargeDataRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * vendor_large_data by my LARGE_DATA_ID, named 'vendorLargeData'.
+     * VENDOR_LARGE_DATA by my LARGE_DATA_ID, named 'vendorLargeData'.
      */
     public void withVendorLargeData() {
         _query.xdoNss(() -> _query.queryVendorLargeData());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * vendor_large_data_ref by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
+     * VENDOR_LARGE_DATA_REF by my SELF_PARENT_ID, named 'vendorLargeDataRefSelf'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public VendorLargeDataRefNss withVendorLargeDataRefSelf() {

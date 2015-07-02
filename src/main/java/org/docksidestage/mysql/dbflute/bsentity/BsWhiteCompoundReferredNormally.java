@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_compound_pk
+ *     WHITE_COMPOUND_PK
  * 
  * [foreign property]
  *     
@@ -109,11 +109,11 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity imp
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_compound_pk by REFERRED_ID, named 'whiteCompoundPkList'. */
+    /** WHITE_COMPOUND_PK by REFERRED_ID, named 'whiteCompoundPkList'. */
     protected List<WhiteCompoundPk> _whiteCompoundPkList;
 
     /**
-     * [get] white_compound_pk by REFERRED_ID, named 'whiteCompoundPkList'.
+     * [get] WHITE_COMPOUND_PK by REFERRED_ID, named 'whiteCompoundPkList'.
      * @return The entity list of referrer property 'whiteCompoundPkList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteCompoundPk> getWhiteCompoundPkList() {
@@ -122,7 +122,7 @@ public abstract class BsWhiteCompoundReferredNormally extends AbstractEntity imp
     }
 
     /**
-     * [set] white_compound_pk by REFERRED_ID, named 'whiteCompoundPkList'.
+     * [set] WHITE_COMPOUND_PK by REFERRED_ID, named 'whiteCompoundPkList'.
      * @param whiteCompoundPkList The entity list of referrer property 'whiteCompoundPkList'. (NullAllowed)
      */
     public void setWhiteCompoundPkList(List<WhiteCompoundPk> whiteCompoundPkList) {

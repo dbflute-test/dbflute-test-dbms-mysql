@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_perrotta_over_product
+ *     WHITE_PERROTTA_OVER_PRODUCT
  * 
  * [referrer table]
  *     
@@ -131,11 +131,11 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'. */
+    /** WHITE_PERROTTA_OVER_PRODUCT by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'. */
     protected OptionalEntity<WhitePerrottaOverProduct> _whitePerrottaOverProductByNextProductId;
 
     /**
-     * [get] white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'. <br>
+     * [get] WHITE_PERROTTA_OVER_PRODUCT by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whitePerrottaOverProductByNextProductId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -145,18 +145,18 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     }
 
     /**
-     * [set] white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
+     * [set] WHITE_PERROTTA_OVER_PRODUCT by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
      * @param whitePerrottaOverProductByNextProductId The entity of foreign property 'whitePerrottaOverProductByNextProductId'. (NullAllowed)
      */
     public void setWhitePerrottaOverProductByNextProductId(OptionalEntity<WhitePerrottaOverProduct> whitePerrottaOverProductByNextProductId) {
         _whitePerrottaOverProductByNextProductId = whitePerrottaOverProductByNextProductId;
     }
 
-    /** white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'. */
+    /** WHITE_PERROTTA_OVER_PRODUCT by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'. */
     protected OptionalEntity<WhitePerrottaOverProduct> _whitePerrottaOverProductByPreviousProductId;
 
     /**
-     * [get] white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'. <br>
+     * [get] WHITE_PERROTTA_OVER_PRODUCT by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whitePerrottaOverProductByPreviousProductId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -166,7 +166,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     }
 
     /**
-     * [set] white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
+     * [set] WHITE_PERROTTA_OVER_PRODUCT by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
      * @param whitePerrottaOverProductByPreviousProductId The entity of foreign property 'whitePerrottaOverProductByPreviousProductId'. (NullAllowed)
      */
     public void setWhitePerrottaOverProductByPreviousProductId(OptionalEntity<WhitePerrottaOverProduct> whitePerrottaOverProductByPreviousProductId) {

@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_myself
+ *     WHITE_MYSELF
  * 
  * [referrer table]
  *     
@@ -113,11 +113,11 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_myself by my MYSELF_ID, named 'whiteMyself'. */
+    /** WHITE_MYSELF by my MYSELF_ID, named 'whiteMyself'. */
     protected OptionalEntity<WhiteMyself> _whiteMyself;
 
     /**
-     * [get] white_myself by my MYSELF_ID, named 'whiteMyself'. <br>
+     * [get] WHITE_MYSELF by my MYSELF_ID, named 'whiteMyself'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteMyself'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -127,7 +127,7 @@ public abstract class BsWhiteMyselfCheck extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] white_myself by my MYSELF_ID, named 'whiteMyself'.
+     * [set] WHITE_MYSELF by my MYSELF_ID, named 'whiteMyself'.
      * @param whiteMyself The entity of foreign property 'whiteMyself'. (NullAllowed)
      */
     public void setWhiteMyself(OptionalEntity<WhiteMyself> whiteMyself) {

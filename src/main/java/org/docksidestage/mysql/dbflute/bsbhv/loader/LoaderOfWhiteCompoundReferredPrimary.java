@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_compound_pk
+ *     WHITE_COMPOUND_PK
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfWhiteCompoundReferredPrimary {
 
     /**
      * Load referrer of whiteCompoundPkList by the set-upper of referrer. <br>
-     * white_compound_pk by PK_SECOND_ID, named 'whiteCompoundPkList'.
+     * WHITE_COMPOUND_PK by PK_SECOND_ID, named 'whiteCompoundPkList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteCompoundReferredPrimaryList</span>, <span style="color: #553000">primaryLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">primaryLoader</span>.<span style="color: #CC4747">loadWhiteCompoundPk</span>(<span style="color: #553000">pkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

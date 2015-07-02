@@ -35,7 +35,7 @@ public class WhiteSuppressJoinSqManyOneNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
+     * WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
      */
     public void withWhiteSuppressJoinSqManyOneOne() {
         _query.xdoNss(() -> _query.queryWhiteSuppressJoinSqManyOneOne());

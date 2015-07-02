@@ -251,7 +251,7 @@ public class BsWhiteQuotedRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_quoted by my ORDER, named 'whiteQuoted'.
+     * WHITE_QUOTED by my ORDER, named 'whiteQuoted'.
      * <pre>
      * <span style="color: #0000C0">whiteQuotedRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteQuoted()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -263,7 +263,7 @@ public class BsWhiteQuotedRefCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteQuoted() {
         assertSetupSelectPurpose("whiteQuoted");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnOrder();
         }
         doSetupSelect(() -> query().queryWhiteQuoted());
@@ -305,8 +305,8 @@ public class BsWhiteQuotedRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteQuotedRefCQ> {
@@ -339,7 +339,7 @@ public class BsWhiteQuotedRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_quoted_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_quoted by my ORDER, named 'whiteQuoted'.
+         * WHITE_QUOTED by my ORDER, named 'whiteQuoted'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteQuotedCB.HpSpecification specifyWhiteQuoted() {

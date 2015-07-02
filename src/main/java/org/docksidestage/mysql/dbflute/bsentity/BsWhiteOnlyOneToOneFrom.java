@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_only_one_to_one_to(AsOne)
+ *     WHITE_ONLY_ONE_TO_ONE_TO(AsOne)
  * 
  * [referrer table]
- *     white_only_one_to_one_to
+ *     WHITE_ONLY_ONE_TO_ONE_TO
  * 
  * [foreign property]
  *     whiteOnlyOneToOneToAsOne

@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_stiletto_alias
+ *     WHITE_STILETTO_ALIAS
  * 
  * [referrer table]
  *     
@@ -158,11 +158,11 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity implements 
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'. */
+    /** WHITE_STILETTO_ALIAS by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'. */
     protected OptionalEntity<WhiteStilettoAlias> _whiteStilettoAlias;
 
     /**
-     * [get] white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'. <br>
+     * [get] WHITE_STILETTO_ALIAS by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteStilettoAlias'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -172,7 +172,7 @@ public abstract class BsWhiteStilettoAliasRef extends AbstractEntity implements 
     }
 
     /**
-     * [set] white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
+     * [set] WHITE_STILETTO_ALIAS by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
      * @param whiteStilettoAlias The entity of foreign property 'whiteStilettoAlias'. (NullAllowed)
      */
     public void setWhiteStilettoAlias(OptionalEntity<WhiteStilettoAlias> whiteStilettoAlias) {

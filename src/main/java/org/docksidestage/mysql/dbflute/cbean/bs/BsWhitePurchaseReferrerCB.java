@@ -257,7 +257,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'.
+     * (購入)PURCHASE by my PURCHASE_REFERRER_ID, named 'purchase'.
      * <pre>
      * <span style="color: #0000C0">whitePurchaseReferrerBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Purchase()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -312,8 +312,8 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhitePurchaseReferrerCQ> {
@@ -342,7 +342,7 @@ public class BsWhitePurchaseReferrerCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_purchase_referrer"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'.
+         * (購入)PURCHASE by my PURCHASE_REFERRER_ID, named 'purchase'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public PurchaseCB.HpSpecification specifyPurchase() {

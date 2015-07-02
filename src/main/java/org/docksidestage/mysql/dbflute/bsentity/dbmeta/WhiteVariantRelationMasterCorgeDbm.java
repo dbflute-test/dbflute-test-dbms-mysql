@@ -61,8 +61,8 @@ public class WhiteVariantRelationMasterCorgeDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getMasterCorgeName(), (et, vl) -> ((WhiteVariantRelationMasterCorge)et).setMasterCorgeName((String)vl), "masterCorgeName");
         setupEpg(_epgMap, et -> ((WhiteVariantRelationMasterCorge)et).getCorgeTypeCode(), (et, vl) -> {
             ColumnInfo col = columnCorgeTypeCode();
-            ccls(col, vl);
-            CDef.VariantRelationQuxType cls = (CDef.VariantRelationQuxType)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.VariantRelationQuxType cls = (CDef.VariantRelationQuxType)gcls(et, col, vl);
             if (cls != null) {
                 ((WhiteVariantRelationMasterCorge)et).setCorgeTypeCodeAsVariantRelationQuxType(cls);
             } else {

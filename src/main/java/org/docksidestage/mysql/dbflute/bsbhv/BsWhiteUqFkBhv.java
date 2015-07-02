@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_uq_fk_ref
+ *     WHITE_UQ_FK_REF
  *
  * [foreign property]
  *     
@@ -529,7 +529,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
 
     /**
      * Load referrer of whiteUqFkRefByFkToPkIdList by the set-upper of referrer. <br>
-     * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
+     * WHITE_UQ_FK_REF by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToPkId</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -560,7 +560,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
 
     /**
      * Load referrer of whiteUqFkRefByFkToPkIdList by the set-upper of referrer. <br>
-     * white_uq_fk_ref by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
+     * WHITE_UQ_FK_REF by FK_TO_PK_ID, named 'whiteUqFkRefByFkToPkIdList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToPkId</span>(<span style="color: #553000">whiteUqFk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -617,7 +617,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
 
     /**
      * Load referrer of whiteUqFkRefByFkToUqCodeList by the set-upper of referrer. <br>
-     * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
+     * WHITE_UQ_FK_REF by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToUqCode</span>(<span style="color: #553000">whiteUqFkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -648,7 +648,7 @@ public abstract class BsWhiteUqFkBhv extends AbstractBehaviorWritable<WhiteUqFk,
 
     /**
      * Load referrer of whiteUqFkRefByFkToUqCodeList by the set-upper of referrer. <br>
-     * white_uq_fk_ref by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
+     * WHITE_UQ_FK_REF by FK_TO_UQ_CODE, named 'whiteUqFkRefByFkToUqCodeList'.
      * <pre>
      * <span style="color: #0000C0">whiteUqFkBhv</span>.<span style="color: #CC4747">loadWhiteUqFkRefByFkToUqCode</span>(<span style="color: #553000">whiteUqFk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...

@@ -35,7 +35,7 @@ public class WhiteCompoundPkRefNestNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_compound_pk_ref by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
+     * WHITE_COMPOUND_PK_REF by my BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, named 'whiteCompoundPkRefByQuxMultipleId'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkRefNss withWhiteCompoundPkRefByQuxMultipleId() {
@@ -44,7 +44,7 @@ public class WhiteCompoundPkRefNestNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_compound_pk_ref by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
+     * WHITE_COMPOUND_PK_REF by my FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, named 'whiteCompoundPkRefByFooMultipleId'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkRefNss withWhiteCompoundPkRefByFooMultipleId() {

@@ -236,7 +236,7 @@ public class BsWhiteSplitMultipleFkBaseCQ extends AbstractBsWhiteSplitMultipleFk
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
+     * WHITE_SPLIT_MULTIPLE_FK_NEXT by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSplitMultipleFkNextCQ queryWhiteSplitMultipleFkNext() {
@@ -256,7 +256,7 @@ public class BsWhiteSplitMultipleFkBaseCQ extends AbstractBsWhiteSplitMultipleFk
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
+     * WHITE_SPLIT_MULTIPLE_FK_REF by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSplitMultipleFkRefCQ queryWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {

@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     white_all_in_one_cls_element
+ *     WHITE_ALL_IN_ONE_CLS_ELEMENT
  * 
  * [foreign property]
  *     
@@ -114,11 +114,11 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity implemen
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'. */
+    /** WHITE_ALL_IN_ONE_CLS_ELEMENT by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'. */
     protected List<WhiteAllInOneClsElement> _whiteAllInOneClsElementList;
 
     /**
-     * [get] white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
+     * [get] WHITE_ALL_IN_ONE_CLS_ELEMENT by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * @return The entity list of referrer property 'whiteAllInOneClsElementList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteAllInOneClsElement> getWhiteAllInOneClsElementList() {
@@ -127,7 +127,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_all_in_one_cls_element by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
+     * [set] WHITE_ALL_IN_ONE_CLS_ELEMENT by CLS_CATEGORY_CODE, named 'whiteAllInOneClsElementList'.
      * @param whiteAllInOneClsElementList The entity list of referrer property 'whiteAllInOneClsElementList'. (NullAllowed)
      */
     public void setWhiteAllInOneClsElementList(List<WhiteAllInOneClsElement> whiteAllInOneClsElementList) {

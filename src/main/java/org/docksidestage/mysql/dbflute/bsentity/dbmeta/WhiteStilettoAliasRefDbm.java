@@ -214,7 +214,7 @@ public class WhiteStilettoAliasRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
+     * WHITE_STILETTO_ALIAS by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteStilettoAlias() {

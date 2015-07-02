@@ -181,7 +181,7 @@ public class WhiteStilettoAliasDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_stiletto_alias_ref by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
+     * WHITE_STILETTO_ALIAS_REF by STILETTO_ALIAS_ID, named 'whiteStilettoAliasRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteStilettoAliasRefList() {

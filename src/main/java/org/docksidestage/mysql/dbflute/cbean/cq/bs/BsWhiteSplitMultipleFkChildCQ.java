@@ -199,7 +199,7 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_split_multiple_fk_base by my BASE_ID, named 'whiteSplitMultipleFkBase'.
+     * WHITE_SPLIT_MULTIPLE_FK_BASE by my BASE_ID, named 'whiteSplitMultipleFkBase'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteSplitMultipleFkBaseCQ queryWhiteSplitMultipleFkBase() {

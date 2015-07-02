@@ -179,7 +179,7 @@ public class BsWhiteVariantRelationLocalPkReferrerCQ extends AbstractBsWhiteVari
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
+     * WHITE_VARIANT_RELATION_MASTER_FOO by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteVariantRelationMasterFooCQ queryWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {

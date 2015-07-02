@@ -35,7 +35,7 @@ public class WhiteImplicitReverseFkNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_implicit_reverse_fk_ref by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
+     * WHITE_IMPLICIT_REVERSE_FK_REF by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkRefWithImplicitReverseFK'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
     public void withWhiteImplicitReverseFkRefWithImplicitReverseFK(final java.time.LocalDate targetDate) {
@@ -43,7 +43,7 @@ public class WhiteImplicitReverseFkNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_implicit_reverse_fk_suppress by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
+     * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS by my WHITE_IMPLICIT_REVERSE_FK_ID, named 'whiteImplicitReverseFkSuppressSuppressImplicitReverseFK'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      */
     public void withWhiteImplicitReverseFkSuppressSuppressImplicitReverseFK(final java.time.LocalDate targetDate) {

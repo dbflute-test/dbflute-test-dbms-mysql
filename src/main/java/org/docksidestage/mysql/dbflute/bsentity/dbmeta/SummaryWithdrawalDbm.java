@@ -65,8 +65,8 @@ public class SummaryWithdrawalDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getWithdrawalDatetime(), (et, vl) -> ((SummaryWithdrawal)et).setWithdrawalDatetime(ctldt(vl)), "withdrawalDatetime");
         setupEpg(_epgMap, et -> ((SummaryWithdrawal)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
-            ccls(col, vl);
-            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, col, vl);
             if (cls != null) {
                 ((SummaryWithdrawal)et).setMemberStatusCodeAsMemberStatus(cls);
             } else {

@@ -260,7 +260,7 @@ public class BsWhiteCompoundPkRefManyCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
+     * WHITE_COMPOUND_PK by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkRefManyBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundPkToPK()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -273,7 +273,7 @@ public class BsWhiteCompoundPkRefManyCB extends AbstractConditionBean {
      */
     public WhiteCompoundPkNss setupSelect_WhiteCompoundPkToPK() {
         assertSetupSelectPurpose("whiteCompoundPkToPK");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnRefManyFirstId();
             specify().columnRefManySecondId();
         }
@@ -319,8 +319,8 @@ public class BsWhiteCompoundPkRefManyCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteCompoundPkRefManyCQ> {
@@ -380,7 +380,7 @@ public class BsWhiteCompoundPkRefManyCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_compound_pk_ref_many"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_compound_pk by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
+         * WHITE_COMPOUND_PK by my REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkToPK'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteCompoundPkCB.HpSpecification specifyWhiteCompoundPkToPK() {

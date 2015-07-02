@@ -63,6 +63,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("service_rank", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.ServiceRankDbm");
         tmpMap.put("summary_product", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.SummaryProductDbm");
         tmpMap.put("summary_withdrawal", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.SummaryWithdrawalDbm");
+        tmpMap.put("vendor_$_dollar", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.Vendor$DollarDbm");
         tmpMap.put("vendor_check", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.VendorCheckDbm");
         tmpMap.put("vendor_constraint_name_auto_bar", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.VendorConstraintNameAutoBarDbm");
         tmpMap.put("vendor_constraint_name_auto_foo", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.VendorConstraintNameAutoFooDbm");
@@ -102,6 +103,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("white_implicit_reverse_fk_ref", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteImplicitReverseFkRefDbm");
         tmpMap.put("white_implicit_reverse_fk_suppress", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteImplicitReverseFkSuppressDbm");
         tmpMap.put("white_include_query", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteIncludeQueryDbm");
+        tmpMap.put("white_large_text_file", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteLargeTextFileDbm");
         tmpMap.put("white_line_sep_comment", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteLineSepCommentDbm");
         tmpMap.put("white_load_data", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteLoadDataDbm");
         tmpMap.put("white_myself", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteMyselfDbm");

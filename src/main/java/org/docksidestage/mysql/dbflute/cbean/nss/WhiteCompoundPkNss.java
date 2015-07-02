@@ -35,21 +35,21 @@ public class WhiteCompoundPkNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
+     * WHITE_COMPOUND_REFERRED_NORMALLY by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
      */
     public void withWhiteCompoundReferredNormally() {
         _query.xdoNss(() -> _query.queryWhiteCompoundReferredNormally());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
+     * WHITE_COMPOUND_REFERRED_PRIMARY by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
      */
     public void withWhiteCompoundReferredPrimary() {
         _query.xdoNss(() -> _query.queryWhiteCompoundReferredPrimary());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
+     * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkRefManyNss withWhiteCompoundPkRefManyAsMax() {
@@ -58,7 +58,7 @@ public class WhiteCompoundPkNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
+     * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteCompoundPkRefManyNss withWhiteCompoundPkRefManyAsMin() {

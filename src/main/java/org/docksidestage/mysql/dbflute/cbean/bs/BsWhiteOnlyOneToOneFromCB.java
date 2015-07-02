@@ -271,7 +271,8 @@ public class BsWhiteOnlyOneToOneFromCB extends AbstractConditionBean {
     public WhiteOnlyOneToOneToNss setupSelect_WhiteOnlyOneToOneToAsOne() {
         assertSetupSelectPurpose("whiteOnlyOneToOneToAsOne");
         doSetupSelect(() -> query().queryWhiteOnlyOneToOneToAsOne());
-        if (_nssWhiteOnlyOneToOneToAsOne == null || !_nssWhiteOnlyOneToOneToAsOne.hasConditionQuery()) { _nssWhiteOnlyOneToOneToAsOne = new WhiteOnlyOneToOneToNss(query().queryWhiteOnlyOneToOneToAsOne()); }
+        if (_nssWhiteOnlyOneToOneToAsOne == null || !_nssWhiteOnlyOneToOneToAsOne.hasConditionQuery())
+        { _nssWhiteOnlyOneToOneToAsOne = new WhiteOnlyOneToOneToNss(query().queryWhiteOnlyOneToOneToAsOne()); }
         return _nssWhiteOnlyOneToOneToAsOne;
     }
 
@@ -311,8 +312,8 @@ public class BsWhiteOnlyOneToOneFromCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteOnlyOneToOneFromCQ> {

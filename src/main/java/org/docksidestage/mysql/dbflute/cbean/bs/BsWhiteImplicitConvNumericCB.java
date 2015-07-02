@@ -257,7 +257,7 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
+     * WHITE_IMPLICIT_CONV_INTEGER by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteImplicitConvInteger()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -270,7 +270,7 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
      */
     public WhiteImplicitConvIntegerNss setupSelect_WhiteImplicitConvInteger() {
         assertSetupSelectPurpose("whiteImplicitConvInteger");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnImplicitConvIntegerId();
         }
         doSetupSelect(() -> query().queryWhiteImplicitConvInteger());
@@ -286,7 +286,7 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
+     * WHITE_IMPLICIT_CONV_STRING by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
      * <pre>
      * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteImplicitConvString()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -299,7 +299,7 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
      */
     public WhiteImplicitConvStringNss setupSelect_WhiteImplicitConvString() {
         assertSetupSelectPurpose("whiteImplicitConvString");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnImplicitConvStringId();
         }
         doSetupSelect(() -> query().queryWhiteImplicitConvString());
@@ -344,8 +344,8 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteImplicitConvNumericCQ> {
@@ -393,7 +393,7 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_implicit_conv_numeric"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
+         * WHITE_IMPLICIT_CONV_INTEGER by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteImplicitConvIntegerCB.HpSpecification specifyWhiteImplicitConvInteger() {
@@ -413,7 +413,7 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
+         * WHITE_IMPLICIT_CONV_STRING by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteImplicitConvStringCB.HpSpecification specifyWhiteImplicitConvString() {
@@ -434,7 +434,7 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_implicit_conv_integer where ...) as FOO_MAX} <br>
-         * white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
+         * WHITE_IMPLICIT_CONV_INTEGER by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(integerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     integerCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -451,7 +451,7 @@ public class BsWhiteImplicitConvNumericCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_implicit_conv_string where ...) as FOO_MAX} <br>
-         * white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
+         * WHITE_IMPLICIT_CONV_STRING by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(stringCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     stringCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

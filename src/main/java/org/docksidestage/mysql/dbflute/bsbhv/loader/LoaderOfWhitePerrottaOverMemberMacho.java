@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     white_perrotta_over_member
+ *     WHITE_PERROTTA_OVER_MEMBER
  *
  * [foreign property]
  *     
@@ -80,7 +80,7 @@ public class LoaderOfWhitePerrottaOverMemberMacho {
 
     /**
      * Load referrer of whitePerrottaOverMemberList by the set-upper of referrer. <br>
-     * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
+     * WHITE_PERROTTA_OVER_MEMBER by MACHO_CODE, named 'whitePerrottaOverMemberList'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whitePerrottaOverMemberMachoList</span>, <span style="color: #553000">machoLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">machoLoader</span>.<span style="color: #CC4747">loadWhitePerrottaOverMember</span>(<span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

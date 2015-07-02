@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     member_status, member
+ *     MEMBER_STATUS, MEMBER
  *
  * [referrer table]
  *     

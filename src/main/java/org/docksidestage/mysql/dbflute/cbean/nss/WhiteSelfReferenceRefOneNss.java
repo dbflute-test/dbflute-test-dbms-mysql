@@ -35,7 +35,7 @@ public class WhiteSelfReferenceRefOneNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
+     * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteSelfReferenceNss withWhiteSelfReference() {
@@ -44,7 +44,7 @@ public class WhiteSelfReferenceRefOneNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
+     * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteSelfReferenceNss withWhiteSelfReferenceAsDirectParent() {

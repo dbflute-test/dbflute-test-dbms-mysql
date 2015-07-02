@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_uq_fk_ref
+ *     WHITE_UQ_FK_REF
  * 
  * [referrer table]
  *     
@@ -113,11 +113,11 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'. */
+    /** WHITE_UQ_FK_REF by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'. */
     protected OptionalEntity<WhiteUqFkRef> _whiteUqFkRef;
 
     /**
-     * [get] white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'. <br>
+     * [get] WHITE_UQ_FK_REF by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteUqFkRef'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -127,7 +127,7 @@ public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
+     * [set] WHITE_UQ_FK_REF by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
      * @param whiteUqFkRef The entity of foreign property 'whiteUqFkRef'. (NullAllowed)
      */
     public void setWhiteUqFkRef(OptionalEntity<WhiteUqFkRef> whiteUqFkRef) {

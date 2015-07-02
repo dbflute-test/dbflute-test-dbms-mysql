@@ -35,7 +35,7 @@ public class WhiteMyselfCheckNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_myself by my MYSELF_ID, named 'whiteMyself'.
+     * WHITE_MYSELF by my MYSELF_ID, named 'whiteMyself'.
      */
     public void withWhiteMyself() {
         _query.xdoNss(() -> _query.queryWhiteMyself());

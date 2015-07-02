@@ -263,7 +263,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_BAR by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      * <pre>
      * <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_VendorConstraintNameAutoBar()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -275,7 +275,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      */
     public void setupSelect_VendorConstraintNameAutoBar() {
         assertSetupSelectPurpose("vendorConstraintNameAutoBar");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnConstraintNameAutoBarId();
         }
         doSetupSelect(() -> query().queryVendorConstraintNameAutoBar());
@@ -283,7 +283,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_FOO by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      * <pre>
      * <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_VendorConstraintNameAutoFoo()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -295,7 +295,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      */
     public void setupSelect_VendorConstraintNameAutoFoo() {
         assertSetupSelectPurpose("vendorConstraintNameAutoFoo");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnConstraintNameAutoFooId();
         }
         doSetupSelect(() -> query().queryVendorConstraintNameAutoFoo());
@@ -303,7 +303,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_QUX by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      * <pre>
      * <span style="color: #0000C0">vendorConstraintNameAutoRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_VendorConstraintNameAutoQux()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -315,7 +315,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
      */
     public void setupSelect_VendorConstraintNameAutoQux() {
         assertSetupSelectPurpose("vendorConstraintNameAutoQux");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnConstraintNameAutoQuxId();
         }
         doSetupSelect(() -> query().queryVendorConstraintNameAutoQux());
@@ -357,8 +357,8 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<VendorConstraintNameAutoRefCQ> {
@@ -421,7 +421,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "vendor_constraint_name_auto_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
+         * VENDOR_CONSTRAINT_NAME_AUTO_BAR by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public VendorConstraintNameAutoBarCB.HpSpecification specifyVendorConstraintNameAutoBar() {
@@ -441,7 +441,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
+         * VENDOR_CONSTRAINT_NAME_AUTO_FOO by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public VendorConstraintNameAutoFooCB.HpSpecification specifyVendorConstraintNameAutoFoo() {
@@ -461,7 +461,7 @@ public class BsVendorConstraintNameAutoRefCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
+         * VENDOR_CONSTRAINT_NAME_AUTO_QUX by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public VendorConstraintNameAutoQuxCB.HpSpecification specifyVendorConstraintNameAutoQux() {

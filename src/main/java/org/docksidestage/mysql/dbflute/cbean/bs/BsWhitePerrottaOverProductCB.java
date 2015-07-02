@@ -252,7 +252,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
+     * WHITE_PERROTTA_OVER_PRODUCT_NESTED by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverProductBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhitePerrottaOverProductNested()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -264,7 +264,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
      */
     public void setupSelect_WhitePerrottaOverProductNested() {
         assertSetupSelectPurpose("whitePerrottaOverProductNested");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnProductNestedCode();
         }
         doSetupSelect(() -> query().queryWhitePerrottaOverProductNested());
@@ -277,7 +277,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
+     * WHITE_PERROTTA_OVER_TRACE by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
      * <pre>
      * <span style="color: #0000C0">whitePerrottaOverProductBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhitePerrottaOverTraceAsPerrotta()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -332,8 +332,8 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhitePerrottaOverProductCQ> {
@@ -372,7 +372,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_perrotta_over_product"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
+         * WHITE_PERROTTA_OVER_PRODUCT_NESTED by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhitePerrottaOverProductNestedCB.HpSpecification specifyWhitePerrottaOverProductNested() {
@@ -392,7 +392,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
+         * WHITE_PERROTTA_OVER_TRACE by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhitePerrottaOverTraceCB.HpSpecification specifyWhitePerrottaOverTraceAsPerrotta() {
@@ -413,7 +413,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_perrotta_over_member where ...) as FOO_MAX} <br>
-         * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
+         * WHITE_PERROTTA_OVER_MEMBER by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     memberCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -430,7 +430,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_perrotta_over_trace where ...) as FOO_MAX} <br>
-         * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
+         * WHITE_PERROTTA_OVER_TRACE by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     traceCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -447,7 +447,7 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_perrotta_over_trace where ...) as FOO_MAX} <br>
-         * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
+         * WHITE_PERROTTA_OVER_TRACE by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(traceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     traceCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

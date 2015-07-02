@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     WHITE_COMPOUND_REFERRED_NORMALLY, WHITE_COMPOUND_REFERRED_PRIMARY, WHITE_COMPOUND_PK_REF_MANY(AsMax)
  *
  * [referrer table]
- *     white_compound_pk_ref, white_compound_pk_ref_many
+ *     WHITE_COMPOUND_PK_REF, WHITE_COMPOUND_PK_REF_MANY
  *
  * [foreign property]
  *     whiteCompoundReferredNormally, whiteCompoundReferredPrimary, whiteCompoundPkRefManyAsMax, whiteCompoundPkRefManyAsMin
@@ -557,7 +557,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
 
     /**
      * Load referrer of whiteCompoundPkRefList by the set-upper of referrer. <br>
-     * white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
+     * WHITE_COMPOUND_PK_REF by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRef</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -588,7 +588,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
 
     /**
      * Load referrer of whiteCompoundPkRefList by the set-upper of referrer. <br>
-     * white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
+     * WHITE_COMPOUND_PK_REF by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRef</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -645,7 +645,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
 
     /**
      * Load referrer of whiteCompoundPkRefManyToPKList by the set-upper of referrer. <br>
-     * white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
+     * WHITE_COMPOUND_PK_REF_MANY by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefManyToPK</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">manyCB</span>.setupSelect...
@@ -676,7 +676,7 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
 
     /**
      * Load referrer of whiteCompoundPkRefManyToPKList by the set-upper of referrer. <br>
-     * white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
+     * WHITE_COMPOUND_PK_REF_MANY by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefManyToPK</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">manyCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">manyCB</span>.setupSelect...

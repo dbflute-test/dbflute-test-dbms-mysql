@@ -257,7 +257,7 @@ public class BsWhiteVariantRelationLocalPkReferrerCB extends AbstractConditionBe
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
+     * WHITE_VARIANT_RELATION_MASTER_FOO by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -312,8 +312,8 @@ public class BsWhiteVariantRelationLocalPkReferrerCB extends AbstractConditionBe
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteVariantRelationLocalPkReferrerCQ> {
@@ -342,7 +342,7 @@ public class BsWhiteVariantRelationLocalPkReferrerCB extends AbstractConditionBe
         protected String getTableDbName() { return "white_variant_relation_local_pk_referrer"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
+         * WHITE_VARIANT_RELATION_MASTER_FOO by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteVariantRelationMasterFooCB.HpSpecification specifyWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {

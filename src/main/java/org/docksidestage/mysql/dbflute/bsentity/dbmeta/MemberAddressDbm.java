@@ -65,8 +65,8 @@ public class MemberAddressDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((MemberAddress)et).getAddress(), (et, vl) -> ((MemberAddress)et).setAddress((String)vl), "address");
         setupEpg(_epgMap, et -> ((MemberAddress)et).getRegionId(), (et, vl) -> {
             ColumnInfo col = columnRegionId();
-            ccls(col, vl);
-            CDef.Region cls = (CDef.Region)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.Region cls = (CDef.Region)gcls(et, col, vl);
             if (cls != null) {
                 ((MemberAddress)et).setRegionIdAsRegion(cls);
             } else {
@@ -230,7 +230,7 @@ public class MemberAddressDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMember() {
@@ -238,7 +238,7 @@ public class MemberAddressDbm extends AbstractDBMeta {
         return cfi("FK_MEMBER_ADDRESS_MEMBER", "member", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberAddressList", false);
     }
     /**
-     * (地域)region by my REGION_ID, named 'region'.
+     * (地域)REGION by my REGION_ID, named 'region'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignRegion() {

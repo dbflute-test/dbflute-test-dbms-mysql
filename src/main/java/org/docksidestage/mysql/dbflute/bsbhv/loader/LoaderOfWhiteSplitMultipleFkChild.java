@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_split_multiple_fk_base
+ *     WHITE_SPLIT_MULTIPLE_FK_BASE
  *
  * [referrer table]
  *     

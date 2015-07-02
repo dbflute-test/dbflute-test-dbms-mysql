@@ -125,9 +125,9 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                         return new TnBasicSelectHandler(_dataSource, executedSql, _resultSetHandler, _statementFactory) {
                             @Override
                             protected void doLogSql(Object[] args, Class<?>[] argTypes, boolean logEnabled, boolean sqlFireHook,
-                                    boolean hasSqlLog, boolean hasSqlResult, Object sqlLogRegistry) {
+                                    boolean hasSqlLog, boolean hasSqlResult) {
                                 _loggingMarkMap.put("doLogSql", logEnabled + ", " + sqlFireHook + ", " + hasSqlLog + ", " + hasSqlResult);
-                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult, sqlLogRegistry);
+                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult);
                             };
 
                             @Override
@@ -178,9 +178,9 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                         return new TnBatchUpdateHandler(_dataSource, _statementFactory, sql, _beanMetaData, boundPropTypes) {
                             @Override
                             protected void doLogSql(Object[] args, Class<?>[] argTypes, boolean logEnabled, boolean sqlFireHook,
-                                    boolean hasSqlLog, boolean hasSqlResult, Object sqlLogRegistry) {
+                                    boolean hasSqlLog, boolean hasSqlResult) {
                                 _loggingMarkMap.put("doLogSql", logEnabled + ", " + sqlFireHook + ", " + hasSqlLog + ", " + hasSqlResult);
-                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult, sqlLogRegistry);
+                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult);
                             };
 
                             @Override

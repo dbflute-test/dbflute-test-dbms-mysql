@@ -81,8 +81,8 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfYear(), (et, vl) -> ((VendorCheck)et).setTypeOfYear(ctld(vl)), "typeOfYear");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBoolean(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBoolean();
-            ccls(col, vl);
-            CDef.BooleanFlg cls = (CDef.BooleanFlg)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.BooleanFlg cls = (CDef.BooleanFlg)gcls(et, col, vl);
             if (cls != null) {
                 ((VendorCheck)et).setTypeOfBooleanAsBooleanFlg(cls);
             } else {

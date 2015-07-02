@@ -269,7 +269,7 @@ public class WhitePgReservDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_pg_reserv_ref by CLASS, named 'whitePgReservRefList'.
+     * WHITE_PG_RESERV_REF by CLASS, named 'whitePgReservRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhitePgReservRefList() {

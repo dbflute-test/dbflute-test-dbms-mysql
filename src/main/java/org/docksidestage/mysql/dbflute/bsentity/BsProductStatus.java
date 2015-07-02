@@ -47,7 +47,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     product, summary_product
+ *     PRODUCT, SUMMARY_PRODUCT
  * 
  * [foreign property]
  *     
@@ -234,11 +234,11 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (商品)product by PRODUCT_STATUS_CODE, named 'productList'. */
+    /** (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'. */
     protected List<Product> _productList;
 
     /**
-     * [get] (商品)product by PRODUCT_STATUS_CODE, named 'productList'.
+     * [get] (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @return The entity list of referrer property 'productList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Product> getProductList() {
@@ -247,18 +247,18 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] (商品)product by PRODUCT_STATUS_CODE, named 'productList'.
+     * [set] (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @param productList The entity list of referrer property 'productList'. (NullAllowed)
      */
     public void setProductList(List<Product> productList) {
         _productList = productList;
     }
 
-    /** (VIEW)summary_product by PRODUCT_STATUS_CODE, named 'summaryProductList'. */
+    /** (VIEW)SUMMARY_PRODUCT by PRODUCT_STATUS_CODE, named 'summaryProductList'. */
     protected List<SummaryProduct> _summaryProductList;
 
     /**
-     * [get] (VIEW)summary_product by PRODUCT_STATUS_CODE, named 'summaryProductList'.
+     * [get] (VIEW)SUMMARY_PRODUCT by PRODUCT_STATUS_CODE, named 'summaryProductList'.
      * @return The entity list of referrer property 'summaryProductList'. (NotNull: even if no loading, returns empty list)
      */
     public List<SummaryProduct> getSummaryProductList() {
@@ -267,7 +267,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] (VIEW)summary_product by PRODUCT_STATUS_CODE, named 'summaryProductList'.
+     * [set] (VIEW)SUMMARY_PRODUCT by PRODUCT_STATUS_CODE, named 'summaryProductList'.
      * @param summaryProductList The entity list of referrer property 'summaryProductList'. (NullAllowed)
      */
     public void setSummaryProductList(List<SummaryProduct> summaryProductList) {

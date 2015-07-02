@@ -35,14 +35,14 @@ public class WhitePerrottaOverMemberNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_perrotta_over_member_macho by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
+     * WHITE_PERROTTA_OVER_MEMBER_MACHO by my MACHO_CODE, named 'whitePerrottaOverMemberMacho'.
      */
     public void withWhitePerrottaOverMemberMacho() {
         _query.xdoNss(() -> _query.queryWhitePerrottaOverMemberMacho());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * white_perrotta_over_product by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my PRODUCT_ID, named 'whitePerrottaOverProduct'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhitePerrottaOverProductNss withWhitePerrottaOverProduct() {

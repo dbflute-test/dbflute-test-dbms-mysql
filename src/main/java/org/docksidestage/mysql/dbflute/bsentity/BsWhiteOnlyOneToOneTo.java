@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_only_one_to_one_from
+ *     WHITE_ONLY_ONE_TO_ONE_FROM
  * 
  * [referrer table]
  *     
@@ -124,11 +124,11 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements Do
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'. */
+    /** WHITE_ONLY_ONE_TO_ONE_FROM by my FROM_ID, named 'whiteOnlyOneToOneFrom'. */
     protected OptionalEntity<WhiteOnlyOneToOneFrom> _whiteOnlyOneToOneFrom;
 
     /**
-     * [get] white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'. <br>
+     * [get] WHITE_ONLY_ONE_TO_ONE_FROM by my FROM_ID, named 'whiteOnlyOneToOneFrom'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteOnlyOneToOneFrom'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -138,7 +138,7 @@ public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements Do
     }
 
     /**
-     * [set] white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
+     * [set] WHITE_ONLY_ONE_TO_ONE_FROM by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
      * @param whiteOnlyOneToOneFrom The entity of foreign property 'whiteOnlyOneToOneFrom'. (NullAllowed)
      */
     public void setWhiteOnlyOneToOneFrom(OptionalEntity<WhiteOnlyOneToOneFrom> whiteOnlyOneToOneFrom) {

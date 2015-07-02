@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_split_multiple_fk_next, WHITE_SPLIT_MULTIPLE_FK_REF(AsSplitMultipleFkTest)
+ *     WHITE_SPLIT_MULTIPLE_FK_NEXT, WHITE_SPLIT_MULTIPLE_FK_REF(AsSplitMultipleFkTest)
  * 
  * [referrer table]
- *     white_split_multiple_fk_child
+ *     WHITE_SPLIT_MULTIPLE_FK_CHILD
  * 
  * [foreign property]
  *     whiteSplitMultipleFkNext, whiteSplitMultipleFkRefAsSplitMultipleFkTest
@@ -118,11 +118,11 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'. */
+    /** WHITE_SPLIT_MULTIPLE_FK_NEXT by my NEXT_ID, named 'whiteSplitMultipleFkNext'. */
     protected OptionalEntity<WhiteSplitMultipleFkNext> _whiteSplitMultipleFkNext;
 
     /**
-     * [get] white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'. <br>
+     * [get] WHITE_SPLIT_MULTIPLE_FK_NEXT by my NEXT_ID, named 'whiteSplitMultipleFkNext'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSplitMultipleFkNext'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -132,18 +132,18 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
+     * [set] WHITE_SPLIT_MULTIPLE_FK_NEXT by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
      * @param whiteSplitMultipleFkNext The entity of foreign property 'whiteSplitMultipleFkNext'. (NullAllowed)
      */
     public void setWhiteSplitMultipleFkNext(OptionalEntity<WhiteSplitMultipleFkNext> whiteSplitMultipleFkNext) {
         _whiteSplitMultipleFkNext = whiteSplitMultipleFkNext;
     }
 
-    /** white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. */
+    /** WHITE_SPLIT_MULTIPLE_FK_REF by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. */
     protected OptionalEntity<WhiteSplitMultipleFkRef> _whiteSplitMultipleFkRefAsSplitMultipleFkTest;
 
     /**
-     * [get] white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. <br>
+     * [get] WHITE_SPLIT_MULTIPLE_FK_REF by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -153,7 +153,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
+     * [set] WHITE_SPLIT_MULTIPLE_FK_REF by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
      * @param whiteSplitMultipleFkRefAsSplitMultipleFkTest The entity of foreign property 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'. (NullAllowed)
      */
     public void setWhiteSplitMultipleFkRefAsSplitMultipleFkTest(OptionalEntity<WhiteSplitMultipleFkRef> whiteSplitMultipleFkRefAsSplitMultipleFkTest) {
@@ -163,11 +163,11 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'. */
+    /** WHITE_SPLIT_MULTIPLE_FK_CHILD by BASE_ID, named 'whiteSplitMultipleFkChildList'. */
     protected List<WhiteSplitMultipleFkChild> _whiteSplitMultipleFkChildList;
 
     /**
-     * [get] white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
+     * [get] WHITE_SPLIT_MULTIPLE_FK_CHILD by BASE_ID, named 'whiteSplitMultipleFkChildList'.
      * @return The entity list of referrer property 'whiteSplitMultipleFkChildList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteSplitMultipleFkChild> getWhiteSplitMultipleFkChildList() {
@@ -176,7 +176,7 @@ public abstract class BsWhiteSplitMultipleFkBase extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
+     * [set] WHITE_SPLIT_MULTIPLE_FK_CHILD by BASE_ID, named 'whiteSplitMultipleFkChildList'.
      * @param whiteSplitMultipleFkChildList The entity list of referrer property 'whiteSplitMultipleFkChildList'. (NullAllowed)
      */
     public void setWhiteSplitMultipleFkChildList(List<WhiteSplitMultipleFkChild> whiteSplitMultipleFkChildList) {

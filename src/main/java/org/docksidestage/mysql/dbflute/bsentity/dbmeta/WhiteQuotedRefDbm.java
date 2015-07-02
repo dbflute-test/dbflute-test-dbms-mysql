@@ -134,7 +134,7 @@ public class WhiteQuotedRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_quoted by my ORDER, named 'whiteQuoted'.
+     * WHITE_QUOTED by my ORDER, named 'whiteQuoted'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteQuoted() {

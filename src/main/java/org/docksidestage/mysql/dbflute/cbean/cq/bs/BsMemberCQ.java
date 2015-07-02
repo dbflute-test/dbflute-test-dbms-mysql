@@ -434,6 +434,12 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
             uq.xsetParameterMapMemberLoginAsLoginStatus(bq.xdfgetParameterMapMemberLoginAsLoginStatus());
             uq.xdfgetConditionQueryMemberLoginAsLoginStatus().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberLoginAsLoginStatus(), uq.xdfgetConditionQueryMemberLoginAsLoginStatus());
         }
+        if (bq.hasConditionQueryMemberLoginAsLoginStatusFixedCls()) {
+            uq.queryMemberLoginAsLoginStatusFixedCls().reflectRelationOnUnionQuery(bq.queryMemberLoginAsLoginStatusFixedCls(), uq.queryMemberLoginAsLoginStatusFixedCls());
+        }
+        if (bq.hasConditionQueryMemberLoginAsLoginStatusFixedClsGrouping()) {
+            uq.queryMemberLoginAsLoginStatusFixedClsGrouping().reflectRelationOnUnionQuery(bq.queryMemberLoginAsLoginStatusFixedClsGrouping(), uq.queryMemberLoginAsLoginStatusFixedClsGrouping());
+        }
         if (bq.hasConditionQueryMemberAddressAsIfComment()) {
             uq.xsetParameterMapMemberAddressAsIfComment(bq.xdfgetParameterMapMemberAddressAsIfComment());
             uq.xdfgetConditionQueryMemberAddressAsIfComment().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsIfComment(), uq.xdfgetConditionQueryMemberAddressAsIfComment());
@@ -519,7 +525,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
+     * (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberStatusCQ queryMemberStatus() {
@@ -539,7 +545,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -569,7 +575,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValidBefore'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -599,7 +605,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
      * @param statusCode The bind parameter of fixed condition for statusCode. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -629,7 +635,47 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public MemberLoginCQ queryMemberLoginAsLoginStatusFixedCls() {
+        return xdfgetConditionQueryMemberLoginAsLoginStatusFixedCls();
+    }
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsLoginStatusFixedCls() {
+        String prop = "memberLoginAsLoginStatusFixedCls";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsLoginStatusFixedCls()); xsetupOuterJoinMemberLoginAsLoginStatusFixedCls(); }
+        return xgetQueRlMap(prop);
+    }
+    protected MemberLoginCQ xcreateQueryMemberLoginAsLoginStatusFixedCls() {
+        String nrp = xresolveNRP("member", "memberLoginAsLoginStatusFixedCls"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new MemberLoginCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberLoginAsLoginStatusFixedCls", nrp);
+    }
+    protected void xsetupOuterJoinMemberLoginAsLoginStatusFixedCls() { xregOutJo("memberLoginAsLoginStatusFixedCls"); }
+    public boolean hasConditionQueryMemberLoginAsLoginStatusFixedCls() { return xhasQueRlMap("memberLoginAsLoginStatusFixedCls"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public MemberLoginCQ queryMemberLoginAsLoginStatusFixedClsGrouping() {
+        return xdfgetConditionQueryMemberLoginAsLoginStatusFixedClsGrouping();
+    }
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsLoginStatusFixedClsGrouping() {
+        String prop = "memberLoginAsLoginStatusFixedClsGrouping";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsLoginStatusFixedClsGrouping()); xsetupOuterJoinMemberLoginAsLoginStatusFixedClsGrouping(); }
+        return xgetQueRlMap(prop);
+    }
+    protected MemberLoginCQ xcreateQueryMemberLoginAsLoginStatusFixedClsGrouping() {
+        String nrp = xresolveNRP("member", "memberLoginAsLoginStatusFixedClsGrouping"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new MemberLoginCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberLoginAsLoginStatusFixedClsGrouping", nrp);
+    }
+    protected void xsetupOuterJoinMemberLoginAsLoginStatusFixedClsGrouping() { xregOutJo("memberLoginAsLoginStatusFixedClsGrouping"); }
+    public boolean hasConditionQueryMemberLoginAsLoginStatusFixedClsGrouping() { return xhasQueRlMap("memberLoginAsLoginStatusFixedClsGrouping"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsIfComment'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (might be NullAllowed: IF comment exists in the fixed condition)
      * @param region The bind parameter of fixed condition for region. (might be NullAllowed: IF comment exists in the fixed condition)
      * @return The instance of condition-query. (NotNull)
@@ -660,7 +706,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -690,7 +736,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The instance of condition-query. (NotNull)
      * @deprecated the test of dep
@@ -721,7 +767,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsLocalForeignOverTest() {
@@ -741,7 +787,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -771,7 +817,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignEachOverTest() {
@@ -791,7 +837,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignOptimizedBasicOverTest() {
@@ -811,7 +857,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignOptimizedMarkOverTest() {
@@ -831,7 +877,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @param memberName The bind parameter of fixed condition for memberName. (NotNull)
      * @return The instance of condition-query. (NotNull)
@@ -862,7 +908,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
      * @param displayOrder The bind parameter of fixed condition for displayOrder. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -892,7 +938,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -922,7 +968,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsForeignForeignVariousOverTest() {
@@ -942,7 +988,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsReferrerOverTest() {
@@ -962,7 +1008,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsReferrerForeignOverTest() {
@@ -982,7 +1028,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLatest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsLatest() {
@@ -1002,7 +1048,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsOldest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsOldest() {
@@ -1022,7 +1068,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -1052,7 +1098,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
+     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The instance of condition-query. (NotNull)
      */
@@ -1082,7 +1128,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsFormattedMany() {
@@ -1102,7 +1148,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
+     * (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberLoginCQ queryMemberLoginAsEmbeddedCommentClassificationTest() {

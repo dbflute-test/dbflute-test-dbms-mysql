@@ -51,13 +51,13 @@ import org.docksidestage.mysql.dbflute.nogen.cache.*;
  *     VERSION_NO
  * 
  * [foreign table]
- *     member_status, MEMBER_ADDRESS(AsValid), MEMBER_LOGIN(AsLoginStatus), member_security(AsOne), member_service(AsOne), member_withdrawal(AsOne)
+ *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_LOGIN(AsLoginStatus), MEMBER_SECURITY(AsOne), MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
  * 
  * [referrer table]
- *     member_address, member_following, member_login, purchase, member_security, member_service, member_withdrawal
+ *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, PURCHASE, MEMBER_SECURITY, MEMBER_SERVICE, MEMBER_WITHDRAWAL
  * 
  * [foreign property]
- *     memberStatus, memberAddressAsValid, memberAddressAsValidBefore, memberLoginAsLoginStatus, memberAddressAsIfComment, memberAddressAsOnlyOneDate, memberLoginAsLocalBindOverTest, memberLoginAsLocalForeignOverTest, memberLoginAsForeignForeignBindOverTest, memberLoginAsForeignForeignEachOverTest, memberLoginAsForeignForeignOptimizedBasicOverTest, memberLoginAsForeignForeignOptimizedMarkOverTest, memberLoginAsForeignForeignOptimizedPartOverTest, memberLoginAsForeignForeignOptimizedWholeOverTest, memberLoginAsForeignForeignParameterOverTest, memberLoginAsForeignForeignVariousOverTest, memberLoginAsReferrerOverTest, memberLoginAsReferrerForeignOverTest, memberLoginAsLatest, memberLoginAsOldest, memberAddressAsFormattedBasic, memberAddressAsFormattedLong, memberLoginAsFormattedMany, memberLoginAsEmbeddedCommentClassificationTest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberStatus, memberAddressAsValid, memberAddressAsValidBefore, memberLoginAsLoginStatus, memberLoginAsLoginStatusFixedCls, memberLoginAsLoginStatusFixedClsGrouping, memberAddressAsIfComment, memberAddressAsOnlyOneDate, memberLoginAsLocalBindOverTest, memberLoginAsLocalForeignOverTest, memberLoginAsForeignForeignBindOverTest, memberLoginAsForeignForeignEachOverTest, memberLoginAsForeignForeignOptimizedBasicOverTest, memberLoginAsForeignForeignOptimizedMarkOverTest, memberLoginAsForeignForeignOptimizedPartOverTest, memberLoginAsForeignForeignOptimizedWholeOverTest, memberLoginAsForeignForeignParameterOverTest, memberLoginAsForeignForeignVariousOverTest, memberLoginAsReferrerOverTest, memberLoginAsReferrerForeignOverTest, memberLoginAsLatest, memberLoginAsOldest, memberAddressAsFormattedBasic, memberAddressAsFormattedLong, memberLoginAsFormattedMany, memberLoginAsEmbeddedCommentClassificationTest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
  * 
  * [referrer property]
  *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
@@ -278,11 +278,11 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'. */
+    /** (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'. */
     protected OptionalEntity<MemberStatus> _memberStatus;
 
     /**
-     * [get] (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'. <br>
+     * [get] (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -293,18 +293,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ステータス)member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
+     * [set] (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
      * @param memberStatus The entity of foreign property 'memberStatus'. (NullAllowed)
      */
     public void setMemberStatus(OptionalEntity<MemberStatus> memberStatus) {
         _memberStatus = memberStatus;
     }
 
-    /** (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'. */
+    /** (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'. */
     protected OptionalEntity<MemberAddress> _memberAddressAsValid;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'. <br>
+     * [get] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberAddressAsValid'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -314,18 +314,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValid'.
+     * [set] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
      * @param memberAddressAsValid The entity of foreign property 'memberAddressAsValid'. (NullAllowed)
      */
     public void setMemberAddressAsValid(OptionalEntity<MemberAddress> memberAddressAsValid) {
         _memberAddressAsValid = memberAddressAsValid;
     }
 
-    /** (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'. */
+    /** (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValidBefore'. */
     protected OptionalEntity<MemberAddress> _memberAddressAsValidBefore;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'. <br>
+     * [get] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValidBefore'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberAddressAsValidBefore'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -335,18 +335,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsValidBefore'.
+     * [set] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValidBefore'.
      * @param memberAddressAsValidBefore The entity of foreign property 'memberAddressAsValidBefore'. (NullAllowed)
      */
     public void setMemberAddressAsValidBefore(OptionalEntity<MemberAddress> memberAddressAsValidBefore) {
         _memberAddressAsValidBefore = memberAddressAsValidBefore;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatus'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsLoginStatus;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatus'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsLoginStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -356,18 +356,60 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatus'.
      * @param memberLoginAsLoginStatus The entity of foreign property 'memberLoginAsLoginStatus'. (NullAllowed)
      */
     public void setMemberLoginAsLoginStatus(OptionalEntity<MemberLogin> memberLoginAsLoginStatus) {
         _memberLoginAsLoginStatus = memberLoginAsLoginStatus;
     }
 
-    /** (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'. */
+    protected OptionalEntity<MemberLogin> _memberLoginAsLoginStatusFixedCls;
+
+    /**
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'memberLoginAsLoginStatusFixedCls'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<MemberLogin> getMemberLoginAsLoginStatusFixedCls() {
+        if (_memberLoginAsLoginStatusFixedCls == null) { _memberLoginAsLoginStatusFixedCls = OptionalEntity.relationEmpty(this, "memberLoginAsLoginStatusFixedCls"); }
+        return _memberLoginAsLoginStatusFixedCls;
+    }
+
+    /**
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedCls'.
+     * @param memberLoginAsLoginStatusFixedCls The entity of foreign property 'memberLoginAsLoginStatusFixedCls'. (NullAllowed)
+     */
+    public void setMemberLoginAsLoginStatusFixedCls(OptionalEntity<MemberLogin> memberLoginAsLoginStatusFixedCls) {
+        _memberLoginAsLoginStatusFixedCls = memberLoginAsLoginStatusFixedCls;
+    }
+
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'. */
+    protected OptionalEntity<MemberLogin> _memberLoginAsLoginStatusFixedClsGrouping;
+
+    /**
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'memberLoginAsLoginStatusFixedClsGrouping'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<MemberLogin> getMemberLoginAsLoginStatusFixedClsGrouping() {
+        if (_memberLoginAsLoginStatusFixedClsGrouping == null) { _memberLoginAsLoginStatusFixedClsGrouping = OptionalEntity.relationEmpty(this, "memberLoginAsLoginStatusFixedClsGrouping"); }
+        return _memberLoginAsLoginStatusFixedClsGrouping;
+    }
+
+    /**
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLoginStatusFixedClsGrouping'.
+     * @param memberLoginAsLoginStatusFixedClsGrouping The entity of foreign property 'memberLoginAsLoginStatusFixedClsGrouping'. (NullAllowed)
+     */
+    public void setMemberLoginAsLoginStatusFixedClsGrouping(OptionalEntity<MemberLogin> memberLoginAsLoginStatusFixedClsGrouping) {
+        _memberLoginAsLoginStatusFixedClsGrouping = memberLoginAsLoginStatusFixedClsGrouping;
+    }
+
+    /** (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsIfComment'. */
     protected OptionalEntity<MemberAddress> _memberAddressAsIfComment;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'. <br>
+     * [get] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsIfComment'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberAddressAsIfComment'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -377,18 +419,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsIfComment'.
+     * [set] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsIfComment'.
      * @param memberAddressAsIfComment The entity of foreign property 'memberAddressAsIfComment'. (NullAllowed)
      */
     public void setMemberAddressAsIfComment(OptionalEntity<MemberAddress> memberAddressAsIfComment) {
         _memberAddressAsIfComment = memberAddressAsIfComment;
     }
 
-    /** (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'. */
+    /** (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'. */
     protected OptionalEntity<MemberAddress> _memberAddressAsOnlyOneDate;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'. <br>
+     * [get] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberAddressAsOnlyOneDate'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -398,18 +440,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
+     * [set] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsOnlyOneDate'.
      * @param memberAddressAsOnlyOneDate The entity of foreign property 'memberAddressAsOnlyOneDate'. (NullAllowed)
      */
     public void setMemberAddressAsOnlyOneDate(OptionalEntity<MemberAddress> memberAddressAsOnlyOneDate) {
         _memberAddressAsOnlyOneDate = memberAddressAsOnlyOneDate;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsLocalBindOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsLocalBindOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -419,18 +461,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalBindOverTest'.
      * @param memberLoginAsLocalBindOverTest The entity of foreign property 'memberLoginAsLocalBindOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsLocalBindOverTest(OptionalEntity<MemberLogin> memberLoginAsLocalBindOverTest) {
         _memberLoginAsLocalBindOverTest = memberLoginAsLocalBindOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsLocalForeignOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsLocalForeignOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -440,18 +482,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLocalForeignOverTest'.
      * @param memberLoginAsLocalForeignOverTest The entity of foreign property 'memberLoginAsLocalForeignOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsLocalForeignOverTest(OptionalEntity<MemberLogin> memberLoginAsLocalForeignOverTest) {
         _memberLoginAsLocalForeignOverTest = memberLoginAsLocalForeignOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsForeignForeignBindOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsForeignForeignBindOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -461,18 +503,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignBindOverTest'.
      * @param memberLoginAsForeignForeignBindOverTest The entity of foreign property 'memberLoginAsForeignForeignBindOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsForeignForeignBindOverTest(OptionalEntity<MemberLogin> memberLoginAsForeignForeignBindOverTest) {
         _memberLoginAsForeignForeignBindOverTest = memberLoginAsForeignForeignBindOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsForeignForeignEachOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsForeignForeignEachOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -482,18 +524,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignEachOverTest'.
      * @param memberLoginAsForeignForeignEachOverTest The entity of foreign property 'memberLoginAsForeignForeignEachOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsForeignForeignEachOverTest(OptionalEntity<MemberLogin> memberLoginAsForeignForeignEachOverTest) {
         _memberLoginAsForeignForeignEachOverTest = memberLoginAsForeignForeignEachOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsForeignForeignOptimizedBasicOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsForeignForeignOptimizedBasicOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -503,18 +545,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedBasicOverTest'.
      * @param memberLoginAsForeignForeignOptimizedBasicOverTest The entity of foreign property 'memberLoginAsForeignForeignOptimizedBasicOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsForeignForeignOptimizedBasicOverTest(OptionalEntity<MemberLogin> memberLoginAsForeignForeignOptimizedBasicOverTest) {
         _memberLoginAsForeignForeignOptimizedBasicOverTest = memberLoginAsForeignForeignOptimizedBasicOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsForeignForeignOptimizedMarkOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsForeignForeignOptimizedMarkOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -524,18 +566,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedMarkOverTest'.
      * @param memberLoginAsForeignForeignOptimizedMarkOverTest The entity of foreign property 'memberLoginAsForeignForeignOptimizedMarkOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsForeignForeignOptimizedMarkOverTest(OptionalEntity<MemberLogin> memberLoginAsForeignForeignOptimizedMarkOverTest) {
         _memberLoginAsForeignForeignOptimizedMarkOverTest = memberLoginAsForeignForeignOptimizedMarkOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsForeignForeignOptimizedPartOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsForeignForeignOptimizedPartOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -545,18 +587,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedPartOverTest'.
      * @param memberLoginAsForeignForeignOptimizedPartOverTest The entity of foreign property 'memberLoginAsForeignForeignOptimizedPartOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsForeignForeignOptimizedPartOverTest(OptionalEntity<MemberLogin> memberLoginAsForeignForeignOptimizedPartOverTest) {
         _memberLoginAsForeignForeignOptimizedPartOverTest = memberLoginAsForeignForeignOptimizedPartOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsForeignForeignOptimizedWholeOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsForeignForeignOptimizedWholeOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -566,18 +608,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignOptimizedWholeOverTest'.
      * @param memberLoginAsForeignForeignOptimizedWholeOverTest The entity of foreign property 'memberLoginAsForeignForeignOptimizedWholeOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsForeignForeignOptimizedWholeOverTest(OptionalEntity<MemberLogin> memberLoginAsForeignForeignOptimizedWholeOverTest) {
         _memberLoginAsForeignForeignOptimizedWholeOverTest = memberLoginAsForeignForeignOptimizedWholeOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsForeignForeignParameterOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsForeignForeignParameterOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -587,18 +629,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignParameterOverTest'.
      * @param memberLoginAsForeignForeignParameterOverTest The entity of foreign property 'memberLoginAsForeignForeignParameterOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsForeignForeignParameterOverTest(OptionalEntity<MemberLogin> memberLoginAsForeignForeignParameterOverTest) {
         _memberLoginAsForeignForeignParameterOverTest = memberLoginAsForeignForeignParameterOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsForeignForeignVariousOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsForeignForeignVariousOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -608,18 +650,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsForeignForeignVariousOverTest'.
      * @param memberLoginAsForeignForeignVariousOverTest The entity of foreign property 'memberLoginAsForeignForeignVariousOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsForeignForeignVariousOverTest(OptionalEntity<MemberLogin> memberLoginAsForeignForeignVariousOverTest) {
         _memberLoginAsForeignForeignVariousOverTest = memberLoginAsForeignForeignVariousOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsReferrerOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsReferrerOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -629,18 +671,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerOverTest'.
      * @param memberLoginAsReferrerOverTest The entity of foreign property 'memberLoginAsReferrerOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsReferrerOverTest(OptionalEntity<MemberLogin> memberLoginAsReferrerOverTest) {
         _memberLoginAsReferrerOverTest = memberLoginAsReferrerOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsReferrerForeignOverTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsReferrerForeignOverTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -650,18 +692,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsReferrerForeignOverTest'.
      * @param memberLoginAsReferrerForeignOverTest The entity of foreign property 'memberLoginAsReferrerForeignOverTest'. (NullAllowed)
      */
     public void setMemberLoginAsReferrerForeignOverTest(OptionalEntity<MemberLogin> memberLoginAsReferrerForeignOverTest) {
         _memberLoginAsReferrerForeignOverTest = memberLoginAsReferrerForeignOverTest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLatest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsLatest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLatest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsLatest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -671,18 +713,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsLatest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsLatest'.
      * @param memberLoginAsLatest The entity of foreign property 'memberLoginAsLatest'. (NullAllowed)
      */
     public void setMemberLoginAsLatest(OptionalEntity<MemberLogin> memberLoginAsLatest) {
         _memberLoginAsLatest = memberLoginAsLatest;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsOldest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsOldest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsOldest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsOldest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -692,18 +734,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsOldest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsOldest'.
      * @param memberLoginAsOldest The entity of foreign property 'memberLoginAsOldest'. (NullAllowed)
      */
     public void setMemberLoginAsOldest(OptionalEntity<MemberLogin> memberLoginAsOldest) {
         _memberLoginAsOldest = memberLoginAsOldest;
     }
 
-    /** (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'. */
+    /** (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedBasic'. */
     protected OptionalEntity<MemberAddress> _memberAddressAsFormattedBasic;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'. <br>
+     * [get] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedBasic'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberAddressAsFormattedBasic'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -713,18 +755,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
+     * [set] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedBasic'.
      * @param memberAddressAsFormattedBasic The entity of foreign property 'memberAddressAsFormattedBasic'. (NullAllowed)
      */
     public void setMemberAddressAsFormattedBasic(OptionalEntity<MemberAddress> memberAddressAsFormattedBasic) {
         _memberAddressAsFormattedBasic = memberAddressAsFormattedBasic;
     }
 
-    /** (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'. */
+    /** (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedLong'. */
     protected OptionalEntity<MemberAddress> _memberAddressAsFormattedLong;
 
     /**
-     * [get] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'. <br>
+     * [get] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedLong'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberAddressAsFormattedLong'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -734,18 +776,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員住所情報)member_address by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
+     * [set] (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsFormattedLong'.
      * @param memberAddressAsFormattedLong The entity of foreign property 'memberAddressAsFormattedLong'. (NullAllowed)
      */
     public void setMemberAddressAsFormattedLong(OptionalEntity<MemberAddress> memberAddressAsFormattedLong) {
         _memberAddressAsFormattedLong = memberAddressAsFormattedLong;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsFormattedMany'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsFormattedMany;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsFormattedMany'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsFormattedMany'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -755,18 +797,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsFormattedMany'.
      * @param memberLoginAsFormattedMany The entity of foreign property 'memberLoginAsFormattedMany'. (NullAllowed)
      */
     public void setMemberLoginAsFormattedMany(OptionalEntity<MemberLogin> memberLoginAsFormattedMany) {
         _memberLoginAsFormattedMany = memberLoginAsFormattedMany;
     }
 
-    /** (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'. */
     protected OptionalEntity<MemberLogin> _memberLoginAsEmbeddedCommentClassificationTest;
 
     /**
-     * [get] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'. <br>
+     * [get] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberLoginAsEmbeddedCommentClassificationTest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -776,7 +818,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsEmbeddedCommentClassificationTest'.
      * @param memberLoginAsEmbeddedCommentClassificationTest The entity of foreign property 'memberLoginAsEmbeddedCommentClassificationTest'. (NullAllowed)
      */
     public void setMemberLoginAsEmbeddedCommentClassificationTest(OptionalEntity<MemberLogin> memberLoginAsEmbeddedCommentClassificationTest) {
@@ -850,11 +892,11 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'. */
+    /** (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'. */
     protected List<MemberAddress> _memberAddressList;
 
     /**
-     * [get] (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
+     * [get] (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
      * @return The entity list of referrer property 'memberAddressList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberAddress> getMemberAddressList() {
@@ -863,18 +905,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員住所情報)member_address by MEMBER_ID, named 'memberAddressList'.
+     * [set] (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
      * @param memberAddressList The entity list of referrer property 'memberAddressList'. (NullAllowed)
      */
     public void setMemberAddressList(List<MemberAddress> memberAddressList) {
         _memberAddressList = memberAddressList;
     }
 
-    /** (会員フォローイング)member_following by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'. */
+    /** (会員フォローイング)MEMBER_FOLLOWING by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'. */
     protected List<MemberFollowing> _memberFollowingByMyMemberIdList;
 
     /**
-     * [get] (会員フォローイング)member_following by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
+     * [get] (会員フォローイング)MEMBER_FOLLOWING by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
      * @return The entity list of referrer property 'memberFollowingByMyMemberIdList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberFollowing> getMemberFollowingByMyMemberIdList() {
@@ -883,18 +925,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員フォローイング)member_following by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
+     * [set] (会員フォローイング)MEMBER_FOLLOWING by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
      * @param memberFollowingByMyMemberIdList The entity list of referrer property 'memberFollowingByMyMemberIdList'. (NullAllowed)
      */
     public void setMemberFollowingByMyMemberIdList(List<MemberFollowing> memberFollowingByMyMemberIdList) {
         _memberFollowingByMyMemberIdList = memberFollowingByMyMemberIdList;
     }
 
-    /** (会員フォローイング)member_following by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'. */
+    /** (会員フォローイング)MEMBER_FOLLOWING by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'. */
     protected List<MemberFollowing> _memberFollowingByYourMemberIdList;
 
     /**
-     * [get] (会員フォローイング)member_following by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
+     * [get] (会員フォローイング)MEMBER_FOLLOWING by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
      * @return The entity list of referrer property 'memberFollowingByYourMemberIdList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberFollowing> getMemberFollowingByYourMemberIdList() {
@@ -903,18 +945,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員フォローイング)member_following by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
+     * [set] (会員フォローイング)MEMBER_FOLLOWING by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
      * @param memberFollowingByYourMemberIdList The entity list of referrer property 'memberFollowingByYourMemberIdList'. (NullAllowed)
      */
     public void setMemberFollowingByYourMemberIdList(List<MemberFollowing> memberFollowingByYourMemberIdList) {
         _memberFollowingByYourMemberIdList = memberFollowingByYourMemberIdList;
     }
 
-    /** (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'. */
     protected List<MemberLogin> _memberLoginList;
 
     /**
-     * [get] (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
+     * [get] (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
      * @return The entity list of referrer property 'memberLoginList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberLogin> getMemberLoginList() {
@@ -923,18 +965,18 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by MEMBER_ID, named 'memberLoginList'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
      * @param memberLoginList The entity list of referrer property 'memberLoginList'. (NullAllowed)
      */
     public void setMemberLoginList(List<MemberLogin> memberLoginList) {
         _memberLoginList = memberLoginList;
     }
 
-    /** (購入)purchase by MEMBER_ID, named 'purchaseList'. */
+    /** (購入)PURCHASE by MEMBER_ID, named 'purchaseList'. */
     protected List<Purchase> _purchaseList;
 
     /**
-     * [get] (購入)purchase by MEMBER_ID, named 'purchaseList'.
+     * [get] (購入)PURCHASE by MEMBER_ID, named 'purchaseList'.
      * @return The entity list of referrer property 'purchaseList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Purchase> getPurchaseList() {
@@ -943,7 +985,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (購入)purchase by MEMBER_ID, named 'purchaseList'.
+     * [set] (購入)PURCHASE by MEMBER_ID, named 'purchaseList'.
      * @param purchaseList The entity list of referrer property 'purchaseList'. (NullAllowed)
      */
     public void setPurchaseList(List<Purchase> purchaseList) {
@@ -987,6 +1029,10 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
         { sb.append(li).append(xbRDS(_memberAddressAsValidBefore, "memberAddressAsValidBefore")); }
         if (_memberLoginAsLoginStatus != null && _memberLoginAsLoginStatus.isPresent())
         { sb.append(li).append(xbRDS(_memberLoginAsLoginStatus, "memberLoginAsLoginStatus")); }
+        if (_memberLoginAsLoginStatusFixedCls != null && _memberLoginAsLoginStatusFixedCls.isPresent())
+        { sb.append(li).append(xbRDS(_memberLoginAsLoginStatusFixedCls, "memberLoginAsLoginStatusFixedCls")); }
+        if (_memberLoginAsLoginStatusFixedClsGrouping != null && _memberLoginAsLoginStatusFixedClsGrouping.isPresent())
+        { sb.append(li).append(xbRDS(_memberLoginAsLoginStatusFixedClsGrouping, "memberLoginAsLoginStatusFixedClsGrouping")); }
         if (_memberAddressAsIfComment != null && _memberAddressAsIfComment.isPresent())
         { sb.append(li).append(xbRDS(_memberAddressAsIfComment, "memberAddressAsIfComment")); }
         if (_memberAddressAsOnlyOneDate != null && _memberAddressAsOnlyOneDate.isPresent())
@@ -1081,6 +1127,10 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
         { sb.append(dm).append("memberAddressAsValidBefore"); }
         if (_memberLoginAsLoginStatus != null && _memberLoginAsLoginStatus.isPresent())
         { sb.append(dm).append("memberLoginAsLoginStatus"); }
+        if (_memberLoginAsLoginStatusFixedCls != null && _memberLoginAsLoginStatusFixedCls.isPresent())
+        { sb.append(dm).append("memberLoginAsLoginStatusFixedCls"); }
+        if (_memberLoginAsLoginStatusFixedClsGrouping != null && _memberLoginAsLoginStatusFixedClsGrouping.isPresent())
+        { sb.append(dm).append("memberLoginAsLoginStatusFixedClsGrouping"); }
         if (_memberAddressAsIfComment != null && _memberAddressAsIfComment.isPresent())
         { sb.append(dm).append("memberAddressAsIfComment"); }
         if (_memberAddressAsOnlyOneDate != null && _memberAddressAsOnlyOneDate.isPresent())

@@ -46,7 +46,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     vendor_large_data_ref
+ *     VENDOR_LARGE_DATA_REF
  * 
  * [foreign property]
  *     
@@ -145,11 +145,11 @@ public abstract class BsVendorLargeData extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefList'. */
+    /** VENDOR_LARGE_DATA_REF by LARGE_DATA_ID, named 'vendorLargeDataRefList'. */
     protected List<VendorLargeDataRef> _vendorLargeDataRefList;
 
     /**
-     * [get] vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
+     * [get] VENDOR_LARGE_DATA_REF by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
      * @return The entity list of referrer property 'vendorLargeDataRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<VendorLargeDataRef> getVendorLargeDataRefList() {
@@ -158,7 +158,7 @@ public abstract class BsVendorLargeData extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] vendor_large_data_ref by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
+     * [set] VENDOR_LARGE_DATA_REF by LARGE_DATA_ID, named 'vendorLargeDataRefList'.
      * @param vendorLargeDataRefList The entity list of referrer property 'vendorLargeDataRefList'. (NullAllowed)
      */
     public void setVendorLargeDataRefList(List<VendorLargeDataRef> vendorLargeDataRefList) {

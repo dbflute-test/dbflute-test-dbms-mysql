@@ -146,7 +146,7 @@ public class WhiteSuppressJoinSqDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_suppress_join_sq_many by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
+     * WHITE_SUPPRESS_JOIN_SQ_MANY by SUPPRESS_JOIN_SQ_ID, named 'whiteSuppressJoinSqManyList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteSuppressJoinSqManyList() {

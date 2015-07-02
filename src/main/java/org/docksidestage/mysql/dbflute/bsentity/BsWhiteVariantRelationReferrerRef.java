@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_variant_relation_referrer
+ *     WHITE_VARIANT_RELATION_REFERRER
  * 
  * [referrer table]
  *     
@@ -108,11 +108,11 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'. */
+    /** WHITE_VARIANT_RELATION_REFERRER by my REFERRER_ID, named 'whiteVariantRelationReferrer'. */
     protected OptionalEntity<WhiteVariantRelationReferrer> _whiteVariantRelationReferrer;
 
     /**
-     * [get] white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'. <br>
+     * [get] WHITE_VARIANT_RELATION_REFERRER by my REFERRER_ID, named 'whiteVariantRelationReferrer'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteVariantRelationReferrer'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -122,7 +122,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
     }
 
     /**
-     * [set] white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
+     * [set] WHITE_VARIANT_RELATION_REFERRER by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
      * @param whiteVariantRelationReferrer The entity of foreign property 'whiteVariantRelationReferrer'. (NullAllowed)
      */
     public void setWhiteVariantRelationReferrer(OptionalEntity<WhiteVariantRelationReferrer> whiteVariantRelationReferrer) {

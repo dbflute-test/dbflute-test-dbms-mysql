@@ -161,7 +161,7 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_perrotta_over_product by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my NEXT_PRODUCT_ID, named 'whitePerrottaOverProductByNextProductId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhitePerrottaOverProductByNextProductId() {
@@ -169,7 +169,7 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_PERROTTA_OVER_TRACE_NEXT", "whitePerrottaOverProductByNextProductId", this, WhitePerrottaOverProductDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverTraceByNextProductIdList", false);
     }
     /**
-     * white_perrotta_over_product by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
+     * WHITE_PERROTTA_OVER_PRODUCT by my PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverProductByPreviousProductId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhitePerrottaOverProductByPreviousProductId() {

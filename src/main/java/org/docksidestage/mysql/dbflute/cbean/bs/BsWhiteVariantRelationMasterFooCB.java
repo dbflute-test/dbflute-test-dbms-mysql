@@ -257,7 +257,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
+     * WHITE_VARIANT_RELATION_REFERRER by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationMasterFooBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -297,7 +297,8 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
     public WhiteVariantRelationLocalPkReferrerNss setupSelect_WhiteVariantRelationLocalPkReferrerAsOne() {
         assertSetupSelectPurpose("whiteVariantRelationLocalPkReferrerAsOne");
         doSetupSelect(() -> query().queryWhiteVariantRelationLocalPkReferrerAsOne());
-        if (_nssWhiteVariantRelationLocalPkReferrerAsOne == null || !_nssWhiteVariantRelationLocalPkReferrerAsOne.hasConditionQuery()) { _nssWhiteVariantRelationLocalPkReferrerAsOne = new WhiteVariantRelationLocalPkReferrerNss(query().queryWhiteVariantRelationLocalPkReferrerAsOne()); }
+        if (_nssWhiteVariantRelationLocalPkReferrerAsOne == null || !_nssWhiteVariantRelationLocalPkReferrerAsOne.hasConditionQuery())
+        { _nssWhiteVariantRelationLocalPkReferrerAsOne = new WhiteVariantRelationLocalPkReferrerNss(query().queryWhiteVariantRelationLocalPkReferrerAsOne()); }
         return _nssWhiteVariantRelationLocalPkReferrerAsOne;
     }
 
@@ -337,8 +338,8 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteVariantRelationMasterFooCQ> {
@@ -368,7 +369,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_variant_relation_master_foo"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
+         * WHITE_VARIANT_RELATION_REFERRER by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteVariantRelationReferrerCB.HpSpecification specifyWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {
@@ -409,7 +410,7 @@ public class BsWhiteVariantRelationMasterFooCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_variant_relation_referrer where ...) as FOO_MAX} <br>
-         * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
+         * WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(referrerCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     referrerCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

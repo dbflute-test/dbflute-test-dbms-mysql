@@ -174,7 +174,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
+     * WHITE_COMPOUND_REFERRED_NORMALLY by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteCompoundReferredNormally() {
@@ -182,7 +182,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_COMPOUND_PK_REFERRED_NORMALLY_TEST", "whiteCompoundReferredNormally", this, WhiteCompoundReferredNormallyDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteCompoundPkList", false);
     }
     /**
-     * white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
+     * WHITE_COMPOUND_REFERRED_PRIMARY by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteCompoundReferredPrimary() {
@@ -190,7 +190,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_COMPOUND_PK_REFERRED_PRIMARY_TEST", "whiteCompoundReferredPrimary", this, WhiteCompoundReferredPrimaryDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteCompoundPkList", false);
     }
     /**
-     * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
+     * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteCompoundPkRefManyAsMax() {
@@ -200,7 +200,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_COMPOUND_PK_REF_MANY_DERIVED_ONE_MAX_TEST", "whiteCompoundPkRefManyAsMax", this, WhiteCompoundPkRefManyDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.REF_MANY_DATETIME = ($$sqbegin$$\nselect max(many.REF_MANY_DATETIME)\n  from WHITE_COMPOUND_PK_REF_MANY many\n where many.REF_MANY_FIRST_ID = $$foreignAlias$$.REF_MANY_FIRST_ID\n   and many.REF_MANY_SECOND_ID = $$foreignAlias$$.REF_MANY_SECOND_ID\n   and many.REF_MANY_CODE = 'TPK'\n)$$sqend$$", null, false, null, false);
     }
     /**
-     * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
+     * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteCompoundPkRefManyAsMin() {
@@ -214,7 +214,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
+     * WHITE_COMPOUND_PK_REF by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteCompoundPkRefList() {
@@ -224,7 +224,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
         return cri("FK_WHITE_COMPOUND_PK_REF", "whiteCompoundPkRefList", this, WhiteCompoundPkRefDbm.getInstance(), mp, false, "whiteCompoundPk");
     }
     /**
-     * white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
+     * WHITE_COMPOUND_PK_REF_MANY by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteCompoundPkRefManyToPKList() {

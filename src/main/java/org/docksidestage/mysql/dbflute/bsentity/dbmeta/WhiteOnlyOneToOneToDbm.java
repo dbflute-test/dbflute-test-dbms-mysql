@@ -147,7 +147,7 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
+     * WHITE_ONLY_ONE_TO_ONE_FROM by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteOnlyOneToOneFrom() {

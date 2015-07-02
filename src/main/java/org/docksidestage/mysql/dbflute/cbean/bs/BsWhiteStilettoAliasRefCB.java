@@ -251,7 +251,7 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
+     * WHITE_STILETTO_ALIAS by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
      * <pre>
      * <span style="color: #0000C0">whiteStilettoAliasRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteStilettoAlias()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -263,7 +263,7 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteStilettoAlias() {
         assertSetupSelectPurpose("whiteStilettoAlias");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnStilettoAliasId();
         }
         doSetupSelect(() -> query().queryWhiteStilettoAlias());
@@ -305,8 +305,8 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteStilettoAliasRefCQ> {
@@ -389,7 +389,7 @@ public class BsWhiteStilettoAliasRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_stiletto_alias_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
+         * WHITE_STILETTO_ALIAS by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteStilettoAliasCB.HpSpecification specifyWhiteStilettoAlias() {

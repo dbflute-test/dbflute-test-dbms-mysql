@@ -35,7 +35,7 @@ public class WhiteUqFkRefNestNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
+     * WHITE_UQ_FK_REF by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteUqFkRefNss withWhiteUqFkRef() {

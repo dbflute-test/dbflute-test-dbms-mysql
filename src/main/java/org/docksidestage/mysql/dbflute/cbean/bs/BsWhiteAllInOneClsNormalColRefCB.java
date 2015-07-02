@@ -263,7 +263,7 @@ public class BsWhiteAllInOneClsNormalColRefCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
      * <pre>
      * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteAllInOneClsElementAsFoo()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -289,7 +289,7 @@ public class BsWhiteAllInOneClsNormalColRefCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
      * <pre>
      * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteAllInOneClsElementAsBar()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -344,8 +344,8 @@ public class BsWhiteAllInOneClsNormalColRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteAllInOneClsNormalColRefCQ> {
@@ -387,7 +387,7 @@ public class BsWhiteAllInOneClsNormalColRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_all_in_one_cls_normal_col_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
+         * WHITE_ALL_IN_ONE_CLS_ELEMENT by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteAllInOneClsElementCB.HpSpecification specifyWhiteAllInOneClsElementAsFoo() {
@@ -407,7 +407,7 @@ public class BsWhiteAllInOneClsNormalColRefCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
+         * WHITE_ALL_IN_ONE_CLS_ELEMENT by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteAllInOneClsElementCB.HpSpecification specifyWhiteAllInOneClsElementAsBar() {

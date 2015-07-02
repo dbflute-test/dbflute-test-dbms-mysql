@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     WHITE_VARIANT_RELATION_MASTER_FOO(AsVariant), WHITE_VARIANT_RELATION_MASTER_BAR(AsVariant), WHITE_VARIANT_RELATION_MASTER_QUX(AsVariantByQue), WHITE_VARIANT_RELATION_MASTER_CORGE(AsVariantByQuxType)
  *
  * [referrer table]
- *     white_variant_relation_referrer_ref
+ *     WHITE_VARIANT_RELATION_REFERRER_REF
  *
  * [foreign property]
  *     whiteVariantRelationMasterFooAsVariant, whiteVariantRelationMasterBarAsVariant, whiteVariantRelationMasterQuxAsVariantByQue, whiteVariantRelationMasterCorgeAsVariantByQuxType
@@ -504,7 +504,7 @@ public abstract class BsWhiteVariantRelationReferrerBhv extends AbstractBehavior
 
     /**
      * Load referrer of whiteVariantRelationReferrerRefList by the set-upper of referrer. <br>
-     * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
+     * WHITE_VARIANT_RELATION_REFERRER_REF by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationReferrerBhv</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerRef</span>(<span style="color: #553000">whiteVariantRelationReferrerList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -535,7 +535,7 @@ public abstract class BsWhiteVariantRelationReferrerBhv extends AbstractBehavior
 
     /**
      * Load referrer of whiteVariantRelationReferrerRefList by the set-upper of referrer. <br>
-     * white_variant_relation_referrer_ref by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
+     * WHITE_VARIANT_RELATION_REFERRER_REF by REFERRER_ID, named 'whiteVariantRelationReferrerRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationReferrerBhv</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerRef</span>(<span style="color: #553000">whiteVariantRelationReferrer</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...

@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_all_in_one_cls_category
+ *     WHITE_ALL_IN_ONE_CLS_CATEGORY
  *
  * [referrer table]
  *     

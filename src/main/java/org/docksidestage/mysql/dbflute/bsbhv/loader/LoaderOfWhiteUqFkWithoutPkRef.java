@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_uq_fk_without_pk
+ *     WHITE_UQ_FK_WITHOUT_PK
  *
  * [referrer table]
  *     

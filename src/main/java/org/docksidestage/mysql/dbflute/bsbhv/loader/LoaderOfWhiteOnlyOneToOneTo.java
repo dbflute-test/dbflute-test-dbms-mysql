@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_only_one_to_one_from
+ *     WHITE_ONLY_ONE_TO_ONE_FROM
  *
  * [referrer table]
  *     

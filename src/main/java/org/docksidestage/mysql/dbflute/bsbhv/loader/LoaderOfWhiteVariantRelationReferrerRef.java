@@ -40,7 +40,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_variant_relation_referrer
+ *     WHITE_VARIANT_RELATION_REFERRER
  *
  * [referrer table]
  *     

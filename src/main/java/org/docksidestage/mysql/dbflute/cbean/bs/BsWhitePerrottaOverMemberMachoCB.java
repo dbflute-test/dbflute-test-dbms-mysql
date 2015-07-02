@@ -285,8 +285,8 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhitePerrottaOverMemberMachoCQ> {
@@ -315,7 +315,7 @@ public class BsWhitePerrottaOverMemberMachoCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_perrotta_over_member where ...) as FOO_MAX} <br>
-         * white_perrotta_over_member by MACHO_CODE, named 'whitePerrottaOverMemberList'.
+         * WHITE_PERROTTA_OVER_MEMBER by MACHO_CODE, named 'whitePerrottaOverMemberList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     memberCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

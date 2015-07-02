@@ -59,8 +59,8 @@ public class WhiteLineSepCommentDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteLineSepComment)et).getLineSepCommentCode(), (et, vl) -> {
             ColumnInfo col = columnLineSepCommentCode();
-            ccls(col, vl);
-            CDef.LineSepCommentCls cls = (CDef.LineSepCommentCls)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.LineSepCommentCls cls = (CDef.LineSepCommentCls)gcls(et, col, vl);
             if (cls != null) {
                 ((WhiteLineSepComment)et).setLineSepCommentCodeAsLineSepCommentCls(cls);
             } else {

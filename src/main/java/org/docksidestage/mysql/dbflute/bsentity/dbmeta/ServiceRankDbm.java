@@ -59,8 +59,8 @@ public class ServiceRankDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((ServiceRank)et).getServiceRankCode(), (et, vl) -> {
             ColumnInfo col = columnServiceRankCode();
-            ccls(col, vl);
-            CDef.ServiceRank cls = (CDef.ServiceRank)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.ServiceRank cls = (CDef.ServiceRank)gcls(et, col, vl);
             if (cls != null) {
                 ((ServiceRank)et).setServiceRankCodeAsServiceRank(cls);
             } else {
@@ -71,8 +71,8 @@ public class ServiceRankDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((ServiceRank)et).getServicePointIncidence(), (et, vl) -> ((ServiceRank)et).setServicePointIncidence(ctb(vl)), "servicePointIncidence");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getNewAcceptableFlg(), (et, vl) -> {
             ColumnInfo col = columnNewAcceptableFlg();
-            ccls(col, vl);
-            CDef.Flg cls = (CDef.Flg)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.Flg cls = (CDef.Flg)gcls(et, col, vl);
             if (cls != null) {
                 ((ServiceRank)et).setNewAcceptableFlgAsFlg(cls);
             } else {
@@ -184,7 +184,7 @@ public class ServiceRankDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
+     * (会員サービス)MEMBER_SERVICE by SERVICE_RANK_CODE, named 'memberServiceList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberServiceList() {

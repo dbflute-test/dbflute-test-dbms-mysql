@@ -379,7 +379,7 @@ public class BsWhiteStilettoAliasRefCQ extends AbstractBsWhiteStilettoAliasRefCQ
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
+     * WHITE_STILETTO_ALIAS by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteStilettoAliasCQ queryWhiteStilettoAlias() {

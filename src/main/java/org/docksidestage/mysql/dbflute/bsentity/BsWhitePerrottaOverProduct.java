@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_perrotta_over_product_nested, WHITE_PERROTTA_OVER_TRACE(AsPerrotta)
+ *     WHITE_PERROTTA_OVER_PRODUCT_NESTED, WHITE_PERROTTA_OVER_TRACE(AsPerrotta)
  * 
  * [referrer table]
- *     white_perrotta_over_member, white_perrotta_over_trace
+ *     WHITE_PERROTTA_OVER_MEMBER, WHITE_PERROTTA_OVER_TRACE
  * 
  * [foreign property]
  *     whitePerrottaOverProductNested, whitePerrottaOverTraceAsPerrotta
@@ -113,11 +113,11 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'. */
+    /** WHITE_PERROTTA_OVER_PRODUCT_NESTED by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'. */
     protected OptionalEntity<WhitePerrottaOverProductNested> _whitePerrottaOverProductNested;
 
     /**
-     * [get] white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'. <br>
+     * [get] WHITE_PERROTTA_OVER_PRODUCT_NESTED by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whitePerrottaOverProductNested'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -127,18 +127,18 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
+     * [set] WHITE_PERROTTA_OVER_PRODUCT_NESTED by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
      * @param whitePerrottaOverProductNested The entity of foreign property 'whitePerrottaOverProductNested'. (NullAllowed)
      */
     public void setWhitePerrottaOverProductNested(OptionalEntity<WhitePerrottaOverProductNested> whitePerrottaOverProductNested) {
         _whitePerrottaOverProductNested = whitePerrottaOverProductNested;
     }
 
-    /** white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'. */
+    /** WHITE_PERROTTA_OVER_TRACE by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'. */
     protected OptionalEntity<WhitePerrottaOverTrace> _whitePerrottaOverTraceAsPerrotta;
 
     /**
-     * [get] white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'. <br>
+     * [get] WHITE_PERROTTA_OVER_TRACE by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whitePerrottaOverTraceAsPerrotta'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -148,7 +148,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
+     * [set] WHITE_PERROTTA_OVER_TRACE by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
      * @param whitePerrottaOverTraceAsPerrotta The entity of foreign property 'whitePerrottaOverTraceAsPerrotta'. (NullAllowed)
      */
     public void setWhitePerrottaOverTraceAsPerrotta(OptionalEntity<WhitePerrottaOverTrace> whitePerrottaOverTraceAsPerrotta) {
@@ -158,11 +158,11 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberList'. */
+    /** WHITE_PERROTTA_OVER_MEMBER by PRODUCT_ID, named 'whitePerrottaOverMemberList'. */
     protected List<WhitePerrottaOverMember> _whitePerrottaOverMemberList;
 
     /**
-     * [get] white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
+     * [get] WHITE_PERROTTA_OVER_MEMBER by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
      * @return The entity list of referrer property 'whitePerrottaOverMemberList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhitePerrottaOverMember> getWhitePerrottaOverMemberList() {
@@ -171,18 +171,18 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
+     * [set] WHITE_PERROTTA_OVER_MEMBER by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
      * @param whitePerrottaOverMemberList The entity list of referrer property 'whitePerrottaOverMemberList'. (NullAllowed)
      */
     public void setWhitePerrottaOverMemberList(List<WhitePerrottaOverMember> whitePerrottaOverMemberList) {
         _whitePerrottaOverMemberList = whitePerrottaOverMemberList;
     }
 
-    /** white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'. */
+    /** WHITE_PERROTTA_OVER_TRACE by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'. */
     protected List<WhitePerrottaOverTrace> _whitePerrottaOverTraceByNextProductIdList;
 
     /**
-     * [get] white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
+     * [get] WHITE_PERROTTA_OVER_TRACE by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
      * @return The entity list of referrer property 'whitePerrottaOverTraceByNextProductIdList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhitePerrottaOverTrace> getWhitePerrottaOverTraceByNextProductIdList() {
@@ -191,18 +191,18 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
+     * [set] WHITE_PERROTTA_OVER_TRACE by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
      * @param whitePerrottaOverTraceByNextProductIdList The entity list of referrer property 'whitePerrottaOverTraceByNextProductIdList'. (NullAllowed)
      */
     public void setWhitePerrottaOverTraceByNextProductIdList(List<WhitePerrottaOverTrace> whitePerrottaOverTraceByNextProductIdList) {
         _whitePerrottaOverTraceByNextProductIdList = whitePerrottaOverTraceByNextProductIdList;
     }
 
-    /** white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'. */
+    /** WHITE_PERROTTA_OVER_TRACE by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'. */
     protected List<WhitePerrottaOverTrace> _whitePerrottaOverTraceByPreviousProductIdList;
 
     /**
-     * [get] white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
+     * [get] WHITE_PERROTTA_OVER_TRACE by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
      * @return The entity list of referrer property 'whitePerrottaOverTraceByPreviousProductIdList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhitePerrottaOverTrace> getWhitePerrottaOverTraceByPreviousProductIdList() {
@@ -211,7 +211,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
+     * [set] WHITE_PERROTTA_OVER_TRACE by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
      * @param whitePerrottaOverTraceByPreviousProductIdList The entity list of referrer property 'whitePerrottaOverTraceByPreviousProductIdList'. (NullAllowed)
      */
     public void setWhitePerrottaOverTraceByPreviousProductIdList(List<WhitePerrottaOverTrace> whitePerrottaOverTraceByPreviousProductIdList) {

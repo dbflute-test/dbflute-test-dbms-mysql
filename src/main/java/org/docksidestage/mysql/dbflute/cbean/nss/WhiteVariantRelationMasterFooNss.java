@@ -35,7 +35,7 @@ public class WhiteVariantRelationMasterFooNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_variant_relation_referrer by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
+     * WHITE_VARIANT_RELATION_REFERRER by my MASTER_FOO_ID, named 'whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteVariantRelationReferrerNss withWhiteVariantRelationReferrerAsBizOneToOneForBizManyToOne() {

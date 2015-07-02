@@ -35,7 +35,7 @@ public class WhitePgReservRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_pg_reserv by my CLASS, named 'whitePgReserv'.
+     * WHITE_PG_RESERV by my CLASS, named 'whitePgReserv'.
      */
     public void withWhitePgReserv() {
         _query.xdoNss(() -> _query.queryWhitePgReserv());

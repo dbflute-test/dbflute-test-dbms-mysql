@@ -48,7 +48,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     WHITE_IMPLICIT_CONV_INTEGER, WHITE_IMPLICIT_CONV_STRING
  * 
  * [referrer table]
- *     white_implicit_conv_integer, white_implicit_conv_string
+ *     WHITE_IMPLICIT_CONV_INTEGER, WHITE_IMPLICIT_CONV_STRING
  * 
  * [foreign property]
  *     whiteImplicitConvInteger, whiteImplicitConvString
@@ -118,11 +118,11 @@ public abstract class BsWhiteImplicitConvNumeric extends AbstractEntity implemen
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'. */
+    /** WHITE_IMPLICIT_CONV_INTEGER by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'. */
     protected OptionalEntity<WhiteImplicitConvInteger> _whiteImplicitConvInteger;
 
     /**
-     * [get] white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'. <br>
+     * [get] WHITE_IMPLICIT_CONV_INTEGER by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteImplicitConvInteger'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -132,18 +132,18 @@ public abstract class BsWhiteImplicitConvNumeric extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_implicit_conv_integer by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
+     * [set] WHITE_IMPLICIT_CONV_INTEGER by my IMPLICIT_CONV_INTEGER_ID, named 'whiteImplicitConvInteger'.
      * @param whiteImplicitConvInteger The entity of foreign property 'whiteImplicitConvInteger'. (NullAllowed)
      */
     public void setWhiteImplicitConvInteger(OptionalEntity<WhiteImplicitConvInteger> whiteImplicitConvInteger) {
         _whiteImplicitConvInteger = whiteImplicitConvInteger;
     }
 
-    /** white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'. */
+    /** WHITE_IMPLICIT_CONV_STRING by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'. */
     protected OptionalEntity<WhiteImplicitConvString> _whiteImplicitConvString;
 
     /**
-     * [get] white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'. <br>
+     * [get] WHITE_IMPLICIT_CONV_STRING by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteImplicitConvString'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -153,7 +153,7 @@ public abstract class BsWhiteImplicitConvNumeric extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_implicit_conv_string by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
+     * [set] WHITE_IMPLICIT_CONV_STRING by my IMPLICIT_CONV_STRING_ID, named 'whiteImplicitConvString'.
      * @param whiteImplicitConvString The entity of foreign property 'whiteImplicitConvString'. (NullAllowed)
      */
     public void setWhiteImplicitConvString(OptionalEntity<WhiteImplicitConvString> whiteImplicitConvString) {
@@ -163,11 +163,11 @@ public abstract class BsWhiteImplicitConvNumeric extends AbstractEntity implemen
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'. */
+    /** WHITE_IMPLICIT_CONV_INTEGER by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'. */
     protected List<WhiteImplicitConvInteger> _whiteImplicitConvIntegerList;
 
     /**
-     * [get] white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
+     * [get] WHITE_IMPLICIT_CONV_INTEGER by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
      * @return The entity list of referrer property 'whiteImplicitConvIntegerList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteImplicitConvInteger> getWhiteImplicitConvIntegerList() {
@@ -176,18 +176,18 @@ public abstract class BsWhiteImplicitConvNumeric extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_implicit_conv_integer by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
+     * [set] WHITE_IMPLICIT_CONV_INTEGER by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvIntegerList'.
      * @param whiteImplicitConvIntegerList The entity list of referrer property 'whiteImplicitConvIntegerList'. (NullAllowed)
      */
     public void setWhiteImplicitConvIntegerList(List<WhiteImplicitConvInteger> whiteImplicitConvIntegerList) {
         _whiteImplicitConvIntegerList = whiteImplicitConvIntegerList;
     }
 
-    /** white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'. */
+    /** WHITE_IMPLICIT_CONV_STRING by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'. */
     protected List<WhiteImplicitConvString> _whiteImplicitConvStringList;
 
     /**
-     * [get] white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
+     * [get] WHITE_IMPLICIT_CONV_STRING by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
      * @return The entity list of referrer property 'whiteImplicitConvStringList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteImplicitConvString> getWhiteImplicitConvStringList() {
@@ -196,7 +196,7 @@ public abstract class BsWhiteImplicitConvNumeric extends AbstractEntity implemen
     }
 
     /**
-     * [set] white_implicit_conv_string by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
+     * [set] WHITE_IMPLICIT_CONV_STRING by IMPLICIT_CONV_NUMERIC_ID, named 'whiteImplicitConvStringList'.
      * @param whiteImplicitConvStringList The entity list of referrer property 'whiteImplicitConvStringList'. (NullAllowed)
      */
     public void setWhiteImplicitConvStringList(List<WhiteImplicitConvString> whiteImplicitConvStringList) {

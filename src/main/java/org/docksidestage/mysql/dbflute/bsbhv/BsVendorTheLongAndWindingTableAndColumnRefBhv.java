@@ -53,7 +53,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     vendor_the_long_and_winding_table_and_column
+ *     VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN
  *
  * [referrer table]
  *     

@@ -59,8 +59,8 @@ public class RegionDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((Region)et).getRegionId(), (et, vl) -> {
             ColumnInfo col = columnRegionId();
-            ccls(col, vl);
-            CDef.Region cls = (CDef.Region)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.Region cls = (CDef.Region)gcls(et, col, vl);
             if (cls != null) {
                 ((Region)et).setRegionIdAsRegion(cls);
             } else {
@@ -138,7 +138,7 @@ public class RegionDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員住所情報)member_address by REGION_ID, named 'memberAddressList'.
+     * (会員住所情報)MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberAddressList() {

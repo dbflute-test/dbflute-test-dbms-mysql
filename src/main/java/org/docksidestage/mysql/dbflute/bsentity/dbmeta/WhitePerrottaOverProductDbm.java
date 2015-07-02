@@ -143,7 +143,7 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_perrotta_over_product_nested by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
+     * WHITE_PERROTTA_OVER_PRODUCT_NESTED by my PRODUCT_NESTED_CODE, named 'whitePerrottaOverProductNested'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhitePerrottaOverProductNested() {
@@ -151,7 +151,7 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_PERROTTA_OVER_PRODUCT_NESTED", "whitePerrottaOverProductNested", this, WhitePerrottaOverProductNestedDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whitePerrottaOverProductList", false);
     }
     /**
-     * white_perrotta_over_trace by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
+     * WHITE_PERROTTA_OVER_TRACE by my PRODUCT_ID, named 'whitePerrottaOverTraceAsPerrotta'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhitePerrottaOverTraceAsPerrotta() {
@@ -163,7 +163,7 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_perrotta_over_member by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
+     * WHITE_PERROTTA_OVER_MEMBER by PRODUCT_ID, named 'whitePerrottaOverMemberList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhitePerrottaOverMemberList() {
@@ -171,7 +171,7 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
         return cri("FK_WHITE_PERROTTA_OVER_MEMBER_PRODUCT", "whitePerrottaOverMemberList", this, WhitePerrottaOverMemberDbm.getInstance(), mp, false, "whitePerrottaOverProduct");
     }
     /**
-     * white_perrotta_over_trace by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
+     * WHITE_PERROTTA_OVER_TRACE by NEXT_PRODUCT_ID, named 'whitePerrottaOverTraceByNextProductIdList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhitePerrottaOverTraceByNextProductIdList() {
@@ -179,7 +179,7 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
         return cri("FK_WHITE_PERROTTA_OVER_TRACE_NEXT", "whitePerrottaOverTraceByNextProductIdList", this, WhitePerrottaOverTraceDbm.getInstance(), mp, false, "whitePerrottaOverProductByNextProductId");
     }
     /**
-     * white_perrotta_over_trace by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
+     * WHITE_PERROTTA_OVER_TRACE by PREVIOUS_PRODUCT_ID, named 'whitePerrottaOverTraceByPreviousProductIdList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhitePerrottaOverTraceByPreviousProductIdList() {

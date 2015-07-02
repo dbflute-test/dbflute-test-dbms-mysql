@@ -64,8 +64,8 @@ public class PurchasePaymentDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((PurchasePayment)et).getPaymentDatetime(), (et, vl) -> ((PurchasePayment)et).setPaymentDatetime(ctldt(vl)), "paymentDatetime");
         setupEpg(_epgMap, et -> ((PurchasePayment)et).getPaymentMethodCode(), (et, vl) -> {
             ColumnInfo col = columnPaymentMethodCode();
-            ccls(col, vl);
-            CDef.PaymentMethod cls = (CDef.PaymentMethod)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.PaymentMethod cls = (CDef.PaymentMethod)gcls(et, col, vl);
             if (cls != null) {
                 ((PurchasePayment)et).setPaymentMethodCodeAsPaymentMethod(cls);
             } else {
@@ -203,7 +203,7 @@ public class PurchasePaymentDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (購入)purchase by my PURCHASE_ID, named 'purchase'.
+     * (購入)PURCHASE by my PURCHASE_ID, named 'purchase'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignPurchase() {

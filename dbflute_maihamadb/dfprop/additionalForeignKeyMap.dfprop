@@ -89,6 +89,20 @@ map:{
         ; fixedCondition = $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = /*statusCode($$CDef$$.MemberStatus)*/null
         ; fixedSuffix = AsLoginStatus
     }
+    # for the test of fixed classification
+    ; FK_MEMBER_MEMBER_LOGIN_STATUS_FIXED_CLS = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = /*$cls(GroupingReference.SEA_NAME)*/null
+        ; fixedSuffix = AsLoginStatusFixedCls
+    }
+    # for the test of fixed classification grouping
+    ; FK_MEMBER_MEMBER_LOGIN_STATUS_FIXED_CLS_GROUPING = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE in /*$cls(GroupingReference.serviceAvailable)*/null
+        ; fixedSuffix = AsLoginStatusFixedClsGrouping
+    }
     # for the test of IF comment
     ; FK_MEMBER_MEMBER_ADDRESS_IF_COMMENT = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS

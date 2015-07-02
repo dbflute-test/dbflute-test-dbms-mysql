@@ -285,8 +285,8 @@ public class BsWhiteCompoundReferredNormallyCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteCompoundReferredNormallyCQ> {
@@ -315,7 +315,7 @@ public class BsWhiteCompoundReferredNormallyCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_compound_pk where ...) as FOO_MAX} <br>
-         * white_compound_pk by REFERRED_ID, named 'whiteCompoundPkList'.
+         * WHITE_COMPOUND_PK by REFERRED_ID, named 'whiteCompoundPkList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(pkCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     pkCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

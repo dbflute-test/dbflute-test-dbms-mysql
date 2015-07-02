@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_suppress_join_sq_many_one_one
+ *     WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE
  * 
  * [referrer table]
- *     white_suppress_join_sq_many
+ *     WHITE_SUPPRESS_JOIN_SQ_MANY
  * 
  * [foreign property]
  *     whiteSuppressJoinSqManyOneOne
@@ -113,11 +113,11 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. */
+    /** WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. */
     protected OptionalEntity<WhiteSuppressJoinSqManyOneOne> _whiteSuppressJoinSqManyOneOne;
 
     /**
-     * [get] white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. <br>
+     * [get] WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteSuppressJoinSqManyOneOne'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -127,7 +127,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
     }
 
     /**
-     * [set] white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
+     * [set] WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
      * @param whiteSuppressJoinSqManyOneOne The entity of foreign property 'whiteSuppressJoinSqManyOneOne'. (NullAllowed)
      */
     public void setWhiteSuppressJoinSqManyOneOne(OptionalEntity<WhiteSuppressJoinSqManyOneOne> whiteSuppressJoinSqManyOneOne) {
@@ -137,11 +137,11 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyList'. */
+    /** WHITE_SUPPRESS_JOIN_SQ_MANY by MANY_ONE_ID, named 'whiteSuppressJoinSqManyList'. */
     protected List<WhiteSuppressJoinSqMany> _whiteSuppressJoinSqManyList;
 
     /**
-     * [get] white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyList'.
+     * [get] WHITE_SUPPRESS_JOIN_SQ_MANY by MANY_ONE_ID, named 'whiteSuppressJoinSqManyList'.
      * @return The entity list of referrer property 'whiteSuppressJoinSqManyList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteSuppressJoinSqMany> getWhiteSuppressJoinSqManyList() {
@@ -150,7 +150,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
     }
 
     /**
-     * [set] white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyList'.
+     * [set] WHITE_SUPPRESS_JOIN_SQ_MANY by MANY_ONE_ID, named 'whiteSuppressJoinSqManyList'.
      * @param whiteSuppressJoinSqManyList The entity list of referrer property 'whiteSuppressJoinSqManyList'. (NullAllowed)
      */
     public void setWhiteSuppressJoinSqManyList(List<WhiteSuppressJoinSqMany> whiteSuppressJoinSqManyList) {

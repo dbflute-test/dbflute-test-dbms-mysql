@@ -134,7 +134,7 @@ public class WhiteVariantRelationLocalPkReferrerDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_variant_relation_master_foo by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
+     * WHITE_VARIANT_RELATION_MASTER_FOO by my REVERSEFK_SUPPRESSED_ID, named 'whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne() {

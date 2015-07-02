@@ -135,7 +135,7 @@ public class WhiteSelfReferenceRefOneDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
+     * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReference'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteSelfReference() {
@@ -143,7 +143,7 @@ public class WhiteSelfReferenceRefOneDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_SELF_REFERENCE_REF_ONE", "whiteSelfReference", this, WhiteSelfReferenceDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, false, null, null, false, "whiteSelfReferenceRefOneAsOne", false);
     }
     /**
-     * white_self_reference by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
+     * WHITE_SELF_REFERENCE by my SELF_REFERENCE_ID, named 'whiteSelfReferenceAsDirectParent'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteSelfReferenceAsDirectParent() {

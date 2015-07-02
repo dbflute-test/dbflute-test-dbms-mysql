@@ -199,7 +199,7 @@ public class BsWhiteUqFkRefNestCQ extends AbstractBsWhiteUqFkRefNestCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_uq_fk_ref by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
+     * WHITE_UQ_FK_REF by my COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRef'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteUqFkRefCQ queryWhiteUqFkRef() {

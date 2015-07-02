@@ -254,7 +254,7 @@ public class BsWhiteAllInOneClsElementCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
+     * WHITE_ALL_IN_ONE_CLS_CATEGORY by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
      * <pre>
      * <span style="color: #0000C0">whiteAllInOneClsElementBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteAllInOneClsCategory()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -305,8 +305,8 @@ public class BsWhiteAllInOneClsElementCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteAllInOneClsElementCQ> {
@@ -346,7 +346,7 @@ public class BsWhiteAllInOneClsElementCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_all_in_one_cls_element"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_all_in_one_cls_category by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
+         * WHITE_ALL_IN_ONE_CLS_CATEGORY by my CLS_CATEGORY_CODE, named 'whiteAllInOneClsCategory'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteAllInOneClsCategoryCB.HpSpecification specifyWhiteAllInOneClsCategory() {

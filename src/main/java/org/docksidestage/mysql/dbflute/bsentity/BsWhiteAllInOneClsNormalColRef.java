@@ -120,11 +120,11 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'. */
+    /** WHITE_ALL_IN_ONE_CLS_ELEMENT by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'. */
     protected OptionalEntity<WhiteAllInOneClsElement> _whiteAllInOneClsElementAsFoo;
 
     /**
-     * [get] white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'. <br>
+     * [get] WHITE_ALL_IN_ONE_CLS_ELEMENT by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteAllInOneClsElementAsFoo'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -134,18 +134,18 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
     }
 
     /**
-     * [set] white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
+     * [set] WHITE_ALL_IN_ONE_CLS_ELEMENT by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
      * @param whiteAllInOneClsElementAsFoo The entity of foreign property 'whiteAllInOneClsElementAsFoo'. (NullAllowed)
      */
     public void setWhiteAllInOneClsElementAsFoo(OptionalEntity<WhiteAllInOneClsElement> whiteAllInOneClsElementAsFoo) {
         _whiteAllInOneClsElementAsFoo = whiteAllInOneClsElementAsFoo;
     }
 
-    /** white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'. */
+    /** WHITE_ALL_IN_ONE_CLS_ELEMENT by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'. */
     protected OptionalEntity<WhiteAllInOneClsElement> _whiteAllInOneClsElementAsBar;
 
     /**
-     * [get] white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'. <br>
+     * [get] WHITE_ALL_IN_ONE_CLS_ELEMENT by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteAllInOneClsElementAsBar'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -155,7 +155,7 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
     }
 
     /**
-     * [set] white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
+     * [set] WHITE_ALL_IN_ONE_CLS_ELEMENT by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
      * @param whiteAllInOneClsElementAsBar The entity of foreign property 'whiteAllInOneClsElementAsBar'. (NullAllowed)
      */
     public void setWhiteAllInOneClsElementAsBar(OptionalEntity<WhiteAllInOneClsElement> whiteAllInOneClsElementAsBar) {

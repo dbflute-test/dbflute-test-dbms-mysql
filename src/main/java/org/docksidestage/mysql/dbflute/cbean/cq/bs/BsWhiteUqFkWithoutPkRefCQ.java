@@ -179,7 +179,7 @@ public class BsWhiteUqFkWithoutPkRefCQ extends AbstractBsWhiteUqFkWithoutPkRefCQ
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_uq_fk_without_pk by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
+     * WHITE_UQ_FK_WITHOUT_PK by my FK_TO_UQ_CODE, named 'whiteUqFkWithoutPk'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteUqFkWithoutPkCQ queryWhiteUqFkWithoutPk() {

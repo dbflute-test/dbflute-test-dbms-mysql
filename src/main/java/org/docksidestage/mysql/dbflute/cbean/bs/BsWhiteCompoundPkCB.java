@@ -281,7 +281,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
+     * WHITE_COMPOUND_REFERRED_NORMALLY by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundReferredNormally()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -293,7 +293,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteCompoundReferredNormally() {
         assertSetupSelectPurpose("whiteCompoundReferredNormally");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnReferredId();
         }
         doSetupSelect(() -> query().queryWhiteCompoundReferredNormally());
@@ -301,7 +301,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
+     * WHITE_COMPOUND_REFERRED_PRIMARY by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundReferredPrimary()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -323,7 +323,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
+     * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundPkRefManyAsMax()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -349,7 +349,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
+     * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
      * <pre>
      * <span style="color: #0000C0">whiteCompoundPkBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundPkRefManyAsMin()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -404,8 +404,8 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteCompoundPkCQ> {
@@ -452,7 +452,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_compound_pk"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_compound_referred_normally by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
+         * WHITE_COMPOUND_REFERRED_NORMALLY by my REFERRED_ID, named 'whiteCompoundReferredNormally'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteCompoundReferredNormallyCB.HpSpecification specifyWhiteCompoundReferredNormally() {
@@ -472,7 +472,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_compound_referred_primary by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
+         * WHITE_COMPOUND_REFERRED_PRIMARY by my PK_SECOND_ID, named 'whiteCompoundReferredPrimary'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteCompoundReferredPrimaryCB.HpSpecification specifyWhiteCompoundReferredPrimary() {
@@ -492,7 +492,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
+         * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMax'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteCompoundPkRefManyCB.HpSpecification specifyWhiteCompoundPkRefManyAsMax() {
@@ -512,7 +512,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_compound_pk_ref_many by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
+         * WHITE_COMPOUND_PK_REF_MANY by my PK_FIRST_ID, PK_SECOND_ID, named 'whiteCompoundPkRefManyAsMin'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteCompoundPkRefManyCB.HpSpecification specifyWhiteCompoundPkRefManyAsMin() {
@@ -533,7 +533,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_compound_pk_ref where ...) as FOO_MAX} <br>
-         * white_compound_pk_ref by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
+         * WHITE_COMPOUND_PK_REF by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     refCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -550,7 +550,7 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_compound_pk_ref_many where ...) as FOO_MAX} <br>
-         * white_compound_pk_ref_many by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
+         * WHITE_COMPOUND_PK_REF_MANY by REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, named 'whiteCompoundPkRefManyToPKList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     manyCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

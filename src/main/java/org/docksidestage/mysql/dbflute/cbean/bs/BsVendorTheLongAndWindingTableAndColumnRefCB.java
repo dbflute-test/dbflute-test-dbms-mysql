@@ -251,7 +251,7 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
+     * VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
      * <pre>
      * <span style="color: #0000C0">vendorTheLongAndWindingTableAndColumnRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_VendorTheLongAndWindingTableAndColumn()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -263,7 +263,7 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
      */
     public void setupSelect_VendorTheLongAndWindingTableAndColumn() {
         assertSetupSelectPurpose("vendorTheLongAndWindingTableAndColumn");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnTheLongAndWindingTableAndColumnId();
         }
         doSetupSelect(() -> query().queryVendorTheLongAndWindingTableAndColumn());
@@ -305,8 +305,8 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<VendorTheLongAndWindingTableAndColumnRefCQ> {
@@ -349,7 +349,7 @@ public class BsVendorTheLongAndWindingTableAndColumnRefCB extends AbstractCondit
         protected String getTableDbName() { return "vendor_the_long_and_winding_table_and_column_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * vendor_the_long_and_winding_table_and_column by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
+         * VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN by my THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, named 'vendorTheLongAndWindingTableAndColumn'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public VendorTheLongAndWindingTableAndColumnCB.HpSpecification specifyVendorTheLongAndWindingTableAndColumn() {

@@ -53,7 +53,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     white_self_reference, WHITE_SELF_REFERENCE(AsDirectParent)
+ *     WHITE_SELF_REFERENCE
  *
  * [referrer table]
  *     

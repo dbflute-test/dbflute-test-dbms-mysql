@@ -63,8 +63,8 @@ public class SummaryProductDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductHandleCode(), (et, vl) -> ((SummaryProduct)et).setProductHandleCode((String)vl), "productHandleCode");
         setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductStatusCode(), (et, vl) -> {
             ColumnInfo col = columnProductStatusCode();
-            ccls(col, vl);
-            CDef.ProductStatus cls = (CDef.ProductStatus)gcls(col, vl);
+            ccls(et, col, vl);
+            CDef.ProductStatus cls = (CDef.ProductStatus)gcls(et, col, vl);
             if (cls != null) {
                 ((SummaryProduct)et).setProductStatusCodeAsProductStatus(cls);
             } else {
@@ -174,7 +174,7 @@ public class SummaryProductDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (商品ステータス)product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
+     * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignProductStatus() {
@@ -186,7 +186,7 @@ public class SummaryProductDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (購入)purchase by PRODUCT_ID, named 'purchaseList'.
+     * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerPurchaseList() {

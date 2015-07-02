@@ -179,7 +179,7 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
+     * WHITE_VARIANT_RELATION_REFERRER by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteVariantRelationReferrerCQ queryWhiteVariantRelationReferrer() {

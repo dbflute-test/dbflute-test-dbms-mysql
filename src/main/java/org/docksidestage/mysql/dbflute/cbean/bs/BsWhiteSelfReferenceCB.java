@@ -257,7 +257,7 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'.
+     * WHITE_SELF_REFERENCE by my PARENT_ID, named 'whiteSelfReferenceSelf'.
      * <pre>
      * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteSelfReferenceSelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -270,7 +270,7 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
      */
     public WhiteSelfReferenceNss setupSelect_WhiteSelfReferenceSelf() {
         assertSetupSelectPurpose("whiteSelfReferenceSelf");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnParentId();
         }
         doSetupSelect(() -> query().queryWhiteSelfReferenceSelf());
@@ -300,7 +300,8 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
     public WhiteSelfReferenceRefOneNss setupSelect_WhiteSelfReferenceRefOneAsOne() {
         assertSetupSelectPurpose("whiteSelfReferenceRefOneAsOne");
         doSetupSelect(() -> query().queryWhiteSelfReferenceRefOneAsOne());
-        if (_nssWhiteSelfReferenceRefOneAsOne == null || !_nssWhiteSelfReferenceRefOneAsOne.hasConditionQuery()) { _nssWhiteSelfReferenceRefOneAsOne = new WhiteSelfReferenceRefOneNss(query().queryWhiteSelfReferenceRefOneAsOne()); }
+        if (_nssWhiteSelfReferenceRefOneAsOne == null || !_nssWhiteSelfReferenceRefOneAsOne.hasConditionQuery())
+        { _nssWhiteSelfReferenceRefOneAsOne = new WhiteSelfReferenceRefOneNss(query().queryWhiteSelfReferenceRefOneAsOne()); }
         return _nssWhiteSelfReferenceRefOneAsOne;
     }
 
@@ -340,8 +341,8 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteSelfReferenceCQ> {
@@ -380,7 +381,7 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_self_reference"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_self_reference by my PARENT_ID, named 'whiteSelfReferenceSelf'.
+         * WHITE_SELF_REFERENCE by my PARENT_ID, named 'whiteSelfReferenceSelf'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteSelfReferenceCB.HpSpecification specifyWhiteSelfReferenceSelf() {
@@ -421,7 +422,7 @@ public class BsWhiteSelfReferenceCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_self_reference where ...) as FOO_MAX} <br>
-         * white_self_reference by PARENT_ID, named 'whiteSelfReferenceSelfList'.
+         * WHITE_SELF_REFERENCE by PARENT_ID, named 'whiteSelfReferenceSelfList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(referenceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     referenceCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

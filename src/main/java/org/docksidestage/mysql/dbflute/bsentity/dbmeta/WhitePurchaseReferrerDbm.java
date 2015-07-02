@@ -134,7 +134,7 @@ public class WhitePurchaseReferrerDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (購入)purchase by my PURCHASE_REFERRER_ID, named 'purchase'.
+     * (購入)PURCHASE by my PURCHASE_REFERRER_ID, named 'purchase'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignPurchase() {

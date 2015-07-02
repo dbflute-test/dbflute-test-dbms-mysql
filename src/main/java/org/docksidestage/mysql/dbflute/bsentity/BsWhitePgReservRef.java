@@ -45,7 +45,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_pg_reserv
+ *     WHITE_PG_RESERV
  * 
  * [referrer table]
  *     
@@ -108,11 +108,11 @@ public abstract class BsWhitePgReservRef extends AbstractEntity implements Domai
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_pg_reserv by my CLASS, named 'whitePgReserv'. */
+    /** WHITE_PG_RESERV by my CLASS, named 'whitePgReserv'. */
     protected OptionalEntity<WhitePgReserv> _whitePgReserv;
 
     /**
-     * [get] white_pg_reserv by my CLASS, named 'whitePgReserv'. <br>
+     * [get] WHITE_PG_RESERV by my CLASS, named 'whitePgReserv'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whitePgReserv'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -122,7 +122,7 @@ public abstract class BsWhitePgReservRef extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] white_pg_reserv by my CLASS, named 'whitePgReserv'.
+     * [set] WHITE_PG_RESERV by my CLASS, named 'whitePgReserv'.
      * @param whitePgReserv The entity of foreign property 'whitePgReserv'. (NullAllowed)
      */
     public void setWhitePgReserv(OptionalEntity<WhitePgReserv> whitePgReserv) {

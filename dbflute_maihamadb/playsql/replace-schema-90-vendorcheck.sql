@@ -128,3 +128,11 @@ CREATE TABLE VENDOR_CONSTRAINT_NAME_AUTO_REF (
 	FOREIGN KEY(CONSTRAINT_NAME_AUTO_QUX_ID) REFERENCES VENDOR_CONSTRAINT_NAME_AUTO_QUX(CONSTRAINT_NAME_AUTO_QUX_ID),
 	UNIQUE (CONSTRAINT_NAME_AUTO_UNIQUE)
 ) ;
+
+-- =======================================================================================
+--                                                                                  Dollar
+--                                                                                  ======
+create table VENDOR_$_DOLLAR (
+	VENDOR_$_DOLLAR_ID INTEGER NOT NULL PRIMARY KEY,
+	VENDOR_$_DOLLAR_NAME VARCHAR(32)
+);

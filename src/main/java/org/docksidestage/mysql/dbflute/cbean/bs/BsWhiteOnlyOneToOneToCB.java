@@ -269,7 +269,7 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
+     * WHITE_ONLY_ONE_TO_ONE_FROM by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
      * <pre>
      * <span style="color: #0000C0">whiteOnlyOneToOneToBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteOnlyOneToOneFrom()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -282,7 +282,7 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
      */
     public WhiteOnlyOneToOneFromNss setupSelect_WhiteOnlyOneToOneFrom() {
         assertSetupSelectPurpose("whiteOnlyOneToOneFrom");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnFromId();
         }
         doSetupSelect(() -> query().queryWhiteOnlyOneToOneFrom());
@@ -327,8 +327,8 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteOnlyOneToOneToCQ> {
@@ -366,7 +366,7 @@ public class BsWhiteOnlyOneToOneToCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_only_one_to_one_to"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_only_one_to_one_from by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
+         * WHITE_ONLY_ONE_TO_ONE_FROM by my FROM_ID, named 'whiteOnlyOneToOneFrom'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteOnlyOneToOneFromCB.HpSpecification specifyWhiteOnlyOneToOneFrom() {

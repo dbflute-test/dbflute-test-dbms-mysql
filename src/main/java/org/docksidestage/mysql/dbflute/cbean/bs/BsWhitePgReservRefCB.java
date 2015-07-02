@@ -251,7 +251,7 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_pg_reserv by my CLASS, named 'whitePgReserv'.
+     * WHITE_PG_RESERV by my CLASS, named 'whitePgReserv'.
      * <pre>
      * <span style="color: #0000C0">whitePgReservRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhitePgReserv()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -263,7 +263,7 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
      */
     public void setupSelect_WhitePgReserv() {
         assertSetupSelectPurpose("whitePgReserv");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnClassSynonym();
         }
         doSetupSelect(() -> query().queryWhitePgReserv());
@@ -305,8 +305,8 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhitePgReservRefCQ> {
@@ -339,7 +339,7 @@ public class BsWhitePgReservRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_pg_reserv_ref"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_pg_reserv by my CLASS, named 'whitePgReserv'.
+         * WHITE_PG_RESERV by my CLASS, named 'whitePgReserv'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhitePgReservCB.HpSpecification specifyWhitePgReserv() {

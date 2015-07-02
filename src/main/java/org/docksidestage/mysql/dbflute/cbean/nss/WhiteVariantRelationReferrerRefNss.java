@@ -35,7 +35,7 @@ public class WhiteVariantRelationReferrerRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_variant_relation_referrer by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
+     * WHITE_VARIANT_RELATION_REFERRER by my REFERRER_ID, named 'whiteVariantRelationReferrer'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WhiteVariantRelationReferrerNss withWhiteVariantRelationReferrer() {

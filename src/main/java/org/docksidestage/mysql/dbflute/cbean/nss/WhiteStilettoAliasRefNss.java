@@ -35,7 +35,7 @@ public class WhiteStilettoAliasRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * white_stiletto_alias by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
+     * WHITE_STILETTO_ALIAS by my STILETTO_ALIAS_ID, named 'whiteStilettoAlias'.
      */
     public void withWhiteStilettoAlias() {
         _query.xdoNss(() -> _query.queryWhiteStilettoAlias());

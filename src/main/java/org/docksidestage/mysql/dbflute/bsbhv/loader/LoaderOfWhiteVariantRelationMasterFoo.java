@@ -42,10 +42,10 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne), white_variant_relation_local_pk_referrer(AsOne)
+ *     WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne), WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER(AsOne)
  *
  * [referrer table]
- *     white_variant_relation_referrer, white_variant_relation_local_pk_referrer
+ *     WHITE_VARIANT_RELATION_REFERRER, WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER
  *
  * [foreign property]
  *     whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne, whiteVariantRelationLocalPkReferrerAsOne
@@ -80,7 +80,7 @@ public class LoaderOfWhiteVariantRelationMasterFoo {
 
     /**
      * Load referrer of whiteVariantRelationReferrerAsVariantList by the set-upper of referrer. <br>
-     * white_variant_relation_referrer by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
+     * WHITE_VARIANT_RELATION_REFERRER by VARIANT_MASTER_ID, named 'whiteVariantRelationReferrerAsVariantList'.
      * <pre>
      * <span style="color: #0000C0">whiteVariantRelationMasterFooBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteVariantRelationMasterFooList</span>, <span style="color: #553000">fooLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">fooLoader</span>.<span style="color: #CC4747">loadWhiteVariantRelationReferrerAsVariant</span>(<span style="color: #553000">referrerCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

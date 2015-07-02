@@ -251,7 +251,7 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
+     * WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
      * <pre>
      * <span style="color: #0000C0">whiteSuppressJoinSqManyOneBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteSuppressJoinSqManyOneOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -263,7 +263,7 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
      */
     public void setupSelect_WhiteSuppressJoinSqManyOneOne() {
         assertSetupSelectPurpose("whiteSuppressJoinSqManyOneOne");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnManyOneOneId();
         }
         doSetupSelect(() -> query().queryWhiteSuppressJoinSqManyOneOne());
@@ -305,8 +305,8 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteSuppressJoinSqManyOneCQ> {
@@ -344,7 +344,7 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_suppress_join_sq_many_one"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * white_suppress_join_sq_many_one_one by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
+         * WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE by my MANY_ONE_ONE_ID, named 'whiteSuppressJoinSqManyOneOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteSuppressJoinSqManyOneOneCB.HpSpecification specifyWhiteSuppressJoinSqManyOneOne() {
@@ -365,7 +365,7 @@ public class BsWhiteSuppressJoinSqManyOneCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from white_suppress_join_sq_many where ...) as FOO_MAX} <br>
-         * white_suppress_join_sq_many by MANY_ONE_ID, named 'whiteSuppressJoinSqManyList'.
+         * WHITE_SUPPRESS_JOIN_SQ_MANY by MANY_ONE_ID, named 'whiteSuppressJoinSqManyList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(manyCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     manyCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

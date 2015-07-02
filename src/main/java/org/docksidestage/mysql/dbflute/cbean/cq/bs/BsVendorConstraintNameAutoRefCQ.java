@@ -265,7 +265,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * vendor_constraint_name_auto_bar by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_BAR by my CONSTRAINT_NAME_AUTO_BAR_ID, named 'vendorConstraintNameAutoBar'.
      * @return The instance of condition-query. (NotNull)
      */
     public VendorConstraintNameAutoBarCQ queryVendorConstraintNameAutoBar() {
@@ -285,7 +285,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
 
     /**
      * Get the condition-query for relation table. <br>
-     * vendor_constraint_name_auto_foo by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_FOO by my CONSTRAINT_NAME_AUTO_FOO_ID, named 'vendorConstraintNameAutoFoo'.
      * @return The instance of condition-query. (NotNull)
      */
     public VendorConstraintNameAutoFooCQ queryVendorConstraintNameAutoFoo() {
@@ -305,7 +305,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
 
     /**
      * Get the condition-query for relation table. <br>
-     * vendor_constraint_name_auto_qux by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
+     * VENDOR_CONSTRAINT_NAME_AUTO_QUX by my CONSTRAINT_NAME_AUTO_QUX_ID, named 'vendorConstraintNameAutoQux'.
      * @return The instance of condition-query. (NotNull)
      */
     public VendorConstraintNameAutoQuxCQ queryVendorConstraintNameAutoQux() {

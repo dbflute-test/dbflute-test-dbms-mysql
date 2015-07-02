@@ -151,7 +151,7 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * white_split_multiple_fk_next by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
+     * WHITE_SPLIT_MULTIPLE_FK_NEXT by my NEXT_ID, named 'whiteSplitMultipleFkNext'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteSplitMultipleFkNext() {
@@ -159,7 +159,7 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
         return cfi("FK_WHITE_SPLIT_MULTIPLE_FK_NEXT", "whiteSplitMultipleFkNext", this, WhiteSplitMultipleFkNextDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSplitMultipleFkBaseList", false);
     }
     /**
-     * white_split_multiple_fk_ref by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
+     * WHITE_SPLIT_MULTIPLE_FK_REF by my FIRST_ID, named 'whiteSplitMultipleFkRefAsSplitMultipleFkTest'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteSplitMultipleFkRefAsSplitMultipleFkTest() {
@@ -171,7 +171,7 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * white_split_multiple_fk_child by BASE_ID, named 'whiteSplitMultipleFkChildList'.
+     * WHITE_SPLIT_MULTIPLE_FK_CHILD by BASE_ID, named 'whiteSplitMultipleFkChildList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerWhiteSplitMultipleFkChildList() {

@@ -45,10 +45,10 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     white_uq_fk
+ *     WHITE_UQ_FK
  * 
  * [referrer table]
- *     white_uq_fk_ref_nest
+ *     WHITE_UQ_FK_REF_NEST
  * 
  * [foreign property]
  *     whiteUqFkByFkToPkId, whiteUqFkByFkToUqCode
@@ -136,11 +136,11 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. */
+    /** WHITE_UQ_FK by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. */
     protected OptionalEntity<WhiteUqFk> _whiteUqFkByFkToPkId;
 
     /**
-     * [get] white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. <br>
+     * [get] WHITE_UQ_FK by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteUqFkByFkToPkId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -150,18 +150,18 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] white_uq_fk by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
+     * [set] WHITE_UQ_FK by my FK_TO_PK_ID, named 'whiteUqFkByFkToPkId'.
      * @param whiteUqFkByFkToPkId The entity of foreign property 'whiteUqFkByFkToPkId'. (NullAllowed)
      */
     public void setWhiteUqFkByFkToPkId(OptionalEntity<WhiteUqFk> whiteUqFkByFkToPkId) {
         _whiteUqFkByFkToPkId = whiteUqFkByFkToPkId;
     }
 
-    /** white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. */
+    /** WHITE_UQ_FK by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. */
     protected OptionalEntity<WhiteUqFk> _whiteUqFkByFkToUqCode;
 
     /**
-     * [get] white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. <br>
+     * [get] WHITE_UQ_FK by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteUqFkByFkToUqCode'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -171,7 +171,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] white_uq_fk by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
+     * [set] WHITE_UQ_FK by my FK_TO_UQ_CODE, named 'whiteUqFkByFkToUqCode'.
      * @param whiteUqFkByFkToUqCode The entity of foreign property 'whiteUqFkByFkToUqCode'. (NullAllowed)
      */
     public void setWhiteUqFkByFkToUqCode(OptionalEntity<WhiteUqFk> whiteUqFkByFkToUqCode) {
@@ -181,11 +181,11 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'. */
+    /** WHITE_UQ_FK_REF_NEST by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'. */
     protected List<WhiteUqFkRefNest> _whiteUqFkRefNestList;
 
     /**
-     * [get] white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
+     * [get] WHITE_UQ_FK_REF_NEST by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
      * @return The entity list of referrer property 'whiteUqFkRefNestList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteUqFkRefNest> getWhiteUqFkRefNestList() {
@@ -194,7 +194,7 @@ public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] white_uq_fk_ref_nest by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
+     * [set] WHITE_UQ_FK_REF_NEST by COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE, named 'whiteUqFkRefNestList'.
      * @param whiteUqFkRefNestList The entity list of referrer property 'whiteUqFkRefNestList'. (NullAllowed)
      */
     public void setWhiteUqFkRefNestList(List<WhiteUqFkRefNest> whiteUqFkRefNestList) {

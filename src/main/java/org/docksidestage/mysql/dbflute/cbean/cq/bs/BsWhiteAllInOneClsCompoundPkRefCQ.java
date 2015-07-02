@@ -202,7 +202,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * white_all_in_one_cls_element by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by my FOO_CODE, named 'whiteAllInOneClsElementAsFoo'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteAllInOneClsElementCQ queryWhiteAllInOneClsElementAsFoo() {
@@ -222,7 +222,7 @@ public class BsWhiteAllInOneClsCompoundPkRefCQ extends AbstractBsWhiteAllInOneCl
 
     /**
      * Get the condition-query for relation table. <br>
-     * white_all_in_one_cls_element by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
+     * WHITE_ALL_IN_ONE_CLS_ELEMENT by my BAR_CODE, named 'whiteAllInOneClsElementAsBar'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteAllInOneClsElementCQ queryWhiteAllInOneClsElementAsBar() {
