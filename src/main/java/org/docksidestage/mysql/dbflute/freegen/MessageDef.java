@@ -56,7 +56,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_INVALID = "errors.invalid";
     /**
      * value={0}が不正です。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsInvalid(String arg0) { // {0}が不正です。
@@ -67,8 +67,8 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_MAXLENGTH = "errors.maxlength";
     /**
      * value={0}の長さが最大値({1})を超えています。
-     * @param arg0 The argument of 0. (NotNull)
-     * @param arg1 The argument of 1. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
+     * @param arg1 The parameter 1 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsMaxlength(String arg0, String arg1) { // {0}の長さが最大値({1})を超えています。
@@ -79,8 +79,8 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_MINLENGTH = "errors.minlength";
     /**
      * value={0}の長さが最小値({1})未満です。
-     * @param arg0 The argument of 0. (NotNull)
-     * @param arg1 The argument of 1. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
+     * @param arg1 The parameter 1 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsMinlength(String arg0, String arg1) { // {0}の長さが最小値({1})未満です。
@@ -91,8 +91,8 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_MAXBYTELENGTH = "errors.maxbytelength";
     /**
      * value={0}のバイト長が最大値({1})を超えています。
-     * @param arg0 The argument of 0. (NotNull)
-     * @param arg1 The argument of 1. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
+     * @param arg1 The parameter 1 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsMaxbytelength(String arg0, String arg1) { // {0}のバイト長が最大値({1})を超えています。
@@ -103,8 +103,8 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_MINBYTELENGTH = "errors.minbytelength";
     /**
      * value={0}のバイト長が最小値({1})未満です。
-     * @param arg0 The argument of 0. (NotNull)
-     * @param arg1 The argument of 1. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
+     * @param arg1 The parameter 1 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsMinbytelength(String arg0, String arg1) { // {0}のバイト長が最小値({1})未満です。
@@ -115,9 +115,9 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_RANGE = "errors.range";
     /**
      * value={0}は{1}と{2}の間でなければいけません。
-     * @param arg0 The argument of 0. (NotNull)
-     * @param arg1 The argument of 1. (NotNull)
-     * @param arg2 The argument of 2. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
+     * @param arg1 The parameter 1 for message. (NotNull)
+     * @param arg2 The parameter 2 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsRange(String arg0, String arg1, String arg2) { // {0}は{1}と{2}の間でなければいけません。
@@ -128,7 +128,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_REQUIRED = "errors.required";
     /**
      * value={0}は必須です。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsRequired(String arg0) { // {0}は必須です。
@@ -139,7 +139,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_BYTE = "errors.byte";
     /**
      * value={0}はバイトでなければいけません。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsByte(String arg0) { // {0}はバイトでなければいけません。
@@ -150,7 +150,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_DATE = "errors.date";
     /**
      * value={0}は日付でなければいけません
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsDate(String arg0) { // {0}は日付でなければいけません
@@ -181,7 +181,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_INTEGER = "errors.integer";
     /**
      * value={0}は雀数でなければいけません。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsInteger(String arg0) { // {0}は雀数でなければいけません。
@@ -192,7 +192,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_LONG = "errors.long";
     /**
      * value={0}は長整数でなければいけません。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsLong(String arg0) { // {0}は長整数でなければいけません。
@@ -203,7 +203,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_SHORT = "errors.short";
     /**
      * value={0}は短整数でなければいけません。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsShort(String arg0) { // {0}は短整数でなければいけません。
@@ -214,7 +214,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_CREDITCARD = "errors.creditcard";
     /**
      * value={0}はクレジットカード番号として不正です。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsCreditcard(String arg0) { // {0}はクレジットカード番号として不正です。
@@ -225,7 +225,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_EMAIL = "errors.email";
     /**
      * value={0}はメールアドレスとして不正です。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsEmail(String arg0) { // {0}はメールアドレスとして不正です。
@@ -236,7 +236,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_URL = "errors.url";
     /**
      * value={0}はURLとして不正です。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsUrl(String arg0) { // {0}はURLとして不正です。
@@ -247,8 +247,8 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_UPLOAD_SIZE = "errors.upload.size";
     /**
      * value=上限が{1}バイトなのに実際は{0}バイトだったのでアップロードできませんでした。
-     * @param arg1 The argument of 1. (NotNull)
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg1 The parameter 1 for message. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsUploadSize(String arg1, String arg0) { // 上限が{1}バイトなのに実際は{0}バイトだったのでアップロードできませんでした。
@@ -259,7 +259,7 @@ public class MessageDef implements Serializable {
     public static final String ERRORS_DATE_STRICT = "errors.date.strict";
     /**
      * value={0}は厳密な日付（形式=2008/01/02）でなければいけません。
-     * @param arg0 The argument of 0. (NotNull)
+     * @param arg0 The parameter 0 for message. (NotNull)
      * @return The formatted message. (NotNull)
      */
     public static String getErrorsDateStrict(String arg0) { // {0}は厳密な日付（形式=2008/01/02）でなければいけません。

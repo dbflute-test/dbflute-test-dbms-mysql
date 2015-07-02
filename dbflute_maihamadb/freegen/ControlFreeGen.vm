@@ -43,6 +43,25 @@ $manager.makeDirectory($request.generateDirPath)
     $generator.parse("./solr/ExSolrBean.vm", $path, "", "")
   #end
 #end
+#elseif ($request.isResourceTypeElasticsearch())
+#if ($request.requestName == "ElasticsearchBeanGen")
+  ##
+  ## <<<  Elasticsearch Schema Gen  >>>
+  ##
+  #foreach ($table in $request.tableList)
+    #set ($path = "${request.generateDirPath}/bean/bs/Bs${table.camelizedName}.java")
+    $manager.makeDirectory($path)
+    $request.info("parse('${path}')")
+    $generator.parse("./elasticsearch/BsElasticsearchBean.vm", $path, "", "")
+
+    #set ($path = "${request.generateDirPath}/bean/ex/${table.camelizedName}.java")
+    $manager.makeDirectory($path)
+    $request.info("parse('${path}')")
+    #if (!$files.file(${generator.outputPath},$path).exists())
+      $generator.parse("./elasticsearch/ExElasticsearchBean.vm", $path, "", "")
+    #end
+  #end
+#end
 #else
   ##
   ## <<<  Normal Gen  >>>
