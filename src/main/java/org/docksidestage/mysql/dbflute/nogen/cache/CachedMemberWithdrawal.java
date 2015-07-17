@@ -17,6 +17,7 @@ import org.seasar.framework.container.SingletonS2Container;
  */
 public class CachedMemberWithdrawal {
 
+    // #simple_for_example no synchronization
     protected static final Map<Integer, MemberWithdrawal> _cacheMap = new ConcurrentHashMap<Integer, MemberWithdrawal>();
 
     public static <PROP> PROP get(Entity entity, String columnName, Integer memberId) {
@@ -25,7 +26,6 @@ public class CachedMemberWithdrawal {
         if (status != null) {
             return columnInfo.read(status);
         }
-        // TODO jflute test: Hanger, cache synchronizer
         loadCache(entity, columnName, memberId);
         final MemberWithdrawal reloaded = _cacheMap.get(memberId);
         if (reloaded == null) {

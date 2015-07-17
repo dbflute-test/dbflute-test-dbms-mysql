@@ -391,7 +391,7 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
     //                                                                     Filter Override
     //                                                                     ===============
     @Override
-    protected void filterEntityOfInsert(Entity tgt, InsertOption<? extends ConditionBean> op) {
+    protected void filterEntityOfInsert(Entity tgt, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> op) {
         super.filterEntityOfInsert(tgt, op);
         SummaryWithdrawal et = downcast(tgt);
         et.setWithdrawalDatetime(org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread());
