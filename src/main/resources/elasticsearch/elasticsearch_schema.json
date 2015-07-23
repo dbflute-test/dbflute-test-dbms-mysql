@@ -1,0 +1,118 @@
+{
+  ".fess_config" : {
+    "aliases" : { },
+    "mappings" : {
+      "user_info" : {
+        "_all" : {
+          "enabled" : false
+        },
+        "_id" : {
+          "path" : "id"
+        },
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "createdTime" : {
+            "type" : "long"
+          },
+          "id" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "updatedTime" : {
+            "type" : "long"
+          }
+        }
+      },
+      "web_config_to_label" : {
+        "_all" : {
+          "enabled" : false
+        },
+        "_id" : {
+          "path" : "id"
+        },
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "labelTypeId" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "webConfigId" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          }
+        }
+      },
+      "data_config_to_role" : {
+        "_all" : {
+          "enabled" : false
+        },
+        "_id" : {
+          "path" : "id"
+        },
+        "properties" : {
+          "dataConfigId" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "id" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "roleTypeId" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          }
+        }
+      },
+      "path_mapping" : {
+        "_all" : {
+          "enabled" : false
+        },
+        "_id" : {
+          "path" : "id"
+        },
+        "properties" : {
+          "createdBy" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "createdTime" : {
+            "type" : "long"
+          },
+          "id" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "processType" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "regex" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "replacement" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "sortOrder" : {
+            "type" : "integer"
+          },
+          "updatedBy" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "updatedTime" : {
+            "type" : "long"
+          }
+        }
+      }
+    }
+  }
+}

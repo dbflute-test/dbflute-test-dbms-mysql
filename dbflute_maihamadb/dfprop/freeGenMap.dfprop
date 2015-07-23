@@ -70,4 +70,22 @@ map:{
             ; mappingMap = map:{ type = map:{ foo = String } }
         }
     }
+    ; ElasticsearchBeanGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = ELASTICSEARCH
+            ; resourceFile = ../src/main/resources/elasticsearch/elasticsearch_schema.json
+        }
+        ; outputMap = map:{
+            ; templateFile = unused
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.mysql.dbflute.freegen.elasticsearch
+            ; className = unused
+        }
+        ; tableMap = map:{
+        	; tablePath = .fess_config -> mappings -> map
+            ; mappingMap = map:{
+                ; type = map:{ string = String ; integer = Integer }
+            }
+        }
+    }
 }
