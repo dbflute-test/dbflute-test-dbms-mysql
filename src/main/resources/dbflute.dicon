@@ -107,6 +107,8 @@
     <component name="whiteTableExceptGenHeadBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteTableExceptGenHeadBhv"/>
     <component name="whiteTableExceptGenRefBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteTableExceptGenRefBhv"/>
     <component name="whiteUqClassificationBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteUqClassificationBhv"/>
+    <component name="whiteUqClassificationFlgBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteUqClassificationFlgBhv"/>
+    <component name="whiteUqClassificationFlgPartBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteUqClassificationFlgPartBhv"/>
     <component name="whiteUqFkBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteUqFkBhv"/>
     <component name="whiteUqFkRefBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteUqFkRefBhv"/>
     <component name="whiteUqFkRefNestBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteUqFkRefNestBhv"/>

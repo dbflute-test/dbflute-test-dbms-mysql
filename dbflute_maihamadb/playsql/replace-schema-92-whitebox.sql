@@ -236,6 +236,19 @@ create table WHITE_UQ_CLASSIFICATION (
 	UNIQUE (UQ_CLS_CODE)
 ) ;
 
+create table WHITE_UQ_CLASSIFICATION_FLG (
+	UQ_CLS_ID NUMERIC(16) NOT NULL PRIMARY KEY,
+	UQ_CLS_FLG INTEGER NOT NULL,
+	UNIQUE (UQ_CLS_FLG)
+) ;
+
+create table WHITE_UQ_CLASSIFICATION_FLG_PART (
+	UQ_CLS_ID NUMERIC(16) NOT NULL PRIMARY KEY,
+	UQ_CLS_NAME VARCHAR(30) NOT NULL,
+	UQ_CLS_FLG INTEGER NOT NULL,
+	UNIQUE (UQ_CLS_NAME, UQ_CLS_FLG)
+) ;
+
 -- /= = = = = = = = = = = = = = = = = = 
 -- for the test of no-primary-key table
 -- = = = = = = = = = =/
