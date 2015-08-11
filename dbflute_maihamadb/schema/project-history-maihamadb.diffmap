@@ -1,4 +1,17 @@
 map:{
+    ; 2015/08/11 18:13:38 = map:{
+        ; diffDate = 2015/08/11 18:13:38
+        ; tableCount = map:{
+            ; next = 115
+            ; previous = 114
+        }
+        ; tableDiff = map:{
+            ; white_uq_classification_flg_bit = map:{
+                ; tableName = white_uq_classification_flg_bit
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2015/08/11 11:35:07 = map:{
         ; diffDate = 2015/08/11 11:35:07
         ; tableDiff = map:{

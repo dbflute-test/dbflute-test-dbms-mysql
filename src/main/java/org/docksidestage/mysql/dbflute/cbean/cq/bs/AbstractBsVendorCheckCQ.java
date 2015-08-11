@@ -2442,11 +2442,21 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
+     * Equal(=). As BooleanFlg. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br>
+     * boolean classification for boolean column
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     */
+    public void setTypeOfBoolean_Equal_AsBooleanFlg(CDef.BooleanFlg cdef) {
+        doSetTypeOfBoolean_Equal(cdef != null ? Boolean.valueOf(cdef.code()) : null);
+    }
+
+    /**
      * Equal(=). As True. And OnlyOnceRegistered. <br>
      * Checked: means yes
      */
     public void setTypeOfBoolean_Equal_True() {
-        regTypeOfBoolean(CK_EQ, Boolean.valueOf(CDef.BooleanFlg.True.code()));
+        doSetTypeOfBoolean_Equal(Boolean.valueOf(CDef.BooleanFlg.True.code()));
     }
 
     /**
@@ -2454,7 +2464,11 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * Unchecked: means no
      */
     public void setTypeOfBoolean_Equal_False() {
-        regTypeOfBoolean(CK_EQ, Boolean.valueOf(CDef.BooleanFlg.False.code()));
+        doSetTypeOfBoolean_Equal(Boolean.valueOf(CDef.BooleanFlg.False.code()));
+    }
+
+    protected void doSetTypeOfBoolean_Equal(Boolean typeOfBoolean) {
+        regTypeOfBoolean(CK_EQ, typeOfBoolean);
     }
 
     /**

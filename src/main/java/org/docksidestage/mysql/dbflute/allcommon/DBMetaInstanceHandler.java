@@ -142,6 +142,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("white_table_except_gen_ref", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteTableExceptGenRefDbm");
         tmpMap.put("white_uq_classification", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteUqClassificationDbm");
         tmpMap.put("white_uq_classification_flg", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteUqClassificationFlgDbm");
+        tmpMap.put("white_uq_classification_flg_bit", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteUqClassificationFlgBitDbm");
         tmpMap.put("white_uq_classification_flg_part", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteUqClassificationFlgPartDbm");
         tmpMap.put("white_uq_fk", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteUqFkDbm");
         tmpMap.put("white_uq_fk_ref", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteUqFkRefDbm");
